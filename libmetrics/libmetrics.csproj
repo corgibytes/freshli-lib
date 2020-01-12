@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="LibGit2Sharp" Version="0.26.2" />
+      <PackageReference Include="RestSharp" Version="106.6.10" />
+    </ItemGroup>
+
+</Project>
