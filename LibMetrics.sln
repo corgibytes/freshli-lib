@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libmetrics", "libmetrics\libmetrics.csproj", "{E03D125E-55CD-4FA4-AEC3-80CDB3BED745}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibMetrics", "LibMetrics\LibMetrics.csproj", "{E03D125E-55CD-4FA4-AEC3-80CDB3BED745}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibMetrics.Test", "LibMetrics.Test\LibMetrics.Test.csproj", "{7C5BE77F-B9FA-495A-828C-ABA44F6536C6}"
 EndProject
