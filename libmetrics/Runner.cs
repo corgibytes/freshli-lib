@@ -24,19 +24,7 @@ namespace LibMetrics
             OrderBy(entry => entry.Commit.Author.When);
 
           // 3. parse the dependency files to compute libyear
-          var entryDates = entries.
-            Select(entry => entry.Commit.Author.When).ToList();
 
-          // start with the commit date
-          // advance to the start of the next month
-          var firstDate = entryDates[0].Date;
-          if (firstDate.Day > 1)
-          {
-            firstDate = firstDate.AddDays(-firstDate.Day + 1).Date;
-            firstDate = firstDate.AddMonths(1).Date;
-          }
-
-          var currentDate = firstDate;
           var rubyGems = new RubyGemsRepository();
           var manifest = new BundlerManifest();
           var calculator = new LibYearCalculator(rubyGems, manifest);
@@ -51,7 +39,9 @@ namespace LibMetrics
             nextEntry = entryEnumerator.Current;
           }
 
-          while (currentDate <= asOf)
+          var gitFileHistory = new GitFileHistory(analysisPath, "Gemfile.lock");
+          var analysisDates = new AnalysisDates(gitFileHistory, asOf);
+          foreach (var currentDate in analysisDates)
           {
             var blob = currentEntry.Commit.Tree[currentEntry.Path].Target as Blob;
             manifest.Parse(blob.GetContentText());
@@ -61,12 +51,10 @@ namespace LibMetrics
                 currentDate,
                 calculator.ComputeAsOf(currentDate)));
 
-            currentDate = currentDate.AddMonths(1).Date;
-
-            if (nextEntry != null && currentDate >= nextEntry.Commit.Author.When.Date)
+            if (nextEntry != null && currentDate.AddMonths(1) >= nextEntry.Commit.Author.When.Date)
             {
               currentEntry = nextEntry;
-              if (nextEntry != null && entryEnumerator.MoveNext())
+              if (entryEnumerator.MoveNext())
               {
                 nextEntry = entryEnumerator.Current;
               }
