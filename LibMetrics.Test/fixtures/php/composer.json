@@ -1,0 +1,103 @@
+{
+    "name": "bookstackapp/bookstack",
+    "description": "BookStack documentation platform",
+    "keywords": ["BookStack", "Documentation"],
+    "license": "MIT",
+    "type": "project",
+    "require": {
+        "php": "^7.2",
+        "ext-curl": "*",
+        "ext-dom": "*",
+        "ext-gd": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "ext-tidy": "*",
+        "ext-xml": "*",
+        "barryvdh/laravel-dompdf": "^0.8.5",
+        "barryvdh/laravel-snappy": "^0.4.5",
+        "doctrine/dbal": "^2.9",
+        "fideloper/proxy": "^4.0",
+        "gathercontent/htmldiff": "^0.2.1",
+        "intervention/image": "^2.5",
+        "laravel/framework": "^6.9",
+        "laravel/socialite": "^4.2",
+        "league/flysystem-aws-s3-v3": "^1.0",
+        "onelogin/php-saml": "^3.3",
+        "predis/predis": "^1.1",
+        "socialiteproviders/discord": "^2.0",
+        "socialiteproviders/gitlab": "^3.0",
+        "socialiteproviders/microsoft-azure": "^3.0",
+        "socialiteproviders/okta": "^1.0",
+        "socialiteproviders/slack": "^3.0",
+        "socialiteproviders/twitch": "^5.0"
+    },
+    "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.2.8",
+        "barryvdh/laravel-ide-helper": "^2.6.4",
+        "facade/ignition": "^1.4",
+        "fzaninotto/faker": "^1.4",
+        "laravel/browser-kit-testing": "^5.1",
+        "mockery/mockery": "^1.0",
+        "nunomaduro/collision": "^3.0",
+        "phpunit/phpunit": "^8.0",
+        "squizlabs/php_codesniffer": "^3.4",
+        "wnx/laravel-stats": "^2.0"
+    },
+    "autoload": {
+        "classmap": [
+            "database/seeds",
+            "database/factories"
+        ],
+        "psr-4": {
+            "BookStack\\": "app/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi"
+        ],
+        "pre-update-cmd": [
+            "@php -r \"!file_exists('bootstrap/cache/services.php') || @unlink('bootstrap/cache/services.php');\"",
+            "@php -r \"!file_exists('bootstrap/cache/compiled.php') || @unlink('bootstrap/cache/compiled.php');\""
+        ],
+        "pre-install-cmd": [
+            "@php -r \"!file_exists('bootstrap/cache/services.php') || @unlink('bootstrap/cache/services.php');\"",
+            "@php -r \"!file_exists('bootstrap/cache/compiled.php') || @unlink('bootstrap/cache/compiled.php');\""
+        ],
+        "post-install-cmd": [
+            "@php artisan cache:clear",
+            "@php artisan view:clear"
+        ],
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
+        "refresh-test-database": [
+            "@php artisan migrate:refresh --database=mysql_testing",
+            "@php artisan db:seed --class=DummyContentSeeder --database=mysql_testing"
+        ]
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "platform": {
+            "php": "7.2.0"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

@@ -78,5 +78,35 @@ namespace LibMetrics.Test
 
       Assert.Equal(expected.ToString(), output.ToString());
     }
+
+    [Fact(Skip = "wip")]
+    public void ComposerWithoutGitHistory()
+    {
+      var runner = new LibMetrics.Runner();
+
+      var assemblyPath = System.Reflection.Assembly.
+        GetExecutingAssembly().Location;
+      var phpFixturePath = Path.Combine(
+        Directory.GetParent(assemblyPath).ToString(),
+        "fixtures",
+        "php");
+
+      var results = runner.Run(
+        phpFixturePath,
+        asOf: new DateTime(2020, 01, 01));
+
+      var output = new StringWriter();
+
+      foreach (var resultSet in results)
+      {
+        output.WriteLine($"{resultSet.Date.ToString("yyyy/MM/dd")}: " +
+                         $"{resultSet.LibYear.Total.ToString("F3")}");
+      }
+
+      var expected = new StringWriter();
+      expected.WriteLine("2020/01/01: 0.000");
+
+      Assert.Equal(expected.ToString(), output.ToString());
+    }
   }
 }
