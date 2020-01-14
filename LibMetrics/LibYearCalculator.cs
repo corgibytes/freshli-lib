@@ -4,25 +4,25 @@ namespace LibMetrics
 {
   public class LibYearCalculator
   {
-    private readonly RubyGemsRepository _repository;
-    private readonly BundlerManifest _manifest;
+    public IPackageRepository Repository { get; }
+    public IManifest Manifest { get; }
 
     public LibYearCalculator(
-      RubyGemsRepository repository,
-      BundlerManifest manifest)
+      IPackageRepository repository,
+      IManifest manifest)
     {
-      _repository = repository;
-      _manifest = manifest;
+      Repository = repository;
+      Manifest = manifest;
     }
 
     public double ComputeAsOf(DateTime date)
     {
       double result = 0;
 
-      foreach (var package in _manifest)
+      foreach (var package in Manifest)
       {
-        var latestVersion = _repository.LatestAsOf(date, package.Name);
-        var currentVersion = _repository.VersionInfo(package.Name, package.Version);
+        var latestVersion = Repository.LatestAsOf(date, package.Name);
+        var currentVersion = Repository.VersionInfo(package.Name, package.Version);
         result += Compute(currentVersion, latestVersion);
       }
 

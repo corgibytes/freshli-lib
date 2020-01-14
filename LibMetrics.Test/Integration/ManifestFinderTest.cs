@@ -22,6 +22,9 @@ namespace LibMetrics.Test.Integration
 
       Assert.True(finder.Successful);
       Assert.Equal("Gemfile.lock", finder.LockFileName);
+
+      Assert.IsType<RubyGemsRepository>(finder.Calculator.Repository);
+      Assert.IsType<BundlerManifest>(finder.Calculator.Manifest);
     }
   }
 }

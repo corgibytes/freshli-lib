@@ -13,6 +13,10 @@ namespace LibMetrics
     public string LockFileName => Finder.LockFileName;
     public bool Successful { get; }
 
+    public LibYearCalculator Calculator => new LibYearCalculator(
+      Finder.Repository,
+      Finder.Manifest);
+
     public ManifestFinder(string projectRootPath)
     {
       Successful = false;

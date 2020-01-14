@@ -13,16 +13,16 @@ namespace LibMetrics
       var manifestFinder = new ManifestFinder(analysisPath);
       if (manifestFinder.Successful)
       {
-        var rubyGems = new RubyGemsRepository();
-        var manifest = new BundlerManifest();
-        var calculator = new LibYearCalculator(rubyGems, manifest);
+        var calculator = manifestFinder.Calculator;
 
-        var gitFileHistory = new GitFileHistory(analysisPath, manifestFinder.LockFileName);
+        var gitFileHistory = new GitFileHistory(
+          analysisPath,
+          manifestFinder.LockFileName);
         var analysisDates = new AnalysisDates(gitFileHistory, asOf);
         foreach (var currentDate in analysisDates)
         {
           var content = gitFileHistory.ContentsAsOf(currentDate);
-          manifest.Parse(content);
+          calculator.Manifest.Parse(content);
 
           metricsResults.Add(
             new MetricsResult(

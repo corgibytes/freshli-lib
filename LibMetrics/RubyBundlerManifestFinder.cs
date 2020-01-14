@@ -10,5 +10,7 @@ namespace LibMetrics
     }
 
     public string LockFileName => "Gemfile.lock";
+    public IPackageRepository Repository => new RubyGemsRepository();
+    public IManifest Manifest => new BundlerManifest();
   }
 }

@@ -5,7 +5,7 @@ using RestSharp;
 
 namespace LibMetrics
 {
-  public class RubyGemsRepository
+  public class RubyGemsRepository : IPackageRepository
   {
     public VersionInfo LatestAsOf(DateTime date, string name)
     {

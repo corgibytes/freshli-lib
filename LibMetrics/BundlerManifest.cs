@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 
 namespace LibMetrics
 {
-  public class BundlerManifest : IEnumerable<PackageInfo>
+  public class BundlerManifest : IManifest
   {
     private List<PackageInfo> _list;
 
