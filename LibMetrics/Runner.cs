@@ -10,14 +10,14 @@ namespace LibMetrics
     {
       var metricsResults = new List<MetricsResult>();
 
-      var gemfilePath = Path.Combine(analysisPath, "Gemfile.lock");
-      if (File.Exists(gemfilePath))
+      var manifestFinder = new ManifestFinder(analysisPath);
+      if (manifestFinder.Successful)
       {
         var rubyGems = new RubyGemsRepository();
         var manifest = new BundlerManifest();
         var calculator = new LibYearCalculator(rubyGems, manifest);
 
-        var gitFileHistory = new GitFileHistory(analysisPath, "Gemfile.lock");
+        var gitFileHistory = new GitFileHistory(analysisPath, manifestFinder.LockFileName);
         var analysisDates = new AnalysisDates(gitFileHistory, asOf);
         foreach (var currentDate in analysisDates)
         {
