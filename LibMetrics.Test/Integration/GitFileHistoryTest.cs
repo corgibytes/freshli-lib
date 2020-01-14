@@ -3,21 +3,14 @@ using System.Collections.Generic;
 using System.IO;
 using Xunit;
 
-namespace LibMetrics.Test.Unit
+namespace LibMetrics.Test.Integration
 {
   public class GitFileHistoryTest
   {
     [Fact]
     public void Dates()
     {
-      var assemblyPath = System.Reflection.Assembly.
-        GetExecutingAssembly().Location;
-      var rubyFixturePath = Path.Combine(
-        Directory.GetParent(assemblyPath).ToString(),
-        "fixtures",
-        "ruby",
-        "nokotest");
-
+      var rubyFixturePath = Helpers.FixturePath("ruby", "nokotest");
       var history = new GitFileHistory(rubyFixturePath, "Gemfile.lock");
 
       var expectedDates = new List<DateTime>()
@@ -50,14 +43,7 @@ BUNDLED WITH
    2.1.3
 ";
 
-      var assemblyPath = System.Reflection.Assembly.
-        GetExecutingAssembly().Location;
-      var rubyFixturePath = Path.Combine(
-        Directory.GetParent(assemblyPath).ToString(),
-        "fixtures",
-        "ruby",
-        "nokotest");
-
+      var rubyFixturePath = Helpers.FixturePath("ruby", "nokotest");
       var history = new GitFileHistory(rubyFixturePath, "Gemfile.lock");
       var contents = history.ContentsAsOf(new DateTime(2017, 02, 01));
 

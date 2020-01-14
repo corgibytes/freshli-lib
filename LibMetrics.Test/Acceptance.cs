@@ -16,14 +16,7 @@ namespace LibMetrics.Test
       // Gemfile v2 created on 2018/01/01 references nokogiri 1.8.1
       // Gemfile v3 created on 2019/01/01 references nokogiri 1.9.1
 
-      var assemblyPath = System.Reflection.Assembly.
-        GetExecutingAssembly().Location;
-      var rubyFixturePath = Path.Combine(
-        Directory.GetParent(assemblyPath).ToString(),
-        "fixtures",
-        "ruby",
-        "nokotest");
-
+      var rubyFixturePath = Helpers.FixturePath("ruby", "nokotest");
       var results = runner.Run(rubyFixturePath);
 
       var output = new StringWriter();
@@ -84,13 +77,7 @@ namespace LibMetrics.Test
     {
       var runner = new LibMetrics.Runner();
 
-      var assemblyPath = System.Reflection.Assembly.
-        GetExecutingAssembly().Location;
-      var phpFixturePath = Path.Combine(
-        Directory.GetParent(assemblyPath).ToString(),
-        "fixtures",
-        "php");
-
+      var phpFixturePath = Helpers.FixturePath("php");
       var results = runner.Run(
         phpFixturePath,
         asOf: new DateTime(2020, 01, 01));
