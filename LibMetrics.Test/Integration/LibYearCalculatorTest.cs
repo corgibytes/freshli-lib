@@ -1,7 +1,7 @@
 using System;
 using Xunit;
 
-namespace LibMetrics.Test.Unit
+namespace LibMetrics.Test.Integration
 {
   public class LibYearCalculatorTest
   {
