@@ -10,17 +10,18 @@ namespace LibMetrics
       var metricsResults = new List<MetricsResult>();
 
       var manifestFinder = new ManifestFinder(analysisPath);
+      var fileHistoryFinder = new FileHistoryFinder(analysisPath);
       if (manifestFinder.Successful)
       {
         var calculator = manifestFinder.Calculator;
 
-        var gitFileHistory = new GitFileHistory(
-          analysisPath,
+        var fileHistory = fileHistoryFinder.FileHistoryOf(
           manifestFinder.LockFileName);
-        var analysisDates = new AnalysisDates(gitFileHistory, asOf);
+
+        var analysisDates = new AnalysisDates(fileHistory, asOf);
         foreach (var currentDate in analysisDates)
         {
-          var content = gitFileHistory.ContentsAsOf(currentDate);
+          var content = fileHistory.ContentsAsOf(currentDate);
           calculator.Manifest.Parse(content);
 
           metricsResults.Add(

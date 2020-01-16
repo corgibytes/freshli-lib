@@ -6,5 +6,6 @@ namespace LibMetrics
   public interface IFileHistory
   {
     IList<DateTime> Dates { get; }
+    string ContentsAsOf(DateTime date);
   }
 }
