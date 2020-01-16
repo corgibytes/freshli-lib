@@ -3,9 +3,9 @@ using System.IO;
 
 namespace LibMetrics.Test
 {
-  public class Helpers
+  public class Fixtures
   {
-    public static string FixturePath(params string[] values)
+    public static string Path(params string[] values)
     {
       var assemblyPath = System.Reflection.Assembly.
         GetExecutingAssembly().Location;
@@ -17,7 +17,7 @@ namespace LibMetrics.Test
       };
       components.AddRange(values);
 
-      return Path.Combine(components.ToArray());
+      return System.IO.Path.Combine(components.ToArray());
     }
   }
 }

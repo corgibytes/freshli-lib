@@ -10,7 +10,7 @@ namespace LibMetrics.Test.Integration
     [Fact]
     public void Dates()
     {
-      var rubyFixturePath = Helpers.FixturePath("ruby", "nokotest");
+      var rubyFixturePath = Fixtures.Path("ruby", "nokotest");
       var history = new GitFileHistory(rubyFixturePath, "Gemfile.lock");
 
       var expectedDates = new List<DateTime>()
@@ -43,7 +43,7 @@ BUNDLED WITH
    2.1.3
 ";
 
-      var rubyFixturePath = Helpers.FixturePath("ruby", "nokotest");
+      var rubyFixturePath = Fixtures.Path("ruby", "nokotest");
       var history = new GitFileHistory(rubyFixturePath, "Gemfile.lock");
       var contents = history.ContentsAsOf(new DateTime(2017, 02, 01));
 

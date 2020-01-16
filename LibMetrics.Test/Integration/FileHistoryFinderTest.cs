@@ -8,7 +8,7 @@ namespace LibMetrics.Test.Integration
     [Fact]
     public void Git()
     {
-      var rubyFixturePath = Helpers.FixturePath("ruby", "nokotest");
+      var rubyFixturePath = Fixtures.Path("ruby", "nokotest");
 
       FileHistoryFinder.Register<GitFileHistoryFinder>();
       var finder = new FileHistoryFinder(rubyFixturePath);

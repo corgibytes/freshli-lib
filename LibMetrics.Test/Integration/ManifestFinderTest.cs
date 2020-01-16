@@ -7,7 +7,7 @@ namespace LibMetrics.Test.Integration
     [Fact]
     public void Empty()
     {
-      var emptyFixturePath = Helpers.FixturePath("empty");
+      var emptyFixturePath = Fixtures.Path("empty");
       var finder = new ManifestFinder(emptyFixturePath);
       Assert.False(finder.Successful);
     }
@@ -15,7 +15,7 @@ namespace LibMetrics.Test.Integration
     [Fact]
     public void RubyBundler()
     {
-      var rubyFixturePath = Helpers.FixturePath("ruby", "nokotest");
+      var rubyFixturePath = Fixtures.Path("ruby", "nokotest");
 
       ManifestFinder.Register<RubyBundlerManifestFinder>();
       var finder = new ManifestFinder(rubyFixturePath);
