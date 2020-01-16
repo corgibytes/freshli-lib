@@ -27,5 +27,9 @@
     <Target Name="UnzipArchive" AfterTargets="Build">
       <Exec Command="unzip -o nokotest.zip" WorkingDirectory="$(OutputPath)/fixtures/ruby" />
     </Target>
+  
+    <Target Name="CleanFixtureDir" AfterTargets="Clean">
+      <RemoveDir Directories="$(OutputPath)/fixtures" />
+    </Target>
 
 </Project>
