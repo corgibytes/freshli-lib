@@ -15,5 +15,15 @@ namespace LibMetrics.Test.Integration
 
       Assert.IsType<GitFileHistory>(finder.FileHistoryOf("Gemfile.lock"));
     }
+
+    [Fact]
+    public void Default()
+    {
+      var emtpyFixturePath = Fixtures.Path("empty");
+
+      var finder = new FileHistoryFinder(emtpyFixturePath);
+
+      Assert.IsType<LocalFileHistory>(finder.FileHistoryOf("readme.md"));
+    }
   }
 }

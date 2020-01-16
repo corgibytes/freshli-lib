@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace LibMetrics
 {
-  public class FileHistoryFinder
+  public class FileHistoryFinder: IFileHistoryFinder
   {
     private readonly string _projectRootPath;
 
@@ -13,12 +13,10 @@ namespace LibMetrics
     public static IList<IFileHistoryFinder> Finders => _finders;
     public IFileHistoryFinder Finder { get; }
 
-    public static IFileHistoryFinder DefaultFinder => _defaultFinder;
-
     public FileHistoryFinder(string projectRootPath)
     {
       _projectRootPath = projectRootPath;
-      Finder = DefaultFinder;
+      Finder = this;
       foreach(var finder in Finders)
       {
         if (finder.DoesPathContainHistorySource(projectRootPath))
@@ -40,10 +38,14 @@ namespace LibMetrics
       Finders.Add(new TFinder());
     }
 
-    public static void RegisterDefault<TFinder>()
-      where TFinder : IFileHistoryFinder, new()
+    public bool DoesPathContainHistorySource(string projectRootPath)
     {
-      _defaultFinder = new TFinder();
+      return true;
+    }
+
+    public IFileHistory FileHistoryOf(string projectRootPath, string targetFile)
+    {
+      return new LocalFileHistory(projectRootPath, targetFile);
     }
   }
 }
