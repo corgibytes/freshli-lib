@@ -31,20 +31,20 @@ namespace LibMetrics
       using (var composerData = JsonDocument.Parse(contents, options))
       {
         var packages = composerData.RootElement.GetProperty("packages");
-        foreach (var package in packages.EnumerateArray())
-        {
-          var name = package.GetProperty("name").GetString();
-          var version = package.GetProperty("version").GetString();
-          Add(name, version);
-        }
+        AddPackagesFromJson(packages);
 
         var devPackages = composerData.RootElement.GetProperty("packages-dev");
-        foreach (var package in devPackages.EnumerateArray())
-        {
-          var name = package.GetProperty("name").GetString();
-          var version = package.GetProperty("version").GetString();
-          Add(name, version);
-        }
+        AddPackagesFromJson(devPackages);
+      }
+    }
+
+    private void AddPackagesFromJson(JsonElement packages)
+    {
+      foreach (var package in packages.EnumerateArray())
+      {
+        var name = package.GetProperty("name").GetString();
+        var version = package.GetProperty("version").GetString();
+        Add(name, version);
       }
     }
 
