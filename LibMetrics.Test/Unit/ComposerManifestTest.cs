@@ -1,4 +1,5 @@
 using System.IO;
+using LibMetrics.Languages.Php;
 using Xunit;
 
 namespace LibMetrics.Test.Unit
