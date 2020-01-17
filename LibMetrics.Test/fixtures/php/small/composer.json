@@ -1,0 +1,11 @@
+{
+    "name": "root/app",
+    "type": "project",
+    "require": {
+        "theseer/tokenizer": "1.1.0",
+        "orchestra/parser": "3.6.0"
+    },
+    "require-dev": {
+        "mikey179/vfsstream": "1.4.0"
+    }
+}

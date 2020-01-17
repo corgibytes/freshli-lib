@@ -27,9 +27,7 @@ BUNDLED WITH
       var manifest = new BundlerManifest();
       manifest.Parse(Contents);
 
-      Assert.Equal(2, manifest.Count);
-      Assert.Equal("2.4.0", manifest["mini_portile2"].Version);
-      Assert.Equal("1.9.1", manifest["nokogiri"].Version);
+      AssertManifestContents(manifest);
     }
 
     [Fact]
@@ -39,6 +37,11 @@ BUNDLED WITH
       manifest.Parse(Contents);
       manifest.Parse(Contents);
 
+      AssertManifestContents(manifest);
+    }
+
+    private static void AssertManifestContents(BundlerManifest manifest)
+    {
       Assert.Equal(2, manifest.Count);
       Assert.Equal("2.4.0", manifest["mini_portile2"].Version);
       Assert.Equal("1.9.1", manifest["nokogiri"].Version);
