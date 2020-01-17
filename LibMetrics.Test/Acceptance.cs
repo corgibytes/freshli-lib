@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using LibMetrics.Languages.Ruby;
 using Xunit;
 
 namespace LibMetrics.Test
@@ -9,7 +10,10 @@ namespace LibMetrics.Test
     [Fact]
     public void RubyGemsWithGitHistory()
     {
-      var runner = new LibMetrics.Runner();
+      ManifestFinder.Register<RubyBundlerManifestFinder>();
+      FileHistoryFinder.Register<GitFileHistoryFinder>();
+
+      var runner = new Runner();
 
       // nokotest contains a git repository with the following history:
       // Gemfile v1 created on 2017/01/01 references nokogiri 1.7.0
