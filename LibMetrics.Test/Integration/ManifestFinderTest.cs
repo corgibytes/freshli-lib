@@ -1,3 +1,4 @@
+using LibMetrics.Languages.Ruby;
 using Xunit;
 
 namespace LibMetrics.Test.Integration

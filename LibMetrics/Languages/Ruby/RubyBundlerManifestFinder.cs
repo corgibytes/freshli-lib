@@ -1,6 +1,6 @@
 using System.IO;
 
-namespace LibMetrics
+namespace LibMetrics.Languages.Ruby
 {
   public class RubyBundlerManifestFinder: IManifestFinder
   {

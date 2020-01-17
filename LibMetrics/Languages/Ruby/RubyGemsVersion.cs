@@ -1,6 +1,6 @@
 using System;
 
-namespace LibMetrics
+namespace LibMetrics.Languages.Ruby
 {
   public class RubyGemsVersion
   {

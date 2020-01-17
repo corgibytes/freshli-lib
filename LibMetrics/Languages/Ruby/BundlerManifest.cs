@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace LibMetrics
+namespace LibMetrics.Languages.Ruby
 {
   public class BundlerManifest : IManifest
   {

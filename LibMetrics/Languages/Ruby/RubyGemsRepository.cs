@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using RestSharp;
 
-namespace LibMetrics
+namespace LibMetrics.Languages.Ruby
 {
   public class RubyGemsRepository : IPackageRepository
   {
