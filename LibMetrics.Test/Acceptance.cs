@@ -79,7 +79,7 @@ namespace LibMetrics.Test
     [Fact(Skip = "wip")]
     public void ComposerWithoutGitHistory()
     {
-      var runner = new LibMetrics.Runner();
+      var runner = new Runner();
 
       var phpFixturePath = Fixtures.Path("php");
       var results = runner.Run(
