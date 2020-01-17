@@ -81,7 +81,7 @@ namespace LibMetrics.Test
     {
       var runner = new Runner();
 
-      var phpFixturePath = Fixtures.Path("php");
+      var phpFixturePath = Fixtures.Path("php", "large");
       var results = runner.Run(
         phpFixturePath,
         asOf: new DateTime(2020, 01, 01));
