@@ -9,12 +9,12 @@ namespace LibMetrics.Languages.Php
 {
   public class PackagistRepository: IPackageRepository
   {
+    private Dictionary<string, string> _packageInfoCache = new Dictionary<string, string>();
+
     public VersionInfo LatestAsOf(DateTime date, string name)
     {
-      var client = new RestClient("https://repo.packagist.org/p");
-      var request = new RestRequest($"/{name}.json");
-      var response = client.Execute(request);
-      using var responseJson = JsonDocument.Parse(response.Content);
+      var content = FetchPackageInfo(name);
+      using var responseJson = JsonDocument.Parse(content);
       var versionsJson = responseJson.RootElement.GetProperty("packages").GetProperty(name).EnumerateObject();
 
       var foundVersions = new List<(string Version, DateTime PublishedAt)>();
@@ -33,6 +33,19 @@ namespace LibMetrics.Languages.Php
       foundVersions.Sort((left, right) => left.PublishedAt.CompareTo(right.PublishedAt));
       var selectedItem = foundVersions.Last(item => item.PublishedAt <= date);
       return new VersionInfo(selectedItem.Version, selectedItem.PublishedAt);
+    }
+
+    private string FetchPackageInfo(string name)
+    {
+      if (!_packageInfoCache.ContainsKey(name))
+      {
+        var client = new RestClient("https://repo.packagist.org/p");
+        var request = new RestRequest($"/{name}.json");
+        var response = client.Execute(request);
+
+        _packageInfoCache[name] = response.Content;
+      }
+      return _packageInfoCache[name];
     }
 
     private bool IsUnstable(string version)
@@ -68,10 +81,8 @@ namespace LibMetrics.Languages.Php
 
     public VersionInfo VersionInfo(string name, string version)
     {
-      var client = new RestClient("https://repo.packagist.org/p");
-      var request = new RestRequest($"/{name}.json");
-      var response = client.Execute(request);
-      using var responseJson = JsonDocument.Parse(response.Content);
+      var content = FetchPackageInfo(name);
+      using var responseJson = JsonDocument.Parse(content);
       var versionsJson = responseJson.RootElement.GetProperty("packages").GetProperty(name);
 
       var versionJson = versionsJson.GetProperty(version);
