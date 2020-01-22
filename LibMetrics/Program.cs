@@ -1,4 +1,7 @@
 ﻿using System;
+using System.IO;
+using LibMetrics.Languages.Php;
+using LibMetrics.Languages.Ruby;
 
 namespace LibMetrics
 {
@@ -6,7 +9,20 @@ namespace LibMetrics
     {
         static void Main(string[] args)
         {
-            var runner = new Runner();
+          ManifestFinder.Register<RubyBundlerManifestFinder>();
+          ManifestFinder.Register<PhpComposerManifestFinder>();
+
+          FileHistoryFinder.Register<GitFileHistoryFinder>();
+
+          var runner = new Runner();
+          var directory = Path.GetFullPath(args[0]);
+
+          Console.Error.WriteLine($"Collecting data for {directory}");
+
+          var results = runner.Run(args[0]);
+
+          var formatter = new OutputFormatter(Console.Out);
+          formatter.Write(results);
         }
     }
 }
