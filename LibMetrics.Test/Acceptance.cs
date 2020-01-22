@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using LibMetrics.Languages.Php;
 using LibMetrics.Languages.Ruby;
 using Xunit;
 
@@ -76,9 +77,11 @@ namespace LibMetrics.Test
       Assert.Equal(expected.ToString(), output.ToString());
     }
 
-    [Fact(Skip = "wip")]
+    [Fact]
     public void ComposerWithoutGitHistory()
     {
+      ManifestFinder.Register<PhpComposerManifestFinder>();
+
       var runner = new Runner();
 
       var phpFixturePath = Fixtures.Path("php", "large");
@@ -95,7 +98,7 @@ namespace LibMetrics.Test
       }
 
       var expected = new StringWriter();
-      expected.WriteLine("2020/01/01: 0.000");
+      expected.WriteLine("2020/01/01: 6.110");
 
       Assert.Equal(expected.ToString(), output.ToString());
     }

@@ -96,5 +96,23 @@ namespace LibMetrics.Test.Unit
 
       Assert.Equal(new DateTime(2017, 01, 01), analysisDates.First());
     }
+
+    [Fact]
+    public void FileDateIsNewerThanAsOfDateAndHistoryOnlyContainsOneVersion()
+    {
+      var history = new Mock<IFileHistory>();
+      var dates = new List<DateTime>()
+      {
+        new DateTime(2020, 01, 20)
+      };
+
+      history.Setup(mock => mock.Dates).Returns(dates);
+      var stopDate = new DateTime(2020, 01, 01);
+      var analysisDates = new AnalysisDates(
+        history.Object,
+        asOf: stopDate);
+
+      Assert.Equal(new List<DateTime> {new DateTime(2020, 01, 01)}, analysisDates);
+    }
   }
 }
