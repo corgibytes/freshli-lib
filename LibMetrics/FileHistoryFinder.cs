@@ -9,7 +9,6 @@ namespace LibMetrics
     private static readonly IList<IFileHistoryFinder> _finders =
       new List<IFileHistoryFinder>();
 
-    private static IFileHistoryFinder _defaultFinder;
     public static IList<IFileHistoryFinder> Finders => _finders;
     public IFileHistoryFinder Finder { get; }
 
