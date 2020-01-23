@@ -102,5 +102,31 @@ namespace LibMetrics.Test
 
       Assert.Equal(expected.ToString(), output.ToString());
     }
+
+    [Fact]
+    public void DrupalComposerWithoutGitHistory()
+    {
+      ManifestFinder.Register<PhpComposerManifestFinder>();
+
+      var runner = new Runner();
+
+      var phpFixturePath = Fixtures.Path("php", "drupal");
+      var results = runner.Run(
+        phpFixturePath,
+        asOf: new DateTime(2020, 01, 01));
+
+      var output = new StringWriter();
+
+      foreach (var resultSet in results)
+      {
+        output.WriteLine($"{resultSet.Date.ToString("yyyy/MM/dd")}: " +
+                         $"{resultSet.LibYear.Total.ToString("F3")}");
+      }
+
+      var expected = new StringWriter();
+      expected.WriteLine("2020/01/01: 4.5");
+
+      Assert.Equal(expected.ToString(), output.ToString());
+    }
   }
 }

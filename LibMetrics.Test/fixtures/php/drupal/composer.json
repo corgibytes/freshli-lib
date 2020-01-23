@@ -1,0 +1,16 @@
+{
+	"name": "packages/drupal_example",
+	"description": "A minimal example of a composer manifest that uses the drupal package database",
+	"repositories": [
+		{
+			"type": "composer",
+			"url": "https://packages.drupal.org/7"
+		}
+	],
+	"require": {
+		"php": ">=7.1",
+		"drupal/composer_autoloader": "1.0.0"
+	}
+
+}
+
