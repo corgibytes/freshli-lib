@@ -10,7 +10,15 @@ namespace LibMetrics.Languages.Php
     }
 
     public string LockFileName => "composer.lock";
-    public IPackageRepository Repository => new PackagistRepository();
-    public IManifest Manifest => new ComposerManifest();
+
+    public IPackageRepository RepositoryFor(string projectRootPath)
+    {
+      return new PackagistRepository();
+    }
+
+    public IManifest ManifestFor(string projectRootPath)
+    {
+      return new ComposerManifest();
+    }
   }
 }

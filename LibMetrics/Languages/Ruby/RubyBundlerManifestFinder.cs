@@ -10,7 +10,14 @@ namespace LibMetrics.Languages.Ruby
     }
 
     public string LockFileName => "Gemfile.lock";
-    public IPackageRepository Repository => new RubyGemsRepository();
-    public IManifest Manifest => new BundlerManifest();
+    public IPackageRepository RepositoryFor(string projectRootPath)
+    {
+      return new RubyGemsRepository();
+    }
+
+    public IManifest ManifestFor(string projectRootPath)
+    {
+      return new BundlerManifest();
+    }
   }
 }

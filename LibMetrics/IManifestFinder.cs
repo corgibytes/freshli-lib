@@ -5,8 +5,8 @@ namespace LibMetrics
     bool DoesPathContainManifest(string projectRootPath);
     string LockFileName { get; }
 
-    IPackageRepository Repository { get; }
-    IManifest Manifest { get; }
+    IPackageRepository RepositoryFor(string projectRootPath);
+    IManifest ManifestFor(string projectRootPath);
 
   }
 }

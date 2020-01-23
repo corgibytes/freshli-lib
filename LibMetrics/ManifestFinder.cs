@@ -4,6 +4,8 @@ namespace LibMetrics
 {
   public class ManifestFinder
   {
+    private readonly string _projectRootPath;
+
     private static readonly IList<IManifestFinder> _finders =
       new List<IManifestFinder>();
     public static IList<IManifestFinder> Finders => _finders;
@@ -14,11 +16,12 @@ namespace LibMetrics
     public bool Successful { get; }
 
     public LibYearCalculator Calculator => new LibYearCalculator(
-      Finder.Repository,
-      Finder.Manifest);
+      Finder.RepositoryFor(_projectRootPath),
+      Finder.ManifestFor(_projectRootPath));
 
     public ManifestFinder(string projectRootPath)
     {
+      _projectRootPath = projectRootPath;
       Successful = false;
       foreach (var finder in Finders)
       {
