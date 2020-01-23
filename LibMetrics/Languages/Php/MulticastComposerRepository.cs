@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 using RestSharp;
@@ -18,6 +20,21 @@ namespace LibMetrics.Languages.Php
     {
       _projectRootPath = projectRootPath;
       _composerRespositories.Add(new ComposerRepository("https://packagist.org"));
+
+      using var composerJson = JsonDocument.Parse(
+        File.ReadAllText(
+          Path.Combine(projectRootPath, "composer.json")));
+      if (composerJson.RootElement.TryGetProperty("repositories", out var repositoryList))
+      {
+        foreach (var repositoryEntry in repositoryList.EnumerateArray())
+        {
+          if (repositoryEntry.GetProperty("type").GetString() == "composer")
+          {
+            _composerRespositories.Add(new ComposerRepository(
+              repositoryEntry.GetProperty("url").ToString()));
+          }
+        }
+      }
     }
 
     public VersionInfo LatestAsOf(DateTime date, string name)
