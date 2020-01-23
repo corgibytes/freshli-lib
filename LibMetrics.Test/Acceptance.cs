@@ -124,7 +124,7 @@ namespace LibMetrics.Test
       }
 
       var expected = new StringWriter();
-      expected.WriteLine("2020/01/01: 4.5");
+      expected.WriteLine("2020/01/01: 3.214");
 
       Assert.Equal(expected.ToString(), output.ToString());
     }
