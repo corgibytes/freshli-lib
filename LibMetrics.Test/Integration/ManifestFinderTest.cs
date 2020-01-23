@@ -40,7 +40,7 @@ namespace LibMetrics.Test.Integration
       Assert.True(finder.Successful);
       Assert.Equal("composer.lock", finder.LockFileName);
 
-      Assert.IsType<PackagistRepository>(finder.Calculator.Repository);
+      Assert.IsType<MulticastComposerRepository>(finder.Calculator.Repository);
       Assert.IsType<ComposerManifest>(finder.Calculator.Manifest);
     }
   }

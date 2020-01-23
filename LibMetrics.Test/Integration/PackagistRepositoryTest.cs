@@ -9,7 +9,8 @@ namespace LibMetrics.Test.Integration
     [Fact]
     public void VersionInfo()
     {
-      var repository = new PackagistRepository();
+      var phpFixturePath = Fixtures.Path("php", "small");
+      var repository = new MulticastComposerRepository(phpFixturePath);
       var versionInfo = repository.VersionInfo("monolog/monolog", "1.11.0");
 
       Assert.Equal(new DateTime(2014, 09, 30), versionInfo.DatePublished);
@@ -18,7 +19,8 @@ namespace LibMetrics.Test.Integration
     [Fact]
     public void LatestAsOf()
     {
-      var repository = new PackagistRepository();
+      var phpFixturePath = Fixtures.Path("php", "small");
+      var repository = new MulticastComposerRepository(phpFixturePath);
       var versionInfo = repository.LatestAsOf(
         new DateTime(2020, 01, 01),
         "monolog/monolog");

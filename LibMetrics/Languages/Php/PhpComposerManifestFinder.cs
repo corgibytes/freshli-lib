@@ -13,7 +13,7 @@ namespace LibMetrics.Languages.Php
 
     public IPackageRepository RepositoryFor(string projectRootPath)
     {
-      return new PackagistRepository();
+      return new MulticastComposerRepository(projectRootPath);
     }
 
     public IManifest ManifestFor(string projectRootPath)

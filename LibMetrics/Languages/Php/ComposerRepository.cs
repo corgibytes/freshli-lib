@@ -7,9 +7,16 @@ using RestSharp;
 
 namespace LibMetrics.Languages.Php
 {
-  public class PackagistRepository: IPackageRepository
+  public class ComposerRepository: IPackageRepository
   {
-    private Dictionary<string, string> _packageInfoCache = new Dictionary<string, string>();
+    private readonly string _baseUrl;
+    private Dictionary<string, string> _packageInfoCache =
+      new Dictionary<string, string>();
+
+    public ComposerRepository(string baseUrl)
+    {
+      _baseUrl = baseUrl;
+    }
 
     public VersionInfo LatestAsOf(DateTime date, string name)
     {
@@ -33,6 +40,19 @@ namespace LibMetrics.Languages.Php
       foundVersions.Sort((left, right) => left.PublishedAt.CompareTo(right.PublishedAt));
       var selectedItem = foundVersions.Last(item => item.PublishedAt <= date);
       return new VersionInfo(selectedItem.Version, selectedItem.PublishedAt);
+    }
+
+    public VersionInfo VersionInfo(string name, string version)
+    {
+      var content = FetchPackageInfo(name);
+      using var responseJson = JsonDocument.Parse(content);
+      var versionsJson = responseJson.RootElement.GetProperty("packages").GetProperty(name);
+
+      var versionJson = versionsJson.GetProperty(version);
+
+      var publishedDate = DateTime.Parse(versionJson.GetProperty("time").GetString());
+
+      return new VersionInfo(version, publishedDate.Date);
     }
 
     private string FetchPackageInfo(string name)
@@ -77,19 +97,6 @@ namespace LibMetrics.Languages.Php
     {
       var expression = new Regex(@"-RC\d*$");
       return expression.IsMatch(version);
-    }
-
-    public VersionInfo VersionInfo(string name, string version)
-    {
-      var content = FetchPackageInfo(name);
-      using var responseJson = JsonDocument.Parse(content);
-      var versionsJson = responseJson.RootElement.GetProperty("packages").GetProperty(name);
-
-      var versionJson = versionsJson.GetProperty(version);
-
-      var publishedDate = DateTime.Parse(versionJson.GetProperty("time").GetString());
-
-      return new VersionInfo(version, publishedDate.Date);
     }
   }
 }
