@@ -1,10 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text.Json;
 using System.Text.RegularExpressions;
-using Microsoft.VisualBasic.CompilerServices;
 using RestSharp;
 
 namespace LibMetrics.Languages.Php
@@ -26,10 +24,20 @@ namespace LibMetrics.Languages.Php
       if (content == null) return null;
 
       using var responseJson = JsonDocument.Parse(content);
-      var versionsJson = responseJson.RootElement.GetProperty("packages").GetProperty(name).EnumerateObject();
+      if (!responseJson.RootElement.TryGetProperty("packages", out var packagesJson))
+      {
+        return null;
+      }
+
+      if (!packagesJson.TryGetProperty(name, out var versionsJson))
+      {
+        return null;
+      }
+      var versionsJsonElements = versionsJson.EnumerateObject();
+
 
       var foundVersions = new List<(string Version, DateTime PublishedAt)>();
-      foreach (var versionJson in versionsJson)
+      foreach (var versionJson in versionsJsonElements)
       {
         if (IsUnstable(versionJson.Name))
         {
@@ -43,7 +51,9 @@ namespace LibMetrics.Languages.Php
       }
 
       foundVersions.Sort((left, right) => left.PublishedAt.CompareTo(right.PublishedAt));
-      var selectedItem = foundVersions.Last(item => item.PublishedAt <= date);
+      var filteredVersions = foundVersions.Where(item => item.PublishedAt <= date).ToArray();
+      if (!filteredVersions.Any()) return null;
+      var selectedItem = filteredVersions.Last();
       return new VersionInfo(selectedItem.Version, selectedItem.PublishedAt);
     }
 
@@ -53,15 +63,15 @@ namespace LibMetrics.Languages.Php
 
       if (versionJson.TryGetProperty("time", out var standardTime))
       {
-        result = DateTime.Parse(standardTime.GetString());
+        result = DateTime.Parse(standardTime.GetString()).Date;
       }
       else if (versionJson.TryGetProperty("extra", out var extraData))
       {
         var datestamp = extraData.GetProperty("drupal").GetProperty("datestamp").GetString();
-        result = DateTimeOffset.FromUnixTimeSeconds(Convert.ToInt64(datestamp)).Date;
+        result = DateTimeOffset.FromUnixTimeSeconds(Convert.ToInt64(datestamp)).Date.Date;
       }
 
-      return result;
+      return result.Date;
     }
 
     public VersionInfo VersionInfo(string name, string version)
@@ -70,7 +80,16 @@ namespace LibMetrics.Languages.Php
       if (content == null) return null;
 
       using var responseJson = JsonDocument.Parse(content);
-      var versionsJson = responseJson.RootElement.GetProperty("packages").GetProperty(name);
+      if (!responseJson.RootElement.TryGetProperty("packages", out var packagesJson))
+      {
+        return null;
+      }
+
+      if (!packagesJson.TryGetProperty(name, out var versionsJson))
+      {
+        return null;
+      }
+      var versionsJsonElements = versionsJson.EnumerateObject();
 
       if (versionsJson.TryGetProperty(version, out var versionJson))
       {

@@ -12,11 +12,5 @@ namespace LibMetrics
       Date = date;
       LibYear = libYear;
     }
-
-    public MetricsResult(DateTime date, double libYearValue)
-    {
-      Date = date;
-      LibYear = new LibYearResult(libYearValue);
-    }
   }
 }

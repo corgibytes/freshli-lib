@@ -15,15 +15,23 @@ namespace LibMetrics
       Manifest = manifest;
     }
 
-    public double ComputeAsOf(DateTime date)
+    public LibYearResult ComputeAsOf(DateTime date)
     {
-      double result = 0;
+      var result = new LibYearResult();
 
       foreach (var package in Manifest)
       {
         var latestVersion = Repository.LatestAsOf(date, package.Name);
         var currentVersion = Repository.VersionInfo(package.Name, package.Version);
-        result += Compute(currentVersion, latestVersion);
+        if (latestVersion != null && currentVersion != null)
+        {
+          result.Add(
+            package.Name,
+            latestVersion.Version,
+            latestVersion.DatePublished,
+            Compute(currentVersion, latestVersion)
+          );
+        }
       }
 
       return result;

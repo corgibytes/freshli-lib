@@ -1,11 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Reflection.Metadata;
 using System.Text.Json;
-using System.Text.RegularExpressions;
-using RestSharp;
 
 namespace LibMetrics.Languages.Php
 {

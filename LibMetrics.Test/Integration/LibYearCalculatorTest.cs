@@ -17,10 +17,16 @@ namespace LibMetrics.Test.Integration
 
       var calculator = new LibYearCalculator(repository, manifest);
 
-      Assert.Equal(
-        0.227,
-        calculator.ComputeAsOf(new DateTime(2017, 04, 01)),
-        3);
+      var results = calculator.ComputeAsOf(new DateTime(2017, 04, 01));
+
+      Assert.Equal(0.227, results.Total, 3);
+
+      Assert.Equal(0.0, results["mini_portile2"].Value, 3);
+      Assert.Equal("2.1.0", results["mini_portile2"].Version);
+      Assert.Equal(new DateTime(2016, 01, 06), results["mini_portile2"].PublishedAt);
+      Assert.Equal(0.227, results["nokogiri"].Value, 3);
+      Assert.Equal("1.7.1", results["nokogiri"].Version);
+      Assert.Equal(new DateTime(2017, 03, 20), results["nokogiri"].PublishedAt);
     }
 
     [Fact]
@@ -34,10 +40,14 @@ namespace LibMetrics.Test.Integration
 
       var calculator = new LibYearCalculator(repository, manifest);
 
-      Assert.Equal(
-        0.022,
-        calculator.ComputeAsOf(new DateTime(2017, 02, 01)),
-        3);
+      var results = calculator.ComputeAsOf(new DateTime(2017, 02, 01));
+
+      Assert.Equal(0.022, results.Total, 3);
+
+      Assert.Equal(0, results["mini_portile2"].Value, 3);
+      Assert.Equal("2.1.0", results["mini_portile2"].Version);
+      Assert.Equal(0.022, results["nokogiri"].Value, 3);
+      Assert.Equal("1.7.0.1", results["nokogiri"].Version);
     }
 
     [Fact]
@@ -51,10 +61,14 @@ namespace LibMetrics.Test.Integration
 
       var calculator = new LibYearCalculator(respository, manifest);
 
-      Assert.Equal(
-        0,
-        calculator.ComputeAsOf(new DateTime(2018, 01, 01)),
-        3);
+      var results = calculator.ComputeAsOf(new DateTime(2018, 01, 01));
+
+      Assert.Equal(0, results.Total, 3);
+
+      Assert.Equal(0, results["mini_portile2"].Value, 3);
+      Assert.Equal("2.3.0", results["mini_portile2"].Version);
+      Assert.Equal(0, results["nokogiri"].Value, 3);
+      Assert.Equal("1.8.1", results["nokogiri"].Version);
     }
 
     [Fact]
@@ -68,10 +82,14 @@ namespace LibMetrics.Test.Integration
 
       var calculator = new LibYearCalculator(respository, manifest);
 
-      Assert.Equal(
-        0.361,
-        calculator.ComputeAsOf(new DateTime(2018, 02, 01)),
-        3);
+      var results = calculator.ComputeAsOf(new DateTime(2018, 02, 01));
+
+      Assert.Equal(0.362, results.Total, 3);
+
+      Assert.Equal(0.0, results["mini_portile2"].Value, 3);
+      Assert.Equal("2.3.0", results["mini_portile2"].Version);
+      Assert.Equal(0.362, results["nokogiri"].Value, 3);
+      Assert.Equal("1.8.2", results["nokogiri"].Version);
     }
 
     [Fact]

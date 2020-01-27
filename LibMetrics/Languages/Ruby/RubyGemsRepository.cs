@@ -20,7 +20,7 @@ namespace LibMetrics.Languages.Ruby
       {
         return new VersionInfo(
           firstCandidate.Number,
-          firstCandidate.CreatedAt);
+          firstCandidate.CreatedAt.Date);
       }
 
       return null;
@@ -48,7 +48,7 @@ namespace LibMetrics.Languages.Ruby
 
       if (candidate != null)
       {
-        return new VersionInfo(candidate.Number, candidate.CreatedAt);
+        return new VersionInfo(candidate.Number, candidate.CreatedAt.Date);
       }
 
       return null;

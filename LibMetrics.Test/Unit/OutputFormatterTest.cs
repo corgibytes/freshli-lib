@@ -10,21 +10,33 @@ namespace LibMetrics.Test.Unit
     [Fact]
     public void Basics()
     {
-      var results = new List<MetricsResult>()
+      var datesAndValues = new List<(DateTime Date, double Value)>()
       {
-        new MetricsResult(new DateTime(2010, 01, 01), 1.101),
-        new MetricsResult(new DateTime(2010, 02, 01), 2.202),
-        new MetricsResult(new DateTime(2010, 03, 01), 3.303),
-        new MetricsResult(new DateTime(2010, 04, 01), 4.404),
-        new MetricsResult(new DateTime(2010, 05, 01), 5.505),
-        new MetricsResult(new DateTime(2010, 06, 01), 6.606),
-        new MetricsResult(new DateTime(2010, 07, 01), 7.707),
-        new MetricsResult(new DateTime(2010, 08, 01), 8.808),
-        new MetricsResult(new DateTime(2010, 09, 01), 9.909),
-        new MetricsResult(new DateTime(2010, 10, 01), 10.010),
-        new MetricsResult(new DateTime(2010, 11, 01), 11.111),
-        new MetricsResult(new DateTime(2010, 12, 01), 12.212)
+        (new DateTime(2010, 01, 01), 1.101),
+        (new DateTime(2010, 02, 01), 2.202),
+        (new DateTime(2010, 03, 01), 3.303),
+        (new DateTime(2010, 04, 01), 4.404),
+        (new DateTime(2010, 05, 01), 5.505),
+        (new DateTime(2010, 06, 01), 6.606),
+        (new DateTime(2010, 07, 01), 7.707),
+        (new DateTime(2010, 08, 01), 8.808),
+        (new DateTime(2010, 09, 01), 9.909),
+        (new DateTime(2010, 10, 01), 10.010),
+        (new DateTime(2010, 11, 01), 11.111),
+        (new DateTime(2010, 12, 01), 12.212)
       };
+
+      var results = new List<MetricsResult>();
+      foreach (var dateAndValue in datesAndValues)
+      {
+        var result = new LibYearResult();
+        result.Add(
+          "test_package",
+          dateAndValue.Value.ToString(),
+          dateAndValue.Date,
+          dateAndValue.Value);
+        results.Add(new MetricsResult(dateAndValue.Date, result));
+      }
 
       var actual = new StringWriter();
       var formatter = new OutputFormatter(actual);
