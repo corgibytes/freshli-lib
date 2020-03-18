@@ -30,7 +30,7 @@
 
     <Target Name="UnzipArchive" AfterTargets="Build">
       <Exec Condition="'$(OS)' != 'Windows_NT'" Command="unzip -o nokotest.zip" WorkingDirectory="$(OutputPath)/fixtures/ruby" />
-      <Exec Condition="'$(OS)' == 'Windows_NT'" Command="PowerShell -NonInteractive -Command &quot;&amp;{Expand-Archive -Path nokotest.zip -DestinationPath .}&quot;" WorkingDirectory="$(OutputPath)/fixtures/ruby" />
+      <Exec Condition="'$(OS)' == 'Windows_NT'" Command="PowerShell -NonInteractive -Command &quot;&amp;{Expand-Archive -Force -Path nokotest.zip -DestinationPath .}&quot;" WorkingDirectory="$(OutputPath)/fixtures/ruby" />
     </Target>
 
     <Target Name="CleanFixtureDir" AfterTargets="Clean">
