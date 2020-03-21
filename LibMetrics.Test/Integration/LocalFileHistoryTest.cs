@@ -21,9 +21,9 @@ namespace LibMetrics.Test.Integration
       var emptyFixturePath = Fixtures.Path("empty");
       var history = new LocalFileHistory(emptyFixturePath, "readme.md");
 
-      var expectedContents = "This directory is meant to simulate a project " +
-                             "which does not have any manifest\nfiles in " +
-                             "it.\n";
+      var expectedContents = "This directory is meant to simulate a project " + 
+                             "which does not have any manifest" +
+                             Environment.NewLine + "files in " + "it." + Environment.NewLine;
       Assert.Equal(expectedContents, history.ContentsAsOf(DateTime.Today));
     }
   }
