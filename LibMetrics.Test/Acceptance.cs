@@ -23,8 +23,19 @@ namespace LibMetrics.Test
       AssertRubyGemsResults(results);
     }
 
+    [Fact]
+    public void RubyGemsWithHistoryViaGitHub() {
+      ManifestFinder.Register<RubyBundlerManifestFinder>();
+      FileHistoryFinder.Register<GitFileHistoryFinder>();
 
+      var runner = new Runner();
 
+      var repoUrl =
+        "https://github.com/corgibytes/libmetrics-fixture-ruby-nokotest";
+      var results = runner.Run(repoUrl);
+
+      AssertRubyGemsResults(results);
+    }
     
     private static void AssertRubyGemsResults(IList<MetricsResult> results) {
       // nokotest contains a git repository with the following history:
