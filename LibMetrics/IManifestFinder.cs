@@ -2,6 +2,8 @@ namespace LibMetrics
 {
   public interface IManifestFinder
   {
+    IFileHistoryFinder FileFinder { get; set; }
+
     bool DoesPathContainManifest(string projectRootPath);
     string LockFileName { get; }
 

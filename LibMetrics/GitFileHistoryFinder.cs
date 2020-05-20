@@ -49,5 +49,15 @@ namespace LibMetrics
     {
       return new GitFileHistory(projectRootPath, targetFile);
     }
+
+    public bool Exists(string projectRootPath, string filePath)
+    {
+      throw new NotImplementedException();
+    }
+
+    public string ReadAllText(string projectRootPath, string filePath)
+    {
+      throw new NotImplementedException();
+    }
   }
 }
