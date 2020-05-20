@@ -8,6 +8,17 @@ namespace LibMetrics
 {
   public class GitFileHistoryFinder: IFileHistoryFinder
   {
+    private Dictionary<string, string> _cloneLocations = new Dictionary<string, string>();
+    private string NormalizeLocation(string projectRootPath)
+    {
+      if (Repository.IsValid(projectRootPath))
+      {
+        return projectRootPath;
+      }
+
+      
+    }
+
     public bool DoesPathContainHistorySource(string projectRootPath)
     {
       bool result = Repository.IsValid(projectRootPath);
