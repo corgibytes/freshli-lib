@@ -10,7 +10,9 @@ namespace LibMetrics
       var metricsResults = new List<MetricsResult>();
 
       var fileHistoryFinder = new FileHistoryFinder(analysisPath);
-      var manifestFinder = new ManifestFinder(analysisPath, fileHistoryFinder);
+      var manifestFinder = new ManifestFinder(
+        analysisPath,
+        fileHistoryFinder.Finder);
       if (manifestFinder.Successful)
       {
         var calculator = manifestFinder.Calculator;

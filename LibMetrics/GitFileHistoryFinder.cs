@@ -16,7 +16,20 @@ namespace LibMetrics
         return projectRootPath;
       }
 
-      
+      if (_cloneLocations.ContainsKey(projectRootPath))
+      {
+        return _cloneLocations[projectRootPath];
+      }
+
+      if (IsCloneable(projectRootPath))
+      {
+        var cloneLocation = GenerateTempCloneLocation();
+        Repository.Clone(projectRootPath, cloneLocation);
+        _cloneLocations[projectRootPath] = cloneLocation;
+        return cloneLocation;
+      }
+
+      return projectRootPath;
     }
 
     public bool DoesPathContainHistorySource(string projectRootPath)
@@ -30,14 +43,19 @@ namespace LibMetrics
       return result;
     }
 
+    private string GenerateTempCloneLocation()
+    {
+      return Path.Combine(
+        Path.GetTempPath(),
+        Guid.NewGuid().ToString());
+    }
+
     private bool IsCloneable(string url)
     {
       var result = true;
       var options = new CloneOptions {Checkout = false};
 
-      string tempFolder = Path.Combine(
-        Path.GetTempPath(),
-        Guid.NewGuid().ToString());
+      string tempFolder = GenerateTempCloneLocation();
 
       try
       {
@@ -58,17 +76,19 @@ namespace LibMetrics
 
     public IFileHistory FileHistoryOf(string projectRootPath, string targetFile)
     {
-      return new GitFileHistory(projectRootPath, targetFile);
+      return new GitFileHistory(NormalizeLocation(projectRootPath), targetFile);
     }
 
     public bool Exists(string projectRootPath, string filePath)
     {
-      throw new NotImplementedException();
+      string clonedProjectRoot = NormalizeLocation(projectRootPath);
+      return File.Exists(Path.Combine(clonedProjectRoot, filePath));
     }
 
     public string ReadAllText(string projectRootPath, string filePath)
     {
-      throw new NotImplementedException();
+      string clonedProjectRoot = NormalizeLocation(projectRootPath);
+      return File.ReadAllText(Path.Combine(clonedProjectRoot, filePath));
     }
   }
 }

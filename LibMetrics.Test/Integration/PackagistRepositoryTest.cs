@@ -11,7 +11,7 @@ namespace LibMetrics.Test.Integration
     {
       var phpFixturePath = Fixtures.Path("php", "small");
       var fileFinder = new FileHistoryFinder(phpFixturePath);
-      var repository = new MulticastComposerRepository(phpFixturePath, fileFinder);
+      var repository = new MulticastComposerRepository(phpFixturePath, fileFinder.Finder);
       var versionInfo = repository.VersionInfo("monolog/monolog", "1.11.0");
 
       Assert.Equal(new DateTime(2014, 09, 30), versionInfo.DatePublished);
@@ -22,7 +22,7 @@ namespace LibMetrics.Test.Integration
     {
       var phpFixturePath = Fixtures.Path("php", "small");
       var fileFinder = new FileHistoryFinder(phpFixturePath);
-      var repository = new MulticastComposerRepository(phpFixturePath, fileFinder);
+      var repository = new MulticastComposerRepository(phpFixturePath, fileFinder.Finder);
       var versionInfo = repository.LatestAsOf(
         new DateTime(2020, 01, 01),
         "monolog/monolog");
