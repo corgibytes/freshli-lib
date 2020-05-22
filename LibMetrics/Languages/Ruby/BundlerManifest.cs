@@ -38,8 +38,12 @@ namespace LibMetrics.Languages.Ruby
       _list.Clear();
 
       var reader = new StringReader(contents);
-      var firstLine = reader.ReadLine();
-      if (firstLine != "GEM")
+      var gemSectionLine = reader.ReadLine();
+      while (gemSectionLine != null && gemSectionLine != "GEM")
+      {
+        gemSectionLine = reader.ReadLine();
+      }
+      if (gemSectionLine != "GEM")
       {
         throw new FormatException("Unrecognized format for Gemfile.lock.");
       }
