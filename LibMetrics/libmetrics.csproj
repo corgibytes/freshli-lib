@@ -4,7 +4,7 @@
         <OutputType>Exe</OutputType>
         <TargetFramework>netcoreapp3.1</TargetFramework>
         <VersionPrefix>1.0.0</VersionPrefix>
-        <VersionSuffix>dev-$([System.DateTime]::Now.ToString("yyyyMMddTHHmmssff"))</VersionSuffix>
+        <VersionSuffix>dev-$([System.DateTime]::Now.ToString("yyyyMMddTHHmm"))</VersionSuffix>
     </PropertyGroup>
 
     <ItemGroup>
