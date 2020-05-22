@@ -17,13 +17,13 @@ namespace LibMetrics
       if (!Directory.Exists(repositoryPath))
       {
         var uniqueTempDir = Path.GetFullPath(
-          Path.Combine(Path.GetTempPath(), 
+          Path.Combine(Path.GetTempPath(),
           Guid.NewGuid().ToString())
         );
         Directory.CreateDirectory(uniqueTempDir);
         Repository.Clone(repositoryPath, uniqueTempDir);
         _repositoryPath = uniqueTempDir;
-      } 
+      }
       else
       {
         _repositoryPath = repositoryPath;
@@ -33,8 +33,13 @@ namespace LibMetrics
 
       using (var repository = new Repository(repositoryPath))
       {
-        var entries = repository.Commits.QueryBy(targetFile).
+        var entries = repository.Commits.QueryBy(targetFile, new CommitFilter { SortBy = CommitSortStrategies.Topological }).
           OrderBy(entry => entry.Commit.Author.When);
+
+        foreach (var entry in entries)
+        {
+          Console.WriteLine(entry.Commit.Sha);
+        }
 
         _dates.AddRange(
           entries.Select(entry => entry.Commit.Author.When.Date).ToList());
@@ -46,7 +51,7 @@ namespace LibMetrics
       string result = null;
       using (var repository = new Repository(_repositoryPath))
       {
-        var entries = repository.Commits.QueryBy(_targetFile).
+        var entries = repository.Commits.QueryBy(_targetFile, new CommitFilter { SortBy = CommitSortStrategies.Topological }).
           OrderBy(entry => entry.Commit.Author.When);
 
         var entry = entries.Last(entry => entry.Commit.Author.When.Date <= date);
