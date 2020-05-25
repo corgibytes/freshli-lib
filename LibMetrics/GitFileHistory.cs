@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using LibGit2Sharp;
 
@@ -7,42 +8,55 @@ namespace LibMetrics
 {
   public class GitFileHistory: IFileHistory
   {
-    private readonly List<DateTime> _dates = new List<DateTime>();
+    private readonly IDictionary<DateTime, string> _contentsByDate = new Dictionary<DateTime, string>();
     private string _repositoryPath;
     private string _targetFile;
 
     public GitFileHistory(string repositoryPath, string targetFile)
     {
+      if (!Directory.Exists(repositoryPath))
+      {
+        var uniqueTempDir = Path.GetFullPath(
+          Path.Combine(Path.GetTempPath(),
+          Guid.NewGuid().ToString())
+        );
+        Directory.CreateDirectory(uniqueTempDir);
+        Repository.Clone(repositoryPath, uniqueTempDir);
+        _repositoryPath = uniqueTempDir;
+      }
+      else
+      {
+        _repositoryPath = repositoryPath;
+      }
+
       _targetFile = targetFile;
-      _repositoryPath = repositoryPath;
+
       using (var repository = new Repository(repositoryPath))
       {
-        var entries = repository.Commits.QueryBy(targetFile).
-          OrderBy(entry => entry.Commit.Author.When);
+        var entries = repository.Commits.QueryBy(targetFile,
+          new CommitFilter {SortBy = CommitSortStrategies.Topological});
 
-        _dates.AddRange(
-          entries.Select(entry => entry.Commit.Author.When.Date).ToList());
+        foreach (var entry in entries)
+        {
+          var blob = entry.Commit.Tree[entry.Path].Target as Blob;
+          var contents = blob.GetContentText();
+          _contentsByDate[entry.Commit.Author.When.Date] = contents;
+        }
       }
     }
 
     public string ContentsAsOf(DateTime date)
     {
-      string result = null;
-      using (var repository = new Repository(_repositoryPath))
-      {
-        var entries = repository.Commits.QueryBy(_targetFile).
-          OrderBy(entry => entry.Commit.Author.When);
-
-        var entry = entries.Last(entry => entry.Commit.Author.When.Date <= date);
-        var blob = entry.Commit.Tree[entry.Path].Target as Blob;
-        result = blob.GetContentText();
-      }
-
-      return result;
+      var key = Dates.Last(d => d <= date);
+      return _contentsByDate[key];
     }
 
-
-
-    public IList<DateTime> Dates => _dates;
+    public IList<DateTime> Dates
+    {
+      get
+      {
+        return _contentsByDate.Keys.OrderBy(d => d).ToList();
+      }
+    }
   }
 }

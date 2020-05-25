@@ -19,12 +19,13 @@ namespace LibMetrics
       Finder.RepositoryFor(_projectRootPath),
       Finder.ManifestFor(_projectRootPath));
 
-    public ManifestFinder(string projectRootPath)
+    public ManifestFinder(string projectRootPath, IFileHistoryFinder fileFinder)
     {
       _projectRootPath = projectRootPath;
       Successful = false;
       foreach (var finder in Finders)
       {
+        finder.FileFinder = fileFinder;
         if (finder.DoesPathContainManifest(projectRootPath))
         {
           Finder = finder;

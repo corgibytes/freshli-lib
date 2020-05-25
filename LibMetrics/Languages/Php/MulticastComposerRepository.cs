@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Text.Json;
 
 namespace LibMetrics.Languages.Php
@@ -12,14 +11,18 @@ namespace LibMetrics.Languages.Php
     private List<IPackageRepository> _composerRespositories =
       new List<IPackageRepository>();
 
-    public MulticastComposerRepository(string projectRootPath)
+    private IFileHistoryFinder _fileHistoryFinder;
+
+    public MulticastComposerRepository(
+      string projectRootPath,
+      IFileHistoryFinder fileHistoryFinder)
     {
+      _fileHistoryFinder = fileHistoryFinder;
       _projectRootPath = projectRootPath;
       _composerRespositories.Add(new ComposerRepository("https://packagist.org"));
 
       using var composerJson = JsonDocument.Parse(
-        File.ReadAllText(
-          Path.Combine(projectRootPath, "composer.json")));
+        _fileHistoryFinder.ReadAllText(projectRootPath, "composer.json"));
       if (composerJson.RootElement.TryGetProperty("repositories", out var repositoryList))
       {
         foreach (var repositoryEntry in repositoryList.EnumerateArray())

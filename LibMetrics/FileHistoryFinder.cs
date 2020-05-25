@@ -1,8 +1,9 @@
 using System.Collections.Generic;
+using System.IO;
 
 namespace LibMetrics
 {
-  public class FileHistoryFinder: IFileHistoryFinder
+  public class FileHistoryFinder
   {
     private readonly string _projectRootPath;
 
@@ -15,7 +16,7 @@ namespace LibMetrics
     public FileHistoryFinder(string projectRootPath)
     {
       _projectRootPath = projectRootPath;
-      Finder = this;
+      Finder = new LocalFileHistoryFinder();
       foreach(var finder in Finders)
       {
         if (finder.DoesPathContainHistorySource(projectRootPath))
@@ -35,16 +36,6 @@ namespace LibMetrics
       where TFinder : IFileHistoryFinder, new()
     {
       Finders.Add(new TFinder());
-    }
-
-    public bool DoesPathContainHistorySource(string projectRootPath)
-    {
-      return true;
-    }
-
-    public IFileHistory FileHistoryOf(string projectRootPath, string targetFile)
-    {
-      return new LocalFileHistory(projectRootPath, targetFile);
     }
   }
 }

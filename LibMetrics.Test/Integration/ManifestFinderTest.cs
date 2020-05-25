@@ -10,7 +10,8 @@ namespace LibMetrics.Test.Integration
     public void Empty()
     {
       var emptyFixturePath = Fixtures.Path("empty");
-      var finder = new ManifestFinder(emptyFixturePath);
+      var fileFinder = new FileHistoryFinder(emptyFixturePath);
+      var finder = new ManifestFinder(emptyFixturePath, fileFinder.Finder);
       Assert.False(finder.Successful);
     }
 
@@ -20,7 +21,8 @@ namespace LibMetrics.Test.Integration
       var rubyFixturePath = Fixtures.Path("ruby", "nokotest");
 
       ManifestFinder.Register<RubyBundlerManifestFinder>();
-      var finder = new ManifestFinder(rubyFixturePath);
+      var fileFinder = new FileHistoryFinder(rubyFixturePath);
+      var finder = new ManifestFinder(rubyFixturePath, fileFinder.Finder);
 
       Assert.True(finder.Successful);
       Assert.Equal("Gemfile.lock", finder.LockFileName);
@@ -35,7 +37,8 @@ namespace LibMetrics.Test.Integration
       var phpFixturePath = Fixtures.Path("php", "small");
 
       ManifestFinder.Register<PhpComposerManifestFinder>();
-      var finder = new ManifestFinder(phpFixturePath);
+      var fileFinder = new FileHistoryFinder(phpFixturePath);
+      var finder = new ManifestFinder(phpFixturePath, fileFinder.Finder);
 
       Assert.True(finder.Successful);
       Assert.Equal("composer.lock", finder.LockFileName);

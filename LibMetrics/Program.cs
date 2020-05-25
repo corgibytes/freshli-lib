@@ -15,7 +15,7 @@ namespace LibMetrics
           FileHistoryFinder.Register<GitFileHistoryFinder>();
 
           var runner = new Runner();
-          var directory = Path.GetFullPath(args[0]);
+          var directory = SafelyGetFullPath(args[0]);
 
           Console.Error.WriteLine($"Collecting data for {directory}");
 
@@ -23,6 +23,17 @@ namespace LibMetrics
 
           var formatter = new OutputFormatter(Console.Out);
           formatter.Write(results);
+        }
+
+        private static string SafelyGetFullPath(string path)
+        {
+          var result = path;
+          if (File.Exists(path))
+          {
+            result = Path.GetFullPath(path);
+          }
+
+          return result;
         }
     }
 }

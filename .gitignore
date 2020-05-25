@@ -2,4 +2,5 @@ bin/
 obj/
 /packages/
 /.idea/
+/.vs/
 .DS_Store

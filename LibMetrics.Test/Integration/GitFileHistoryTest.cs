@@ -26,22 +26,7 @@ namespace LibMetrics.Test.Integration
     [Fact]
     public void ContentsAsOf2017()
     {
-      var expectedContents = @"GEM
-  remote: https://rubygems.org/
-  specs:
-    mini_portile2 (2.1.0)
-    nokogiri (1.7.0)
-      mini_portile2 (~> 2.1.0)
-
-PLATFORMS
-  ruby
-
-DEPENDENCIES
-  nokogiri (= 1.7.0)
-
-BUNDLED WITH
-   2.1.3
-";
+      var expectedContents = "GEM\n  remote: https://rubygems.org/\n  specs:\n    mini_portile2 (2.1.0)\n    nokogiri (1.7.0)\n      mini_portile2 (~> 2.1.0)\n\nPLATFORMS\n  ruby\n\nDEPENDENCIES\n  nokogiri (= 1.7.0)\n\nBUNDLED WITH\n   2.1.3\n";
 
       var rubyFixturePath = Fixtures.Path("ruby", "nokotest");
       var history = new GitFileHistory(rubyFixturePath, "Gemfile.lock");
