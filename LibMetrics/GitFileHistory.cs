@@ -8,7 +8,7 @@ namespace LibMetrics
 {
   public class GitFileHistory: IFileHistory
   {
-    private readonly List<DateTime> _dates = new List<DateTime>();
+    private readonly IDictionary<DateTime, string> _contentsByDate = new Dictionary<DateTime, string>();
     private string _repositoryPath;
     private string _targetFile;
 
@@ -33,37 +33,30 @@ namespace LibMetrics
 
       using (var repository = new Repository(repositoryPath))
       {
-        var entries = repository.Commits.QueryBy(targetFile, new CommitFilter { SortBy = CommitSortStrategies.Topological }).
-          OrderBy(entry => entry.Commit.Author.When);
+        var entries = repository.Commits.QueryBy(targetFile,
+          new CommitFilter {SortBy = CommitSortStrategies.Topological});
 
         foreach (var entry in entries)
         {
-          Console.WriteLine(entry.Commit.Sha);
+          var blob = entry.Commit.Tree[entry.Path].Target as Blob;
+          var contents = blob.GetContentText();
+          _contentsByDate[entry.Commit.Author.When.Date] = contents;
         }
-
-        _dates.AddRange(
-          entries.Select(entry => entry.Commit.Author.When.Date).ToList());
       }
     }
 
     public string ContentsAsOf(DateTime date)
     {
-      string result = null;
-      using (var repository = new Repository(_repositoryPath))
-      {
-        var entries = repository.Commits.QueryBy(_targetFile, new CommitFilter { SortBy = CommitSortStrategies.Topological }).
-          OrderBy(entry => entry.Commit.Author.When);
-
-        var entry = entries.Last(entry => entry.Commit.Author.When.Date <= date);
-        var blob = entry.Commit.Tree[entry.Path].Target as Blob;
-        result = blob.GetContentText();
-      }
-
-      return result;
+      var key = Dates.Last(d => d <= date);
+      return _contentsByDate[key];
     }
 
-
-
-    public IList<DateTime> Dates => _dates;
+    public IList<DateTime> Dates
+    {
+      get
+      {
+        return _contentsByDate.Keys.OrderBy(d => d).ToList();
+      }
+    }
   }
 }
