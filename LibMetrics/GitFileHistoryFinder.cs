@@ -68,10 +68,24 @@ namespace LibMetrics
 
       if (Directory.Exists(tempFolder))
       {
-        Directory.Delete(tempFolder, recursive: true);
+        new DirectoryInfo(tempFolder).DeleteReadOnly();
       }
 
       return result;
+    }
+
+    private void RecursivelyClearReadOnlyAttribute(string path)
+    {
+      foreach (var childDirectory in Directory.EnumerateDirectories(path))
+      {
+        
+        RecursivelyClearReadOnlyAttribute(childDirectory);
+      }
+
+      foreach (var childFile in Directory.EnumerateFiles(path))
+      {
+        File.SetAttributes(childFile, FileAttributes.Normal);
+      }
     }
 
     public IFileHistory FileHistoryOf(string projectRootPath, string targetFile)
