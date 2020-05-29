@@ -29,5 +29,18 @@ namespace LibMetrics.Test.Integration
 
       Assert.Equal("2.0.2", versionInfo.Version);
     }
+
+    [Fact]
+    public void LatestAsOfForSymfonyCssSelector() {
+      var phpFixturePath = Fixtures.Path("php", "small");
+      var fileFinder = new FileHistoryFinder(phpFixturePath);
+      var repository = new MulticastComposerRepository(phpFixturePath, fileFinder.Finder);
+
+      var versionInfo = repository.LatestAsOf(
+        new DateTime(2020, 01, 01),
+        "symfony/css-selector");
+
+      Assert.Equal("v5.0.2", versionInfo.Version);
+    }
   }
 }
