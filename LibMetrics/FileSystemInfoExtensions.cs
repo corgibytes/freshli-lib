@@ -10,7 +10,6 @@ namespace LibMetrics
     // modifications: does not descend into symbolic link directories
     public static void DeleteReadOnly(this FileSystemInfo fileSystemInfo)
     {
-      System.Console.WriteLine(fileSystemInfo.FullName);
       if (!fileSystemInfo.Attributes.HasFlag(FileAttributes.ReparsePoint))
       {
         var directoryInfo = fileSystemInfo as DirectoryInfo;
