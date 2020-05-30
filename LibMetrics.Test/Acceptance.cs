@@ -83,7 +83,5 @@ namespace LibMetrics.Test
 
       Approvals.VerifyAll(results, "results");
     }
-
-    }
   }
 }
