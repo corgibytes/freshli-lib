@@ -16,5 +16,10 @@ namespace LibMetrics
       PublishedAt = publishedAt;
       Value = value;
     }
+
+    public override string ToString()
+    {
+      return $"{{ Name: \"{Name}\", Version: \"{Version}\", PublishedAt: {PublishedAt}, Value: {Value} }}";
+    }
   }
 }

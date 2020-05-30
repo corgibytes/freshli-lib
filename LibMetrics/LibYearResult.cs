@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 
 namespace LibMetrics
 {
@@ -30,6 +31,19 @@ namespace LibMetrics
     IEnumerator IEnumerable.GetEnumerator()
     {
       return GetEnumerator();
+    }
+
+    public override string ToString()
+    {
+      var writer = new StringWriter();
+      writer.Write("[ ");
+      foreach (var result in this)
+      {
+        writer.Write($"{result}, ");
+      }
+      writer.Write(" ]");
+
+      return writer.ToString();
     }
   }
 
