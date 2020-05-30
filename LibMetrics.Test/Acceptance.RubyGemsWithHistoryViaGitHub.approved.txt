@@ -1,37 +1,37 @@
-﻿2017/01/01: 0.000
-2017/02/01: 0.022
-2017/03/01: 0.022
-2017/04/01: 0.227
-2017/05/01: 0.227
-2017/06/01: 0.364
-2017/07/01: 1.852
-2017/08/01: 1.852
-2017/09/01: 1.852
-2017/10/01: 2.416
-2017/11/01: 2.416
-2017/12/01: 2.416
-2018/01/01: 0.000
-2018/02/01: 0.362
-2018/03/01: 0.362
-2018/04/01: 0.362
-2018/05/01: 0.362
-2018/06/01: 0.362
-2018/07/01: 0.740
-2018/08/01: 0.789
-2018/09/01: 0.789
-2018/10/01: 0.789
-2018/11/01: 1.044
-2018/12/01: 1.044
-2019/01/01: 0.000
-2019/02/01: 0.071
-2019/03/01: 0.071
-2019/04/01: 0.266
-2019/05/01: 0.342
-2019/06/01: 0.342
-2019/07/01: 0.342
-2019/08/01: 0.342
-2019/09/01: 0.647
-2019/10/01: 0.647
-2019/11/01: 0.868
-2019/12/01: 0.868
-2020/01/01: 0.962
+﻿results[0] = { Date: 1/1/2017 12:00:00 AM, LibYear: { _packagesValues: [ { Name: "mini_portile2", Version: "2.1.0", PublishedAt: 1/6/2016 12:00:00 AM, Value: 0 }, { Name: "nokogiri", Version: "1.7.0", PublishedAt: 12/27/2016 12:00:00 AM, Value: 0 },  ], Total: 0 } }
+results[1] = { Date: 2/1/2017 12:00:00 AM, LibYear: { _packagesValues: [ { Name: "mini_portile2", Version: "2.1.0", PublishedAt: 1/6/2016 12:00:00 AM, Value: 0 }, { Name: "nokogiri", Version: "1.7.0.1", PublishedAt: 1/4/2017 12:00:00 AM, Value: 0.021917808219178082 },  ], Total: 0.021917808219178082 } }
+results[2] = { Date: 3/1/2017 12:00:00 AM, LibYear: { _packagesValues: [ { Name: "mini_portile2", Version: "2.1.0", PublishedAt: 1/6/2016 12:00:00 AM, Value: 0 }, { Name: "nokogiri", Version: "1.7.0.1", PublishedAt: 1/4/2017 12:00:00 AM, Value: 0.021917808219178082 },  ], Total: 0.021917808219178082 } }
+results[3] = { Date: 4/1/2017 12:00:00 AM, LibYear: { _packagesValues: [ { Name: "mini_portile2", Version: "2.1.0", PublishedAt: 1/6/2016 12:00:00 AM, Value: 0 }, { Name: "nokogiri", Version: "1.7.1", PublishedAt: 3/20/2017 12:00:00 AM, Value: 0.2273972602739726 },  ], Total: 0.2273972602739726 } }
+results[4] = { Date: 5/1/2017 12:00:00 AM, LibYear: { _packagesValues: [ { Name: "mini_portile2", Version: "2.1.0", PublishedAt: 1/6/2016 12:00:00 AM, Value: 0 }, { Name: "nokogiri", Version: "1.7.1", PublishedAt: 3/20/2017 12:00:00 AM, Value: 0.2273972602739726 },  ], Total: 0.2273972602739726 } }
+results[5] = { Date: 6/1/2017 12:00:00 AM, LibYear: { _packagesValues: [ { Name: "mini_portile2", Version: "2.1.0", PublishedAt: 1/6/2016 12:00:00 AM, Value: 0 }, { Name: "nokogiri", Version: "1.7.2", PublishedAt: 5/9/2017 12:00:00 AM, Value: 0.3643835616438356 },  ], Total: 0.3643835616438356 } }
+results[6] = { Date: 7/1/2017 12:00:00 AM, LibYear: { _packagesValues: [ { Name: "mini_portile2", Version: "2.2.0", PublishedAt: 6/5/2017 12:00:00 AM, Value: 1.4136986301369863 }, { Name: "nokogiri", Version: "1.8.0", PublishedAt: 6/5/2017 12:00:00 AM, Value: 0.4383561643835616 },  ], Total: 1.8520547945205479 } }
+results[7] = { Date: 8/1/2017 12:00:00 AM, LibYear: { _packagesValues: [ { Name: "mini_portile2", Version: "2.2.0", PublishedAt: 6/5/2017 12:00:00 AM, Value: 1.4136986301369863 }, { Name: "nokogiri", Version: "1.8.0", PublishedAt: 6/5/2017 12:00:00 AM, Value: 0.4383561643835616 },  ], Total: 1.8520547945205479 } }
+results[8] = { Date: 9/1/2017 12:00:00 AM, LibYear: { _packagesValues: [ { Name: "mini_portile2", Version: "2.2.0", PublishedAt: 6/5/2017 12:00:00 AM, Value: 1.4136986301369863 }, { Name: "nokogiri", Version: "1.8.0", PublishedAt: 6/5/2017 12:00:00 AM, Value: 0.4383561643835616 },  ], Total: 1.8520547945205479 } }
+results[9] = { Date: 10/1/2017 12:00:00 AM, LibYear: { _packagesValues: [ { Name: "mini_portile2", Version: "2.3.0", PublishedAt: 9/13/2017 12:00:00 AM, Value: 1.6876712328767123 }, { Name: "nokogiri", Version: "1.8.1", PublishedAt: 9/19/2017 12:00:00 AM, Value: 0.7287671232876712 },  ], Total: 2.4164383561643836 } }
+results[10] = { Date: 11/1/2017 12:00:00 AM, LibYear: { _packagesValues: [ { Name: "mini_portile2", Version: "2.3.0", PublishedAt: 9/13/2017 12:00:00 AM, Value: 1.6876712328767123 }, { Name: "nokogiri", Version: "1.8.1", PublishedAt: 9/19/2017 12:00:00 AM, Value: 0.7287671232876712 },  ], Total: 2.4164383561643836 } }
+results[11] = { Date: 12/1/2017 12:00:00 AM, LibYear: { _packagesValues: [ { Name: "mini_portile2", Version: "2.3.0", PublishedAt: 9/13/2017 12:00:00 AM, Value: 1.6876712328767123 }, { Name: "nokogiri", Version: "1.8.1", PublishedAt: 9/19/2017 12:00:00 AM, Value: 0.7287671232876712 },  ], Total: 2.4164383561643836 } }
+results[12] = { Date: 1/1/2018 12:00:00 AM, LibYear: { _packagesValues: [ { Name: "mini_portile2", Version: "2.3.0", PublishedAt: 9/13/2017 12:00:00 AM, Value: 0 }, { Name: "nokogiri", Version: "1.8.1", PublishedAt: 9/19/2017 12:00:00 AM, Value: 0 },  ], Total: 0 } }
+results[13] = { Date: 2/1/2018 12:00:00 AM, LibYear: { _packagesValues: [ { Name: "mini_portile2", Version: "2.3.0", PublishedAt: 9/13/2017 12:00:00 AM, Value: 0 }, { Name: "nokogiri", Version: "1.8.2", PublishedAt: 1/29/2018 12:00:00 AM, Value: 0.36164383561643837 },  ], Total: 0.36164383561643837 } }
+results[14] = { Date: 3/1/2018 12:00:00 AM, LibYear: { _packagesValues: [ { Name: "mini_portile2", Version: "2.3.0", PublishedAt: 9/13/2017 12:00:00 AM, Value: 0 }, { Name: "nokogiri", Version: "1.8.2", PublishedAt: 1/29/2018 12:00:00 AM, Value: 0.36164383561643837 },  ], Total: 0.36164383561643837 } }
+results[15] = { Date: 4/1/2018 12:00:00 AM, LibYear: { _packagesValues: [ { Name: "mini_portile2", Version: "2.3.0", PublishedAt: 9/13/2017 12:00:00 AM, Value: 0 }, { Name: "nokogiri", Version: "1.8.2", PublishedAt: 1/29/2018 12:00:00 AM, Value: 0.36164383561643837 },  ], Total: 0.36164383561643837 } }
+results[16] = { Date: 5/1/2018 12:00:00 AM, LibYear: { _packagesValues: [ { Name: "mini_portile2", Version: "2.3.0", PublishedAt: 9/13/2017 12:00:00 AM, Value: 0 }, { Name: "nokogiri", Version: "1.8.2", PublishedAt: 1/29/2018 12:00:00 AM, Value: 0.36164383561643837 },  ], Total: 0.36164383561643837 } }
+results[17] = { Date: 6/1/2018 12:00:00 AM, LibYear: { _packagesValues: [ { Name: "mini_portile2", Version: "2.3.0", PublishedAt: 9/13/2017 12:00:00 AM, Value: 0 }, { Name: "nokogiri", Version: "1.8.2", PublishedAt: 1/29/2018 12:00:00 AM, Value: 0.36164383561643837 },  ], Total: 0.36164383561643837 } }
+results[18] = { Date: 7/1/2018 12:00:00 AM, LibYear: { _packagesValues: [ { Name: "mini_portile2", Version: "2.3.0", PublishedAt: 9/13/2017 12:00:00 AM, Value: 0 }, { Name: "nokogiri", Version: "1.8.3", PublishedAt: 6/16/2018 12:00:00 AM, Value: 0.7397260273972602 },  ], Total: 0.7397260273972602 } }
+results[19] = { Date: 8/1/2018 12:00:00 AM, LibYear: { _packagesValues: [ { Name: "mini_portile2", Version: "2.3.0", PublishedAt: 9/13/2017 12:00:00 AM, Value: 0 }, { Name: "nokogiri", Version: "1.8.4", PublishedAt: 7/4/2018 12:00:00 AM, Value: 0.7890410958904109 },  ], Total: 0.7890410958904109 } }
+results[20] = { Date: 9/1/2018 12:00:00 AM, LibYear: { _packagesValues: [ { Name: "mini_portile2", Version: "2.3.0", PublishedAt: 9/13/2017 12:00:00 AM, Value: 0 }, { Name: "nokogiri", Version: "1.8.4", PublishedAt: 7/4/2018 12:00:00 AM, Value: 0.7890410958904109 },  ], Total: 0.7890410958904109 } }
+results[21] = { Date: 10/1/2018 12:00:00 AM, LibYear: { _packagesValues: [ { Name: "mini_portile2", Version: "2.3.0", PublishedAt: 9/13/2017 12:00:00 AM, Value: 0 }, { Name: "nokogiri", Version: "1.8.4", PublishedAt: 7/4/2018 12:00:00 AM, Value: 0.7890410958904109 },  ], Total: 0.7890410958904109 } }
+results[22] = { Date: 11/1/2018 12:00:00 AM, LibYear: { _packagesValues: [ { Name: "mini_portile2", Version: "2.3.0", PublishedAt: 9/13/2017 12:00:00 AM, Value: 0 }, { Name: "nokogiri", Version: "1.8.5", PublishedAt: 10/5/2018 12:00:00 AM, Value: 1.0438356164383562 },  ], Total: 1.0438356164383562 } }
+results[23] = { Date: 12/1/2018 12:00:00 AM, LibYear: { _packagesValues: [ { Name: "mini_portile2", Version: "2.3.0", PublishedAt: 9/13/2017 12:00:00 AM, Value: 0 }, { Name: "nokogiri", Version: "1.8.5", PublishedAt: 10/5/2018 12:00:00 AM, Value: 1.0438356164383562 },  ], Total: 1.0438356164383562 } }
+results[24] = { Date: 1/1/2019 12:00:00 AM, LibYear: { _packagesValues: [ { Name: "mini_portile2", Version: "2.4.0", PublishedAt: 12/2/2018 12:00:00 AM, Value: 0 }, { Name: "nokogiri", Version: "1.9.1", PublishedAt: 12/18/2018 12:00:00 AM, Value: 0 },  ], Total: 0 } }
+results[25] = { Date: 2/1/2019 12:00:00 AM, LibYear: { _packagesValues: [ { Name: "mini_portile2", Version: "2.4.0", PublishedAt: 12/2/2018 12:00:00 AM, Value: 0 }, { Name: "nokogiri", Version: "1.10.1", PublishedAt: 1/13/2019 12:00:00 AM, Value: 0.07123287671232877 },  ], Total: 0.07123287671232877 } }
+results[26] = { Date: 3/1/2019 12:00:00 AM, LibYear: { _packagesValues: [ { Name: "mini_portile2", Version: "2.4.0", PublishedAt: 12/2/2018 12:00:00 AM, Value: 0 }, { Name: "nokogiri", Version: "1.10.1", PublishedAt: 1/13/2019 12:00:00 AM, Value: 0.07123287671232877 },  ], Total: 0.07123287671232877 } }
+results[27] = { Date: 4/1/2019 12:00:00 AM, LibYear: { _packagesValues: [ { Name: "mini_portile2", Version: "2.4.0", PublishedAt: 12/2/2018 12:00:00 AM, Value: 0 }, { Name: "nokogiri", Version: "1.10.2", PublishedAt: 3/25/2019 12:00:00 AM, Value: 0.26575342465753427 },  ], Total: 0.26575342465753427 } }
+results[28] = { Date: 5/1/2019 12:00:00 AM, LibYear: { _packagesValues: [ { Name: "mini_portile2", Version: "2.4.0", PublishedAt: 12/2/2018 12:00:00 AM, Value: 0 }, { Name: "nokogiri", Version: "1.10.3", PublishedAt: 4/22/2019 12:00:00 AM, Value: 0.3424657534246575 },  ], Total: 0.3424657534246575 } }
+results[29] = { Date: 6/1/2019 12:00:00 AM, LibYear: { _packagesValues: [ { Name: "mini_portile2", Version: "2.4.0", PublishedAt: 12/2/2018 12:00:00 AM, Value: 0 }, { Name: "nokogiri", Version: "1.10.3", PublishedAt: 4/22/2019 12:00:00 AM, Value: 0.3424657534246575 },  ], Total: 0.3424657534246575 } }
+results[30] = { Date: 7/1/2019 12:00:00 AM, LibYear: { _packagesValues: [ { Name: "mini_portile2", Version: "2.4.0", PublishedAt: 12/2/2018 12:00:00 AM, Value: 0 }, { Name: "nokogiri", Version: "1.10.3", PublishedAt: 4/22/2019 12:00:00 AM, Value: 0.3424657534246575 },  ], Total: 0.3424657534246575 } }
+results[31] = { Date: 8/1/2019 12:00:00 AM, LibYear: { _packagesValues: [ { Name: "mini_portile2", Version: "2.4.0", PublishedAt: 12/2/2018 12:00:00 AM, Value: 0 }, { Name: "nokogiri", Version: "1.10.3", PublishedAt: 4/22/2019 12:00:00 AM, Value: 0.3424657534246575 },  ], Total: 0.3424657534246575 } }
+results[32] = { Date: 9/1/2019 12:00:00 AM, LibYear: { _packagesValues: [ { Name: "mini_portile2", Version: "2.4.0", PublishedAt: 12/2/2018 12:00:00 AM, Value: 0 }, { Name: "nokogiri", Version: "1.10.4", PublishedAt: 8/11/2019 12:00:00 AM, Value: 0.6465753424657534 },  ], Total: 0.6465753424657534 } }
+results[33] = { Date: 10/1/2019 12:00:00 AM, LibYear: { _packagesValues: [ { Name: "mini_portile2", Version: "2.4.0", PublishedAt: 12/2/2018 12:00:00 AM, Value: 0 }, { Name: "nokogiri", Version: "1.10.4", PublishedAt: 8/11/2019 12:00:00 AM, Value: 0.6465753424657534 },  ], Total: 0.6465753424657534 } }
+results[34] = { Date: 11/1/2019 12:00:00 AM, LibYear: { _packagesValues: [ { Name: "mini_portile2", Version: "2.4.0", PublishedAt: 12/2/2018 12:00:00 AM, Value: 0 }, { Name: "nokogiri", Version: "1.10.5", PublishedAt: 10/31/2019 12:00:00 AM, Value: 0.8684931506849315 },  ], Total: 0.8684931506849315 } }
+results[35] = { Date: 12/1/2019 12:00:00 AM, LibYear: { _packagesValues: [ { Name: "mini_portile2", Version: "2.4.0", PublishedAt: 12/2/2018 12:00:00 AM, Value: 0 }, { Name: "nokogiri", Version: "1.10.5", PublishedAt: 10/31/2019 12:00:00 AM, Value: 0.8684931506849315 },  ], Total: 0.8684931506849315 } }
+results[36] = { Date: 1/1/2020 12:00:00 AM, LibYear: { _packagesValues: [ { Name: "mini_portile2", Version: "2.4.0", PublishedAt: 12/2/2018 12:00:00 AM, Value: 0 }, { Name: "nokogiri", Version: "1.10.7", PublishedAt: 12/4/2019 12:00:00 AM, Value: 0.9616438356164384 },  ], Total: 0.9616438356164384 } }
