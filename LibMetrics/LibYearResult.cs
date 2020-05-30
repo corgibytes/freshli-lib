@@ -36,12 +36,12 @@ namespace LibMetrics
     public override string ToString()
     {
       var writer = new StringWriter();
-      writer.Write("[ ");
+      writer.Write("{ _packagesValues: [ ");
       foreach (var result in this)
       {
         writer.Write($"{result}, ");
       }
-      writer.Write(" ]");
+      writer.Write($" ], Total: {Total} }}");
 
       return writer.ToString();
     }
