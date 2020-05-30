@@ -1,13 +1,14 @@
 using System;
 using ApprovalTests;
 using ApprovalTests.Reporters;
+using ApprovalTests.Reporters.TestFrameworks;
 using LibMetrics.Languages.Php;
 using LibMetrics.Languages.Ruby;
 using Xunit;
 
 namespace LibMetrics.Test
 {
-  [UseReporter(typeof(DiffReporter))]
+  [UseReporter(typeof(XUnit2Reporter))]
   public class Acceptance
   {
     [Fact]
