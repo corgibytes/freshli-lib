@@ -15,7 +15,7 @@ namespace LibMetrics
 
     public override string ToString()
     {
-      return $"{{ Date: {Date}, LibYear: {LibYear} }}";
+      return $"{{ Date: {Date:s}, LibYear: {LibYear} }}";
     }
   }
 }

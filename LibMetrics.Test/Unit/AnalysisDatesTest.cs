@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using Moq;
 using Xunit;
@@ -8,6 +9,12 @@ namespace LibMetrics.Test.Unit
 {
   public class AnalysisDatesTest
   {
+    private static DateTime ParseExact(string value)
+    {
+      return DateTime.ParseExact(value, "o", CultureInfo.InvariantCulture,
+        DateTimeStyles.RoundtripKind);
+    }
+
     [Fact]
     public void SingleDate()
     {
@@ -16,10 +23,10 @@ namespace LibMetrics.Test.Unit
       history.Setup(mock => mock.Dates).Returns(dates);
       var analysisDates = new AnalysisDates(
         history.Object,
-        asOf: new DateTime(2020, 01, 01));
+        asOf: ParseExact("2020-01-01T00:00:00.0000000Z"));
       Assert.Collection(
         analysisDates,
-        value => Assert.Equal(value, new DateTime(2020, 01, 01)));
+        value => Assert.Equal(value, ParseExact("2020-01-01T00:00:00.0000000Z")));
     }
 
     [Fact]
@@ -28,13 +35,13 @@ namespace LibMetrics.Test.Unit
       var history = new Mock<IFileHistory>();
       var dates = new List<DateTime>()
       {
-        new DateTime(2017, 01, 01),
-        new DateTime(2018, 01, 01),
-        new DateTime(2019, 01, 01)
+        ParseExact("2017-01-01T00:00:00.0000000Z"),
+        ParseExact("2018-01-01T00:00:00.0000000Z"),
+        ParseExact("2019-01-01T00:00:00.0000000Z")
       };
 
       history.Setup(mock => mock.Dates).Returns(dates);
-      var stopDate = new DateTime(2020, 01, 01);
+      var stopDate = ParseExact("2020-01-01T00:00:00.0000000Z");
       var analysisDates = new AnalysisDates(
         history.Object,
         asOf: stopDate);
@@ -56,14 +63,14 @@ namespace LibMetrics.Test.Unit
       var history = new Mock<IFileHistory>();
       var dates = new List<DateTime>()
       {
-        new DateTime(2017, 01, 01),
-        new DateTime(2018, 01, 01),
-        new DateTime(2019, 01, 01),
-        new DateTime(2020, 01, 01)
+        ParseExact("2017-01-01T00:00:00.0000000Z"),
+        ParseExact("2018-01-01T00:00:00.0000000Z"),
+        ParseExact("2019-01-01T00:00:00.0000000Z"),
+        ParseExact("2020-01-01T00:00:00.0000000Z")
       };
 
       history.Setup(mock => mock.Dates).Returns(dates);
-      var stopDate = new DateTime(2019, 01, 01);
+      var stopDate = ParseExact("2019-01-01T00:00:00.0000000Z");
       var analysisDates = new AnalysisDates(
         history.Object,
         asOf: stopDate);
@@ -85,16 +92,16 @@ namespace LibMetrics.Test.Unit
       var history = new Mock<IFileHistory>();
       var dates = new List<DateTime>()
       {
-        new DateTime(2016, 12, 15)
+        ParseExact("2016-12-15T00:00:00.0000000Z")
       };
 
       history.Setup(mock => mock.Dates).Returns(dates);
-      var stopDate = new DateTime(2019, 01, 01);
+      var stopDate = ParseExact("2019-01-01T00:00:00.0000000Z");
       var analysisDates = new AnalysisDates(
         history.Object,
         asOf: stopDate);
 
-      Assert.Equal(new DateTime(2017, 01, 01), analysisDates.First());
+      Assert.Equal(ParseExact("2017-01-01T00:00:00.0000000Z"), analysisDates.First());
     }
 
     [Fact]
@@ -103,16 +110,16 @@ namespace LibMetrics.Test.Unit
       var history = new Mock<IFileHistory>();
       var dates = new List<DateTime>()
       {
-        new DateTime(2020, 01, 20)
+        ParseExact("2020-01-20T00:00:00.0000000Z")
       };
 
       history.Setup(mock => mock.Dates).Returns(dates);
-      var stopDate = new DateTime(2020, 01, 01);
+      var stopDate = ParseExact("2020-01-01T00:00:00.0000000Z");
       var analysisDates = new AnalysisDates(
         history.Object,
         asOf: stopDate);
 
-      Assert.Equal(new List<DateTime> {new DateTime(2020, 01, 01)}, analysisDates);
+      Assert.Equal(new List<DateTime> {ParseExact("2020-01-01T00:00:00.0000000Z")}, analysisDates);
     }
   }
 }

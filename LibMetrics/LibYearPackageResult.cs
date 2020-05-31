@@ -19,7 +19,7 @@ namespace LibMetrics
 
     public override string ToString()
     {
-      return $"{{ Name: \"{Name}\", Version: \"{Version}\", PublishedAt: {PublishedAt}, Value: {Value} }}";
+      return $"{{ Name: \"{Name}\", Version: \"{Version}\", PublishedAt: {PublishedAt:s}, Value: {Value} }}";
     }
   }
 }
