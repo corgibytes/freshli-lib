@@ -83,6 +83,17 @@ namespace LibMetrics.Test
 
       Approvals.VerifyAll(results, "results");
     }
+
+    [Fact]
+    public void RequirementsTxtPyspider() {
+      var runner = new Runner();
+
+      var results = runner.Run(
+        "https://github.com/binux/pyspider",
+        asOf: _testingBoundary
+      );
+
+      Approvals.VerifyAll(results, "results");
     }
   }
 }
