@@ -12,6 +12,14 @@ namespace LibMetrics.Test
   [UseReporter(typeof(XUnit2Reporter))]
   public class Acceptance
   {
+    public Acceptance() {
+      ManifestFinder.Register<RubyBundlerManifestFinder>();
+      ManifestFinder.Register<PhpComposerManifestFinder>();
+      ManifestFinder.Register<PhpComposerManifestFinder>();
+
+      FileHistoryFinder.Register<GitFileHistoryFinder>();
+    }
+    
     private static DateTime ParseExact(string value)
     {
       return DateTime.ParseExact(value, "o", CultureInfo.InvariantCulture,
@@ -24,9 +32,6 @@ namespace LibMetrics.Test
     [Fact]
     public void RubyGemsWithGitHistory()
     {
-      ManifestFinder.Register<RubyBundlerManifestFinder>();
-      FileHistoryFinder.Register<GitFileHistoryFinder>();
-
       var runner = new Runner();
 
       var rubyFixturePath = Fixtures.Path("ruby", "nokotest");
@@ -37,9 +42,6 @@ namespace LibMetrics.Test
 
     [Fact]
     public void RubyGemsWithHistoryViaGitHub() {
-      ManifestFinder.Register<RubyBundlerManifestFinder>();
-      FileHistoryFinder.Register<GitFileHistoryFinder>();
-
       var runner = new Runner();
 
       var repoUrl =
@@ -52,9 +54,6 @@ namespace LibMetrics.Test
     [Fact]
     public void RubyGemsFeedbinHistoryViaGitHub()
     {
-      ManifestFinder.Register<RubyBundlerManifestFinder>();
-      FileHistoryFinder.Register<GitFileHistoryFinder>();
-
       var runner = new Runner();
 
       var repoUrl = "https://github.com/feedbin/feedbin";
@@ -66,8 +65,6 @@ namespace LibMetrics.Test
     [Fact]
     public void ComposerWithoutGitHistory()
     {
-      ManifestFinder.Register<PhpComposerManifestFinder>();
-
       var runner = new Runner();
 
       var phpFixturePath = Fixtures.Path("php", "large");
@@ -79,14 +76,13 @@ namespace LibMetrics.Test
     [Fact]
     public void DrupalComposerWithoutGitHistory()
     {
-      ManifestFinder.Register<PhpComposerManifestFinder>();
-
       var runner = new Runner();
 
       var phpFixturePath = Fixtures.Path("php", "drupal");
       var results = runner.Run(phpFixturePath, asOf: _testingBoundary);
 
       Approvals.VerifyAll(results, "results");
+    }
     }
   }
 }
