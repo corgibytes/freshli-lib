@@ -6,6 +6,12 @@ namespace LibMetrics.Test.Integration
 {
   public class ManifestFinderTest
   {
+    public ManifestFinderTest()
+    {
+      ManifestFinder.Register<RubyBundlerManifestFinder>();
+      ManifestFinder.Register<PhpComposerManifestFinder>();
+    }
+
     [Fact]
     public void Empty()
     {
@@ -20,7 +26,6 @@ namespace LibMetrics.Test.Integration
     {
       var rubyFixturePath = Fixtures.Path("ruby", "nokotest");
 
-      ManifestFinder.Register<RubyBundlerManifestFinder>();
       var fileFinder = new FileHistoryFinder(rubyFixturePath);
       var finder = new ManifestFinder(rubyFixturePath, fileFinder.Finder);
 
@@ -36,7 +41,6 @@ namespace LibMetrics.Test.Integration
     {
       var phpFixturePath = Fixtures.Path("php", "small");
 
-      ManifestFinder.Register<PhpComposerManifestFinder>();
       var fileFinder = new FileHistoryFinder(phpFixturePath);
       var finder = new ManifestFinder(phpFixturePath, fileFinder.Finder);
 
