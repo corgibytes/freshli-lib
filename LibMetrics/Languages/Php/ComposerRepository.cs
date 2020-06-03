@@ -50,7 +50,10 @@ namespace LibMetrics.Languages.Php
         foundVersions.Add((version, publishedDate.Date));
       }
 
-      foundVersions.Sort((left, right) => left.PublishedAt.CompareTo(right.PublishedAt));
+      foundVersions.Sort((left, right) =>
+        left.Version.CompareTo(right.Version) |
+          left.PublishedAt.CompareTo(right.PublishedAt)
+      );
       var filteredVersions = foundVersions.Where(item => item.PublishedAt <= date).ToArray();
       if (!filteredVersions.Any()) return null;
       var selectedItem = filteredVersions.Last();
