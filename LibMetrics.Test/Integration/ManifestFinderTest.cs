@@ -1,4 +1,5 @@
 using LibMetrics.Languages.Php;
+using LibMetrics.Languages.Python;
 using LibMetrics.Languages.Ruby;
 using Xunit;
 
@@ -10,6 +11,7 @@ namespace LibMetrics.Test.Integration
     {
       ManifestFinder.Register<RubyBundlerManifestFinder>();
       ManifestFinder.Register<PhpComposerManifestFinder>();
+      ManifestFinder.Register<PipRequirementsTxtManifestFinder>();
     }
 
     [Fact]
@@ -49,6 +51,21 @@ namespace LibMetrics.Test.Integration
 
       Assert.IsType<MulticastComposerRepository>(finder.Calculator.Repository);
       Assert.IsType<ComposerManifest>(finder.Calculator.Manifest);
+    }
+
+    [Fact]
+    public void PythonPipRequirementsTxt()
+    {
+      var pythonFixturePath = Fixtures.Path("python", "requirements-txt", "small");
+
+      var fileFinder = new FileHistoryFinder(pythonFixturePath);
+      var finder = new ManifestFinder(pythonFixturePath, fileFinder.Finder);
+
+      Assert.True(finder.Successful);
+      Assert.Equal("requirements.txt", finder.LockFileName);
+
+      Assert.IsType<PyPIRepository>(finder.Calculator.Repository);
+      Assert.IsType<PipRequirementsTxtManifest>(finder.Calculator.Manifest);
     }
   }
 }

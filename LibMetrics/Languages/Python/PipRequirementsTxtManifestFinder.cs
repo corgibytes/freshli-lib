@@ -1,17 +1,19 @@
 ﻿namespace LibMetrics.Languages.Python {
   public class PipRequirementsTxtManifestFinder: IManifestFinder {
     public IFileHistoryFinder FileFinder { get; set; }
+
     public bool DoesPathContainManifest(string projectRootPath) {
-      throw new System.NotImplementedException();
+      return FileFinder.Exists(projectRootPath, LockFileName);
     }
 
-    public string LockFileName { get; }
+    public string LockFileName => "requirements.txt";
+
     public IPackageRepository RepositoryFor(string projectRootPath) {
-      throw new System.NotImplementedException();
+      return new PyPIRepository();
     }
 
     public IManifest ManifestFor(string projectRootPath) {
-      throw new System.NotImplementedException();
+      return new PipRequirementsTxtManifest();
     }
   }
 }
