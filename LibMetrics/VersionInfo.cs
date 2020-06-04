@@ -181,7 +181,7 @@ namespace LibMetrics
         return result;
       }
 
-      return DatePublished.CompareTo(otherVersionInfo.DatePublished);
+      return 0;
     }
   }
 }

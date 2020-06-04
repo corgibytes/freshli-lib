@@ -63,5 +63,13 @@ namespace LibMetrics.Languages.Python
     {
       return GetReleaseHistory(name).First(v => v.Version == version);
     }
+
+    public VersionInfo Latest(string name, string thatMatches, DateTime asOf)
+    {
+      var expression = new VersionMatcher(thatMatches);
+      return GetReleaseHistory(name).OrderByDescending(v => v).
+        Where(v => v.DatePublished <= asOf).
+        FirstOrDefault(v => expression.DoesMatch(v));
+    }
   }
 }
