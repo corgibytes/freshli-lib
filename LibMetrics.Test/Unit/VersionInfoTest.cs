@@ -8,6 +8,7 @@ namespace LibMetrics.Test.Unit
   {
     [Theory]
     [InlineData("1", 1, null, null, null, null)]
+    [InlineData("v3.6.0", 3, 6, 0, null, null)]
     [InlineData("1.2", 1, 2, null, null, null)]
     [InlineData("1.2.3", 1, 2, 3, null, null)]
     [InlineData("1.2.3a1", 1, 2, 3, "a1", null)]
