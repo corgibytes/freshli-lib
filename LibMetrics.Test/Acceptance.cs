@@ -19,15 +19,9 @@ namespace LibMetrics.Test
 
       FileHistoryFinder.Register<GitFileHistoryFinder>();
     }
-    
-    private static DateTime ParseExact(string value)
-    {
-      return DateTime.ParseExact(value, "o", CultureInfo.InvariantCulture,
-        DateTimeStyles.RoundtripKind);
-    }
 
-    private DateTime _testingBoundary = ParseExact(
-      "2020-01-01T00:00:00.0000000Z");
+    private DateTime _testingBoundary =
+      new DateTime(2020, 01, 01, 0, 0, 0, DateTimeKind.Utc);
 
     [Fact]
     public void RubyGemsWithGitHistory()
