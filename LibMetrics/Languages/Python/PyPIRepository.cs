@@ -69,7 +69,7 @@ namespace LibMetrics.Languages.Python
       var expression = new VersionMatcher(thatMatches);
       return GetReleaseHistory(name).OrderByDescending(v => v).
         Where(v => v.DatePublished <= asOf).
-        FirstOrDefault(v => expression.DoesMatch(v));
+        First(v => expression.DoesMatch(v));
     }
   }
 }

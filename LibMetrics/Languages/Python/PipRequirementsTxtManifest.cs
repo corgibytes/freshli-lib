@@ -53,5 +53,6 @@ namespace LibMetrics.Languages.Python
     }
 
     public PackageInfo this[string packageName] => _packages[packageName];
+    public bool UsesExactMatches => false;
   }
 }

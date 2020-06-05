@@ -101,6 +101,11 @@ namespace LibMetrics.Languages.Php
       return null;
     }
 
+    public VersionInfo Latest(string name, string thatMatches, DateTime asOf)
+    {
+      throw new NotImplementedException();
+    }
+
     private string FetchPackageInfo(string name)
     {
       if (!_packageInfoCache.ContainsKey(name))

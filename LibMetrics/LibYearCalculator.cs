@@ -22,7 +22,19 @@ namespace LibMetrics
       foreach (var package in Manifest)
       {
         var latestVersion = Repository.LatestAsOf(date, package.Name);
-        var currentVersion = Repository.VersionInfo(package.Name, package.Version);
+        VersionInfo currentVersion;
+        if (Manifest.UsesExactMatches)
+        {
+          currentVersion = Repository.VersionInfo(package.Name, package.Version);
+        }
+        else
+        {
+          currentVersion = Repository.Latest(
+            package.Name,
+            package.Version,
+            asOf: date);
+        }
+
         if (latestVersion != null && currentVersion != null)
         {
           result.Add(

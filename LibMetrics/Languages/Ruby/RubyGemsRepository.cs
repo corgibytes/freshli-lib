@@ -53,5 +53,10 @@ namespace LibMetrics.Languages.Ruby
 
       return null;
     }
+
+    public VersionInfo Latest(string name, string thatMatches, DateTime asOf)
+    {
+      throw new NotImplementedException();
+    }
   }
 }

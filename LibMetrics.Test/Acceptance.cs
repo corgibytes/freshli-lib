@@ -1,10 +1,10 @@
 using System;
-using System.Globalization;
 using ApprovalTests;
 using ApprovalTests.Reporters;
 using ApprovalTests.Reporters.TestFrameworks;
 using LibMetrics.Languages.Php;
 using LibMetrics.Languages.Ruby;
+using LibMetrics.Languages.Python;
 using Xunit;
 
 namespace LibMetrics.Test
@@ -15,7 +15,7 @@ namespace LibMetrics.Test
     public Acceptance() {
       ManifestFinder.Register<RubyBundlerManifestFinder>();
       ManifestFinder.Register<PhpComposerManifestFinder>();
-      ManifestFinder.Register<PhpComposerManifestFinder>();
+      ManifestFinder.Register<PipRequirementsTxtManifestFinder>();
 
       FileHistoryFinder.Register<GitFileHistoryFinder>();
     }
