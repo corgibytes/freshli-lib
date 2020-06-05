@@ -30,7 +30,7 @@ namespace LibMetrics.Languages.Python
 
     public void Parse(string contents)
     {
-      var versionMatcher = new Regex(@"^((\w|\d)+)(.*)");
+      var versionMatcher = new Regex(@"^((\w|\d|\.|-)+)((?:(?:~=)|(?:===?)|(?:!=)|(?:<=?)|(?:>=?))?.*)");
       var reader = new StringReader(contents);
       var line = reader.ReadLine();
       while (line != null)

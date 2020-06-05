@@ -30,5 +30,17 @@ namespace LibMetrics.Test.Unit
       Assert.Equal(">=2017.2,<2020.1", manifest["pytz"].Version);
       Assert.Equal("<1.4.1", manifest["scipy"].Version);
     }
+
+    [Fact]
+    public void ParseCorrectlyHandlesPackageNameThatContainsDot()
+    {
+      var manifest = new PipRequirementsTxtManifest();
+      manifest.Parse("backports.ssl-match-hostname==3.4.0.2");
+
+      Assert.Equal(1, manifest.Count);
+      Assert.Equal(
+        "==3.4.0.2",
+        manifest["backports.ssl-match-hostname"].Version);
+    }
   }
 }
