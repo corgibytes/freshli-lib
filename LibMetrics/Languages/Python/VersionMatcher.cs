@@ -29,7 +29,7 @@ namespace LibMetrics.Languages.Python
 
       if (value.StartsWith("=="))
       {
-        result = new BaseVersionMatcher();
+        result = new BasicVersionMatcher();
         value = value.Remove(0, 2);
         result.Operation = OperationKind.Matching;
 
@@ -49,7 +49,7 @@ namespace LibMetrics.Languages.Python
       }
       else if (value.StartsWith("<"))
       {
-        result = new BaseVersionMatcher();
+        result = new BasicVersionMatcher();
         value = value.Remove(0, 1);
         result.Operation = OperationKind.LessThan;
 
@@ -63,7 +63,7 @@ namespace LibMetrics.Languages.Python
       }
       else if (value.StartsWith(">"))
       {
-        result = new BaseVersionMatcher();
+        result = new BasicVersionMatcher();
         value = value.Remove(0, 1);
         result.Operation = OperationKind.GreaterThan;
 
@@ -77,7 +77,7 @@ namespace LibMetrics.Languages.Python
       }
       else if (value.StartsWith("!="))
       {
-        result = new BaseVersionMatcher();
+        result = new BasicVersionMatcher();
         value = value.Remove(0, 2);
         result.Operation = OperationKind.NotEqual;
 
@@ -92,7 +92,7 @@ namespace LibMetrics.Languages.Python
           Version = value.Remove(0, 2)
         };
 
-        var first = new BaseVersionMatcher();
+        var first = new BasicVersionMatcher();
         first.Operation = OperationKind.GreaterThanEqual;
         first.BaseVersion = compound.BaseVersion;
         compound.Add(first);
@@ -107,7 +107,7 @@ namespace LibMetrics.Languages.Python
         if (secondVersion.Minor.HasValue && secondVersion.Patch.HasValue)
         {
           secondVersion.Patch = null;
-          var second = new BaseVersionMatcher();
+          var second = new BasicVersionMatcher();
           second.Operation = OperationKind.Matching;
           second.BaseVersion = secondVersion;
           compound.Add(second);
@@ -115,7 +115,7 @@ namespace LibMetrics.Languages.Python
         else if (secondVersion.Minor.HasValue)
         {
           secondVersion.Minor = null;
-          var second = new BaseVersionMatcher();
+          var second = new BasicVersionMatcher();
           second.Operation = OperationKind.Matching;
           second.BaseVersion = secondVersion;
           compound.Add(second);
@@ -134,7 +134,7 @@ namespace LibMetrics.Languages.Python
     public abstract bool DoesMatch(VersionInfo version);
   }
 
-  internal class BaseVersionMatcher : VersionMatcher
+  public class BasicVersionMatcher : VersionMatcher
   {
     public override bool DoesMatch(VersionInfo version)
     {
@@ -178,7 +178,7 @@ namespace LibMetrics.Languages.Python
     }
   }
 
-  internal class CompoundVersionMatcher : VersionMatcher
+  public class CompoundVersionMatcher : VersionMatcher
   {
     private IList<VersionMatcher> _matchers = new List<VersionMatcher>();
 
