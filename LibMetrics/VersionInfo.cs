@@ -19,13 +19,13 @@ namespace LibMetrics
     }
 
     public int Major { get; private set; }
-    public int? Minor { get; private set; }
-    public int? Patch { get; private set; }
+    public int? Minor { get; set; }
+    public int? Patch { get; set; }
 
     public string PreRelease
     {
       get => _preRelease;
-      private set
+      set
       {
         ParsePreRelease(value);
         _preRelease = value;
@@ -34,7 +34,7 @@ namespace LibMetrics
 
     public string PreReleaseLabel { get; private set; }
     public int? PreReleaseIncrement { get; private set; }
-    public string BuildMetadata { get; private set; }
+    public string BuildMetadata { get; set; }
 
     private Regex versionExpression = new Regex(@"^v?(0|[1-9]\d*)\.?(0|[1-9]\d*)?\.?(0|[1-9]\d*)?(?:-?((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$");
     private Regex preReleaseExpression = new Regex(@"([a-zA-Z-]+)\.?(\d*)");
@@ -42,7 +42,7 @@ namespace LibMetrics
 
     private void ParsePreRelease(string value)
     {
-      if (value != null)
+      if (!String.IsNullOrEmpty(value))
       {
         var match = preReleaseExpression.Match(value);
         PreReleaseLabel = match.Groups[1].Value;

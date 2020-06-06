@@ -66,7 +66,7 @@ namespace LibMetrics.Languages.Python
 
     public VersionInfo Latest(string name, string thatMatches, DateTime asOf)
     {
-      var expression = new VersionMatcher(thatMatches);
+      var expression = VersionMatcher.Create(thatMatches);
       return GetReleaseHistory(name).OrderByDescending(v => v).
         Where(v => v.DatePublished <= asOf).
         First(v => expression.DoesMatch(v));
