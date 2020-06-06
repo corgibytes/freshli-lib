@@ -187,6 +187,8 @@ namespace LibMetrics.Languages.Python
       _matchers.Add(matcher);
     }
 
+    public VersionMatcher this[int index] => _matchers[index];
+
     public override bool DoesMatch(VersionInfo version)
     {
       return _matchers.All(matcher => matcher.DoesMatch(version));

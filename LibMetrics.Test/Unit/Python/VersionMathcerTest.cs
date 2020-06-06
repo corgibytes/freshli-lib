@@ -36,11 +36,6 @@ namespace LibMetrics.Test.Unit
     [InlineData(">=1.1.1", VersionMatcher.OperationKind.GreaterThanEqual, "1.1.1")]
     [InlineData(">=1.1.1-alpha", VersionMatcher.OperationKind.GreaterThanEqual, "1.1.1-alpha")]
     [InlineData(">=1.1.1-alpha+dev", VersionMatcher.OperationKind.GreaterThanEqual, "1.1.1-alpha+dev")]
-    [InlineData("~=1", VersionMatcher.OperationKind.Compatible, "1")]
-    [InlineData("~=1.1", VersionMatcher.OperationKind.Compatible, "1.1")]
-    [InlineData("~=1.1.1", VersionMatcher.OperationKind.Compatible, "1.1.1")]
-    [InlineData("~=1.1.1-alpha", VersionMatcher.OperationKind.Compatible, "1.1.1-alpha")]
-    [InlineData("~=1.1.1-alpha+dev", VersionMatcher.OperationKind.Compatible, "1.1.1-alpha+dev")]
     public void SplitsIntoComponents(
       string expression,
       VersionMatcher.OperationKind operationKind,
@@ -49,6 +44,75 @@ namespace LibMetrics.Test.Unit
       var matcher = VersionMatcher.Create(expression);
       Assert.Equal(operationKind, matcher.Operation);
       Assert.Equal(new VersionInfo {Version = baseVersion}, matcher.BaseVersion);
+    }
+
+    [Theory]
+    [InlineData(
+      "~=1",
+      VersionMatcher.OperationKind.Compatible,
+      "1",
+      VersionMatcher.OperationKind.GreaterThanEqual,
+      "1",
+      null,
+      null)]
+    [InlineData(
+      "~=1.1",
+      VersionMatcher.OperationKind.Compatible,
+      "1.1",
+      VersionMatcher.OperationKind.GreaterThanEqual,
+      "1.1",
+      VersionMatcher.OperationKind.Matching,
+      "1")]
+    [InlineData(
+      "~=1.1.1",
+      VersionMatcher.OperationKind.Compatible,
+      "1.1.1",
+      VersionMatcher.OperationKind.GreaterThanEqual,
+      "1.1.1",
+      VersionMatcher.OperationKind.Matching,
+      "1.1")]
+    [InlineData(
+      "~=1.1.1-alpha",
+      VersionMatcher.OperationKind.Compatible,
+      "1.1.1-alpha",
+      VersionMatcher.OperationKind.GreaterThanEqual,
+      "1.1.1",
+      VersionMatcher.OperationKind.Matching,
+      "1.1")]
+    [InlineData(
+      "~=1.1.1-alpha+dev",
+      VersionMatcher.OperationKind.Compatible,
+      "1.1.1-alpha+dev",
+      VersionMatcher.OperationKind.GreaterThanEqual,
+      "1.1.1",
+      VersionMatcher.OperationKind.Matching,
+      "1.1")]
+    public void CorrectlyCreatesCompoundMatchers(
+      string expression,
+      VersionMatcher.OperationKind operationKind,
+      string baseVersion,
+      VersionMatcher.OperationKind firstChildOperation,
+      string firstChildBaseVersion,
+      VersionMatcher.OperationKind? secondChildOperation,
+      string secondChildBaseVersion
+    )
+    {
+      var matcher = VersionMatcher.Create(expression);
+      Assert.Equal(operationKind, matcher.Operation);
+      Assert.Equal(new VersionInfo {Version = baseVersion}, matcher.BaseVersion);
+
+      var compoundMatcher = (CompoundVersionMatcher) matcher;
+
+      var firstChild = compoundMatcher[0];
+      Assert.Equal(firstChildOperation, firstChild.Operation);
+      Assert.Equal(new VersionInfo {Version = firstChildBaseVersion}, firstChild.BaseVersion);
+
+      if (secondChildOperation.HasValue)
+      {
+        var secondChild = compoundMatcher[1];
+        Assert.Equal(secondChildOperation, secondChild.Operation);
+        Assert.Equal(new VersionInfo {Version = secondChildBaseVersion}, secondChild.BaseVersion);
+      }
     }
 
     [Theory]
