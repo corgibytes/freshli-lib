@@ -80,13 +80,14 @@ namespace LibMetrics.Languages.Python
       {
         var compound = new CompoundVersionMatcher();
         compound.Operation = OperationKind.Compatible;
-
-        var first = new BaseVersionMatcher();
-        first.Operation = OperationKind.GreaterThanEqual;
-        first.BaseVersion = new VersionInfo()
+        compound.BaseVersion = new VersionInfo()
         {
           Version = value.Remove(0, 2)
         };
+
+        var first = new BaseVersionMatcher();
+        first.Operation = OperationKind.GreaterThanEqual;
+        first.BaseVersion = compound.BaseVersion;
         compound.Add(first);
 
         var secondVersion = new VersionInfo()
