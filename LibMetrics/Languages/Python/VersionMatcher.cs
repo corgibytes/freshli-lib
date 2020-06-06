@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using LibGit2Sharp;
@@ -31,6 +32,12 @@ namespace LibMetrics.Languages.Python
         result = new BaseVersionMatcher();
         value = value.Remove(0, 2);
         result.Operation = OperationKind.Matching;
+
+        if (value.StartsWith("="))
+        {
+          throw new Exception(
+            $"Unsupported matcher: {OperationKind.Arbitrary}");
+        }
 
         if (value.EndsWith(".*"))
         {
