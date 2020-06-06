@@ -101,12 +101,12 @@ namespace LibMetrics.Languages.Python
         {
           Version = first.BaseVersion.Version
         };
-        secondVersion.BuildMetadata = null;
-        secondVersion.PreRelease = null;
+        secondVersion.RemoveBuildMetadata();
+        secondVersion.RemovePreRelease();
 
         if (secondVersion.Minor.HasValue && secondVersion.Patch.HasValue)
         {
-          secondVersion.Patch = null;
+          secondVersion.RemovePatch();
           var second = new BasicVersionMatcher();
           second.Operation = OperationKind.Matching;
           second.BaseVersion = secondVersion;
@@ -114,7 +114,7 @@ namespace LibMetrics.Languages.Python
         }
         else if (secondVersion.Minor.HasValue)
         {
-          secondVersion.Minor = null;
+          secondVersion.RemoveMinor();
           var second = new BasicVersionMatcher();
           second.Operation = OperationKind.Matching;
           second.BaseVersion = secondVersion;

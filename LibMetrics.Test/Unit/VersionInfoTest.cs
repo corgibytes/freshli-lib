@@ -86,5 +86,82 @@ namespace LibMetrics.Test.Unit
       var right = new VersionInfo() {Version = rightVersion};
       Assert.Equal(expected, left.CompareTo(right));
     }
+
+    [Theory]
+    [InlineData("1+dev", "1")]
+    [InlineData("1.2+dev", "1.2")]
+    [InlineData("1.2.3+dev", "1.2.3")]
+    [InlineData("1.2.3-alpha1+dev", "1.2.3-alpha1")]
+    public void RemovableBuildMetadata(
+      string beforeVersion,
+      string afterVersion)
+    {
+      var info = new VersionInfo {Version = beforeVersion};
+      info.RemoveBuildMetadata();
+
+      Assert.Equal(new VersionInfo {Version = afterVersion}, info);
+    }
+
+    [Theory]
+    [InlineData("1", "1")]
+    [InlineData("1+dev", "1+dev")]
+    [InlineData("1-alpha+dev", "1+dev")]
+    [InlineData("1-alpha1+dev", "1+dev")]
+    [InlineData("1.2", "1.2")]
+    [InlineData("1.2+dev", "1.2+dev")]
+    [InlineData("1.2-alpha+dev", "1.2+dev")]
+    [InlineData("1.2-alpha1+dev", "1.2+dev")]
+    [InlineData("1.2.3", "1.2.3")]
+    [InlineData("1.2.3+dev", "1.2.3+dev")]
+    [InlineData("1.2.3-alpha+dev", "1.2.3+dev")]
+    [InlineData("1.2.3-alpha1+dev", "1.2.3+dev")]
+    public void RemovablePreRelease(
+      string beforeVersion,
+      string afterVersion)
+    {
+      var info = new VersionInfo {Version = beforeVersion};
+      info.RemovePreRelease();
+
+      Assert.Equal(new VersionInfo {Version = afterVersion}, info);
+    }
+
+    [Theory]
+    [InlineData("1", "1")]
+    [InlineData("1+dev", "1+dev")]
+    [InlineData("1.2", "1.2")]
+    [InlineData("1.2+dev", "1.2+dev")]
+    [InlineData("1.2.3", "1.2")]
+    [InlineData("1.2.3+dev", "1.2+dev")]
+    [InlineData("1.2.3-alpha", "1.2-alpha")]
+    [InlineData("1.2.3-alpha+dev", "1.2-alpha+dev")]
+    public void RemovablePatch(
+      string beforeVersion,
+      string afterVersion)
+    {
+      var info = new VersionInfo {Version = beforeVersion};
+      info.RemovePatch();
+
+      Assert.Equal(new VersionInfo {Version = afterVersion}, info);
+    }
+
+    [Theory]
+    [InlineData("1", "1")]
+    [InlineData("1+dev", "1+dev")]
+    [InlineData("1.2", "1")]
+    [InlineData("1.2+dev", "1+dev")]
+    [InlineData("1.2.3", "1")]
+    [InlineData("1.2.3+dev", "1+dev")]
+    [InlineData("1.2.3-alpha", "1-alpha")]
+    [InlineData("1.2.3-alpha+dev", "1.alpha+dev")]
+    public void RemovableMinor(
+      string beforeVersion,
+      string afterVersion)
+    {
+      var info = new VersionInfo {Version = beforeVersion};
+      info.RemoveMinor();
+
+      Assert.Equal(new VersionInfo {Version = afterVersion}, info);
+    }
+
   }
 }

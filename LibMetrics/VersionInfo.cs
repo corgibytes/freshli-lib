@@ -19,8 +19,8 @@ namespace LibMetrics
     }
 
     public int Major { get; private set; }
-    public int? Minor { get; set; }
-    public int? Patch { get; set; }
+    public int? Minor { get; private set; }
+    public int? Patch { get; private set; }
 
     public string PreRelease
     {
@@ -34,7 +34,7 @@ namespace LibMetrics
 
     public string PreReleaseLabel { get; private set; }
     public int? PreReleaseIncrement { get; private set; }
-    public string BuildMetadata { get; set; }
+    public string BuildMetadata { get; private set; }
 
     private Regex versionExpression = new Regex(@"^v?(0|[1-9]\d*)\.?(0|[1-9]\d*)?\.?(0|[1-9]\d*)?(?:-?((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$");
     private Regex preReleaseExpression = new Regex(@"([a-zA-Z-]+)\.?(\d*)");
@@ -54,38 +54,85 @@ namespace LibMetrics
       }
     }
 
-    private void ParseVersion(string value)
+    private enum SkippableVersionComponent
     {
+      Minor,
+      Patch,
+      PreRelease,
+      BuildMetadata
+    }
+
+    private void ParseVersion(
+      string value,
+      SkippableVersionComponent? componentToSkip = null)
+    {
+      Minor = null;
+      Patch = null;
+      PreRelease = null;
+      BuildMetadata = null;
+
       var match = versionExpression.Match(value);
       Major = Convert.ToInt32(match.Groups[1].Value);
 
-      var minorValue = match.Groups[2].Value;
-      Minor = null;
-      if (!string.IsNullOrWhiteSpace(minorValue))
+      if (!componentToSkip.HasValue || componentToSkip.Value != SkippableVersionComponent.Minor)
       {
-        Minor = Convert.ToInt32(minorValue);
+        var minorValue = match.Groups[2].Value;
+        Minor = null;
+        if (!string.IsNullOrWhiteSpace(minorValue))
+        {
+          Minor = Convert.ToInt32(minorValue);
+        }
+
+        if (!componentToSkip.HasValue || componentToSkip.Value != SkippableVersionComponent.Patch)
+        {
+          var patchValue = match.Groups[3].Value;
+          Patch = null;
+          if (!string.IsNullOrWhiteSpace(patchValue))
+          {
+            Patch = Convert.ToInt32(patchValue);
+          }
+        }
       }
 
-      var patchValue = match.Groups[3].Value;
-      Patch = null;
-      if (!string.IsNullOrWhiteSpace(patchValue))
+      if (!componentToSkip.HasValue || componentToSkip.Value != SkippableVersionComponent.PreRelease)
       {
-        Patch = Convert.ToInt32(patchValue);
+        var preReleaseValue = match.Groups[4].Value;
+        PreRelease = null;
+        if (!string.IsNullOrWhiteSpace(preReleaseValue))
+        {
+          PreRelease = preReleaseValue;
+        }
       }
 
-      var preReleaseValue = match.Groups[4].Value;
-      PreRelease = null;
-      if (!string.IsNullOrWhiteSpace(preReleaseValue))
+      if (!componentToSkip.HasValue || componentToSkip.Value != SkippableVersionComponent.BuildMetadata)
       {
-        PreRelease = preReleaseValue;
+        var buildMetadataValue = match.Groups[5].Value;
+        BuildMetadata = null;
+        if (!string.IsNullOrWhiteSpace(buildMetadataValue))
+        {
+          BuildMetadata = buildMetadataValue;
+        }
       }
+    }
 
-      var buildMetadataValue = match.Groups[5].Value;
-      BuildMetadata = null;
-      if (!string.IsNullOrWhiteSpace(buildMetadataValue))
-      {
-        BuildMetadata = buildMetadataValue;
-      }
+    public void RemoveBuildMetadata()
+    {
+      ParseVersion(Version, SkippableVersionComponent.BuildMetadata);
+    }
+
+    public void RemovePreRelease()
+    {
+      ParseVersion(Version, SkippableVersionComponent.PreRelease);
+    }
+
+    public void RemovePatch()
+    {
+      ParseVersion(Version, SkippableVersionComponent.Patch);
+    }
+
+    public void RemoveMinor()
+    {
+      ParseVersion(Version, SkippableVersionComponent.Minor);
     }
 
     public DateTime DatePublished { get; set; }
