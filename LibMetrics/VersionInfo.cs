@@ -18,7 +18,7 @@ namespace LibMetrics
       }
     }
 
-    public int Major { get; private set; }
+    public int? Major { get; private set; }
     public int? Minor { get; private set; }
     public int? Patch { get; private set; }
 
@@ -70,92 +70,101 @@ namespace LibMetrics
     private void ParseVersion(
       SkippableVersionComponent? componentToSkip = null)
     {
+      Major = null;
       Minor = null;
       Patch = null;
       PreRelease = null;
       BuildMetadata = null;
 
-      var match = versionExpression.Match(_version);
-      Major = Convert.ToInt32(match.Groups[1].Value);
-
-      if (componentToSkip.HasValue)
+      if (versionExpression.IsMatch(_version))
       {
-        var start = 0;
-        var length = 0;
+        var match = versionExpression.Match(_version);
 
-        if (componentToSkip.Value == SkippableVersionComponent.Minor)
+        var majorValue = match.Groups[1].Value;
+        if (!string.IsNullOrWhiteSpace(majorValue))
         {
-          if (match.Groups[2].Success)
+          Major = Convert.ToInt32(majorValue);
+        }
+
+        if (componentToSkip.HasValue)
+        {
+          var start = 0;
+          var length = 0;
+
+          if (componentToSkip.Value == SkippableVersionComponent.Minor)
           {
-            start = match.Groups[2].Index - 1;
-            length = match.Groups[2].Length + 1;
+            if (match.Groups[2].Success)
+            {
+              start = match.Groups[2].Index - 1;
+              length = match.Groups[2].Length + 1;
+              if (match.Groups[3].Success)
+              {
+                length += match.Groups[3].Length + 1;
+              }
+            }
+          }
+          else if (componentToSkip.Value == SkippableVersionComponent.Patch)
+          {
             if (match.Groups[3].Success)
             {
-              length += match.Groups[3].Length + 1;
+              start = match.Groups[3].Index - 1;
+              length = match.Groups[3].Length + 1;
             }
           }
-        }
-        else if (componentToSkip.Value == SkippableVersionComponent.Patch)
-        {
-          if (match.Groups[3].Success)
+          else if (componentToSkip == SkippableVersionComponent.PreRelease)
           {
-            start = match.Groups[3].Index - 1;
-            length = match.Groups[3].Length + 1;
-          }
-        }
-        else if (componentToSkip == SkippableVersionComponent.PreRelease)
-        {
-          if (match.Groups[4].Success)
-          {
-            start = match.Groups[4].Index;
-            length = match.Groups[4].Length;
-            if (start > 0 && _version[start - 1] == '-')
+            if (match.Groups[4].Success)
             {
-              start--;
-              length++;
+              start = match.Groups[4].Index;
+              length = match.Groups[4].Length;
+              if (start > 0 && _version[start - 1] == '-')
+              {
+                start--;
+                length++;
+              }
             }
           }
-        }
-        else if (componentToSkip == SkippableVersionComponent.BuildMetadata)
-        {
-          if (match.Groups[5].Success)
+          else if (componentToSkip == SkippableVersionComponent.BuildMetadata)
           {
-            start = match.Groups[5].Index - 1;
-            length = match.Groups[5].Length + 1;
+            if (match.Groups[5].Success)
+            {
+              start = match.Groups[5].Index - 1;
+              length = match.Groups[5].Length + 1;
+            }
           }
+
+          _version = _version.Remove(start, length);
         }
 
-        _version = _version.Remove(start, length);
-      }
+        match = versionExpression.Match(_version);
 
-      match = versionExpression.Match(_version);
+        var minorValue = match.Groups[2].Value;
+        Minor = null;
+        if (!string.IsNullOrWhiteSpace(minorValue))
+        {
+          Minor = Convert.ToInt32(minorValue);
+        }
 
-      var minorValue = match.Groups[2].Value;
-      Minor = null;
-      if (!string.IsNullOrWhiteSpace(minorValue))
-      {
-        Minor = Convert.ToInt32(minorValue);
-      }
+        var patchValue = match.Groups[3].Value;
+        Patch = null;
+        if (!string.IsNullOrWhiteSpace(patchValue))
+        {
+          Patch = Convert.ToInt32(patchValue);
+        }
 
-      var patchValue = match.Groups[3].Value;
-      Patch = null;
-      if (!string.IsNullOrWhiteSpace(patchValue))
-      {
-        Patch = Convert.ToInt32(patchValue);
-      }
+        var preReleaseValue = match.Groups[4].Value;
+        PreRelease = null;
+        if (!string.IsNullOrWhiteSpace(preReleaseValue))
+        {
+          PreRelease = preReleaseValue;
+        }
 
-      var preReleaseValue = match.Groups[4].Value;
-      PreRelease = null;
-      if (!string.IsNullOrWhiteSpace(preReleaseValue))
-      {
-        PreRelease = preReleaseValue;
-      }
-
-      var buildMetadataValue = match.Groups[5].Value;
-      BuildMetadata = null;
-      if (!string.IsNullOrWhiteSpace(buildMetadataValue))
-      {
-        BuildMetadata = buildMetadataValue;
+        var buildMetadataValue = match.Groups[5].Value;
+        BuildMetadata = null;
+        if (!string.IsNullOrWhiteSpace(buildMetadataValue))
+        {
+          BuildMetadata = buildMetadataValue;
+        }
       }
     }
 
@@ -197,10 +206,15 @@ namespace LibMetrics
         throw new ArgumentException();
       }
 
-      var result = Major.CompareTo(otherVersionInfo.Major);
-      if (result != 0)
+      var result = 0;
+
+      if (Major.HasValue && otherVersionInfo.Major.HasValue)
       {
-        return result;
+        result = Major.Value.CompareTo(otherVersionInfo.Major.Value);
+        if (result != 0)
+        {
+          return result;
+        }
       }
 
       if (Minor.HasValue && otherVersionInfo.Minor.HasValue)

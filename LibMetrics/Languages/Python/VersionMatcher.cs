@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using LibGit2Sharp;
 
 namespace LibMetrics.Languages.Python
 {
@@ -27,7 +26,11 @@ namespace LibMetrics.Languages.Python
     {
       VersionMatcher result;
 
-      if (value.Contains(","))
+      if (String.IsNullOrEmpty(value))
+      {
+        result = new AnyVersionMatcher();
+      }
+      else if (value.Contains(","))
       {
         var subExpressions = value.Split(",");
         var compound = new CompoundVersionMatcher();
@@ -209,6 +212,14 @@ namespace LibMetrics.Languages.Python
     public override bool DoesMatch(VersionInfo version)
     {
       return _matchers.All(matcher => matcher.DoesMatch(version));
+    }
+  }
+
+  public class AnyVersionMatcher : VersionMatcher
+  {
+    public override bool DoesMatch(VersionInfo version)
+    {
+      return true;
     }
   }
 }
