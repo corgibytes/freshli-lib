@@ -100,6 +100,7 @@ namespace LibMetrics.Test.Unit
       info.RemoveBuildMetadata();
 
       Assert.Equal(new VersionInfo {Version = afterVersion}, info);
+      Assert.Equal(afterVersion, info.Version);
     }
 
     [Theory]
@@ -115,6 +116,12 @@ namespace LibMetrics.Test.Unit
     [InlineData("1.2.3+dev", "1.2.3+dev")]
     [InlineData("1.2.3-alpha+dev", "1.2.3+dev")]
     [InlineData("1.2.3-alpha1+dev", "1.2.3+dev")]
+    [InlineData("1.2.3alpha+dev", "1.2.3+dev")]
+    [InlineData("1.2.3alpha1+dev", "1.2.3+dev")]
+    [InlineData("1.2alpha+dev", "1.2+dev")]
+    [InlineData("1.2alpha1+dev", "1.2+dev")]
+    [InlineData("1alpha+dev", "1+dev")]
+    [InlineData("1alpha1+dev", "1+dev")]
     public void RemovablePreRelease(
       string beforeVersion,
       string afterVersion)
@@ -123,6 +130,7 @@ namespace LibMetrics.Test.Unit
       info.RemovePreRelease();
 
       Assert.Equal(new VersionInfo {Version = afterVersion}, info);
+      Assert.Equal(afterVersion, info.Version);
     }
 
     [Theory]
@@ -142,6 +150,7 @@ namespace LibMetrics.Test.Unit
       info.RemovePatch();
 
       Assert.Equal(new VersionInfo {Version = afterVersion}, info);
+      Assert.Equal(afterVersion, info.Version);
     }
 
     [Theory]
@@ -152,7 +161,7 @@ namespace LibMetrics.Test.Unit
     [InlineData("1.2.3", "1")]
     [InlineData("1.2.3+dev", "1+dev")]
     [InlineData("1.2.3-alpha", "1-alpha")]
-    [InlineData("1.2.3-alpha+dev", "1.alpha+dev")]
+    [InlineData("1.2.3-alpha+dev", "1-alpha+dev")]
     public void RemovableMinor(
       string beforeVersion,
       string afterVersion)
@@ -161,7 +170,7 @@ namespace LibMetrics.Test.Unit
       info.RemoveMinor();
 
       Assert.Equal(new VersionInfo {Version = afterVersion}, info);
+      Assert.Equal(afterVersion, info.Version);
     }
-
   }
 }

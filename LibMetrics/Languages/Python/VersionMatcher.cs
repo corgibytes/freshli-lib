@@ -94,12 +94,17 @@ namespace LibMetrics.Languages.Python
 
         var first = new BasicVersionMatcher();
         first.Operation = OperationKind.GreaterThanEqual;
-        first.BaseVersion = compound.BaseVersion;
+        var firstVersion = new VersionInfo()
+        {
+          Version = compound.BaseVersion.Version
+        };
+
+        first.BaseVersion = firstVersion;
         compound.Add(first);
 
         var secondVersion = new VersionInfo()
         {
-          Version = first.BaseVersion.Version
+          Version = compound.BaseVersion.Version
         };
         secondVersion.RemoveBuildMetadata();
         secondVersion.RemovePreRelease();
@@ -108,7 +113,7 @@ namespace LibMetrics.Languages.Python
         {
           secondVersion.RemovePatch();
           var second = new BasicVersionMatcher();
-          second.Operation = OperationKind.Matching;
+          second.Operation = OperationKind.PrefixMatching;
           second.BaseVersion = secondVersion;
           compound.Add(second);
         }
@@ -116,7 +121,7 @@ namespace LibMetrics.Languages.Python
         {
           secondVersion.RemoveMinor();
           var second = new BasicVersionMatcher();
-          second.Operation = OperationKind.Matching;
+          second.Operation = OperationKind.PrefixMatching;
           second.BaseVersion = secondVersion;
           compound.Add(second);
         }

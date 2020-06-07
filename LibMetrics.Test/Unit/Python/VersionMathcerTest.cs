@@ -1,6 +1,8 @@
 using System;
+using ApprovalUtilities.Utilities;
 using LibMetrics.Languages.Python;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace LibMetrics.Test.Unit
 {
@@ -61,7 +63,7 @@ namespace LibMetrics.Test.Unit
       "1.1",
       VersionMatcher.OperationKind.GreaterThanEqual,
       "1.1",
-      VersionMatcher.OperationKind.Matching,
+      VersionMatcher.OperationKind.PrefixMatching,
       "1")]
     [InlineData(
       "~=1.1.1",
@@ -69,23 +71,23 @@ namespace LibMetrics.Test.Unit
       "1.1.1",
       VersionMatcher.OperationKind.GreaterThanEqual,
       "1.1.1",
-      VersionMatcher.OperationKind.Matching,
+      VersionMatcher.OperationKind.PrefixMatching,
       "1.1")]
     [InlineData(
       "~=1.1.1-alpha",
       VersionMatcher.OperationKind.Compatible,
       "1.1.1-alpha",
       VersionMatcher.OperationKind.GreaterThanEqual,
-      "1.1.1",
-      VersionMatcher.OperationKind.Matching,
+      "1.1.1-alpha",
+      VersionMatcher.OperationKind.PrefixMatching,
       "1.1")]
     [InlineData(
       "~=1.1.1-alpha+dev",
       VersionMatcher.OperationKind.Compatible,
       "1.1.1-alpha+dev",
       VersionMatcher.OperationKind.GreaterThanEqual,
-      "1.1.1",
-      VersionMatcher.OperationKind.Matching,
+      "1.1.1-alpha+dev",
+      VersionMatcher.OperationKind.PrefixMatching,
       "1.1")]
     public void CorrectlyCreatesCompoundMatchers(
       string expression,
@@ -105,13 +107,17 @@ namespace LibMetrics.Test.Unit
 
       var firstChild = compoundMatcher[0];
       Assert.Equal(firstChildOperation, firstChild.Operation);
-      Assert.Equal(new VersionInfo {Version = firstChildBaseVersion}, firstChild.BaseVersion);
+
+      var expectedFirstChildVersion = new VersionInfo {Version = firstChildBaseVersion};
+      Assert.Equal(expectedFirstChildVersion, firstChild.BaseVersion);
 
       if (secondChildOperation.HasValue)
       {
         var secondChild = compoundMatcher[1];
         Assert.Equal(secondChildOperation, secondChild.Operation);
-        Assert.Equal(new VersionInfo {Version = secondChildBaseVersion}, secondChild.BaseVersion);
+
+        var expectedSecondChildVersion = new VersionInfo {Version = secondChildBaseVersion};
+        Assert.Equal(expectedSecondChildVersion, secondChild.BaseVersion);
       }
     }
 
@@ -168,6 +174,7 @@ namespace LibMetrics.Test.Unit
     [InlineData("1.0.0", "~=0.0.1", false)]
     [InlineData("1.0.0", "~=0.1.0", false)]
     [InlineData("1.0.0", "~=1", true)]
+    [InlineData("1.0.0", ">=1", true)]
     [InlineData("1.0.0", "~=1.0.0", true)]
     [InlineData("1.0.0", "~=1.0.0-alpha", true)]
     [InlineData("1.0.0", "~=1.0.1", false)]
@@ -187,12 +194,14 @@ namespace LibMetrics.Test.Unit
     [InlineData("1.0.0-alpha+test1", "!=1.0.0-alpha+test2", false)]
     [InlineData("1.0.0-alpha+test1", "<1.0.0-alpha+test2", false)]
     [InlineData("1.0.0-alpha+test1", "<=1.0.0-alpha+test2", true)]
+    [InlineData("1.0.0-alpha+test1", "==1.0.*", true)]
     [InlineData("1.0.0-alpha+test1", ">1.0.0-alpha+test2", false)]
     [InlineData("1.0.0-alpha+test1", ">=1.0.0-alpha+test2", true)]
     [InlineData("1.0.0-alpha+test1", "~=1.0.0-alpha+test2", true)]
     [InlineData("1.0.0-alpha+test2", "!=1.0.0-alpha+test1", false)]
     [InlineData("1.0.0-alpha+test2", "<1.0.0-alpha+test1", false)]
     [InlineData("1.0.0-alpha+test2", "<=1.0.0-alpha+test1", true)]
+    [InlineData("1.0.0-alpha+test2", "==1.0.*", true)]
     [InlineData("1.0.0-alpha+test2", ">1.0.0-alpha+test1", false)]
     [InlineData("1.0.0-alpha+test2", ">=1.0.0-alpha+test1", true)]
     [InlineData("1.0.0-alpha+test2", "~=1.0.0-alpha+test1", true)]
@@ -205,40 +214,56 @@ namespace LibMetrics.Test.Unit
     [InlineData("1.0.1", "!=1.0.0", true)]
     [InlineData("1.0.1", "<1.0.0", false)]
     [InlineData("1.0.1", "<=1.0.0", false)]
+    [InlineData("1.0.1", "==1.0.*", true)]
     [InlineData("1.0.1", ">1.0.0", true)]
     [InlineData("1.0.1", ">=1.0.0", true)]
     [InlineData("1.0.1", "~=1.0.0", true)]
-    [InlineData("1.0.1", "~=1.0.0-alpha1", false)]
-    [InlineData("1.0.1-alpha1", "~=1.0.0-alpha1", false)]
-    [InlineData("1.0.1-alpha1", "~=1.0.0-alpha2", false)]
-    [InlineData("1.0.1-alpha2", "~=1.0.0-alpha1", false)]
+    [InlineData("1.0.1", "~=1.0.0-alpha1", true)]
+    [InlineData("1.0.1-alpha1", "~=1.0.0-alpha1", true)]
+    [InlineData("1.0.1-alpha1", "~=1.0.0-alpha2", true)]
+    [InlineData("1.0.1-alpha2", "~=1.0.0-alpha1", true)]
     [InlineData("1.1.0", "!=1.0.0", true)]
     [InlineData("1.1.0", "<1.0.0", false)]
     [InlineData("1.1.0", "<=1.0.0", false)]
+    [InlineData("1.1.0", "==1.*", true)]
+    [InlineData("1.1.0", "==1.1.*", true)]
     [InlineData("1.1.0", ">1.0.0", true)]
+    [InlineData("1.1.0", ">=1", true)]
     [InlineData("1.1.0", ">=1.0.0", true)]
+    [InlineData("1.1.0", ">=1.1", true)]
+    [InlineData("1.1.0", ">=1.1.0", true)]
+    [InlineData("1.1.0", ">=1.1.0-alpha1", true)]
     [InlineData("1.1.0", "~=1", true)]
     [InlineData("1.1.0", "~=1.0.0", false)]
     [InlineData("1.1.0", "~=1.0.0-alpha1", false)]
     [InlineData("1.1.0", "~=1.1", true)]
     [InlineData("1.1.0", "~=1.1.0", true)]
     [InlineData("1.1.0", "~=1.1.0-alpha1", true)]
+    [InlineData("1.1.0-alpha1", "==1.1.*", true)]
+    [InlineData("1.1.0-alpha1", ">=1.1.0-alpha1", true)]
     [InlineData("1.1.0-alpha1", "~=1.0.0-alpha1", false)]
     [InlineData("1.1.0-alpha1", "~=1.0.0-alpha2", false)]
     [InlineData("1.1.0-alpha1", "~=1.1.0-alpha1", true)]
     [InlineData("1.1.0-alpha1", "~=1.1.0-alpha2", false)]
+    [InlineData("1.1.0-alpha2", "==1.1.*", true)]
+    [InlineData("1.1.0-alpha2", ">=1.1.0-alpha1", true)]
     [InlineData("1.1.0-alpha2", "~=1.0.0-alpha1", false)]
     [InlineData("1.1.0-alpha2", "~=1.1.0-alpha1", true)]
+    [InlineData("1.1.1", "==1.1.*", true)]
+    [InlineData("1.1.1", ">=1.1.0", true)]
     [InlineData("1.1.1", "~=1.1.0", true)]
-    [InlineData("1.1.1", "~=1.1.0-alpha1", false)]
+    [InlineData("1.1.1", "~=1.1.0-alpha1", true)]
     [InlineData("1.1.1", "~=1.2.0", false)]
     [InlineData("1.1.1", "~=1.2.0-alpha1", false)]
-    [InlineData("1.1.1-alpha1", "~=1.1.0-alpha1", false)]
-    [InlineData("1.1.1-alpha1", "~=1.1.0-alpha2", false)]
+    [InlineData("1.1.1-alpha1", "~=1.1.0-alpha1", true)]
+    [InlineData("1.1.1-alpha1", "~=1.1.0-alpha2", true)]
     [InlineData("1.1.1-alpha1", "~=1.2.0-alpha1", false)]
     [InlineData("1.1.1-alpha1", "~=1.2.0-alpha2", false)]
-    [InlineData("1.1.1-alpha2", "~=1.1.0-alpha1", false)]
+    [InlineData("1.1.1-alpha2", "~=1.1.0-alpha1", true)]
     [InlineData("1.1.1-alpha2", "~=1.2.0-alpha1", false)]
+    [InlineData("1.2.0", "==1.*", true)]
+    [InlineData("1.2.0", ">=1", true)]
+    [InlineData("1.2.0", ">=1.1", true)]
     [InlineData("1.2.0", "~=1", true)]
     [InlineData("1.2.0", "~=1.1", true)]
     [InlineData("1.2.3", "==1.*", true)]
@@ -250,11 +275,12 @@ namespace LibMetrics.Test.Unit
     [InlineData("2.0.0", "<1.0.0", false)]
     [InlineData("2.0.0", "<=1.0.0", false)]
     [InlineData("2.0.0", ">1.0.0", true)]
+    [InlineData("2.0.0", ">=1", true)]
     [InlineData("2.0.0", ">=1.0.0", true)]
     [InlineData("2.0.0", "~=1", true)]
     [InlineData("2.0.0", "~=1.0", false)]
     [InlineData("2.0.0", "~=1.0.0", false)]
-    public void DoesMatchHandlesEqualsOperator(
+    public void DoesMatchHandleVersionSpecifierOperator(
       string version,
       string expression,
       bool doesMatch)
