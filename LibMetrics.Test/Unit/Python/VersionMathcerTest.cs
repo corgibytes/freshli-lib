@@ -89,7 +89,7 @@ namespace LibMetrics.Test.Unit
       "1.1.1-alpha+dev",
       VersionMatcher.OperationKind.PrefixMatching,
       "1.1")]
-    public void CorrectlyCreatesCompoundMatchers(
+    public void CorrectlyCreatesCompatibleOperatorsAsCompoundMatchers(
       string expression,
       VersionMatcher.OperationKind operationKind,
       string baseVersion,
@@ -102,6 +102,40 @@ namespace LibMetrics.Test.Unit
       var matcher = VersionMatcher.Create(expression);
       Assert.Equal(operationKind, matcher.Operation);
       Assert.Equal(new VersionInfo {Version = baseVersion}, matcher.BaseVersion);
+
+      var compoundMatcher = (CompoundVersionMatcher) matcher;
+
+      var firstChild = compoundMatcher[0];
+      Assert.Equal(firstChildOperation, firstChild.Operation);
+
+      var expectedFirstChildVersion = new VersionInfo {Version = firstChildBaseVersion};
+      Assert.Equal(expectedFirstChildVersion, firstChild.BaseVersion);
+
+      if (secondChildOperation.HasValue)
+      {
+        var secondChild = compoundMatcher[1];
+        Assert.Equal(secondChildOperation, secondChild.Operation);
+
+        var expectedSecondChildVersion = new VersionInfo {Version = secondChildBaseVersion};
+        Assert.Equal(expectedSecondChildVersion, secondChild.BaseVersion);
+      }
+    }
+
+    [Theory]
+    [InlineData(
+      ">=2017.2,<2020.1",
+      VersionMatcher.OperationKind.GreaterThanEqual,
+      "2017.2",
+      VersionMatcher.OperationKind.LessThan,
+      "2020.1")]
+    public void CorrectlyCreatesCommaSeparatedCompoundMatchers(
+      string expression,
+      VersionMatcher.OperationKind firstChildOperation,
+      string firstChildBaseVersion,
+      VersionMatcher.OperationKind? secondChildOperation,
+      string secondChildBaseVersion)
+    {
+      var matcher = VersionMatcher.Create(expression);
 
       var compoundMatcher = (CompoundVersionMatcher) matcher;
 

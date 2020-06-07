@@ -27,7 +27,19 @@ namespace LibMetrics.Languages.Python
     {
       VersionMatcher result;
 
-      if (value.StartsWith("=="))
+      if (value.Contains(","))
+      {
+        var subExpressions = value.Split(",");
+        var compound = new CompoundVersionMatcher();
+
+        foreach (var subExpression in subExpressions)
+        {
+          compound.Add(Create(subExpression));
+        }
+
+        result = compound;
+      }
+      else if (value.StartsWith("=="))
       {
         result = new BasicVersionMatcher();
         value = value.Remove(0, 2);
