@@ -15,7 +15,7 @@ namespace LibMetrics.Languages.Ruby
         Where(version => !version.Prerelease && version.CreatedAt <= date).
         OrderByDescending(version => version.CreatedAt);
 
-      var firstCandidate = candidates.First();
+      var firstCandidate = candidates.FirstOrDefault();
       if (firstCandidate != null)
       {
         return new VersionInfo(
@@ -44,7 +44,7 @@ namespace LibMetrics.Languages.Ruby
     {
       var response = ApiRequest(name);
 
-      var candidate = response.First(package => package.Number == version);
+      var candidate = response.FirstOrDefault(package => package?.Number == version);
 
       if (candidate != null)
       {
