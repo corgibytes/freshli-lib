@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using Freshli.Languages.Php;
+using Freshli.Languages.Python;
 using Freshli.Languages.Ruby;
 
 namespace Freshli
@@ -11,6 +12,7 @@ namespace Freshli
         {
           ManifestFinder.Register<RubyBundlerManifestFinder>();
           ManifestFinder.Register<PhpComposerManifestFinder>();
+          ManifestFinder.Register<PipRequirementsTxtManifestFinder>();
 
           FileHistoryFinder.Register<GitFileHistoryFinder>();
 
