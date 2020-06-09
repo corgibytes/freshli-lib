@@ -322,6 +322,8 @@ namespace LibMetrics.Test.Unit
     [InlineData("2.0.0", "~=1", true)]
     [InlineData("2.0.0", "~=1.0", false)]
     [InlineData("2.0.0", "~=1.0.0", false)]
+    [InlineData("2.2.0", "==2.2", true)]
+    [InlineData("2.2.1", "==2.2", false)]
     public void DoesMatchHandleVersionSpecifierOperator(
       string version,
       string expression,

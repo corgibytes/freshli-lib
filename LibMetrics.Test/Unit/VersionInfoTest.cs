@@ -80,6 +80,12 @@ namespace LibMetrics.Test.Unit
     [InlineData("1.1.1", "1.1.1+test", 0)]
     [InlineData("1.1.1-rc2+dev", "1.1.1-rc2", 0)]
     [InlineData("1.1.1-rc2", "1.1.1-rc2+dev", 0)]
+    [InlineData("2", "2.0.0", 0)]
+    [InlineData("2.0", "2.0.0", 0)]
+    [InlineData("2.0.0", "2", 0)]
+    [InlineData("2.0.0", "2.0", 0)]
+    [InlineData("2.2", "2.2.0", 0)]
+    [InlineData("2.2.0", "2.2", 0)]
     public void CompareToSortsByVersionFirst(string leftVersion, string rightVersion, int expected)
     {
       var left = new VersionInfo() {Version = leftVersion};
