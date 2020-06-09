@@ -1,7 +1,7 @@
-# libmetrics
+# freshli
 A CLI tool for collecting historical metrics about a project's dependencies
 
-The `libmetrics` command line tool captures historical metrics about a project's dependencies. In it's current form, the only metric that it computes is [libyear](https://libyear.com/).
+The `freshli` command line tool captures historical metrics about a project's dependencies. In it's current form, the only metric that it computes is [libyear](https://libyear.com/).
 
 For each language that the tool supports, the libyear metric is computed for each month in the past where dependency information is available.
 
