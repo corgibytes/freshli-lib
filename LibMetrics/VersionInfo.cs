@@ -224,10 +224,18 @@ namespace LibMetrics
       else if (Minor.HasValue)
       {
         result = 1;
+        if (Minor.Value == 0)
+        {
+          result = 0;
+        }
       }
       else if (otherVersionInfo.Minor.HasValue)
       {
         result = -1;
+        if (otherVersionInfo.Minor.Value == 0)
+        {
+          result = 0;
+        }
       }
       if (result != 0)
       {
@@ -241,10 +249,18 @@ namespace LibMetrics
       else if (Patch.HasValue)
       {
         result = 1;
+        if (Patch.Value == 0)
+        {
+          result = 0;
+        }
       }
       else if (otherVersionInfo.Patch.HasValue)
       {
         result = -1;
+        if (otherVersionInfo.Patch.Value == 0)
+        {
+          result = 0;
+        }
       }
       if (result != 0)
       {

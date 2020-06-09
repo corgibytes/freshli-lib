@@ -165,8 +165,7 @@ namespace LibMetrics.Languages.Python
 
       if (Operation == OperationKind.PrefixMatching)
       {
-        return version.Version.StartsWith(BaseVersion.Version) &&
-               version.CompareTo(BaseVersion) >= 0;
+        return version.Version.StartsWith(BaseVersion.Version);
       }
 
       if (Operation == OperationKind.LessThan)
