@@ -8,5 +8,6 @@ namespace LibMetrics
     void Add(string packageName, string packageVersion);
     void Parse(string contents);
     PackageInfo this[string packageName] { get; }
+    bool UsesExactMatches { get; }
   }
 }

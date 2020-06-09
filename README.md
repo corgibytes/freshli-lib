@@ -13,6 +13,8 @@ For each language that the tool supports, the libyear metric is computed for eac
   * bundler - reads information from `Gemfile.lock`
 * PHP
   * composer - reads information from `composer.json` and `composer.lock`
+* Python
+  * pip - reads information from `requirements.txt`
 
 ### Source Code Repositories
 

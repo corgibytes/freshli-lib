@@ -75,5 +75,7 @@ namespace LibMetrics.Languages.Ruby
     {
       get { return _list.First(package => package.Name == packageName); }
     }
+
+    public bool UsesExactMatches => true;
   }
 }

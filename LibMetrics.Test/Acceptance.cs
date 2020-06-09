@@ -1,10 +1,10 @@
 using System;
-using System.Globalization;
 using ApprovalTests;
 using ApprovalTests.Reporters;
 using ApprovalTests.Reporters.TestFrameworks;
 using LibMetrics.Languages.Php;
 using LibMetrics.Languages.Ruby;
+using LibMetrics.Languages.Python;
 using Xunit;
 
 namespace LibMetrics.Test
@@ -12,21 +12,20 @@ namespace LibMetrics.Test
   [UseReporter(typeof(XUnit2Reporter))]
   public class Acceptance
   {
-    private static DateTime ParseExact(string value)
-    {
-      return DateTime.ParseExact(value, "o", CultureInfo.InvariantCulture,
-        DateTimeStyles.RoundtripKind);
+    public Acceptance() {
+      ManifestFinder.Register<RubyBundlerManifestFinder>();
+      ManifestFinder.Register<PhpComposerManifestFinder>();
+      ManifestFinder.Register<PipRequirementsTxtManifestFinder>();
+
+      FileHistoryFinder.Register<GitFileHistoryFinder>();
     }
 
-    private DateTime _testingBoundary = ParseExact(
-      "2020-01-01T00:00:00.0000000Z");
+    private DateTime _testingBoundary =
+      new DateTime(2020, 01, 01, 0, 0, 0, DateTimeKind.Utc);
 
     [Fact]
     public void RubyGemsWithGitHistory()
     {
-      ManifestFinder.Register<RubyBundlerManifestFinder>();
-      FileHistoryFinder.Register<GitFileHistoryFinder>();
-
       var runner = new Runner();
 
       var rubyFixturePath = Fixtures.Path("ruby", "nokotest");
@@ -37,9 +36,6 @@ namespace LibMetrics.Test
 
     [Fact]
     public void RubyGemsWithHistoryViaGitHub() {
-      ManifestFinder.Register<RubyBundlerManifestFinder>();
-      FileHistoryFinder.Register<GitFileHistoryFinder>();
-
       var runner = new Runner();
 
       var repoUrl =
@@ -52,9 +48,6 @@ namespace LibMetrics.Test
     [Fact]
     public void RubyGemsFeedbinHistoryViaGitHub()
     {
-      ManifestFinder.Register<RubyBundlerManifestFinder>();
-      FileHistoryFinder.Register<GitFileHistoryFinder>();
-
       var runner = new Runner();
 
       var repoUrl = "https://github.com/feedbin/feedbin";
@@ -66,8 +59,6 @@ namespace LibMetrics.Test
     [Fact]
     public void ComposerWithoutGitHistory()
     {
-      ManifestFinder.Register<PhpComposerManifestFinder>();
-
       var runner = new Runner();
 
       var phpFixturePath = Fixtures.Path("php", "large");
@@ -79,12 +70,22 @@ namespace LibMetrics.Test
     [Fact]
     public void DrupalComposerWithoutGitHistory()
     {
-      ManifestFinder.Register<PhpComposerManifestFinder>();
-
       var runner = new Runner();
 
       var phpFixturePath = Fixtures.Path("php", "drupal");
       var results = runner.Run(phpFixturePath, asOf: _testingBoundary);
+
+      Approvals.VerifyAll(results, "results");
+    }
+
+    [Fact]
+    public void RequirementsTxtPyspider() {
+      var runner = new Runner();
+
+      var results = runner.Run(
+        "https://github.com/binux/pyspider",
+        asOf: _testingBoundary
+      );
 
       Approvals.VerifyAll(results, "results");
     }

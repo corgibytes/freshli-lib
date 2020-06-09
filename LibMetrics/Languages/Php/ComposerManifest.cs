@@ -52,5 +52,7 @@ namespace LibMetrics.Languages.Php
     {
       get { return _packages.First(package => package.Name == packageName); }
     }
+
+    public bool UsesExactMatches => true;
   }
 }

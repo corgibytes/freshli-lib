@@ -63,5 +63,10 @@ namespace LibMetrics.Languages.Php
 
       return null;
     }
+
+    public VersionInfo Latest(string name, string thatMatches, DateTime asOf)
+    {
+      throw new NotImplementedException();
+    }
   }
 }
