@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <VersionPrefix>1.0.0</VersionPrefix>
+        <VersionSuffix>dev-$([System.DateTime]::Now.ToString("yyyyMMddTHHmm"))</VersionSuffix>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="HtmlAgilityPack" Version="1.11.24" />
+      <PackageReference Include="LibGit2Sharp" Version="0.26.2" />
+      <PackageReference Include="RestSharp" Version="106.11.4" />
+    </ItemGroup>
+
+</Project>
