@@ -51,8 +51,7 @@ namespace Freshli.Languages.Php
       }
 
       foundVersions.Sort((left, right) =>
-        left.Version.CompareTo(right.Version) |
-          left.PublishedAt.CompareTo(right.PublishedAt)
+        left.CompareTo(right) | left.PublishedAt.CompareTo(right.PublishedAt)
       );
       var filteredVersions = foundVersions.Where(item => item.PublishedAt <= date).ToArray();
       if (!filteredVersions.Any()) return null;
