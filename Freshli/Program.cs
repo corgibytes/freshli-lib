@@ -1,15 +1,20 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using Freshli.Languages.Php;
 using Freshli.Languages.Python;
 using Freshli.Languages.Ruby;
+using NLog;
 
 namespace Freshli
 {
     class Program
     {
+        private static readonly Logger logger = LogManager.GetCurrentClassLogger();
         static void Main(string[] args)
         {
+          logger.Info($"Main({args})");
+          
           ManifestFinder.Register<RubyBundlerManifestFinder>();
           ManifestFinder.Register<PhpComposerManifestFinder>();
           ManifestFinder.Register<PipRequirementsTxtManifestFinder>();
@@ -19,7 +24,7 @@ namespace Freshli
           var runner = new Runner();
           var directory = SafelyGetFullPath(args[0]);
 
-          Console.Error.WriteLine($"Collecting data for {directory}");
+          logger.Info($"Collecting data for {directory}");
 
           var results = runner.Run(args[0]);
 

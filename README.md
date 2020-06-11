@@ -19,3 +19,9 @@ For each language that the tool supports, the libyear metric is computed for eac
 ### Source Code Repositories
 
 * Git
+
+## Logging
+
+[NLog](https://nlog-project.org/) is being used for logging within the application.
+
+Configuration is in [`Freshli/NLog.config`](Freshli/NLog.config) 
