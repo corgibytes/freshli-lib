@@ -25,3 +25,8 @@ For each language that the tool supports, the libyear metric is computed for eac
 [NLog](https://nlog-project.org/) is being used for logging within the application.
 
 Configuration is in [`Freshli/NLog.config`](Freshli/NLog.config) 
+
+The logger is configured to write to the console as well as to:
+  * `Freshli/bin/Debug/netcoreapp3.1/freshli.log` 
+  * `Freshli.Test/bin/Debug/netcoreapp3.1/freshli.log` 
+  
