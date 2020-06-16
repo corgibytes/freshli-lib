@@ -1,12 +1,17 @@
 using System;
 using System.Collections.Generic;
+using NLog;
 
 namespace Freshli
 {
   public class Runner
   {
+    private readonly Logger logger = LogManager.GetCurrentClassLogger();
+    
     public IList<MetricsResult> Run(string analysisPath, DateTime asOf)
     {
+      logger.Info($"Run({analysisPath}, {asOf})");
+      
       var metricsResults = new List<MetricsResult>();
 
       var fileHistoryFinder = new FileHistoryFinder(analysisPath);
