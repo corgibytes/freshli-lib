@@ -70,7 +70,8 @@ namespace Freshli.Languages.Php
 
       if (versionJson.TryGetProperty("time", out var standardTime))
       {
-        result = DateTime.Parse(standardTime.GetString()).Date;
+        var dateTime = DateTime.Parse(standardTime.GetString());
+        result = dateTime.ToUniversalTime().Date;
       }
       else if (versionJson.TryGetProperty("extra", out var extraData))
       {
