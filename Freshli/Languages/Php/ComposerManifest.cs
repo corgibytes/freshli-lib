@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
+using NLog;
 
 namespace Freshli.Languages.Php
 {
   public class ComposerManifest: IManifest
   {
     private IList<PackageInfo> _packages = new List<PackageInfo>();
+    private static readonly Logger _logger = LogManager.GetCurrentClassLogger();
     public IEnumerator<PackageInfo> GetEnumerator()
     {
       return _packages.GetEnumerator();
@@ -22,6 +24,7 @@ namespace Freshli.Languages.Php
     public void Add(string packageName, string packageVersion)
     {
       _packages.Add(new PackageInfo(packageName, packageVersion));
+      _logger.Trace($"AddPackage: PackageInfo({packageName}, {packageVersion})");
     }
 
     public void Parse(string contents)

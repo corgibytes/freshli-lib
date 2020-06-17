@@ -1,9 +1,11 @@
 using System;
+using NLog;
 
 namespace Freshli
 {
   public class LibYearCalculator
   {
+    private static readonly Logger _logger = LogManager.GetCurrentClassLogger();
     public IPackageRepository Repository { get; }
     public IManifest Manifest { get; }
 
@@ -37,6 +39,9 @@ namespace Freshli
 
         if (latestVersion != null && currentVersion != null)
         {
+          _logger.Trace($"Package({package.Name}, {package.Version}): " +
+                       $"current = {currentVersion.ToSemVer()}@{currentVersion.DatePublished}, " +
+                       $"latest = {latestVersion.ToSemVer()}@{latestVersion.DatePublished}");
           result.Add(
             package.Name,
             latestVersion.Version,
