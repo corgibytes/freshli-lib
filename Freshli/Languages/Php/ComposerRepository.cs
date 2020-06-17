@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
 using System.Text.RegularExpressions;
+using NLog;
 using RestSharp;
 
 namespace Freshli.Languages.Php
@@ -12,6 +13,7 @@ namespace Freshli.Languages.Php
     private readonly string _baseUrl;
     private Dictionary<string, string> _packageInfoCache =
       new Dictionary<string, string>();
+    private static readonly Logger _logger = LogManager.GetCurrentClassLogger();
 
     public ComposerRepository(string baseUrl)
     {
@@ -34,9 +36,8 @@ namespace Freshli.Languages.Php
         return null;
       }
       var versionsJsonElements = versionsJson.EnumerateObject();
-
-
-      var foundVersions = new List<(string Version, DateTime PublishedAt)>();
+      
+      var foundVersions = new List<VersionInfo>();
       foreach (var versionJson in versionsJsonElements)
       {
         if (IsUnstable(versionJson.Name))
@@ -45,18 +46,22 @@ namespace Freshli.Languages.Php
         }
 
         var version = versionJson.Name;
-
         var publishedDate = ParsePublishedDate(versionJson.Value);
-        foundVersions.Add((version, publishedDate.Date));
+        var versionInfo = new VersionInfo(version, publishedDate.Date);
+        if (versionInfo.PreRelease != null)
+        {
+          continue;
+        }
+        
+        foundVersions.Add(versionInfo);
       }
 
       foundVersions.Sort((left, right) =>
-        left.CompareTo(right) | left.PublishedAt.CompareTo(right.PublishedAt)
+        left.CompareTo(right)
       );
-      var filteredVersions = foundVersions.Where(item => item.PublishedAt <= date).ToArray();
+      var filteredVersions = foundVersions.Where(item => item.DatePublished <= date).ToArray();
       if (!filteredVersions.Any()) return null;
-      var selectedItem = filteredVersions.Last();
-      return new VersionInfo(selectedItem.Version, selectedItem.PublishedAt);
+      return filteredVersions.Last();
     }
 
     private static DateTime ParsePublishedDate(JsonElement versionJson)
@@ -138,6 +143,7 @@ namespace Freshli.Languages.Php
               Replace("%package%", name).
               Replace("%hash%", packageHash);
             var packageDetails = Request($"/{packageUrl}");
+            _logger.Trace($"{name} package info loaded from {_baseUrl}{packageUrl}");
 
             _packageInfoCache[name] = packageDetails;
             break;
