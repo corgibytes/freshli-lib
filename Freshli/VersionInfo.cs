@@ -1,5 +1,4 @@
 using System;
-using System.Reflection.PortableExecutable;
 using System.Text.RegularExpressions;
 
 namespace Freshli
@@ -304,5 +303,18 @@ namespace Freshli
 
       return 0;
     }
+
+    public override string ToString()
+    {
+      return $"{nameof(Major)}: {Major}, {nameof(Minor)}: {Minor}, {nameof(Patch)}: {Patch}, " +
+             $"{nameof(PreRelease)}: {PreRelease}, {nameof(BuildMetadata)}: {BuildMetadata}, " +
+             $"{nameof(DatePublished)}: {DatePublished}";
+    }
+    
+    public string ToSemVer()
+    {
+      return $"{Major}.{Minor}.{Patch}";
+    }
+    
   }
 }
