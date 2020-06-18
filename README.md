@@ -228,8 +228,6 @@ ManifestFinder.Register<PipRequirementsTxtManifestFinder>();
 
 FileHistoryFinder.Register<GitFileHistoryFinder>();
 
-In [5]:
-
 PlotlyChart CreateLineGraphFor(Dictionary<string, IList<MetricsResult>> projects) {
     var lineSeries = projects.Select(p => new Scattergl { 
         name = p.Key, 
