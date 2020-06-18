@@ -184,3 +184,71 @@ Configuration is in [`Freshli/NLog.config`](Freshli/NLog.config)
 The logger is configured to write to the console as well as to:
   * `Freshli/bin/Debug/netcoreapp3.1/freshli.log`
   * `Freshli.Test/bin/Debug/netcoreapp3.1/freshli.log`
+
+## Generating Graphs
+
+### Spreadsheets
+
+The console output is designed to make it easy to copy and paste into a spreadsheet application and take advantage of the charting libraries that are available there. Additional output formats will be added in the future.
+
+### Jupyter Notebook
+
+If you want to generate graphs in a Jupyter Notebook, there is some additional setup that you need to follow.
+
+1. Install Jupyter-Lab or nteract
+1. Install dontet/interactive
+
+A [sample notebook](https://github.com/corgibytes/freshli/blob/main/Sample.ipynb) can be found in this repository.
+
+Before working with `freshli` in a Jupyter Notebook you have to package it as a NuGet package by running `dotnet pack`.
+
+Once that's done, you'll need to import and require `freshli` as a NuGet package by running the following.
+
+```
+#i nuget:/Users/mscottford/src/corgibytes/freshli/Freshli/bin/Debug
+#r nuget:freshli,1.0.0-dev
+```
+
+You'll need to change the path above to match the absolute path where the `.nupkg` file can be found.
+
+The following script will allow you to create simple line graphs to plot a project or multiple projects.
+
+```csharp
+
+using XPlot.Plotly;
+
+using Freshli;
+using Freshli.Languages.Ruby;
+using Freshli.Languages.Php;
+using Freshli.Languages.Python;
+
+ManifestFinder.Register<RubyBundlerManifestFinder>();
+ManifestFinder.Register<PhpComposerManifestFinder>();
+ManifestFinder.Register<PipRequirementsTxtManifestFinder>();
+
+FileHistoryFinder.Register<GitFileHistoryFinder>();
+
+In [5]:
+
+PlotlyChart CreateLineGraphFor(Dictionary<string, IList<MetricsResult>> projects) {
+    var lineSeries = projects.Select(p => new Scattergl { 
+        name = p.Key, 
+        x = p.Value.Select(r => r.Date),
+        y = p.Value.Select(r => r.LibYear.Total)
+    });
+
+
+    var chart = Chart.Plot(lineSeries.ToArray());
+    chart.WithTitle("LibYear over time");
+    return chart;
+}
+```
+
+You can then generate a graph by running:
+
+```csharp
+var runner = new Runner();
+var projects = new Dictionary<string, IList<MetrictsResult>>();
+projects["example"] = runner.Run("https://github.com/corgibytes/freshli-fixture-ruby-nokotest");
+display(CreateLineGraphFor(projects))
+```
