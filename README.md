@@ -91,6 +91,34 @@ There are multiple ways to build `freshli`. The simplest is directly on the comm
 
 Simply running `dotnet test` will kick off the test runner. If you're using an IDE to build `freshli`, such as JetBrains Rider or Visual Studio 2019, then you can use the test runner that's built into the IDE.
 
+Here's an example of a successful test run:
+
+```
+➜  freshli git:(main) ✗ dotnet test
+VersionInfo.cs(200,32): warning CS8632: The annotation for nullable reference types should only be used in code within a '#nullable' annotations context. [/Users/mscottford/src/corgibytes/freshli/Freshli/Freshli.csproj]
+Test run for /Users/mscottford/src/corgibytes/freshli/Freshli.Test/bin/Debug/netcoreapp3.1/Freshli.Test.dll(.NETCoreApp,Version=v3.1)
+Microsoft (R) Test Execution Command Line Tool Version 16.6.0
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Starting test execution, please wait...
+
+A total of 1 test files matched the specified pattern.
+2020/06/18 16:26:41.137| INFO|Freshli.Runner:13|Run(/Users/mscottford/src/corgibytes/freshli/Freshli.Test/bin/Debug/netcoreapp3.1/fixtures/ruby/nokotest, 1/1/2020 12:00:00 AM)
+2020/06/18 16:26:41.727| INFO|Freshli.Runner:13|Run(https://github.com/feedbin/feedbin, 1/1/2020 12:00:00 AM)
+2020/06/18 16:27:44.109| INFO|Freshli.Runner:13|Run(/Users/mscottford/src/corgibytes/freshli/Freshli.Test/bin/Debug/netcoreapp3.1/fixtures/php/large, 1/1/2020 12:00:00 AM)
+2020/06/18 16:28:29.944| INFO|Freshli.Runner:13|Run(/Users/mscottford/src/corgibytes/freshli/Freshli.Test/bin/Debug/netcoreapp3.1/fixtures/php/drupal, 1/1/2020 12:00:00 AM)
+2020/06/18 16:28:38.347| INFO|Freshli.Runner:13|Run(https://github.com/binux/pyspider, 1/1/2020 12:00:00 AM)
+2020/06/18 16:28:50.405| INFO|Freshli.Runner:13|Run(https://github.com/corgibytes/freshli-fixture-ruby-nokotest, 1/1/2020 12:00:00 AM)
+2020/06/18 16:28:52.291| INFO|Freshli.Runner:13|Run(https://github.com/thoughtbot/clearance, 6/18/2020 12:00:00 AM)
+
+Test Run Successful.
+Total tests: 334
+     Passed: 334
+ Total time: 2.6251 Minutes
+ ```
+
+ The tests currently take longer to run than we would like. We're exploring ways to speed that up.
+
 ## Logging
 
 [NLog](https://nlog-project.org/) is being used for logging within the application.
