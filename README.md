@@ -87,6 +87,62 @@ VersionInfo.cs(201,32): warning CS8632: The annotation for nullable reference ty
 
 There are multiple ways to build `freshli`. The simplest is directly on the command line by running `dotnet build`. You can also use an IDE for working on `freshli`. Most of the uses JetBrains Rider, but you can also use Visual Studio 2019. If you don't want to use an IDE, then a text editor with good C# support such as Visual Studio Code or Atom also works equally well.
 
+This is what a successful command line build looks like:
+
+```
+➜  freshli git:(main) ✗ dotnet build
+Microsoft (R) Build Engine version 16.6.0+5ff7b0c9e for .NET Core
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Determining projects to restore...
+  Restored /Users/mscottford/src/corgibytes/freshli/Freshli/Freshli.csproj (in 244 ms).
+  Restored /Users/mscottford/src/corgibytes/freshli/Freshli.Test/Freshli.Test.csproj (in 303 ms).
+VersionInfo.cs(200,32): warning CS8632: The annotation for nullable reference types should only be used in code within a '#nullable' annotations context. [/Users/mscottford/src/corgibytes/freshli/Freshli/Freshli.csproj]
+  Freshli -> /Users/mscottford/src/corgibytes/freshli/Freshli/bin/Debug/netcoreapp3.1/Freshli.dll
+  Freshli.Test -> /Users/mscottford/src/corgibytes/freshli/Freshli.Test/bin/Debug/netcoreapp3.1/Freshli.Test.dll
+  Archive:  nokotest.zip
+    inflating: nokotest/Gemfile
+    inflating: nokotest/Gemfile.lock
+    inflating: nokotest/.git/config
+   extracting: nokotest/.git/objects/0d/8f4f864a22eac5f72153cf1d77fc9791796e6d
+   extracting: nokotest/.git/objects/93/e24fec7e2d55e1f2649989a131b1a044008e60
+   extracting: nokotest/.git/objects/bb/e94adc863a728d5c63b1293a7d1d81ac437f30
+   extracting: nokotest/.git/objects/6e/dae1c2dc746439f567894cf77effc7a8abf97b
+   extracting: nokotest/.git/objects/01/7031627f36deb582d69cddd381718be0044b02
+   extracting: nokotest/.git/objects/90/2a3082740f83776eec419c59a56e54424fdec5
+   extracting: nokotest/.git/objects/b9/803963c64c5c8794334bb667d98c969add6fd0
+   extracting: nokotest/.git/objects/b9/d397bcc26e2a820a2e077298f35521b154febd
+   extracting: nokotest/.git/objects/c4/a0ab82b5bf0d03d646348bce24527d84d8bfe4
+   extracting: nokotest/.git/objects/e1/be34540508cfb94fea222ecdc61a95652068ee
+   extracting: nokotest/.git/objects/76/06873e8c521ba79d093029969c2da124ed03d3
+   extracting: nokotest/.git/objects/13/963f09081c175c66d20f7dd15d23fedc789ce4
+   extracting: nokotest/.git/HEAD
+    inflating: nokotest/.git/info/exclude
+    inflating: nokotest/.git/logs/HEAD
+    inflating: nokotest/.git/logs/refs/heads/master
+    inflating: nokotest/.git/description
+    inflating: nokotest/.git/hooks/commit-msg.sample
+    inflating: nokotest/.git/hooks/pre-rebase.sample
+    inflating: nokotest/.git/hooks/pre-commit.sample
+    inflating: nokotest/.git/hooks/applypatch-msg.sample
+    inflating: nokotest/.git/hooks/prepare-commit-msg.sample
+    inflating: nokotest/.git/hooks/post-update.sample
+    inflating: nokotest/.git/hooks/pre-applypatch.sample
+    inflating: nokotest/.git/hooks/pre-push.sample
+    inflating: nokotest/.git/hooks/update.sample
+   extracting: nokotest/.git/refs/heads/master
+    inflating: nokotest/.git/index
+   extracting: nokotest/.git/COMMIT_EDITMSG
+
+Build succeeded.
+
+VersionInfo.cs(200,32): warning CS8632: The annotation for nullable reference types should only be used in code within a '#nullable' annotations context. [/Users/mscottford/src/corgibytes/freshli/Freshli/Freshli.csproj]
+    1 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:06.31
+```
+
 ### Running the test suite
 
 Simply running `dotnet test` will kick off the test runner. If you're using an IDE to build `freshli`, such as JetBrains Rider or Visual Studio 2019, then you can use the test runner that's built into the IDE.
