@@ -80,7 +80,7 @@ VersionInfo.cs(201,32): warning CS8632: The annotation for nullable reference ty
 2020/06/01	2.433
 ```
 
-`freshli` should build and run on any platform that's supported by the .NET Core SDK. It is heavily tested on both macOS and Windows. If you run into problems, please open an issue.
+`freshli` should build and run on any platform that's supported by the .NET Core SDK. It is heavily tested on both macOS and Windows. If you run into problems, please open an issue. The output from above was captured from running in `zsh` on macOS Catalina (10.15.5).
 
 
 ### Building `freshli`
