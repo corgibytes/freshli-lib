@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.IO;
 
 namespace Freshli
@@ -17,7 +18,7 @@ namespace Freshli
     {
       _projectRootPath = projectRootPath;
       Finder = new LocalFileHistoryFinder();
-      foreach(var finder in Finders)
+      foreach(var finder in Finders.ToImmutableList())
       {
         if (finder.DoesPathContainHistorySource(projectRootPath))
         {
