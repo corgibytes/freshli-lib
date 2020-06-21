@@ -1,8 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using NLog;
 
 namespace Freshli.Languages {
   public abstract class AbstractManifest : IManifest {
+    protected static readonly Logger _logger = LogManager.
+      GetCurrentClassLogger();
+
     private IDictionary<string, PackageInfo> _packages =
       new Dictionary<string, PackageInfo>();
 
@@ -22,6 +27,11 @@ namespace Freshli.Languages {
         packageName,
         packageVersion
       );
+      _logger.Trace($"AddPackage: PackageInfo({packageName}, {packageVersion})");
+    }
+
+    public void Clear() {
+      _packages.Clear();
     }
 
     public abstract void Parse(string contents);
