@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections.Immutable;
 
 namespace Freshli
 {
@@ -23,7 +24,7 @@ namespace Freshli
     {
       _projectRootPath = projectRootPath;
       Successful = false;
-      foreach (var finder in Finders)
+      foreach (var finder in Finders.ToImmutableList())
       {
         finder.FileFinder = fileFinder;
         if (finder.DoesPathContainManifest(projectRootPath))

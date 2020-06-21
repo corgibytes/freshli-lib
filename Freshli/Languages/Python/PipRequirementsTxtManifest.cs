@@ -7,28 +7,9 @@ using System.Text.RegularExpressions;
 
 namespace Freshli.Languages.Python
 {
-  public class PipRequirementsTxtManifest: IManifest
+  public class PipRequirementsTxtManifest: AbstractManifest
   {
-    private IDictionary<string, PackageInfo> _packages = new Dictionary<string, PackageInfo>();
-
-    public IEnumerator<PackageInfo> GetEnumerator()
-    {
-      return _packages.Values.GetEnumerator();
-    }
-
-    IEnumerator IEnumerable.GetEnumerator()
-    {
-      return GetEnumerator();
-    }
-
-    public int Count => _packages.Count;
-
-    public void Add(string packageName, string packageVersion)
-    {
-      _packages[packageName] = new PackageInfo(packageName, packageVersion);
-    }
-
-    public void Parse(string contents)
+    public override void Parse(string contents)
     {
       var versionMatcher = new Regex(@"^((\w|\d|\.|-)+)((?:(?:~=)|(?:===?)|(?:!=)|(?:<=?)|(?:>=?))?.*)");
       var reader = new StringReader(contents);
@@ -52,7 +33,6 @@ namespace Freshli.Languages.Python
       }
     }
 
-    public PackageInfo this[string packageName] => _packages[packageName];
-    public bool UsesExactMatches => false;
+    public override bool UsesExactMatches => false;
   }
 }

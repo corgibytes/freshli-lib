@@ -6,30 +6,11 @@ using NLog;
 
 namespace Freshli.Languages.Php
 {
-  public class ComposerManifest: IManifest
+  public class ComposerManifest: AbstractManifest
   {
-    private IList<PackageInfo> _packages = new List<PackageInfo>();
-    private static readonly Logger _logger = LogManager.GetCurrentClassLogger();
-    public IEnumerator<PackageInfo> GetEnumerator()
+    public override void Parse(string contents)
     {
-      return _packages.GetEnumerator();
-    }
-
-    IEnumerator IEnumerable.GetEnumerator()
-    {
-      return GetEnumerator();
-    }
-
-    public int Count => _packages.Count;
-    public void Add(string packageName, string packageVersion)
-    {
-      _packages.Add(new PackageInfo(packageName, packageVersion));
-      _logger.Trace($"AddPackage: PackageInfo({packageName}, {packageVersion})");
-    }
-
-    public void Parse(string contents)
-    {
-      _packages.Clear();
+      Clear();
       var options = new JsonDocumentOptions() {AllowTrailingCommas = true};
       using (var composerData = JsonDocument.Parse(contents, options))
       {
@@ -50,12 +31,7 @@ namespace Freshli.Languages.Php
         Add(name, version);
       }
     }
-
-    public PackageInfo this[string packageName]
-    {
-      get { return _packages.First(package => package.Name == packageName); }
-    }
-
-    public bool UsesExactMatches => true;
+    
+    public override bool UsesExactMatches => true;
   }
 }
