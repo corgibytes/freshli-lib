@@ -7,35 +7,11 @@ using System.Text.RegularExpressions;
 
 namespace Freshli.Languages.Ruby
 {
-  public class BundlerManifest : IManifest
+  public class BundlerManifest : AbstractManifest
   {
-    private List<PackageInfo> _list;
-
-    public BundlerManifest()
+    public override void Parse(string contents)
     {
-      _list = new List<PackageInfo>();
-    }
-
-    public int Count => _list.Count;
-
-    public void Add(string packageName, string packageVersion)
-    {
-      _list.Add(new PackageInfo(packageName, packageVersion));
-    }
-
-    public IEnumerator<PackageInfo> GetEnumerator()
-    {
-      return _list.GetEnumerator();
-    }
-
-    IEnumerator IEnumerable.GetEnumerator()
-    {
-      return GetEnumerator();
-    }
-
-    public void Parse(string contents)
-    {
-      _list.Clear();
+      Clear();
 
       var reader = new StringReader(contents);
       var gemSectionLine = reader.ReadLine();
@@ -70,12 +46,7 @@ namespace Freshli.Languages.Ruby
         line = reader.ReadLine();
       }
     }
-
-    public PackageInfo this[string packageName]
-    {
-      get { return _list.First(package => package.Name == packageName); }
-    }
-
-    public bool UsesExactMatches => true;
+    
+    public override bool UsesExactMatches => true;
   }
 }
