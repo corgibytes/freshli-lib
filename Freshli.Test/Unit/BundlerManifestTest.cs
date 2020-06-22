@@ -392,10 +392,12 @@ DEPENDENCIES
     }
 
     [Fact]
-    public void DoubleParse()
+    public void ParseImpliesClear()
     {
       var manifest = new BundlerManifest();
       manifest.Parse(Contents);
+      manifest.Add("remove", "me");
+      
       manifest.Parse(Contents);
 
       AssertManifestContents(manifest);
