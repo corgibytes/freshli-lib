@@ -19,10 +19,11 @@ namespace Freshli.Test.Unit
     }
 
     [Fact]
-    public void DoubleParse()
+    public void ParseImpliesClear()
     {
       var manifest = new ComposerManifest();
       manifest.Parse(Contents);
+      manifest.Add("remove", "me");
       manifest.Parse(Contents);
 
       AssertManifestContents(manifest);

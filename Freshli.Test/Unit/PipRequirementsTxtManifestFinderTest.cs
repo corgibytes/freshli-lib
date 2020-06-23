@@ -32,6 +32,25 @@ namespace Freshli.Test.Unit
     }
 
     [Fact]
+    public void ParseImpliesClear() {
+      var manifest = new PipRequirementsTxtManifest();
+      manifest.Parse(Contents);
+      manifest.Add("remove", "me");
+
+      manifest.Parse(Contents);
+      
+      Assert.Equal(8, manifest.Count);
+      Assert.Equal("==1.16.*", manifest["numpy"].Version);
+      Assert.Equal("==3.*", manifest["matplotlib"].Version);
+      Assert.Equal("==0.8.1", manifest["seaborn"].Version);
+      Assert.Equal(">=1.5", manifest["six"].Version);
+      Assert.Equal(">1.0.1", manifest["kiwisolver"].Version);
+      Assert.Equal("", manifest["pandas"].Version);
+      Assert.Equal(">=2017.2,<2020.1", manifest["pytz"].Version);
+      Assert.Equal("<1.4.1", manifest["scipy"].Version);
+    }
+
+    [Fact]
     public void ParseCorrectlyHandlesPackageNameThatContainsDot()
     {
       var manifest = new PipRequirementsTxtManifest();

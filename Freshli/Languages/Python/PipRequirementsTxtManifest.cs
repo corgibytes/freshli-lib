@@ -9,8 +9,9 @@ namespace Freshli.Languages.Python
 {
   public class PipRequirementsTxtManifest: AbstractManifest
   {
-    public override void Parse(string contents)
-    {
+    public override void Parse(string contents) {
+      Clear();
+      
       var versionMatcher = new Regex(@"^((\w|\d|\.|-)+)((?:(?:~=)|(?:===?)|(?:!=)|(?:<=?)|(?:>=?))?.*)");
       var reader = new StringReader(contents);
       var line = reader.ReadLine();
