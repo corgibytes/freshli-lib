@@ -61,9 +61,6 @@ namespace Freshli.Test
     [Fact] 
     public void RubyGemsClearanceHistoryViaGitHub()
     {
-      ManifestFinder.Register<RubyBundlerManifestFinder>();
-      FileHistoryFinder.Register<GitFileHistoryFinder>();
-
       var runner = new Runner();
       var results = runner.Run("https://github.com/thoughtbot/clearance");
       Approvals.VerifyAll(results, "results");
