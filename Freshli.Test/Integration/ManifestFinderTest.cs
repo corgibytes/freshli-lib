@@ -8,12 +8,8 @@ namespace Freshli.Test.Integration
 {
   public class ManifestFinderTest
   {
-    public ManifestFinderTest()
-    {
-      ManifestFinder.Register<RubyBundlerManifestFinder>();
-      ManifestFinder.Register<PhpComposerManifestFinder>();
-      ManifestFinder.Register<PipRequirementsTxtManifestFinder>();
-      ManifestFinder.Register<CpanfileManifestFinder>();
+    public ManifestFinderTest() {
+      ManifestFinder.RegisterAll();
     }
 
     [Fact]
