@@ -4,7 +4,7 @@ using Freshli.Languages.Python;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace Freshli.Test.Unit
+namespace Freshli.Test.Unit.Python
 {
   public class VersionMatcherTest
   {
