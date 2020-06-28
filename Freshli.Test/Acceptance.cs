@@ -2,6 +2,7 @@ using System;
 using ApprovalTests;
 using ApprovalTests.Reporters;
 using ApprovalTests.Reporters.TestFrameworks;
+using Freshli.Languages.Perl;
 using Freshli.Languages.Php;
 using Freshli.Languages.Ruby;
 using Freshli.Languages.Python;
@@ -16,6 +17,7 @@ namespace Freshli.Test
       ManifestFinder.Register<RubyBundlerManifestFinder>();
       ManifestFinder.Register<PhpComposerManifestFinder>();
       ManifestFinder.Register<PipRequirementsTxtManifestFinder>();
+      ManifestFinder.Register<CpanfileManifestFinder>();
 
       FileHistoryFinder.Register<GitFileHistoryFinder>();
     }
@@ -99,6 +101,18 @@ namespace Freshli.Test
       );
 
       Approvals.VerifyAll(results, "results");
+    }
+
+    [Fact]
+    public void CpanfileDancer2() {
+      var runner = new Runner();
+
+      var results = runner.Run(
+        "https://github.com/PerlDancer/Dancer2",
+        asOf: _testingBoundary
+      );
+
+      Approvals.VerifyAll(results, "results");    
     }
   }
 }
