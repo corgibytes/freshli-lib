@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using NLog.LayoutRenderers.Wrappers;
 using Xunit;
 
 namespace Freshli.Test.Unit
@@ -16,6 +17,9 @@ namespace Freshli.Test.Unit
     [InlineData("1.2.3-a1", 1, 2, 3, "a1", null)]
     [InlineData("1.2.3a1+dev", 1, 2, 3, "a1", "dev")]
     [InlineData("1.2.3-a1+dev", 1, 2, 3, "a1", "dev")]
+    [InlineData("1.0045", 1, 0045, null, null, null)]
+    [InlineData("1.0009", 1, 0009, null, null, null)]
+    [InlineData("1.301001_050", 1, 301001, 050, null, null)]
     public void VersionIsParsedIntoParts(
       string version,
       int? major,
@@ -31,7 +35,7 @@ namespace Freshli.Test.Unit
       Assert.Equal(preRelease, info.PreRelease);
       Assert.Equal(buildMetadata, info.BuildMetadata);
     }
-
+    
     [Theory]
     [InlineData("1.0.0-alpha", "alpha", null)]
     [InlineData("1.0.0-alpha12", "alpha", 12)]

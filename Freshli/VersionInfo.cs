@@ -1,10 +1,12 @@
 using System;
 using System.Text.RegularExpressions;
+using NLog;
 
 namespace Freshli
 {
   public class VersionInfo: IComparable
   {
+    private static readonly Logger logger = LogManager.GetCurrentClassLogger();
     private string _version;
 
     public string Version
@@ -35,7 +37,7 @@ namespace Freshli
     public int? PreReleaseIncrement { get; private set; }
     public string BuildMetadata { get; private set; }
 
-    private Regex versionExpression = new Regex(@"^v?(0|[1-9]\d*)\.?(0|[1-9]\d*)?\.?(0|[1-9]\d*)?(?:-?((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$");
+    private Regex versionExpression = new Regex(@"^v?(\d+)[\._]?(\d+)?[\._]?(\d+)?(?:-?((?:\d+|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:[\._](?:\d+|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:[\._][0-9a-zA-Z-]+)*))?$");
     private Regex preReleaseExpression = new Regex(@"([a-zA-Z-]+)\.?(\d*)");
     private string _preRelease;
 
@@ -164,6 +166,13 @@ namespace Freshli
         {
           BuildMetadata = buildMetadataValue;
         }
+      } 
+      else 
+      {
+        logger.Log(
+          LogLevel.Warn, 
+          $"Unable to parse version string: '{_version}'. If you think this " + 
+            @"is an error, then please create an issue on GitHub.");
       }
     }
 
