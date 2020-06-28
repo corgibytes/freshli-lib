@@ -14,10 +14,7 @@ namespace Freshli.Test
   public class Acceptance
   {
     public Acceptance() {
-      ManifestFinder.Register<RubyBundlerManifestFinder>();
-      ManifestFinder.Register<PhpComposerManifestFinder>();
-      ManifestFinder.Register<PipRequirementsTxtManifestFinder>();
-      ManifestFinder.Register<CpanfileManifestFinder>();
+      ManifestFinder.RegisterAll();
 
       FileHistoryFinder.Register<GitFileHistoryFinder>();
     }

@@ -1,10 +1,15 @@
+using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
+using System.Linq;
+using System.Reflection;
+using NLog;
 
 namespace Freshli
 {
   public class ManifestFinder
   {
+    private static readonly Logger logger = LogManager.GetCurrentClassLogger();
     private readonly string _projectRootPath;
 
     private static readonly IList<IManifestFinder> _finders =
@@ -36,10 +41,30 @@ namespace Freshli
       }
     }
 
-    public static void Register<TFinder>()
-      where TFinder : IManifestFinder, new()
-    {
-      Finders.Add(new TFinder());
+    public static void Register(IManifestFinder finder) {
+      Finders.Add(finder);
+    }
+
+    public static void RegisterAll() {
+      var manifestFinderTypes = new HashSet<Type>();
+      foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies()) {
+        foreach (var type in FindersLoadedIn(assembly)) {
+          manifestFinderTypes.Add(type);
+        }
+      }
+      
+      foreach (var type in manifestFinderTypes) {
+        logger.Log(LogLevel.Info, $"Registering IManifestFinder: {type}");
+        Register((IManifestFinder) Activator.CreateInstance(type));
+      }      
+    }
+
+    private static IEnumerable<Type> FindersLoadedIn(Assembly assembly) {
+      return assembly.GetTypes().
+        Where(
+          type => type.GetInterfaces().Contains(typeof(IManifestFinder)) &&
+            type.GetConstructor(Type.EmptyTypes) != null
+        ); 
     }
   }
 }

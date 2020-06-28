@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using Freshli.Languages.Php;
 using Freshli.Languages.Python;
 using Freshli.Languages.Ruby;
@@ -17,11 +18,9 @@ namespace Freshli
 
           try
           {
-              ManifestFinder.Register<RubyBundlerManifestFinder>();
-              ManifestFinder.Register<PhpComposerManifestFinder>();
-              ManifestFinder.Register<PipRequirementsTxtManifestFinder>();
+            ManifestFinder.RegisterAll();
 
-              FileHistoryFinder.Register<GitFileHistoryFinder>();
+            FileHistoryFinder.Register<GitFileHistoryFinder>();
 
               var runner = new Runner();
               var directory = SafelyGetFullPath(args[0]);
