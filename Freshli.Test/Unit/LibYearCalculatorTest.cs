@@ -1,13 +1,10 @@
 using System;
 using Xunit;
 
-namespace Freshli.Test.Unit
-{
-  public class LibYearCalculatorTest
-  {
+namespace Freshli.Test.Unit {
+  public class LibYearCalculatorTest {
     [Fact]
-    public void Tokenizer()
-    {
+    public void Tokenizer() {
       // | theseer/tokenizer  | 1.1.0           | 2017-04-07 | 1.1.3          | 2019-06-13 | 2.18
       var calculator = new LibYearCalculator(null, null);
 
@@ -18,8 +15,7 @@ namespace Freshli.Test.Unit
     }
 
     [Fact]
-    public void Parser()
-    {
+    public void Parser() {
       // | orchestra/parser   | v3.6.0          | 2018-02-08 | v4.0.0         | 2019-08-28 | 1.55
       var calculator = new LibYearCalculator(null, null);
 
@@ -30,8 +26,7 @@ namespace Freshli.Test.Unit
     }
 
     [Fact]
-    public void VfsStream()
-    {
+    public void VfsStream() {
       // | mikey179/vfsstream | v1.4.0          | 2014-09-14 | v1.6.8         | 2019-10-30 | 5.13
       var calculator = new LibYearCalculator(null, null);
 

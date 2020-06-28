@@ -2,13 +2,10 @@ using System;
 using Freshli.Languages.Ruby;
 using Xunit;
 
-namespace Freshli.Test.Integration
-{
-  public class LibYearCalculatorTest
-  {
+namespace Freshli.Test.Integration {
+  public class LibYearCalculatorTest {
     [Fact]
-    public void ComputeAsOf()
-    {
+    public void ComputeAsOf() {
       var manifest = new BundlerManifest();
       manifest.Add("mini_portile2", "2.1.0");
       manifest.Add("nokogiri", "1.7.0");
@@ -23,15 +20,17 @@ namespace Freshli.Test.Integration
 
       Assert.Equal(0.0, results["mini_portile2"].Value, 3);
       Assert.Equal("2.1.0", results["mini_portile2"].Version);
-      Assert.Equal(new DateTime(2016, 01, 06), results["mini_portile2"].PublishedAt);
+      Assert.Equal(
+        new DateTime(2016, 01, 06),
+        results["mini_portile2"].PublishedAt
+      );
       Assert.Equal(0.227, results["nokogiri"].Value, 3);
       Assert.Equal("1.7.1", results["nokogiri"].Version);
       Assert.Equal(new DateTime(2017, 03, 20), results["nokogiri"].PublishedAt);
     }
 
     [Fact]
-    public void ComputeAsOfSmallValue()
-    {
+    public void ComputeAsOfSmallValue() {
       var manifest = new BundlerManifest();
       manifest.Add("mini_portile2", "2.1.0");
       manifest.Add("nokogiri", "1.7.0");
@@ -51,8 +50,7 @@ namespace Freshli.Test.Integration
     }
 
     [Fact]
-    public void ComputeAsOfEdgeCase()
-    {
+    public void ComputeAsOfEdgeCase() {
       var manifest = new BundlerManifest();
       manifest.Add("mini_portile2", "2.3.0");
       manifest.Add("nokogiri", "1.8.1");
@@ -72,8 +70,7 @@ namespace Freshli.Test.Integration
     }
 
     [Fact]
-    public void ComputeAsOfOtherEdgeCase()
-    {
+    public void ComputeAsOfOtherEdgeCase() {
       var manifest = new BundlerManifest();
       manifest.Add("mini_portile2", "2.3.0");
       manifest.Add("nokogiri", "1.8.1");
@@ -93,8 +90,7 @@ namespace Freshli.Test.Integration
     }
 
     [Fact]
-    public void Compute()
-    {
+    public void Compute() {
       var olderVersion = new VersionInfo("1.7.0", new DateTime(2016, 12, 27));
       var newerVersion = new VersionInfo("1.7.1", new DateTime(2017, 03, 20));
 
@@ -103,7 +99,8 @@ namespace Freshli.Test.Integration
       Assert.Equal(
         0.227,
         calculator.Compute(olderVersion, newerVersion),
-        3);
+        3
+      );
     }
   }
 }

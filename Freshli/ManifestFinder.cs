@@ -5,15 +5,14 @@ using System.Linq;
 using System.Reflection;
 using NLog;
 
-namespace Freshli
-{
-  public class ManifestFinder
-  {
+namespace Freshli {
+  public class ManifestFinder {
     private static readonly Logger logger = LogManager.GetCurrentClassLogger();
     private readonly string _projectRootPath;
 
     private static readonly IList<IManifestFinder> _finders =
       new List<IManifestFinder>();
+
     public static IList<IManifestFinder> Finders => _finders;
 
     public IManifestFinder Finder { get; }
@@ -23,17 +22,18 @@ namespace Freshli
 
     public LibYearCalculator Calculator => new LibYearCalculator(
       Finder.RepositoryFor(_projectRootPath),
-      Finder.ManifestFor(_projectRootPath));
+      Finder.ManifestFor(_projectRootPath)
+    );
 
-    public ManifestFinder(string projectRootPath, IFileHistoryFinder fileFinder)
-    {
+    public ManifestFinder(
+      string projectRootPath,
+      IFileHistoryFinder fileFinder
+    ) {
       _projectRootPath = projectRootPath;
       Successful = false;
-      foreach (var finder in Finders.ToImmutableList())
-      {
+      foreach (var finder in Finders.ToImmutableList()) {
         finder.FileFinder = fileFinder;
-        if (finder.DoesPathContainManifest(projectRootPath))
-        {
+        if (finder.DoesPathContainManifest(projectRootPath)) {
           Finder = finder;
           Successful = true;
           break;
@@ -52,11 +52,11 @@ namespace Freshli
           manifestFinderTypes.Add(type);
         }
       }
-      
+
       foreach (var type in manifestFinderTypes) {
         logger.Log(LogLevel.Info, $"Registering IManifestFinder: {type}");
         Register((IManifestFinder) Activator.CreateInstance(type));
-      }      
+      }
     }
 
     private static IEnumerable<Type> FindersLoadedIn(Assembly assembly) {

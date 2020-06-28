@@ -4,17 +4,13 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using HtmlAgilityPack;
 
-namespace Freshli.Languages.Python
-{
-  public class PyPIRepository: IPackageRepository
-  {
+namespace Freshli.Languages.Python {
+  public class PyPIRepository : IPackageRepository {
     private IDictionary<string, IList<VersionInfo>> _packages =
       new Dictionary<string, IList<VersionInfo>>();
 
-    private IList<VersionInfo> GetReleaseHistory(string name)
-    {
-      if (_packages.ContainsKey(name))
-      {
+    private IList<VersionInfo> GetReleaseHistory(string name) {
+      if (_packages.ContainsKey(name)) {
         return _packages[name];
       }
 
@@ -27,8 +23,7 @@ namespace Freshli.Languages.Python
       var releaseNodes = doc.DocumentNode.Descendants("div").
         Where(div => div.HasClass("release"));
 
-      foreach (var releaseNode in releaseNodes)
-      {
+      foreach (var releaseNode in releaseNodes) {
         var versionNode = releaseNode.Descendants("p").
           First(p => p.HasClass("release__version"));
         var rawVersion = Regex.Replace(versionNode.InnerText, @"\s+", " ").
@@ -36,10 +31,10 @@ namespace Freshli.Languages.Python
 
         var versionSplits = rawVersion.Split(' ');
 
-        if (versionSplits.Length > 1)
-        {
+        if (versionSplits.Length > 1) {
           continue;
         }
+
         var version = versionSplits[0];
 
         var dateNode = releaseNode.Descendants("time").First();
@@ -53,19 +48,16 @@ namespace Freshli.Languages.Python
       return versions;
     }
 
-    public VersionInfo LatestAsOf(DateTime date, string name)
-    {
+    public VersionInfo LatestAsOf(DateTime date, string name) {
       return GetReleaseHistory(name).OrderByDescending(v => v).
         First(v => date >= v.DatePublished);
     }
 
-    public VersionInfo VersionInfo(string name, string version)
-    {
+    public VersionInfo VersionInfo(string name, string version) {
       return GetReleaseHistory(name).First(v => v.Version == version);
     }
 
-    public VersionInfo Latest(string name, string thatMatches, DateTime asOf)
-    {
+    public VersionInfo Latest(string name, string thatMatches, DateTime asOf) {
       var expression = VersionMatcher.Create(thatMatches);
       return GetReleaseHistory(name).OrderByDescending(v => v).
         Where(v => v.DatePublished <= asOf).

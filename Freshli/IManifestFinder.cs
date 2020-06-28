@@ -1,7 +1,5 @@
-namespace Freshli
-{
-  public interface IManifestFinder
-  {
+namespace Freshli {
+  public interface IManifestFinder {
     IFileHistoryFinder FileFinder { get; set; }
 
     bool DoesPathContainManifest(string projectRootPath);
@@ -9,6 +7,5 @@ namespace Freshli
 
     IPackageRepository RepositoryFor(string projectRootPath);
     IManifest ManifestFor(string projectRootPath);
-
   }
 }

@@ -7,46 +7,42 @@ using Freshli.Languages.Python;
 using Freshli.Languages.Ruby;
 using NLog;
 
-namespace Freshli
-{
-    class Program
-    {
-        private static readonly Logger logger = LogManager.GetCurrentClassLogger();
-        static void Main(string[] args)
-        {
-          logger.Info($"Main({args})");
+namespace Freshli {
+  class Program {
+    private static readonly Logger logger = LogManager.GetCurrentClassLogger();
 
-          try
-          {
-            ManifestFinder.RegisterAll();
+    static void Main(string[] args) {
+      logger.Info($"Main({args})");
 
-            FileHistoryFinder.Register<GitFileHistoryFinder>();
+      try {
+        ManifestFinder.RegisterAll();
 
-              var runner = new Runner();
-              var directory = SafelyGetFullPath(args[0]);
+        FileHistoryFinder.Register<GitFileHistoryFinder>();
 
-              logger.Info($"Collecting data for {directory}");
+        var runner = new Runner();
+        var directory = SafelyGetFullPath(args[0]);
 
-              var results = runner.Run(args[0]);
+        logger.Info($"Collecting data for {directory}");
 
-              var formatter = new OutputFormatter(Console.Out);
-              formatter.Write(results);
-          }
-          catch (Exception e)
-          {
-              logger.Error(e, $"Exception executing Freshli for args = {args}: {e.Message}");
-          }
-        }
+        var results = runner.Run(args[0]);
 
-        private static string SafelyGetFullPath(string path)
-        {
-          var result = path;
-          if (File.Exists(path))
-          {
-            result = Path.GetFullPath(path);
-          }
-
-          return result;
-        }
+        var formatter = new OutputFormatter(Console.Out);
+        formatter.Write(results);
+      } catch (Exception e) {
+        logger.Error(
+          e,
+          $"Exception executing Freshli for args = {args}: {e.Message}"
+        );
+      }
     }
+
+    private static string SafelyGetFullPath(string path) {
+      var result = path;
+      if (File.Exists(path)) {
+        result = Path.GetFullPath(path);
+      }
+
+      return result;
+    }
+  }
 }

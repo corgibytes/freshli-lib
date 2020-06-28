@@ -3,15 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using Xunit;
 
-namespace Freshli.Test.Unit
-{
-  public class OutputFormatterTest
-  {
+namespace Freshli.Test.Unit {
+  public class OutputFormatterTest {
     [Fact]
-    public void Basics()
-    {
-      var datesAndValues = new List<(DateTime Date, double Value)>()
-      {
+    public void Basics() {
+      var datesAndValues = new List<(DateTime Date, double Value)>() {
         (new DateTime(2010, 01, 01), 1.101),
         (new DateTime(2010, 02, 01), 2.202),
         (new DateTime(2010, 03, 01), 3.303),
@@ -27,14 +23,14 @@ namespace Freshli.Test.Unit
       };
 
       var results = new List<MetricsResult>();
-      foreach (var dateAndValue in datesAndValues)
-      {
+      foreach (var dateAndValue in datesAndValues) {
         var result = new LibYearResult();
         result.Add(
           "test_package",
           dateAndValue.Value.ToString(),
           dateAndValue.Date,
-          dateAndValue.Value);
+          dateAndValue.Value
+        );
         results.Add(new MetricsResult(dateAndValue.Date, result));
       }
 

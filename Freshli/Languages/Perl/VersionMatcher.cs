@@ -2,8 +2,7 @@
 
 namespace Freshli.Languages.Perl {
   public abstract class VersionMatcher {
-    public enum OperationKind
-    {
+    public enum OperationKind {
       Matching,
       LessThan,
       LessThanEqual,
@@ -11,17 +10,17 @@ namespace Freshli.Languages.Perl {
       GreaterThanEqual,
       NotEqual
     }
-    
+
     public static VersionMatcher Create(string value) {
       value = value.Trim();
-      
+
       if (value.Contains(',')) {
         var splits = value.Split(',');
         return new CompoundVersionMatcher(
           splits.Select(Create).ToArray()
         );
       }
-      
+
       if (value.StartsWith("==")) {
         var version = value.Replace("==", "").Trim();
         return new BasicVersionMatcher {
@@ -29,7 +28,7 @@ namespace Freshli.Languages.Perl {
           BaseVersion = new VersionInfo {Version = version}
         };
       }
-      
+
       if (value.StartsWith(">=")) {
         var version = value.Replace(">=", "").Trim();
         return new BasicVersionMatcher {
@@ -82,7 +81,7 @@ namespace Freshli.Languages.Perl {
   public class BasicVersionMatcher : VersionMatcher {
     public OperationKind Operation { get; set; }
     public VersionInfo BaseVersion { get; set; }
-    
+
     public override bool DoesMatch(VersionInfo version) {
       if (Operation == OperationKind.NotEqual) {
         return version.CompareTo(BaseVersion) != 0;
@@ -91,15 +90,15 @@ namespace Freshli.Languages.Perl {
       if (Operation == OperationKind.GreaterThan) {
         return version.CompareTo(BaseVersion) > 0;
       }
-      
+
       if (Operation == OperationKind.GreaterThanEqual) {
         return version.CompareTo(BaseVersion) >= 0;
       }
-      
+
       if (Operation == OperationKind.LessThan) {
         return version.CompareTo(BaseVersion) < 0;
       }
-      
+
       if (Operation == OperationKind.LessThanEqual) {
         return version.CompareTo(BaseVersion) <= 0;
       }
@@ -111,10 +110,10 @@ namespace Freshli.Languages.Perl {
       return false;
     }
   }
-  
-  public class CompoundVersionMatcher: VersionMatcher {
+
+  public class CompoundVersionMatcher : VersionMatcher {
     private VersionMatcher[] _matchers;
-      
+
     public CompoundVersionMatcher(VersionMatcher[] matchers) {
       _matchers = matchers;
     }

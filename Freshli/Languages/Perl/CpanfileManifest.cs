@@ -8,9 +8,9 @@ namespace Freshli.Languages.Perl {
     public override void Parse(string contents) {
       Clear();
       var reader = new StringReader(contents);
-      
+
       var lineExpression = new Regex("requires '([^']*)', ?'([^']*)'.*");
-      
+
       var line = reader.ReadLine();
       while (line != null) {
         line = line.Trim();

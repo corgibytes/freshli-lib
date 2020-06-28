@@ -2,10 +2,8 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.IO;
 
-namespace Freshli
-{
-  public class FileHistoryFinder
-  {
+namespace Freshli {
+  public class FileHistoryFinder {
     private readonly string _projectRootPath;
 
     private static readonly IList<IFileHistoryFinder> _finders =
@@ -14,28 +12,23 @@ namespace Freshli
     public static IList<IFileHistoryFinder> Finders => _finders;
     public IFileHistoryFinder Finder { get; }
 
-    public FileHistoryFinder(string projectRootPath)
-    {
+    public FileHistoryFinder(string projectRootPath) {
       _projectRootPath = projectRootPath;
       Finder = new LocalFileHistoryFinder();
-      foreach(var finder in Finders.ToImmutableList())
-      {
-        if (finder.DoesPathContainHistorySource(projectRootPath))
-        {
+      foreach (var finder in Finders.ToImmutableList()) {
+        if (finder.DoesPathContainHistorySource(projectRootPath)) {
           Finder = finder;
           break;
         }
       }
     }
 
-    public IFileHistory FileHistoryOf(string targetFile)
-    {
+    public IFileHistory FileHistoryOf(string targetFile) {
       return Finder.FileHistoryOf(_projectRootPath, targetFile);
     }
 
     public static void Register<TFinder>()
-      where TFinder : IFileHistoryFinder, new()
-    {
+      where TFinder : IFileHistoryFinder, new() {
       Finders.Add(new TFinder());
     }
   }

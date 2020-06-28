@@ -1,9 +1,7 @@
 using System.Collections.Generic;
 
-namespace Freshli
-{
-  public interface IManifest : IEnumerable<PackageInfo>
-  {
+namespace Freshli {
+  public interface IManifest : IEnumerable<PackageInfo> {
     int Count { get; }
     void Add(string packageName, string packageVersion);
     void Parse(string contents);

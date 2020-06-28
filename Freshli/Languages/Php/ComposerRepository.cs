@@ -6,101 +6,98 @@ using System.Text.RegularExpressions;
 using NLog;
 using RestSharp;
 
-namespace Freshli.Languages.Php
-{
-  public class ComposerRepository: IPackageRepository
-  {
+namespace Freshli.Languages.Php {
+  public class ComposerRepository : IPackageRepository {
     private readonly string _baseUrl;
+
     private Dictionary<string, string> _packageInfoCache =
       new Dictionary<string, string>();
+
     private static readonly Logger _logger = LogManager.GetCurrentClassLogger();
 
-    public ComposerRepository(string baseUrl)
-    {
+    public ComposerRepository(string baseUrl) {
       _baseUrl = baseUrl;
     }
 
-    public VersionInfo LatestAsOf(DateTime date, string name)
-    {
+    public VersionInfo LatestAsOf(DateTime date, string name) {
       var content = FetchPackageInfo(name);
       if (content == null) return null;
 
       using var responseJson = JsonDocument.Parse(content);
-      if (!responseJson.RootElement.TryGetProperty("packages", out var packagesJson))
-      {
+      if (!responseJson.RootElement.TryGetProperty(
+        "packages",
+        out var packagesJson
+      )) {
         return null;
       }
 
-      if (!packagesJson.TryGetProperty(name, out var versionsJson))
-      {
+      if (!packagesJson.TryGetProperty(name, out var versionsJson)) {
         return null;
       }
+
       var versionsJsonElements = versionsJson.EnumerateObject();
-      
+
       var foundVersions = new List<VersionInfo>();
-      foreach (var versionJson in versionsJsonElements)
-      {
-        if (IsUnstable(versionJson.Name))
-        {
+      foreach (var versionJson in versionsJsonElements) {
+        if (IsUnstable(versionJson.Name)) {
           continue;
         }
 
         var version = versionJson.Name;
         var publishedDate = ParsePublishedDate(versionJson.Value);
         var versionInfo = new VersionInfo(version, publishedDate.Date);
-        if (versionInfo.PreRelease != null)
-        {
+        if (versionInfo.PreRelease != null) {
           continue;
         }
-        
+
         foundVersions.Add(versionInfo);
       }
 
-      foundVersions.Sort((left, right) =>
-        left.CompareTo(right)
+      foundVersions.Sort(
+        (left, right) =>
+          left.CompareTo(right)
       );
-      var filteredVersions = foundVersions.Where(item => item.DatePublished <= date).ToArray();
+      var filteredVersions = foundVersions.
+        Where(item => item.DatePublished <= date).ToArray();
       if (!filteredVersions.Any()) return null;
       return filteredVersions.Last();
     }
 
-    private static DateTime ParsePublishedDate(JsonElement versionJson)
-    {
+    private static DateTime ParsePublishedDate(JsonElement versionJson) {
       DateTime result = DateTime.MinValue;
 
-      if (versionJson.TryGetProperty("time", out var standardTime))
-      {
+      if (versionJson.TryGetProperty("time", out var standardTime)) {
         var dateTime = DateTime.Parse(standardTime.GetString());
         result = dateTime.ToUniversalTime().Date;
-      }
-      else if (versionJson.TryGetProperty("extra", out var extraData))
-      {
-        var datestamp = extraData.GetProperty("drupal").GetProperty("datestamp").GetString();
-        result = DateTimeOffset.FromUnixTimeSeconds(Convert.ToInt64(datestamp)).Date.Date;
+      } else if (versionJson.TryGetProperty("extra", out var extraData)) {
+        var datestamp = extraData.GetProperty("drupal").
+          GetProperty("datestamp").GetString();
+        result = DateTimeOffset.FromUnixTimeSeconds(Convert.ToInt64(datestamp)).
+          Date.Date;
       }
 
       return result.Date;
     }
 
-    public VersionInfo VersionInfo(string name, string version)
-    {
+    public VersionInfo VersionInfo(string name, string version) {
       var content = FetchPackageInfo(name);
       if (content == null) return null;
 
       using var responseJson = JsonDocument.Parse(content);
-      if (!responseJson.RootElement.TryGetProperty("packages", out var packagesJson))
-      {
+      if (!responseJson.RootElement.TryGetProperty(
+        "packages",
+        out var packagesJson
+      )) {
         return null;
       }
 
-      if (!packagesJson.TryGetProperty(name, out var versionsJson))
-      {
+      if (!packagesJson.TryGetProperty(name, out var versionsJson)) {
         return null;
       }
+
       var versionsJsonElements = versionsJson.EnumerateObject();
 
-      if (versionsJson.TryGetProperty(version, out var versionJson))
-      {
+      if (versionsJson.TryGetProperty(version, out var versionJson)) {
         var publishedDate = ParsePublishedDate(versionJson);
 
         return new VersionInfo(version, publishedDate.Date);
@@ -109,15 +106,12 @@ namespace Freshli.Languages.Php
       return null;
     }
 
-    public VersionInfo Latest(string name, string thatMatches, DateTime asOf)
-    {
+    public VersionInfo Latest(string name, string thatMatches, DateTime asOf) {
       throw new NotImplementedException();
     }
 
-    private string FetchPackageInfo(string name)
-    {
-      if (!_packageInfoCache.ContainsKey(name))
-      {
+    private string FetchPackageInfo(string name) {
+      if (!_packageInfoCache.ContainsKey(name)) {
         var packageListing = Request("/packages.json");
 
         using var packageJson = JsonDocument.Parse(packageListing);
@@ -126,8 +120,7 @@ namespace Freshli.Languages.Php
 
         var providerIncludes = packageJson.RootElement.
           GetProperty("provider-includes").EnumerateObject();
-        foreach (var providerInclude in providerIncludes)
-        {
+        foreach (var providerInclude in providerIncludes) {
           var providerName = providerInclude.Name;
           var providerHash = providerInclude.Value.GetProperty("sha256").
             GetString();
@@ -137,14 +130,15 @@ namespace Freshli.Languages.Php
           using var providerListingJson = JsonDocument.Parse(providerListing);
           JsonElement packageProvider;
           if (providerListingJson.RootElement.GetProperty("providers").
-            TryGetProperty(name, out packageProvider))
-          {
+            TryGetProperty(name, out packageProvider)) {
             var packageHash = packageProvider.GetProperty("sha256").GetString();
             var packageUrl = urlTemplate.
               Replace("%package%", name).
               Replace("%hash%", packageHash);
             var packageDetails = Request($"/{packageUrl}");
-            _logger.Trace($"{name} package info loaded from {_baseUrl}{packageUrl}");
+            _logger.Trace(
+              $"{name} package info loaded from {_baseUrl}{packageUrl}"
+            );
 
             _packageInfoCache[name] = packageDetails;
             break;
@@ -152,8 +146,7 @@ namespace Freshli.Languages.Php
         }
       }
 
-      if (!_packageInfoCache.ContainsKey(name))
-      {
+      if (!_packageInfoCache.ContainsKey(name)) {
         return null;
       }
 
@@ -162,10 +155,9 @@ namespace Freshli.Languages.Php
 
     private Dictionary<string, string> _requestCache =
       new Dictionary<string, string>();
-    private string Request(string url)
-    {
-      if (!_requestCache.ContainsKey(url))
-      {
+
+    private string Request(string url) {
+      if (!_requestCache.ContainsKey(url)) {
         var client = new RestClient(_baseUrl);
         var request = new RestRequest(url);
         var response = client.Execute(request);
@@ -176,33 +168,28 @@ namespace Freshli.Languages.Php
       return _requestCache[url];
     }
 
-    private bool IsUnstable(string version)
-    {
+    private bool IsUnstable(string version) {
       return IsDev(version) ||
-             IsAlpha(version) ||
-             IsBeta(version) ||
-             IsReleaseCandidate(version);
+        IsAlpha(version) ||
+        IsBeta(version) ||
+        IsReleaseCandidate(version);
     }
 
-    private bool IsDev(string version)
-    {
+    private bool IsDev(string version) {
       return version.StartsWith("dev-") || version.EndsWith("-dev");
     }
 
-    private bool IsAlpha(string version)
-    {
+    private bool IsAlpha(string version) {
       var expression = new Regex(@"-alpha\d*$");
       return expression.IsMatch(version);
     }
 
-    private bool IsBeta(string version)
-    {
+    private bool IsBeta(string version) {
       var expression = new Regex(@"-beta\d*$");
       return expression.IsMatch(version);
     }
 
-    private bool IsReleaseCandidate(string version)
-    {
+    private bool IsReleaseCandidate(string version) {
       var expression = new Regex(@"-RC\d*$");
       return expression.IsMatch(version);
     }

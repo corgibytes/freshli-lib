@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using NLog.LayoutRenderers.Wrappers;
 using Xunit;
 
-namespace Freshli.Test.Unit
-{
-  public class VersionInfoTest
-  {
+namespace Freshli.Test.Unit {
+  public class VersionInfoTest {
     [Theory]
     [InlineData("dev-master", null, null, null, null, null)]
     [InlineData("1", 1, null, null, null, null)]
@@ -26,23 +24,26 @@ namespace Freshli.Test.Unit
       int? minor,
       int? patch,
       string preRelease,
-      string buildMetadata)
-    {
-      var info = new VersionInfo() { Version = version };
+      string buildMetadata
+    ) {
+      var info = new VersionInfo() {Version = version};
       Assert.Equal(major, info.Major);
       Assert.Equal(minor, info.Minor);
       Assert.Equal(patch, info.Patch);
       Assert.Equal(preRelease, info.PreRelease);
       Assert.Equal(buildMetadata, info.BuildMetadata);
     }
-    
+
     [Theory]
     [InlineData("1.0.0-alpha", "alpha", null)]
     [InlineData("1.0.0-alpha12", "alpha", 12)]
     [InlineData("1.0.0-alpha.12", "alpha", 12)]
-    public void PreReleaseIsParsedIntoParts(string version, string preReleaseLabel, int? preReleaseIncrement)
-    {
-      var info = new VersionInfo() { Version = version };
+    public void PreReleaseIsParsedIntoParts(
+      string version,
+      string preReleaseLabel,
+      int? preReleaseIncrement
+    ) {
+      var info = new VersionInfo() {Version = version};
       Assert.Equal(preReleaseLabel, info.PreReleaseLabel);
       Assert.Equal(preReleaseIncrement, info.PreReleaseIncrement);
     }
@@ -90,8 +91,11 @@ namespace Freshli.Test.Unit
     [InlineData("2.0.0", "2.0", 0)]
     [InlineData("2.2", "2.2.0", 0)]
     [InlineData("2.2.0", "2.2", 0)]
-    public void CompareToSortsByVersionFirst(string leftVersion, string rightVersion, int expected)
-    {
+    public void CompareToSortsByVersionFirst(
+      string leftVersion,
+      string rightVersion,
+      int expected
+    ) {
       var left = new VersionInfo() {Version = leftVersion};
       var right = new VersionInfo() {Version = rightVersion};
       Assert.Equal(expected, left.CompareTo(right));
@@ -104,8 +108,8 @@ namespace Freshli.Test.Unit
     [InlineData("1.2.3-alpha1+dev", "1.2.3-alpha1")]
     public void RemovableBuildMetadata(
       string beforeVersion,
-      string afterVersion)
-    {
+      string afterVersion
+    ) {
       var info = new VersionInfo {Version = beforeVersion};
       info.RemoveBuildMetadata();
 
@@ -134,8 +138,8 @@ namespace Freshli.Test.Unit
     [InlineData("1alpha1+dev", "1+dev")]
     public void RemovablePreRelease(
       string beforeVersion,
-      string afterVersion)
-    {
+      string afterVersion
+    ) {
       var info = new VersionInfo {Version = beforeVersion};
       info.RemovePreRelease();
 
@@ -154,8 +158,8 @@ namespace Freshli.Test.Unit
     [InlineData("1.2.3-alpha+dev", "1.2-alpha+dev")]
     public void RemovablePatch(
       string beforeVersion,
-      string afterVersion)
-    {
+      string afterVersion
+    ) {
       var info = new VersionInfo {Version = beforeVersion};
       info.RemovePatch();
 
@@ -174,8 +178,8 @@ namespace Freshli.Test.Unit
     [InlineData("1.2.3-alpha+dev", "1-alpha+dev")]
     public void RemovableMinor(
       string beforeVersion,
-      string afterVersion)
-    {
+      string afterVersion
+    ) {
       var info = new VersionInfo {Version = beforeVersion};
       info.RemoveMinor();
 
