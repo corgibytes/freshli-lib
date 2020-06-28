@@ -60,11 +60,16 @@ namespace Freshli
     }
 
     private static IEnumerable<Type> FindersLoadedIn(Assembly assembly) {
-      return assembly.GetTypes().
-        Where(
-          type => type.GetInterfaces().Contains(typeof(IManifestFinder)) &&
-            type.GetConstructor(Type.EmptyTypes) != null
-        ); 
+      try {
+        return assembly.GetTypes().
+          Where(
+            type => type.GetInterfaces().Contains(typeof(IManifestFinder)) &&
+              type.GetConstructor(Type.EmptyTypes) != null
+          );
+      } catch {
+        logger.Log(LogLevel.Info, $"Unable to load types from {assembly}");
+        return new List<Type>();
+      }
     }
   }
 }
