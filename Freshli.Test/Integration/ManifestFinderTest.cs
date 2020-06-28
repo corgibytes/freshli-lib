@@ -1,3 +1,4 @@
+using Freshli.Languages.Perl;
 using Freshli.Languages.Php;
 using Freshli.Languages.Python;
 using Freshli.Languages.Ruby;
@@ -12,6 +13,7 @@ namespace Freshli.Test.Integration
       ManifestFinder.Register<RubyBundlerManifestFinder>();
       ManifestFinder.Register<PhpComposerManifestFinder>();
       ManifestFinder.Register<PipRequirementsTxtManifestFinder>();
+      ManifestFinder.Register<CpanfileManifestFinder>();
     }
 
     [Fact]
@@ -66,6 +68,25 @@ namespace Freshli.Test.Integration
 
       Assert.IsType<PyPIRepository>(finder.Calculator.Repository);
       Assert.IsType<PipRequirementsTxtManifest>(finder.Calculator.Manifest);
+    }
+    
+    
+    [Fact]
+    public void PerlCpanfile()
+    {
+      var fixturePath = Fixtures.Path(
+        "perl", 
+        "cpanfile", 
+        "simple-without-snapshot");
+
+      var fileFinder = new FileHistoryFinder(fixturePath);
+      var finder = new ManifestFinder(fixturePath, fileFinder.Finder);
+
+      Assert.True(finder.Successful);
+      Assert.Equal("cpanfile", finder.LockFileName);
+
+      Assert.IsType<MetaCpanRepository>(finder.Calculator.Repository);
+      Assert.IsType<CpanfileManifest>(finder.Calculator.Manifest);
     }
   }
 }
