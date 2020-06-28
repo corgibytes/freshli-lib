@@ -166,6 +166,13 @@ namespace Freshli
         {
           BuildMetadata = buildMetadataValue;
         }
+      } 
+      else 
+      {
+        logger.Log(
+          LogLevel.Warn, 
+          @"Unable to parse version string: {_version}. If you think this " + 
+            @"is an error, then please create an issue on GitHub.");
       }
     }
 
