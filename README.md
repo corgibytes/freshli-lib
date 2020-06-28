@@ -11,6 +11,8 @@ For each language that the tool supports, the libyear metric is computed for eac
 
 * Ruby
   * bundler - reads information from `Gemfile.lock`
+* Perl
+  * carton - reads information from `cpanfile`
 * PHP
   * composer - reads information from `composer.json` and `composer.lock`
 * Python
@@ -229,8 +231,8 @@ ManifestFinder.Register<PipRequirementsTxtManifestFinder>();
 FileHistoryFinder.Register<GitFileHistoryFinder>();
 
 PlotlyChart CreateLineGraphFor(Dictionary<string, IList<MetricsResult>> projects) {
-    var lineSeries = projects.Select(p => new Scattergl { 
-        name = p.Key, 
+    var lineSeries = projects.Select(p => new Scattergl {
+        name = p.Key,
         x = p.Value.Select(r => r.Date),
         y = p.Value.Select(r => r.LibYear.Total)
     });
