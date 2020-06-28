@@ -35,7 +35,7 @@ namespace Freshli
     public int? PreReleaseIncrement { get; private set; }
     public string BuildMetadata { get; private set; }
 
-    private Regex versionExpression = new Regex(@"^v?(0|[1-9]\d*)\.?(0|[1-9]\d*)?\.?(0|[1-9]\d*)?(?:-?((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$");
+    private Regex versionExpression = new Regex(@"^v?(\d+)\.?(\d+)?\.?(\d+)?(?:-?((?:\d+|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:\d+|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$");
     private Regex preReleaseExpression = new Regex(@"([a-zA-Z-]+)\.?(\d*)");
     private string _preRelease;
 
