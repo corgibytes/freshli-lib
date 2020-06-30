@@ -27,6 +27,7 @@ namespace Freshli {
       }
     }
 
+// 123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890
     public string PreReleaseLabel { get; private set; }
     public int? PreReleaseIncrement { get; private set; }
     public string BuildMetadata { get; private set; }
