@@ -1,0 +1,11 @@
+name: EditorConfig Lint
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+action:
+  - name: EditorConfig-Action
+    uses: zbeekman/EditorConfig-Action@v1.1.1
