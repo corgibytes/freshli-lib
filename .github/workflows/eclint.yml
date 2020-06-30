@@ -10,5 +10,5 @@ jobs:
   eclint:
     runs-on: ubuntu-latest
     steps:
-      - name: EditorConfig-Action
-        uses: zbeekman/EditorConfig-Action@v1.1.1
+      - name: ECLint
+        uses: snow-actions/eclint@v1.0.1
