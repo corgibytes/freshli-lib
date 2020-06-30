@@ -12,7 +12,7 @@ indent_style=space
 indent_size=4
 tab_width=4
 
-[*.{DotSettings,sln,ipynb,csproj,lock,json,approved.txt,editorconfig,yml}]
+[*.{DotSettings,sln,ipynb,csproj,lock,json,approved.txt,editorconfig,yml,config}]
 max_line_length=off
 
 [*.yml]
