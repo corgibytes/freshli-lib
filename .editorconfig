@@ -15,6 +15,13 @@ tab_width=4
 [*.{DotSettings,sln,ipynb,csproj,lock,json,approved.txt,editorconfig,yml}]
 max_line_length=off
 
+[*.yml]
+indent_style=space
+indent_size=2
+tab_width=8
+trim_trailing_whitespace=false
+insert_final_newline=true
+
 [*.cs]
 indent_style=space
 indent_size=2
