@@ -17,7 +17,7 @@ DEPENDENCIES
   nokogiri (= 1.9.1)
 
 BUNDLED WITH
-   2.1.3
+  2.1.3
 ";
 
     // Copied from Feedbin project https://github.com/feedbin/feedbin
