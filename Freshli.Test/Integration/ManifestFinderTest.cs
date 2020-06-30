@@ -4,21 +4,14 @@ using Freshli.Languages.Python;
 using Freshli.Languages.Ruby;
 using Xunit;
 
-namespace Freshli.Test.Integration
-{
-  public class ManifestFinderTest
-  {
-    public ManifestFinderTest()
-    {
-      ManifestFinder.Register<RubyBundlerManifestFinder>();
-      ManifestFinder.Register<PhpComposerManifestFinder>();
-      ManifestFinder.Register<PipRequirementsTxtManifestFinder>();
-      ManifestFinder.Register<CpanfileManifestFinder>();
+namespace Freshli.Test.Integration {
+  public class ManifestFinderTest {
+    public ManifestFinderTest() {
+      ManifestFinder.RegisterAll();
     }
 
     [Fact]
-    public void Empty()
-    {
+    public void Empty() {
       var emptyFixturePath = Fixtures.Path("empty");
       var fileFinder = new FileHistoryFinder(emptyFixturePath);
       var finder = new ManifestFinder(emptyFixturePath, fileFinder.Finder);
@@ -26,8 +19,7 @@ namespace Freshli.Test.Integration
     }
 
     [Fact]
-    public void RubyBundler()
-    {
+    public void RubyBundler() {
       var rubyFixturePath = Fixtures.Path("ruby", "nokotest");
 
       var fileFinder = new FileHistoryFinder(rubyFixturePath);
@@ -41,8 +33,7 @@ namespace Freshli.Test.Integration
     }
 
     [Fact]
-    public void PhpComposer()
-    {
+    public void PhpComposer() {
       var phpFixturePath = Fixtures.Path("php", "small");
 
       var fileFinder = new FileHistoryFinder(phpFixturePath);
@@ -56,9 +47,12 @@ namespace Freshli.Test.Integration
     }
 
     [Fact]
-    public void PythonPipRequirementsTxt()
-    {
-      var pythonFixturePath = Fixtures.Path("python", "requirements-txt", "small");
+    public void PythonPipRequirementsTxt() {
+      var pythonFixturePath = Fixtures.Path(
+        "python",
+        "requirements-txt",
+        "small"
+      );
 
       var fileFinder = new FileHistoryFinder(pythonFixturePath);
       var finder = new ManifestFinder(pythonFixturePath, fileFinder.Finder);
@@ -69,15 +63,15 @@ namespace Freshli.Test.Integration
       Assert.IsType<PyPIRepository>(finder.Calculator.Repository);
       Assert.IsType<PipRequirementsTxtManifest>(finder.Calculator.Manifest);
     }
-    
-    
+
+
     [Fact]
-    public void PerlCpanfile()
-    {
+    public void PerlCpanfile() {
       var fixturePath = Fixtures.Path(
-        "perl", 
-        "cpanfile", 
-        "simple-without-snapshot");
+        "perl",
+        "cpanfile",
+        "simple-without-snapshot"
+      );
 
       var fileFinder = new FileHistoryFinder(fixturePath);
       var finder = new ManifestFinder(fixturePath, fileFinder.Finder);

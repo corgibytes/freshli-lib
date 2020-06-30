@@ -1,13 +1,10 @@
 using System.IO;
 using Xunit;
 
-namespace Freshli.Test.Integration
-{
-  public class FileHistoryFinderTest
-  {
+namespace Freshli.Test.Integration {
+  public class FileHistoryFinderTest {
     [Fact]
-    public void Git()
-    {
+    public void Git() {
       var rubyFixturePath = Fixtures.Path("ruby", "nokotest");
 
       FileHistoryFinder.Register<GitFileHistoryFinder>();
@@ -17,8 +14,7 @@ namespace Freshli.Test.Integration
     }
 
     [Fact]
-    public void Default()
-    {
+    public void Default() {
       var emtpyFixturePath = Fixtures.Path("empty");
 
       var finder = new FileHistoryFinder(emtpyFixturePath);

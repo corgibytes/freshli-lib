@@ -1,5 +1,5 @@
 ﻿namespace Freshli.Languages.Python {
-  public class PipRequirementsTxtManifestFinder: IManifestFinder {
+  public class PipRequirementsTxtManifestFinder : IManifestFinder {
     public IFileHistoryFinder FileFinder { get; set; }
 
     public bool DoesPathContainManifest(string projectRootPath) {

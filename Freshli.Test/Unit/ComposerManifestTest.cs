@@ -2,16 +2,13 @@ using System.IO;
 using Freshli.Languages.Php;
 using Xunit;
 
-namespace Freshli.Test.Unit
-{
-  public class ComposerManifestTest
-  {
+namespace Freshli.Test.Unit {
+  public class ComposerManifestTest {
     private static readonly string Contents = File.
       ReadAllText(Fixtures.Path("php", "small", "composer.lock"));
 
     [Fact]
-    public void Parse()
-    {
+    public void Parse() {
       var manifest = new ComposerManifest();
       manifest.Parse(Contents);
 
@@ -19,8 +16,7 @@ namespace Freshli.Test.Unit
     }
 
     [Fact]
-    public void ParseImpliesClear()
-    {
+    public void ParseImpliesClear() {
       var manifest = new ComposerManifest();
       manifest.Parse(Contents);
       manifest.Add("remove", "me");
@@ -29,8 +25,7 @@ namespace Freshli.Test.Unit
       AssertManifestContents(manifest);
     }
 
-    private void AssertManifestContents(ComposerManifest manifest)
-    {
+    private void AssertManifestContents(ComposerManifest manifest) {
       Assert.Equal(15, manifest.Count);
       Assert.Equal("1.3.1", manifest["doctrine/inflector"].Version);
       Assert.Equal("v5.6.39", manifest["illuminate/container"].Version);

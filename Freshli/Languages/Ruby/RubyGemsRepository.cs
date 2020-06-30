@@ -3,12 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using RestSharp;
 
-namespace Freshli.Languages.Ruby
-{
-  public class RubyGemsRepository : IPackageRepository
-  {
-    public VersionInfo LatestAsOf(DateTime date, string name)
-    {
+namespace Freshli.Languages.Ruby {
+  public class RubyGemsRepository : IPackageRepository {
+    public VersionInfo LatestAsOf(DateTime date, string name) {
       var response = ApiRequest(name);
 
       var candidates = response.
@@ -16,21 +13,21 @@ namespace Freshli.Languages.Ruby
         OrderByDescending(version => version.CreatedAt);
 
       var firstCandidate = candidates.FirstOrDefault();
-      if (firstCandidate != null)
-      {
+      if (firstCandidate != null) {
         return new VersionInfo(
           firstCandidate.Number,
-          firstCandidate.CreatedAt.Date);
+          firstCandidate.CreatedAt.Date
+        );
       }
 
       return null;
     }
 
-    private Dictionary<String, List<RubyGemsVersion>> _responseCache = new Dictionary<string, List<RubyGemsVersion>>();
-    private List<RubyGemsVersion> ApiRequest(string name)
-    {
-      if (!_responseCache.ContainsKey(name))
-      {
+    private Dictionary<String, List<RubyGemsVersion>> _responseCache =
+      new Dictionary<string, List<RubyGemsVersion>>();
+
+    private List<RubyGemsVersion> ApiRequest(string name) {
+      if (!_responseCache.ContainsKey(name)) {
         var client = new RestClient("https://rubygems.org/api/v1");
         var request = new RestRequest($"/versions/{name}.json");
         var response = client.Execute<List<RubyGemsVersion>>(request);
@@ -40,22 +37,20 @@ namespace Freshli.Languages.Ruby
       return _responseCache[name];
     }
 
-    public VersionInfo VersionInfo(string name, string version)
-    {
+    public VersionInfo VersionInfo(string name, string version) {
       var response = ApiRequest(name);
 
-      var candidate = response.FirstOrDefault(package => package?.Number == version);
+      var candidate =
+        response.FirstOrDefault(package => package?.Number == version);
 
-      if (candidate != null)
-      {
+      if (candidate != null) {
         return new VersionInfo(candidate.Number, candidate.CreatedAt.Date);
       }
 
       return null;
     }
 
-    public VersionInfo Latest(string name, string thatMatches, DateTime asOf)
-    {
+    public VersionInfo Latest(string name, string thatMatches, DateTime asOf) {
       throw new NotImplementedException();
     }
   }

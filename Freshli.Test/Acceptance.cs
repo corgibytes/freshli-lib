@@ -8,16 +8,11 @@ using Freshli.Languages.Ruby;
 using Freshli.Languages.Python;
 using Xunit;
 
-namespace Freshli.Test
-{
+namespace Freshli.Test {
   [UseReporter(typeof(XUnit2Reporter))]
-  public class Acceptance
-  {
+  public class Acceptance {
     public Acceptance() {
-      ManifestFinder.Register<RubyBundlerManifestFinder>();
-      ManifestFinder.Register<PhpComposerManifestFinder>();
-      ManifestFinder.Register<PipRequirementsTxtManifestFinder>();
-      ManifestFinder.Register<CpanfileManifestFinder>();
+      ManifestFinder.RegisterAll();
 
       FileHistoryFinder.Register<GitFileHistoryFinder>();
     }
@@ -26,8 +21,7 @@ namespace Freshli.Test
       new DateTime(2020, 01, 01, 0, 0, 0, DateTimeKind.Utc);
 
     [Fact]
-    public void RubyGemsWithGitHistory()
-    {
+    public void RubyGemsWithGitHistory() {
       var runner = new Runner();
 
       var rubyFixturePath = Fixtures.Path("ruby", "nokotest");
@@ -48,8 +42,7 @@ namespace Freshli.Test
     }
 
     [Fact]
-    public void RubyGemsFeedbinHistoryViaGitHub()
-    {
+    public void RubyGemsFeedbinHistoryViaGitHub() {
       var runner = new Runner();
 
       var repoUrl = "https://github.com/feedbin/feedbin";
@@ -58,17 +51,15 @@ namespace Freshli.Test
       Approvals.VerifyAll(results, "results");
     }
 
-    [Fact] 
-    public void RubyGemsClearanceHistoryViaGitHub()
-    {
+    [Fact]
+    public void RubyGemsClearanceHistoryViaGitHub() {
       var runner = new Runner();
       var results = runner.Run("https://github.com/thoughtbot/clearance");
       Approvals.VerifyAll(results, "results");
     }
 
     [Fact]
-    public void ComposerWithoutGitHistory()
-    {
+    public void ComposerWithoutGitHistory() {
       var runner = new Runner();
 
       var phpFixturePath = Fixtures.Path("php", "large");
@@ -78,8 +69,7 @@ namespace Freshli.Test
     }
 
     [Fact]
-    public void DrupalComposerWithoutGitHistory()
-    {
+    public void DrupalComposerWithoutGitHistory() {
       var runner = new Runner();
 
       var phpFixturePath = Fixtures.Path("php", "drupal");
@@ -109,7 +99,7 @@ namespace Freshli.Test
         asOf: _testingBoundary
       );
 
-      Approvals.VerifyAll(results, "results");    
+      Approvals.VerifyAll(results, "results");
     }
   }
 }

@@ -4,16 +4,12 @@ using System.Linq;
 using System.Text.Json;
 using NLog;
 
-namespace Freshli.Languages.Php
-{
-  public class ComposerManifest: AbstractManifest
-  {
-    public override void Parse(string contents)
-    {
+namespace Freshli.Languages.Php {
+  public class ComposerManifest : AbstractManifest {
+    public override void Parse(string contents) {
       Clear();
       var options = new JsonDocumentOptions() {AllowTrailingCommas = true};
-      using (var composerData = JsonDocument.Parse(contents, options))
-      {
+      using (var composerData = JsonDocument.Parse(contents, options)) {
         var packages = composerData.RootElement.GetProperty("packages");
         AddPackagesFromJson(packages);
 
@@ -22,16 +18,14 @@ namespace Freshli.Languages.Php
       }
     }
 
-    private void AddPackagesFromJson(JsonElement packages)
-    {
-      foreach (var package in packages.EnumerateArray())
-      {
+    private void AddPackagesFromJson(JsonElement packages) {
+      foreach (var package in packages.EnumerateArray()) {
         var name = package.GetProperty("name").GetString();
         var version = package.GetProperty("version").GetString();
         Add(name, version);
       }
     }
-    
+
     public override bool UsesExactMatches => true;
   }
 }

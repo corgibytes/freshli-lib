@@ -1,10 +1,8 @@
 using Freshli.Languages.Ruby;
 using Xunit;
 
-namespace Freshli.Test.Unit
-{
-  public class BundlerManifestTest
-  {
+namespace Freshli.Test.Unit {
+  public class BundlerManifestTest {
     private static readonly string Contents = @"GEM
   remote: https://rubygems.org/
   specs:
@@ -19,7 +17,7 @@ DEPENDENCIES
   nokogiri (= 1.9.1)
 
 BUNDLED WITH
-   2.1.3
+  2.1.3
 ";
 
     // Copied from Feedbin project https://github.com/feedbin/feedbin
@@ -383,8 +381,7 @@ DEPENDENCIES
 ";
 
     [Fact]
-    public void Parse()
-    {
+    public void Parse() {
       var manifest = new BundlerManifest();
       manifest.Parse(Contents);
 
@@ -392,27 +389,24 @@ DEPENDENCIES
     }
 
     [Fact]
-    public void ParseImpliesClear()
-    {
+    public void ParseImpliesClear() {
       var manifest = new BundlerManifest();
       manifest.Parse(Contents);
       manifest.Add("remove", "me");
-      
+
       manifest.Parse(Contents);
 
       AssertManifestContents(manifest);
     }
 
-    private static void AssertManifestContents(BundlerManifest manifest)
-    {
+    private static void AssertManifestContents(BundlerManifest manifest) {
       Assert.Equal(2, manifest.Count);
       Assert.Equal("2.4.0", manifest["mini_portile2"].Version);
       Assert.Equal("1.9.1", manifest["nokogiri"].Version);
     }
 
     [Fact]
-    public void ParseFeedbin()
-    {
+    public void ParseFeedbin() {
       var manifest = new BundlerManifest();
       manifest.Parse(FeedbinContents);
 
@@ -421,7 +415,10 @@ DEPENDENCIES
       Assert.Equal("4.0.0", manifest["actionpack"].Version);
       Assert.Equal("4.0.0", manifest["activemodel"].Version);
       Assert.Equal("4.0.0", manifest["activerecord"].Version);
-      Assert.Equal("1.0.3", manifest["activerecord-deprecated_finders"].Version);
+      Assert.Equal(
+        "1.0.3",
+        manifest["activerecord-deprecated_finders"].Version
+      );
       Assert.Equal("4.0.0", manifest["activesupport"].Version);
       Assert.Equal("2.3.5", manifest["addressable"].Version);
       Assert.Equal("0.2.2", manifest["aggregate"].Version);

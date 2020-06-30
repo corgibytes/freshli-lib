@@ -2,21 +2,20 @@ using System.IO;
 using Freshli.Languages.Python;
 using Xunit;
 
-namespace Freshli.Test.Unit
-{
-  public class PipRequirementsTxtManifestTest
-  {
+namespace Freshli.Test.Unit {
+  public class PipRequirementsTxtManifestTest {
     private static readonly string Contents = File.
       ReadAllText(
         Fixtures.Path(
           "python",
           "requirements-txt",
           "small",
-          "requirements.txt"));
+          "requirements.txt"
+        )
+      );
 
     [Fact]
-    public void Parse()
-    {
+    public void Parse() {
       var manifest = new PipRequirementsTxtManifest();
       manifest.Parse(Contents);
 
@@ -38,7 +37,7 @@ namespace Freshli.Test.Unit
       manifest.Add("remove", "me");
 
       manifest.Parse(Contents);
-      
+
       Assert.Equal(8, manifest.Count);
       Assert.Equal("==1.16.*", manifest["numpy"].Version);
       Assert.Equal("==3.*", manifest["matplotlib"].Version);
@@ -51,15 +50,15 @@ namespace Freshli.Test.Unit
     }
 
     [Fact]
-    public void ParseCorrectlyHandlesPackageNameThatContainsDot()
-    {
+    public void ParseCorrectlyHandlesPackageNameThatContainsDot() {
       var manifest = new PipRequirementsTxtManifest();
       manifest.Parse("backports.ssl-match-hostname==3.4.0.2");
 
       Assert.Equal(1, manifest.Count);
       Assert.Equal(
         "==3.4.0.2",
-        manifest["backports.ssl-match-hostname"].Version);
+        manifest["backports.ssl-match-hostname"].Version
+      );
     }
   }
 }

@@ -27,7 +27,9 @@ namespace Freshli.Languages {
         packageName,
         packageVersion
       );
-      _logger.Trace($"AddPackage: PackageInfo({packageName}, {packageVersion})");
+      _logger.Trace(
+        $"AddPackage: PackageInfo({packageName}, {packageVersion})"
+      );
     }
 
     public void Clear() {

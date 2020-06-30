@@ -35,8 +35,8 @@ namespace Freshli.Test.Unit.Perl {
     [InlineData("1.2", ">= 1.2, != 1.5, < 2.0", true)]
     [InlineData("2.0", ">= 1.2, != 1.5, < 2.0", false)]
     public void DoesMatchHandleVersionSpecifierOperator(
-      string version, 
-      string expression, 
+      string version,
+      string expression,
       bool doesMatch
     ) {
       var info = new VersionInfo() {Version = version};
@@ -68,7 +68,7 @@ namespace Freshli.Test.Unit.Perl {
       var basicMatcher = (BasicVersionMatcher) matcher;
       Assert.Equal(operation, basicMatcher.Operation);
       Assert.Equal(
-        new VersionInfo {Version = version}, 
+        new VersionInfo {Version = version},
         basicMatcher.BaseVersion
       );
     }
