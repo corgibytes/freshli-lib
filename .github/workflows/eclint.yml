@@ -11,6 +11,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: ECLint
-        uses: snow-actions/eclint@v1.0.1
-        with:
-          args: check $(git ls-files)
+        uses: greut/eclint-action@v0.2.5
