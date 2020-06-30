@@ -1,3 +1,5 @@
+![.NET Core](https://github.com/corgibytes/freshli/workflows/.NET%20Core/badge.svg) ![EditorConfig Lint](https://github.com/corgibytes/freshli/workflows/EditorConfig%20Lint/badge.svg)
+
 # freshli
 A CLI tool for collecting historical metrics about a project's dependencies
 
