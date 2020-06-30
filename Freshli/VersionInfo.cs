@@ -31,16 +31,22 @@ namespace Freshli {
     public int? PreReleaseIncrement { get; private set; }
     public string BuildMetadata { get; private set; }
 
-    private Regex versionExpression = new Regex(
-      @"^v?(\d+)[\._]?(\d+)?[\._]?(\d+)?(?:-?((?:\d+|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:[\._](?:\d+|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:[\._][0-9a-zA-Z-]+)*))?$"
+    private readonly Regex _versionExpression = new Regex(
+      @"^v?(\d+)[\._]?(\d+)?[\._]?(\d+)?" +
+      @"(?:-?((?:\d+|\d*[a-zA-Z-][0-9a-zA-Z-]*)" +
+      @"(?:[\._](?:\d+|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?" +
+      @"(?:\+([0-9a-zA-Z-]+(?:[\._][0-9a-zA-Z-]+)*))?$"
     );
 
-    private Regex preReleaseExpression = new Regex(@"([a-zA-Z-]+)\.?(\d*)");
+    private readonly Regex _preReleaseExpression = new Regex(
+      pattern: @"([a-zA-Z-]+)\.?(\d*)"
+    );
+
     private string _preRelease;
 
     private void ParsePreRelease(string value) {
       if (!String.IsNullOrEmpty(value)) {
-        var match = preReleaseExpression.Match(value);
+        var match = _preReleaseExpression.Match(value);
         PreReleaseLabel = match.Groups[1].Value;
         var incrementValue = match.Groups[2].Value;
         if (!string.IsNullOrWhiteSpace(incrementValue)) {
@@ -68,8 +74,8 @@ namespace Freshli {
       PreRelease = null;
       BuildMetadata = null;
 
-      if (versionExpression.IsMatch(_version)) {
-        var match = versionExpression.Match(_version);
+      if (_versionExpression.IsMatch(_version)) {
+        var match = _versionExpression.Match(_version);
 
         var majorValue = match.Groups[1].Value;
         if (!string.IsNullOrWhiteSpace(majorValue)) {
@@ -113,7 +119,7 @@ namespace Freshli {
           _version = _version.Remove(start, length);
         }
 
-        match = versionExpression.Match(_version);
+        match = _versionExpression.Match(_version);
 
         var minorValue = match.Groups[2].Value;
         Minor = null;
@@ -172,7 +178,7 @@ namespace Freshli {
       DatePublished = datePublished;
     }
 
-    public int CompareTo(object? other) {
+    public int CompareTo(object other) {
       var otherVersionInfo = other as VersionInfo;
       if (otherVersionInfo == null) {
         throw new ArgumentException();
@@ -259,8 +265,11 @@ namespace Freshli {
 
     public override string ToString() {
       return
-        $"{nameof(Major)}: {Major}, {nameof(Minor)}: {Minor}, {nameof(Patch)}: {Patch}, " +
-        $"{nameof(PreRelease)}: {PreRelease}, {nameof(BuildMetadata)}: {BuildMetadata}, " +
+        $"{nameof(Major)}: {Major}, " +
+        $"{nameof(Minor)}: {Minor}, " +
+        $"{nameof(Patch)}: {Patch}, " +
+        $"{nameof(PreRelease)}: {PreRelease}, " +
+        $"{nameof(BuildMetadata)}: {BuildMetadata}, " +
         $"{nameof(DatePublished)}: {DatePublished}";
     }
 

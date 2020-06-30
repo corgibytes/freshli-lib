@@ -22,7 +22,21 @@ namespace Freshli.Test.Integration {
     [Fact]
     public void ContentsAsOf2017() {
       var expectedContents =
-        "GEM\n  remote: https://rubygems.org/\n  specs:\n    mini_portile2 (2.1.0)\n    nokogiri (1.7.0)\n      mini_portile2 (~> 2.1.0)\n\nPLATFORMS\n  ruby\n\nDEPENDENCIES\n  nokogiri (= 1.7.0)\n\nBUNDLED WITH\n   2.1.3\n";
+        "GEM\n" +
+        "  remote: https://rubygems.org/\n" +
+        "  specs:\n" +
+        "    mini_portile2 (2.1.0)\n" +
+        "    nokogiri (1.7.0)\n" +
+        "      mini_portile2 (~> 2.1.0)\n" +
+        "\n" +
+        "PLATFORMS\n" +
+        "  ruby\n" +
+        "\n" +
+        "DEPENDENCIES\n" +
+        "  nokogiri (= 1.7.0)\n" +
+        "\n" +
+        "BUNDLED WITH\n" +
+        "   2.1.3\n";
 
       var rubyFixturePath = Fixtures.Path("ruby", "nokotest");
       var history = new GitFileHistory(rubyFixturePath, "Gemfile.lock");

@@ -35,7 +35,9 @@ namespace Freshli {
           calculator.Manifest.Parse(content);
 
           logger.Trace(
-            "Adding MetricResult: currentDate = {currentDate}, libYear = {ComputeAsOf}",
+            "Adding MetricResult: " +
+            "currentDate = {currentDate}, " +
+            "libYear = {ComputeAsOf}",
             manifestFinder.LockFileName,
             currentDate,
             calculator.ComputeAsOf(currentDate).Total

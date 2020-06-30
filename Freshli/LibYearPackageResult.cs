@@ -21,7 +21,10 @@ namespace Freshli {
 
     public override string ToString() {
       return
-        $"{{ Name: \"{Name}\", Version: \"{Version}\", PublishedAt: {PublishedAt:s}, Value: {Value} }}";
+        $"{{ Name: \"{Name}\", " +
+        $"Version: \"{Version}\", " +
+        $"PublishedAt: {PublishedAt:s}, " +
+        $"Value: {Value} }}";
     }
   }
 }
