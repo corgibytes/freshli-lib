@@ -1,18 +1,26 @@
+[*]
+# Standard properties
+max_line_length=80
 
-[*.cs]
-indent_style=space
-indent_size=2
-tab_width=8
+[*.md]
+trim_trailing_whitespace=true
+insert_final_newline=true
+max_line_length=off
 
 [*.{appxmanifest,asax,ascx,aspx,build,cshtml,dtd,fs,fsi,fsscript,fsx,master,ml,mli,nuspec,razor,resw,resx,skin,vb,xaml,xamlx,xoml,xsd}]
 indent_style=space
 indent_size=4
 tab_width=4
 
-[*]
+[*.{DotSettings,sln,ipynb,csproj,lock,json,approved.txt,editorconfig,yml}]
+max_line_length=off
 
-# Standard properties
-max_line_length=80
+[*.cs]
+indent_style=space
+indent_size=2
+tab_width=8
+trim_trailing_whitespace=true
+insert_final_newline=true
 
 # Microsoft .NET properties
 csharp_new_line_before_catch=false
