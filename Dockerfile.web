@@ -1,0 +1,19 @@
+# https://hub.docker.com/_/microsoft-dotnet-core
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build
+RUN dotnet --version
+WORKDIR /source
+
+# copy csproj and restore as distinct layers
+# COPY *.sln .
+COPY Freshli.Web/Freshli.Web.csproj ./Freshli.Web/
+RUN dotnet restore ./Freshli.Web/Freshli.Web.csproj
+
+# copy everything else and build app
+COPY Freshli.Web/. ./Freshli.Web/
+RUN dotnet publish -c release -o /app --no-restore ./Freshli.Web/Freshli.Web.csproj
+
+# final stage/image
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1 AS runtime
+WORKDIR /app
+COPY --from=build /app ./
+ENTRYPOINT ["./Freshli.Web"]
