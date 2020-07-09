@@ -54,7 +54,10 @@ namespace Freshli.Test {
     [Fact]
     public void RubyGemsClearanceHistoryViaGitHub() {
       var runner = new Runner();
-      var results = runner.Run("https://github.com/thoughtbot/clearance");
+      var results = runner.Run(
+        "https://github.com/thoughtbot/clearance",
+        asOf: new DateTime(2020, 06, 01, 00, 00, 00, DateTimeKind.Utc)
+      );
       Approvals.VerifyAll(results, "results");
     }
 
