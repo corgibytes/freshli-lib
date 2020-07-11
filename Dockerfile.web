@@ -3,6 +3,14 @@ FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build
 RUN dotnet --version
 WORKDIR /source
 
+RUN apt-get update && apt-get install -y unzip
+
+COPY docker-entrypoint-web.sh .
+
+RUN echo 'export PATH="$PATH:/root/.dotnet/tools"' >> /root/.bashrc && \
+    . /root/.bashrc && \
+    dotnet tool install --global dotnet-ef
+
 # copy csproj and restore as distinct layers
 # COPY *.sln .
 COPY Freshli.Web/Freshli.Web.csproj ./Freshli.Web/
