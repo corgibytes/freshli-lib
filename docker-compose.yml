@@ -17,6 +17,7 @@ services:
     environment:
       ASPNETCORE_ENVIRONMENT: "Development"
       ASPNETCORE_URLS: "http://+:80"
+      DB_HOST: "db"
   db:
     image: postgres:latest
     environment:
