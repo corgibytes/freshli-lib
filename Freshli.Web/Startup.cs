@@ -2,9 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Freshli.Web.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -22,10 +24,23 @@ namespace Freshli.Web
 
         // This method gets called by the runtime. Use this method to add
         // services to the container.
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddControllersWithViews();
-        }
+        public void ConfigureServices(IServiceCollection services) {
+          var host = Environment.GetEnvironmentVariable("DB_HOST") ??
+            "localhost";
+          var username = Environment.GetEnvironmentVariable("DB_USERNAME") ??
+            "postgres";
+          var password = Environment.GetEnvironmentVariable("DB_PASSWORD") ??
+            "password";
+          var database = Environment.GetEnvironmentVariable("DB_NAME") ??
+            "freshli_web_development";
+
+          var connectionString = $"Host={host};Database={database};" +
+            $"Username={username};Password={password};";
+
+          services.AddControllersWithViews();
+          services.AddDbContext<ApplicationDbContext>(options =>
+            options.UseNpgsql(connectionString));
+    }
 
         // This method gets called by the runtime. Use this method to configure
         // the HTTP request pipeline.
