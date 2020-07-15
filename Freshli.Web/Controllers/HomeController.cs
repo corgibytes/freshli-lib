@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Freshli.Web.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Freshli.Web.Models;
@@ -10,9 +11,14 @@ using Freshli.Web.Models;
 namespace Freshli.Web.Controllers {
   public class HomeController : Controller {
     private readonly ILogger<HomeController> _logger;
+    private ApplicationDbContext _db;
 
-    public HomeController(ILogger<HomeController> logger) {
+    public HomeController(
+      ILogger<HomeController> logger,
+      ApplicationDbContext db
+    ) {
       _logger = logger;
+      _db = db;
     }
 
     public IActionResult Index() {
@@ -38,7 +44,10 @@ namespace Freshli.Web.Controllers {
 
     [HttpPost]
     public IActionResult Analysis(AnalysisRequest analysisRequest) {
-      return View(analysisRequest);
+      var result = _db.AnalysisRequests.Add(analysisRequest);
+      _db.SaveChanges();
+
+      return View(result.Entity);
     }
   }
 }
