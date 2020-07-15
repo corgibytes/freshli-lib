@@ -33,7 +33,9 @@ namespace Freshli.Web {
       services.AddControllersWithViews();
       services.AddDbContext<ApplicationDbContext>(
         options =>
-          options.UseNpgsql(connectionString)
+          options.
+            UseNpgsql(connectionString).
+            UseSnakeCaseNamingConvention()
       );
     }
 
