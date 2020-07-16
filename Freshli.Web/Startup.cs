@@ -6,6 +6,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Hangfire;
+using Hangfire.PostgreSql;
+using Hangfire.Dashboard;
+using Hangfire.Annotations;
 
 namespace Freshli.Web {
   public class Startup {
@@ -37,6 +41,13 @@ namespace Freshli.Web {
             UseNpgsql(connectionString).
             UseSnakeCaseNamingConvention()
       );
+      services.AddHangfire(configuration => configuration.
+        SetDataCompatibilityLevel(CompatibilityLevel.Version_170).
+        UseSimpleAssemblyNameTypeSerializer().
+        UsePostgreSqlStorage(connectionString)
+      );
+
+      services.AddMvc();
     }
 
     // This method gets called by the runtime. Use this method to configure
@@ -55,6 +66,10 @@ namespace Freshli.Web {
       app.UseHttpsRedirection();
       app.UseStaticFiles();
 
+      app.UseHangfireDashboard("/jobs", new DashboardOptions {
+        Authorization = new[] { new HangfireAuthorizationFilter() }
+      });
+
       app.UseRouting();
 
       app.UseAuthorization();
@@ -67,6 +82,13 @@ namespace Freshli.Web {
           );
         }
       );
+    }
+  }
+
+  public class HangfireAuthorizationFilter : IDashboardAuthorizationFilter {
+    public bool Authorize([NotNull] DashboardContext context) {
+      // TODO: !THIS _CANNOT_ GO TO PRODUCTION LIKE THIS!
+      return true;
     }
   }
 }
