@@ -20,23 +20,24 @@ namespace Freshli {
 
       foreach (var package in Manifest) {
         VersionInfo latestVersion;
+        VersionInfo currentVersion;
+        
         try {
           latestVersion = Repository.LatestAsOf(date, package.Name);
-        } catch (Exception e) {
-          _logger.Info($"Skipping {package.Name}: {e.Message}");
-          continue;
-        }
 
-        VersionInfo currentVersion;
-        if (Manifest.UsesExactMatches) {
-          currentVersion =
-            Repository.VersionInfo(package.Name, package.Version);
-        } else {
-          currentVersion = Repository.Latest(
-            package.Name,
-            package.Version,
-            asOf: date
-          );
+          if (Manifest.UsesExactMatches) {
+            currentVersion =
+              Repository.VersionInfo(package.Name, package.Version);
+          } else {
+            currentVersion = Repository.Latest(
+              package.Name,
+              package.Version,
+              asOf: date
+            );
+          }
+        } catch (Exception e) {
+          _logger.Warn($"Skipping {package.Name}: {e.Message}");
+          continue;
         }
 
         if (latestVersion != null && currentVersion != null) {
