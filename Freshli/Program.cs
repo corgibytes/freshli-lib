@@ -1,10 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Linq;
-using System.Reflection;
-using Freshli.Languages.Php;
-using Freshli.Languages.Python;
-using Freshli.Languages.Ruby;
 using NLog;
 
 namespace Freshli {
@@ -33,6 +28,7 @@ namespace Freshli {
           e,
           $"Exception executing Freshli for args = {args}: {e.Message}"
         );
+        logger.Trace(e, e.StackTrace);
       }
     }
 
