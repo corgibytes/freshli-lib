@@ -34,18 +34,19 @@ namespace Freshli {
           var content = fileHistory.ContentsAsOf(currentDate);
           calculator.Manifest.Parse(content);
 
+          LibYearResult libYear = calculator.ComputeAsOf(currentDate);
           logger.Trace(
             "Adding MetricResult: " +
             "currentDate = {currentDate}, " +
             "libYear = {ComputeAsOf}",
             manifestFinder.LockFileName,
             currentDate,
-            calculator.ComputeAsOf(currentDate).Total
+            libYear.Total
           );
           metricsResults.Add(
             new MetricsResult(
               currentDate,
-              calculator.ComputeAsOf(currentDate)
+              libYear
             )
           );
         }
