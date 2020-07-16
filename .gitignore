@@ -4,3 +4,5 @@ obj/
 /.idea/
 /.vs/
 .DS_Store
+Freshli.sln.DotSettings.user
+*.log
