@@ -7,7 +7,7 @@ namespace Freshli {
     private static readonly Logger logger = LogManager.GetCurrentClassLogger();
 
     static void Main(string[] args) {
-      logger.Info($"Main({args})");
+      logger.Info($"Main({string.Join(separator: ",", args)})");
 
       try {
         ManifestFinder.RegisterAll();
