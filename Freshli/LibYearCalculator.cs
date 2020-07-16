@@ -19,7 +19,14 @@ namespace Freshli {
       var result = new LibYearResult();
 
       foreach (var package in Manifest) {
-        var latestVersion = Repository.LatestAsOf(date, package.Name);
+        VersionInfo latestVersion;
+        try {
+          latestVersion = Repository.LatestAsOf(date, package.Name);
+        } catch (Exception e) {
+          _logger.Info($"Skipping {package.Name}: {e.Message}");
+          continue;
+        }
+
         VersionInfo currentVersion;
         if (Manifest.UsesExactMatches) {
           currentVersion =
