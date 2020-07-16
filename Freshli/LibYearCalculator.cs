@@ -43,9 +43,9 @@ namespace Freshli {
           _logger.Trace(
             $"Package({package.Name}, {package.Version}): " +
             $"current = {currentVersion.ToSemVer()}" +
-            $"@{currentVersion.DatePublished}, " +
+            $"@{currentVersion.DatePublished:d}, " +
             $"latest = {latestVersion.ToSemVer()}" +
-            $"@{latestVersion.DatePublished}"
+            $"@{latestVersion.DatePublished:d}"
           );
           result.Add(
             package.Name,
