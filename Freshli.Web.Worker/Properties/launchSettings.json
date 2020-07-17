@@ -1,0 +1,10 @@
+﻿{
+  "profiles": {
+    "Freshli.Web.Worker": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

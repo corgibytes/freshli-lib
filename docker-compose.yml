@@ -18,6 +18,21 @@ services:
       ASPNETCORE_ENVIRONMENT: "Development"
       ASPNETCORE_URLS: "http://+:80"
       DB_HOST: "db"
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile.worker
+      target: build
+    stdin_open: true
+    tty: true
+    depends_on:
+      - db
+    entrypoint: ./docker-entrypoint-worker.sh
+    volumes:
+      - .:/source
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DB_HOST: "db"
   db:
     image: postgres:latest
     environment:
