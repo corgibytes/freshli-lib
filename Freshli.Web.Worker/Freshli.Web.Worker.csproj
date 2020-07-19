@@ -17,4 +17,8 @@
         <PackageReference Include="Microsoft.Extensions.Hosting" Version="3.1.5" />
         <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="3.1.4" />
     </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Freshli.Web\Freshli.Web.csproj" />
+    </ItemGroup>
 </Project>

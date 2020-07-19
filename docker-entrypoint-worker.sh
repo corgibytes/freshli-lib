@@ -7,9 +7,8 @@ export PATH="$PATH:/root/.dotnet/tools"
 # build and run the website if no arguments
 if [ $# -eq 0 ]; then
     cd Freshli.Web.Worker
-    dotnet restore
-    dotnet build
-    dotnet ef database update
+    dotnet restore --no-dependencies
+    dotnet build --no-dependencies
     dotnet run --no-build --no-launch-profile
 fi
 
