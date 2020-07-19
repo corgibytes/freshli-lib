@@ -26,6 +26,12 @@ tab_width=8
 trim_trailing_whitespace=true
 insert_final_newline=true
 
+[*.Designer.cs]
+max_line_length = off
+
+[ApplicationDbContextModelSnapshot.cs]
+max_line_length = off
+
 # Microsoft .NET properties
 csharp_new_line_before_catch=false
 csharp_new_line_before_else=false
