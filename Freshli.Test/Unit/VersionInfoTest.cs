@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using NLog.LayoutRenderers.Wrappers;
 using Xunit;
 
 namespace Freshli.Test.Unit {
@@ -18,11 +15,15 @@ namespace Freshli.Test.Unit {
     [InlineData("1.0045", 1, 0045, null, null, null)]
     [InlineData("1.0009", 1, 0009, null, null, null)]
     [InlineData("1.301001_050", 1, 301001, 050, null, null)]
+    [InlineData("20110131120940", 20110131120940, null, null, null, null)]
+    [InlineData("2.20110131120940", 2, 20110131120940, null, null, null)]
+    [InlineData("2.0.20110131120940", 2, 0, 20110131120940, null, null)]
+    [InlineData("2.0.8.beta.20110131120940", 2, 0, 8, "beta.20110131120940", null)]
     public void VersionIsParsedIntoParts(
       string version,
-      int? major,
-      int? minor,
-      int? patch,
+      long? major,
+      long? minor,
+      long? patch,
       string preRelease,
       string buildMetadata
     ) {
