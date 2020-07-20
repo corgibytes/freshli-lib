@@ -21,7 +21,7 @@ namespace Freshli {
       foreach (var package in Manifest) {
         VersionInfo latestVersion;
         VersionInfo currentVersion;
-        
+
         try {
           latestVersion = Repository.LatestAsOf(date, package.Name);
 
