@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Freshli.Web.Models {
   public class AnalysisRequest {
@@ -6,5 +7,7 @@ namespace Freshli.Web.Models {
     public string Url { get; set; }
     public string Name { get; set; }
     public string Email { get; set; }
+
+    public List<MetricsResult> Results { get; set; }
   }
 }
