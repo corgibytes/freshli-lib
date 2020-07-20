@@ -1,12 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Freshli.Exceptions;
 using RestSharp;
 
 namespace Freshli.Languages.Ruby {
   public class RubyGemsRepository : IPackageRepository {
     public VersionInfo LatestAsOf(DateTime date, string name) {
       var response = ApiRequest(name);
+      if (response == null) {
+        throw new DependencyNotFoundException(name);
+      }
 
       var candidates = response.
         Where(version => !version.Prerelease && version.CreatedAt <= date).
@@ -20,7 +24,7 @@ namespace Freshli.Languages.Ruby {
         );
       }
 
-      return null;
+      throw new LatestVersionNotFoundException(date, name);
     }
 
     private Dictionary<String, List<RubyGemsVersion>> _responseCache =

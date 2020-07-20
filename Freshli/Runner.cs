@@ -7,7 +7,7 @@ namespace Freshli {
     private static readonly Logger logger = LogManager.GetCurrentClassLogger();
 
     public IList<MetricsResult> Run(string analysisPath, DateTime asOf) {
-      logger.Info($"Run({analysisPath}, {asOf})");
+      logger.Info($"Run({analysisPath}, {asOf:d})");
 
       var metricsResults = new List<MetricsResult>();
 
@@ -34,18 +34,19 @@ namespace Freshli {
           var content = fileHistory.ContentsAsOf(currentDate);
           calculator.Manifest.Parse(content);
 
+          LibYearResult libYear = calculator.ComputeAsOf(currentDate);
           logger.Trace(
-            "Adding MetricResult: " +
-            "currentDate = {currentDate}, " +
+            "Adding MetricResult: {manifestFile}, " +
+            "currentDate = {currentDate:d}, " +
             "libYear = {ComputeAsOf}",
             manifestFinder.LockFileName,
             currentDate,
-            calculator.ComputeAsOf(currentDate).Total
+            libYear.Total
           );
           metricsResults.Add(
             new MetricsResult(
               currentDate,
-              calculator.ComputeAsOf(currentDate)
+              libYear
             )
           );
         }
