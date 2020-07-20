@@ -7,7 +7,7 @@ namespace Freshli {
     private static readonly Logger logger = LogManager.GetCurrentClassLogger();
 
     public IList<MetricsResult> Run(string analysisPath, DateTime asOf) {
-      logger.Info($"Run({analysisPath}, {asOf})");
+      logger.Info($"Run({analysisPath}, {asOf:d})");
 
       var metricsResults = new List<MetricsResult>();
 
