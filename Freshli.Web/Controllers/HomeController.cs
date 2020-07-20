@@ -7,6 +7,7 @@ using Freshli.Web.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Freshli.Web.Models;
+using Hangfire;
 
 namespace Freshli.Web.Controllers {
   public class HomeController : Controller {
@@ -46,6 +47,11 @@ namespace Freshli.Web.Controllers {
     public IActionResult Analysis(AnalysisRequest analysisRequest) {
       var result = _db.AnalysisRequests.Add(analysisRequest);
       _db.SaveChanges();
+
+      var runner = new AnalysisRunner(_db);
+      BackgroundJob.Enqueue(
+        () => runner.Run(analysisRequest.Id)
+      );
 
       return View(result.Entity);
     }

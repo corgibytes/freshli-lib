@@ -28,6 +28,7 @@ services:
     tty: true
     depends_on:
       - db
+      - web
     entrypoint: ./docker-entrypoint-worker.sh
     volumes:
       - .:/source
