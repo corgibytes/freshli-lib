@@ -4,3 +4,4 @@ obj/
 /.idea/
 /.vs/
 .DS_Store
+Acceptance.*.received.txt
