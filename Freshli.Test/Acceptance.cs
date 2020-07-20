@@ -2,10 +2,6 @@ using System;
 using ApprovalTests;
 using ApprovalTests.Reporters;
 using ApprovalTests.Reporters.TestFrameworks;
-using Freshli.Languages.Perl;
-using Freshli.Languages.Php;
-using Freshli.Languages.Ruby;
-using Freshli.Languages.Python;
 using Xunit;
 
 namespace Freshli.Test {
