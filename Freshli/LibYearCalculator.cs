@@ -19,26 +19,34 @@ namespace Freshli {
       var result = new LibYearResult();
 
       foreach (var package in Manifest) {
-        var latestVersion = Repository.LatestAsOf(date, package.Name);
+        VersionInfo latestVersion;
         VersionInfo currentVersion;
-        if (Manifest.UsesExactMatches) {
-          currentVersion =
-            Repository.VersionInfo(package.Name, package.Version);
-        } else {
-          currentVersion = Repository.Latest(
-            package.Name,
-            package.Version,
-            asOf: date
-          );
+
+        try {
+          latestVersion = Repository.LatestAsOf(date, package.Name);
+
+          if (Manifest.UsesExactMatches) {
+            currentVersion =
+              Repository.VersionInfo(package.Name, package.Version);
+          } else {
+            currentVersion = Repository.Latest(
+              package.Name,
+              package.Version,
+              asOf: date
+            );
+          }
+        } catch (Exception e) {
+          _logger.Warn($"Skipping {package.Name}: {e.Message}");
+          continue;
         }
 
         if (latestVersion != null && currentVersion != null) {
           _logger.Trace(
             $"Package({package.Name}, {package.Version}): " +
             $"current = {currentVersion.ToSemVer()}" +
-            $"@{currentVersion.DatePublished}, " +
+            $"@{currentVersion.DatePublished:d}, " +
             $"latest = {latestVersion.ToSemVer()}" +
-            $"@{latestVersion.DatePublished}"
+            $"@{latestVersion.DatePublished:d}"
           );
           result.Add(
             package.Name,

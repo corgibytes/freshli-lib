@@ -5,3 +5,5 @@ obj/
 /.vs/
 .DS_Store
 Acceptance.*.received.txt
+Freshli.sln.DotSettings.user
+*.log
