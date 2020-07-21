@@ -9,7 +9,7 @@
 </div>
 
 <div>
-    <form asp-action="Analysis" method="post">
+    <form asp-route="CreateAnalysisRequest" method="post">
         <div>
             <label asp-for="Url">Public Git URL:</label>
             <input asp-for="Url" type="url"/>
@@ -23,5 +23,5 @@
             <input asp-for="Email" type="email"/>
         </div>
         <button type="submit">Analyze</button>
-    </form>    
+    </form>
 </div>

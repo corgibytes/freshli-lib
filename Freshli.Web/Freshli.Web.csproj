@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Update="Views\Home\Analysis.cshtml">
+    <Content Update="Views\AnalysisRequests\Show.cshtml">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
