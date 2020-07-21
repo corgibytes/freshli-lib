@@ -2,56 +2,59 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Freshli.Exceptions;
-using RestSharp;
+using HtmlAgilityPack;
 
 namespace Freshli.Languages.Ruby {
   public class RubyGemsRepository : IPackageRepository {
-    public VersionInfo LatestAsOf(DateTime date, string name) {
-      var response = ApiRequest(name);
-      if (response == null) {
-        throw new DependencyNotFoundException(name);
+
+    private IDictionary<string, IList<VersionInfo>> _packages =
+      new Dictionary<string, IList<VersionInfo>>();
+
+    private IList<VersionInfo> GetReleaseHistory(string name) {
+      try {
+
+        if (_packages.ContainsKey(name)) {
+          return _packages[name];
+        }
+
+        var url = $"https://rubygems.org/gems/{name}/versions";
+        var web = new HtmlWeb();
+        var document = web.Load(url);
+        var versions = new List<VersionInfo>();
+
+        var releaseNodes = document.DocumentNode.Descendants("li").
+          Where(li => li.HasClass("gem__version-wrap"));
+
+        foreach (var releaseNode in releaseNodes) {
+          var version = releaseNode.Descendants("a").
+            First(a => a.HasClass("t-list__item")).InnerText;
+
+          var rawDate = releaseNode.Descendants("small").First().InnerText.
+            Replace("- ", "");
+          var versionDate = DateTime.ParseExact(rawDate, "MMMM dd, yyyy", null).
+            ToUniversalTime();
+
+          versions.Add(new VersionInfo(version, versionDate));
+        }
+        _packages[name] = versions;
+        return versions;
+
+      } catch (Exception e) {
+        throw new DependencyNotFoundException(name, e);
       }
-
-      var candidates = response.
-        Where(version => !version.Prerelease && version.CreatedAt <= date).
-        OrderByDescending(version => version.CreatedAt);
-
-      var firstCandidate = candidates.FirstOrDefault();
-      if (firstCandidate != null) {
-        return new VersionInfo(
-          firstCandidate.Number,
-          firstCandidate.CreatedAt.Date
-        );
-      }
-
-      throw new LatestVersionNotFoundException(date, name);
     }
 
-    private Dictionary<String, List<RubyGemsVersion>> _responseCache =
-      new Dictionary<string, List<RubyGemsVersion>>();
-
-    private List<RubyGemsVersion> ApiRequest(string name) {
-      if (!_responseCache.ContainsKey(name)) {
-        var client = new RestClient("https://rubygems.org/api/v1");
-        var request = new RestRequest($"/versions/{name}.json");
-        var response = client.Execute<List<RubyGemsVersion>>(request);
-        _responseCache[name] = response.Data;
+    public VersionInfo LatestAsOf(DateTime date, string name) {
+      try {
+        return GetReleaseHistory(name).OrderByDescending(v => v).
+          First(v => date >= v.DatePublished);
+      } catch (Exception e) {
+        throw new LatestVersionNotFoundException(name, date, e);
       }
-
-      return _responseCache[name];
     }
 
     public VersionInfo VersionInfo(string name, string version) {
-      var response = ApiRequest(name);
-
-      var candidate =
-        response.FirstOrDefault(package => package?.Number == version);
-
-      if (candidate != null) {
-        return new VersionInfo(candidate.Number, candidate.CreatedAt.Date);
-      }
-
-      return null;
+      return GetReleaseHistory(name).First(v => v.Version == version);
     }
 
     public VersionInfo Latest(string name, string thatMatches, DateTime asOf) {

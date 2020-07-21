@@ -37,6 +37,7 @@ namespace Freshli {
           }
         } catch (Exception e) {
           _logger.Warn($"Skipping {package.Name}: {e.Message}");
+          _logger.Trace(e.StackTrace);
           continue;
         }
 
