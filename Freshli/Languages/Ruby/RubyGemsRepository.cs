@@ -31,8 +31,7 @@ namespace Freshli.Languages.Ruby {
 
           var rawDate = releaseNode.Descendants("small").First().InnerText.
             Replace("- ", "");
-          var versionDate = DateTime.ParseExact(rawDate, "MMMM dd, yyyy", null).
-            ToUniversalTime();
+          var versionDate = DateTime.ParseExact(rawDate, "MMMM dd, yyyy", null);
 
           versions.Add(new VersionInfo(version, versionDate));
         }
