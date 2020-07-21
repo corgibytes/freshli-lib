@@ -15,9 +15,9 @@ namespace Freshli {
       }
     }
 
-    public int? Major { get; private set; }
-    public int? Minor { get; private set; }
-    public int? Patch { get; private set; }
+    public long? Major { get; private set; }
+    public long? Minor { get; private set; }
+    public long? Patch { get; private set; }
 
     public string PreRelease {
       get => _preRelease;
@@ -28,12 +28,12 @@ namespace Freshli {
     }
 
     public string PreReleaseLabel { get; private set; }
-    public int? PreReleaseIncrement { get; private set; }
+    public long? PreReleaseIncrement { get; private set; }
     public string BuildMetadata { get; private set; }
 
     private readonly Regex _versionExpression = new Regex(
       @"^v?(\d+)[\._]?(\d+)?[\._]?(\d+)?" +
-      @"(?:-?((?:\d+|\d*[a-zA-Z-][0-9a-zA-Z-]*)" +
+      @"(?:-?[\._]?((?:\d+|\d*[a-zA-Z-][0-9a-zA-Z-]*)" +
       @"(?:[\._](?:\d+|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?" +
       @"(?:\+([0-9a-zA-Z-]+(?:[\._][0-9a-zA-Z-]+)*))?$"
     );
@@ -50,7 +50,7 @@ namespace Freshli {
         PreReleaseLabel = match.Groups[1].Value;
         var incrementValue = match.Groups[2].Value;
         if (!string.IsNullOrWhiteSpace(incrementValue)) {
-          PreReleaseIncrement = Convert.ToInt32(incrementValue);
+          PreReleaseIncrement = Convert.ToInt64(incrementValue);
         }
       } else {
         PreReleaseLabel = null;
@@ -79,7 +79,7 @@ namespace Freshli {
 
         var majorValue = match.Groups[1].Value;
         if (!string.IsNullOrWhiteSpace(majorValue)) {
-          Major = Convert.ToInt32(majorValue);
+          Major = Convert.ToInt64(majorValue);
         }
 
         if (componentToSkip.HasValue) {
@@ -124,13 +124,13 @@ namespace Freshli {
         var minorValue = match.Groups[2].Value;
         Minor = null;
         if (!string.IsNullOrWhiteSpace(minorValue)) {
-          Minor = Convert.ToInt32(minorValue);
+          Minor = Convert.ToInt64(minorValue);
         }
 
         var patchValue = match.Groups[3].Value;
         Patch = null;
         if (!string.IsNullOrWhiteSpace(patchValue)) {
-          Patch = Convert.ToInt32(patchValue);
+          Patch = Convert.ToInt64(patchValue);
         }
 
         var preReleaseValue = match.Groups[4].Value;
@@ -270,7 +270,7 @@ namespace Freshli {
         $"{nameof(Patch)}: {Patch}, " +
         $"{nameof(PreRelease)}: {PreRelease}, " +
         $"{nameof(BuildMetadata)}: {BuildMetadata}, " +
-        $"{nameof(DatePublished)}: {DatePublished}";
+        $"{nameof(DatePublished)}: {DatePublished:d}";
     }
 
     public string ToSemVer() {
