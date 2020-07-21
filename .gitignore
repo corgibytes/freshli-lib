@@ -433,6 +433,8 @@ $RECYCLE.BIN/
 !.vscode/launch.json
 !.vscode/extensions.json
 
+Acceptance.*.received.txt
+
 Freshli.sln.DotSettings.user
 *.log
 
