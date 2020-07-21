@@ -368,6 +368,7 @@ test-results/
 # content below from: https://github.com/github/gitignore/blob/master/Global/macOS.gitignore
 # General
 .DS_Store
+
 .AppleDouble
 .LSOverride
 
@@ -431,3 +432,7 @@ $RECYCLE.BIN/
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+Freshli.sln.DotSettings.user
+*.log
+
