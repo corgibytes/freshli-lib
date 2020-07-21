@@ -8,7 +8,7 @@ export PATH="$PATH:/root/.dotnet/tools"
 if [ $# -eq 0 ]; then
     cd Freshli.Web
     dotnet restore
-    dotnet build
+    dotnet build --no-restore
     dotnet ef database update
     dotnet run --no-build --no-launch-profile
 fi
