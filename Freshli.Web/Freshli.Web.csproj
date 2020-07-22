@@ -25,6 +25,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Freshli\Freshli.csproj" />
+    <ProjectReference Include="..\XPlot\src\XPlot.Plotly\XPlot.Plotly.fsproj" />
   </ItemGroup>
 
 </Project>

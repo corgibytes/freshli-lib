@@ -11,6 +11,14 @@ RUN echo 'export PATH="$PATH:/root/.dotnet/tools"' > /root/.bashrc && \
     . /root/.bashrc && \
     dotnet tool install --global dotnet-ef
 
+# place XPlot in its own layer
+COPY XPlot/. ./XPlot/
+WORKDIR /source/XPlot
+RUN dotnet tool restore
+RUN dotnet paket restore
+
+WORKDIR /source
+
 # copy csproj and restore as distinct layers
 COPY Freshli/Freshli.csproj ./Freshli/
 COPY Freshli.Web/Freshli.Web.csproj ./Freshli.Web/

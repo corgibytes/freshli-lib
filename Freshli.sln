@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Freshli.Web", "Freshli.Web\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Freshli.Web.Worker", "Freshli.Web.Worker\Freshli.Web.Worker.csproj", "{555C7753-B2D4-4BE9-BA48-39BADE849FAB}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "XPlot.Plotly", "XPlot\src\XPlot.Plotly\XPlot.Plotly.fsproj", "{4D1C6F36-7642-462F-8CFF-1BAD74834C20}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,5 +33,9 @@ Global
 		{555C7753-B2D4-4BE9-BA48-39BADE849FAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{555C7753-B2D4-4BE9-BA48-39BADE849FAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{555C7753-B2D4-4BE9-BA48-39BADE849FAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D1C6F36-7642-462F-8CFF-1BAD74834C20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D1C6F36-7642-462F-8CFF-1BAD74834C20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D1C6F36-7642-462F-8CFF-1BAD74834C20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D1C6F36-7642-462F-8CFF-1BAD74834C20}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
