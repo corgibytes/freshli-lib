@@ -6,3 +6,4 @@ kiwisolver>1.0.1
 pandas
 pytz>=2017.2,<2020.1
 scipy<1.4.1
+preshed == 0.20
