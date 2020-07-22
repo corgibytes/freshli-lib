@@ -23,7 +23,10 @@ namespace Freshli.Web.Controllers {
         () => runner.Run(analysisRequest.Id)
       );
 
-      return RedirectToRoute("ShowAnalysisRequest", new {id = analysisRequest.Id});
+      return RedirectToRoute(
+        "ShowAnalysisRequest",
+        new {id = analysisRequest.Id}
+      );
     }
 
     [HttpGet("{id}", Name = "ShowAnalysisRequest")]
