@@ -1,9 +1,9 @@
 [![.NET Core](https://github.com/corgibytes/freshli/workflows/.NET%20Core/badge.svg)](https://github.com/corgibytes/freshli/actions?query=workflow%3A%22.NET+Core%22) [![EditorConfig Lint](https://github.com/corgibytes/freshli/workflows/EditorConfig%20Lint/badge.svg)](https://github.com/corgibytes/freshli/actions?query=workflow%3A%22EditorConfig+Lint%22)
 
 # freshli
-A CLI tool for collecting historical metrics about a project's dependencies
+A tool for collecting historical metrics about a project's dependencies
 
-The `freshli` command line tool captures historical metrics about a project's dependencies. In it's current form, the only metric that it computes is [libyear](https://libyear.com/).
+The `freshli` tool captures historical metrics about a project's dependencies. In it's current form, the only metric that it computes is [libyear](https://libyear.com/).
 
 For each language that the tool supports, the libyear metric is computed for each month in the past where dependency information is available.
 
@@ -24,7 +24,7 @@ For each language that the tool supports, the libyear metric is computed for eac
 
 * Git
 
-## Getting started
+## Getting started with `freshli` CLI
 
 ### Running `freshli`
 
@@ -177,7 +177,7 @@ Total tests: 334
  Total time: 2.6251 Minutes
  ```
 
- The tests currently take longer to run than we would like. We're exploring ways to speed that up.
+The tests currently take longer to run than we would like. We're exploring ways to speed that up. You can run a subset of tests by including the `--filter` flag, e.g. `dotnet test --filter ComputeAsOf`.
 
 ## Logging
 
@@ -254,3 +254,109 @@ var projects = new Dictionary<string, IList<MetrictsResult>>();
 projects["example"] = runner.Run("https://github.com/corgibytes/freshli-fixture-ruby-nokotest");
 display(CreateLineGraphFor(projects))
 ```
+
+## Getting started with `freshli` web application
+
+This project is using `docker` and `docker-compose` to simplify the creation
+of a development environment for the web-based part of the application.
+
+To get started make sure that you have `docker` and `docker-compose`
+installed.
+
+Then execute the following command to build the Docker images used by the project:
+
+```
+docker-compose build
+```
+
+After the images have successfully built, you can run the site with this
+command:
+
+```
+docker-compose up
+```
+
+This will start the `web` container, the `worker` container, and the `db`
+container. The `eclint` container will also run and then stop (more on
+that container below). Once all of the containers are up and running, you
+can visit `http://localhost:5000` to view the site.
+
+### The `web` container
+
+The `web` container contains the contents of the `Freshli.Web` project. This
+container exposes a website that will be the primary way that most people
+interact with Freshli. It will be hosted at https://freshli.io (once it's deployed).
+This container depends on the `db` container. More on that below.
+
+If you want to get a bash shell running inside the `web` container, you can run:
+
+```
+docker-compose run web bash
+```
+
+If you want to run the `web` container without running the `worker` container,
+you can do so by running the following:
+
+```
+docker-compose up web
+```
+
+### The `worker` container
+
+The `worker` container houses the worker process that executes each requested
+analysis by processing a queue of jobs. This container depends on the
+`db` container.
+
+If you want to get a bash shell inside the `worker` container, you can run:
+
+```
+docker-compose run worker bash
+```
+
+If you want to run just the `worker` container without running the `web`
+container you can do so by running the following:
+
+```
+docker-compose up worker
+```
+
+If you want to run more than one worker at a time you can run the following
+command after you've already run `docker-compose up`:
+
+```
+docker-compose scale worker=X
+```
+Where `X` is the number of `worker` containers that you want to run, for example 2.
+
+### The `db` container
+
+The `db` container holds the database that's used by both the `web` and
+`worker` containers. The database is a Postgresql instance that keeps data in a
+persistent volume so that data gets preserved between runs.
+
+The `db` container is mapped to port 5432 on localhost to assist with using
+database IDEs such as DataGrip.
+
+You can completely delete all of the data by deleting the volume. This simplest
+way to do that is by running the following:
+
+```
+docker-compose down --volumes
+```
+
+Again, this will completely delete all of the data that's stored in the database
+including all of the tables. Take care when executing this command.
+
+### The `eclint` container
+
+The `eclint` container provides a convenient way to run the `eclint` command
+that's used by GitHub Actions as part of every pull request. To do so simply
+run the following.
+
+```
+docker-compose run eclint
+```
+
+The output from running `eclint` will also show up when you run
+`docker-compose up` but the output is likely to be noisy and it can be easy
+to miss messages that the `eclint` container reports.

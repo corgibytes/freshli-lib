@@ -1,0 +1,30 @@
+# https://hub.docker.com/_/microsoft-dotnet-core
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1-bionic AS build
+RUN dotnet --version
+WORKDIR /source
+
+RUN apt-get update && apt-get install -y unzip
+
+COPY docker-entrypoint-worker.sh .
+
+RUN echo 'export PATH="$PATH:/root/.dotnet/tools"' > /root/.bashrc && \
+    . /root/.bashrc && \
+    dotnet tool install --global dotnet-ef
+
+# copy csproj and restore as distinct layers
+COPY Freshli/Freshli.csproj ./Freshli/
+COPY Freshli.Web/Freshli.Web.csproj ./Freshli.Web/
+COPY Freshli.Web.Worker/Freshli.Web.Worker.csproj ./Freshli.Web.Worker/
+RUN dotnet restore ./Freshli.Web.Worker/Freshli.Web.Worker.csproj
+
+# copy everything else and build app
+COPY Freshli/. ./Freshli/
+COPY Freshli.Web/. ./Freshli.Web/
+COPY Freshli.Web.Worker/. ./Freshli.Web.Worker/
+RUN dotnet publish -c release -o /app --no-restore ./Freshli.Web.Worker/Freshli.Web.Worker.csproj
+
+# final stage/image
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1 AS runtime
+WORKDIR /app
+COPY --from=build /app ./
+ENTRYPOINT ["./Freshli.Web.Worker"]

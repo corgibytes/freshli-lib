@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <UserSecretsId>dotnet-Freshli.Web.Worker-A83F4150-8BDC-42CB-9A94-E0A6C5EEA640</UserSecretsId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="EFCore.NamingConventions" Version="1.1.0" />
+        <PackageReference Include="Hangfire.AspNetCore" Version="1.7.11" />
+        <PackageReference Include="Hangfire.Core" Version="1.7.11" />
+        <PackageReference Include="Hangfire.PostgreSql" Version="1.7.0" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.6">
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="3.1.5" />
+        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="3.1.4" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Freshli.Web\Freshli.Web.csproj" />
+    </ItemGroup>
+</Project>

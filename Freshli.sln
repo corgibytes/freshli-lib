@@ -1,8 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+#
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Freshli", "Freshli\Freshli.csproj", "{E03D125E-55CD-4FA4-AEC3-80CDB3BED745}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Freshli.Test", "Freshli.Test\Freshli.Test.csproj", "{7C5BE77F-B9FA-495A-828C-ABA44F6536C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Freshli.Web", "Freshli.Web\Freshli.Web.csproj", "{FF399AB5-0037-45EE-9BDE-2A9D7EFFB9CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Freshli.Web.Worker", "Freshli.Web.Worker\Freshli.Web.Worker.csproj", "{555C7753-B2D4-4BE9-BA48-39BADE849FAB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +23,13 @@ Global
 		{7C5BE77F-B9FA-495A-828C-ABA44F6536C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C5BE77F-B9FA-495A-828C-ABA44F6536C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C5BE77F-B9FA-495A-828C-ABA44F6536C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF399AB5-0037-45EE-9BDE-2A9D7EFFB9CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF399AB5-0037-45EE-9BDE-2A9D7EFFB9CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF399AB5-0037-45EE-9BDE-2A9D7EFFB9CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF399AB5-0037-45EE-9BDE-2A9D7EFFB9CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{555C7753-B2D4-4BE9-BA48-39BADE849FAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{555C7753-B2D4-4BE9-BA48-39BADE849FAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{555C7753-B2D4-4BE9-BA48-39BADE849FAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{555C7753-B2D4-4BE9-BA48-39BADE849FAB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

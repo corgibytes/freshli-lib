@@ -1,19 +1,15 @@
 [*]
 # Standard properties
-max_line_length=80
+max_line_length=off
 
 [*.md]
 trim_trailing_whitespace=true
 insert_final_newline=true
-max_line_length=off
 
 [*.{appxmanifest,asax,ascx,aspx,build,cshtml,dtd,fs,fsi,fsscript,fsx,master,ml,mli,nuspec,razor,resw,resx,skin,vb,xaml,xamlx,xoml,xsd}]
 indent_style=space
 indent_size=4
 tab_width=4
-
-[*.{DotSettings,sln,ipynb,csproj,lock,json,approved.txt,editorconfig,yml,config}]
-max_line_length=off
 
 [*.yml]
 indent_style=space
@@ -23,11 +19,21 @@ trim_trailing_whitespace=false
 insert_final_newline=true
 
 [*.cs]
+max_line_length=80
 indent_style=space
 indent_size=2
 tab_width=8
 trim_trailing_whitespace=true
 insert_final_newline=true
+
+[*.Designer.cs]
+max_line_length = off
+
+[ApplicationDbContextModelSnapshot.cs]
+max_line_length = off
+
+[*/Migrations/*.cs]
+max_line_length = off
 
 # Microsoft .NET properties
 csharp_new_line_before_catch=false

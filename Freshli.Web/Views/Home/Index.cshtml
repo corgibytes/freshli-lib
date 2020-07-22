@@ -1,0 +1,27 @@
+﻿@model AnalysisRequest
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div>
+    <form asp-route="CreateAnalysisRequest" method="post">
+        <div>
+            <label asp-for="Url">Public Git URL:</label>
+            <input asp-for="Url" type="url"/>
+        </div>
+        <div>
+            <label asp-for="Name">Your name:</label>
+            <input asp-for="Name"/>
+        </div>
+        <div>
+            <label asp-for="Email">Your email address:</label>
+            <input asp-for="Email" type="email"/>
+        </div>
+        <button type="submit">Analyze</button>
+    </form>
+</div>
