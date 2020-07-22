@@ -4,8 +4,6 @@ RUN dotnet --version
 WORKDIR /source
 
 RUN apt-get update && apt-get install -y unzip
-# RUN ln -s /usr/lib/x86_64-linux-gnu/libssl.so.1.1 /usr/lib/x86_64-linux-gnu/libssl.so.1.0.0
-# RUN ln -s /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1 /usr/lib/x86_64-linux-gnu/libcrypto.so.1.0.0
 
 COPY docker-entrypoint-worker.sh .
 

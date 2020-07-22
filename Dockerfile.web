@@ -12,7 +12,6 @@ RUN echo 'export PATH="$PATH:/root/.dotnet/tools"' > /root/.bashrc && \
     dotnet tool install --global dotnet-ef
 
 # copy csproj and restore as distinct layers
-# COPY *.sln .
 COPY Freshli/Freshli.csproj ./Freshli/
 COPY Freshli.Web/Freshli.Web.csproj ./Freshli.Web/
 RUN dotnet restore ./Freshli.Web/Freshli.Web.csproj
