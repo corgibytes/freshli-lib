@@ -7,27 +7,34 @@ namespace Freshli {
   public class LibYearResult : IEnumerable<LibYearPackageResult> {
     public double Total { get; private set; }
 
-    private List<LibYearPackageResult> _packageValues =
+    public int Skipped { get; private set; }
+
+    private List<LibYearPackageResult> _packageResults =
       new List<LibYearPackageResult>();
 
     public void Add(
       string name,
       string version,
       DateTime publishedAt,
-      double value
+      double value,
+      bool skipped
     ) {
-      _packageValues.Add(
-        new LibYearPackageResult(name, version, publishedAt, value)
+      _packageResults.Add(
+        new LibYearPackageResult(name, version, publishedAt, value, skipped)
       );
-      Total += value;
+      if (skipped) {
+        Skipped++;
+      } else {
+        Total += value;
+      }
     }
 
     public LibYearPackageResult this[string packageName] {
-      get { return _packageValues.Find(item => item.Name == packageName); }
+      get { return _packageResults.Find(item => item.Name == packageName); }
     }
 
     public IEnumerator<LibYearPackageResult> GetEnumerator() {
-      return _packageValues.GetEnumerator();
+      return _packageResults.GetEnumerator();
     }
 
     IEnumerator IEnumerable.GetEnumerator() {
