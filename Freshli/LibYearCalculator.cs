@@ -23,16 +23,16 @@ namespace Freshli {
         VersionInfo currentVersion;
 
         try {
-          latestVersion = Repository.LatestAsOf(date, package.Name);
+          latestVersion = Repository.LatestAsOf(package.Name, date);
 
           if (Manifest.UsesExactMatches) {
             currentVersion =
               Repository.VersionInfo(package.Name, package.Version);
           } else {
-            currentVersion = Repository.Latest(
+            currentVersion = Repository.LatestAsOfThatMatches(
               package.Name,
-              package.Version,
-              asOf: date
+              asOf: date,
+              thatMatches: package.Version
             );
           }
         } catch (Exception e) {
