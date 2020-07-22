@@ -63,16 +63,20 @@ namespace Freshli.Languages.Perl {
       return versions;
     }
 
-    public VersionInfo LatestAsOf(DateTime date, string name) {
+    public VersionInfo LatestAsOf(string name, DateTime asOf) {
       return GetReleaseHistory(name).OrderByDescending(v => v).
-        First(v => date >= v.DatePublished);
+        First(v => asOf >= v.DatePublished);
     }
 
     public VersionInfo VersionInfo(string name, string version) {
       return GetReleaseHistory(name).First(v => v.Version == version);
     }
 
-    public VersionInfo Latest(string name, string thatMatches, DateTime asOf) {
+    public VersionInfo LatestAsOfThatMatches(
+      string name,
+      DateTime asOf,
+      string thatMatches
+    ) {
       var expression = VersionMatcher.Create(thatMatches);
       return GetReleaseHistory(name).OrderByDescending(v => v).
         Where(v => v.DatePublished <= asOf).

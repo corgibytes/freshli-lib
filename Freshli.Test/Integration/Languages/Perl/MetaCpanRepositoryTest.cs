@@ -30,7 +30,7 @@ namespace Freshli.Test.Integration.Perl {
     public void LatestAsOf() {
       var repository = new MetaCpanRepository();
       var targetDate = new DateTime(2018, 01, 01, 0, 0, 0, DateTimeKind.Utc);
-      var versionInfo = repository.LatestAsOf(targetDate, "Plack");
+      var versionInfo = repository.LatestAsOf("Plack", targetDate);
       var expectedDate = new DateTime(
         2017,
         12,
@@ -72,10 +72,10 @@ namespace Freshli.Test.Integration.Perl {
     ) {
       var repository = new MetaCpanRepository();
       var targetDate = new DateTime(2018, 01, 01, 0, 0, 0, DateTimeKind.Utc);
-      var versionInfo = repository.Latest(
+      var versionInfo = repository.LatestAsOfThatMatches(
         packageName,
-        thatMatches: versionExpression,
-        asOf: targetDate
+        asOf: targetDate,
+        thatMatches: versionExpression
       );
       var expectedDate = new DateTime(
         expectedYear,

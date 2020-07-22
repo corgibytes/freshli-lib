@@ -19,7 +19,7 @@ namespace Freshli.Languages.Php {
       _baseUrl = baseUrl;
     }
 
-    public VersionInfo LatestAsOf(DateTime date, string name) {
+    public VersionInfo LatestAsOf(string name, DateTime asOf) {
       var content = FetchPackageInfo(name);
       if (content == null) return null;
 
@@ -58,7 +58,7 @@ namespace Freshli.Languages.Php {
           left.CompareTo(right)
       );
       var filteredVersions = foundVersions.
-        Where(item => item.DatePublished <= date).ToArray();
+        Where(item => item.DatePublished <= asOf).ToArray();
       if (!filteredVersions.Any()) return null;
       return filteredVersions.Last();
     }
@@ -106,7 +106,11 @@ namespace Freshli.Languages.Php {
       return null;
     }
 
-    public VersionInfo Latest(string name, string thatMatches, DateTime asOf) {
+    public VersionInfo LatestAsOfThatMatches(
+      string name,
+      DateTime asOf,
+      string thatMatches
+    ) {
       throw new NotImplementedException();
     }
 

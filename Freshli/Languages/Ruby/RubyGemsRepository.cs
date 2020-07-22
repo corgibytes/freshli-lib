@@ -43,12 +43,12 @@ namespace Freshli.Languages.Ruby {
       }
     }
 
-    public VersionInfo LatestAsOf(DateTime date, string name) {
+    public VersionInfo LatestAsOf(string name, DateTime asOf) {
       try {
         return GetReleaseHistory(name).OrderByDescending(v => v).
-          First(v => date >= v.DatePublished);
+          First(v => asOf >= v.DatePublished);
       } catch (Exception e) {
-        throw new LatestVersionNotFoundException(name, date, e);
+        throw new LatestVersionNotFoundException(name, asOf, e);
       }
     }
 
@@ -56,7 +56,11 @@ namespace Freshli.Languages.Ruby {
       return GetReleaseHistory(name).First(v => v.Version == version);
     }
 
-    public VersionInfo Latest(string name, string thatMatches, DateTime asOf) {
+    public VersionInfo LatestAsOfThatMatches(
+      string name,
+      DateTime asOf,
+      string thatMatches
+    ) {
       throw new NotImplementedException();
     }
   }
