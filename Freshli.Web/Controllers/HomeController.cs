@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using Freshli.Web.Data;
+using Freshli.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Freshli.Web.Models;
-using Hangfire;
 
 namespace Freshli.Web.Controllers {
   public class HomeController : Controller {
