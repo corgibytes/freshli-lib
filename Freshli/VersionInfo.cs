@@ -3,6 +3,10 @@ using System.Text.RegularExpressions;
 using NLog;
 
 namespace Freshli {
+  /*
+    VersionInfo assumes dependency versions follows the standards set forth by
+    https://semver.org/.
+*/
   public class VersionInfo : IComparable {
     private static readonly Logger logger = LogManager.GetCurrentClassLogger();
     private string _version;
