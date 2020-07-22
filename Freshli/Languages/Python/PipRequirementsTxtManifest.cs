@@ -22,7 +22,7 @@ namespace Freshli.Languages.Python {
           var packageName = match.Groups[1].Value;
           var version = "";
           if (match.Groups.Count > 3) {
-            version = match.Groups[3].Value;
+            version = match.Groups[3].Value.Replace(" ", "");
           }
 
           Add(packageName, version);
