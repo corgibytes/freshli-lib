@@ -19,7 +19,11 @@ namespace Freshli.Web.Models {
       var runner = new Runner();
       var results = runner.Run(analysisRequest.Url);
 
+      analysisRequest.Results = new List<MetricsResult>();
       analysisRequest.Results.AddRange(MapResults(results, analysisRequest));
+      _db.Update(analysisRequest);
+
+      _db.SaveChanges();
     }
 
     private IList<MetricsResult> MapResults(
@@ -33,15 +37,19 @@ namespace Freshli.Web.Models {
         var libYearResult = new LibYearResult {
           Total = rawResult.LibYear.Total
         };
+        libYearResult.PackageResults = new List<LibYearPackageResult>();
         libYearResult.PackageResults.AddRange(
           MapPackageResults(rawResult.LibYear, libYearResult)
         );
+        _db.LibYearResults.AddAsync(libYearResult);
 
         var metricsResult = new MetricsResult {
           Date = rawResult.Date,
           AnalysisRequest = request,
-          LibYearResult = libYearResult
+          LibYearResult = libYearResult,
+          LibYearResultId = libYearResult.Id
         };
+        _db.MetricsResults.AddAsync(metricsResult);
 
         persistentResults.Add(metricsResult);
       }
@@ -63,6 +71,7 @@ namespace Freshli.Web.Models {
           Value = rawPackageResult.Value,
           LibYearResult = persistentResult
         };
+        _db.LibYearPackageResults.AddAsync(persistentPackageResult);
         persistentPackageResults.Add(persistentPackageResult);
       }
 
