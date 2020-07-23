@@ -1,9 +1,9 @@
+using Freshli.Exceptions;
 using Xunit;
 
 namespace Freshli.Test.Unit {
   public class VersionInfoTest {
     [Theory]
-    [InlineData("dev-master", null, null, null, null, null)]
     [InlineData("1", 1, null, null, null, null)]
     [InlineData("v3.6.0", 3, 6, 0, null, null)]
     [InlineData("1.2", 1, 2, null, null, null)]
@@ -20,6 +20,17 @@ namespace Freshli.Test.Unit {
     [InlineData("2.0.20110131120940", 2, 0, 20110131120940, null, null)]
     [InlineData("2.0.8.beta.20110131120940", 2, 0, 8, "beta.20110131120940",
       null)]
+    [InlineData("1.0.0-alpha", 1, 0, 0, "alpha", null)]
+    [InlineData("1.0.0-alpha.1", 1, 0, 0, "alpha.1", null)]
+    [InlineData("1.0.0-0.3.7", 1, 0, 0, "0.3.7", null)]
+    [InlineData("1.0.0-x.7.z.92", 1, 0, 0, "x.7.z.92", null)]
+    [InlineData("1.0.0-x-y-z.-", 1, 0, 0, "x-y-z.-", null)]
+    [InlineData("1.0.0-alpha+001", 1, 0, 0, "alpha", "001")]
+    [InlineData("1.0.0+20130313144700", 1, 0, 0, null, "20130313144700")]
+    [InlineData("1.0.0-beta+exp.sha.5114f85", 1, 0, 0, "beta",
+      "exp.sha.5114f85")]
+    [InlineData("1.0.0+21AF26D3--117B344092BD", 1, 0, 0, null,
+      "21AF26D3--117B344092BD")]
     public void VersionIsParsedIntoParts(
       string version,
       long? major,
@@ -188,5 +199,13 @@ namespace Freshli.Test.Unit {
       Assert.Equal(new VersionInfo {Version = afterVersion}, info);
       Assert.Equal(afterVersion, info.Version);
     }
+
+    [Theory]
+    [InlineData("dev-master")]
+    public void ParseVersionThrowsErrorIfNotParsable(string version) {
+      Assert.Throws<VersionParseException>
+        (() => new VersionInfo() {Version = version});
+    }
+
   }
 }

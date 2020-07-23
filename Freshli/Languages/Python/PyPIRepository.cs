@@ -48,7 +48,8 @@ namespace Freshli.Languages.Python {
 
         _packages[name] = versions;
         return versions;
-      } catch (Exception e) {
+      }
+      catch (Exception e) {
         throw new DependencyNotFoundException(name, e);
       }
     }
@@ -57,7 +58,11 @@ namespace Freshli.Languages.Python {
       try {
         return GetReleaseHistory(name).OrderByDescending(v => v).
           First(v => asOf >= v.DatePublished);
-      } catch (Exception e) {
+      }
+      catch (VersionParseException) {
+        throw;
+      }
+      catch (Exception e) {
         throw new LatestVersionNotFoundException(name, asOf, e);
       }
     }
@@ -73,7 +78,11 @@ namespace Freshli.Languages.Python {
         return GetReleaseHistory(name).OrderByDescending(v => v).
           Where(v => v.DatePublished <= asOf).
           First(v => expression.DoesMatch(v));
-      } catch (Exception e) {
+      }
+      catch (VersionParseException) {
+        throw;
+      }
+      catch (Exception e) {
         throw new LatestVersionThatMatchesNotFoundException(name, asOf, thatMatches, e);
       }
 

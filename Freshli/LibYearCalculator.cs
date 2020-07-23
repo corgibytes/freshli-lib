@@ -35,11 +35,12 @@ namespace Freshli {
               thatMatches: package.Version
             );
           }
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
           _logger.Warn($"Skipping {package.Name}: {e.Message}");
           result.Add(package.Name, package.Version, DateTime.MinValue,
             0, true);
-          _logger.Debug(e.StackTrace);
+          _logger.Trace(e.StackTrace);
           continue;
         }
 

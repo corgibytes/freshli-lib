@@ -1,5 +1,6 @@
 using System;
 using System.Text.RegularExpressions;
+using Freshli.Exceptions;
 using NLog;
 
 namespace Freshli {
@@ -149,11 +150,7 @@ namespace Freshli {
           BuildMetadata = buildMetadataValue;
         }
       } else {
-        logger.Log(
-          LogLevel.Warn,
-          $"Unable to parse version string: '{_version}'. If you think this " +
-          @"is an error, then please create an issue on GitHub."
-        );
+        throw new VersionParseException(_version);
       }
     }
 

@@ -6,7 +6,7 @@ namespace Freshli.Exceptions {
     public LatestVersionThatMatchesNotFoundException(
       string dependency, DateTime date, string matchPattern, Exception e)
       : base($"Unable to find latest version of {dependency}" +
-        $" that matches {matchPattern} as of {date:d}.", e)
+        $" that matches '{matchPattern}' as of {date:d}.", e)
     {
     }
 
