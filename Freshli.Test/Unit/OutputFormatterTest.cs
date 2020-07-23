@@ -42,7 +42,6 @@ namespace Freshli.Test.Unit {
       var expected = new StringWriter();
       expected.WriteLine("Date\tLibYear\tSkipped");
       expected.WriteLine("2010/01/01\t1.101\t0");
-      expected.WriteLine("2010/01/01\t1.101\t0");
       expected.WriteLine("2010/02/01\t2.202\t0");
       expected.WriteLine("2010/03/01\t3.303\t0");
       expected.WriteLine("2010/04/01\t4.404\t0");
