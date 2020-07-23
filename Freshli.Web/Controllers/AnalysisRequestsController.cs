@@ -1,8 +1,11 @@
 using System;
+using System.Linq;
 using Freshli.Web.Data;
 using Freshli.Web.Models;
 using Hangfire;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using XPlot.Plotly;
 
 namespace Freshli.Web.Controllers {
   [Route("[controller]")]
@@ -32,7 +35,31 @@ namespace Freshli.Web.Controllers {
     [HttpGet("{id}", Name = "ShowAnalysisRequest")]
     public IActionResult Show(Guid id) {
       var analysisRequest = _db.AnalysisRequests.Find(id);
-      return View(analysisRequest);
+
+      if (analysisRequest.Results != null)
+      {
+        var orderedResults = analysisRequest.Results.OrderBy(r => r.Date);
+        var lineSeries = new Scattergl {
+          name = analysisRequest.Url,
+          x = orderedResults.Select(r => r.Date),
+          y = orderedResults.Select(r => r.LibYearResult.Total)
+        };
+
+        var chart = Chart.Plot(lineSeries);
+        chart.WithTitle("LibYear over time");
+
+        return View(new AnalysisRequestAndResults
+        {
+          Request = analysisRequest,
+          TotalLineChart = chart
+        });
+
+      }
+
+      return View(new AnalysisRequestAndResults
+      {
+        Request = analysisRequest,
+      });
     }
   }
 }

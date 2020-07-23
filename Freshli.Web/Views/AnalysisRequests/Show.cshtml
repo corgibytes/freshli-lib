@@ -1,8 +1,15 @@
-@model AnalysisRequest
+@model AnalysisRequestAndResults
 
 <div>
-    <p>GUID: @Model.Id</p>
-    <p>Name: @Model.Name</p>
-    <p>Email: @Model.Email</p>
-    <p>URL: @Model.Url</p>
+    <p>GUID: @Model.Request.Id</p>
+    <p>Name: @Model.Request.Name</p>
+    <p>Email: @Model.Request.Email</p>
+    <p>URL: @Model.Request.Url</p>
 </div>
+
+@if (@Model.TotalLineChart != null)
+{
+    <div>
+        @Html.Raw(@Model.TotalLineChart.GetInlineHtml())
+    </div>
+}
