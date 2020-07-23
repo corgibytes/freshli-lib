@@ -1,8 +1,5 @@
-using System;
-using ApprovalUtilities.Utilities;
 using Freshli.Languages.Python;
 using Xunit;
-using Xunit.Abstractions;
 
 namespace Freshli.Test.Unit.Python {
   public class VersionMatcherTest {
@@ -217,8 +214,7 @@ namespace Freshli.Test.Unit.Python {
     [Fact]
     public void CorrectlyCreatesAnAnyMatcherWhenGivenAnEmptyString() {
       var matcher = VersionMatcher.Create("");
-
-      Assert.True(matcher.DoesMatch(new VersionInfo {Version = "anything"}));
+      Assert.IsType<AnyVersionMatcher>(matcher);
     }
 
     [Theory]
