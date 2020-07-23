@@ -8,6 +8,6 @@ namespace Freshli.Web.Models {
     public string Name { get; set; }
     public string Email { get; set; }
 
-    public List<MetricsResult> Results { get; set; }
+    public virtual List<MetricsResult> Results { get; set; }
   }
 }

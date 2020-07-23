@@ -34,6 +34,7 @@ namespace Freshli.Web.Worker {
       services.AddDbContext<ApplicationDbContext>(
         options =>
           options.
+            UseLazyLoadingProxies().
             UseNpgsql(connectionString).
             UseSnakeCaseNamingConvention()
       );
