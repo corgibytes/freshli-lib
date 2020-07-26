@@ -7,6 +7,7 @@ namespace Freshli.Web.Models
     public PlotlyChart ProjectTotalLibYearOverTime { get; set; }
     public PlotlyChart ProjectAverageLibYearOverTime { get; set; }
     public PlotlyChart ProjectMaxLibYearOverTime { get; set; }
+    public PlotlyChart DependenciesLibYearOverTimeStacked { get; set; }
 
   }
 }

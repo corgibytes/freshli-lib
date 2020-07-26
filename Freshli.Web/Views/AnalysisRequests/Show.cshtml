@@ -24,3 +24,10 @@
         @Html.Raw(@Model.ProjectMaxLibYearOverTime.GetInlineHtml())
     </div>
 }
+
+@if (@Model.DependenciesLibYearOverTimeStacked != null)
+{
+    <div>
+        @Html.Raw(@Model.DependenciesLibYearOverTimeStacked.GetInlineHtml())
+    </div>
+}
