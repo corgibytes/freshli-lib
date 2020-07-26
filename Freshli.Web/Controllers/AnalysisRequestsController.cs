@@ -38,20 +38,30 @@ namespace Freshli.Web.Controllers {
 
       if (analysisRequest.Results != null)
       {
-        var orderedResults = analysisRequest.Results.OrderBy(r => r.Date);
-        var lineSeries = new Scattergl {
-          name = analysisRequest.Url,
-          x = orderedResults.Select(r => r.Date),
-          y = orderedResults.Select(r => r.LibYearResult.Total)
-        };
+        var orderedResults = analysisRequest.Results.OrderBy(r => r.Date).
+          ToArray();
+        var dates = orderedResults.Select(r => r.Date);
 
-        var chart = Chart.Plot(lineSeries);
-        chart.WithTitle("LibYear over time");
+        var projectTotalOverTime = Chart.Plot(new Scattergl {
+          name = analysisRequest.Url,
+          x = dates,
+          y = orderedResults.Select(r => r.LibYearResult.Total)
+        });
+        projectTotalOverTime.WithTitle("Project Total LibYear");
+
+        var projectAverageOverTime = Chart.Plot(new Scattergl {
+          name = analysisRequest.Url,
+          x = dates,
+          y = orderedResults.Select(r =>
+            r.LibYearResult.PackageResults.Average(p => p.Value))
+        });
+        projectAverageOverTime.WithTitle("Project Average LibYear");
 
         return View(new AnalysisRequestAndResults
         {
           Request = analysisRequest,
-          TotalLineChart = chart
+          ProjectTotalLibYearOverTime = projectTotalOverTime,
+          ProjectAverageLibYearOverTime = projectAverageOverTime
         });
 
       }

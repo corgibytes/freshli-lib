@@ -1,15 +1,19 @@
 @model AnalysisRequestAndResults
 
 <div>
-    <p>GUID: @Model.Request.Id</p>
-    <p>Name: @Model.Request.Name</p>
-    <p>Email: @Model.Request.Email</p>
-    <p>URL: @Model.Request.Url</p>
+    <p>LibYear analysis for @Model.Request.Url<p/>
 </div>
 
-@if (@Model.TotalLineChart != null)
+@if (@Model.ProjectTotalLibYearOverTime != null)
 {
     <div>
-        @Html.Raw(@Model.TotalLineChart.GetInlineHtml())
+        @Html.Raw(@Model.ProjectTotalLibYearOverTime.GetInlineHtml())
+    </div>
+}
+
+@if (@Model.ProjectAverageLibYearOverTime != null)
+{
+    <div>
+        @Html.Raw(@Model.ProjectAverageLibYearOverTime.GetInlineHtml())
     </div>
 }
