@@ -57,11 +57,21 @@ namespace Freshli.Web.Controllers {
         });
         projectAverageOverTime.WithTitle("Project Average LibYear");
 
+        var projectMaxOverTime = Chart.Plot(new Scattergl {
+          name = analysisRequest.Url,
+          x = dates,
+          y = orderedResults.Select(r =>
+            r.LibYearResult.PackageResults.Max(p => p.Value))
+        });
+        projectMaxOverTime.WithTitle("Project Max LibYear");
+
+
         return View(new AnalysisRequestAndResults
         {
           Request = analysisRequest,
           ProjectTotalLibYearOverTime = projectTotalOverTime,
-          ProjectAverageLibYearOverTime = projectAverageOverTime
+          ProjectAverageLibYearOverTime = projectAverageOverTime,
+          ProjectMaxLibYearOverTime = projectMaxOverTime
         });
 
       }

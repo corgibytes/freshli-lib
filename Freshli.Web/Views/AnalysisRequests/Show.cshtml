@@ -17,3 +17,10 @@
         @Html.Raw(@Model.ProjectAverageLibYearOverTime.GetInlineHtml())
     </div>
 }
+
+@if (@Model.ProjectMaxLibYearOverTime != null)
+{
+    <div>
+        @Html.Raw(@Model.ProjectMaxLibYearOverTime.GetInlineHtml())
+    </div>
+}
