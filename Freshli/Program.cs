@@ -26,7 +26,7 @@ namespace Freshli {
       } catch (Exception e) {
         logger.Error(
           e,
-          $"Exception executing Freshli for args = {args}: {e.Message}"
+          $"Exception executing Freshli for args = [{string.Join(separator: ",", args)}]: {e.Message}"
         );
         logger.Trace(e, e.StackTrace);
       }
