@@ -1,15 +1,14 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text.RegularExpressions;
 using Freshli.Exceptions;
 
 namespace Freshli.Languages.Ruby {
   public class RubyGemsVersionInfo : IVersionInfo {
     /*
-     * RubyGemsVersionInfo assumes gem versions follows the standards set forth
-     * by
-     * https://ruby-doc.org/stdlib-2.5.0/libdoc/rubygems/rdoc/Gem/Version.html.
+     *  RubyGemsVersionInfo assumes gem versions follows the standards set forth
+     *  by
+     *  https://ruby-doc.org/stdlib-2.5.0/libdoc/rubygems/rdoc/Gem/Version.html.
      */
 
     private string _version;

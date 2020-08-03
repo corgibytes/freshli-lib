@@ -40,8 +40,8 @@ namespace Freshli.Languages.Python {
           var version = versionSplits[0];
 
           var dateNode = releaseNode.Descendants("time").First();
-          var versionDate = DateTime.Parse(dateNode.Attributes["datetime"].Value).
-            ToUniversalTime();
+          var versionDate = DateTime.Parse(
+            dateNode.Attributes["datetime"].Value).ToUniversalTime();
 
           versions.Add(new SemVerVersionInfo(version, versionDate));
         }
@@ -83,7 +83,8 @@ namespace Freshli.Languages.Python {
         throw;
       }
       catch (Exception e) {
-        throw new LatestVersionThatMatchesNotFoundException(name, asOf, thatMatches, e);
+        throw new LatestVersionThatMatchesNotFoundException(
+          name, asOf, thatMatches, e);
       }
 
     }

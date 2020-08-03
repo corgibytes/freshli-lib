@@ -22,11 +22,15 @@ namespace Freshli.Test.Unit.Ruby {
     [InlineData("1.5.6.rc1", new[] { "1", "5", "6", "rc", "1" }, true)]
     [InlineData("1.5.6.rc2", new[] { "1", "5", "6", "rc", "2" }, true)]
     [InlineData("1.5.6.rc22", new[] { "1", "5", "6", "rc", "22" }, true)]
-    [InlineData("1.5.6.rc22alpha", new[] { "1", "5", "6", "rc", "22", "alpha" }, true)]
-    [InlineData("1.5.6.rc22alpha1", new[] { "1", "5", "6", "rc", "22", "alpha", "1" }, true)]
+    [InlineData("1.5.6.rc22alpha",
+      new[] { "1", "5", "6", "rc", "22", "alpha" }, true)]
+    [InlineData("1.5.6.rc22alpha1",
+      new[] { "1", "5", "6", "rc", "22", "alpha", "1" }, true)]
     [InlineData("1.5.6.1alpha", new[] { "1", "5", "6", "1", "alpha" }, true)]
-    [InlineData("1.5.6.123alpha", new[] { "1", "5", "6", "123", "alpha" }, true)]
-    [InlineData("1.5.6.123alpha123", new[] { "1", "5", "6", "123", "alpha", "123" }, true)]
+    [InlineData("1.5.6.123alpha",
+      new[] { "1", "5", "6", "123", "alpha" }, true)]
+    [InlineData("1.5.6.123alpha123",
+      new[] { "1", "5", "6", "123", "alpha", "123" }, true)]
     [InlineData("1.0.b1", new[] { "1", "0", "b", "1" }, true)]
     [InlineData("1.0.b10", new[] { "1", "0", "b", "10" }, true)]
     [InlineData("1.0.a.2", new[] { "1", "0", "a", "2" }, true)]
@@ -36,7 +40,8 @@ namespace Freshli.Test.Unit.Ruby {
     [InlineData("1.0009",  new[] { "1", "0009" }, false)]
     [InlineData("20110131120940",  new[] { "20110131120940" }, false)]
     [InlineData("2.20110131120940",  new[] { "2", "20110131120940" }, false)]
-    [InlineData("2.0.20110131120940",  new[] { "2", "0", "20110131120940" }, false)]
+    [InlineData("2.0.20110131120940",
+      new[] { "2", "0", "20110131120940" }, false)]
     [InlineData("2.0.8.beta.20110131120940",  new[] { "2", "0", "8", "beta",
       "20110131120940" }, true)]
     public void VersionIsParsedIntoParts(
@@ -123,7 +128,8 @@ namespace Freshli.Test.Unit.Ruby {
     {
       var versionInfo = new RubyGemsVersionInfo {Version = "1.0"};
       var otherVersion = new SemVerVersionInfo {Version = "1.0"};;
-      Assert.Throws<ArgumentException>(() => versionInfo.CompareTo(otherVersion));
+      Assert.Throws<ArgumentException>(() =>
+        versionInfo.CompareTo(otherVersion));
     }
   }
 }

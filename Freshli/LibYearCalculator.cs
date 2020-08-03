@@ -65,7 +65,8 @@ namespace Freshli {
       return result;
     }
 
-    public double Compute(IVersionInfo olderVersion, IVersionInfo newerVersion) {
+    public double Compute(IVersionInfo olderVersion, IVersionInfo newerVersion)
+    {
       return (newerVersion.DatePublished - olderVersion.DatePublished).
         TotalDays / 365.0;
     }

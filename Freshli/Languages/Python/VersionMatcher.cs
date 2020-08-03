@@ -81,7 +81,8 @@ namespace Freshli.Languages.Python {
       } else if (value.StartsWith("~=")) {
         var compound = new CompoundVersionMatcher();
         compound.Operation = OperationKind.Compatible;
-        compound.BaseVersion = new SemVerVersionInfo() {Version = value.Remove(0, 2)};
+        compound.BaseVersion =
+          new SemVerVersionInfo() {Version = value.Remove(0, 2)};
 
         var first = new BasicVersionMatcher();
         first.Operation = OperationKind.GreaterThanEqual;
