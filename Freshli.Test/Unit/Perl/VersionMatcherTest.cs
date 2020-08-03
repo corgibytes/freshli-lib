@@ -1,5 +1,4 @@
-﻿using System;
-using Freshli.Languages.Perl;
+﻿using Freshli.Languages.Perl;
 using Xunit;
 
 namespace Freshli.Test.Unit.Perl {
@@ -39,7 +38,7 @@ namespace Freshli.Test.Unit.Perl {
       string expression,
       bool doesMatch
     ) {
-      var info = new VersionInfo() {Version = version};
+      var info = new SemVerVersionInfo() {Version = version};
       var matcher = VersionMatcher.Create(expression);
       Assert.Equal(doesMatch, matcher.DoesMatch(info));
     }
@@ -68,7 +67,7 @@ namespace Freshli.Test.Unit.Perl {
       var basicMatcher = (BasicVersionMatcher) matcher;
       Assert.Equal(operation, basicMatcher.Operation);
       Assert.Equal(
-        new VersionInfo {Version = version},
+        new SemVerVersionInfo {Version = version},
         basicMatcher.BaseVersion
       );
     }

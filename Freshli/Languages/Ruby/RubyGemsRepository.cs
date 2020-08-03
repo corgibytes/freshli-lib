@@ -7,10 +7,10 @@ using HtmlAgilityPack;
 namespace Freshli.Languages.Ruby {
   public class RubyGemsRepository : IPackageRepository {
 
-    private IDictionary<string, IList<VersionInfo>> _packages =
-      new Dictionary<string, IList<VersionInfo>>();
+    private IDictionary<string, IList<IVersionInfo>> _packages =
+      new Dictionary<string, IList<IVersionInfo>>();
 
-    private IList<VersionInfo> GetReleaseHistory(string name) {
+    private IEnumerable<IVersionInfo> GetReleaseHistory(string name) {
       try {
 
         if (_packages.ContainsKey(name)) {
@@ -20,7 +20,7 @@ namespace Freshli.Languages.Ruby {
         var url = $"https://rubygems.org/gems/{name}/versions";
         var web = new HtmlWeb();
         var document = web.Load(url);
-        var versions = new List<VersionInfo>();
+        var versions = new List<IVersionInfo>();
 
         var releaseNodes = document.DocumentNode.Descendants("li").
           Where(li => li.HasClass("gem__version-wrap"));
@@ -33,7 +33,10 @@ namespace Freshli.Languages.Ruby {
             Replace("- ", "");
           var versionDate = DateTime.ParseExact(rawDate, "MMMM dd, yyyy", null);
 
-          versions.Add(new VersionInfo(version, versionDate));
+          var versionInfo = new RubyGemsVersionInfo(version, versionDate);
+          if (!versionInfo.IsPreRelease) {
+            versions.Add(versionInfo);
+          }
         }
         _packages[name] = versions;
         return versions;
@@ -43,7 +46,7 @@ namespace Freshli.Languages.Ruby {
       }
     }
 
-    public VersionInfo LatestAsOf(string name, DateTime asOf) {
+    public IVersionInfo LatestAsOf(string name, DateTime asOf) {
       try {
         return GetReleaseHistory(name).OrderByDescending(v => v).
           First(v => asOf >= v.DatePublished);
@@ -52,11 +55,11 @@ namespace Freshli.Languages.Ruby {
       }
     }
 
-    public VersionInfo VersionInfo(string name, string version) {
+    public IVersionInfo VersionInfo(string name, string version) {
       return GetReleaseHistory(name).First(v => v.Version == version);
     }
 
-    public VersionInfo LatestAsOfThatMatches(
+    public IVersionInfo LatestAsOfThatMatches(
       string name,
       DateTime asOf,
       string thatMatches

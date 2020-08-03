@@ -7,10 +7,10 @@ using HtmlAgilityPack;
 
 namespace Freshli.Languages.Python {
   public class PyPIRepository : IPackageRepository {
-    private IDictionary<string, IList<VersionInfo>> _packages =
-      new Dictionary<string, IList<VersionInfo>>();
+    private IDictionary<string, IList<IVersionInfo>> _packages =
+      new Dictionary<string, IList<IVersionInfo>>();
 
-    private IList<VersionInfo> GetReleaseHistory(string name) {
+    private IList<IVersionInfo> GetReleaseHistory(string name) {
       try {
         if (_packages.ContainsKey(name)) {
           return _packages[name];
@@ -20,7 +20,7 @@ namespace Freshli.Languages.Python {
         var web = new HtmlWeb();
         var doc = web.Load(url);
 
-        var versions = new List<VersionInfo>();
+        var versions = new List<IVersionInfo>();
 
         var releaseNodes = doc.DocumentNode.Descendants("div").
           Where(div => div.HasClass("release"));
@@ -43,7 +43,7 @@ namespace Freshli.Languages.Python {
           var versionDate = DateTime.Parse(dateNode.Attributes["datetime"].Value).
             ToUniversalTime();
 
-          versions.Add(new VersionInfo(version, versionDate));
+          versions.Add(new SemVerVersionInfo(version, versionDate));
         }
 
         _packages[name] = versions;
@@ -54,7 +54,7 @@ namespace Freshli.Languages.Python {
       }
     }
 
-    public VersionInfo LatestAsOf(string name, DateTime asOf) {
+    public IVersionInfo LatestAsOf(string name, DateTime asOf) {
       try {
         return GetReleaseHistory(name).OrderByDescending(v => v).
           First(v => asOf >= v.DatePublished);
@@ -67,11 +67,11 @@ namespace Freshli.Languages.Python {
       }
     }
 
-    public VersionInfo VersionInfo(string name, string version) {
+    public IVersionInfo VersionInfo(string name, string version) {
       return GetReleaseHistory(name).First(v => v.Version == version);
     }
 
-    public VersionInfo LatestAsOfThatMatches(string name, DateTime asOf,
+    public IVersionInfo LatestAsOfThatMatches(string name, DateTime asOf,
       string thatMatches) {
       try {
         var expression = VersionMatcher.Create(thatMatches);

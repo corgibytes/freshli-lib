@@ -5,11 +5,10 @@ using NLog;
 
 namespace Freshli {
   /*
-    VersionInfo assumes dependency versions follows the standards set forth by
-    https://semver.org/.
+    SemVerVersionInfo assumes dependency versions follows the standards set
+    forth by https://semver.org/.
 */
-  public class VersionInfo : IComparable {
-    private static readonly Logger logger = LogManager.GetCurrentClassLogger();
+  public class SemVerVersionInfo : IVersionInfo {
     private string _version;
 
     public string Version {
@@ -172,15 +171,15 @@ namespace Freshli {
 
     public DateTime DatePublished { get; set; }
 
-    public VersionInfo() { }
+    public SemVerVersionInfo() { }
 
-    public VersionInfo(string version, DateTime datePublished) {
+    public SemVerVersionInfo(string version, DateTime datePublished) {
       Version = version;
       DatePublished = datePublished;
     }
 
     public int CompareTo(object other) {
-      var otherVersionInfo = other as VersionInfo;
+      var otherVersionInfo = other as SemVerVersionInfo;
       if (otherVersionInfo == null) {
         throw new ArgumentException();
       }
@@ -274,7 +273,7 @@ namespace Freshli {
         $"{nameof(DatePublished)}: {DatePublished:d}";
     }
 
-    public string ToSemVer() {
+    public string ToSimpleVersion() {
       return $"{Major}.{Minor}.{Patch}";
     }
   }

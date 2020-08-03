@@ -40,7 +40,7 @@ namespace Freshli.Languages.Php {
       }
     }
 
-    public VersionInfo LatestAsOf(string name, DateTime asOf) {
+    public IVersionInfo LatestAsOf(string name, DateTime asOf) {
       foreach (var repository in _composerRespositories) {
         var result = repository.LatestAsOf(name, asOf);
         if (result != null) {
@@ -51,7 +51,7 @@ namespace Freshli.Languages.Php {
       return null;
     }
 
-    public VersionInfo VersionInfo(string name, string version) {
+    public IVersionInfo VersionInfo(string name, string version) {
       foreach (var repository in _composerRespositories) {
         var result = repository.VersionInfo(name, version);
         if (result != null) {
@@ -62,7 +62,7 @@ namespace Freshli.Languages.Php {
       return null;
     }
 
-    public VersionInfo LatestAsOfThatMatches(
+    public IVersionInfo LatestAsOfThatMatches(
       string name,
       DateTime asOf,
       string thatMatches

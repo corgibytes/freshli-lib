@@ -7,10 +7,10 @@ using Elasticsearch.Net;
 
 namespace Freshli.Languages.Perl {
   public class MetaCpanRepository : IPackageRepository {
-    private IDictionary<string, IList<VersionInfo>> _packages =
-      new Dictionary<string, IList<VersionInfo>>();
+    private IDictionary<string, IList<IVersionInfo>> _packages =
+      new Dictionary<string, IList<IVersionInfo>>();
 
-    private IList<VersionInfo> GetReleaseHistory(string name) {
+    private IList<IVersionInfo> GetReleaseHistory(string name) {
       if (_packages.ContainsKey(name)) {
         return _packages[name];
       }
@@ -46,7 +46,7 @@ namespace Freshli.Languages.Perl {
       var totalItems = hitsJson.GetProperty("total").GetInt32();
       // grab the next page if {totalItems} is greater than the page size
 
-      var versions = new List<VersionInfo>();
+      var versions = new List<IVersionInfo>();
       foreach (var hit in hitsJson.GetProperty("hits").EnumerateArray()) {
         var fields = hit.GetProperty("fields");
         var version = fields.GetProperty("version").GetString();
@@ -56,23 +56,23 @@ namespace Freshli.Languages.Perl {
           DateTimeStyles.AssumeUniversal
         ).ToUniversalTime();
 
-        versions.Add(new VersionInfo(version, date));
+        versions.Add(new SemVerVersionInfo(version, date));
       }
 
       _packages[name] = versions;
       return versions;
     }
 
-    public VersionInfo LatestAsOf(string name, DateTime asOf) {
+    public IVersionInfo LatestAsOf(string name, DateTime asOf) {
       return GetReleaseHistory(name).OrderByDescending(v => v).
         First(v => asOf >= v.DatePublished);
     }
 
-    public VersionInfo VersionInfo(string name, string version) {
+    public IVersionInfo VersionInfo(string name, string version) {
       return GetReleaseHistory(name).First(v => v.Version == version);
     }
 
-    public VersionInfo LatestAsOfThatMatches(
+    public IVersionInfo LatestAsOfThatMatches(
       string name,
       DateTime asOf,
       string thatMatches
