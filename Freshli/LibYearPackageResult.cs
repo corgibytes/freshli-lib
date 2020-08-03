@@ -27,8 +27,7 @@ namespace Freshli {
         $"{{ Name: \"{Name}\", " +
         $"Version: \"{Version}\", " +
         $"PublishedAt: {PublishedAt:s}, " +
-        $"Value: {Value}, " +
-        $"Skipped: {Skipped} }}";
+        $"Value: {Value} }}";
     }
   }
 }
