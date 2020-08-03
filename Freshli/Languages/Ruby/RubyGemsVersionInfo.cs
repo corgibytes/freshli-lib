@@ -41,27 +41,25 @@ namespace Freshli.Languages.Ruby {
       }
       var result = 0;
 
-      var versionPartsCount = VersionParts.Count();
       var versionParts = VersionParts;
-      var otherVersionPartsCount = otherVersionInfo.VersionParts.Count();
       var otherVersionParts = otherVersionInfo.VersionParts;
 
-      var countDifference = versionPartsCount - otherVersionPartsCount;
-
-      if (countDifference < 0) {
-        for (var i = 0; i < Math.Abs(countDifference); i++) {
+      var countDifference =
+        VersionParts.Count - otherVersionInfo.VersionParts.Count;
+      for (var i = 0; i < Math.Abs(countDifference); i++) {
+        if (countDifference < 0) {
           versionParts.Add("0");
-        }
-      }
-      else
-      {
-        for (var i = 0; i < Math.Abs(countDifference); i++) {
+        } else {
           otherVersionParts.Add("0");
         }
       }
 
       for (var i = 0; i < VersionParts.Count; i++) {
-        result = String.Compare(VersionParts[i], otherVersionInfo.VersionParts[i], StringComparison.Ordinal);
+        result = CompareVersionParts(
+          VersionParts[i],
+          otherVersionInfo.VersionParts[i]
+        );
+
         if (result != 0) {
           break;
         }
@@ -82,7 +80,6 @@ namespace Freshli.Languages.Ruby {
         throw new VersionParseException(_version);
       }
     }
-
 
     private void AddVersionPart(string part) {
       if (IsOnlyAlpha(part) || IsOnlyNumeric(part)) {
@@ -122,6 +119,33 @@ namespace Freshli.Languages.Ruby {
     private static bool CharacterTypesMatch(char c1, char c2) {
       return (IsOnlyAlpha(c1) && IsOnlyAlpha(c2)) ||
         (IsOnlyNumeric(c1) && IsOnlyNumeric(c2));
+    }
+
+    private static int CompareVersionParts(string part1, string part2) {
+      if (IsOnlyNumeric(part1) && IsOnlyNumeric(part2)) {
+        return CompareNumericValues(Convert.ToInt64(part1),
+          Convert.ToInt64(part2));
+      }
+
+      if (IsOnlyAlpha(part1) && IsOnlyAlpha(part2)) {
+        return String.Compare(part1, part2, StringComparison.Ordinal);
+      }
+
+      if (IsOnlyNumeric(part1)) {
+        return 1;
+      }
+
+      return -1;
+    }
+
+    private static int CompareNumericValues(long v1, long v2) {
+      if (v1 == v2) {
+        return 0;
+      }
+      if (v1 > v2) {
+        return 1;
+      }
+      return -1;
     }
 
     public override string ToString() {
