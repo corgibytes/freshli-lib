@@ -36,7 +36,7 @@ namespace Freshli {
     public string BuildMetadata { get; private set; }
 
     private readonly Regex _versionExpression = new Regex(
-      @"^v?(\d+)[\._]?(\d+)?[\._]?(\d+)?" +
+      @"^v?V?(\d+)[\._]?(\d+)?[\._]?(\d+)?" +
       @"(?:-?[\._]?((?:\d+|\d*[a-zA-Z-][0-9a-zA-Z-]*)" +
       @"(?:[\._](?:\d+|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?" +
       @"(?:\+([0-9a-zA-Z-]+(?:[\._][0-9a-zA-Z-]+)*))?$"
