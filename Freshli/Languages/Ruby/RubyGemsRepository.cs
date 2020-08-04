@@ -34,7 +34,8 @@ namespace Freshli.Languages.Ruby {
           var versionDate = DateTime.ParseExact(rawDate, "MMMM dd, yyyy", null);
 
           var versionInfo = new RubyGemsVersionInfo(version, versionDate);
-          if (!versionInfo.IsPreRelease) {
+          if (!versionInfo.IsPreRelease &&
+            !IsReleasePlatformSpecific(releaseNode)) {
             versions.Add(versionInfo);
           }
         }
@@ -65,6 +66,18 @@ namespace Freshli.Languages.Ruby {
       string thatMatches
     ) {
       throw new NotImplementedException();
+    }
+
+    private static bool IsReleasePlatformSpecific(HtmlNode node) {
+      var platformSpecific = false;
+      foreach (var span in node.Descendants("span")) {
+        foreach (var className in span.GetClasses()) {
+          if (className == "platform") {
+            platformSpecific = true;
+          }
+        }
+      }
+      return platformSpecific;
     }
   }
 }
