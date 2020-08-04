@@ -45,7 +45,9 @@ namespace Freshli {
       var writer = new StringWriter();
       writer.Write("{ _packagesValues: [ ");
       foreach (var result in this) {
-        writer.Write($"{result}, ");
+        if (!result.Skipped) {
+          writer.Write($"{result}, ");
+        }
       }
 
       writer.Write($" ], Total: {Total} }}");
