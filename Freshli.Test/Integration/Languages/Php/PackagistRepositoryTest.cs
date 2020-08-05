@@ -25,9 +25,9 @@ namespace Freshli.Test.Integration {
         phpFixturePath,
         fileFinder.Finder
       );
-      var versionInfo = repository.LatestAsOf(
-        new DateTime(2020, 01, 01),
-        "monolog/monolog"
+      var versionInfo = repository.Latest(
+        "monolog/monolog",
+        new DateTime(2020, 01, 01)
       );
 
       Assert.Equal("2.0.2", versionInfo.Version);
@@ -42,9 +42,9 @@ namespace Freshli.Test.Integration {
         fileFinder.Finder
       );
 
-      var versionInfo = repository.LatestAsOf(
-        new DateTime(2020, 01, 01),
-        "symfony/css-selector"
+      var versionInfo = repository.Latest(
+        "symfony/css-selector",
+        new DateTime(2020, 01, 01)
       );
 
       Assert.Equal("v5.0.2", versionInfo.Version);

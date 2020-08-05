@@ -1,10 +1,14 @@
 using System;
 using System.Text.RegularExpressions;
+using Freshli.Exceptions;
 using NLog;
 
 namespace Freshli {
-  public class VersionInfo : IComparable {
-    private static readonly Logger logger = LogManager.GetCurrentClassLogger();
+  /*
+    SemVerVersionInfo assumes dependency versions follows the standards set
+    forth by https://semver.org/.
+*/
+  public class SemVerVersionInfo : IVersionInfo {
     private string _version;
 
     public string Version {
@@ -32,7 +36,7 @@ namespace Freshli {
     public string BuildMetadata { get; private set; }
 
     private readonly Regex _versionExpression = new Regex(
-      @"^v?(\d+)[\._]?(\d+)?[\._]?(\d+)?" +
+      @"^v?V?(\d+)[\._]?(\d+)?[\._]?(\d+)?" +
       @"(?:-?[\._]?((?:\d+|\d*[a-zA-Z-][0-9a-zA-Z-]*)" +
       @"(?:[\._](?:\d+|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?" +
       @"(?:\+([0-9a-zA-Z-]+(?:[\._][0-9a-zA-Z-]+)*))?$"
@@ -145,11 +149,7 @@ namespace Freshli {
           BuildMetadata = buildMetadataValue;
         }
       } else {
-        logger.Log(
-          LogLevel.Warn,
-          $"Unable to parse version string: '{_version}'. If you think this " +
-          @"is an error, then please create an issue on GitHub."
-        );
+        throw new VersionParseException(_version);
       }
     }
 
@@ -171,15 +171,15 @@ namespace Freshli {
 
     public DateTime DatePublished { get; set; }
 
-    public VersionInfo() { }
+    public SemVerVersionInfo() { }
 
-    public VersionInfo(string version, DateTime datePublished) {
+    public SemVerVersionInfo(string version, DateTime datePublished) {
       Version = version;
       DatePublished = datePublished;
     }
 
     public int CompareTo(object other) {
-      var otherVersionInfo = other as VersionInfo;
+      var otherVersionInfo = other as SemVerVersionInfo;
       if (otherVersionInfo == null) {
         throw new ArgumentException();
       }
@@ -273,7 +273,7 @@ namespace Freshli {
         $"{nameof(DatePublished)}: {DatePublished:d}";
     }
 
-    public string ToSemVer() {
+    public string ToSimpleVersion() {
       return $"{Major}.{Minor}.{Patch}";
     }
   }

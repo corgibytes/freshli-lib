@@ -91,8 +91,10 @@ namespace Freshli.Test.Integration {
 
     [Fact]
     public void Compute() {
-      var olderVersion = new VersionInfo("1.7.0", new DateTime(2016, 12, 27));
-      var newerVersion = new VersionInfo("1.7.1", new DateTime(2017, 03, 20));
+      var olderVersion = new SemVerVersionInfo("1.7.0",
+        new DateTime(2016, 12, 27));
+      var newerVersion = new SemVerVersionInfo("1.7.1",
+        new DateTime(2017, 03, 20));
 
       var calculator = new LibYearCalculator(null, null);
 

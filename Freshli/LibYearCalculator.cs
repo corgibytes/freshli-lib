@@ -19,11 +19,11 @@ namespace Freshli {
       var result = new LibYearResult();
 
       foreach (var package in Manifest) {
-        VersionInfo latestVersion;
-        VersionInfo currentVersion;
+        IVersionInfo latestVersion;
+        IVersionInfo currentVersion;
 
         try {
-          latestVersion = Repository.LatestAsOf(date, package.Name);
+          latestVersion = Repository.Latest(package.Name, date);
 
           if (Manifest.UsesExactMatches) {
             currentVersion =
@@ -31,28 +31,33 @@ namespace Freshli {
           } else {
             currentVersion = Repository.Latest(
               package.Name,
-              package.Version,
-              asOf: date
+              asOf: date,
+              thatMatches: package.Version
             );
           }
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
           _logger.Warn($"Skipping {package.Name}: {e.Message}");
+          result.Add(package.Name, package.Version, DateTime.MinValue,
+            0, true);
+          _logger.Trace(e.StackTrace);
           continue;
         }
 
         if (latestVersion != null && currentVersion != null) {
           _logger.Trace(
             $"Package({package.Name}, {package.Version}): " +
-            $"current = {currentVersion.ToSemVer()}" +
+            $"current = {currentVersion.ToSimpleVersion()}" +
             $"@{currentVersion.DatePublished:d}, " +
-            $"latest = {latestVersion.ToSemVer()}" +
+            $"latest = {latestVersion.ToSimpleVersion()}" +
             $"@{latestVersion.DatePublished:d}"
           );
           result.Add(
             package.Name,
             latestVersion.Version,
             latestVersion.DatePublished,
-            Compute(currentVersion, latestVersion)
+            Compute(currentVersion, latestVersion),
+            false
           );
         }
       }
@@ -60,7 +65,8 @@ namespace Freshli {
       return result;
     }
 
-    public double Compute(VersionInfo olderVersion, VersionInfo newerVersion) {
+    public double Compute(IVersionInfo olderVersion, IVersionInfo newerVersion)
+    {
       return (newerVersion.DatePublished - olderVersion.DatePublished).
         TotalDays / 365.0;
     }

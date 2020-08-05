@@ -2,60 +2,78 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Freshli.Exceptions;
-using RestSharp;
+using HtmlAgilityPack;
 
 namespace Freshli.Languages.Ruby {
   public class RubyGemsRepository : IPackageRepository {
-    public VersionInfo LatestAsOf(DateTime date, string name) {
-      var response = ApiRequest(name);
-      if (response == null) {
-        throw new DependencyNotFoundException(name);
+
+    private IDictionary<string, IList<IVersionInfo>> _packages =
+      new Dictionary<string, IList<IVersionInfo>>();
+
+    private IEnumerable<IVersionInfo> GetReleaseHistory(string name) {
+      try {
+
+        if (_packages.ContainsKey(name)) {
+          return _packages[name];
+        }
+
+        var url = $"https://rubygems.org/gems/{name}/versions";
+        var web = new HtmlWeb();
+        var document = web.Load(url);
+        var versions = new List<IVersionInfo>();
+
+        var releaseNodes = document.DocumentNode.Descendants("li").
+          Where(li => li.HasClass("gem__version-wrap"));
+
+        foreach (var releaseNode in releaseNodes) {
+          var version = releaseNode.Descendants("a").
+            First(a => a.HasClass("t-list__item")).InnerText;
+
+          var rawDate = releaseNode.Descendants("small").First().InnerText.
+            Replace("- ", "");
+          var versionDate = DateTime.ParseExact(rawDate, "MMMM dd, yyyy", null);
+
+          var versionInfo = new RubyGemsVersionInfo(version, versionDate);
+          if (!versionInfo.IsPreRelease &&
+            !IsReleasePlatformSpecific(releaseNode)) {
+            versions.Add(versionInfo);
+          }
+        }
+        _packages[name] = versions;
+        return versions;
+
+      } catch (Exception e) {
+        throw new DependencyNotFoundException(name, e);
       }
-
-      var candidates = response.
-        Where(version => !version.Prerelease && version.CreatedAt <= date).
-        OrderByDescending(version => version.CreatedAt);
-
-      var firstCandidate = candidates.FirstOrDefault();
-      if (firstCandidate != null) {
-        return new VersionInfo(
-          firstCandidate.Number,
-          firstCandidate.CreatedAt.Date
-        );
-      }
-
-      throw new LatestVersionNotFoundException(date, name);
     }
 
-    private Dictionary<String, List<RubyGemsVersion>> _responseCache =
-      new Dictionary<string, List<RubyGemsVersion>>();
-
-    private List<RubyGemsVersion> ApiRequest(string name) {
-      if (!_responseCache.ContainsKey(name)) {
-        var client = new RestClient("https://rubygems.org/api/v1");
-        var request = new RestRequest($"/versions/{name}.json");
-        var response = client.Execute<List<RubyGemsVersion>>(request);
-        _responseCache[name] = response.Data;
+    public IVersionInfo Latest(string name, DateTime asOf) {
+      try {
+        return GetReleaseHistory(name).OrderByDescending(v => v).
+          First(v => asOf >= v.DatePublished);
+      } catch (Exception e) {
+        throw new LatestVersionNotFoundException(name, asOf, e);
       }
-
-      return _responseCache[name];
     }
 
-    public VersionInfo VersionInfo(string name, string version) {
-      var response = ApiRequest(name);
-
-      var candidate =
-        response.FirstOrDefault(package => package?.Number == version);
-
-      if (candidate != null) {
-        return new VersionInfo(candidate.Number, candidate.CreatedAt.Date);
-      }
-
-      return null;
+    public IVersionInfo VersionInfo(string name, string version) {
+      return GetReleaseHistory(name).First(v => v.Version == version);
     }
 
-    public VersionInfo Latest(string name, string thatMatches, DateTime asOf) {
+    public IVersionInfo Latest(string name, DateTime asOf, string thatMatches) {
       throw new NotImplementedException();
+    }
+
+    private static bool IsReleasePlatformSpecific(HtmlNode node) {
+      var platformSpecific = false;
+      foreach (var span in node.Descendants("span")) {
+        foreach (var className in span.GetClasses()) {
+          if (className == "platform") {
+            platformSpecific = true;
+          }
+        }
+      }
+      return platformSpecific;
     }
   }
 }

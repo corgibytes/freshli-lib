@@ -19,7 +19,7 @@ namespace Freshli.Languages.Php {
       _baseUrl = baseUrl;
     }
 
-    public VersionInfo LatestAsOf(DateTime date, string name) {
+    public IVersionInfo Latest(string name, DateTime asOf) {
       var content = FetchPackageInfo(name);
       if (content == null) return null;
 
@@ -37,7 +37,7 @@ namespace Freshli.Languages.Php {
 
       var versionsJsonElements = versionsJson.EnumerateObject();
 
-      var foundVersions = new List<VersionInfo>();
+      var foundVersions = new List<SemVerVersionInfo>();
       foreach (var versionJson in versionsJsonElements) {
         if (IsUnstable(versionJson.Name)) {
           continue;
@@ -45,7 +45,7 @@ namespace Freshli.Languages.Php {
 
         var version = versionJson.Name;
         var publishedDate = ParsePublishedDate(versionJson.Value);
-        var versionInfo = new VersionInfo(version, publishedDate.Date);
+        var versionInfo = new SemVerVersionInfo(version, publishedDate.Date);
         if (versionInfo.PreRelease != null) {
           continue;
         }
@@ -58,7 +58,7 @@ namespace Freshli.Languages.Php {
           left.CompareTo(right)
       );
       var filteredVersions = foundVersions.
-        Where(item => item.DatePublished <= date).ToArray();
+        Where(item => item.DatePublished <= asOf).ToArray();
       if (!filteredVersions.Any()) return null;
       return filteredVersions.Last();
     }
@@ -79,7 +79,7 @@ namespace Freshli.Languages.Php {
       return result.Date;
     }
 
-    public VersionInfo VersionInfo(string name, string version) {
+    public IVersionInfo VersionInfo(string name, string version) {
       var content = FetchPackageInfo(name);
       if (content == null) return null;
 
@@ -100,13 +100,13 @@ namespace Freshli.Languages.Php {
       if (versionsJson.TryGetProperty(version, out var versionJson)) {
         var publishedDate = ParsePublishedDate(versionJson);
 
-        return new VersionInfo(version, publishedDate.Date);
+        return new SemVerVersionInfo(version, publishedDate.Date);
       }
 
       return null;
     }
 
-    public VersionInfo Latest(string name, string thatMatches, DateTime asOf) {
+    public IVersionInfo Latest(string name, DateTime asOf, string thatMatches) {
       throw new NotImplementedException();
     }
 
