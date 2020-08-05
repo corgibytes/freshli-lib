@@ -54,7 +54,7 @@ namespace Freshli.Languages.Python {
       }
     }
 
-    public IVersionInfo LatestAsOf(string name, DateTime asOf) {
+    public IVersionInfo Latest(string name, DateTime asOf) {
       try {
         return GetReleaseHistory(name).OrderByDescending(v => v).
           First(v => asOf >= v.DatePublished);
@@ -71,8 +71,7 @@ namespace Freshli.Languages.Python {
       return GetReleaseHistory(name).First(v => v.Version == version);
     }
 
-    public IVersionInfo LatestAsOfThatMatches(string name, DateTime asOf,
-      string thatMatches) {
+    public IVersionInfo Latest(string name, DateTime asOf, string thatMatches) {
       try {
         var expression = VersionMatcher.Create(thatMatches);
         return GetReleaseHistory(name).OrderByDescending(v => v).

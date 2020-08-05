@@ -19,7 +19,7 @@ namespace Freshli.Languages.Php {
       _baseUrl = baseUrl;
     }
 
-    public IVersionInfo LatestAsOf(string name, DateTime asOf) {
+    public IVersionInfo Latest(string name, DateTime asOf) {
       var content = FetchPackageInfo(name);
       if (content == null) return null;
 
@@ -106,11 +106,7 @@ namespace Freshli.Languages.Php {
       return null;
     }
 
-    public IVersionInfo LatestAsOfThatMatches(
-      string name,
-      DateTime asOf,
-      string thatMatches
-    ) {
+    public IVersionInfo Latest(string name, DateTime asOf, string thatMatches) {
       throw new NotImplementedException();
     }
 
