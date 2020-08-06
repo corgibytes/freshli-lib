@@ -42,7 +42,7 @@ namespace Freshli {
         foreach (var logEntry in logEntries) {
           var blob = logEntry.Tree[targetFile].Target as Blob;
           var contents = blob.GetContentText();
-          _contentsByDate[logEntry.Author.When.Date] = contents;
+          _contentsByDate[logEntry.Committer.When.Date] = contents;
         }
       }
     }
