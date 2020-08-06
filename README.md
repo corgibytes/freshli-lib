@@ -22,7 +22,9 @@ For each language that the tool supports, the libyear metric is computed for eac
 
 ### Source Code Repositories
 
-* Git
+* [github.com/corgibytes/freshli](https://github.com/corgibytes/freshli)
+* [github.com/fslaborg/XPlot](https://github.com/fslaborg/XPlot)
+  * Freshli currently pulls in XPlot as a submodule as the current release does not include a critical bug fix
 
 ## Getting started with `freshli` CLI
 
@@ -89,7 +91,29 @@ VersionInfo.cs(201,32): warning CS8632: The annotation for nullable reference ty
 
 ### Building `freshli`
 
-There are multiple ways to build `freshli`. The simplest is directly on the command line by running `dotnet build`. You can also use an IDE for working on `freshli`. Most of the uses JetBrains Rider, but you can also use Visual Studio 2019. If you don't want to use an IDE, then a text editor with good C# support such as Visual Studio Code or Atom also works equally well.
+Freshli currently utilizes XPlot as a submodule as the current release of XPlot does not include a critical bug fix. As a result, before building Freshli for the first time, you'll need to pull down the XPlot code:
+```
+git submodule update --init
+```
+
+Then, you'll need to build XPlot. First navigate to the XPlot subdirectory:
+
+```
+cd XPlot
+```
+
+Then execute the following commands:
+
+```
+dotnet tool restore
+```
+```
+dotnet paket restore
+```
+
+Once XPlot has successfully built, you'll need to navigate back to the main directory and build Freshli. There are multiple ways to build `freshli`. The simplest is directly on the command line by running `dotnet build`.
+
+You can also use an IDE for working on `freshli`. Most of the uses JetBrains Rider, but you can also use Visual Studio 2019. If you don't want to use an IDE, then a text editor with good C# support such as Visual Studio Code or Atom also works equally well.
 
 This is what a successful command line build looks like:
 
@@ -336,6 +360,12 @@ persistent volume so that data gets preserved between runs.
 
 The `db` container is mapped to port 5432 on localhost to assist with using
 database IDEs such as DataGrip.
+
+Relevant Datagrip settings are shown below:
+
+![DataGrip Settings](documentation/images/datagrip-settings.png)
+
+The password is saved in the `docker-compose.yml` file.
 
 You can completely delete all of the data by deleting the volume. This simplest
 way to do that is by running the following:
