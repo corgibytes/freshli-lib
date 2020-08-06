@@ -29,9 +29,15 @@ namespace Freshli {
 
       _targetFile = targetFile;
 
-      using (var repository = new Repository(repositoryPath)) {
-        var logEntries = repository.Commits.
-          Where(c => c.Tree[targetFile] != null);
+      using (var repository = new Repository(repositoryPath))
+      {
+        var logEntries =
+          repository.Commits.
+            QueryBy(
+              new CommitFilter {
+                SortBy = CommitSortStrategies.Topological
+              }
+            ).Where(c => c.Tree[targetFile] != null);
 
         foreach (var logEntry in logEntries) {
           var blob = logEntry.Tree[targetFile].Target as Blob;
