@@ -85,9 +85,7 @@ namespace Freshli.Web.Controllers {
           areaSeries.Add(new Scatter {
             name = name,
             x = projectDates,
-            y = projectLibYearValues,
-            fill = "tonexty",
-            stackgroup = "one"
+            y = projectLibYearValues
           });
         }
 
