@@ -30,15 +30,13 @@ namespace Freshli {
       _targetFile = targetFile;
 
       using (var repository = new Repository(repositoryPath)) {
-        var entries = repository.Commits.QueryBy(
-          targetFile,
-          new CommitFilter {SortBy = CommitSortStrategies.Topological}
-        );
+        var logEntries = repository.Commits.
+          Where(c => c.Tree[targetFile] != null);
 
-        foreach (var entry in entries) {
-          var blob = entry.Commit.Tree[entry.Path].Target as Blob;
+        foreach (var logEntry in logEntries) {
+          var blob = logEntry.Tree[targetFile].Target as Blob;
           var contents = blob.GetContentText();
-          _contentsByDate[entry.Commit.Author.When.Date] = contents;
+          _contentsByDate[logEntry.Author.When.Date] = contents;
         }
       }
     }
