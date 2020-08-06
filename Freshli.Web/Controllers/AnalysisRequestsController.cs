@@ -39,8 +39,8 @@ namespace Freshli.Web.Controllers {
 
       if (analysisRequest.Results != null)
       {
-        var orderedResults = analysisRequest.Results.OrderBy(r => r.Date).
-          ToArray();
+        var orderedResults = analysisRequest.Results.
+          OrderBy(r => r.Date).ToArray();
         var dates = orderedResults.Select(r => r.Date);
 
         var projectTotalOverTime = ProjectTotalOverTime(
@@ -59,7 +59,9 @@ namespace Freshli.Web.Controllers {
           orderedResults
         );
 
-        var names = orderedResults.Select(r => r.LibYearResult.PackageResults.Select(p => p.Name).ToArray()).Aggregate(
+        var names = orderedResults.Select(
+          r => r.LibYearResult.PackageResults.
+            Select(p => p.Name).ToArray()).Aggregate(
           new HashSet<string>(),
           (hash, values) => {
             foreach(var value in values) {
@@ -72,9 +74,13 @@ namespace Freshli.Web.Controllers {
         var areaSeries = new List<Scatter>();
 
         foreach (var name  in names) {
-          var projectData = orderedResults.Where(r => r.LibYearResult.PackageResults.Any(p => p.Name == name));
+          var projectData = orderedResults.
+            Where(r => r.LibYearResult.PackageResults.
+              Any(p => p.Name == name));
           var projectDates = projectData.Select(r => r.Date);
-          var projectLibYearValues = projectData.Select(r => r.LibYearResult.PackageResults.First(p => p.Name == name).Value);
+          var projectLibYearValues = projectData.
+            Select(r => r.LibYearResult.PackageResults.
+              First(p => p.Name == name).Value);
 
           areaSeries.Add(new Scatter {
             name = name,
@@ -105,7 +111,11 @@ namespace Freshli.Web.Controllers {
       });
     }
 
-    private static PlotlyChart ProjectMaxOverTime(AnalysisRequest analysisRequest, IEnumerable<DateTime> dates, Models.MetricsResult[] orderedResults) {
+    private static PlotlyChart ProjectMaxOverTime(
+      AnalysisRequest analysisRequest,
+      IEnumerable<DateTime> dates,
+      Models.MetricsResult[] orderedResults
+    ) {
       var projectMaxOverTime = Chart.Plot(
         new Scattergl {
           name = analysisRequest.Url,
@@ -120,7 +130,11 @@ namespace Freshli.Web.Controllers {
       return projectMaxOverTime;
     }
 
-    private static PlotlyChart ProjectAverageOverTime(AnalysisRequest analysisRequest, IEnumerable<DateTime> dates, Models.MetricsResult[] orderedResults) {
+    private static PlotlyChart ProjectAverageOverTime(
+      AnalysisRequest analysisRequest,
+      IEnumerable<DateTime> dates,
+      Models.MetricsResult[] orderedResults
+    ) {
       var projectAverageOverTime = Chart.Plot(
         new Scattergl {
           name = analysisRequest.Url,
@@ -135,8 +149,18 @@ namespace Freshli.Web.Controllers {
       return projectAverageOverTime;
     }
 
-    private static PlotlyChart ProjectTotalOverTime(AnalysisRequest analysisRequest, IEnumerable<DateTime> dates, Models.MetricsResult[] orderedResults) {
-      var projectTotalOverTime = Chart.Plot(new Scattergl {name = analysisRequest.Url, x = dates, y = orderedResults.Select(r => r.LibYearResult.Total)});
+    private static PlotlyChart ProjectTotalOverTime(
+      AnalysisRequest analysisRequest,
+      IEnumerable<DateTime> dates,
+      Models.MetricsResult[] orderedResults
+    ) {
+      var projectTotalOverTime = Chart.Plot(
+        new Scattergl
+        {
+          name = analysisRequest.Url,
+          x = dates,
+          y = orderedResults.Select(r => r.LibYearResult.Total)
+        });
       projectTotalOverTime.WithTitle("Project Total LibYear");
       return projectTotalOverTime;
     }
