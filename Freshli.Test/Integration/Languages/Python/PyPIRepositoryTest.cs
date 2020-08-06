@@ -26,7 +26,7 @@ namespace Freshli.Test.Integration {
     public void LatestAsOf() {
       var repository = new PyPIRepository();
       var targetDate = new DateTime(2020, 01, 01, 0, 0, 0, DateTimeKind.Utc);
-      var versionInfo = repository.LatestAsOf(targetDate, "numpy");
+      var versionInfo = repository.Latest("numpy", targetDate);
       var expectedDate = new DateTime(
         2019,
         12,
@@ -69,8 +69,8 @@ namespace Freshli.Test.Integration {
       var repository = new PyPIRepository();
       var versionInfo = repository.Latest(
         packageName,
-        thatMatches: versionExpression,
-        asOf: targetDate
+        asOf: targetDate,
+        thatMatches: versionExpression
       );
       var expectedDate = new DateTime(
         expectedYear,

@@ -25,7 +25,7 @@ namespace Freshli.Languages.Perl {
         var version = value.Replace("==", "").Trim();
         return new BasicVersionMatcher {
           Operation = OperationKind.Matching,
-          BaseVersion = new VersionInfo {Version = version}
+          BaseVersion = new SemVerVersionInfo {Version = version}
         };
       }
 
@@ -33,7 +33,7 @@ namespace Freshli.Languages.Perl {
         var version = value.Replace(">=", "").Trim();
         return new BasicVersionMatcher {
           Operation = OperationKind.GreaterThanEqual,
-          BaseVersion = new VersionInfo {Version = version}
+          BaseVersion = new SemVerVersionInfo {Version = version}
         };
       }
 
@@ -41,7 +41,7 @@ namespace Freshli.Languages.Perl {
         var version = value.Replace("<=", "").Trim();
         return new BasicVersionMatcher {
           Operation = OperationKind.LessThanEqual,
-          BaseVersion = new VersionInfo {Version = version}
+          BaseVersion = new SemVerVersionInfo {Version = version}
         };
       }
 
@@ -49,7 +49,7 @@ namespace Freshli.Languages.Perl {
         var version = value.Replace("<", "").Trim();
         return new BasicVersionMatcher {
           Operation = OperationKind.LessThan,
-          BaseVersion = new VersionInfo {Version = version}
+          BaseVersion = new SemVerVersionInfo {Version = version}
         };
       }
 
@@ -57,7 +57,7 @@ namespace Freshli.Languages.Perl {
         var version = value.Replace(">", "").Trim();
         return new BasicVersionMatcher {
           Operation = OperationKind.GreaterThan,
-          BaseVersion = new VersionInfo {Version = version}
+          BaseVersion = new SemVerVersionInfo {Version = version}
         };
       }
 
@@ -65,24 +65,24 @@ namespace Freshli.Languages.Perl {
         var version = value.Replace("!=", "").Trim();
         return new BasicVersionMatcher {
           Operation = OperationKind.NotEqual,
-          BaseVersion = new VersionInfo {Version = version}
+          BaseVersion = new SemVerVersionInfo {Version = version}
         };
       }
 
       return new BasicVersionMatcher {
         Operation = OperationKind.GreaterThanEqual,
-        BaseVersion = new VersionInfo {Version = value}
+        BaseVersion = new SemVerVersionInfo {Version = value}
       };
     }
 
-    public abstract bool DoesMatch(VersionInfo version);
+    public abstract bool DoesMatch(IVersionInfo version);
   }
 
   public class BasicVersionMatcher : VersionMatcher {
     public OperationKind Operation { get; set; }
-    public VersionInfo BaseVersion { get; set; }
+    public SemVerVersionInfo BaseVersion { get; set; }
 
-    public override bool DoesMatch(VersionInfo version) {
+    public override bool DoesMatch(IVersionInfo version) {
       if (Operation == OperationKind.NotEqual) {
         return version.CompareTo(BaseVersion) != 0;
       }
@@ -118,7 +118,7 @@ namespace Freshli.Languages.Perl {
       _matchers = matchers;
     }
 
-    public override bool DoesMatch(VersionInfo version) {
+    public override bool DoesMatch(IVersionInfo version) {
       return _matchers.All(m => m.DoesMatch(version));
     }
   }
