@@ -69,7 +69,7 @@ namespace Freshli.Web.Controllers {
             }
             return hash;
           }
-        );
+        ).OrderBy(name => name);
 
         var areaSeries = new List<Scatter>();
 
