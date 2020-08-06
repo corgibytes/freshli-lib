@@ -92,7 +92,8 @@ namespace Freshli.Web.Controllers {
         var chart = Chart.Plot(areaSeries.ToArray());
         chart.WithLayout(new Layout.Layout {
           title = "LibYear over time per dependency",
-          hovermode = "closest"
+          hovermode = "closest",
+          shapes = new [] { CreateThresholdLine(1) }
         });
 
         return View(new AnalysisRequestAndResults {
@@ -126,8 +127,27 @@ namespace Freshli.Web.Controllers {
           )
         }
       );
-      projectMaxOverTime.WithTitle("Project Max LibYear");
+      projectMaxOverTime.WithLayout(new Layout.Layout {
+        title = "Project Max LibYear",
+        shapes = new [] { CreateThresholdLine(1) }
+      });
       return projectMaxOverTime;
+    }
+
+    private static Shape CreateThresholdLine(double value) {
+      return new Shape() {
+        type = "line",
+        xref = "paper",
+        x0 = 0,
+        y0 = value,
+        x1 = 1,
+        y1 = value,
+        line = new Line {
+          color = "rgb(255, 0, 0)",
+          width = "4",
+          dash = "dot"
+        }
+      };
     }
 
     private static PlotlyChart ProjectAverageOverTime(
@@ -145,7 +165,10 @@ namespace Freshli.Web.Controllers {
           )
         }
       );
-      projectAverageOverTime.WithTitle("Project Average LibYear");
+      projectAverageOverTime.WithLayout(new Layout.Layout {
+        title = "Project Average LibYear",
+        shapes = new []{ CreateThresholdLine(0.1) }
+      });
       return projectAverageOverTime;
     }
 
@@ -160,7 +183,10 @@ namespace Freshli.Web.Controllers {
           x = dates,
           y = orderedResults.Select(r => r.LibYearResult.Total)
         });
-      projectTotalOverTime.WithTitle("Project Total LibYear");
+      projectTotalOverTime.WithLayout(new Layout.Layout {
+        title = "Project Total LibYear",
+        shapes = new [] { CreateThresholdLine(10) }
+      });
       return projectTotalOverTime;
     }
   }
