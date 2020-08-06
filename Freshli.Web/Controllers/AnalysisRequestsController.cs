@@ -95,8 +95,7 @@ namespace Freshli.Web.Controllers {
           hovermode = "closest"
         });
 
-        return View(new AnalysisRequestAndResults
-        {
+        return View(new AnalysisRequestAndResults {
           Request = analysisRequest,
           ProjectTotalLibYearOverTime = projectTotalOverTime,
           ProjectAverageLibYearOverTime = projectAverageOverTime,
@@ -156,8 +155,7 @@ namespace Freshli.Web.Controllers {
       Models.MetricsResult[] orderedResults
     ) {
       var projectTotalOverTime = Chart.Plot(
-        new Scattergl
-        {
+        new Scattergl {
           name = analysisRequest.Url,
           x = dates,
           y = orderedResults.Select(r => r.LibYearResult.Total)
