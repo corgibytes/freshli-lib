@@ -91,7 +91,7 @@ namespace Freshli.Web.Controllers {
 
         var chart = Chart.Plot(areaSeries.ToArray());
         chart.WithLayout(new Layout.Layout {
-          title = "LibYear over time per dependency",
+          title = "LibYear Over Time Per Dependency",
           hovermode = "closest",
           shapes = new [] { CreateThresholdLine(1) }
         });
