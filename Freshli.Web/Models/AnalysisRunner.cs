@@ -40,8 +40,12 @@ namespace Freshli.Web.Models {
             analysisRequest.Results.Clear();
           }
 
-          analysisRequest.Results.AddRange(MapResults(results,
-            analysisRequest));
+          analysisRequest.Results.AddRange(
+            MapResults(
+              results,
+              analysisRequest
+            )
+          );
 
           analysisRequest.State = AnalysisRequest.Status.Success;
         } else {
@@ -63,10 +67,7 @@ namespace Freshli.Web.Models {
       var persistentResults = new List<MetricsResult>();
 
       foreach (var rawResult in rawResults) {
-
-        var libYearResult = new LibYearResult {
-          Total = rawResult.LibYear.Total
-        };
+        var libYearResult = new LibYearResult {Total = rawResult.LibYear.Total};
         libYearResult.PackageResults = new List<LibYearPackageResult>();
         libYearResult.PackageResults.AddRange(
           MapPackageResults(rawResult.LibYear, libYearResult)
