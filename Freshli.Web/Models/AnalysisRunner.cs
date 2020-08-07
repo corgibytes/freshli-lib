@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using Freshli.Web.Data;
 
 namespace Freshli.Web.Models {
@@ -10,8 +11,23 @@ namespace Freshli.Web.Models {
       _db = db;
     }
 
+    private void SetStartingState(AnalysisRequest request) {
+      if (request.State == AnalysisRequest.Status.New)
+      {
+        request.State = AnalysisRequest.Status.InProgress;
+      }
+      else
+      {
+        request.State = AnalysisRequest.Status.Retrying;
+      }
+
+      _db.Update(request);
+      _db.SaveChanges();
+    }
+
     public void Run(Guid requestGuid) {
       var analysisRequest = _db.AnalysisRequests.Find(requestGuid);
+      SetStartingState(analysisRequest);
 
       ManifestFinder.RegisterAll();
       FileHistoryFinder.Register<GitFileHistoryFinder>();
@@ -21,6 +37,7 @@ namespace Freshli.Web.Models {
 
       analysisRequest.Results = new List<MetricsResult>();
       analysisRequest.Results.AddRange(MapResults(results, analysisRequest));
+      analysisRequest.State = AnalysisRequest.Status.Success;
       _db.Update(analysisRequest);
 
       _db.SaveChanges();
