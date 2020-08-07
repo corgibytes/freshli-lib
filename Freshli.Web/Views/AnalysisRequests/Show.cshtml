@@ -1,8 +1,33 @@
-@model AnalysisRequest
+@model AnalysisRequestAndResults
 
 <div>
-    <p>GUID: @Model.Id</p>
-    <p>Name: @Model.Name</p>
-    <p>Email: @Model.Email</p>
-    <p>URL: @Model.Url</p>
+    <p>LibYear analysis for @Model.Request.Url<p/>
 </div>
+
+@if (@Model.ProjectTotalLibYearOverTime != null)
+{
+    <div>
+        @Html.Raw(@Model.ProjectTotalLibYearOverTime.GetInlineHtml())
+    </div>
+}
+
+@if (@Model.ProjectAverageLibYearOverTime != null)
+{
+    <div>
+        @Html.Raw(@Model.ProjectAverageLibYearOverTime.GetInlineHtml())
+    </div>
+}
+
+@if (@Model.ProjectMaxLibYearOverTime != null)
+{
+    <div>
+        @Html.Raw(@Model.ProjectMaxLibYearOverTime.GetInlineHtml())
+    </div>
+}
+
+@if (@Model.DependenciesLibYearOverTimeStacked != null)
+{
+    <div>
+        @Html.Raw(@Model.DependenciesLibYearOverTimeStacked.GetInlineHtml())
+    </div>
+}

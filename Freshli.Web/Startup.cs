@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore.Proxies;
 
 namespace Freshli.Web {
   public class Startup {
@@ -38,6 +39,7 @@ namespace Freshli.Web {
       services.AddDbContext<ApplicationDbContext>(
         options =>
           options.
+            UseLazyLoadingProxies().
             UseNpgsql(connectionString).
             UseSnakeCaseNamingConvention()
       );

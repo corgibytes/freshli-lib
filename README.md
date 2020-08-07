@@ -13,6 +13,8 @@ For each language that the tool supports, the libyear metric is computed for eac
 
 ### Languages and Dependency Frameworks
 
+Freshli reads dependency information from special files called "dependency manifests". Each language community has a different format and some lanugage communities have multiple ones. These are the ones that we support. If you don't see one that's important to you, please create an issue for us to add support for it.
+
 * Ruby
   * bundler - reads information from `Gemfile.lock`
 * Perl
@@ -23,6 +25,8 @@ For each language that the tool supports, the libyear metric is computed for eac
   * pip - reads information from `requirements.txt`
 
 ### Source Code Repositories
+
+Freshli reads source code repository history to access previous version of each dependency manifest. These are the source code repositories that it currently works with. If you don't see your favorite, create an issue for us to add support for it.
 
 * Git
 
@@ -91,7 +95,29 @@ VersionInfo.cs(201,32): warning CS8632: The annotation for nullable reference ty
 
 ### Building `freshli`
 
-There are multiple ways to build `freshli`. The simplest is directly on the command line by running `dotnet build`. You can also use an IDE for working on `freshli`. Most of the uses JetBrains Rider, but you can also use Visual Studio 2019. If you don't want to use an IDE, then a text editor with good C# support such as Visual Studio Code or Atom also works equally well.
+Freshli currently utilizes XPlot as a submodule as the current release of XPlot does not include a critical bug fix. As a result, before building Freshli for the first time, you'll need to pull down the XPlot code:
+```
+git submodule update --init
+```
+
+Then, you'll need to build XPlot. First navigate to the XPlot subdirectory:
+
+```
+cd XPlot
+```
+
+Then execute the following commands:
+
+```
+dotnet tool restore
+```
+```
+dotnet paket restore
+```
+
+Once XPlot has successfully built, you'll need to navigate back to the main directory and build Freshli. There are multiple ways to build `freshli`. The simplest is directly on the command line by running `dotnet build`.
+
+You can also use an IDE for working on `freshli`. Most of the project's developers use JetBrains Rider, but you can also use Visual Studio 2019. If you don't want to use an IDE, then a text editor with good C# support such as Visual Studio Code or Atom also works equally well.
 
 This is what a successful command line build looks like:
 
@@ -338,6 +364,12 @@ persistent volume so that data gets preserved between runs.
 
 The `db` container is mapped to port 5432 on localhost to assist with using
 database IDEs such as DataGrip.
+
+Relevant Datagrip settings are shown below:
+
+![DataGrip Settings](documentation/images/datagrip-settings.png)
+
+The password is saved in the `docker-compose.yml` file.
 
 You can completely delete all of the data by deleting the volume. This simplest
 way to do that is by running the following:
