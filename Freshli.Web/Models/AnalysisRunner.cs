@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using Freshli.Web.Data;
 
 namespace Freshli.Web.Models {
