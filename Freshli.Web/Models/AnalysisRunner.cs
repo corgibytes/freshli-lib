@@ -12,12 +12,9 @@ namespace Freshli.Web.Models {
     }
 
     private void SetStartingState(AnalysisRequest request) {
-      if (request.State == AnalysisRequest.Status.New)
-      {
+      if (request.State == AnalysisRequest.Status.New) {
         request.State = AnalysisRequest.Status.InProgress;
-      }
-      else
-      {
+      } else {
         request.State = AnalysisRequest.Status.Retrying;
       }
 
@@ -29,8 +26,7 @@ namespace Freshli.Web.Models {
       var analysisRequest = _db.AnalysisRequests.Find(requestGuid);
       SetStartingState(analysisRequest);
 
-      try
-      {
+      try {
         ManifestFinder.RegisterAll();
         FileHistoryFinder.Register<GitFileHistoryFinder>();
 
