@@ -117,7 +117,7 @@ dotnet paket restore
 
 Once XPlot has successfully built, you'll need to navigate back to the main directory and build Freshli. There are multiple ways to build `freshli`. The simplest is directly on the command line by running `dotnet build`.
 
-You can also use an IDE for working on `freshli`. Most of the uses JetBrains Rider, but you can also use Visual Studio 2019. If you don't want to use an IDE, then a text editor with good C# support such as Visual Studio Code or Atom also works equally well.
+You can also use an IDE for working on `freshli`. Most of the project's developers use JetBrains Rider, but you can also use Visual Studio 2019. If you don't want to use an IDE, then a text editor with good C# support such as Visual Studio Code or Atom also works equally well.
 
 This is what a successful command line build looks like:
 
