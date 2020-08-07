@@ -19,6 +19,7 @@ namespace Freshli.Web.Controllers {
 
     [HttpPost(Name = "CreateAnalysisRequest")]
     public IActionResult Create(AnalysisRequest analysisRequest) {
+      analysisRequest.State = AnalysisRequest.Status.New;
       var result = _db.AnalysisRequests.Add(analysisRequest);
       _db.SaveChanges();
 
