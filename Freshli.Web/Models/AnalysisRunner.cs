@@ -35,17 +35,22 @@ namespace Freshli.Web.Models {
       var runner = new Runner();
       var results = runner.Run(analysisRequest.Url);
 
-      if (analysisRequest.Results == null) {
-        analysisRequest.Results = new List<MetricsResult>();
+      if (runner.ManifestFinder.Successful) {
+        if (analysisRequest.Results == null) {
+          analysisRequest.Results = new List<MetricsResult>();
+        } else {
+          _db.MetricsResults.RemoveRange(analysisRequest.Results);
+          analysisRequest.Results.Clear();
+        }
+
+        analysisRequest.Results.AddRange(MapResults(results, analysisRequest));
+
+        analysisRequest.State = AnalysisRequest.Status.Success;
       } else {
-        _db.MetricsResults.RemoveRange(analysisRequest.Results);
-        analysisRequest.Results.Clear();
+        analysisRequest.State = AnalysisRequest.Status.Invalid;
       }
 
-      analysisRequest.Results.AddRange(MapResults(results, analysisRequest));
-      analysisRequest.State = AnalysisRequest.Status.Success;
       _db.Update(analysisRequest);
-
       _db.SaveChanges();
     }
 
