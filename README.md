@@ -13,6 +13,8 @@ For each language that the tool supports, the libyear metric is computed for eac
 
 ### Languages and Dependency Frameworks
 
+Freshli reads dependency information from special files called "dependency manifests". Each language community has a different format and some lanugage communities have multiple ones. These are the ones that we support. If you don't see one that's important to you, please create an issue for us to add support for it.
+
 * Ruby
   * bundler - reads information from `Gemfile.lock`
 * Perl
@@ -24,9 +26,9 @@ For each language that the tool supports, the libyear metric is computed for eac
 
 ### Source Code Repositories
 
-* [github.com/corgibytes/freshli](https://github.com/corgibytes/freshli)
-* [github.com/fslaborg/XPlot](https://github.com/fslaborg/XPlot)
-  * Freshli currently pulls in XPlot as a submodule as the current release does not include a critical bug fix
+Freshli reads source code repository history to access previous version of each dependency manifest. These are the source code repositories that it currently works with. If you don't see your favorite, create an issue for us to add support for it.
+
+* Git
 
 ## Getting started with `freshli` CLI
 
