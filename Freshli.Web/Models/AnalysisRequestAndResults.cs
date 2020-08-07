@@ -23,11 +23,15 @@ namespace Freshli.Web.Models
         },
         {
           AnalysisRequest.Status.Error,
-          "We ran into a snag trying to process your request. We've filed this away so that we can fix the issue. We'll contact you when we've gotten the problem sorted out."
+          "We ran into a snag trying to process your request. We've " +
+            "filed this away so that we can fix the issue. We'll contact " +
+            "you when we've gotten the problem sorted out."
         },
         {
           AnalysisRequest.Status.Invalid,
-          "We couldn't find any dependency manifests that we support. We've filed this away so that we can investigate and potentially add support for this repository."
+          "We couldn't find any dependency manifests that we support. " +
+            "We've filed this away so that we can investigate and " +
+            "potentially add support for this repository."
         },
         {
           AnalysisRequest.Status.Retrying,
