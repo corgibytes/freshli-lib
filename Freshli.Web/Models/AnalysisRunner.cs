@@ -29,29 +29,36 @@ namespace Freshli.Web.Models {
       var analysisRequest = _db.AnalysisRequests.Find(requestGuid);
       SetStartingState(analysisRequest);
 
-      ManifestFinder.RegisterAll();
-      FileHistoryFinder.Register<GitFileHistoryFinder>();
+      try
+      {
+        ManifestFinder.RegisterAll();
+        FileHistoryFinder.Register<GitFileHistoryFinder>();
 
-      var runner = new Runner();
-      var results = runner.Run(analysisRequest.Url);
+        var runner = new Runner();
+        var results = runner.Run(analysisRequest.Url);
 
-      if (runner.ManifestFinder.Successful) {
-        if (analysisRequest.Results == null) {
-          analysisRequest.Results = new List<MetricsResult>();
+        if (runner.ManifestFinder.Successful) {
+          if (analysisRequest.Results == null) {
+            analysisRequest.Results = new List<MetricsResult>();
+          } else {
+            _db.MetricsResults.RemoveRange(analysisRequest.Results);
+            analysisRequest.Results.Clear();
+          }
+
+          analysisRequest.Results.AddRange(MapResults(results,
+            analysisRequest));
+
+          analysisRequest.State = AnalysisRequest.Status.Success;
         } else {
-          _db.MetricsResults.RemoveRange(analysisRequest.Results);
-          analysisRequest.Results.Clear();
+          analysisRequest.State = AnalysisRequest.Status.Invalid;
         }
-
-        analysisRequest.Results.AddRange(MapResults(results, analysisRequest));
-
-        analysisRequest.State = AnalysisRequest.Status.Success;
-      } else {
-        analysisRequest.State = AnalysisRequest.Status.Invalid;
+      } catch {
+        analysisRequest.State = AnalysisRequest.Status.Error;
+        throw;
+      } finally {
+        _db.Update(analysisRequest);
+        _db.SaveChanges();
       }
-
-      _db.Update(analysisRequest);
-      _db.SaveChanges();
     }
 
     private IList<MetricsResult> MapResults(
