@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Freshli.Web.Data;
 using Freshli.Web.Models;
-using Hangfire;
+using Freshli.Web.Util;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using XPlot.Plotly;
 
 namespace Freshli.Web.Controllers {
@@ -22,10 +21,8 @@ namespace Freshli.Web.Controllers {
       var result = _db.AnalysisRequests.Add(analysisRequest);
       _db.SaveChanges();
 
-      var runner = new AnalysisRunner(_db);
-      BackgroundJob.Enqueue(
-        () => runner.Run(analysisRequest.Id)
-      );
+      EmailHelper.SendNotificationEmail(
+        analysisRequest.Name, analysisRequest.Email, analysisRequest.Url);
 
       return RedirectToRoute(
         "ShowAnalysisRequest",
