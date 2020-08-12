@@ -21,8 +21,7 @@ namespace Freshli.Web.Controllers {
       var result = _db.AnalysisRequests.Add(analysisRequest);
       _db.SaveChanges();
 
-      EmailHelper.SendNotificationEmail(
-        analysisRequest.Name, analysisRequest.Email, analysisRequest.Url);
+      EmailHelper.SendKickoffEmail(analysisRequest);
 
       return RedirectToRoute(
         "ShowAnalysisRequest",

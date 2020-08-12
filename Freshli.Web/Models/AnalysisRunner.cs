@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Freshli.Web.Data;
+using Freshli.Web.Util;
 
 namespace Freshli.Web.Models {
   public class AnalysisRunner {
@@ -24,6 +25,8 @@ namespace Freshli.Web.Models {
       _db.Update(analysisRequest);
 
       _db.SaveChanges();
+
+      EmailHelper.SendResultsReadyEmail(analysisRequest);
     }
 
     private IList<MetricsResult> MapResults(

@@ -1,4 +1,5 @@
 using System;
+using Freshli.Web.Models;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 
@@ -15,49 +16,51 @@ namespace Freshli.Web.Util
     private static readonly EmailAddress FromAddress =
       new EmailAddress("info@freshli.io", "Freshli");
 
-    public static void SendNotificationEmail(string name, string email,
-      string url)
+    private static readonly string BaseUrl = "http://localhost:5000";
+
+    public static void SendKickoffEmail(AnalysisRequest analysisRequest)
     {
-      Client.SendEmailAsync(CreateNotificationMessage(name, email, url));
+      Client.SendEmailAsync(CreateKickoffMessage(analysisRequest));
     }
 
-    public static void SendResultsEmail(string name, string email, string url,
-      string guid)
+    public static void SendResultsReadyEmail(AnalysisRequest analysisRequest)
     {
-      Client.SendEmailAsync(CreateResultsMessage(name, email, url, guid));
+      Client.SendEmailAsync(CreateResultsReadyMessage(analysisRequest));
     }
 
-    private static SendGridMessage CreateNotificationMessage(string name,
-      string email, string url)
+    private static SendGridMessage CreateKickoffMessage(
+      AnalysisRequest analysisRequest)
     {
-      var plainTextContent = $"Hi {name}, thanks for trying Freshli! " +
-                             $"We're currently analyzing {url} and will send " +
-                             "you a followup email as soon as your results " +
+      var plainTextContent = $"Hi {analysisRequest.Name}!\n" +
+                             "Thanks for trying Freshli! We're currently " +
+                             $"analyzing {analysisRequest.Url} and will send " +
+                             "you a follow-up email as soon as your results " +
                              "are ready!";
 
       string htmlContent = null;
 
       return MailHelper.CreateSingleEmail(
         FromAddress,
-        new EmailAddress(email, name),
+        new EmailAddress(analysisRequest.Email, analysisRequest.Name),
         "Thanks for trying Freshli!",
         plainTextContent,
         htmlContent);
     }
 
-    private static SendGridMessage CreateResultsMessage(string name,
-      string email, string url, string guid)
+    private static SendGridMessage CreateResultsReadyMessage(
+      AnalysisRequest analysisRequest)
     {
-      var plainTextContent = $"Hi {name}, \n Good news! Your Freshli " +
-                             $"analysis for {url} is ready! Check out the " +
-                             $"results at " +
-                             $"http://localhost:5000/AnalysisRequests/{guid}";
+      var plainTextContent = $"Hi {analysisRequest.Name}, Good news! " +
+                             "Your Freshli analysis for " +
+                             $"{analysisRequest.Url} is ready! Check out the " +
+                             $"results at {BaseUrl}" +
+                             $"/AnalysisRequests/{analysisRequest.Id}";
 
       string htmlContent = null;
 
       return MailHelper.CreateSingleEmail(
         FromAddress,
-        new EmailAddress(email, name),
+        new EmailAddress(analysisRequest.Email, analysisRequest.Name),
         "Your Freshli analysis is ready!",
         plainTextContent,
         htmlContent);
