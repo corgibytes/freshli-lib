@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Freshli.Web.Models;
 using SendGrid;
 using SendGrid.Helpers.Mail;
@@ -16,6 +17,7 @@ namespace Freshli.Web.Util
     private static readonly EmailAddress FromAddress =
       new EmailAddress("info@freshli.io", "Freshli");
 
+    //TODO: Set baseUrl dynamically
     private static readonly string BaseUrl = "http://localhost:5000";
 
     public static void SendKickoffEmail(AnalysisRequest analysisRequest)
@@ -31,39 +33,33 @@ namespace Freshli.Web.Util
     private static SendGridMessage CreateKickoffMessage(
       AnalysisRequest analysisRequest)
     {
-      var plainTextContent = $"Hi {analysisRequest.Name}!\n" +
-                             "Thanks for trying Freshli! We're currently " +
-                             $"analyzing {analysisRequest.Url} and will send " +
-                             "you a follow-up email as soon as your results " +
-                             "are ready!";
+      var data = new Dictionary<string, string>
+      {
+        {"Name", analysisRequest.Name},
+        {"Url", analysisRequest.Url}
+      };
 
-      string htmlContent = null;
-
-      return MailHelper.CreateSingleEmail(
+      return MailHelper.CreateSingleTemplateEmail(
         FromAddress,
         new EmailAddress(analysisRequest.Email, analysisRequest.Name),
-        "Thanks for trying Freshli!",
-        plainTextContent,
-        htmlContent);
+        "d-0c57ea9815824b0f8c99483a3c355a58",
+        data);
     }
 
     private static SendGridMessage CreateResultsReadyMessage(
       AnalysisRequest analysisRequest)
     {
-      var plainTextContent = $"Hi {analysisRequest.Name}, Good news! " +
-                             "Your Freshli analysis for " +
-                             $"{analysisRequest.Url} is ready! Check out the " +
-                             $"results at {BaseUrl}" +
-                             $"/AnalysisRequests/{analysisRequest.Id}";
+      var data = new Dictionary<string, string>
+      {
+        {"Url", analysisRequest.Url},
+        {"ResultsUrl", $"{BaseUrl}/AnalysisRequests/{analysisRequest.Id}"}
+      };
 
-      string htmlContent = null;
-
-      return MailHelper.CreateSingleEmail(
+      return MailHelper.CreateSingleTemplateEmail(
         FromAddress,
         new EmailAddress(analysisRequest.Email, analysisRequest.Name),
-        "Your Freshli analysis is ready!",
-        plainTextContent,
-        htmlContent);
+        "d-9dbbeb69748c4bb9854595a6744a6ddb",
+        data);
     }
 
   }
