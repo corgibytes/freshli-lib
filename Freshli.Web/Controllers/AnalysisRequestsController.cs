@@ -5,7 +5,6 @@ using Freshli.Web.Data;
 using Freshli.Web.Models;
 using Hangfire;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using XPlot.Plotly;
 
 namespace Freshli.Web.Controllers {
@@ -19,7 +18,13 @@ namespace Freshli.Web.Controllers {
 
     [HttpPost(Name = "CreateAnalysisRequest")]
     public IActionResult Create(AnalysisRequest analysisRequest) {
-      var result = _db.AnalysisRequests.Add(analysisRequest);
+
+      if (!analysisRequest.IsValid())
+      {
+        return RedirectToAction("Index", "Home");
+      }
+
+      _db.AnalysisRequests.Add(analysisRequest);
       _db.SaveChanges();
 
       var runner = new AnalysisRunner(_db);
