@@ -17,6 +17,10 @@ namespace Freshli.Web.Controllers {
       _db = db;
     }
 
+    public IActionResult Index() {
+      return View("~/Views/AnalysisRequests/Create.cshtml");
+    }
+
     public IActionResult Privacy() {
       return View();
     }
