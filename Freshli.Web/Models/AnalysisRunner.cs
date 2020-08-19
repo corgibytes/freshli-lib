@@ -11,7 +11,7 @@ namespace Freshli.Web.Models {
       _db = db;
     }
 
-    public void Run(Guid requestGuid) {
+    public void Run(Guid requestGuid, string baseUrl) {
       var analysisRequest = _db.AnalysisRequests.Find(requestGuid);
 
       ManifestFinder.RegisterAll();
@@ -26,7 +26,7 @@ namespace Freshli.Web.Models {
 
       _db.SaveChanges();
 
-      EmailHelper.SendResultsReadyEmail(analysisRequest);
+      EmailHelper.SendResultsReadyEmail(analysisRequest, baseUrl);
     }
 
     private IList<MetricsResult> MapResults(

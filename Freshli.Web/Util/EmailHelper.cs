@@ -11,23 +11,28 @@ namespace Freshli.Web.Util
     private static readonly string SendGridApiKey =
     Environment.GetEnvironmentVariable("SENDGRID_API_KEY");
 
+    private static readonly string KickoffEmailTemplateId =
+    Environment.GetEnvironmentVariable("KICKOFF_EMAIL_TEMPLATE_ID");
+
+    private static readonly string ResultsReadyEmailTemplateId =
+    Environment.GetEnvironmentVariable("RESULTS_READY_EMAIL_TEMPLATE_ID");
+
     private static readonly SendGridClient Client =
       new SendGridClient(SendGridApiKey);
 
     private static readonly EmailAddress FromAddress =
       new EmailAddress("info@freshli.io", "Freshli");
 
-    //TODO: Set baseUrl dynamically
-    private static readonly string BaseUrl = "http://localhost:5000";
-
     public static void SendKickoffEmail(AnalysisRequest analysisRequest)
     {
       Client.SendEmailAsync(CreateKickoffMessage(analysisRequest));
     }
 
-    public static void SendResultsReadyEmail(AnalysisRequest analysisRequest)
+    public static void SendResultsReadyEmail(AnalysisRequest analysisRequest,
+      string baseUrl)
     {
-      Client.SendEmailAsync(CreateResultsReadyMessage(analysisRequest));
+      Client.SendEmailAsync(
+        CreateResultsReadyMessage(analysisRequest, baseUrl));
     }
 
     private static SendGridMessage CreateKickoffMessage(
@@ -35,30 +40,29 @@ namespace Freshli.Web.Util
     {
       var data = new Dictionary<string, string>
       {
-        {"Name", analysisRequest.Name},
         {"Url", analysisRequest.Url}
       };
 
       return MailHelper.CreateSingleTemplateEmail(
         FromAddress,
         new EmailAddress(analysisRequest.Email, analysisRequest.Name),
-        "d-0c57ea9815824b0f8c99483a3c355a58",
+        KickoffEmailTemplateId,
         data);
     }
 
     private static SendGridMessage CreateResultsReadyMessage(
-      AnalysisRequest analysisRequest)
+      AnalysisRequest analysisRequest, string baseUrl)
     {
       var data = new Dictionary<string, string>
       {
         {"Url", analysisRequest.Url},
-        {"ResultsUrl", $"{BaseUrl}/AnalysisRequests/{analysisRequest.Id}"}
+        {"ResultsUrl", $"{baseUrl}/AnalysisRequests/{analysisRequest.Id}"}
       };
 
       return MailHelper.CreateSingleTemplateEmail(
         FromAddress,
         new EmailAddress(analysisRequest.Email, analysisRequest.Name),
-        "d-9dbbeb69748c4bb9854595a6744a6ddb",
+        ResultsReadyEmailTemplateId,
         data);
     }
 
