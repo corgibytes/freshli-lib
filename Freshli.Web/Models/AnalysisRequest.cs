@@ -3,24 +3,19 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Freshli.Web.Models {
-  public sealed class AnalysisRequest {
+  public class AnalysisRequest {
     public Guid Id { get; set; }
 
-    [Required]
+    [Required(ErrorMessage="Please enter a URL")]
     [Url]
     public string Url { get; set; }
     public string Name { get; set; }
 
-    [Required]
+    [Required(ErrorMessage="Please enter an email address")]
     [EmailAddress]
     public string Email { get; set; }
 
-    public List<MetricsResult> Results { get; set; }
+    public virtual List<MetricsResult> Results { get; set; }
 
-    public bool IsValid()
-    {
-      return !string.IsNullOrWhiteSpace(Email) &&
-             !string.IsNullOrWhiteSpace(Url);
-    }
   }
 }

@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Mvc;
 using XPlot.Plotly;
 
 namespace Freshli.Web.Controllers {
-  [Route("[controller]")]
   public class AnalysisRequestsController : Controller {
     private ApplicationDbContext _db;
 
@@ -16,12 +15,15 @@ namespace Freshli.Web.Controllers {
       _db = db;
     }
 
+    public IActionResult Create() {
+      return View();
+    }
+
     [HttpPost(Name = "CreateAnalysisRequest")]
     public IActionResult Create(AnalysisRequest analysisRequest) {
 
-      if (!analysisRequest.IsValid())
-      {
-        return RedirectToAction("Index", "Home");
+      if (!ModelState.IsValid) {
+        return View();
       }
 
       _db.AnalysisRequests.Add(analysisRequest);

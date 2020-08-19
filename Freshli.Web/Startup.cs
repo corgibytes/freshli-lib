@@ -81,7 +81,7 @@ namespace Freshli.Web {
           endpoints.MapControllers();
           endpoints.MapControllerRoute(
             name: "default",
-            pattern: "{controller=Home}/{action=Index}/{id?}"
+            pattern: "{controller=AnalysisRequests}/{action=Create}/{id?}"
           );
         }
       );
