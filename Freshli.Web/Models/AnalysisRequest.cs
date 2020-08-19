@@ -16,6 +16,5 @@ namespace Freshli.Web.Models {
     public string Email { get; set; }
 
     public virtual List<MetricsResult> Results { get; set; }
-
   }
 }
