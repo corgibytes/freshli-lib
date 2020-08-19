@@ -5,7 +5,6 @@ using Freshli.Web.Data;
 using Freshli.Web.Models;
 using Hangfire;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using XPlot.Plotly;
 
 namespace Freshli.Web.Controllers {
@@ -17,9 +16,19 @@ namespace Freshli.Web.Controllers {
       _db = db;
     }
 
+    [HttpGet(Name = "CreateAnalysisRequest")]
+    public IActionResult Create() {
+      return View();
+    }
+
     [HttpPost(Name = "CreateAnalysisRequest")]
     public IActionResult Create(AnalysisRequest analysisRequest) {
-      var result = _db.AnalysisRequests.Add(analysisRequest);
+
+      if (!ModelState.IsValid) {
+        return View();
+      }
+
+      _db.AnalysisRequests.Add(analysisRequest);
       _db.SaveChanges();
 
       var runner = new AnalysisRunner(_db);

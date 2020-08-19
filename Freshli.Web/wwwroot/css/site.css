@@ -24,6 +24,8 @@ a {
   border-color: #1861ac;
 }
 
+.required label::after { content:" *"; }
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
