@@ -1,12 +1,15 @@
 @model AnalysisRequestAndResults
 
 <div>
-    <p>LibYear analysis for @Model.Request.Url<p/>
     <p>@Model.StatusMessage</p>
 </div>
 
 @if (@Model.Request.State == AnalysisRequest.Status.Success)
 {
+    <div>
+        <p>LibYear analysis for @Model.Request.Url<p/>
+    </div>
+
     @if (@Model.ProjectTotalLibYearOverTime != null)
     {
         <div>
