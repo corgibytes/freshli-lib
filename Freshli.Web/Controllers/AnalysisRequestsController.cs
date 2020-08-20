@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Freshli.Web.Data;
 using Freshli.Web.Models;
+using Freshli.Web.Util;
 using Hangfire;
 using Microsoft.AspNetCore.Mvc;
 using XPlot.Plotly;
@@ -11,6 +12,12 @@ namespace Freshli.Web.Controllers {
   [Route("[controller]")]
   public class AnalysisRequestsController : Controller {
     private ApplicationDbContext _db;
+
+    private static readonly string SiteKey =
+      Environment.GetEnvironmentVariable("RECAPTCHA_SITE_KEY");
+
+    private static readonly string SecretKey =
+      Environment.GetEnvironmentVariable("RECAPTCHA_SECRET_KEY");
 
     public AnalysisRequestsController(ApplicationDbContext db) {
       _db = db;
@@ -24,7 +31,8 @@ namespace Freshli.Web.Controllers {
     [HttpPost(Name = "CreateAnalysisRequest")]
     public IActionResult Create(AnalysisRequest analysisRequest) {
 
-      if (!ModelState.IsValid) {
+      if (!ModelState.IsValid || !RecaptchaHelper.ValidateRecaptchaResponse(
+        Request.Form["g-recaptcha-response"])) {
         return View();
       }
 
