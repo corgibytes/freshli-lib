@@ -16,9 +16,6 @@ namespace Freshli.Web.Controllers {
     private static readonly string SiteKey =
       Environment.GetEnvironmentVariable("RECAPTCHA_SITE_KEY");
 
-    private static readonly string SecretKey =
-      Environment.GetEnvironmentVariable("RECAPTCHA_SECRET_KEY");
-
     public AnalysisRequestsController(ApplicationDbContext db) {
       _db = db;
     }
