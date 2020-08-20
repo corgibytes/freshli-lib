@@ -98,6 +98,30 @@ namespace Freshli.Test.Unit.JavaScript {
       AssertTokenEof(reader);
     }
 
+    [Fact]
+    public void ReadIntegrityNumber() {
+      var contents =
+        "  integrity sha512-K2UXPZCKMv7KwWy9Bl4sa6+jTNP7JyDiHKzoOiUUygaEDbC60vaargZDnO9oFMvlq8pIKOOyUUgeMYrsaN9djA==";
+      var reader = new YarnLockfileReader(contents);
+
+      AssertTokenNone(reader);
+
+      reader.Read();
+      AssertTokenIndent(reader);
+
+      reader.Read();
+      AssertTokenIdentifier(reader, "integrity");
+
+      reader.Read();
+      AssertTokenNumber(
+        reader,
+        "sha512-K2UXPZCKMv7KwWy9Bl4sa6+jTNP7JyDiHKzoOiUUygaEDbC60vaargZDnO9oFMvlq8pIKOOyUUgeMYrsaN9djA=="
+      );
+
+      reader.Read();
+      AssertTokenEof(reader);
+    }
+
     private static void AssertTokenColon(YarnLockfileReader reader) {
       Assert.Equal(YarnLockfileTokenType.Colon, reader.CurrentTokenType);
       Assert.Null(reader.CurrentTokenValue);
@@ -108,7 +132,10 @@ namespace Freshli.Test.Unit.JavaScript {
       Assert.Null(reader.CurrentTokenValue);
     }
 
-    private static void AssertTokenComment(YarnLockfileReader reader, string value) {
+    private static void AssertTokenComment(
+      YarnLockfileReader reader,
+      string value
+    ) {
       Assert.Equal(YarnLockfileTokenType.Comment, reader.CurrentTokenType);
       Assert.Equal(value, reader.CurrentTokenValue);
     }
@@ -141,7 +168,18 @@ namespace Freshli.Test.Unit.JavaScript {
       Assert.Null(reader.CurrentTokenValue);
     }
 
-    private static void AssertTokenString(YarnLockfileReader reader, string value) {
+    private static void AssertTokenNumber(
+      YarnLockfileReader reader,
+      string value
+    ) {
+      Assert.Equal(YarnLockfileTokenType.Number, reader.CurrentTokenType);
+      Assert.Equal(value, reader.CurrentTokenValue);
+    }
+
+    private static void AssertTokenString(
+      YarnLockfileReader reader,
+      string value
+    ) {
       Assert.Equal(YarnLockfileTokenType.String, reader.CurrentTokenType);
       Assert.Equal(value, reader.CurrentTokenValue);
     }

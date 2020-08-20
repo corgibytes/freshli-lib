@@ -48,6 +48,15 @@ namespace Freshli.Languages.JavaScript {
       } else if (_currentLine.StartsWith("  ")) {
         CurrentTokenType = YarnLockfileTokenType.Indent;
         _currentLine = _currentLine.Remove(startIndex: 0, count: 2);
+      } else if (_currentLine.StartsWith("sha512-")) {
+        var terminatorStart = _currentLine.IndexOf("==");
+        CurrentTokenType = YarnLockfileTokenType.Number;
+        CurrentTokenValue = _currentLine.Substring(0, terminatorStart + 2);
+
+        _currentLine = _currentLine.Remove(
+          startIndex: 0,
+          CurrentTokenValue.Length
+        );
       } else if (identifierExpression.IsMatch(_currentLine)) {
         CurrentTokenType = YarnLockfileTokenType.Identifier;
         CurrentTokenValue =
