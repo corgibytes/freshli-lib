@@ -4,15 +4,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Freshli.Web.Models {
   public class AnalysisRequest {
-    public enum Status {
-      New,
-      InProgress,
-      Success,
-      Invalid,
-      Error,
-      Retrying
-    }
-
     public Guid Id { get; set; }
 
     [Required(ErrorMessage="Please enter a URL")]
@@ -24,8 +15,17 @@ namespace Freshli.Web.Models {
     [EmailAddress]
     public string Email { get; set; }
 
-    public Status State { get; set; }
+    public AnalysisRequestStatus State { get; set; }
 
     public virtual List<MetricsResult> Results { get; set; }
+  }
+
+  public enum AnalysisRequestStatus {
+    New,
+    InProgress,
+    Success,
+    Invalid,
+    Error,
+    Retrying
   }
 }

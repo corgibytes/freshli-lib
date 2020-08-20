@@ -27,7 +27,7 @@ namespace Freshli.Web.Controllers {
         return View();
       }
 
-      analysisRequest.State = AnalysisRequest.Status.New;
+      analysisRequest.State = AnalysisRequestStatus.New;
       _db.AnalysisRequests.Add(analysisRequest);
       _db.SaveChanges();
 
