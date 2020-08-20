@@ -1,7 +1,7 @@
 ﻿@model AnalysisRequest
 @{
     ViewData["Title"] = "Home";
-    const string siteKey = "TBD";
+    var siteKey = Environment.GetEnvironmentVariable("RECAPTCHA_SITE_KEY");
 }
 <script src="https://www.google.com/recaptcha/api.js"></script>
 <script>
