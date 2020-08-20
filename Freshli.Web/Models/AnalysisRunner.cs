@@ -11,10 +11,10 @@ namespace Freshli.Web.Models {
     }
 
     private void SetStartingState(AnalysisRequest request) {
-      if (request.State == AnalysisRequestStatus.New) {
-        request.State = AnalysisRequestStatus.InProgress;
+      if (request.State == AnalysisRequestState.New) {
+        request.State = AnalysisRequestState.InProgress;
       } else {
-        request.State = AnalysisRequestStatus.Retrying;
+        request.State = AnalysisRequestState.Retrying;
       }
 
       _db.Update(request);
@@ -47,12 +47,12 @@ namespace Freshli.Web.Models {
             )
           );
 
-          analysisRequest.State = AnalysisRequestStatus.Success;
+          analysisRequest.State = AnalysisRequestState.Success;
         } else {
-          analysisRequest.State = AnalysisRequestStatus.Invalid;
+          analysisRequest.State = AnalysisRequestState.Invalid;
         }
       } catch {
-        analysisRequest.State = AnalysisRequestStatus.Error;
+        analysisRequest.State = AnalysisRequestState.Error;
         throw;
       } finally {
         _db.Update(analysisRequest);

@@ -4,7 +4,7 @@
     <p>@Model.StatusMessage</p>
 </div>
 
-@if (@Model.Request.State == AnalysisRequestStatus.Success)
+@if (@Model.Request.State == AnalysisRequestState.Success)
 {
     <div>
         <p>LibYear analysis for @Model.Request.Url<p/>

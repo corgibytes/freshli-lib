@@ -25,8 +25,8 @@ namespace Freshli.Web.Data {
         Property(m => m.State).
         HasConversion(
           v => v.ToString(),
-          v => (AnalysisRequestStatus)Enum.Parse(
-            typeof(AnalysisRequestStatus),
+          v => (AnalysisRequestState)Enum.Parse(
+            typeof(AnalysisRequestState),
             v
           )
         );
