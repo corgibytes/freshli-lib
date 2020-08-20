@@ -1,4 +1,5 @@
-﻿using Freshli.Web.Models;
+﻿using System;
+using Freshli.Web.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Freshli.Web.Data {
@@ -20,7 +21,15 @@ namespace Freshli.Web.Data {
     protected override void OnModelCreating(ModelBuilder modelBuilder) {
       base.OnModelCreating(modelBuilder);
 
-      modelBuilder.Entity<AnalysisRequest>();
+      modelBuilder.Entity<AnalysisRequest>().
+        Property(m => m.State).
+        HasConversion(
+          v => v.ToString(),
+          v => (AnalysisRequestState)Enum.Parse(
+            typeof(AnalysisRequestState),
+            v
+          )
+        );
       modelBuilder.Entity<Models.LibYearPackageResult>();
       modelBuilder.Entity<Models.LibYearResult>();
       modelBuilder.Entity<Models.MetricsResult>().

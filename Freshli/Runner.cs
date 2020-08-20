@@ -6,27 +6,29 @@ namespace Freshli {
   public class Runner {
     private static readonly Logger logger = LogManager.GetCurrentClassLogger();
 
+    public ManifestFinder ManifestFinder { get; private set; }
+
     public IList<MetricsResult> Run(string analysisPath, DateTime asOf) {
       logger.Info($"Run({analysisPath}, {asOf:d})");
 
       var metricsResults = new List<MetricsResult>();
 
       var fileHistoryFinder = new FileHistoryFinder(analysisPath);
-      var manifestFinder = new ManifestFinder(
+      ManifestFinder = new ManifestFinder(
         analysisPath,
         fileHistoryFinder.Finder
       );
-      logger.Trace(
-        "{analysisPath}: LockFileName: {LockFileName}",
-        analysisPath,
-        manifestFinder.LockFileName
-      );
 
-      if (manifestFinder.Successful) {
-        var calculator = manifestFinder.Calculator;
+      if (ManifestFinder.Successful) {
+        logger.Trace(
+          "{analysisPath}: LockFileName: {LockFileName}",
+          analysisPath,
+          ManifestFinder.LockFileName
+        );
+        var calculator = ManifestFinder.Calculator;
 
         var fileHistory = fileHistoryFinder.FileHistoryOf(
-          manifestFinder.LockFileName
+          ManifestFinder.LockFileName
         );
 
         var analysisDates = new AnalysisDates(fileHistory, asOf);
@@ -39,7 +41,7 @@ namespace Freshli {
             "Adding MetricResult: {manifestFile}, " +
             "currentDate = {currentDate:d}, " +
             "libYear = {ComputeAsOf}",
-            manifestFinder.LockFileName,
+            ManifestFinder.LockFileName,
             currentDate,
             libYear.Total
           );
@@ -50,6 +52,8 @@ namespace Freshli {
             )
           );
         }
+      } else {
+        logger.Warn("Unable to find a manifest file");
       }
 
       return metricsResults;

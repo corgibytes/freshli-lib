@@ -23,11 +23,11 @@ namespace Freshli.Web.Controllers {
 
     [HttpPost(Name = "CreateAnalysisRequest")]
     public IActionResult Create(AnalysisRequest analysisRequest) {
-
       if (!ModelState.IsValid) {
         return View();
       }
 
+      analysisRequest.State = AnalysisRequestState.New;
       _db.AnalysisRequests.Add(analysisRequest);
       _db.SaveChanges();
 

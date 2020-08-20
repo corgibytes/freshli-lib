@@ -15,6 +15,17 @@ namespace Freshli.Web.Models {
     [EmailAddress]
     public string Email { get; set; }
 
+    public AnalysisRequestState State { get; set; }
+
     public virtual List<MetricsResult> Results { get; set; }
+  }
+
+  public enum AnalysisRequestState {
+    New,
+    InProgress,
+    Success,
+    Invalid,
+    Error,
+    Retrying
   }
 }
