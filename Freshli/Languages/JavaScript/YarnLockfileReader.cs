@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace Freshli.Languages.JavaScript {
   public class YarnLockfileReader {
@@ -17,6 +18,7 @@ namespace Freshli.Languages.JavaScript {
     }
 
     public void Read() {
+      var identifierExpression = new Regex(@"^(\w(?:\w|\d|_)*)");
       if (_currentLine == null) {
         _currentLine = _reader.ReadLine();
         if (_reader.Peek() != -1) {
@@ -37,11 +39,20 @@ namespace Freshli.Languages.JavaScript {
         if (_currentLine.EndsWith("\n")) {
           commentLength--;
         }
+
         CurrentTokenValue = _currentLine.Substring(
           startIndex: 1,
           commentLength
         );
         _currentLine = _currentLine.Remove(startIndex: 0, commentLength + 1);
+      } else if (_currentLine.StartsWith("  ")) {
+        CurrentTokenType = YarnLockfileTokenType.Indent;
+        _currentLine = _currentLine.Remove(startIndex: 0, count: 2);
+      } else if (identifierExpression.IsMatch(_currentLine)) {
+        CurrentTokenType = YarnLockfileTokenType.Identifier;
+        CurrentTokenValue =
+          identifierExpression.Match(_currentLine).Groups[0].Value;
+        _currentLine = _currentLine.Remove(0, CurrentTokenValue.Length);
       } else if (_currentLine.StartsWith("\"")) {
         if (_currentLine.Length > 1) {
           var index = 1;
@@ -69,6 +80,9 @@ namespace Freshli.Languages.JavaScript {
         CurrentTokenValue = null;
 
         _currentLine = _currentLine.Remove(startIndex: 0, count: 1);
+      } else if (_currentLine.StartsWith(" ")) {
+        _currentLine = _currentLine.Remove(startIndex: 0, count: 1);
+        Read();
       }
     }
   }
