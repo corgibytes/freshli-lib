@@ -28,8 +28,15 @@ namespace Freshli.Web.Controllers {
     [HttpPost(Name = "CreateAnalysisRequest")]
     public IActionResult Create(AnalysisRequest analysisRequest) {
 
-      if (!ModelState.IsValid || !RecaptchaHelper.ValidateRecaptchaResponse(
+      if (!ModelState.IsValid) {
+        return View();
+      }
+
+      if (!RecaptchaHelper.ValidateRecaptchaResponse(
         Request.Form["g-recaptcha-response"])) {
+        ModelState.AddModelError("reCAPTCHA",
+          "Are you a robot?! Try submitting again, maybe a bit " +
+          "more slowly this time.");
         return View();
       }
 
