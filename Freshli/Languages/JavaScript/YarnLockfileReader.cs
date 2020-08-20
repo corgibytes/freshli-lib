@@ -80,6 +80,11 @@ namespace Freshli.Languages.JavaScript {
         CurrentTokenValue = null;
 
         _currentLine = _currentLine.Remove(startIndex: 0, count: 1);
+      } else if (_currentLine.StartsWith(",")) {
+        CurrentTokenType = YarnLockfileTokenType.Comma;
+        CurrentTokenValue = null;
+
+        _currentLine = _currentLine.Remove(startIndex: 0, count: 1);
       } else if (_currentLine.StartsWith(" ")) {
         _currentLine = _currentLine.Remove(startIndex: 0, count: 1);
         Read();

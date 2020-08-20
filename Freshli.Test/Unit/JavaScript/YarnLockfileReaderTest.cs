@@ -74,8 +74,37 @@ namespace Freshli.Test.Unit.JavaScript {
       AssertTokenEof(reader);
     }
 
+    [Fact]
+    public void ReadListOfKeysForObjectStart() {
+      var contents =
+        "\"@babel/compat-data@^7.8.0\", \"@babel/compat-data@^7.8.1\":";
+      var reader = new YarnLockfileReader(contents);
+
+      AssertTokenNone(reader);
+
+      reader.Read();
+      AssertTokenString(reader, "@babel/compat-data@^7.8.0");
+
+      reader.Read();
+      AssertTokenComma(reader);
+
+      reader.Read();
+      AssertTokenString(reader, "@babel/compat-data@^7.8.1");
+
+      reader.Read();
+      AssertTokenColon(reader);
+
+      reader.Read();
+      AssertTokenEof(reader);
+    }
+
     private static void AssertTokenColon(YarnLockfileReader reader) {
       Assert.Equal(YarnLockfileTokenType.Colon, reader.CurrentTokenType);
+      Assert.Null(reader.CurrentTokenValue);
+    }
+
+    private static void AssertTokenComma(YarnLockfileReader reader) {
+      Assert.Equal(YarnLockfileTokenType.Comma, reader.CurrentTokenType);
       Assert.Null(reader.CurrentTokenValue);
     }
 
