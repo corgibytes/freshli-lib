@@ -10,10 +10,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.EntityFrameworkCore.Proxies;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace Freshli.Web {
   public class Startup {
+    public const string CookieScheme = "FreshliCookieAuthScheme";
     public Startup(IConfiguration configuration) {
       Configuration = configuration;
     }
@@ -50,6 +52,14 @@ namespace Freshli.Web {
       );
 
       services.AddMvc();
+
+      services.AddAuthentication(CookieScheme).AddCookie(
+        CookieScheme,
+        options => {
+          options.AccessDeniedPath = "/admin/denied";
+          options.LoginPath = "/admin/login";
+        }
+      );
     }
 
     // This method gets called by the runtime. Use this method to configure
@@ -74,6 +84,7 @@ namespace Freshli.Web {
 
       app.UseRouting();
 
+      app.UseAuthentication();
       app.UseAuthorization();
 
       app.UseEndpoints(
