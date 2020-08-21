@@ -1,0 +1,9 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "normalize-url": "^5.1.0",
+    "strip-ansi": "^6.0.0"
+  }
+}

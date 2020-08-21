@@ -101,7 +101,8 @@ namespace Freshli.Test.Unit.JavaScript {
     [Fact]
     public void ReadIntegrityNumber() {
       var contents =
-        "  integrity sha512-K2UXPZCKMv7KwWy9Bl4sa6+jTNP7JyDiHKzoOiUUygaEDbC60vaargZDnO9oFMvlq8pIKOOyUUgeMYrsaN9djA==";
+        "  integrity sha512-K2UXPZCKMv7KwWy9Bl4sa6+jTNP7JyDiHKzoOiUUyg" +
+        "aEDbC60vaargZDnO9oFMvlq8pIKOOyUUgeMYrsaN9djA==";
       var reader = new YarnLockfileReader(contents);
 
       AssertTokenNone(reader);
@@ -115,7 +116,8 @@ namespace Freshli.Test.Unit.JavaScript {
       reader.Read();
       AssertTokenNumber(
         reader,
-        "sha512-K2UXPZCKMv7KwWy9Bl4sa6+jTNP7JyDiHKzoOiUUygaEDbC60vaargZDnO9oFMvlq8pIKOOyUUgeMYrsaN9djA=="
+        "sha512-K2UXPZCKMv7KwWy9Bl4sa6+jTNP7JyDiHKzoOiUUygaEDbC60vaargZDnO" +
+        "9oFMvlq8pIKOOyUUgeMYrsaN9djA=="
       );
 
       reader.Read();

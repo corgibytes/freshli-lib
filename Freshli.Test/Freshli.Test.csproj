@@ -27,6 +27,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="fixtures\javascript\yarn-simple" />
       <Folder Include="fixtures\php\small" />
       <Folder Include="Integration\Languages\JavaScript" />
     </ItemGroup>
