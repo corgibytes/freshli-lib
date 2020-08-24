@@ -6,8 +6,8 @@ using LibGit2Sharp;
 
 namespace Freshli {
   public class GitFileHistory : IFileHistory {
-    private readonly IDictionary<DateTime, string> _contentsByDate =
-      new Dictionary<DateTime, string>();
+    private readonly IDictionary<DateTime, FileHistory> _historyByDate =
+      new Dictionary<DateTime, FileHistory>();
 
     private string _repositoryPath;
     private string _targetFile;
@@ -42,18 +42,41 @@ namespace Freshli {
         foreach (var logEntry in logEntries) {
           var blob = logEntry.Tree[targetFile].Target as Blob;
           var contents = blob.GetContentText();
-          _contentsByDate[logEntry.Committer.When.Date] = contents;
+          var date = logEntry.Committer.When.Date;
+          _historyByDate[date] =
+            new FileHistory(date, logEntry.Sha, contents);
         }
       }
     }
 
     public string ContentsAsOf(DateTime date) {
-      var key = Dates.Last(d => d <= date);
-      return _contentsByDate[key];
+      return _historyByDate[GetKey(date)].Contents;
+    }
+
+    public string ShaAsOf(DateTime date) {
+      return _historyByDate[GetKey(date)].CommitSha;
     }
 
     public IList<DateTime> Dates {
-      get { return _contentsByDate.Keys.OrderBy(d => d).ToList(); }
+      get { return _historyByDate.Keys.OrderBy(d => d).ToList(); }
+    }
+
+    private DateTime GetKey(DateTime date)
+    {
+      return Dates.Last(d => d <= date);
+    }
+
+  }
+
+  public class FileHistory {
+    public DateTime Date;
+    public string CommitSha;
+    public string Contents;
+
+    public FileHistory(DateTime date, string commitSha, string contents) {
+      Date = date;
+      CommitSha = commitSha;
+      Contents = contents;
     }
   }
 }
