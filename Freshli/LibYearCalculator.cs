@@ -38,7 +38,12 @@ namespace Freshli {
         }
         catch (Exception e) {
           _logger.Warn($"Skipping {package.Name}: {e.Message}");
-          result.Add(package.Name, package.Version, DateTime.MinValue,
+          result.Add(
+            package.Name,
+            null,
+            DateTime.MinValue,
+            package.Version,
+            DateTime.MinValue,
             0, true);
           _logger.Trace(e.StackTrace);
           continue;
@@ -54,6 +59,8 @@ namespace Freshli {
           );
           result.Add(
             package.Name,
+            currentVersion.Version,
+            currentVersion.DatePublished,
             latestVersion.Version,
             latestVersion.DatePublished,
             Compute(currentVersion, latestVersion),
