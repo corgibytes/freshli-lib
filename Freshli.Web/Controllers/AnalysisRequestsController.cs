@@ -17,9 +17,19 @@ namespace Freshli.Web.Controllers {
       _db = db;
     }
 
+    [HttpGet(Name = "CreateAnalysisRequest")]
+    public IActionResult Create() {
+      return View();
+    }
+
     [HttpPost(Name = "CreateAnalysisRequest")]
     public IActionResult Create(AnalysisRequest analysisRequest) {
-      var result = _db.AnalysisRequests.Add(analysisRequest);
+      if (!ModelState.IsValid) {
+        return View();
+      }
+
+      analysisRequest.State = AnalysisRequestState.New;
+      _db.AnalysisRequests.Add(analysisRequest);
       _db.SaveChanges();
 
       EmailHelper.SendKickoffEmail(analysisRequest);

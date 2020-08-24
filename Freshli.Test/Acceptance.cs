@@ -23,6 +23,7 @@ namespace Freshli.Test {
       var rubyFixturePath = Fixtures.Path("ruby", "nokotest");
       var results = runner.Run(rubyFixturePath, asOf: _testingBoundary);
 
+      Assert.True(runner.ManifestFinder.Successful);
       Approvals.VerifyAll(results, "results");
     }
 
@@ -34,6 +35,7 @@ namespace Freshli.Test {
         "https://github.com/corgibytes/freshli-fixture-ruby-nokotest";
       var results = runner.Run(repoUrl, asOf: _testingBoundary);
 
+      Assert.True(runner.ManifestFinder.Successful);
       Approvals.VerifyAll(results, "results");
     }
 
@@ -44,6 +46,7 @@ namespace Freshli.Test {
       var repoUrl = "https://github.com/feedbin/feedbin";
       var results = runner.Run(repoUrl, asOf: _testingBoundary);
 
+      Assert.True(runner.ManifestFinder.Successful);
       Approvals.VerifyAll(results, "results");
     }
 
@@ -54,6 +57,8 @@ namespace Freshli.Test {
         "https://github.com/thoughtbot/clearance",
         asOf: new DateTime(2020, 06, 01, 00, 00, 00, DateTimeKind.Utc)
       );
+
+      Assert.True(runner.ManifestFinder.Successful);
       Approvals.VerifyAll(results, "results");
     }
 
@@ -64,6 +69,7 @@ namespace Freshli.Test {
       var phpFixturePath = Fixtures.Path("php", "large");
       var results = runner.Run(phpFixturePath, asOf: _testingBoundary);
 
+      Assert.True(runner.ManifestFinder.Successful);
       Approvals.VerifyAll(results, "results");
     }
 
@@ -74,6 +80,7 @@ namespace Freshli.Test {
       var phpFixturePath = Fixtures.Path("php", "drupal");
       var results = runner.Run(phpFixturePath, asOf: _testingBoundary);
 
+      Assert.True(runner.ManifestFinder.Successful);
       Approvals.VerifyAll(results, "results");
     }
 
@@ -86,6 +93,7 @@ namespace Freshli.Test {
         asOf: _testingBoundary
       );
 
+      Assert.True(runner.ManifestFinder.Successful);
       Approvals.VerifyAll(results, "results");
     }
 
@@ -98,6 +106,21 @@ namespace Freshli.Test {
         asOf: _testingBoundary
       );
 
+      Assert.True(runner.ManifestFinder.Successful);
+      Approvals.VerifyAll(results, "results");
+    }
+
+    [Fact]
+    public void UnsupportedGitRepository()
+    {
+      var runner = new Runner();
+
+      var results = runner.Run(
+        "https://github.com/gocd/gocd",
+        asOf: _testingBoundary
+      );
+
+      Assert.False(runner.ManifestFinder.Successful);
       Approvals.VerifyAll(results, "results");
     }
   }
