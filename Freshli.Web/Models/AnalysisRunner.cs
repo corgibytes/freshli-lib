@@ -10,7 +10,7 @@ namespace Freshli.Web.Models {
     public AnalysisRunner(ApplicationDbContext db) {
       _db = db;
     }
-    
+
     private void SetStartingState(AnalysisRequest request) {
       if (request.State == AnalysisRequestState.New) {
         request.State = AnalysisRequestState.InProgress;
