@@ -30,12 +30,12 @@ namespace Freshli.Test.Unit {
           "test_package",
           dateAndValue.Value.ToString(),
           dateAndValue.Date,
-          null,
-          DateTime.MinValue,
+          "1.0",
+          DateTime.Today,
           dateAndValue.Value,
           dateAndValue.Skipped
         );
-        results.Add(new MetricsResult(dateAndValue.Date, "", result));
+        results.Add(new MetricsResult(dateAndValue.Date, "N/A", result));
       }
 
       var actual = new StringWriter();
