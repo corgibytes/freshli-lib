@@ -10,20 +10,54 @@ namespace Freshli.Web.Models {
       _db = db;
     }
 
+    private void SetStartingState(AnalysisRequest request) {
+      if (request.State == AnalysisRequestState.New) {
+        request.State = AnalysisRequestState.InProgress;
+      } else {
+        request.State = AnalysisRequestState.Retrying;
+      }
+
+      _db.Update(request);
+      _db.SaveChanges();
+    }
+
     public void Run(Guid requestGuid) {
       var analysisRequest = _db.AnalysisRequests.Find(requestGuid);
+      SetStartingState(analysisRequest);
 
-      ManifestFinder.RegisterAll();
-      FileHistoryFinder.Register<GitFileHistoryFinder>();
+      try {
+        ManifestFinder.RegisterAll();
+        FileHistoryFinder.Register<GitFileHistoryFinder>();
 
-      var runner = new Runner();
-      var results = runner.Run(analysisRequest.Url);
+        var runner = new Runner();
+        var results = runner.Run(analysisRequest.Url);
 
-      analysisRequest.Results = new List<MetricsResult>();
-      analysisRequest.Results.AddRange(MapResults(results, analysisRequest));
-      _db.Update(analysisRequest);
+        if (runner.ManifestFinder.Successful) {
+          if (analysisRequest.Results == null) {
+            analysisRequest.Results = new List<MetricsResult>();
+          } else {
+            _db.MetricsResults.RemoveRange(analysisRequest.Results);
+            analysisRequest.Results.Clear();
+          }
 
-      _db.SaveChanges();
+          analysisRequest.Results.AddRange(
+            MapResults(
+              results,
+              analysisRequest
+            )
+          );
+
+          analysisRequest.State = AnalysisRequestState.Success;
+        } else {
+          analysisRequest.State = AnalysisRequestState.Invalid;
+        }
+      } catch {
+        analysisRequest.State = AnalysisRequestState.Error;
+        throw;
+      } finally {
+        _db.Update(analysisRequest);
+        _db.SaveChanges();
+      }
     }
 
     private IList<MetricsResult> MapResults(
@@ -33,10 +67,7 @@ namespace Freshli.Web.Models {
       var persistentResults = new List<MetricsResult>();
 
       foreach (var rawResult in rawResults) {
-
-        var libYearResult = new LibYearResult {
-          Total = rawResult.LibYear.Total
-        };
+        var libYearResult = new LibYearResult {Total = rawResult.LibYear.Total};
         libYearResult.PackageResults = new List<LibYearPackageResult>();
         libYearResult.PackageResults.AddRange(
           MapPackageResults(rawResult.LibYear, libYearResult)
