@@ -35,4 +35,5 @@ RUN dotnet publish -c release -o /app --no-restore ./Freshli.Web.Worker/Freshli.
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1 AS runtime
 WORKDIR /app
 COPY --from=build /app ./
-ENTRYPOINT ["./Freshli.Web.Worker"]
+COPY --from=build /source/docker-entrypoint-worker.sh ./
+ENTRYPOINT ["./docker-entrypoint-worker.sh"]
