@@ -31,9 +31,11 @@ namespace Freshli.Web {
         "password";
       var database = Environment.GetEnvironmentVariable("DB_NAME") ??
         "freshli_web_development";
+      var sslMode = Environment.GetEnvironmentVariable("DB_SSL_MODE") ??
+        "Disable";
 
       var connectionString = $"Host={host};Database={database};" +
-        $"Username={username};Password={password};";
+        $"Username={username};Password={password};SSL Mode={sslMode};";
 
       services.AddControllersWithViews();
       services.AddDbContext<ApplicationDbContext>(
