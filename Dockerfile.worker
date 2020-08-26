@@ -32,7 +32,7 @@ COPY Freshli.Web.Worker/. ./Freshli.Web.Worker/
 RUN dotnet publish -c release -o /app --no-restore ./Freshli.Web.Worker/Freshli.Web.Worker.csproj
 
 # final stage/image
-FROM mcr.microsoft.com/dotnet/core/aspnet:3.1 AS runtime
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-bionic AS runtime
 WORKDIR /app
 COPY --from=build /app ./
 COPY --from=build /source/docker-entrypoint-worker.sh ./
