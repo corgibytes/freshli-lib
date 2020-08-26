@@ -41,10 +41,12 @@ namespace Freshli.Web.Controllers {
       _db.AnalysisRequests.Add(analysisRequest);
       _db.SaveChanges();
 
+      EmailHelper.SendKickoffEmail(analysisRequest);
+
       var runner = new AnalysisRunner(_db);
       BackgroundJob.Enqueue(
-        () => runner.Run(analysisRequest.Id)
-      );
+        () => runner.Run(analysisRequest.Id,
+          $"{Request.Scheme}://{Request.Host}"));
 
       return RedirectToRoute(
         "ShowAnalysisRequest",
