@@ -29,8 +29,15 @@ COPY Freshli/. ./Freshli/
 COPY Freshli.Web/. ./Freshli.Web/
 RUN dotnet publish -c release -o /app --no-restore ./Freshli.Web/Freshli.Web.csproj
 
+RUN . /root/.bashrc && dotnet ef migrations script --idempotent --project ./Freshli.Web/Freshli.Web.csproj -o ./migrations.sql
+
 # final stage/image
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1 AS runtime
 WORKDIR /app
+
+RUN apt-get update && apt-get install -y postgresql-client
+
 COPY --from=build /app ./
-ENTRYPOINT ["./Freshli.Web"]
+COPY --from=build /source/docker-entrypoint-web.sh ./
+COPY --from=build /source/migrations.sql ./
+ENTRYPOINT ["./docker-entrypoint-web.sh"]
