@@ -11,6 +11,7 @@ namespace Freshli.Web.Worker {
   public class Startup {
     public Startup(IConfiguration configuration) {
       Configuration = configuration;
+      DotNetEnv.Env.Load();
     }
 
     public IConfiguration Configuration { get; }

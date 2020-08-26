@@ -35,6 +35,7 @@ max_line_length = off
 [*/Migrations/*.cs]
 max_line_length = off
 
+[*.cs]
 # Microsoft .NET properties
 csharp_new_line_before_catch=false
 csharp_new_line_before_else=false
