@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Reflection.Metadata.Ecma335;
 using Elasticsearch.Net.Specification.NodesApi;
 
@@ -29,8 +30,11 @@ namespace Freshli.Languages.JavaScript {
           );
           FormatVersion = versionString.Trim();
         }
+
         Reader.Read();
-        Reader.Read();
+        while (Reader.CurrentTokenType == YarnLockfileTokenType.Newline) {
+          Reader.Read();
+        }
       }
     }
   }
@@ -47,6 +51,7 @@ namespace Freshli.Languages.JavaScript {
     }
 
     public YarnLockfileProperty GetProperty(string name) {
+
       return default;
     }
 

@@ -6,6 +6,21 @@ using Xunit;
 namespace Freshli.Test.Unit.JavaScript {
   public class YarkLockfileDocumentTest {
     [Fact]
+    public void ReadFormmatVersion() {
+      var contents = File.ReadAllText(
+        Fixtures.Path("javascript", "yarn-simple", "yarn.lock")
+      );
+      var document = new YarnLockfileDocument(contents);
+
+      Assert.Equal(
+        YarnLockfileTokenType.Identifier,
+        document.Reader.CurrentTokenType
+      );
+
+      Assert.Equal("1", document.FormatVersion);
+    }
+
+    [Fact]
     public void ReadSimpleDocumentWithoutEnumerator() {
       var contents = File.ReadAllText(
         Fixtures.Path("javascript", "yarn-simple", "yarn.lock")
