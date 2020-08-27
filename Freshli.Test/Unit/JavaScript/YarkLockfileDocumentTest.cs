@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using Freshli.Languages.JavaScript;
 using Xunit;
 
@@ -6,7 +7,9 @@ namespace Freshli.Test.Unit.JavaScript {
   public class YarkLockfileDocumentTest {
     [Fact]
     public void ReadSimpleDocumentWithoutEnumerator() {
-      var contents = Fixtures.Path("javascript", "yarn-simple", "yarn.lock");
+      var contents = File.ReadAllText(
+        Fixtures.Path("javascript", "yarn-simple", "yarn.lock")
+      );
       var document = new YarnLockfileDocument(contents);
 
       Assert.Equal("1", document.FormatVersion);
@@ -31,7 +34,9 @@ namespace Freshli.Test.Unit.JavaScript {
 
     [Fact]
     public void ReadSimpleDocument() {
-      var contents = Fixtures.Path("javascript", "yarn-simple", "yarn.lock");
+      var contents = File.ReadAllText(
+        Fixtures.Path("javascript", "yarn-simple", "yarn.lock")
+      );
       var document = new YarnLockfileDocument(contents);
 
       Assert.Equal("1", document.FormatVersion);
