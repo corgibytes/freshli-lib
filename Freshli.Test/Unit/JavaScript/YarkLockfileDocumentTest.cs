@@ -19,17 +19,26 @@ namespace Freshli.Test.Unit.JavaScript {
       var ansiRegex = root.GetProperty("ansi-regex");
       Assert.Equal("ansi-regex", ansiRegex.Name);
       Assert.Equal("version", ansiRegex.Value.GetProperty("version").Name);
-      Assert.Equal("5.0.0", ansiRegex.Value.GetProperty("version").Value.GetString());
+      Assert.Equal(
+        "5.0.0",
+        ansiRegex.Value.GetProperty("version").Value.GetString()
+      );
 
       var normalizeUrl = root.GetProperty("normalize-url");
       Assert.Equal("normalize-url", normalizeUrl.Name);
       Assert.Equal("version", normalizeUrl.Value.GetProperty("version").Name);
-      Assert.Equal("5.1.0", normalizeUrl.Value.GetProperty("version").Value.GetString());
+      Assert.Equal(
+        "5.1.0",
+        normalizeUrl.Value.GetProperty("version").Value.GetString()
+      );
 
       var stripAnsi = root.GetProperty("strip-ansi");
       Assert.Equal("strip-ansi", stripAnsi.Name);
       Assert.Equal("version", stripAnsi.Value.GetProperty("version").Name);
-      Assert.Equal("6.0.0", stripAnsi.Value.GetProperty("version").Value.GetString());
+      Assert.Equal(
+        "6.0.0",
+        stripAnsi.Value.GetProperty("version").Value.GetString()
+      );
     }
 
     [Fact]
