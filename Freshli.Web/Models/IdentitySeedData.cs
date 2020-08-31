@@ -15,11 +15,10 @@ namespace Freshli.Web.Models {
     private static readonly string AdminPassword =
       Environment.GetEnvironmentVariable("ADMIN_PASSWORD") ?? "Secret123$";
 
-
     public static async void EnsurePopulated(IApplicationBuilder app) {
-      ApplicationIdentityDbContext context = app.ApplicationServices
+      ApplicationDbContext context = app.ApplicationServices
         .CreateScope().ServiceProvider
-        .GetRequiredService<ApplicationIdentityDbContext>();
+        .GetRequiredService<ApplicationDbContext>();
       if (context.Database.GetPendingMigrations().Any()) {
         context.Database.Migrate();
       }

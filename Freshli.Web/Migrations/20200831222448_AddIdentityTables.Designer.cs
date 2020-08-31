@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace Freshli.Web.Migrations.ApplicationIdentityDb
+namespace Freshli.Web.Migrations
 {
-    [DbContext(typeof(ApplicationIdentityDbContext))]
-    [Migration("20200825202705_Initial")]
-    partial class Initial
+    [DbContext(typeof(ApplicationDbContext))]
+    [Migration("20200831222448_AddIdentityTables")]
+    partial class AddIdentityTables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,6 +20,127 @@ namespace Freshli.Web.Migrations.ApplicationIdentityDb
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn)
                 .HasAnnotation("ProductVersion", "3.1.7")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
+
+            modelBuilder.Entity("Freshli.Web.Models.AnalysisRequest", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("id")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnName("email")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
+                        .HasColumnName("name")
+                        .HasColumnType("text");
+
+                    b.Property<string>("State")
+                        .IsRequired()
+                        .HasColumnName("state")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Url")
+                        .IsRequired()
+                        .HasColumnName("url")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id")
+                        .HasName("pk_analysis_requests");
+
+                    b.ToTable("analysis_requests");
+                });
+
+            modelBuilder.Entity("Freshli.Web.Models.LibYearPackageResult", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("id")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("LibYearResultId")
+                        .HasColumnName("lib_year_result_id")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Name")
+                        .HasColumnName("name")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("PublishedAt")
+                        .HasColumnName("published_at")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<double>("Value")
+                        .HasColumnName("value")
+                        .HasColumnType("double precision");
+
+                    b.Property<string>("Version")
+                        .HasColumnName("version")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id")
+                        .HasName("pk_lib_year_package_results");
+
+                    b.HasIndex("LibYearResultId")
+                        .HasName("ix_lib_year_package_results_lib_year_result_id");
+
+                    b.ToTable("lib_year_package_results");
+                });
+
+            modelBuilder.Entity("Freshli.Web.Models.LibYearResult", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("id")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("MetricsResultId")
+                        .HasColumnName("metrics_result_id")
+                        .HasColumnType("uuid");
+
+                    b.Property<double>("Total")
+                        .HasColumnName("total")
+                        .HasColumnType("double precision");
+
+                    b.HasKey("Id")
+                        .HasName("pk_lib_year_results");
+
+                    b.HasIndex("MetricsResultId")
+                        .IsUnique()
+                        .HasName("ix_lib_year_results_metrics_result_id");
+
+                    b.ToTable("lib_year_results");
+                });
+
+            modelBuilder.Entity("Freshli.Web.Models.MetricsResult", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("id")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("AnalysisRequestId")
+                        .HasColumnName("analysis_request_id")
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnName("date")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<Guid>("LibYearResultId")
+                        .HasColumnName("lib_year_result_id")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id")
+                        .HasName("pk_metrics_results");
+
+                    b.HasIndex("AnalysisRequestId")
+                        .HasName("ix_metrics_results_analysis_request_id");
+
+                    b.ToTable("metrics_results");
+                });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
@@ -261,6 +382,36 @@ namespace Freshli.Web.Migrations.ApplicationIdentityDb
                         .HasName("pk_user_tokens");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("Freshli.Web.Models.LibYearPackageResult", b =>
+                {
+                    b.HasOne("Freshli.Web.Models.LibYearResult", "LibYearResult")
+                        .WithMany("PackageResults")
+                        .HasForeignKey("LibYearResultId")
+                        .HasConstraintName("fk_lib_year_package_results_lib_year_results_lib_year_result_id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Freshli.Web.Models.LibYearResult", b =>
+                {
+                    b.HasOne("Freshli.Web.Models.MetricsResult", "MetricsResult")
+                        .WithOne("LibYearResult")
+                        .HasForeignKey("Freshli.Web.Models.LibYearResult", "MetricsResultId")
+                        .HasConstraintName("fk_lib_year_results_metrics_results_metrics_result_id1")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Freshli.Web.Models.MetricsResult", b =>
+                {
+                    b.HasOne("Freshli.Web.Models.AnalysisRequest", "AnalysisRequest")
+                        .WithMany("Results")
+                        .HasForeignKey("AnalysisRequestId")
+                        .HasConstraintName("fk_metrics_results_analysis_requests_analysis_request_id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

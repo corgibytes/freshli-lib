@@ -2,12 +2,28 @@
 using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace Freshli.Web.Migrations.ApplicationIdentityDb
+namespace Freshli.Web.Migrations
 {
-    public partial class Initial : Migration
+    public partial class AddIdentityTables : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.AlterColumn<string>(
+                name: "url",
+                table: "analysis_requests",
+                nullable: false,
+                oldClrType: typeof(string),
+                oldType: "text",
+                oldNullable: true);
+
+            migrationBuilder.AlterColumn<string>(
+                name: "email",
+                table: "analysis_requests",
+                nullable: false,
+                oldClrType: typeof(string),
+                oldType: "text",
+                oldNullable: true);
+
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
@@ -213,6 +229,20 @@ namespace Freshli.Web.Migrations.ApplicationIdentityDb
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.AlterColumn<string>(
+                name: "url",
+                table: "analysis_requests",
+                type: "text",
+                nullable: true,
+                oldClrType: typeof(string));
+
+            migrationBuilder.AlterColumn<string>(
+                name: "email",
+                table: "analysis_requests",
+                type: "text",
+                nullable: true,
+                oldClrType: typeof(string));
         }
     }
 }

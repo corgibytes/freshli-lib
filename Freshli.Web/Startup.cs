@@ -32,15 +32,9 @@ namespace Freshli.Web {
         "password";
       var database = Environment.GetEnvironmentVariable("DB_NAME") ??
         "freshli_web_development";
-      var identityDatabase =
-        Environment.GetEnvironmentVariable("DB_NAME") ??
-        "freshli_identity_development";
 
       var connectionString = $"Host={host};Database={database};" +
         $"Username={username};Password={password};";
-
-      var identityConnectionString = $"Host={host};" +
-        $"Database={identityDatabase};Username={username};Password={password};";
 
       services.AddControllersWithViews();
 
@@ -52,16 +46,8 @@ namespace Freshli.Web {
             UseSnakeCaseNamingConvention()
       );
 
-      services.AddDbContext<ApplicationIdentityDbContext>(
-        options =>
-          options.
-            UseLazyLoadingProxies().
-            UseNpgsql(identityConnectionString).
-            UseSnakeCaseNamingConvention()
-      );
-
       services.AddIdentity<IdentityUser, IdentityRole>()
-        .AddEntityFrameworkStores<ApplicationIdentityDbContext>();
+        .AddEntityFrameworkStores<ApplicationDbContext>();
 
       services.AddHangfire(configuration => configuration.
         SetDataCompatibilityLevel(CompatibilityLevel.Version_170).

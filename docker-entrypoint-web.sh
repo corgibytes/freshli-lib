@@ -13,8 +13,7 @@ if [ $# -eq 0 ]; then
     cd Freshli.Web
     dotnet restore
     dotnet build --no-restore
-    dotnet ef database update --context ApplicationDbContext
-    dotnet ef database update --context ApplicationIdentityDbContext
+    dotnet ef database update
     dotnet run --no-build --no-launch-profile
 fi
 
