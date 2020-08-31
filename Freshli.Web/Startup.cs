@@ -1,16 +1,17 @@
 using System;
 using Freshli.Web.Data;
+using Freshli.Web.Models;
 using Hangfire;
 using Hangfire.Annotations;
 using Hangfire.Dashboard;
 using Hangfire.PostgreSql;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.EntityFrameworkCore.Proxies;
 
 namespace Freshli.Web {
   public class Startup {
@@ -31,11 +32,18 @@ namespace Freshli.Web {
         "password";
       var database = Environment.GetEnvironmentVariable("DB_NAME") ??
         "freshli_web_development";
+      var identityDatabase =
+        Environment.GetEnvironmentVariable("DB_NAME") ??
+        "freshli_identity_development";
 
       var connectionString = $"Host={host};Database={database};" +
         $"Username={username};Password={password};";
 
+      var identityConnectionString = $"Host={host};" +
+        $"Database={identityDatabase};Username={username};Password={password};";
+
       services.AddControllersWithViews();
+
       services.AddDbContext<ApplicationDbContext>(
         options =>
           options.
@@ -43,6 +51,18 @@ namespace Freshli.Web {
             UseNpgsql(connectionString).
             UseSnakeCaseNamingConvention()
       );
+
+      services.AddDbContext<ApplicationIdentityDbContext>(
+        options =>
+          options.
+            UseLazyLoadingProxies().
+            UseNpgsql(identityConnectionString).
+            UseSnakeCaseNamingConvention()
+      );
+
+      services.AddIdentity<IdentityUser, IdentityRole>()
+        .AddEntityFrameworkStores<ApplicationIdentityDbContext>();
+
       services.AddHangfire(configuration => configuration.
         SetDataCompatibilityLevel(CompatibilityLevel.Version_170).
         UseSimpleAssemblyNameTypeSerializer().
@@ -68,13 +88,14 @@ namespace Freshli.Web {
       app.UseHttpsRedirection();
       app.UseStaticFiles();
 
-      app.UseHangfireDashboard("/jobs", new DashboardOptions {
-        Authorization = new[] { new HangfireAuthorizationFilter() }
-      });
-
       app.UseRouting();
 
+      app.UseAuthentication();
       app.UseAuthorization();
+
+      app.UseHangfireDashboard("/admin/jobs", new DashboardOptions {
+        Authorization = new[] { new HangfireAuthorizationFilter() }
+      });
 
       app.UseEndpoints(
         endpoints => {
@@ -85,12 +106,17 @@ namespace Freshli.Web {
           );
         }
       );
+
+      IdentitySeedData.EnsurePopulated(app);
     }
   }
 
   public class HangfireAuthorizationFilter : IDashboardAuthorizationFilter {
     public bool Authorize([NotNull] DashboardContext context) {
-      // TODO: !THIS _CANNOT_ GO TO PRODUCTION LIKE THIS!
+      var httpContext = context.GetHttpContext();
+      if(!httpContext.User.Identity.IsAuthenticated) {
+        httpContext.Response.Redirect("/account/login");
+      }
       return true;
     }
   }
