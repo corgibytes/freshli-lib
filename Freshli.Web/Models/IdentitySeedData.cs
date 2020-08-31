@@ -16,16 +16,16 @@ namespace Freshli.Web.Models {
       Environment.GetEnvironmentVariable("ADMIN_PASSWORD") ?? "Secret123$";
 
     public static async void EnsurePopulated(IApplicationBuilder app) {
-      ApplicationDbContext context = app.ApplicationServices
+      var context = app.ApplicationServices
         .CreateScope().ServiceProvider
         .GetRequiredService<ApplicationDbContext>();
-      if (context.Database.GetPendingMigrations().Any()) {
-        context.Database.Migrate();
+      if ((await context.Database.GetPendingMigrationsAsync()).Any()) {
+        await context.Database.MigrateAsync();
       }
-      UserManager<IdentityUser> userManager = app.ApplicationServices
+      var userManager = app.ApplicationServices
         .CreateScope().ServiceProvider
         .GetRequiredService<UserManager<IdentityUser>>();
-      IdentityUser user = await userManager.FindByIdAsync(AdminUsername);
+      var user = await userManager.FindByNameAsync(AdminUsername);
       if (user == null) {
         user = new IdentityUser(AdminUsername);
         user.Email = AdminUserEmail;
