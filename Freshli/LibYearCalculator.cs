@@ -40,11 +40,12 @@ namespace Freshli {
           _logger.Warn($"Skipping {package.Name}: {e.Message}");
           result.Add(
             package.Name,
-            null,
-            DateTime.MinValue,
-            package.Version,
-            DateTime.MinValue,
-            0, true);
+            version: package.Version,
+            publishedAt: DateTime.MinValue,
+            latestVersion: null,
+            latestPublishedAt: DateTime.MinValue,
+            value: 0,
+            skipped: true);
           _logger.Trace(e.StackTrace);
           continue;
         }
