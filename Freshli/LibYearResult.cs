@@ -46,10 +46,10 @@ namespace Freshli {
 
     public override string ToString() {
       var writer = new StringWriter();
-      writer.Write("{ _packagesValues: [\n");
+      writer.WriteLine("{ _packagesValues: [");
       foreach (var result in this) {
         if (!result.Skipped) {
-          writer.Write($"{result},\n");
+          writer.WriteLine($"{result},");
         }
       }
 
