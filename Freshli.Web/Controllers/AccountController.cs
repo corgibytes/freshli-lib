@@ -7,14 +7,13 @@ using Microsoft.AspNetCore.Mvc;
 namespace Freshli.Web.Controllers {
   public class AccountController : Controller {
 
-    private UserManager<IdentityUser> userManager;
+    private readonly UserManager<IdentityUser> _userManager;
+    private readonly SignInManager<IdentityUser> _signInManager;
 
-    private SignInManager<IdentityUser> signInManager;
-
-    public AccountController(UserManager<IdentityUser> userMgr,
-      SignInManager<IdentityUser> signInMgr) {
-      userManager = userMgr;
-      signInManager = signInMgr;
+    public AccountController(UserManager<IdentityUser> userManager,
+      SignInManager<IdentityUser> signInManager) {
+      _userManager = userManager;
+      _signInManager = signInManager;
     }
 
     public ViewResult Login() {
@@ -25,12 +24,12 @@ namespace Freshli.Web.Controllers {
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Login(LoginViewModel loginModel) {
       if (ModelState.IsValid) {
-        IdentityUser user =
-          await userManager.FindByNameAsync(loginModel.Name);
+        var user = await _userManager.FindByNameAsync(loginModel.Name);
         if (user != null) {
-          await signInManager.SignOutAsync();
-          if ((await signInManager.PasswordSignInAsync(user,
-            loginModel.Password, false, false)).Succeeded) {
+          await _signInManager.SignOutAsync();
+          var signInResult = await _signInManager.PasswordSignInAsync(user,
+            loginModel.Password, isPersistent: false, lockoutOnFailure: false);
+          if (signInResult.Succeeded) {
             return Redirect(loginModel.ReturnUrl ?? "/");
           }
         }
@@ -41,7 +40,7 @@ namespace Freshli.Web.Controllers {
 
     [Authorize]
     public async Task<RedirectResult> Logout(string returnUrl = "/") {
-      await signInManager.SignOutAsync();
+      await _signInManager.SignOutAsync();
       return Redirect(returnUrl);
     }
   }
