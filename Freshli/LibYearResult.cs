@@ -16,11 +16,14 @@ namespace Freshli {
       string name,
       string version,
       DateTime publishedAt,
+      string latestVersion,
+      DateTime latestPublishedAt,
       double value,
       bool skipped
     ) {
       _packageResults.Add(
-        new LibYearPackageResult(name, version, publishedAt, value, skipped)
+        new LibYearPackageResult(name, version, publishedAt,
+          latestVersion, latestPublishedAt, value, skipped)
       );
       if (skipped) {
         Skipped++;
@@ -43,14 +46,14 @@ namespace Freshli {
 
     public override string ToString() {
       var writer = new StringWriter();
-      writer.Write("{ _packagesValues: [ ");
+      writer.WriteLine("{ _packagesValues: [");
       foreach (var result in this) {
         if (!result.Skipped) {
-          writer.Write($"{result}, ");
+          writer.WriteLine($"{result},");
         }
       }
 
-      writer.Write($" ], Total: {Total} }}");
+      writer.Write($"], Total: {Total} }}");
 
       return writer.ToString();
     }
