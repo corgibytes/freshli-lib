@@ -58,15 +58,24 @@ namespace Freshli {
             $"latest = {latestVersion.ToSimpleVersion()}" +
             $"@{latestVersion.DatePublished:d}"
           );
-          result.Add(
+
+          var value = Compute(currentVersion, latestVersion);
+          var skipped = value < 0;
+
+          var packageResult = new LibYearPackageResult(
             package.Name,
             currentVersion.Version,
             currentVersion.DatePublished,
             latestVersion.Version,
             latestVersion.DatePublished,
-            Compute(currentVersion, latestVersion),
-            false
-          );
+            value,
+            skipped); //TODO: Should these be skipped?
+
+          if (skipped) {
+            _logger.Warn($"Skipping {package.Name}: Negative value " +
+              $"computed as of {date:d}: {packageResult}");
+          }
+          result.Add(packageResult);
         }
       }
 

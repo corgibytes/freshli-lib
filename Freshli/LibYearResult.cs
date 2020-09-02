@@ -12,6 +12,16 @@ namespace Freshli {
     private List<LibYearPackageResult> _packageResults =
       new List<LibYearPackageResult>();
 
+    public void Add(LibYearPackageResult result) {
+      _packageResults.Add(result);
+
+      if (result.Skipped) {
+        Skipped++;
+      } else {
+        Total += result.Value;
+      }
+    }
+
     public void Add(
       string name,
       string version,
@@ -21,15 +31,14 @@ namespace Freshli {
       double value,
       bool skipped
     ) {
-      _packageResults.Add(
-        new LibYearPackageResult(name, version, publishedAt,
-          latestVersion, latestPublishedAt, value, skipped)
-      );
-      if (skipped) {
-        Skipped++;
-      } else {
-        Total += value;
-      }
+      Add(new LibYearPackageResult(
+        name,
+        version,
+        publishedAt,
+        latestVersion,
+        latestPublishedAt,
+        value,
+        skipped));
     }
 
     public LibYearPackageResult this[string packageName] {
