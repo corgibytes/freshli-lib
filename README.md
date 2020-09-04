@@ -309,6 +309,9 @@ container. The `eclint` container will also run and then stop (more on
 that container below). Once all of the containers are up and running, you
 can visit `http://localhost:5000` to view the site.
 
+An administrative `worker` dashboard exists at `http://localhost:5000/admin/jobs`.
+Authentication is required. The default user credentials are set in `IdentitySeedData.cs`.
+
 ### The `web` container
 
 The `web` container contains the contents of the `Freshli.Web` project. This

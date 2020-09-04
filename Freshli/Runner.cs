@@ -36,21 +36,20 @@ namespace Freshli {
           var content = fileHistory.ContentsAsOf(currentDate);
           calculator.Manifest.Parse(content);
 
+          var sha = fileHistory.ShaAsOf(currentDate);
+
           LibYearResult libYear = calculator.ComputeAsOf(currentDate);
           logger.Trace(
             "Adding MetricResult: {manifestFile}, " +
             "currentDate = {currentDate:d}, " +
+            "sha = {sha}, " +
             "libYear = {ComputeAsOf}",
             ManifestFinder.LockFileName,
             currentDate,
+            sha,
             libYear.Total
           );
-          metricsResults.Add(
-            new MetricsResult(
-              currentDate,
-              libYear
-            )
-          );
+          metricsResults.Add(new MetricsResult(currentDate, sha, libYear));
         }
       } else {
         logger.Warn("Unable to find a manifest file");

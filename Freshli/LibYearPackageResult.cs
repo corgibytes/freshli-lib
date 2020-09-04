@@ -5,6 +5,8 @@ namespace Freshli {
     public string Name { get; }
     public string Version { get; }
     public DateTime PublishedAt { get; }
+    public string LatestVersion { get; }
+    public DateTime LatestPublishedAt { get; }
     public double Value { get; }
     public bool Skipped { get; }
 
@@ -12,12 +14,16 @@ namespace Freshli {
       string name,
       string version,
       DateTime publishedAt,
+      string latestVersion,
+      DateTime latestPublishedAt,
       double value,
       bool skipped
     ) {
       Name = name;
       Version = version;
       PublishedAt = publishedAt;
+      LatestVersion = latestVersion;
+      LatestPublishedAt = latestPublishedAt;
       Value = value;
       Skipped = skipped;
     }
@@ -25,8 +31,10 @@ namespace Freshli {
     public override string ToString() {
       return
         $"{{ Name: \"{Name}\", " +
-        $"Version: \"{Version}\", " +
-        $"PublishedAt: {PublishedAt:s}, " +
+        $"RepoVersion: \"{Version}\", " +
+        $"RepoVersionPublishedAt: {PublishedAt:s}, " +
+        $"LatestVersion: \"{LatestVersion}\", " +
+        $"LatestPublishedAt: {LatestPublishedAt:s}, " +
         $"Value: {Value} }}";
     }
   }

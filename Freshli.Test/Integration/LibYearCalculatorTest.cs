@@ -24,9 +24,20 @@ namespace Freshli.Test.Integration {
         new DateTime(2016, 01, 06),
         results["mini_portile2"].PublishedAt
       );
+      Assert.Equal("2.1.0", results["mini_portile2"].LatestVersion);
+      Assert.Equal(
+        new DateTime(2016, 01, 06),
+        results["mini_portile2"].LatestPublishedAt
+      );
       Assert.Equal(0.227, results["nokogiri"].Value, 3);
-      Assert.Equal("1.7.1", results["nokogiri"].Version);
-      Assert.Equal(new DateTime(2017, 03, 20), results["nokogiri"].PublishedAt);
+      Assert.Equal("1.7.0", results["nokogiri"].Version);
+      Assert.Equal(
+        new DateTime(2016, 12, 27),
+        results["nokogiri"].PublishedAt);
+      Assert.Equal("1.7.1", results["nokogiri"].LatestVersion);
+      Assert.Equal(
+        new DateTime(2017, 03, 20),
+        results["nokogiri"].LatestPublishedAt);
     }
 
     [Fact]
@@ -44,9 +55,9 @@ namespace Freshli.Test.Integration {
       Assert.Equal(0.022, results.Total, 3);
 
       Assert.Equal(0, results["mini_portile2"].Value, 3);
-      Assert.Equal("2.1.0", results["mini_portile2"].Version);
+      Assert.Equal("2.1.0", results["mini_portile2"].LatestVersion);
       Assert.Equal(0.022, results["nokogiri"].Value, 3);
-      Assert.Equal("1.7.0.1", results["nokogiri"].Version);
+      Assert.Equal("1.7.0.1", results["nokogiri"].LatestVersion);
     }
 
     [Fact]
@@ -64,9 +75,9 @@ namespace Freshli.Test.Integration {
       Assert.Equal(0, results.Total, 3);
 
       Assert.Equal(0, results["mini_portile2"].Value, 3);
-      Assert.Equal("2.3.0", results["mini_portile2"].Version);
+      Assert.Equal("2.3.0", results["mini_portile2"].LatestVersion);
       Assert.Equal(0, results["nokogiri"].Value, 3);
-      Assert.Equal("1.8.1", results["nokogiri"].Version);
+      Assert.Equal("1.8.1", results["nokogiri"].LatestVersion);
     }
 
     [Fact]
@@ -84,9 +95,9 @@ namespace Freshli.Test.Integration {
       Assert.Equal(0.362, results.Total, 3);
 
       Assert.Equal(0.0, results["mini_portile2"].Value, 3);
-      Assert.Equal("2.3.0", results["mini_portile2"].Version);
+      Assert.Equal("2.3.0", results["mini_portile2"].LatestVersion);
       Assert.Equal(0.362, results["nokogiri"].Value, 3);
-      Assert.Equal("1.8.2", results["nokogiri"].Version);
+      Assert.Equal("1.8.2", results["nokogiri"].LatestVersion);
     }
 
     [Fact]

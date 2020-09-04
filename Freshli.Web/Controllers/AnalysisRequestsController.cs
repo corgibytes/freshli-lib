@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Freshli.Web.Data;
 using Freshli.Web.Models;
+using Freshli.Web.Util;
 using Hangfire;
 using Microsoft.AspNetCore.Mvc;
 using XPlot.Plotly;
@@ -23,6 +24,15 @@ namespace Freshli.Web.Controllers {
 
     [HttpPost(Name = "CreateAnalysisRequest")]
     public IActionResult Create(AnalysisRequest analysisRequest) {
+
+      if (!RecaptchaHelper.ValidateRecaptchaResponse(
+        Request.Form["g-recaptcha-response"])) {
+        ModelState.AddModelError("reCAPTCHA",
+          "Are you a robot?! Try submitting again, maybe a bit " +
+          "more slowly this time.");
+        return View();
+      }
+
       if (!ModelState.IsValid) {
         return View();
       }
@@ -31,10 +41,12 @@ namespace Freshli.Web.Controllers {
       _db.AnalysisRequests.Add(analysisRequest);
       _db.SaveChanges();
 
+      EmailHelper.SendKickoffEmail(analysisRequest);
+
       var runner = new AnalysisRunner(_db);
       BackgroundJob.Enqueue(
-        () => runner.Run(analysisRequest.Id)
-      );
+        () => runner.Run(analysisRequest.Id,
+          $"{Request.Scheme}://{Request.Host}"));
 
       return RedirectToRoute(
         "ShowAnalysisRequest",
