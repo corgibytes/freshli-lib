@@ -1,0 +1,44 @@
+version: '3.7'
+services:
+  web:
+    image: freshli.azurecr.io/freshli/web
+    build:
+      context: .
+      dockerfile: Dockerfile.web
+      target: runtime
+    ports:
+      - 80:80
+    stdin_open: true
+    tty: true
+    entrypoint: ./docker-entrypoint-web.sh
+    environment:
+      ASPNETCORE_ENVIRONMENT: "${ASPNETCORE_ENVIRONMENT}"
+      ASPNETCORE_URLS: "${ASPNETCORE_URLS}"
+      DB_HOST: "${DB_HOST}"
+      DB_USERNAME: "${DB_USERNAME}"
+      DB_PASSWORD: "${DB_PASSWORD}"
+      DB_NAME: "${DB_NAME}" 
+      DB_SSL_MODE: "${DB_SSL_MODE}"
+      SENDGRID_API_KEY: "${SENDGRID_API_KEY}"
+      KICKOFF_EMAIL_TEMPLATE_ID: "${KICKOFF_EMAIL_TEMPLATE_ID}"
+      RECAPTCHA_SITE_KEY: "${RECAPTCHA_SITE_KEY}"
+      RECAPTCHA_SECRET_KEY: "${RECAPTCHA_SECRET_KEY}"
+  
+  worker:
+    image: freshli.azurecr.io/freshli/worker
+    build:
+      context: .
+      dockerfile: Dockerfile.worker
+      target: runtime    
+    stdin_open: true
+    tty: true
+    entrypoint: ./docker-entrypoint-worker.sh
+    environment:
+      ASPNETCORE_ENVIRONMENT: "${ASPNETCORE_ENVIRONMENT}"
+      DB_HOST: "${DB_HOST}"
+      DB_USERNAME: "${DB_USERNAME}"
+      DB_PASSWORD: "${DB_PASSWORD}"
+      DB_NAME: "${DB_NAME}"
+      DB_SSL_MODE: "${DB_SSL_MODE}"
+      SENDGRID_API_KEY: "${SENDGRID_API_KEY}"
+      RESULTS_READY_EMAIL_TEMPLATE_ID: "${RESULTS_READY_EMAIL_TEMPLATE_ID}"
