@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   web:
-    image: freshli.azurecr.io/freshli/web
+    image: freshli.azurecr.io/freshli/web:production
     build:
       context: .
       dockerfile: Dockerfile.web
@@ -25,7 +25,7 @@ services:
       RECAPTCHA_SECRET_KEY: "${RECAPTCHA_SECRET_KEY}"
   
   worker:
-    image: freshli.azurecr.io/freshli/worker
+    image: freshli.azurecr.io/freshli/worker:production
     build:
       context: .
       dockerfile: Dockerfile.worker
