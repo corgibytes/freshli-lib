@@ -2,6 +2,10 @@ version: '3.7'
 services:
   web:
     image: freshli.azurecr.io/freshli/web
+    build:
+      context: .
+      dockerfile: Dockerfile.web
+      target: runtime
     ports:
       - 80:80
     stdin_open: true
@@ -18,6 +22,10 @@ services:
   
   worker:
     image: freshli.azurecr.io/freshli/worker
+    build:
+      context: .
+      dockerfile: Dockerfile.worker
+      target: runtime    
     stdin_open: true
     tty: true
     entrypoint: ./docker-entrypoint-worker.sh
