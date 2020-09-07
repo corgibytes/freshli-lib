@@ -12,6 +12,9 @@ services:
     tty: true
     entrypoint: ./docker-entrypoint-web.sh
     environment:
+      ADMIN_EMAIL: "${ADMIN_EMAIL}"
+      ADMIN_PASSWORD: "${ADMIN_PASSWORD}"
+      ADMIN_USERNAME: "${ADMIN_USERNAME}"
       ASPNETCORE_ENVIRONMENT: "${ASPNETCORE_ENVIRONMENT}"
       ASPNETCORE_URLS: "${ASPNETCORE_URLS}"
       DB_HOST: "${DB_HOST}"
