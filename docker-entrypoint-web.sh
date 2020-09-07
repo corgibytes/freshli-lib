@@ -22,7 +22,7 @@ if [ $# -eq 0 ]; then
         dotnet ef database update
         dotnet run --no-build --no-launch-profile
     else
-        PGPASSWORD=$DB_PASSWORD psql --host=$DB_HOST --username=$DB_USERNAME --dbname=$DB_NAME < migrations.sql
+        PGPASSWORD="$DB_PASSWORD" psql --host=$DB_HOST --username=$DB_USERNAME --dbname=$DB_NAME < migrations.sql
         ./Freshli.Web
     fi
 fi
