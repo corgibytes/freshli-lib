@@ -22,6 +22,7 @@ if [ $# -eq 0 ]; then
         dotnet ef database update
         dotnet run --no-build --no-launch-profile
     else
+        PGPASSWORD="$DB_PASSWORD" psql --host=$DB_HOST --username=$DB_USERNAME --dbname=postgres --tuples-only --command="SELECT 1 FROM pg_database WHERE datname = '$DB_NAME'" | grep "1" || PGPASSWORD="$DB_PASSWORD" createdb --host=$DB_HOST --username=$DB_USERNAME $DB_NAME
         PGPASSWORD="$DB_PASSWORD" psql --host=$DB_HOST --username=$DB_USERNAME --dbname=$DB_NAME < migrations.sql
         ./Freshli.Web
     fi
