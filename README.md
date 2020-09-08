@@ -397,3 +397,18 @@ docker-compose run eclint
 The output from running `eclint` will also show up when you run
 `docker-compose up` but the output is likely to be noisy and it can be easy
 to miss messages that the `eclint` container reports.
+
+## Hosting and Deployment
+
+Access to the deployment environments is limited to a select group of individuals. If you feel that this should include you, then please get in touch.
+
+### Deployment Environments
+
+We have two deployment environments, staging and production. 
+
+* Production: https://freshli.io
+
+* Staging: https://freshli-staging.azurewebsites.net
+
+For both production and staging, an Azure Web App is being used to host a multi-container project with one container running the `web` service and one container running the `worker` service. The [production](./docker-compose-production.yml) and [staging](./docker-compose-staging.yml) environments each have their own docker-compose files. Both production and staging are running within the same Azure App Service Plan, so they are sharing the same underlying compute resources.
+
