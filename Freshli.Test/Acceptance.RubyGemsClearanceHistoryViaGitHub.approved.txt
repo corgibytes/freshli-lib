@@ -1064,7 +1064,7 @@ results[17] = { Date: 2012-08-01T00:00:00, ManifestSHA: 3243fe81d3d0d15ef80ca714
 { Name: "i18n", RepoVersion: "0.6.0", RepoVersionPublishedAt: 2011-05-22T00:00:00, LatestVersion: "0.6.0", LatestPublishedAt: 2011-05-22T00:00:00, Value: 0 },
 { Name: "journey", RepoVersion: "1.0.4", RepoVersionPublishedAt: 2012-06-14T00:00:00, LatestVersion: "1.0.4", LatestPublishedAt: 2012-06-14T00:00:00, Value: 0 },
 { Name: "json", RepoVersion: "1.7.3", RepoVersionPublishedAt: 2012-05-11T00:00:00, LatestVersion: "1.7.4", LatestPublishedAt: 2012-07-26T00:00:00, Value: 0.20821917808219179 },
-{ Name: "libwebsocket", RepoVersion: "0.1.4", RepoVersionPublishedAt: 2012-07-13T00:00:00, LatestVersion: "0.2.0", LatestPublishedAt: 2012-03-20T00:00:00, Value: -0.3150684931506849 },
+{ Name: "libwebsocket", RepoVersion: "0.1.4", RepoVersionPublishedAt: 2012-07-13T00:00:00, LatestVersion: "0.2.0", LatestPublishedAt: 2012-03-20T00:00:00, Value: 0 },
 { Name: "mail", RepoVersion: "2.4.4", RepoVersionPublishedAt: 2012-03-14T00:00:00, LatestVersion: "2.4.4", LatestPublishedAt: 2012-03-14T00:00:00, Value: 0 },
 { Name: "metaclass", RepoVersion: "0.0.1", RepoVersionPublishedAt: 2011-08-11T00:00:00, LatestVersion: "0.0.1", LatestPublishedAt: 2011-08-11T00:00:00, Value: 0 },
 { Name: "mime-types", RepoVersion: "1.19", RepoVersionPublishedAt: 2012-06-21T00:00:00, LatestVersion: "1.19", LatestPublishedAt: 2012-06-21T00:00:00, Value: 0 },
@@ -1096,7 +1096,7 @@ results[17] = { Date: 2012-08-01T00:00:00, ManifestSHA: 3243fe81d3d0d15ef80ca714
 { Name: "treetop", RepoVersion: "1.4.10", RepoVersionPublishedAt: 2011-07-27T00:00:00, LatestVersion: "1.4.10", LatestPublishedAt: 2011-07-27T00:00:00, Value: 0 },
 { Name: "tzinfo", RepoVersion: "0.3.33", RepoVersionPublishedAt: 2012-04-08T00:00:00, LatestVersion: "0.3.33", LatestPublishedAt: 2012-04-08T00:00:00, Value: 0 },
 { Name: "xpath", RepoVersion: "0.1.4", RepoVersionPublishedAt: 2011-04-25T00:00:00, LatestVersion: "0.1.4", LatestPublishedAt: 2011-04-25T00:00:00, Value: 0 },
-], Total: 4.27945205479452 } }
+], Total: 4.594520547945205 } }
 
 results[18] = { Date: 2012-09-01T00:00:00, ManifestSHA: 64ec95b01308825f4bee0be49efe38262285a3f6, LibYear: { _packagesValues: [
 { Name: "actionmailer", RepoVersion: "3.2.6", RepoVersionPublishedAt: 2012-06-12T00:00:00, LatestVersion: "3.2.8", LatestPublishedAt: 2012-08-09T00:00:00, Value: 0.1589041095890411 },
@@ -1128,7 +1128,7 @@ results[18] = { Date: 2012-09-01T00:00:00, ManifestSHA: 64ec95b01308825f4bee0be4
 { Name: "i18n", RepoVersion: "0.6.0", RepoVersionPublishedAt: 2011-05-22T00:00:00, LatestVersion: "0.6.1", LatestPublishedAt: 2012-08-31T00:00:00, Value: 1.2794520547945205 },
 { Name: "journey", RepoVersion: "1.0.4", RepoVersionPublishedAt: 2012-06-14T00:00:00, LatestVersion: "1.0.4", LatestPublishedAt: 2012-06-14T00:00:00, Value: 0 },
 { Name: "json", RepoVersion: "1.7.3", RepoVersionPublishedAt: 2012-05-11T00:00:00, LatestVersion: "1.7.5", LatestPublishedAt: 2012-08-17T00:00:00, Value: 0.2684931506849315 },
-{ Name: "libwebsocket", RepoVersion: "0.1.4", RepoVersionPublishedAt: 2012-07-13T00:00:00, LatestVersion: "0.2.0", LatestPublishedAt: 2012-03-20T00:00:00, Value: -0.3150684931506849 },
+{ Name: "libwebsocket", RepoVersion: "0.1.4", RepoVersionPublishedAt: 2012-07-13T00:00:00, LatestVersion: "0.2.0", LatestPublishedAt: 2012-03-20T00:00:00, Value: 0 },
 { Name: "mail", RepoVersion: "2.4.4", RepoVersionPublishedAt: 2012-03-14T00:00:00, LatestVersion: "2.4.4", LatestPublishedAt: 2012-03-14T00:00:00, Value: 0 },
 { Name: "metaclass", RepoVersion: "0.0.1", RepoVersionPublishedAt: 2011-08-11T00:00:00, LatestVersion: "0.0.1", LatestPublishedAt: 2011-08-11T00:00:00, Value: 0 },
 { Name: "mime-types", RepoVersion: "1.19", RepoVersionPublishedAt: 2012-06-21T00:00:00, LatestVersion: "1.19", LatestPublishedAt: 2012-06-21T00:00:00, Value: 0 },
@@ -1160,7 +1160,7 @@ results[18] = { Date: 2012-09-01T00:00:00, ManifestSHA: 64ec95b01308825f4bee0be4
 { Name: "treetop", RepoVersion: "1.4.10", RepoVersionPublishedAt: 2011-07-27T00:00:00, LatestVersion: "1.4.10", LatestPublishedAt: 2011-07-27T00:00:00, Value: 0 },
 { Name: "tzinfo", RepoVersion: "0.3.33", RepoVersionPublishedAt: 2012-04-08T00:00:00, LatestVersion: "0.3.33", LatestPublishedAt: 2012-04-08T00:00:00, Value: 0 },
 { Name: "xpath", RepoVersion: "0.1.4", RepoVersionPublishedAt: 2011-04-25T00:00:00, LatestVersion: "0.1.4", LatestPublishedAt: 2011-04-25T00:00:00, Value: 0 },
-], Total: 6.668493150684933 } }
+], Total: 6.983561643835617 } }
 
 results[19] = { Date: 2012-10-01T00:00:00, ManifestSHA: 16bf897a6b5d9b926636704d1d2fbf6574e011b8, LibYear: { _packagesValues: [
 { Name: "actionmailer", RepoVersion: "3.2.6", RepoVersionPublishedAt: 2012-06-12T00:00:00, LatestVersion: "3.2.8", LatestPublishedAt: 2012-08-09T00:00:00, Value: 0.1589041095890411 },
@@ -1192,7 +1192,7 @@ results[19] = { Date: 2012-10-01T00:00:00, ManifestSHA: 16bf897a6b5d9b926636704d
 { Name: "i18n", RepoVersion: "0.6.0", RepoVersionPublishedAt: 2011-05-22T00:00:00, LatestVersion: "0.6.1", LatestPublishedAt: 2012-08-31T00:00:00, Value: 1.2794520547945205 },
 { Name: "journey", RepoVersion: "1.0.4", RepoVersionPublishedAt: 2012-06-14T00:00:00, LatestVersion: "1.0.4", LatestPublishedAt: 2012-06-14T00:00:00, Value: 0 },
 { Name: "json", RepoVersion: "1.7.3", RepoVersionPublishedAt: 2012-05-11T00:00:00, LatestVersion: "1.7.5", LatestPublishedAt: 2012-08-17T00:00:00, Value: 0.2684931506849315 },
-{ Name: "libwebsocket", RepoVersion: "0.1.4", RepoVersionPublishedAt: 2012-07-13T00:00:00, LatestVersion: "0.2.0", LatestPublishedAt: 2012-03-20T00:00:00, Value: -0.3150684931506849 },
+{ Name: "libwebsocket", RepoVersion: "0.1.4", RepoVersionPublishedAt: 2012-07-13T00:00:00, LatestVersion: "0.2.0", LatestPublishedAt: 2012-03-20T00:00:00, Value: 0 },
 { Name: "mail", RepoVersion: "2.4.4", RepoVersionPublishedAt: 2012-03-14T00:00:00, LatestVersion: "2.4.4", LatestPublishedAt: 2012-03-14T00:00:00, Value: 0 },
 { Name: "metaclass", RepoVersion: "0.0.1", RepoVersionPublishedAt: 2011-08-11T00:00:00, LatestVersion: "0.0.1", LatestPublishedAt: 2011-08-11T00:00:00, Value: 0 },
 { Name: "mime-types", RepoVersion: "1.19", RepoVersionPublishedAt: 2012-06-21T00:00:00, LatestVersion: "1.19", LatestPublishedAt: 2012-06-21T00:00:00, Value: 0 },
@@ -1224,7 +1224,7 @@ results[19] = { Date: 2012-10-01T00:00:00, ManifestSHA: 16bf897a6b5d9b926636704d
 { Name: "treetop", RepoVersion: "1.4.10", RepoVersionPublishedAt: 2011-07-27T00:00:00, LatestVersion: "1.4.10", LatestPublishedAt: 2011-07-27T00:00:00, Value: 0 },
 { Name: "tzinfo", RepoVersion: "0.3.33", RepoVersionPublishedAt: 2012-04-08T00:00:00, LatestVersion: "0.3.33", LatestPublishedAt: 2012-04-08T00:00:00, Value: 0 },
 { Name: "xpath", RepoVersion: "0.1.4", RepoVersionPublishedAt: 2011-04-25T00:00:00, LatestVersion: "0.1.4", LatestPublishedAt: 2011-04-25T00:00:00, Value: 0 },
-], Total: 10.545205479452054 } }
+], Total: 10.86027397260274 } }
 
 results[20] = { Date: 2012-11-01T00:00:00, ManifestSHA: fe213bf121a36be841acce770f39ad7cfd68b110, LibYear: { _packagesValues: [
 { Name: "actionmailer", RepoVersion: "3.2.6", RepoVersionPublishedAt: 2012-06-12T00:00:00, LatestVersion: "3.2.8", LatestPublishedAt: 2012-08-09T00:00:00, Value: 0.1589041095890411 },
@@ -1255,7 +1255,7 @@ results[20] = { Date: 2012-11-01T00:00:00, ManifestSHA: fe213bf121a36be841acce77
 { Name: "i18n", RepoVersion: "0.6.0", RepoVersionPublishedAt: 2011-05-22T00:00:00, LatestVersion: "0.6.1", LatestPublishedAt: 2012-08-31T00:00:00, Value: 1.2794520547945205 },
 { Name: "journey", RepoVersion: "1.0.4", RepoVersionPublishedAt: 2012-06-14T00:00:00, LatestVersion: "1.0.4", LatestPublishedAt: 2012-06-14T00:00:00, Value: 0 },
 { Name: "json", RepoVersion: "1.7.3", RepoVersionPublishedAt: 2012-05-11T00:00:00, LatestVersion: "1.7.5", LatestPublishedAt: 2012-08-17T00:00:00, Value: 0.2684931506849315 },
-{ Name: "libwebsocket", RepoVersion: "0.1.4", RepoVersionPublishedAt: 2012-07-13T00:00:00, LatestVersion: "0.2.0", LatestPublishedAt: 2012-03-20T00:00:00, Value: -0.3150684931506849 },
+{ Name: "libwebsocket", RepoVersion: "0.1.4", RepoVersionPublishedAt: 2012-07-13T00:00:00, LatestVersion: "0.2.0", LatestPublishedAt: 2012-03-20T00:00:00, Value: 0 },
 { Name: "mail", RepoVersion: "2.4.4", RepoVersionPublishedAt: 2012-03-14T00:00:00, LatestVersion: "2.4.4", LatestPublishedAt: 2012-03-14T00:00:00, Value: 0 },
 { Name: "metaclass", RepoVersion: "0.0.1", RepoVersionPublishedAt: 2011-08-11T00:00:00, LatestVersion: "0.0.1", LatestPublishedAt: 2011-08-11T00:00:00, Value: 0 },
 { Name: "mime-types", RepoVersion: "1.19", RepoVersionPublishedAt: 2012-06-21T00:00:00, LatestVersion: "1.19", LatestPublishedAt: 2012-06-21T00:00:00, Value: 0 },
@@ -1287,7 +1287,7 @@ results[20] = { Date: 2012-11-01T00:00:00, ManifestSHA: fe213bf121a36be841acce77
 { Name: "treetop", RepoVersion: "1.4.12", RepoVersionPublishedAt: 2012-10-29T00:00:00, LatestVersion: "1.4.12", LatestPublishedAt: 2012-10-29T00:00:00, Value: 0 },
 { Name: "tzinfo", RepoVersion: "0.3.34", RepoVersionPublishedAt: 2012-10-27T00:00:00, LatestVersion: "0.3.34", LatestPublishedAt: 2012-10-27T00:00:00, Value: 0 },
 { Name: "xpath", RepoVersion: "0.1.4", RepoVersionPublishedAt: 2011-04-25T00:00:00, LatestVersion: "0.1.4", LatestPublishedAt: 2011-04-25T00:00:00, Value: 0 },
-], Total: 14.991780821917809 } }
+], Total: 15.306849315068494 } }
 
 results[21] = { Date: 2012-12-01T00:00:00, ManifestSHA: b5f313c863202ea1542a77a7a66fe9eedc0e9978, LibYear: { _packagesValues: [
 { Name: "actionmailer", RepoVersion: "3.2.6", RepoVersionPublishedAt: 2012-06-12T00:00:00, LatestVersion: "3.2.9", LatestPublishedAt: 2012-11-12T00:00:00, Value: 0.4191780821917808 },
@@ -1318,7 +1318,7 @@ results[21] = { Date: 2012-12-01T00:00:00, ManifestSHA: b5f313c863202ea1542a77a7
 { Name: "i18n", RepoVersion: "0.6.0", RepoVersionPublishedAt: 2011-05-22T00:00:00, LatestVersion: "0.6.1", LatestPublishedAt: 2012-08-31T00:00:00, Value: 1.2794520547945205 },
 { Name: "journey", RepoVersion: "1.0.4", RepoVersionPublishedAt: 2012-06-14T00:00:00, LatestVersion: "1.0.4", LatestPublishedAt: 2012-06-14T00:00:00, Value: 0 },
 { Name: "json", RepoVersion: "1.7.3", RepoVersionPublishedAt: 2012-05-11T00:00:00, LatestVersion: "1.7.5", LatestPublishedAt: 2012-08-17T00:00:00, Value: 0.2684931506849315 },
-{ Name: "libwebsocket", RepoVersion: "0.1.4", RepoVersionPublishedAt: 2012-07-13T00:00:00, LatestVersion: "0.2.0", LatestPublishedAt: 2012-03-20T00:00:00, Value: -0.3150684931506849 },
+{ Name: "libwebsocket", RepoVersion: "0.1.4", RepoVersionPublishedAt: 2012-07-13T00:00:00, LatestVersion: "0.2.0", LatestPublishedAt: 2012-03-20T00:00:00, Value: 0 },
 { Name: "mail", RepoVersion: "2.4.4", RepoVersionPublishedAt: 2012-03-14T00:00:00, LatestVersion: "2.5.2", LatestPublishedAt: 2012-11-18T00:00:00, Value: 0.6821917808219178 },
 { Name: "metaclass", RepoVersion: "0.0.1", RepoVersionPublishedAt: 2011-08-11T00:00:00, LatestVersion: "0.0.1", LatestPublishedAt: 2011-08-11T00:00:00, Value: 0 },
 { Name: "mime-types", RepoVersion: "1.19", RepoVersionPublishedAt: 2012-06-21T00:00:00, LatestVersion: "1.19", LatestPublishedAt: 2012-06-21T00:00:00, Value: 0 },
@@ -1350,7 +1350,7 @@ results[21] = { Date: 2012-12-01T00:00:00, ManifestSHA: b5f313c863202ea1542a77a7
 { Name: "treetop", RepoVersion: "1.4.12", RepoVersionPublishedAt: 2012-10-29T00:00:00, LatestVersion: "1.4.12", LatestPublishedAt: 2012-10-29T00:00:00, Value: 0 },
 { Name: "tzinfo", RepoVersion: "0.3.34", RepoVersionPublishedAt: 2012-10-27T00:00:00, LatestVersion: "0.3.35", LatestPublishedAt: 2012-11-04T00:00:00, Value: 0.021917808219178082 },
 { Name: "xpath", RepoVersion: "0.1.4", RepoVersionPublishedAt: 2011-04-25T00:00:00, LatestVersion: "1.0.0", LatestPublishedAt: 2012-11-14T00:00:00, Value: 1.558904109589041 },
-], Total: 23.29041095890412 } }
+], Total: 23.6054794520548 } }
 
 results[22] = { Date: 2013-01-01T00:00:00, ManifestSHA: b5f313c863202ea1542a77a7a66fe9eedc0e9978, LibYear: { _packagesValues: [
 { Name: "actionmailer", RepoVersion: "3.2.6", RepoVersionPublishedAt: 2012-06-12T00:00:00, LatestVersion: "3.2.9", LatestPublishedAt: 2012-11-12T00:00:00, Value: 0.4191780821917808 },
@@ -1381,7 +1381,7 @@ results[22] = { Date: 2013-01-01T00:00:00, ManifestSHA: b5f313c863202ea1542a77a7
 { Name: "i18n", RepoVersion: "0.6.0", RepoVersionPublishedAt: 2011-05-22T00:00:00, LatestVersion: "0.6.1", LatestPublishedAt: 2012-08-31T00:00:00, Value: 1.2794520547945205 },
 { Name: "journey", RepoVersion: "1.0.4", RepoVersionPublishedAt: 2012-06-14T00:00:00, LatestVersion: "1.0.4", LatestPublishedAt: 2012-06-14T00:00:00, Value: 0 },
 { Name: "json", RepoVersion: "1.7.3", RepoVersionPublishedAt: 2012-05-11T00:00:00, LatestVersion: "1.7.6", LatestPublishedAt: 2012-12-31T00:00:00, Value: 0.6410958904109589 },
-{ Name: "libwebsocket", RepoVersion: "0.1.4", RepoVersionPublishedAt: 2012-07-13T00:00:00, LatestVersion: "0.2.0", LatestPublishedAt: 2012-03-20T00:00:00, Value: -0.3150684931506849 },
+{ Name: "libwebsocket", RepoVersion: "0.1.4", RepoVersionPublishedAt: 2012-07-13T00:00:00, LatestVersion: "0.2.0", LatestPublishedAt: 2012-03-20T00:00:00, Value: 0 },
 { Name: "mail", RepoVersion: "2.4.4", RepoVersionPublishedAt: 2012-03-14T00:00:00, LatestVersion: "2.5.3", LatestPublishedAt: 2012-12-04T00:00:00, Value: 0.726027397260274 },
 { Name: "metaclass", RepoVersion: "0.0.1", RepoVersionPublishedAt: 2011-08-11T00:00:00, LatestVersion: "0.0.1", LatestPublishedAt: 2011-08-11T00:00:00, Value: 0 },
 { Name: "mime-types", RepoVersion: "1.19", RepoVersionPublishedAt: 2012-06-21T00:00:00, LatestVersion: "1.19", LatestPublishedAt: 2012-06-21T00:00:00, Value: 0 },
@@ -1413,7 +1413,7 @@ results[22] = { Date: 2013-01-01T00:00:00, ManifestSHA: b5f313c863202ea1542a77a7
 { Name: "treetop", RepoVersion: "1.4.12", RepoVersionPublishedAt: 2012-10-29T00:00:00, LatestVersion: "1.4.12", LatestPublishedAt: 2012-10-29T00:00:00, Value: 0 },
 { Name: "tzinfo", RepoVersion: "0.3.34", RepoVersionPublishedAt: 2012-10-27T00:00:00, LatestVersion: "0.3.35", LatestPublishedAt: 2012-11-04T00:00:00, Value: 0.021917808219178082 },
 { Name: "xpath", RepoVersion: "0.1.4", RepoVersionPublishedAt: 2011-04-25T00:00:00, LatestVersion: "1.0.0", LatestPublishedAt: 2012-11-14T00:00:00, Value: 1.558904109589041 },
-], Total: 24.983561643835618 } }
+], Total: 25.298630136986308 } }
 
 results[23] = { Date: 2013-02-01T00:00:00, ManifestSHA: 4198694273bc975a6ca06ed4f94225b83a2ae333, LibYear: { _packagesValues: [
 { Name: "actionmailer", RepoVersion: "3.2.6", RepoVersionPublishedAt: 2012-06-12T00:00:00, LatestVersion: "3.2.11", LatestPublishedAt: 2013-01-08T00:00:00, Value: 0.5753424657534246 },
@@ -1444,7 +1444,7 @@ results[23] = { Date: 2013-02-01T00:00:00, ManifestSHA: 4198694273bc975a6ca06ed4
 { Name: "i18n", RepoVersion: "0.6.1", RepoVersionPublishedAt: 2012-08-31T00:00:00, LatestVersion: "0.6.1", LatestPublishedAt: 2012-08-31T00:00:00, Value: 0 },
 { Name: "journey", RepoVersion: "1.0.4", RepoVersionPublishedAt: 2012-06-14T00:00:00, LatestVersion: "1.0.4", LatestPublishedAt: 2012-06-14T00:00:00, Value: 0 },
 { Name: "json", RepoVersion: "1.7.6", RepoVersionPublishedAt: 2012-12-31T00:00:00, LatestVersion: "1.7.6", LatestPublishedAt: 2012-12-31T00:00:00, Value: 0 },
-{ Name: "libwebsocket", RepoVersion: "0.1.4", RepoVersionPublishedAt: 2012-07-13T00:00:00, LatestVersion: "0.2.0", LatestPublishedAt: 2012-03-20T00:00:00, Value: -0.3150684931506849 },
+{ Name: "libwebsocket", RepoVersion: "0.1.4", RepoVersionPublishedAt: 2012-07-13T00:00:00, LatestVersion: "0.2.0", LatestPublishedAt: 2012-03-20T00:00:00, Value: 0 },
 { Name: "mail", RepoVersion: "2.4.4", RepoVersionPublishedAt: 2012-03-14T00:00:00, LatestVersion: "2.5.3", LatestPublishedAt: 2012-12-04T00:00:00, Value: 0.726027397260274 },
 { Name: "metaclass", RepoVersion: "0.0.1", RepoVersionPublishedAt: 2011-08-11T00:00:00, LatestVersion: "0.0.1", LatestPublishedAt: 2011-08-11T00:00:00, Value: 0 },
 { Name: "mime-types", RepoVersion: "1.19", RepoVersionPublishedAt: 2012-06-21T00:00:00, LatestVersion: "1.19", LatestPublishedAt: 2012-06-21T00:00:00, Value: 0 },
@@ -1476,7 +1476,7 @@ results[23] = { Date: 2013-02-01T00:00:00, ManifestSHA: 4198694273bc975a6ca06ed4
 { Name: "treetop", RepoVersion: "1.4.12", RepoVersionPublishedAt: 2012-10-29T00:00:00, LatestVersion: "1.4.12", LatestPublishedAt: 2012-10-29T00:00:00, Value: 0 },
 { Name: "tzinfo", RepoVersion: "0.3.34", RepoVersionPublishedAt: 2012-10-27T00:00:00, LatestVersion: "0.3.35", LatestPublishedAt: 2012-11-04T00:00:00, Value: 0.021917808219178082 },
 { Name: "xpath", RepoVersion: "0.1.4", RepoVersionPublishedAt: 2011-04-25T00:00:00, LatestVersion: "1.0.0", LatestPublishedAt: 2012-11-14T00:00:00, Value: 1.558904109589041 },
-], Total: 19.95890410958904 } }
+], Total: 20.273972602739725 } }
 
 results[24] = { Date: 2013-03-01T00:00:00, ManifestSHA: a49a3456a8199af8cd88432d48a817eb61f53f88, LibYear: { _packagesValues: [
 { Name: "actionmailer", RepoVersion: "3.2.6", RepoVersionPublishedAt: 2012-06-12T00:00:00, LatestVersion: "3.2.12", LatestPublishedAt: 2013-02-11T00:00:00, Value: 0.6684931506849315 },
@@ -1508,7 +1508,7 @@ results[24] = { Date: 2013-03-01T00:00:00, ManifestSHA: a49a3456a8199af8cd88432d
 { Name: "i18n", RepoVersion: "0.6.1", RepoVersionPublishedAt: 2012-08-31T00:00:00, LatestVersion: "0.6.4", LatestPublishedAt: 2013-02-27T00:00:00, Value: 0.4931506849315068 },
 { Name: "journey", RepoVersion: "1.0.4", RepoVersionPublishedAt: 2012-06-14T00:00:00, LatestVersion: "1.0.4", LatestPublishedAt: 2012-06-14T00:00:00, Value: 0 },
 { Name: "json", RepoVersion: "1.7.6", RepoVersionPublishedAt: 2012-12-31T00:00:00, LatestVersion: "1.7.7", LatestPublishedAt: 2013-02-11T00:00:00, Value: 0.11506849315068493 },
-{ Name: "libwebsocket", RepoVersion: "0.1.4", RepoVersionPublishedAt: 2012-07-13T00:00:00, LatestVersion: "0.2.0", LatestPublishedAt: 2012-03-20T00:00:00, Value: -0.3150684931506849 },
+{ Name: "libwebsocket", RepoVersion: "0.1.4", RepoVersionPublishedAt: 2012-07-13T00:00:00, LatestVersion: "0.2.0", LatestPublishedAt: 2012-03-20T00:00:00, Value: 0 },
 { Name: "mail", RepoVersion: "2.4.4", RepoVersionPublishedAt: 2012-03-14T00:00:00, LatestVersion: "2.5.3", LatestPublishedAt: 2012-12-04T00:00:00, Value: 0.726027397260274 },
 { Name: "metaclass", RepoVersion: "0.0.1", RepoVersionPublishedAt: 2011-08-11T00:00:00, LatestVersion: "0.0.1", LatestPublishedAt: 2011-08-11T00:00:00, Value: 0 },
 { Name: "mime-types", RepoVersion: "1.19", RepoVersionPublishedAt: 2012-06-21T00:00:00, LatestVersion: "1.21", LatestPublishedAt: 2013-02-09T00:00:00, Value: 0.6383561643835617 },
@@ -1541,7 +1541,7 @@ results[24] = { Date: 2013-03-01T00:00:00, ManifestSHA: a49a3456a8199af8cd88432d
 { Name: "treetop", RepoVersion: "1.4.12", RepoVersionPublishedAt: 2012-10-29T00:00:00, LatestVersion: "1.4.12", LatestPublishedAt: 2012-10-29T00:00:00, Value: 0 },
 { Name: "tzinfo", RepoVersion: "0.3.35", RepoVersionPublishedAt: 2012-11-04T00:00:00, LatestVersion: "0.3.35", LatestPublishedAt: 2012-11-04T00:00:00, Value: 0 },
 { Name: "xpath", RepoVersion: "0.1.4", RepoVersionPublishedAt: 2011-04-25T00:00:00, LatestVersion: "1.0.0", LatestPublishedAt: 2012-11-14T00:00:00, Value: 1.558904109589041 },
-], Total: 27.42739726027398 } }
+], Total: 27.742465753424664 } }
 
 results[25] = { Date: 2013-04-01T00:00:00, ManifestSHA: be7984c67ef798022821df633aafda1716dd7267, LibYear: { _packagesValues: [
 { Name: "actionmailer", RepoVersion: "3.2.6", RepoVersionPublishedAt: 2012-06-12T00:00:00, LatestVersion: "3.2.13", LatestPublishedAt: 2013-03-18T00:00:00, Value: 0.7643835616438356 },
@@ -1573,7 +1573,7 @@ results[25] = { Date: 2013-04-01T00:00:00, ManifestSHA: be7984c67ef798022821df63
 { Name: "i18n", RepoVersion: "0.6.1", RepoVersionPublishedAt: 2012-08-31T00:00:00, LatestVersion: "0.6.4", LatestPublishedAt: 2013-02-27T00:00:00, Value: 0.4931506849315068 },
 { Name: "journey", RepoVersion: "1.0.4", RepoVersionPublishedAt: 2012-06-14T00:00:00, LatestVersion: "1.0.4", LatestPublishedAt: 2012-06-14T00:00:00, Value: 0 },
 { Name: "json", RepoVersion: "1.7.6", RepoVersionPublishedAt: 2012-12-31T00:00:00, LatestVersion: "1.7.7", LatestPublishedAt: 2013-02-11T00:00:00, Value: 0.11506849315068493 },
-{ Name: "libwebsocket", RepoVersion: "0.1.4", RepoVersionPublishedAt: 2012-07-13T00:00:00, LatestVersion: "0.2.0", LatestPublishedAt: 2012-03-20T00:00:00, Value: -0.3150684931506849 },
+{ Name: "libwebsocket", RepoVersion: "0.1.4", RepoVersionPublishedAt: 2012-07-13T00:00:00, LatestVersion: "0.2.0", LatestPublishedAt: 2012-03-20T00:00:00, Value: 0 },
 { Name: "mail", RepoVersion: "2.4.4", RepoVersionPublishedAt: 2012-03-14T00:00:00, LatestVersion: "2.5.3", LatestPublishedAt: 2012-12-04T00:00:00, Value: 0.726027397260274 },
 { Name: "metaclass", RepoVersion: "0.0.1", RepoVersionPublishedAt: 2011-08-11T00:00:00, LatestVersion: "0.0.1", LatestPublishedAt: 2011-08-11T00:00:00, Value: 0 },
 { Name: "mime-types", RepoVersion: "1.19", RepoVersionPublishedAt: 2012-06-21T00:00:00, LatestVersion: "1.22", LatestPublishedAt: 2013-03-30T00:00:00, Value: 0.7726027397260274 },
@@ -1606,7 +1606,7 @@ results[25] = { Date: 2013-04-01T00:00:00, ManifestSHA: be7984c67ef798022821df63
 { Name: "treetop", RepoVersion: "1.4.12", RepoVersionPublishedAt: 2012-10-29T00:00:00, LatestVersion: "1.4.12", LatestPublishedAt: 2012-10-29T00:00:00, Value: 0 },
 { Name: "tzinfo", RepoVersion: "0.3.37", RepoVersionPublishedAt: 2013-03-11T00:00:00, LatestVersion: "0.3.37", LatestPublishedAt: 2013-03-11T00:00:00, Value: 0 },
 { Name: "xpath", RepoVersion: "0.1.4", RepoVersionPublishedAt: 2011-04-25T00:00:00, LatestVersion: "1.0.0", LatestPublishedAt: 2012-11-14T00:00:00, Value: 1.558904109589041 },
-], Total: 32.29041095890412 } }
+], Total: 32.6054794520548 } }
 
 results[26] = { Date: 2013-05-01T00:00:00, ManifestSHA: 24255414e9db262f206518410cf5944b289cb45e, LibYear: { _packagesValues: [
 { Name: "actionmailer", RepoVersion: "3.2.6", RepoVersionPublishedAt: 2012-06-12T00:00:00, LatestVersion: "3.2.13", LatestPublishedAt: 2013-03-18T00:00:00, Value: 0.7643835616438356 },
@@ -1638,7 +1638,7 @@ results[26] = { Date: 2013-05-01T00:00:00, ManifestSHA: 24255414e9db262f20651841
 { Name: "i18n", RepoVersion: "0.6.1", RepoVersionPublishedAt: 2012-08-31T00:00:00, LatestVersion: "0.6.4", LatestPublishedAt: 2013-02-27T00:00:00, Value: 0.4931506849315068 },
 { Name: "journey", RepoVersion: "1.0.4", RepoVersionPublishedAt: 2012-06-14T00:00:00, LatestVersion: "1.0.4", LatestPublishedAt: 2012-06-14T00:00:00, Value: 0 },
 { Name: "json", RepoVersion: "1.7.6", RepoVersionPublishedAt: 2012-12-31T00:00:00, LatestVersion: "1.7.7", LatestPublishedAt: 2013-02-11T00:00:00, Value: 0.11506849315068493 },
-{ Name: "libwebsocket", RepoVersion: "0.1.4", RepoVersionPublishedAt: 2012-07-13T00:00:00, LatestVersion: "0.2.0", LatestPublishedAt: 2012-03-20T00:00:00, Value: -0.3150684931506849 },
+{ Name: "libwebsocket", RepoVersion: "0.1.4", RepoVersionPublishedAt: 2012-07-13T00:00:00, LatestVersion: "0.2.0", LatestPublishedAt: 2012-03-20T00:00:00, Value: 0 },
 { Name: "mail", RepoVersion: "2.4.4", RepoVersionPublishedAt: 2012-03-14T00:00:00, LatestVersion: "2.5.3", LatestPublishedAt: 2012-12-04T00:00:00, Value: 0.726027397260274 },
 { Name: "metaclass", RepoVersion: "0.0.1", RepoVersionPublishedAt: 2011-08-11T00:00:00, LatestVersion: "0.0.1", LatestPublishedAt: 2011-08-11T00:00:00, Value: 0 },
 { Name: "mime-types", RepoVersion: "1.19", RepoVersionPublishedAt: 2012-06-21T00:00:00, LatestVersion: "1.23", LatestPublishedAt: 2013-04-21T00:00:00, Value: 0.8328767123287671 },
@@ -1671,7 +1671,7 @@ results[26] = { Date: 2013-05-01T00:00:00, ManifestSHA: 24255414e9db262f20651841
 { Name: "treetop", RepoVersion: "1.4.12", RepoVersionPublishedAt: 2012-10-29T00:00:00, LatestVersion: "1.4.12", LatestPublishedAt: 2012-10-29T00:00:00, Value: 0 },
 { Name: "tzinfo", RepoVersion: "0.3.37", RepoVersionPublishedAt: 2013-03-11T00:00:00, LatestVersion: "0.3.37", LatestPublishedAt: 2013-03-11T00:00:00, Value: 0 },
 { Name: "xpath", RepoVersion: "0.1.4", RepoVersionPublishedAt: 2011-04-25T00:00:00, LatestVersion: "2.0.0", LatestPublishedAt: 2013-04-09T00:00:00, Value: 1.9589041095890412 },
-], Total: 37.85205479452055 } }
+], Total: 38.16712328767124 } }
 
 results[27] = { Date: 2013-06-01T00:00:00, ManifestSHA: c15a81436a989f9065356aa49d444f45a2a75eb2, LibYear: { _packagesValues: [
 { Name: "actionmailer", RepoVersion: "3.2.6", RepoVersionPublishedAt: 2012-06-12T00:00:00, LatestVersion: "3.2.13", LatestPublishedAt: 2013-03-18T00:00:00, Value: 0.7643835616438356 },
@@ -1703,7 +1703,7 @@ results[27] = { Date: 2013-06-01T00:00:00, ManifestSHA: c15a81436a989f9065356aa4
 { Name: "i18n", RepoVersion: "0.6.1", RepoVersionPublishedAt: 2012-08-31T00:00:00, LatestVersion: "0.6.4", LatestPublishedAt: 2013-02-27T00:00:00, Value: 0.4931506849315068 },
 { Name: "journey", RepoVersion: "1.0.4", RepoVersionPublishedAt: 2012-06-14T00:00:00, LatestVersion: "1.0.4", LatestPublishedAt: 2012-06-14T00:00:00, Value: 0 },
 { Name: "json", RepoVersion: "1.7.6", RepoVersionPublishedAt: 2012-12-31T00:00:00, LatestVersion: "1.8.0", LatestPublishedAt: 2013-05-13T00:00:00, Value: 0.3643835616438356 },
-{ Name: "libwebsocket", RepoVersion: "0.1.4", RepoVersionPublishedAt: 2012-07-13T00:00:00, LatestVersion: "0.2.0", LatestPublishedAt: 2012-03-20T00:00:00, Value: -0.3150684931506849 },
+{ Name: "libwebsocket", RepoVersion: "0.1.4", RepoVersionPublishedAt: 2012-07-13T00:00:00, LatestVersion: "0.2.0", LatestPublishedAt: 2012-03-20T00:00:00, Value: 0 },
 { Name: "mail", RepoVersion: "2.4.4", RepoVersionPublishedAt: 2012-03-14T00:00:00, LatestVersion: "2.5.4", LatestPublishedAt: 2013-05-14T00:00:00, Value: 1.167123287671233 },
 { Name: "metaclass", RepoVersion: "0.0.1", RepoVersionPublishedAt: 2011-08-11T00:00:00, LatestVersion: "0.0.1", LatestPublishedAt: 2011-08-11T00:00:00, Value: 0 },
 { Name: "mime-types", RepoVersion: "1.19", RepoVersionPublishedAt: 2012-06-21T00:00:00, LatestVersion: "1.23", LatestPublishedAt: 2013-04-21T00:00:00, Value: 0.8328767123287671 },
@@ -1736,7 +1736,7 @@ results[27] = { Date: 2013-06-01T00:00:00, ManifestSHA: c15a81436a989f9065356aa4
 { Name: "treetop", RepoVersion: "1.4.12", RepoVersionPublishedAt: 2012-10-29T00:00:00, LatestVersion: "1.4.12", LatestPublishedAt: 2012-10-29T00:00:00, Value: 0 },
 { Name: "tzinfo", RepoVersion: "0.3.37", RepoVersionPublishedAt: 2013-03-11T00:00:00, LatestVersion: "0.3.37", LatestPublishedAt: 2013-03-11T00:00:00, Value: 0 },
 { Name: "xpath", RepoVersion: "0.1.4", RepoVersionPublishedAt: 2011-04-25T00:00:00, LatestVersion: "2.0.0", LatestPublishedAt: 2013-04-09T00:00:00, Value: 1.9589041095890412 },
-], Total: 40.38630136986303 } }
+], Total: 40.70136986301371 } }
 
 results[28] = { Date: 2013-07-01T00:00:00, ManifestSHA: e075bf07dca7ffd073664253f47ae8fef968628b, LibYear: { _packagesValues: [
 { Name: "actionmailer", RepoVersion: "3.2.12", RepoVersionPublishedAt: 2013-02-11T00:00:00, LatestVersion: "4.0.0", LatestPublishedAt: 2013-06-25T00:00:00, Value: 0.36712328767123287 },
@@ -2128,10 +2128,10 @@ results[33] = { Date: 2013-12-01T00:00:00, ManifestSHA: 18db3c7294a823a3a401182d
 { Name: "tilt", RepoVersion: "1.4.1", RepoVersionPublishedAt: 2013-05-08T00:00:00, LatestVersion: "2.0.0", LatestPublishedAt: 2013-11-30T00:00:00, Value: 0.5643835616438356 },
 { Name: "timecop", RepoVersion: "0.6.2.2", RepoVersionPublishedAt: 2013-07-20T00:00:00, LatestVersion: "0.7.0", LatestPublishedAt: 2013-11-30T00:00:00, Value: 0.3643835616438356 },
 { Name: "treetop", RepoVersion: "1.4.15", RepoVersionPublishedAt: 2013-08-17T00:00:00, LatestVersion: "1.4.15", LatestPublishedAt: 2013-08-17T00:00:00, Value: 0 },
-{ Name: "tzinfo", RepoVersion: "0.3.38", RepoVersionPublishedAt: 2013-10-08T00:00:00, LatestVersion: "1.1.0", LatestPublishedAt: 2013-09-25T00:00:00, Value: -0.03561643835616438 },
+{ Name: "tzinfo", RepoVersion: "0.3.38", RepoVersionPublishedAt: 2013-10-08T00:00:00, LatestVersion: "1.1.0", LatestPublishedAt: 2013-09-25T00:00:00, Value: 0 },
 { Name: "websocket", RepoVersion: "1.0.7", RepoVersionPublishedAt: 2013-01-27T00:00:00, LatestVersion: "1.1.2", LatestPublishedAt: 2013-11-13T00:00:00, Value: 0.7945205479452054 },
 { Name: "xpath", RepoVersion: "1.0.0", RepoVersionPublishedAt: 2012-11-14T00:00:00, LatestVersion: "2.0.0", LatestPublishedAt: 2013-04-09T00:00:00, Value: 0.4 },
-], Total: 16.690410958904103 } }
+], Total: 16.726027397260268 } }
 
 results[34] = { Date: 2014-01-01T00:00:00, ManifestSHA: 18db3c7294a823a3a401182d869a4e4840ee4a0d, LibYear: { _packagesValues: [
 { Name: "actionmailer", RepoVersion: "4.0.0", RepoVersionPublishedAt: 2013-06-25T00:00:00, LatestVersion: "4.0.2", LatestPublishedAt: 2013-12-03T00:00:00, Value: 0.4410958904109589 },
@@ -2195,10 +2195,10 @@ results[34] = { Date: 2014-01-01T00:00:00, ManifestSHA: 18db3c7294a823a3a401182d
 { Name: "tilt", RepoVersion: "1.4.1", RepoVersionPublishedAt: 2013-05-08T00:00:00, LatestVersion: "2.0.0", LatestPublishedAt: 2013-11-30T00:00:00, Value: 0.5643835616438356 },
 { Name: "timecop", RepoVersion: "0.6.2.2", RepoVersionPublishedAt: 2013-07-20T00:00:00, LatestVersion: "0.7.1", LatestPublishedAt: 2013-12-30T00:00:00, Value: 0.4465753424657534 },
 { Name: "treetop", RepoVersion: "1.4.15", RepoVersionPublishedAt: 2013-08-17T00:00:00, LatestVersion: "1.4.15", LatestPublishedAt: 2013-08-17T00:00:00, Value: 0 },
-{ Name: "tzinfo", RepoVersion: "0.3.38", RepoVersionPublishedAt: 2013-10-08T00:00:00, LatestVersion: "1.1.0", LatestPublishedAt: 2013-09-25T00:00:00, Value: -0.03561643835616438 },
+{ Name: "tzinfo", RepoVersion: "0.3.38", RepoVersionPublishedAt: 2013-10-08T00:00:00, LatestVersion: "1.1.0", LatestPublishedAt: 2013-09-25T00:00:00, Value: 0 },
 { Name: "websocket", RepoVersion: "1.0.7", RepoVersionPublishedAt: 2013-01-27T00:00:00, LatestVersion: "1.1.2", LatestPublishedAt: 2013-11-13T00:00:00, Value: 0.7945205479452054 },
 { Name: "xpath", RepoVersion: "1.0.0", RepoVersionPublishedAt: 2012-11-14T00:00:00, LatestVersion: "2.0.0", LatestPublishedAt: 2013-04-09T00:00:00, Value: 0.4 },
-], Total: 21.120547945205473 } }
+], Total: 21.156164383561638 } }
 
 results[35] = { Date: 2014-02-01T00:00:00, ManifestSHA: 00563eccba5af32679aa808415d65a5a9da21727, LibYear: { _packagesValues: [
 { Name: "actionmailer", RepoVersion: "4.0.0", RepoVersionPublishedAt: 2013-06-25T00:00:00, LatestVersion: "4.0.2", LatestPublishedAt: 2013-12-03T00:00:00, Value: 0.4410958904109589 },
@@ -2262,10 +2262,10 @@ results[35] = { Date: 2014-02-01T00:00:00, ManifestSHA: 00563eccba5af32679aa8084
 { Name: "tilt", RepoVersion: "1.4.1", RepoVersionPublishedAt: 2013-05-08T00:00:00, LatestVersion: "2.0.0", LatestPublishedAt: 2013-11-30T00:00:00, Value: 0.5643835616438356 },
 { Name: "timecop", RepoVersion: "0.6.2.2", RepoVersionPublishedAt: 2013-07-20T00:00:00, LatestVersion: "0.7.1", LatestPublishedAt: 2013-12-30T00:00:00, Value: 0.4465753424657534 },
 { Name: "treetop", RepoVersion: "1.4.15", RepoVersionPublishedAt: 2013-08-17T00:00:00, LatestVersion: "1.4.15", LatestPublishedAt: 2013-08-17T00:00:00, Value: 0 },
-{ Name: "tzinfo", RepoVersion: "0.3.38", RepoVersionPublishedAt: 2013-10-08T00:00:00, LatestVersion: "1.1.0", LatestPublishedAt: 2013-09-25T00:00:00, Value: -0.03561643835616438 },
+{ Name: "tzinfo", RepoVersion: "0.3.38", RepoVersionPublishedAt: 2013-10-08T00:00:00, LatestVersion: "1.1.0", LatestPublishedAt: 2013-09-25T00:00:00, Value: 0 },
 { Name: "websocket", RepoVersion: "1.0.7", RepoVersionPublishedAt: 2013-01-27T00:00:00, LatestVersion: "1.1.2", LatestPublishedAt: 2013-11-13T00:00:00, Value: 0.7945205479452054 },
 { Name: "xpath", RepoVersion: "1.0.0", RepoVersionPublishedAt: 2012-11-14T00:00:00, LatestVersion: "2.0.0", LatestPublishedAt: 2013-04-09T00:00:00, Value: 0.4 },
-], Total: 28.51232876712329 } }
+], Total: 28.547945205479454 } }
 
 results[36] = { Date: 2014-03-01T00:00:00, ManifestSHA: e756ad6bc4436165825f134c9ea438830a880b1e, LibYear: { _packagesValues: [
 { Name: "actionmailer", RepoVersion: "4.0.2", RepoVersionPublishedAt: 2013-12-03T00:00:00, LatestVersion: "4.0.3", LatestPublishedAt: 2014-02-18T00:00:00, Value: 0.21095890410958903 },
@@ -2325,10 +2325,10 @@ results[36] = { Date: 2014-03-01T00:00:00, ManifestSHA: e756ad6bc4436165825f134c
 { Name: "tilt", RepoVersion: "1.4.1", RepoVersionPublishedAt: 2013-05-08T00:00:00, LatestVersion: "2.0.0", LatestPublishedAt: 2013-11-30T00:00:00, Value: 0.5643835616438356 },
 { Name: "timecop", RepoVersion: "0.7.1", RepoVersionPublishedAt: 2013-12-30T00:00:00, LatestVersion: "0.7.1", LatestPublishedAt: 2013-12-30T00:00:00, Value: 0 },
 { Name: "treetop", RepoVersion: "1.4.15", RepoVersionPublishedAt: 2013-08-17T00:00:00, LatestVersion: "1.4.15", LatestPublishedAt: 2013-08-17T00:00:00, Value: 0 },
-{ Name: "tzinfo", RepoVersion: "0.3.38", RepoVersionPublishedAt: 2013-10-08T00:00:00, LatestVersion: "1.1.0", LatestPublishedAt: 2013-09-25T00:00:00, Value: -0.03561643835616438 },
+{ Name: "tzinfo", RepoVersion: "0.3.38", RepoVersionPublishedAt: 2013-10-08T00:00:00, LatestVersion: "1.1.0", LatestPublishedAt: 2013-09-25T00:00:00, Value: 0 },
 { Name: "websocket", RepoVersion: "1.0.7", RepoVersionPublishedAt: 2013-01-27T00:00:00, LatestVersion: "1.1.2", LatestPublishedAt: 2013-11-13T00:00:00, Value: 0.7945205479452054 },
 { Name: "xpath", RepoVersion: "1.0.0", RepoVersionPublishedAt: 2012-11-14T00:00:00, LatestVersion: "2.0.0", LatestPublishedAt: 2013-04-09T00:00:00, Value: 0.4 },
-], Total: 9.816438356164381 } }
+], Total: 9.852054794520546 } }
 
 results[37] = { Date: 2014-04-01T00:00:00, ManifestSHA: b8a51add395c3374c54d4e47c0f013f786edff8b, LibYear: { _packagesValues: [
 { Name: "actionmailer", RepoVersion: "4.0.2", RepoVersionPublishedAt: 2013-12-03T00:00:00, LatestVersion: "4.0.4", LatestPublishedAt: 2014-03-14T00:00:00, Value: 0.27671232876712326 },
@@ -2388,10 +2388,10 @@ results[37] = { Date: 2014-04-01T00:00:00, ManifestSHA: b8a51add395c3374c54d4e47
 { Name: "tilt", RepoVersion: "1.4.1", RepoVersionPublishedAt: 2013-05-08T00:00:00, LatestVersion: "2.0.1", LatestPublishedAt: 2014-03-21T00:00:00, Value: 0.8684931506849315 },
 { Name: "timecop", RepoVersion: "0.7.1", RepoVersionPublishedAt: 2013-12-30T00:00:00, LatestVersion: "0.7.1", LatestPublishedAt: 2013-12-30T00:00:00, Value: 0 },
 { Name: "treetop", RepoVersion: "1.4.15", RepoVersionPublishedAt: 2013-08-17T00:00:00, LatestVersion: "1.5.3", LatestPublishedAt: 2014-03-21T00:00:00, Value: 0.5917808219178082 },
-{ Name: "tzinfo", RepoVersion: "0.3.38", RepoVersionPublishedAt: 2013-10-08T00:00:00, LatestVersion: "1.1.0", LatestPublishedAt: 2013-09-25T00:00:00, Value: -0.03561643835616438 },
+{ Name: "tzinfo", RepoVersion: "0.3.38", RepoVersionPublishedAt: 2013-10-08T00:00:00, LatestVersion: "1.1.0", LatestPublishedAt: 2013-09-25T00:00:00, Value: 0 },
 { Name: "websocket", RepoVersion: "1.0.7", RepoVersionPublishedAt: 2013-01-27T00:00:00, LatestVersion: "1.1.2", LatestPublishedAt: 2013-11-13T00:00:00, Value: 0.7945205479452054 },
 { Name: "xpath", RepoVersion: "1.0.0", RepoVersionPublishedAt: 2012-11-14T00:00:00, LatestVersion: "2.0.0", LatestPublishedAt: 2013-04-09T00:00:00, Value: 0.4 },
-], Total: 14.734246575342468 } }
+], Total: 14.769863013698632 } }
 
 results[38] = { Date: 2014-05-01T00:00:00, ManifestSHA: 1d51972a8398cbe1c62ca17bc0435345e2916e17, LibYear: { _packagesValues: [
 { Name: "actionmailer", RepoVersion: "4.0.2", RepoVersionPublishedAt: 2013-12-03T00:00:00, LatestVersion: "4.1.0", LatestPublishedAt: 2014-04-08T00:00:00, Value: 0.3452054794520548 },
@@ -2451,10 +2451,10 @@ results[38] = { Date: 2014-05-01T00:00:00, ManifestSHA: 1d51972a8398cbe1c62ca17b
 { Name: "tilt", RepoVersion: "1.4.1", RepoVersionPublishedAt: 2013-05-08T00:00:00, LatestVersion: "2.0.1", LatestPublishedAt: 2014-03-21T00:00:00, Value: 0.8684931506849315 },
 { Name: "timecop", RepoVersion: "0.7.1", RepoVersionPublishedAt: 2013-12-30T00:00:00, LatestVersion: "0.7.1", LatestPublishedAt: 2013-12-30T00:00:00, Value: 0 },
 { Name: "treetop", RepoVersion: "1.4.15", RepoVersionPublishedAt: 2013-08-17T00:00:00, LatestVersion: "1.5.3", LatestPublishedAt: 2014-03-21T00:00:00, Value: 0.5917808219178082 },
-{ Name: "tzinfo", RepoVersion: "0.3.38", RepoVersionPublishedAt: 2013-10-08T00:00:00, LatestVersion: "1.1.0", LatestPublishedAt: 2013-09-25T00:00:00, Value: -0.03561643835616438 },
+{ Name: "tzinfo", RepoVersion: "0.3.38", RepoVersionPublishedAt: 2013-10-08T00:00:00, LatestVersion: "1.1.0", LatestPublishedAt: 2013-09-25T00:00:00, Value: 0 },
 { Name: "websocket", RepoVersion: "1.0.7", RepoVersionPublishedAt: 2013-01-27T00:00:00, LatestVersion: "1.1.2", LatestPublishedAt: 2013-11-13T00:00:00, Value: 0.7945205479452054 },
 { Name: "xpath", RepoVersion: "1.0.0", RepoVersionPublishedAt: 2012-11-14T00:00:00, LatestVersion: "2.0.0", LatestPublishedAt: 2013-04-09T00:00:00, Value: 0.4 },
-], Total: 17.564383561643833 } }
+], Total: 17.599999999999998 } }
 
 results[39] = { Date: 2014-06-01T00:00:00, ManifestSHA: 30fe8401a2bfc533cc2dcd325c92152a41ad8924, LibYear: { _packagesValues: [
 { Name: "actionmailer", RepoVersion: "4.0.2", RepoVersionPublishedAt: 2013-12-03T00:00:00, LatestVersion: "4.1.1", LatestPublishedAt: 2014-05-06T00:00:00, Value: 0.42191780821917807 },
@@ -4522,7 +4522,7 @@ results[73] = { Date: 2017-04-01T00:00:00, ManifestSHA: 4d6374f618df3efc27314805
 { Name: "factory_girl_rails", RepoVersion: "4.7.0", RepoVersionPublishedAt: 2016-04-08T00:00:00, LatestVersion: "4.8.0", LatestPublishedAt: 2016-12-16T00:00:00, Value: 0.6904109589041096 },
 { Name: "globalid", RepoVersion: "0.3.7", RepoVersionPublishedAt: 2016-07-26T00:00:00, LatestVersion: "0.3.7", LatestPublishedAt: 2016-07-26T00:00:00, Value: 0 },
 { Name: "i18n", RepoVersion: "0.7.0", RepoVersionPublishedAt: 2014-12-19T00:00:00, LatestVersion: "0.8.1", LatestPublishedAt: 2017-02-22T00:00:00, Value: 2.180821917808219 },
-{ Name: "json", RepoVersion: "1.8.6", RepoVersionPublishedAt: 2017-01-13T00:00:00, LatestVersion: "2.0.3", LatestPublishedAt: 2017-01-12T00:00:00, Value: -0.0027397260273972603 },
+{ Name: "json", RepoVersion: "1.8.6", RepoVersionPublishedAt: 2017-01-13T00:00:00, LatestVersion: "2.0.3", LatestPublishedAt: 2017-01-12T00:00:00, Value: 0 },
 { Name: "loofah", RepoVersion: "2.0.3", RepoVersionPublishedAt: 2015-08-17T00:00:00, LatestVersion: "2.0.3", LatestPublishedAt: 2015-08-17T00:00:00, Value: 0 },
 { Name: "mail", RepoVersion: "2.6.4", RepoVersionPublishedAt: 2016-03-23T00:00:00, LatestVersion: "2.6.4", LatestPublishedAt: 2016-03-23T00:00:00, Value: 0 },
 { Name: "method_source", RepoVersion: "0.8.2", RepoVersionPublishedAt: 2013-07-27T00:00:00, LatestVersion: "0.8.2", LatestPublishedAt: 2013-07-27T00:00:00, Value: 0 },
@@ -4532,7 +4532,7 @@ results[73] = { Date: 2017-04-01T00:00:00, ManifestSHA: 4d6374f618df3efc27314805
 { Name: "minitest", RepoVersion: "5.10.1", RepoVersionPublishedAt: 2016-12-02T00:00:00, LatestVersion: "5.10.1", LatestPublishedAt: 2016-12-02T00:00:00, Value: 0 },
 { Name: "nokogiri", RepoVersion: "1.6.8.1", RepoVersionPublishedAt: 2016-10-03T00:00:00, LatestVersion: "1.7.1", LatestPublishedAt: 2017-03-20T00:00:00, Value: 0.4602739726027397 },
 { Name: "pry", RepoVersion: "0.10.3", RepoVersionPublishedAt: 2015-10-15T00:00:00, LatestVersion: "0.10.4", LatestPublishedAt: 2016-07-11T00:00:00, Value: 0.7397260273972602 },
-{ Name: "rack", RepoVersion: "1.6.5", RepoVersionPublishedAt: 2016-11-10T00:00:00, LatestVersion: "2.0.1", LatestPublishedAt: 2016-06-30T00:00:00, Value: -0.3643835616438356 },
+{ Name: "rack", RepoVersion: "1.6.5", RepoVersionPublishedAt: 2016-11-10T00:00:00, LatestVersion: "2.0.1", LatestPublishedAt: 2016-06-30T00:00:00, Value: 0 },
 { Name: "rack-test", RepoVersion: "0.6.3", RepoVersionPublishedAt: 2015-01-09T00:00:00, LatestVersion: "0.6.3", LatestPublishedAt: 2015-01-09T00:00:00, Value: 0 },
 { Name: "rails", RepoVersion: "4.2.7.1", RepoVersionPublishedAt: 2016-08-11T00:00:00, LatestVersion: "5.0.2", LatestPublishedAt: 2017-03-01T00:00:00, Value: 0.5534246575342465 },
 { Name: "rails-deprecated_sanitizer", RepoVersion: "1.0.3", RepoVersionPublishedAt: 2014-09-25T00:00:00, LatestVersion: "1.0.3", LatestPublishedAt: 2014-09-25T00:00:00, Value: 0 },
@@ -4555,7 +4555,7 @@ results[73] = { Date: 2017-04-01T00:00:00, ManifestSHA: 4d6374f618df3efc27314805
 { Name: "timecop", RepoVersion: "0.8.1", RepoVersionPublishedAt: 2016-04-01T00:00:00, LatestVersion: "0.8.1", LatestPublishedAt: 2016-04-01T00:00:00, Value: 0 },
 { Name: "tzinfo", RepoVersion: "1.2.2", RepoVersionPublishedAt: 2014-08-08T00:00:00, LatestVersion: "1.2.3", LatestPublishedAt: 2017-03-25T00:00:00, Value: 2.6301369863013697 },
 { Name: "xpath", RepoVersion: "2.0.0", RepoVersionPublishedAt: 2013-04-09T00:00:00, LatestVersion: "2.0.0", LatestPublishedAt: 2013-04-09T00:00:00, Value: 0 },
-], Total: 27.824657534246576 } }
+], Total: 28.19178082191781 } }
 
 results[74] = { Date: 2017-05-01T00:00:00, ManifestSHA: 4d6374f618df3efc2731480585a022b4256cdf64, LibYear: { _packagesValues: [
 { Name: "actionmailer", RepoVersion: "4.2.7.1", RepoVersionPublishedAt: 2016-08-11T00:00:00, LatestVersion: "5.1.0", LatestPublishedAt: 2017-04-27T00:00:00, Value: 0.7095890410958904 },
@@ -4592,7 +4592,7 @@ results[74] = { Date: 2017-05-01T00:00:00, ManifestSHA: 4d6374f618df3efc27314805
 { Name: "minitest", RepoVersion: "5.10.1", RepoVersionPublishedAt: 2016-12-02T00:00:00, LatestVersion: "5.10.1", LatestPublishedAt: 2016-12-02T00:00:00, Value: 0 },
 { Name: "nokogiri", RepoVersion: "1.6.8.1", RepoVersionPublishedAt: 2016-10-03T00:00:00, LatestVersion: "1.7.1", LatestPublishedAt: 2017-03-20T00:00:00, Value: 0.4602739726027397 },
 { Name: "pry", RepoVersion: "0.10.3", RepoVersionPublishedAt: 2015-10-15T00:00:00, LatestVersion: "0.10.4", LatestPublishedAt: 2016-07-11T00:00:00, Value: 0.7397260273972602 },
-{ Name: "rack", RepoVersion: "1.6.5", RepoVersionPublishedAt: 2016-11-10T00:00:00, LatestVersion: "2.0.1", LatestPublishedAt: 2016-06-30T00:00:00, Value: -0.3643835616438356 },
+{ Name: "rack", RepoVersion: "1.6.5", RepoVersionPublishedAt: 2016-11-10T00:00:00, LatestVersion: "2.0.1", LatestPublishedAt: 2016-06-30T00:00:00, Value: 0 },
 { Name: "rack-test", RepoVersion: "0.6.3", RepoVersionPublishedAt: 2015-01-09T00:00:00, LatestVersion: "0.6.3", LatestPublishedAt: 2015-01-09T00:00:00, Value: 0 },
 { Name: "rails", RepoVersion: "4.2.7.1", RepoVersionPublishedAt: 2016-08-11T00:00:00, LatestVersion: "5.1.0", LatestPublishedAt: 2017-04-27T00:00:00, Value: 0.7095890410958904 },
 { Name: "rails-deprecated_sanitizer", RepoVersion: "1.0.3", RepoVersionPublishedAt: 2014-09-25T00:00:00, LatestVersion: "1.0.3", LatestPublishedAt: 2014-09-25T00:00:00, Value: 0 },
@@ -4615,7 +4615,7 @@ results[74] = { Date: 2017-05-01T00:00:00, ManifestSHA: 4d6374f618df3efc27314805
 { Name: "timecop", RepoVersion: "0.8.1", RepoVersionPublishedAt: 2016-04-01T00:00:00, LatestVersion: "0.8.1", LatestPublishedAt: 2016-04-01T00:00:00, Value: 0 },
 { Name: "tzinfo", RepoVersion: "1.2.2", RepoVersionPublishedAt: 2014-08-08T00:00:00, LatestVersion: "1.2.3", LatestPublishedAt: 2017-03-25T00:00:00, Value: 2.6301369863013697 },
 { Name: "xpath", RepoVersion: "2.0.0", RepoVersionPublishedAt: 2013-04-09T00:00:00, LatestVersion: "2.0.0", LatestPublishedAt: 2013-04-09T00:00:00, Value: 0 },
-], Total: 33.81095890410958 } }
+], Total: 34.17534246575343 } }
 
 results[75] = { Date: 2017-06-01T00:00:00, ManifestSHA: 4d6374f618df3efc2731480585a022b4256cdf64, LibYear: { _packagesValues: [
 { Name: "actionmailer", RepoVersion: "4.2.7.1", RepoVersionPublishedAt: 2016-08-11T00:00:00, LatestVersion: "5.1.1", LatestPublishedAt: 2017-05-12T00:00:00, Value: 0.7506849315068493 },
