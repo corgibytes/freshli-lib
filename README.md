@@ -404,7 +404,7 @@ Access to the deployment environments is limited to a select group of individual
 
 ### Deployment Environments
 
-We have two deployment environments, staging and production. 
+We have two deployment environments, staging and production.
 
 * Production: https://freshli.io
 
