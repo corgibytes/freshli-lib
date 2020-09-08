@@ -67,12 +67,13 @@ namespace Freshli {
             currentVersion.DatePublished,
             latestVersion.Version,
             latestVersion.DatePublished,
-            libYearValue,
+            Math.Max(0, libYearValue),
             skipped: false);
 
           if (libYearValue < 0) {
-            _logger.Warn($"Negative value computed for {package.Name} " +
-              $"as of {date:d}: {packageResult}");
+            _logger.Warn($"Negative value ({libYearValue:0.000}) " +
+              $"computed for {package.Name} as of {date:d}; " +
+              $"setting value to 0: {packageResult}");
           }
 
           result.Add(packageResult);
