@@ -18,7 +18,7 @@
     <PackageReference Include="Hangfire.Core" Version="1.7.12" />
     <PackageReference Include="Hangfire.Postgresql" Version="1.7.1" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.7" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.7">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.8">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
