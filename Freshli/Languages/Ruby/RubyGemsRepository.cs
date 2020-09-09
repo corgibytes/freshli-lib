@@ -64,6 +64,21 @@ namespace Freshli.Languages.Ruby {
       throw new NotImplementedException();
     }
 
+    public List<IVersionInfo> VersionsBetween(
+      string name, IVersionInfo earlierVersion, IVersionInfo laterVersion)
+    {
+      try {
+        return GetReleaseHistory(name).
+          OrderByDescending(v => v).
+          Where(predicate: v => v.CompareTo(earlierVersion) == 1).
+          Where(predicate: v => v.CompareTo(laterVersion) == -1).ToList();
+      }
+      catch (Exception e) {
+        throw new VersionsBetweenNotFoundException(
+          name, earlierVersion.Version, laterVersion.Version, e);
+      }
+    }
+
     private static bool IsReleasePlatformSpecific(HtmlNode node) {
       var platformSpecific = false;
       foreach (var span in node.Descendants("span")) {

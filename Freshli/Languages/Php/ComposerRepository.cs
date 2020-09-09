@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
 using System.Text.RegularExpressions;
+using Freshli.Exceptions;
 using NLog;
 using RestSharp;
 
@@ -107,6 +108,12 @@ namespace Freshli.Languages.Php {
     }
 
     public IVersionInfo Latest(string name, DateTime asOf, string thatMatches) {
+      throw new NotImplementedException();
+    }
+
+    public List<IVersionInfo> VersionsBetween(
+      string name, IVersionInfo earlierVersion, IVersionInfo laterVersion)
+    {
       throw new NotImplementedException();
     }
 

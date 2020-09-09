@@ -51,14 +51,6 @@ namespace Freshli {
         }
 
         if (latestVersion != null && currentVersion != null) {
-          _logger.Trace(
-            $"Package({package.Name}, {package.Version}): " +
-            $"current = {currentVersion.ToSimpleVersion()}" +
-            $"@{currentVersion.DatePublished:d}, " +
-            $"latest = {latestVersion.ToSimpleVersion()}" +
-            $"@{latestVersion.DatePublished:d}"
-          );
-
           var libYearValue = Compute(currentVersion, latestVersion);
 
           var packageResult = new LibYearPackageResult(
@@ -71,10 +63,26 @@ namespace Freshli {
             skipped: false);
 
           if (libYearValue < 0) {
-            _logger.Warn($"Negative value ({libYearValue:0.000}) " +
-              $"computed for {package.Name} as of {date:d}; " +
-              $"setting value to 0: {packageResult}");
+            var updatedPackageResult = ComputeUsingNewerMinorReleases(
+              package.Name, currentVersion, latestVersion);
+
+            if (updatedPackageResult != null) {
+              packageResult = updatedPackageResult;
+            } else {
+              _logger.Warn($"Negative value ({libYearValue:0.000}) " +
+                $"computed for {package.Name} as of {date:d}; " +
+                $"setting value to 0: {packageResult}");
+            }
           }
+
+          _logger.Trace(
+            $"PackageResult({package.Name}, {package.Version}): " +
+            $"{{current = {packageResult.Version}" +
+            $"@{packageResult.PublishedAt:d}, " +
+            $"latest = {packageResult.LatestVersion}" +
+            $"@{packageResult.LatestPublishedAt:d}, " +
+            $"value = {packageResult.Value:0.000}}}"
+          );
 
           result.Add(packageResult);
         }
@@ -83,10 +91,30 @@ namespace Freshli {
       return result;
     }
 
-    public double Compute(IVersionInfo olderVersion, IVersionInfo newerVersion)
+    public static double Compute(IVersionInfo olderVersion, IVersionInfo newerVersion)
     {
       return (newerVersion.DatePublished - olderVersion.DatePublished).
         TotalDays / 365.0;
+    }
+
+    private LibYearPackageResult ComputeUsingNewerMinorReleases(string name,
+      IVersionInfo currentVersion, IVersionInfo latestVersion)
+    {
+      foreach (var version in Repository.VersionsBetween(
+        name, currentVersion, latestVersion)) {
+        var value = Compute(currentVersion, version);
+        if (value >= 0) {
+          return new LibYearPackageResult(
+            name,
+            currentVersion.Version,
+            currentVersion.DatePublished,
+            version.Version,
+            version.DatePublished,
+            value,
+            skipped: false);
+        }
+      }
+      return null;
     }
   }
 }
