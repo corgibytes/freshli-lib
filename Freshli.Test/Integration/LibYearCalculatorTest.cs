@@ -110,37 +110,7 @@ namespace Freshli.Test.Integration {
     }
 
     [Fact]
-    public void ComputeAsOfWithNoNewerPythonMinorReleases() {
-      var repository = new PyPIRepository();
-      var manifest = new PipRequirementsTxtManifest();
-      manifest.Add("pymongo", ">=2.7.2,<3.0");
-      var calculator = new LibYearCalculator(repository, manifest);
-
-      var results = calculator.ComputeAsOf(new DateTime(2015, 10, 01));
-
-      Assert.Equal(0, results.Total, 3);
-      Assert.Equal( 0, results["pymongo"].Value, 3);
-      Assert.Equal("3.0.3", results["pymongo"].LatestVersion);
-      Assert.True(results["pymongo"].UpgradeAvailable);
-    }
-
-    [Fact]
-    public void ComputeAsOfWithNewerPythonMinorReleases() {
-      var repository = new PyPIRepository();
-      var manifest = new PipRequirementsTxtManifest();
-      manifest.Add("pymongo", ">=2.7.2,<3.0");
-      var calculator = new LibYearCalculator(repository, manifest);
-
-      var results = calculator.ComputeAsOf(new DateTime(2015, 12, 01));
-
-      Assert.Equal(0, results.Total, 3);
-      Assert.Equal( 0, results["pymongo"].Value, 3);
-      Assert.Equal("3.1.1", results["pymongo"].LatestVersion);
-      Assert.True(results["pymongo"].UpgradeAvailable);
-    }
-
-    [Fact]
-    public void ComputeAsOfWithNoNewerRubyMinorReleases() {
+    public void ComputeAsOfWithNoNewerMinorReleases() {
       var repository = new RubyGemsRepository();
       var manifest = new BundlerManifest();
       manifest.Add("tzinfo", "0.3.38");
@@ -155,7 +125,7 @@ namespace Freshli.Test.Integration {
     }
 
     [Fact]
-    public void ComputeAsOfWithNewerRubyMinorReleases() {
+    public void ComputeAsOfWithNewerMinorReleases() {
       var repository = new RubyGemsRepository();
       var manifest = new BundlerManifest();
       manifest.Add("tzinfo", "0.3.38");
