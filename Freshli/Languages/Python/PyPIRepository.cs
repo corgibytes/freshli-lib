@@ -87,12 +87,13 @@ namespace Freshli.Languages.Python {
       }
     }
 
-    public List<IVersionInfo> VersionsBetween(
-      string name, IVersionInfo earlierVersion, IVersionInfo laterVersion)
+    public List<IVersionInfo> VersionsBetween(string name, DateTime asOf,
+      IVersionInfo earlierVersion, IVersionInfo laterVersion)
     {
       try {
         return GetReleaseHistory(name).
           OrderByDescending(v => v).
+          Where(v => v.DatePublished <= asOf).
           Where(predicate: v => v.CompareTo(earlierVersion) == 1).
           Where(predicate: v => v.CompareTo(laterVersion) == -1).ToList();
       }

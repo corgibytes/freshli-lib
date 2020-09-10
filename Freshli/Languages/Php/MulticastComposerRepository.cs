@@ -66,8 +66,8 @@ namespace Freshli.Languages.Php {
       throw new NotImplementedException();
     }
 
-    public List<IVersionInfo> VersionsBetween(
-      string name, IVersionInfo earlierVersion, IVersionInfo laterVersion)
+    public List<IVersionInfo> VersionsBetween(string name, DateTime asOf,
+      IVersionInfo earlierVersion, IVersionInfo laterVersion)
     {
       throw new NotImplementedException();
     }

@@ -64,7 +64,7 @@ namespace Freshli {
 
           if (libYearValue < 0) {
             var updatedPackageResult = ComputeUsingNewerMinorReleases(
-              package.Name, currentVersion, latestVersion);
+              package.Name, date, currentVersion, latestVersion);
 
             if (updatedPackageResult != null) {
               packageResult = updatedPackageResult;
@@ -98,10 +98,10 @@ namespace Freshli {
     }
 
     private LibYearPackageResult ComputeUsingNewerMinorReleases(string name,
-      IVersionInfo currentVersion, IVersionInfo latestVersion)
+      DateTime asOf, IVersionInfo currentVersion, IVersionInfo latestVersion)
     {
       foreach (var version in Repository.VersionsBetween(
-        name, currentVersion, latestVersion)) {
+        name, asOf, currentVersion, latestVersion)) {
         var value = Compute(currentVersion, version);
         if (value >= 0) {
           return new LibYearPackageResult(

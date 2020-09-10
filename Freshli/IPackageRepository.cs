@@ -8,6 +8,7 @@ namespace Freshli {
     IVersionInfo Latest(string name, DateTime asOf, string thatMatches);
     List<IVersionInfo> VersionsBetween(
       string name,
+      DateTime asOf,
       IVersionInfo earlierVersion,
       IVersionInfo laterVersion
     );

@@ -44,9 +44,6 @@ namespace Freshli.Languages.Perl {
         return null;
       }
 
-      var totalItems = hitsJson.GetProperty("total").GetInt32();
-      // grab the next page if {totalItems} is greater than the page size
-
       var versions = new List<IVersionInfo>();
       foreach (var hit in hitsJson.GetProperty("hits").EnumerateArray()) {
         var fields = hit.GetProperty("fields");
@@ -80,12 +77,13 @@ namespace Freshli.Languages.Perl {
         First(v => expression.DoesMatch(v));
     }
 
-    public List<IVersionInfo> VersionsBetween(
-      string name, IVersionInfo earlierVersion, IVersionInfo laterVersion)
+    public List<IVersionInfo> VersionsBetween(string name, DateTime asOf,
+      IVersionInfo earlierVersion, IVersionInfo laterVersion)
     {
       try {
         return GetReleaseHistory(name).
           OrderByDescending(v => v).
+          Where(v => v.DatePublished <= asOf).
           Where(predicate: v => v.CompareTo(earlierVersion) == 1).
           Where(predicate: v => v.CompareTo(laterVersion) == -1).ToList();
       }

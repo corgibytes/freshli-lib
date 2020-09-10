@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
 using System.Text.RegularExpressions;
-using Freshli.Exceptions;
 using NLog;
 using RestSharp;
 
@@ -96,8 +95,6 @@ namespace Freshli.Languages.Php {
         return null;
       }
 
-      var versionsJsonElements = versionsJson.EnumerateObject();
-
       if (versionsJson.TryGetProperty(version, out var versionJson)) {
         var publishedDate = ParsePublishedDate(versionJson);
 
@@ -111,8 +108,8 @@ namespace Freshli.Languages.Php {
       throw new NotImplementedException();
     }
 
-    public List<IVersionInfo> VersionsBetween(
-      string name, IVersionInfo earlierVersion, IVersionInfo laterVersion)
+    public List<IVersionInfo> VersionsBetween(string name, DateTime asOf,
+      IVersionInfo earlierVersion, IVersionInfo laterVersion)
     {
       throw new NotImplementedException();
     }
