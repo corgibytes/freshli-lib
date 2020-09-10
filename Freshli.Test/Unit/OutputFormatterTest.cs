@@ -7,7 +7,8 @@ namespace Freshli.Test.Unit {
   public class OutputFormatterTest {
     [Fact]
     public void Basics() {
-      var datesAndValues = new List<(DateTime Date, double Value, bool UpgradeAvailable, bool Skipped)>
+      var datesAndValues = new List<(
+        DateTime Date, double Value, bool UpgradeAvailable, bool Skipped)>
       {
         (new DateTime(2010, 01, 01), 1.1010, false, false),
         (new DateTime(2010, 02, 01), 2.2020, false, false),
