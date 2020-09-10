@@ -104,20 +104,29 @@ namespace Freshli {
     private LibYearPackageResult ComputeUsingNewerMinorReleases(string name,
       DateTime asOf, IVersionInfo currentVersion, IVersionInfo latestVersion)
     {
-      foreach (var version in Repository.VersionsBetween(
-        name, asOf, currentVersion, latestVersion)) {
-        var value = Compute(currentVersion, version);
-        if (value >= 0) {
-          return new LibYearPackageResult(
-            name,
-            currentVersion.Version,
-            currentVersion.DatePublished,
-            version.Version,
-            version.DatePublished,
-            value,
-            upgradeAvailable: true,
-            skipped: false);
+      try {
+        foreach (var version in Repository.VersionsBetween(
+          name,
+          asOf,
+          currentVersion,
+          latestVersion
+        )) {
+          var value = Compute(currentVersion, version);
+          if (value >= 0) {
+            return new LibYearPackageResult(
+              name,
+              currentVersion.Version,
+              currentVersion.DatePublished,
+              version.Version,
+              version.DatePublished,
+              value,
+              upgradeAvailable: true,
+              skipped: false
+            );
+          }
         }
+      } catch (NotImplementedException) {
+        return null;
       }
       return null;
     }
