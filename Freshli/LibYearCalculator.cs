@@ -115,7 +115,7 @@ namespace Freshli {
             version.Version,
             version.DatePublished,
             value,
-            upgradeAvailable: false,
+            upgradeAvailable: true,
             skipped: false);
         }
       }
