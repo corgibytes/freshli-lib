@@ -1,5 +1,4 @@
 using System;
-using Freshli.Languages.Python;
 using Freshli.Languages.Ruby;
 using Xunit;
 
