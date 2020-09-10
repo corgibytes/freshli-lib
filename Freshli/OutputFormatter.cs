@@ -13,13 +13,15 @@ namespace Freshli {
       _writer.WriteLine(
         "Date\t" +
         "LibYear\t" +
+        "UpgradesAvailable\t" +
         "Skipped"
       );
 
       foreach (var resultSet in results) {
         _writer.WriteLine(
           $"{resultSet.Date.ToString("yyyy/MM/dd")}\t" +
-          $"{resultSet.LibYear.Total.ToString("F3")}\t" +
+          $"{resultSet.LibYear.Total:F4}\t" +
+          $"{resultSet.LibYear.UpgradesAvailable}\t" +
           $"{resultSet.LibYear.Skipped}"
         );
       }

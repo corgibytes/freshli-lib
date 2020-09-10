@@ -45,6 +45,7 @@ namespace Freshli {
             latestVersion: null,
             latestPublishedAt: DateTime.MinValue,
             value: 0,
+            upgradeAvailable: false,
             skipped: true);
           _logger.Trace(e.StackTrace);
           continue;
@@ -52,6 +53,7 @@ namespace Freshli {
 
         if (latestVersion != null && currentVersion != null) {
           var libYearValue = Compute(currentVersion, latestVersion);
+          var upgradeAvailable = libYearValue > 0;
 
           var packageResult = new LibYearPackageResult(
             package.Name,
@@ -60,6 +62,7 @@ namespace Freshli {
             latestVersion.Version,
             latestVersion.DatePublished,
             Math.Max(0, libYearValue),
+            upgradeAvailable,
             skipped: false);
 
           if (libYearValue < 0) {
@@ -69,6 +72,7 @@ namespace Freshli {
             if (updatedPackageResult != null) {
               packageResult = updatedPackageResult;
             } else {
+              packageResult.UpgradeAvailable = true;
               _logger.Warn($"Negative value ({libYearValue:0.000}) " +
                 $"computed for {package.Name} as of {date:d}; " +
                 $"setting value to 0: {packageResult}");
@@ -111,6 +115,7 @@ namespace Freshli {
             version.Version,
             version.DatePublished,
             value,
+            upgradeAvailable: false,
             skipped: false);
         }
       }
