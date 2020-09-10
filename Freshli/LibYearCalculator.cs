@@ -66,7 +66,7 @@ namespace Freshli {
             skipped: false);
 
           if (libYearValue < 0) {
-            var updatedPackageResult = ComputeUsingNewerMinorReleases(
+            var updatedPackageResult = ComputeUsingVersionsBetween(
               package.Name, date, currentVersion, latestVersion);
 
             if (updatedPackageResult != null) {
@@ -102,7 +102,7 @@ namespace Freshli {
         TotalDays / 365.0;
     }
 
-    private LibYearPackageResult ComputeUsingNewerMinorReleases(string name,
+    private LibYearPackageResult ComputeUsingVersionsBetween(string name,
       DateTime asOf, IVersionInfo currentVersion, IVersionInfo latestVersion)
     {
       try {
