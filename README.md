@@ -1,6 +1,7 @@
 [![.NET Core](https://github.com/corgibytes/freshli/workflows/.NET%20Core/badge.svg)](https://github.com/corgibytes/freshli/actions?query=workflow%3A%22.NET+Core%22)
 [![Docker Image CI](https://github.com/corgibytes/freshli/workflows/Docker%20Image%20CI/badge.svg)](https://github.com/corgibytes/freshli/actions?query=workflow%3A%22Docker+Image+CI%22)
 [![EditorConfig Lint](https://github.com/corgibytes/freshli/workflows/EditorConfig%20Lint/badge.svg)](https://github.com/corgibytes/freshli/actions?query=workflow%3A%22EditorConfig+Lint%22)
+<a href="https://codeclimate.com/github/corgibytes/freshli/maintainability"><img src="https://api.codeclimate.com/v1/badges/b5bd41216ffbc74eb0ee/maintainability" /></a>
 
 # freshli
 A tool for collecting historical metrics about a project's dependencies
