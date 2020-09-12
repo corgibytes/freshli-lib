@@ -2,7 +2,7 @@ using System;
 using Freshli.Languages.Python;
 using Xunit;
 
-namespace Freshli.Test.Integration {
+namespace Freshli.Test.Integration.Languages.Python {
   public class PyPIRepositoryTest {
     [Fact]
     public void VersionInfo() {
@@ -26,7 +26,7 @@ namespace Freshli.Test.Integration {
     public void LatestAsOf() {
       var repository = new PyPIRepository();
       var targetDate = new DateTime(2020, 01, 01, 0, 0, 0, DateTimeKind.Utc);
-      var versionInfo = repository.LatestAsOf(targetDate, "numpy");
+      var versionInfo = repository.Latest("numpy", targetDate);
       var expectedDate = new DateTime(
         2019,
         12,
@@ -69,8 +69,8 @@ namespace Freshli.Test.Integration {
       var repository = new PyPIRepository();
       var versionInfo = repository.Latest(
         packageName,
-        thatMatches: versionExpression,
-        asOf: targetDate
+        asOf: targetDate,
+        thatMatches: versionExpression
       );
       var expectedDate = new DateTime(
         expectedYear,
@@ -85,5 +85,19 @@ namespace Freshli.Test.Integration {
       Assert.Equal(expectedVersion, versionInfo.Version);
       Assert.Equal(expectedDate, versionInfo.DatePublished);
     }
+
+    [Fact]
+    public void VersionsBetween() {
+    var repository = new PyPIRepository();
+    var targetDate = new DateTime(2015, 12, 01, 0, 0, 0, DateTimeKind.Utc);
+    var earlierVersion = new SemVerVersionInfo {Version = "2.9"};
+    var laterVersion = new SemVerVersionInfo {Version = "3.0.3"};
+
+    var versions = repository.VersionsBetween("pymongo", targetDate,
+      earlierVersion, laterVersion);
+
+    Assert.Equal(4, versions.Count);
+    }
   }
+
 }

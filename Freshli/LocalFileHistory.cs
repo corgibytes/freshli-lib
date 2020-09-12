@@ -17,5 +17,9 @@ namespace Freshli {
     public string ContentsAsOf(DateTime date) {
       return File.ReadAllText(Path.Combine(_rootDirectory, _targetPath));
     }
+
+    public string ShaAsOf(DateTime date) {
+      return "N/A";
+    }
   }
 }

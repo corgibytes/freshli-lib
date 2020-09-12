@@ -10,6 +10,6 @@ namespace Freshli.Web.Models {
     public double Value { get; set; }
 
     public Guid LibYearResultId { get; set; }
-    public LibYearResult LibYearResult { get; set; }
+    public virtual LibYearResult LibYearResult { get; set; }
   }
 }

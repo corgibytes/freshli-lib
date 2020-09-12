@@ -7,27 +7,53 @@ namespace Freshli {
   public class LibYearResult : IEnumerable<LibYearPackageResult> {
     public double Total { get; private set; }
 
-    private List<LibYearPackageResult> _packageValues =
+    public int Skipped { get; private set; }
+    public int UpgradesAvailable { get; private set; }
+
+    private List<LibYearPackageResult> _packageResults =
       new List<LibYearPackageResult>();
+
+    public void Add(LibYearPackageResult result) {
+      _packageResults.Add(result);
+
+      if (result.UpgradeAvailable) {
+        UpgradesAvailable++;
+      }
+
+      if (result.Skipped) {
+        Skipped++;
+      } else {
+        Total += result.Value;
+      }
+    }
 
     public void Add(
       string name,
       string version,
       DateTime publishedAt,
-      double value
+      string latestVersion,
+      DateTime latestPublishedAt,
+      double value,
+      bool upgradeAvailable,
+      bool skipped
     ) {
-      _packageValues.Add(
-        new LibYearPackageResult(name, version, publishedAt, value)
-      );
-      Total += value;
+      Add(new LibYearPackageResult(
+        name,
+        version,
+        publishedAt,
+        latestVersion,
+        latestPublishedAt,
+        value,
+        upgradeAvailable,
+        skipped));
     }
 
     public LibYearPackageResult this[string packageName] {
-      get { return _packageValues.Find(item => item.Name == packageName); }
+      get { return _packageResults.Find(item => item.Name == packageName); }
     }
 
     public IEnumerator<LibYearPackageResult> GetEnumerator() {
-      return _packageValues.GetEnumerator();
+      return _packageResults.GetEnumerator();
     }
 
     IEnumerator IEnumerable.GetEnumerator() {
@@ -36,12 +62,14 @@ namespace Freshli {
 
     public override string ToString() {
       var writer = new StringWriter();
-      writer.Write("{ _packagesValues: [ ");
+      writer.WriteLine("{ _packagesValues: [");
       foreach (var result in this) {
-        writer.Write($"{result}, ");
+        if (!result.Skipped) {
+          writer.WriteLine($"{result},");
+        }
       }
 
-      writer.Write($" ], Total: {Total} }}");
+      writer.Write($"], Total: {Total} }}");
 
       return writer.ToString();
     }

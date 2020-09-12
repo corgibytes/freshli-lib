@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace Freshli.Languages.Python {
@@ -22,7 +18,7 @@ namespace Freshli.Languages.Python {
           var packageName = match.Groups[1].Value;
           var version = "";
           if (match.Groups.Count > 3) {
-            version = match.Groups[3].Value;
+            version = match.Groups[3].Value.Replace(" ", "");
           }
 
           Add(packageName, version);

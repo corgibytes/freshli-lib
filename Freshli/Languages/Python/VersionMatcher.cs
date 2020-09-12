@@ -17,7 +17,7 @@ namespace Freshli.Languages.Python {
     }
 
     public OperationKind Operation { get; private set; }
-    public VersionInfo BaseVersion { get; private set; }
+    public SemVerVersionInfo BaseVersion { get; private set; }
 
     public static VersionMatcher Create(string value) {
       VersionMatcher result;
@@ -49,7 +49,7 @@ namespace Freshli.Languages.Python {
           value = value.Replace(".*", "");
         }
 
-        result.BaseVersion = new VersionInfo() {Version = value};
+        result.BaseVersion = new SemVerVersionInfo() {Version = value};
       } else if (value.StartsWith("<")) {
         result = new BasicVersionMatcher();
         value = value.Remove(0, 1);
@@ -60,7 +60,7 @@ namespace Freshli.Languages.Python {
           result.Operation = OperationKind.LessThanEqual;
         }
 
-        result.BaseVersion = new VersionInfo() {Version = value};
+        result.BaseVersion = new SemVerVersionInfo() {Version = value};
       } else if (value.StartsWith(">")) {
         result = new BasicVersionMatcher();
         value = value.Remove(0, 1);
@@ -71,28 +71,29 @@ namespace Freshli.Languages.Python {
           result.Operation = OperationKind.GreaterThanEqual;
         }
 
-        result.BaseVersion = new VersionInfo() {Version = value};
+        result.BaseVersion = new SemVerVersionInfo() {Version = value};
       } else if (value.StartsWith("!=")) {
         result = new BasicVersionMatcher();
         value = value.Remove(0, 2);
         result.Operation = OperationKind.NotEqual;
 
-        result.BaseVersion = new VersionInfo() {Version = value};
+        result.BaseVersion = new SemVerVersionInfo() {Version = value};
       } else if (value.StartsWith("~=")) {
         var compound = new CompoundVersionMatcher();
         compound.Operation = OperationKind.Compatible;
-        compound.BaseVersion = new VersionInfo() {Version = value.Remove(0, 2)};
+        compound.BaseVersion =
+          new SemVerVersionInfo() {Version = value.Remove(0, 2)};
 
         var first = new BasicVersionMatcher();
         first.Operation = OperationKind.GreaterThanEqual;
         var firstVersion =
-          new VersionInfo() {Version = compound.BaseVersion.Version};
+          new SemVerVersionInfo() {Version = compound.BaseVersion.Version};
 
         first.BaseVersion = firstVersion;
         compound.Add(first);
 
         var secondVersion =
-          new VersionInfo() {Version = compound.BaseVersion.Version};
+          new SemVerVersionInfo() {Version = compound.BaseVersion.Version};
         secondVersion.RemoveBuildMetadata();
         secondVersion.RemovePreRelease();
 
@@ -118,11 +119,11 @@ namespace Freshli.Languages.Python {
       return result;
     }
 
-    public abstract bool DoesMatch(VersionInfo version);
+    public abstract bool DoesMatch(IVersionInfo version);
   }
 
   public class BasicVersionMatcher : VersionMatcher {
-    public override bool DoesMatch(VersionInfo version) {
+    public override bool DoesMatch(IVersionInfo version) {
       if (Operation == OperationKind.Matching) {
         return version.CompareTo(BaseVersion) == 0;
       }
@@ -164,13 +165,13 @@ namespace Freshli.Languages.Python {
 
     public VersionMatcher this[int index] => _matchers[index];
 
-    public override bool DoesMatch(VersionInfo version) {
+    public override bool DoesMatch(IVersionInfo version) {
       return _matchers.All(matcher => matcher.DoesMatch(version));
     }
   }
 
   public class AnyVersionMatcher : VersionMatcher {
-    public override bool DoesMatch(VersionInfo version) {
+    public override bool DoesMatch(IVersionInfo version) {
       return true;
     }
   }

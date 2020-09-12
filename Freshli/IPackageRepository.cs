@@ -1,9 +1,16 @@
 using System;
+using System.Collections.Generic;
 
 namespace Freshli {
   public interface IPackageRepository {
-    VersionInfo LatestAsOf(DateTime date, string name);
-    VersionInfo VersionInfo(string name, string version);
-    VersionInfo Latest(string name, string thatMatches, DateTime asOf);
+    IVersionInfo VersionInfo(string name, string version);
+    IVersionInfo Latest(string name, DateTime asOf);
+    IVersionInfo Latest(string name, DateTime asOf, string thatMatches);
+    List<IVersionInfo> VersionsBetween(
+      string name,
+      DateTime asOf,
+      IVersionInfo earlierVersion,
+      IVersionInfo laterVersion
+    );
   }
 }

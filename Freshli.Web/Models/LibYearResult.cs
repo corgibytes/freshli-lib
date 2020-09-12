@@ -6,10 +6,10 @@ namespace Freshli.Web.Models {
     public Guid Id { get; set; }
 
     public Guid MetricsResultId { get; set; }
-    public MetricsResult MetricsResult { get; set; }
+    public virtual MetricsResult MetricsResult { get; set; }
 
     public double Total { get; set; }
 
-    public List<LibYearPackageResult> PackageResults { get; set; }
+    public virtual List<LibYearPackageResult> PackageResults { get; set; }
   }
 }

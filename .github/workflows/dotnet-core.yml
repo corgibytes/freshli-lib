@@ -12,11 +12,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout code
+      uses: actions/checkout@v2
+      with:
+        submodules: 'recursive'
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.301
+    - name: Setup XPlot for building
+      working-directory: ./XPlot
+      run: |
+        dotnet tool restore
+        dotnet paket restore
     - name: Install dependencies
       run: dotnet restore
     - name: Build

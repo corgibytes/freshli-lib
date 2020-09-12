@@ -1,9 +1,9 @@
+using Freshli.Exceptions;
 using Xunit;
 
 namespace Freshli.Test.Unit {
-  public class VersionInfoTest {
+  public class SemVerVersionInfoTest {
     [Theory]
-    [InlineData("dev-master", null, null, null, null, null)]
     [InlineData("1", 1, null, null, null, null)]
     [InlineData("v3.6.0", 3, 6, 0, null, null)]
     [InlineData("1.2", 1, 2, null, null, null)]
@@ -20,6 +20,17 @@ namespace Freshli.Test.Unit {
     [InlineData("2.0.20110131120940", 2, 0, 20110131120940, null, null)]
     [InlineData("2.0.8.beta.20110131120940", 2, 0, 8, "beta.20110131120940",
       null)]
+    [InlineData("1.0.0-alpha", 1, 0, 0, "alpha", null)]
+    [InlineData("1.0.0-alpha.1", 1, 0, 0, "alpha.1", null)]
+    [InlineData("1.0.0-0.3.7", 1, 0, 0, "0.3.7", null)]
+    [InlineData("1.0.0-x.7.z.92", 1, 0, 0, "x.7.z.92", null)]
+    [InlineData("1.0.0-x-y-z.-", 1, 0, 0, "x-y-z.-", null)]
+    [InlineData("1.0.0-alpha+001", 1, 0, 0, "alpha", "001")]
+    [InlineData("1.0.0+20130313144700", 1, 0, 0, null, "20130313144700")]
+    [InlineData("1.0.0-beta+exp.sha.5114f85", 1, 0, 0, "beta",
+      "exp.sha.5114f85")]
+    [InlineData("1.0.0+21AF26D3--117B344092BD", 1, 0, 0, null,
+      "21AF26D3--117B344092BD")]
     public void VersionIsParsedIntoParts(
       string version,
       long? major,
@@ -28,7 +39,7 @@ namespace Freshli.Test.Unit {
       string preRelease,
       string buildMetadata
     ) {
-      var info = new VersionInfo() {Version = version};
+      var info = new SemVerVersionInfo() {Version = version};
       Assert.Equal(major, info.Major);
       Assert.Equal(minor, info.Minor);
       Assert.Equal(patch, info.Patch);
@@ -45,7 +56,7 @@ namespace Freshli.Test.Unit {
       string preReleaseLabel,
       int? preReleaseIncrement
     ) {
-      var info = new VersionInfo() {Version = version};
+      var info = new SemVerVersionInfo() {Version = version};
       Assert.Equal(preReleaseLabel, info.PreReleaseLabel);
       Assert.Equal(preReleaseIncrement, info.PreReleaseIncrement);
     }
@@ -98,8 +109,8 @@ namespace Freshli.Test.Unit {
       string rightVersion,
       int expected
     ) {
-      var left = new VersionInfo() {Version = leftVersion};
-      var right = new VersionInfo() {Version = rightVersion};
+      var left = new SemVerVersionInfo() {Version = leftVersion};
+      var right = new SemVerVersionInfo() {Version = rightVersion};
       Assert.Equal(expected, left.CompareTo(right));
     }
 
@@ -112,10 +123,10 @@ namespace Freshli.Test.Unit {
       string beforeVersion,
       string afterVersion
     ) {
-      var info = new VersionInfo {Version = beforeVersion};
+      var info = new SemVerVersionInfo {Version = beforeVersion};
       info.RemoveBuildMetadata();
 
-      Assert.Equal(new VersionInfo {Version = afterVersion}, info);
+      Assert.Equal(new SemVerVersionInfo {Version = afterVersion}, info);
       Assert.Equal(afterVersion, info.Version);
     }
 
@@ -142,10 +153,10 @@ namespace Freshli.Test.Unit {
       string beforeVersion,
       string afterVersion
     ) {
-      var info = new VersionInfo {Version = beforeVersion};
+      var info = new SemVerVersionInfo {Version = beforeVersion};
       info.RemovePreRelease();
 
-      Assert.Equal(new VersionInfo {Version = afterVersion}, info);
+      Assert.Equal(new SemVerVersionInfo {Version = afterVersion}, info);
       Assert.Equal(afterVersion, info.Version);
     }
 
@@ -162,10 +173,10 @@ namespace Freshli.Test.Unit {
       string beforeVersion,
       string afterVersion
     ) {
-      var info = new VersionInfo {Version = beforeVersion};
+      var info = new SemVerVersionInfo {Version = beforeVersion};
       info.RemovePatch();
 
-      Assert.Equal(new VersionInfo {Version = afterVersion}, info);
+      Assert.Equal(new SemVerVersionInfo {Version = afterVersion}, info);
       Assert.Equal(afterVersion, info.Version);
     }
 
@@ -182,11 +193,19 @@ namespace Freshli.Test.Unit {
       string beforeVersion,
       string afterVersion
     ) {
-      var info = new VersionInfo {Version = beforeVersion};
+      var info = new SemVerVersionInfo {Version = beforeVersion};
       info.RemoveMinor();
 
-      Assert.Equal(new VersionInfo {Version = afterVersion}, info);
+      Assert.Equal(new SemVerVersionInfo {Version = afterVersion}, info);
       Assert.Equal(afterVersion, info.Version);
     }
+
+    [Theory]
+    [InlineData("dev-master")]
+    public void ParseVersionThrowsErrorIfNotParsable(string version) {
+      Assert.Throws<VersionParseException>
+        (() => new SemVerVersionInfo() {Version = version});
+    }
+
   }
 }

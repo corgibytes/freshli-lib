@@ -2,7 +2,7 @@
 using Freshli.Languages.Perl;
 using Xunit;
 
-namespace Freshli.Test.Integration.Perl {
+namespace Freshli.Test.Integration.Languages.Perl {
   public class MetaCpanRepositoryTest {
     [Fact]
     public void VersionInfoWithoutModuleSeparator() {
@@ -30,7 +30,7 @@ namespace Freshli.Test.Integration.Perl {
     public void LatestAsOf() {
       var repository = new MetaCpanRepository();
       var targetDate = new DateTime(2018, 01, 01, 0, 0, 0, DateTimeKind.Utc);
-      var versionInfo = repository.LatestAsOf(targetDate, "Plack");
+      var versionInfo = repository.Latest("Plack", targetDate);
       var expectedDate = new DateTime(
         2017,
         12,
@@ -74,8 +74,8 @@ namespace Freshli.Test.Integration.Perl {
       var targetDate = new DateTime(2018, 01, 01, 0, 0, 0, DateTimeKind.Utc);
       var versionInfo = repository.Latest(
         packageName,
-        thatMatches: versionExpression,
-        asOf: targetDate
+        asOf: targetDate,
+        thatMatches: versionExpression
       );
       var expectedDate = new DateTime(
         expectedYear,
@@ -89,6 +89,19 @@ namespace Freshli.Test.Integration.Perl {
 
       Assert.Equal(expectedVersion, versionInfo.Version);
       Assert.Equal(expectedDate, versionInfo.DatePublished);
+    }
+
+    [Fact]
+    public void VersionsBetween() {
+      var repository = new MetaCpanRepository();
+      var targetDate = new DateTime(2015, 01, 01);
+      var earlierVersion = new SemVerVersionInfo() {Version = "1.0027"};
+      var laterVersion = new SemVerVersionInfo {Version = "1.0045"};
+
+      var versions = repository.VersionsBetween("Plack", targetDate,
+        earlierVersion, laterVersion);
+
+      Assert.Equal(6, versions.Count);
     }
   }
 }
