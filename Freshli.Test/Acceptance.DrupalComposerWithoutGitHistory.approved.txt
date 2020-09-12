@@ -1,5 +1,5 @@
 ﻿results[0] = { Date: 2020-01-01T00:00:00, ManifestSHA: N/A, LibYear: { _packagesValues: [
-{ Name: "drupal/composer_autoloader", RepoVersion: "1.0.0", RepoVersionPublishedAt: 2014-12-24T00:00:00, LatestVersion: "1.3.0", LatestPublishedAt: 2018-03-11T00:00:00, Value: 3.213698630136986 },
-{ Name: "drupal/drupal", RepoVersion: "7.69.0", RepoVersionPublishedAt: 2020-05-20T00:00:00, LatestVersion: "8.8.1", LatestPublishedAt: 2019-12-18T00:00:00, Value: -0.42191780821917807 },
-], Total: 2.791780821917808 } }
+{ Name: "drupal/composer_autoloader", RepoVersion: "1.0.0", RepoVersionPublishedAt: 2014-12-24T00:00:00, LatestVersion: "1.3.0", LatestPublishedAt: 2018-03-11T00:00:00, UpgradeAvailable: True, Value: 3.213698630136986 },
+{ Name: "drupal/drupal", RepoVersion: "7.69.0", RepoVersionPublishedAt: 2020-05-20T00:00:00, LatestVersion: "8.8.1", LatestPublishedAt: 2019-12-18T00:00:00, UpgradeAvailable: True, Value: 0 },
+], Total: 3.213698630136986 } }
 

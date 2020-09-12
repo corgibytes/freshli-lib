@@ -8,9 +8,24 @@ namespace Freshli {
     public double Total { get; private set; }
 
     public int Skipped { get; private set; }
+    public int UpgradesAvailable { get; private set; }
 
     private List<LibYearPackageResult> _packageResults =
       new List<LibYearPackageResult>();
+
+    public void Add(LibYearPackageResult result) {
+      _packageResults.Add(result);
+
+      if (result.UpgradeAvailable) {
+        UpgradesAvailable++;
+      }
+
+      if (result.Skipped) {
+        Skipped++;
+      } else {
+        Total += result.Value;
+      }
+    }
 
     public void Add(
       string name,
@@ -19,17 +34,18 @@ namespace Freshli {
       string latestVersion,
       DateTime latestPublishedAt,
       double value,
+      bool upgradeAvailable,
       bool skipped
     ) {
-      _packageResults.Add(
-        new LibYearPackageResult(name, version, publishedAt,
-          latestVersion, latestPublishedAt, value, skipped)
-      );
-      if (skipped) {
-        Skipped++;
-      } else {
-        Total += value;
-      }
+      Add(new LibYearPackageResult(
+        name,
+        version,
+        publishedAt,
+        latestVersion,
+        latestPublishedAt,
+        value,
+        upgradeAvailable,
+        skipped));
     }
 
     public LibYearPackageResult this[string packageName] {

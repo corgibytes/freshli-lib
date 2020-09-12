@@ -1,185 +1,185 @@
 ﻿results[0] = { Date: 2017-01-01T00:00:00, ManifestSHA: 13963f09081c175c66d20f7dd15d23fedc789ce4, LibYear: { _packagesValues: [
-{ Name: "mini_portile2", RepoVersion: "2.1.0", RepoVersionPublishedAt: 2016-01-06T00:00:00, LatestVersion: "2.1.0", LatestPublishedAt: 2016-01-06T00:00:00, Value: 0 },
-{ Name: "nokogiri", RepoVersion: "1.7.0", RepoVersionPublishedAt: 2016-12-27T00:00:00, LatestVersion: "1.7.0", LatestPublishedAt: 2016-12-27T00:00:00, Value: 0 },
+{ Name: "mini_portile2", RepoVersion: "2.1.0", RepoVersionPublishedAt: 2016-01-06T00:00:00, LatestVersion: "2.1.0", LatestPublishedAt: 2016-01-06T00:00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "nokogiri", RepoVersion: "1.7.0", RepoVersionPublishedAt: 2016-12-27T00:00:00, LatestVersion: "1.7.0", LatestPublishedAt: 2016-12-27T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
 results[1] = { Date: 2017-02-01T00:00:00, ManifestSHA: 13963f09081c175c66d20f7dd15d23fedc789ce4, LibYear: { _packagesValues: [
-{ Name: "mini_portile2", RepoVersion: "2.1.0", RepoVersionPublishedAt: 2016-01-06T00:00:00, LatestVersion: "2.1.0", LatestPublishedAt: 2016-01-06T00:00:00, Value: 0 },
-{ Name: "nokogiri", RepoVersion: "1.7.0", RepoVersionPublishedAt: 2016-12-27T00:00:00, LatestVersion: "1.7.0.1", LatestPublishedAt: 2017-01-04T00:00:00, Value: 0.021917808219178082 },
+{ Name: "mini_portile2", RepoVersion: "2.1.0", RepoVersionPublishedAt: 2016-01-06T00:00:00, LatestVersion: "2.1.0", LatestPublishedAt: 2016-01-06T00:00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "nokogiri", RepoVersion: "1.7.0", RepoVersionPublishedAt: 2016-12-27T00:00:00, LatestVersion: "1.7.0.1", LatestPublishedAt: 2017-01-04T00:00:00, UpgradeAvailable: True, Value: 0.021917808219178082 },
 ], Total: 0.021917808219178082 } }
 
 results[2] = { Date: 2017-03-01T00:00:00, ManifestSHA: 13963f09081c175c66d20f7dd15d23fedc789ce4, LibYear: { _packagesValues: [
-{ Name: "mini_portile2", RepoVersion: "2.1.0", RepoVersionPublishedAt: 2016-01-06T00:00:00, LatestVersion: "2.1.0", LatestPublishedAt: 2016-01-06T00:00:00, Value: 0 },
-{ Name: "nokogiri", RepoVersion: "1.7.0", RepoVersionPublishedAt: 2016-12-27T00:00:00, LatestVersion: "1.7.0.1", LatestPublishedAt: 2017-01-04T00:00:00, Value: 0.021917808219178082 },
+{ Name: "mini_portile2", RepoVersion: "2.1.0", RepoVersionPublishedAt: 2016-01-06T00:00:00, LatestVersion: "2.1.0", LatestPublishedAt: 2016-01-06T00:00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "nokogiri", RepoVersion: "1.7.0", RepoVersionPublishedAt: 2016-12-27T00:00:00, LatestVersion: "1.7.0.1", LatestPublishedAt: 2017-01-04T00:00:00, UpgradeAvailable: True, Value: 0.021917808219178082 },
 ], Total: 0.021917808219178082 } }
 
 results[3] = { Date: 2017-04-01T00:00:00, ManifestSHA: 13963f09081c175c66d20f7dd15d23fedc789ce4, LibYear: { _packagesValues: [
-{ Name: "mini_portile2", RepoVersion: "2.1.0", RepoVersionPublishedAt: 2016-01-06T00:00:00, LatestVersion: "2.1.0", LatestPublishedAt: 2016-01-06T00:00:00, Value: 0 },
-{ Name: "nokogiri", RepoVersion: "1.7.0", RepoVersionPublishedAt: 2016-12-27T00:00:00, LatestVersion: "1.7.1", LatestPublishedAt: 2017-03-20T00:00:00, Value: 0.2273972602739726 },
+{ Name: "mini_portile2", RepoVersion: "2.1.0", RepoVersionPublishedAt: 2016-01-06T00:00:00, LatestVersion: "2.1.0", LatestPublishedAt: 2016-01-06T00:00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "nokogiri", RepoVersion: "1.7.0", RepoVersionPublishedAt: 2016-12-27T00:00:00, LatestVersion: "1.7.1", LatestPublishedAt: 2017-03-20T00:00:00, UpgradeAvailable: True, Value: 0.2273972602739726 },
 ], Total: 0.2273972602739726 } }
 
 results[4] = { Date: 2017-05-01T00:00:00, ManifestSHA: 13963f09081c175c66d20f7dd15d23fedc789ce4, LibYear: { _packagesValues: [
-{ Name: "mini_portile2", RepoVersion: "2.1.0", RepoVersionPublishedAt: 2016-01-06T00:00:00, LatestVersion: "2.1.0", LatestPublishedAt: 2016-01-06T00:00:00, Value: 0 },
-{ Name: "nokogiri", RepoVersion: "1.7.0", RepoVersionPublishedAt: 2016-12-27T00:00:00, LatestVersion: "1.7.1", LatestPublishedAt: 2017-03-20T00:00:00, Value: 0.2273972602739726 },
+{ Name: "mini_portile2", RepoVersion: "2.1.0", RepoVersionPublishedAt: 2016-01-06T00:00:00, LatestVersion: "2.1.0", LatestPublishedAt: 2016-01-06T00:00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "nokogiri", RepoVersion: "1.7.0", RepoVersionPublishedAt: 2016-12-27T00:00:00, LatestVersion: "1.7.1", LatestPublishedAt: 2017-03-20T00:00:00, UpgradeAvailable: True, Value: 0.2273972602739726 },
 ], Total: 0.2273972602739726 } }
 
 results[5] = { Date: 2017-06-01T00:00:00, ManifestSHA: 13963f09081c175c66d20f7dd15d23fedc789ce4, LibYear: { _packagesValues: [
-{ Name: "mini_portile2", RepoVersion: "2.1.0", RepoVersionPublishedAt: 2016-01-06T00:00:00, LatestVersion: "2.1.0", LatestPublishedAt: 2016-01-06T00:00:00, Value: 0 },
-{ Name: "nokogiri", RepoVersion: "1.7.0", RepoVersionPublishedAt: 2016-12-27T00:00:00, LatestVersion: "1.7.2", LatestPublishedAt: 2017-05-09T00:00:00, Value: 0.3643835616438356 },
+{ Name: "mini_portile2", RepoVersion: "2.1.0", RepoVersionPublishedAt: 2016-01-06T00:00:00, LatestVersion: "2.1.0", LatestPublishedAt: 2016-01-06T00:00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "nokogiri", RepoVersion: "1.7.0", RepoVersionPublishedAt: 2016-12-27T00:00:00, LatestVersion: "1.7.2", LatestPublishedAt: 2017-05-09T00:00:00, UpgradeAvailable: True, Value: 0.3643835616438356 },
 ], Total: 0.3643835616438356 } }
 
 results[6] = { Date: 2017-07-01T00:00:00, ManifestSHA: 13963f09081c175c66d20f7dd15d23fedc789ce4, LibYear: { _packagesValues: [
-{ Name: "mini_portile2", RepoVersion: "2.1.0", RepoVersionPublishedAt: 2016-01-06T00:00:00, LatestVersion: "2.2.0", LatestPublishedAt: 2017-06-05T00:00:00, Value: 1.4136986301369863 },
-{ Name: "nokogiri", RepoVersion: "1.7.0", RepoVersionPublishedAt: 2016-12-27T00:00:00, LatestVersion: "1.8.0", LatestPublishedAt: 2017-06-05T00:00:00, Value: 0.4383561643835616 },
+{ Name: "mini_portile2", RepoVersion: "2.1.0", RepoVersionPublishedAt: 2016-01-06T00:00:00, LatestVersion: "2.2.0", LatestPublishedAt: 2017-06-05T00:00:00, UpgradeAvailable: True, Value: 1.4136986301369863 },
+{ Name: "nokogiri", RepoVersion: "1.7.0", RepoVersionPublishedAt: 2016-12-27T00:00:00, LatestVersion: "1.8.0", LatestPublishedAt: 2017-06-05T00:00:00, UpgradeAvailable: True, Value: 0.4383561643835616 },
 ], Total: 1.8520547945205479 } }
 
 results[7] = { Date: 2017-08-01T00:00:00, ManifestSHA: 13963f09081c175c66d20f7dd15d23fedc789ce4, LibYear: { _packagesValues: [
-{ Name: "mini_portile2", RepoVersion: "2.1.0", RepoVersionPublishedAt: 2016-01-06T00:00:00, LatestVersion: "2.2.0", LatestPublishedAt: 2017-06-05T00:00:00, Value: 1.4136986301369863 },
-{ Name: "nokogiri", RepoVersion: "1.7.0", RepoVersionPublishedAt: 2016-12-27T00:00:00, LatestVersion: "1.8.0", LatestPublishedAt: 2017-06-05T00:00:00, Value: 0.4383561643835616 },
+{ Name: "mini_portile2", RepoVersion: "2.1.0", RepoVersionPublishedAt: 2016-01-06T00:00:00, LatestVersion: "2.2.0", LatestPublishedAt: 2017-06-05T00:00:00, UpgradeAvailable: True, Value: 1.4136986301369863 },
+{ Name: "nokogiri", RepoVersion: "1.7.0", RepoVersionPublishedAt: 2016-12-27T00:00:00, LatestVersion: "1.8.0", LatestPublishedAt: 2017-06-05T00:00:00, UpgradeAvailable: True, Value: 0.4383561643835616 },
 ], Total: 1.8520547945205479 } }
 
 results[8] = { Date: 2017-09-01T00:00:00, ManifestSHA: 13963f09081c175c66d20f7dd15d23fedc789ce4, LibYear: { _packagesValues: [
-{ Name: "mini_portile2", RepoVersion: "2.1.0", RepoVersionPublishedAt: 2016-01-06T00:00:00, LatestVersion: "2.2.0", LatestPublishedAt: 2017-06-05T00:00:00, Value: 1.4136986301369863 },
-{ Name: "nokogiri", RepoVersion: "1.7.0", RepoVersionPublishedAt: 2016-12-27T00:00:00, LatestVersion: "1.8.0", LatestPublishedAt: 2017-06-05T00:00:00, Value: 0.4383561643835616 },
+{ Name: "mini_portile2", RepoVersion: "2.1.0", RepoVersionPublishedAt: 2016-01-06T00:00:00, LatestVersion: "2.2.0", LatestPublishedAt: 2017-06-05T00:00:00, UpgradeAvailable: True, Value: 1.4136986301369863 },
+{ Name: "nokogiri", RepoVersion: "1.7.0", RepoVersionPublishedAt: 2016-12-27T00:00:00, LatestVersion: "1.8.0", LatestPublishedAt: 2017-06-05T00:00:00, UpgradeAvailable: True, Value: 0.4383561643835616 },
 ], Total: 1.8520547945205479 } }
 
 results[9] = { Date: 2017-10-01T00:00:00, ManifestSHA: 13963f09081c175c66d20f7dd15d23fedc789ce4, LibYear: { _packagesValues: [
-{ Name: "mini_portile2", RepoVersion: "2.1.0", RepoVersionPublishedAt: 2016-01-06T00:00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2017-09-13T00:00:00, Value: 1.6876712328767123 },
-{ Name: "nokogiri", RepoVersion: "1.7.0", RepoVersionPublishedAt: 2016-12-27T00:00:00, LatestVersion: "1.8.1", LatestPublishedAt: 2017-09-19T00:00:00, Value: 0.7287671232876712 },
+{ Name: "mini_portile2", RepoVersion: "2.1.0", RepoVersionPublishedAt: 2016-01-06T00:00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2017-09-13T00:00:00, UpgradeAvailable: True, Value: 1.6876712328767123 },
+{ Name: "nokogiri", RepoVersion: "1.7.0", RepoVersionPublishedAt: 2016-12-27T00:00:00, LatestVersion: "1.8.1", LatestPublishedAt: 2017-09-19T00:00:00, UpgradeAvailable: True, Value: 0.7287671232876712 },
 ], Total: 2.4164383561643836 } }
 
 results[10] = { Date: 2017-11-01T00:00:00, ManifestSHA: 13963f09081c175c66d20f7dd15d23fedc789ce4, LibYear: { _packagesValues: [
-{ Name: "mini_portile2", RepoVersion: "2.1.0", RepoVersionPublishedAt: 2016-01-06T00:00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2017-09-13T00:00:00, Value: 1.6876712328767123 },
-{ Name: "nokogiri", RepoVersion: "1.7.0", RepoVersionPublishedAt: 2016-12-27T00:00:00, LatestVersion: "1.8.1", LatestPublishedAt: 2017-09-19T00:00:00, Value: 0.7287671232876712 },
+{ Name: "mini_portile2", RepoVersion: "2.1.0", RepoVersionPublishedAt: 2016-01-06T00:00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2017-09-13T00:00:00, UpgradeAvailable: True, Value: 1.6876712328767123 },
+{ Name: "nokogiri", RepoVersion: "1.7.0", RepoVersionPublishedAt: 2016-12-27T00:00:00, LatestVersion: "1.8.1", LatestPublishedAt: 2017-09-19T00:00:00, UpgradeAvailable: True, Value: 0.7287671232876712 },
 ], Total: 2.4164383561643836 } }
 
 results[11] = { Date: 2017-12-01T00:00:00, ManifestSHA: 13963f09081c175c66d20f7dd15d23fedc789ce4, LibYear: { _packagesValues: [
-{ Name: "mini_portile2", RepoVersion: "2.1.0", RepoVersionPublishedAt: 2016-01-06T00:00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2017-09-13T00:00:00, Value: 1.6876712328767123 },
-{ Name: "nokogiri", RepoVersion: "1.7.0", RepoVersionPublishedAt: 2016-12-27T00:00:00, LatestVersion: "1.8.1", LatestPublishedAt: 2017-09-19T00:00:00, Value: 0.7287671232876712 },
+{ Name: "mini_portile2", RepoVersion: "2.1.0", RepoVersionPublishedAt: 2016-01-06T00:00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2017-09-13T00:00:00, UpgradeAvailable: True, Value: 1.6876712328767123 },
+{ Name: "nokogiri", RepoVersion: "1.7.0", RepoVersionPublishedAt: 2016-12-27T00:00:00, LatestVersion: "1.8.1", LatestPublishedAt: 2017-09-19T00:00:00, UpgradeAvailable: True, Value: 0.7287671232876712 },
 ], Total: 2.4164383561643836 } }
 
 results[12] = { Date: 2018-01-01T00:00:00, ManifestSHA: 902a3082740f83776eec419c59a56e54424fdec5, LibYear: { _packagesValues: [
-{ Name: "mini_portile2", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2017-09-13T00:00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2017-09-13T00:00:00, Value: 0 },
-{ Name: "nokogiri", RepoVersion: "1.8.1", RepoVersionPublishedAt: 2017-09-19T00:00:00, LatestVersion: "1.8.1", LatestPublishedAt: 2017-09-19T00:00:00, Value: 0 },
+{ Name: "mini_portile2", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2017-09-13T00:00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2017-09-13T00:00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "nokogiri", RepoVersion: "1.8.1", RepoVersionPublishedAt: 2017-09-19T00:00:00, LatestVersion: "1.8.1", LatestPublishedAt: 2017-09-19T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
 results[13] = { Date: 2018-02-01T00:00:00, ManifestSHA: 902a3082740f83776eec419c59a56e54424fdec5, LibYear: { _packagesValues: [
-{ Name: "mini_portile2", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2017-09-13T00:00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2017-09-13T00:00:00, Value: 0 },
-{ Name: "nokogiri", RepoVersion: "1.8.1", RepoVersionPublishedAt: 2017-09-19T00:00:00, LatestVersion: "1.8.2", LatestPublishedAt: 2018-01-29T00:00:00, Value: 0.36164383561643837 },
+{ Name: "mini_portile2", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2017-09-13T00:00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2017-09-13T00:00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "nokogiri", RepoVersion: "1.8.1", RepoVersionPublishedAt: 2017-09-19T00:00:00, LatestVersion: "1.8.2", LatestPublishedAt: 2018-01-29T00:00:00, UpgradeAvailable: True, Value: 0.36164383561643837 },
 ], Total: 0.36164383561643837 } }
 
 results[14] = { Date: 2018-03-01T00:00:00, ManifestSHA: 902a3082740f83776eec419c59a56e54424fdec5, LibYear: { _packagesValues: [
-{ Name: "mini_portile2", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2017-09-13T00:00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2017-09-13T00:00:00, Value: 0 },
-{ Name: "nokogiri", RepoVersion: "1.8.1", RepoVersionPublishedAt: 2017-09-19T00:00:00, LatestVersion: "1.8.2", LatestPublishedAt: 2018-01-29T00:00:00, Value: 0.36164383561643837 },
+{ Name: "mini_portile2", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2017-09-13T00:00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2017-09-13T00:00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "nokogiri", RepoVersion: "1.8.1", RepoVersionPublishedAt: 2017-09-19T00:00:00, LatestVersion: "1.8.2", LatestPublishedAt: 2018-01-29T00:00:00, UpgradeAvailable: True, Value: 0.36164383561643837 },
 ], Total: 0.36164383561643837 } }
 
 results[15] = { Date: 2018-04-01T00:00:00, ManifestSHA: 902a3082740f83776eec419c59a56e54424fdec5, LibYear: { _packagesValues: [
-{ Name: "mini_portile2", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2017-09-13T00:00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2017-09-13T00:00:00, Value: 0 },
-{ Name: "nokogiri", RepoVersion: "1.8.1", RepoVersionPublishedAt: 2017-09-19T00:00:00, LatestVersion: "1.8.2", LatestPublishedAt: 2018-01-29T00:00:00, Value: 0.36164383561643837 },
+{ Name: "mini_portile2", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2017-09-13T00:00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2017-09-13T00:00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "nokogiri", RepoVersion: "1.8.1", RepoVersionPublishedAt: 2017-09-19T00:00:00, LatestVersion: "1.8.2", LatestPublishedAt: 2018-01-29T00:00:00, UpgradeAvailable: True, Value: 0.36164383561643837 },
 ], Total: 0.36164383561643837 } }
 
 results[16] = { Date: 2018-05-01T00:00:00, ManifestSHA: 902a3082740f83776eec419c59a56e54424fdec5, LibYear: { _packagesValues: [
-{ Name: "mini_portile2", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2017-09-13T00:00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2017-09-13T00:00:00, Value: 0 },
-{ Name: "nokogiri", RepoVersion: "1.8.1", RepoVersionPublishedAt: 2017-09-19T00:00:00, LatestVersion: "1.8.2", LatestPublishedAt: 2018-01-29T00:00:00, Value: 0.36164383561643837 },
+{ Name: "mini_portile2", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2017-09-13T00:00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2017-09-13T00:00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "nokogiri", RepoVersion: "1.8.1", RepoVersionPublishedAt: 2017-09-19T00:00:00, LatestVersion: "1.8.2", LatestPublishedAt: 2018-01-29T00:00:00, UpgradeAvailable: True, Value: 0.36164383561643837 },
 ], Total: 0.36164383561643837 } }
 
 results[17] = { Date: 2018-06-01T00:00:00, ManifestSHA: 902a3082740f83776eec419c59a56e54424fdec5, LibYear: { _packagesValues: [
-{ Name: "mini_portile2", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2017-09-13T00:00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2017-09-13T00:00:00, Value: 0 },
-{ Name: "nokogiri", RepoVersion: "1.8.1", RepoVersionPublishedAt: 2017-09-19T00:00:00, LatestVersion: "1.8.2", LatestPublishedAt: 2018-01-29T00:00:00, Value: 0.36164383561643837 },
+{ Name: "mini_portile2", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2017-09-13T00:00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2017-09-13T00:00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "nokogiri", RepoVersion: "1.8.1", RepoVersionPublishedAt: 2017-09-19T00:00:00, LatestVersion: "1.8.2", LatestPublishedAt: 2018-01-29T00:00:00, UpgradeAvailable: True, Value: 0.36164383561643837 },
 ], Total: 0.36164383561643837 } }
 
 results[18] = { Date: 2018-07-01T00:00:00, ManifestSHA: 902a3082740f83776eec419c59a56e54424fdec5, LibYear: { _packagesValues: [
-{ Name: "mini_portile2", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2017-09-13T00:00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2017-09-13T00:00:00, Value: 0 },
-{ Name: "nokogiri", RepoVersion: "1.8.1", RepoVersionPublishedAt: 2017-09-19T00:00:00, LatestVersion: "1.8.3", LatestPublishedAt: 2018-06-16T00:00:00, Value: 0.7397260273972602 },
+{ Name: "mini_portile2", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2017-09-13T00:00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2017-09-13T00:00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "nokogiri", RepoVersion: "1.8.1", RepoVersionPublishedAt: 2017-09-19T00:00:00, LatestVersion: "1.8.3", LatestPublishedAt: 2018-06-16T00:00:00, UpgradeAvailable: True, Value: 0.7397260273972602 },
 ], Total: 0.7397260273972602 } }
 
 results[19] = { Date: 2018-08-01T00:00:00, ManifestSHA: 902a3082740f83776eec419c59a56e54424fdec5, LibYear: { _packagesValues: [
-{ Name: "mini_portile2", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2017-09-13T00:00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2017-09-13T00:00:00, Value: 0 },
-{ Name: "nokogiri", RepoVersion: "1.8.1", RepoVersionPublishedAt: 2017-09-19T00:00:00, LatestVersion: "1.8.4", LatestPublishedAt: 2018-07-04T00:00:00, Value: 0.7890410958904109 },
+{ Name: "mini_portile2", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2017-09-13T00:00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2017-09-13T00:00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "nokogiri", RepoVersion: "1.8.1", RepoVersionPublishedAt: 2017-09-19T00:00:00, LatestVersion: "1.8.4", LatestPublishedAt: 2018-07-04T00:00:00, UpgradeAvailable: True, Value: 0.7890410958904109 },
 ], Total: 0.7890410958904109 } }
 
 results[20] = { Date: 2018-09-01T00:00:00, ManifestSHA: 902a3082740f83776eec419c59a56e54424fdec5, LibYear: { _packagesValues: [
-{ Name: "mini_portile2", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2017-09-13T00:00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2017-09-13T00:00:00, Value: 0 },
-{ Name: "nokogiri", RepoVersion: "1.8.1", RepoVersionPublishedAt: 2017-09-19T00:00:00, LatestVersion: "1.8.4", LatestPublishedAt: 2018-07-04T00:00:00, Value: 0.7890410958904109 },
+{ Name: "mini_portile2", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2017-09-13T00:00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2017-09-13T00:00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "nokogiri", RepoVersion: "1.8.1", RepoVersionPublishedAt: 2017-09-19T00:00:00, LatestVersion: "1.8.4", LatestPublishedAt: 2018-07-04T00:00:00, UpgradeAvailable: True, Value: 0.7890410958904109 },
 ], Total: 0.7890410958904109 } }
 
 results[21] = { Date: 2018-10-01T00:00:00, ManifestSHA: 902a3082740f83776eec419c59a56e54424fdec5, LibYear: { _packagesValues: [
-{ Name: "mini_portile2", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2017-09-13T00:00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2017-09-13T00:00:00, Value: 0 },
-{ Name: "nokogiri", RepoVersion: "1.8.1", RepoVersionPublishedAt: 2017-09-19T00:00:00, LatestVersion: "1.8.4", LatestPublishedAt: 2018-07-04T00:00:00, Value: 0.7890410958904109 },
+{ Name: "mini_portile2", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2017-09-13T00:00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2017-09-13T00:00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "nokogiri", RepoVersion: "1.8.1", RepoVersionPublishedAt: 2017-09-19T00:00:00, LatestVersion: "1.8.4", LatestPublishedAt: 2018-07-04T00:00:00, UpgradeAvailable: True, Value: 0.7890410958904109 },
 ], Total: 0.7890410958904109 } }
 
 results[22] = { Date: 2018-11-01T00:00:00, ManifestSHA: 902a3082740f83776eec419c59a56e54424fdec5, LibYear: { _packagesValues: [
-{ Name: "mini_portile2", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2017-09-13T00:00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2017-09-13T00:00:00, Value: 0 },
-{ Name: "nokogiri", RepoVersion: "1.8.1", RepoVersionPublishedAt: 2017-09-19T00:00:00, LatestVersion: "1.8.5", LatestPublishedAt: 2018-10-05T00:00:00, Value: 1.0438356164383562 },
+{ Name: "mini_portile2", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2017-09-13T00:00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2017-09-13T00:00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "nokogiri", RepoVersion: "1.8.1", RepoVersionPublishedAt: 2017-09-19T00:00:00, LatestVersion: "1.8.5", LatestPublishedAt: 2018-10-05T00:00:00, UpgradeAvailable: True, Value: 1.0438356164383562 },
 ], Total: 1.0438356164383562 } }
 
 results[23] = { Date: 2018-12-01T00:00:00, ManifestSHA: 902a3082740f83776eec419c59a56e54424fdec5, LibYear: { _packagesValues: [
-{ Name: "mini_portile2", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2017-09-13T00:00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2017-09-13T00:00:00, Value: 0 },
-{ Name: "nokogiri", RepoVersion: "1.8.1", RepoVersionPublishedAt: 2017-09-19T00:00:00, LatestVersion: "1.8.5", LatestPublishedAt: 2018-10-05T00:00:00, Value: 1.0438356164383562 },
+{ Name: "mini_portile2", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2017-09-13T00:00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2017-09-13T00:00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "nokogiri", RepoVersion: "1.8.1", RepoVersionPublishedAt: 2017-09-19T00:00:00, LatestVersion: "1.8.5", LatestPublishedAt: 2018-10-05T00:00:00, UpgradeAvailable: True, Value: 1.0438356164383562 },
 ], Total: 1.0438356164383562 } }
 
 results[24] = { Date: 2019-01-01T00:00:00, ManifestSHA: 017031627f36deb582d69cddd381718be0044b02, LibYear: { _packagesValues: [
-{ Name: "mini_portile2", RepoVersion: "2.4.0", RepoVersionPublishedAt: 2018-12-02T00:00:00, LatestVersion: "2.4.0", LatestPublishedAt: 2018-12-02T00:00:00, Value: 0 },
-{ Name: "nokogiri", RepoVersion: "1.9.1", RepoVersionPublishedAt: 2018-12-18T00:00:00, LatestVersion: "1.9.1", LatestPublishedAt: 2018-12-18T00:00:00, Value: 0 },
+{ Name: "mini_portile2", RepoVersion: "2.4.0", RepoVersionPublishedAt: 2018-12-02T00:00:00, LatestVersion: "2.4.0", LatestPublishedAt: 2018-12-02T00:00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "nokogiri", RepoVersion: "1.9.1", RepoVersionPublishedAt: 2018-12-18T00:00:00, LatestVersion: "1.9.1", LatestPublishedAt: 2018-12-18T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
 results[25] = { Date: 2019-02-01T00:00:00, ManifestSHA: 017031627f36deb582d69cddd381718be0044b02, LibYear: { _packagesValues: [
-{ Name: "mini_portile2", RepoVersion: "2.4.0", RepoVersionPublishedAt: 2018-12-02T00:00:00, LatestVersion: "2.4.0", LatestPublishedAt: 2018-12-02T00:00:00, Value: 0 },
-{ Name: "nokogiri", RepoVersion: "1.9.1", RepoVersionPublishedAt: 2018-12-18T00:00:00, LatestVersion: "1.10.1", LatestPublishedAt: 2019-01-13T00:00:00, Value: 0.07123287671232877 },
+{ Name: "mini_portile2", RepoVersion: "2.4.0", RepoVersionPublishedAt: 2018-12-02T00:00:00, LatestVersion: "2.4.0", LatestPublishedAt: 2018-12-02T00:00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "nokogiri", RepoVersion: "1.9.1", RepoVersionPublishedAt: 2018-12-18T00:00:00, LatestVersion: "1.10.1", LatestPublishedAt: 2019-01-13T00:00:00, UpgradeAvailable: True, Value: 0.07123287671232877 },
 ], Total: 0.07123287671232877 } }
 
 results[26] = { Date: 2019-03-01T00:00:00, ManifestSHA: 017031627f36deb582d69cddd381718be0044b02, LibYear: { _packagesValues: [
-{ Name: "mini_portile2", RepoVersion: "2.4.0", RepoVersionPublishedAt: 2018-12-02T00:00:00, LatestVersion: "2.4.0", LatestPublishedAt: 2018-12-02T00:00:00, Value: 0 },
-{ Name: "nokogiri", RepoVersion: "1.9.1", RepoVersionPublishedAt: 2018-12-18T00:00:00, LatestVersion: "1.10.1", LatestPublishedAt: 2019-01-13T00:00:00, Value: 0.07123287671232877 },
+{ Name: "mini_portile2", RepoVersion: "2.4.0", RepoVersionPublishedAt: 2018-12-02T00:00:00, LatestVersion: "2.4.0", LatestPublishedAt: 2018-12-02T00:00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "nokogiri", RepoVersion: "1.9.1", RepoVersionPublishedAt: 2018-12-18T00:00:00, LatestVersion: "1.10.1", LatestPublishedAt: 2019-01-13T00:00:00, UpgradeAvailable: True, Value: 0.07123287671232877 },
 ], Total: 0.07123287671232877 } }
 
 results[27] = { Date: 2019-04-01T00:00:00, ManifestSHA: 017031627f36deb582d69cddd381718be0044b02, LibYear: { _packagesValues: [
-{ Name: "mini_portile2", RepoVersion: "2.4.0", RepoVersionPublishedAt: 2018-12-02T00:00:00, LatestVersion: "2.4.0", LatestPublishedAt: 2018-12-02T00:00:00, Value: 0 },
-{ Name: "nokogiri", RepoVersion: "1.9.1", RepoVersionPublishedAt: 2018-12-18T00:00:00, LatestVersion: "1.10.2", LatestPublishedAt: 2019-03-25T00:00:00, Value: 0.26575342465753427 },
+{ Name: "mini_portile2", RepoVersion: "2.4.0", RepoVersionPublishedAt: 2018-12-02T00:00:00, LatestVersion: "2.4.0", LatestPublishedAt: 2018-12-02T00:00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "nokogiri", RepoVersion: "1.9.1", RepoVersionPublishedAt: 2018-12-18T00:00:00, LatestVersion: "1.10.2", LatestPublishedAt: 2019-03-25T00:00:00, UpgradeAvailable: True, Value: 0.26575342465753427 },
 ], Total: 0.26575342465753427 } }
 
 results[28] = { Date: 2019-05-01T00:00:00, ManifestSHA: 017031627f36deb582d69cddd381718be0044b02, LibYear: { _packagesValues: [
-{ Name: "mini_portile2", RepoVersion: "2.4.0", RepoVersionPublishedAt: 2018-12-02T00:00:00, LatestVersion: "2.4.0", LatestPublishedAt: 2018-12-02T00:00:00, Value: 0 },
-{ Name: "nokogiri", RepoVersion: "1.9.1", RepoVersionPublishedAt: 2018-12-18T00:00:00, LatestVersion: "1.10.3", LatestPublishedAt: 2019-04-22T00:00:00, Value: 0.3424657534246575 },
+{ Name: "mini_portile2", RepoVersion: "2.4.0", RepoVersionPublishedAt: 2018-12-02T00:00:00, LatestVersion: "2.4.0", LatestPublishedAt: 2018-12-02T00:00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "nokogiri", RepoVersion: "1.9.1", RepoVersionPublishedAt: 2018-12-18T00:00:00, LatestVersion: "1.10.3", LatestPublishedAt: 2019-04-22T00:00:00, UpgradeAvailable: True, Value: 0.3424657534246575 },
 ], Total: 0.3424657534246575 } }
 
 results[29] = { Date: 2019-06-01T00:00:00, ManifestSHA: 017031627f36deb582d69cddd381718be0044b02, LibYear: { _packagesValues: [
-{ Name: "mini_portile2", RepoVersion: "2.4.0", RepoVersionPublishedAt: 2018-12-02T00:00:00, LatestVersion: "2.4.0", LatestPublishedAt: 2018-12-02T00:00:00, Value: 0 },
-{ Name: "nokogiri", RepoVersion: "1.9.1", RepoVersionPublishedAt: 2018-12-18T00:00:00, LatestVersion: "1.10.3", LatestPublishedAt: 2019-04-22T00:00:00, Value: 0.3424657534246575 },
+{ Name: "mini_portile2", RepoVersion: "2.4.0", RepoVersionPublishedAt: 2018-12-02T00:00:00, LatestVersion: "2.4.0", LatestPublishedAt: 2018-12-02T00:00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "nokogiri", RepoVersion: "1.9.1", RepoVersionPublishedAt: 2018-12-18T00:00:00, LatestVersion: "1.10.3", LatestPublishedAt: 2019-04-22T00:00:00, UpgradeAvailable: True, Value: 0.3424657534246575 },
 ], Total: 0.3424657534246575 } }
 
 results[30] = { Date: 2019-07-01T00:00:00, ManifestSHA: 017031627f36deb582d69cddd381718be0044b02, LibYear: { _packagesValues: [
-{ Name: "mini_portile2", RepoVersion: "2.4.0", RepoVersionPublishedAt: 2018-12-02T00:00:00, LatestVersion: "2.4.0", LatestPublishedAt: 2018-12-02T00:00:00, Value: 0 },
-{ Name: "nokogiri", RepoVersion: "1.9.1", RepoVersionPublishedAt: 2018-12-18T00:00:00, LatestVersion: "1.10.3", LatestPublishedAt: 2019-04-22T00:00:00, Value: 0.3424657534246575 },
+{ Name: "mini_portile2", RepoVersion: "2.4.0", RepoVersionPublishedAt: 2018-12-02T00:00:00, LatestVersion: "2.4.0", LatestPublishedAt: 2018-12-02T00:00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "nokogiri", RepoVersion: "1.9.1", RepoVersionPublishedAt: 2018-12-18T00:00:00, LatestVersion: "1.10.3", LatestPublishedAt: 2019-04-22T00:00:00, UpgradeAvailable: True, Value: 0.3424657534246575 },
 ], Total: 0.3424657534246575 } }
 
 results[31] = { Date: 2019-08-01T00:00:00, ManifestSHA: 017031627f36deb582d69cddd381718be0044b02, LibYear: { _packagesValues: [
-{ Name: "mini_portile2", RepoVersion: "2.4.0", RepoVersionPublishedAt: 2018-12-02T00:00:00, LatestVersion: "2.4.0", LatestPublishedAt: 2018-12-02T00:00:00, Value: 0 },
-{ Name: "nokogiri", RepoVersion: "1.9.1", RepoVersionPublishedAt: 2018-12-18T00:00:00, LatestVersion: "1.10.3", LatestPublishedAt: 2019-04-22T00:00:00, Value: 0.3424657534246575 },
+{ Name: "mini_portile2", RepoVersion: "2.4.0", RepoVersionPublishedAt: 2018-12-02T00:00:00, LatestVersion: "2.4.0", LatestPublishedAt: 2018-12-02T00:00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "nokogiri", RepoVersion: "1.9.1", RepoVersionPublishedAt: 2018-12-18T00:00:00, LatestVersion: "1.10.3", LatestPublishedAt: 2019-04-22T00:00:00, UpgradeAvailable: True, Value: 0.3424657534246575 },
 ], Total: 0.3424657534246575 } }
 
 results[32] = { Date: 2019-09-01T00:00:00, ManifestSHA: 017031627f36deb582d69cddd381718be0044b02, LibYear: { _packagesValues: [
-{ Name: "mini_portile2", RepoVersion: "2.4.0", RepoVersionPublishedAt: 2018-12-02T00:00:00, LatestVersion: "2.4.0", LatestPublishedAt: 2018-12-02T00:00:00, Value: 0 },
-{ Name: "nokogiri", RepoVersion: "1.9.1", RepoVersionPublishedAt: 2018-12-18T00:00:00, LatestVersion: "1.10.4", LatestPublishedAt: 2019-08-11T00:00:00, Value: 0.6465753424657534 },
+{ Name: "mini_portile2", RepoVersion: "2.4.0", RepoVersionPublishedAt: 2018-12-02T00:00:00, LatestVersion: "2.4.0", LatestPublishedAt: 2018-12-02T00:00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "nokogiri", RepoVersion: "1.9.1", RepoVersionPublishedAt: 2018-12-18T00:00:00, LatestVersion: "1.10.4", LatestPublishedAt: 2019-08-11T00:00:00, UpgradeAvailable: True, Value: 0.6465753424657534 },
 ], Total: 0.6465753424657534 } }
 
 results[33] = { Date: 2019-10-01T00:00:00, ManifestSHA: 017031627f36deb582d69cddd381718be0044b02, LibYear: { _packagesValues: [
-{ Name: "mini_portile2", RepoVersion: "2.4.0", RepoVersionPublishedAt: 2018-12-02T00:00:00, LatestVersion: "2.4.0", LatestPublishedAt: 2018-12-02T00:00:00, Value: 0 },
-{ Name: "nokogiri", RepoVersion: "1.9.1", RepoVersionPublishedAt: 2018-12-18T00:00:00, LatestVersion: "1.10.4", LatestPublishedAt: 2019-08-11T00:00:00, Value: 0.6465753424657534 },
+{ Name: "mini_portile2", RepoVersion: "2.4.0", RepoVersionPublishedAt: 2018-12-02T00:00:00, LatestVersion: "2.4.0", LatestPublishedAt: 2018-12-02T00:00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "nokogiri", RepoVersion: "1.9.1", RepoVersionPublishedAt: 2018-12-18T00:00:00, LatestVersion: "1.10.4", LatestPublishedAt: 2019-08-11T00:00:00, UpgradeAvailable: True, Value: 0.6465753424657534 },
 ], Total: 0.6465753424657534 } }
 
 results[34] = { Date: 2019-11-01T00:00:00, ManifestSHA: 017031627f36deb582d69cddd381718be0044b02, LibYear: { _packagesValues: [
-{ Name: "mini_portile2", RepoVersion: "2.4.0", RepoVersionPublishedAt: 2018-12-02T00:00:00, LatestVersion: "2.4.0", LatestPublishedAt: 2018-12-02T00:00:00, Value: 0 },
-{ Name: "nokogiri", RepoVersion: "1.9.1", RepoVersionPublishedAt: 2018-12-18T00:00:00, LatestVersion: "1.10.5", LatestPublishedAt: 2019-10-31T00:00:00, Value: 0.8684931506849315 },
+{ Name: "mini_portile2", RepoVersion: "2.4.0", RepoVersionPublishedAt: 2018-12-02T00:00:00, LatestVersion: "2.4.0", LatestPublishedAt: 2018-12-02T00:00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "nokogiri", RepoVersion: "1.9.1", RepoVersionPublishedAt: 2018-12-18T00:00:00, LatestVersion: "1.10.5", LatestPublishedAt: 2019-10-31T00:00:00, UpgradeAvailable: True, Value: 0.8684931506849315 },
 ], Total: 0.8684931506849315 } }
 
 results[35] = { Date: 2019-12-01T00:00:00, ManifestSHA: 017031627f36deb582d69cddd381718be0044b02, LibYear: { _packagesValues: [
-{ Name: "mini_portile2", RepoVersion: "2.4.0", RepoVersionPublishedAt: 2018-12-02T00:00:00, LatestVersion: "2.4.0", LatestPublishedAt: 2018-12-02T00:00:00, Value: 0 },
-{ Name: "nokogiri", RepoVersion: "1.9.1", RepoVersionPublishedAt: 2018-12-18T00:00:00, LatestVersion: "1.10.5", LatestPublishedAt: 2019-10-31T00:00:00, Value: 0.8684931506849315 },
+{ Name: "mini_portile2", RepoVersion: "2.4.0", RepoVersionPublishedAt: 2018-12-02T00:00:00, LatestVersion: "2.4.0", LatestPublishedAt: 2018-12-02T00:00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "nokogiri", RepoVersion: "1.9.1", RepoVersionPublishedAt: 2018-12-18T00:00:00, LatestVersion: "1.10.5", LatestPublishedAt: 2019-10-31T00:00:00, UpgradeAvailable: True, Value: 0.8684931506849315 },
 ], Total: 0.8684931506849315 } }
 
 results[36] = { Date: 2020-01-01T00:00:00, ManifestSHA: 017031627f36deb582d69cddd381718be0044b02, LibYear: { _packagesValues: [
-{ Name: "mini_portile2", RepoVersion: "2.4.0", RepoVersionPublishedAt: 2018-12-02T00:00:00, LatestVersion: "2.4.0", LatestPublishedAt: 2018-12-02T00:00:00, Value: 0 },
-{ Name: "nokogiri", RepoVersion: "1.9.1", RepoVersionPublishedAt: 2018-12-18T00:00:00, LatestVersion: "1.10.7", LatestPublishedAt: 2019-12-04T00:00:00, Value: 0.9616438356164384 },
+{ Name: "mini_portile2", RepoVersion: "2.4.0", RepoVersionPublishedAt: 2018-12-02T00:00:00, LatestVersion: "2.4.0", LatestPublishedAt: 2018-12-02T00:00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "nokogiri", RepoVersion: "1.9.1", RepoVersionPublishedAt: 2018-12-18T00:00:00, LatestVersion: "1.10.7", LatestPublishedAt: 2019-12-04T00:00:00, UpgradeAvailable: True, Value: 0.9616438356164384 },
 ], Total: 0.9616438356164384 } }
 

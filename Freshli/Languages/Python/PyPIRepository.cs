@@ -85,7 +85,23 @@ namespace Freshli.Languages.Python {
         throw new LatestVersionThatMatchesNotFoundException(
           name, asOf, thatMatches, e);
       }
-
     }
+
+    public List<IVersionInfo> VersionsBetween(string name, DateTime asOf,
+      IVersionInfo earlierVersion, IVersionInfo laterVersion)
+    {
+      try {
+        return GetReleaseHistory(name).
+          OrderByDescending(v => v).
+          Where(v => v.DatePublished <= asOf).
+          Where(predicate: v => v.CompareTo(earlierVersion) == 1).
+          Where(predicate: v => v.CompareTo(laterVersion) == -1).ToList();
+      }
+      catch (Exception e) {
+        throw new VersionsBetweenNotFoundException(
+          name, earlierVersion.Version, laterVersion.Version, e);
+      }
+    }
+
   }
 }

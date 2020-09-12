@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text.Json;
 using Elasticsearch.Net;
+using Freshli.Exceptions;
 
 namespace Freshli.Languages.Perl {
   public class MetaCpanRepository : IPackageRepository {
@@ -43,9 +44,6 @@ namespace Freshli.Languages.Perl {
         return null;
       }
 
-      var totalItems = hitsJson.GetProperty("total").GetInt32();
-      // grab the next page if {totalItems} is greater than the page size
-
       var versions = new List<IVersionInfo>();
       foreach (var hit in hitsJson.GetProperty("hits").EnumerateArray()) {
         var fields = hit.GetProperty("fields");
@@ -77,6 +75,22 @@ namespace Freshli.Languages.Perl {
       return GetReleaseHistory(name).OrderByDescending(v => v).
         Where(v => v.DatePublished <= asOf).
         First(v => expression.DoesMatch(v));
+    }
+
+    public List<IVersionInfo> VersionsBetween(string name, DateTime asOf,
+      IVersionInfo earlierVersion, IVersionInfo laterVersion)
+    {
+      try {
+        return GetReleaseHistory(name).
+          OrderByDescending(v => v).
+          Where(v => v.DatePublished <= asOf).
+          Where(predicate: v => v.CompareTo(earlierVersion) == 1).
+          Where(predicate: v => v.CompareTo(laterVersion) == -1).ToList();
+      }
+      catch (Exception e) {
+        throw new VersionsBetweenNotFoundException(
+          name, earlierVersion.Version, laterVersion.Version, e);
+      }
     }
   }
 }

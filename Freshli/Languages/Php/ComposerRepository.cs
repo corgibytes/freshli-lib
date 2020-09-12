@@ -95,8 +95,6 @@ namespace Freshli.Languages.Php {
         return null;
       }
 
-      var versionsJsonElements = versionsJson.EnumerateObject();
-
       if (versionsJson.TryGetProperty(version, out var versionJson)) {
         var publishedDate = ParsePublishedDate(versionJson);
 
@@ -107,6 +105,13 @@ namespace Freshli.Languages.Php {
     }
 
     public IVersionInfo Latest(string name, DateTime asOf, string thatMatches) {
+      throw new NotImplementedException();
+    }
+
+    public List<IVersionInfo> VersionsBetween(string name, DateTime asOf,
+      IVersionInfo earlierVersion, IVersionInfo laterVersion)
+    {
+      //TODO: Implement method
       throw new NotImplementedException();
     }
 
