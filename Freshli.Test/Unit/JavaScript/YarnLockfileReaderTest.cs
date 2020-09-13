@@ -55,6 +55,23 @@ namespace Freshli.Test.Unit.JavaScript {
     }
 
     [Fact]
+    public void ReadObjectStartWithoutQuotes() {
+      var contents = "ansi-regex@^5.0.0:";
+      var reader = new YarnLockfileReader(contents);
+
+      AssertTokenNone(reader);
+
+      reader.Read();
+      AssertTokenPackageName(reader, value: "ansi-regex@^5.0.0");
+
+      reader.Read();
+      AssertTokenColon(reader);
+
+      reader.Read();
+      AssertTokenEof(reader);
+    }
+
+    [Fact]
     public void ReadObjectProperty() {
       var contents = "  version \"7.8.3\"";
       var reader = new YarnLockfileReader(contents);
@@ -154,6 +171,15 @@ namespace Freshli.Test.Unit.JavaScript {
       Assert.Equal(YarnLockfileTokenType.Identifier, reader.CurrentTokenType);
       Assert.Equal(value, reader.CurrentTokenValue);
     }
+
+    private static void AssertTokenPackageName(
+      YarnLockfileReader reader,
+      string value
+    ) {
+      Assert.Equal(YarnLockfileTokenType.PackageName, reader.CurrentTokenType);
+      Assert.Equal(value, reader.CurrentTokenValue);
+    }
+
 
     private static void AssertTokenIndent(YarnLockfileReader reader) {
       Assert.Equal(YarnLockfileTokenType.Indent, reader.CurrentTokenType);
