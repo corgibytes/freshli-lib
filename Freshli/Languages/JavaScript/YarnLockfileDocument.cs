@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Freshli.Languages.JavaScript {
   public class YarnLockfileStateMachine {
@@ -137,6 +138,24 @@ namespace Freshli.Languages.JavaScript {
         "Ready",
         CreateProperty
       );
+      states.Add(
+        stateName: "Name",
+        YarnLockfileTokenType.Number,
+        "Value",
+        Push
+      );
+      states.Add(
+        stateName: "Value",
+        YarnLockfileTokenType.Newline,
+        "Ready",
+        CreateProperty
+      );
+      states.Add(
+        stateName: "Value",
+        YarnLockfileTokenType.Eof,
+        "End",
+        CreateProperty
+      );
       states.StartStateName = "Ready";
 
       while (states.CurrentStateName != "End") {
@@ -185,11 +204,6 @@ namespace Freshli.Languages.JavaScript {
       );
     }
 
-    private static void NoOp(
-      YarnLockfileDocument document,
-      string token
-    ) { }
-
     private static void Push(
       YarnLockfileDocument document,
       string token
@@ -229,6 +243,11 @@ namespace Freshli.Languages.JavaScript {
   public interface IYarnLockfileElement {
     IYarnLockfileElement Parent { get; }
     IList<IYarnLockfileElement> Elements { get; }
+    IList<string> Names { get; }
+    string Name { get; }
+    IYarnLockfileElement GetProperty(string name);
+    string Value { get; }
+
   }
 
   public class YarnLockfilePropertyElement : IYarnLockfileElement {
@@ -245,7 +264,12 @@ namespace Freshli.Languages.JavaScript {
 
     public IYarnLockfileElement Parent { get; }
     public IList<IYarnLockfileElement> Elements { get; }
+    public IList<string> Names => new List<string>() {Name};
     public string Name { get; }
+    public IYarnLockfileElement GetProperty(string name) {
+      return null;
+    }
+
     public string Value { get; }
   }
 
@@ -260,7 +284,14 @@ namespace Freshli.Languages.JavaScript {
     }
 
     public IYarnLockfileElement Parent { get; }
-    public List<string> Names { get; }
+    public IList<string> Names { get; }
+    public string Name => Names.FirstOrDefault();
+    public IYarnLockfileElement GetProperty(string name) {
+      return Elements.FirstOrDefault((item) => item.Names.Contains(name));
+    }
+
+    public string Value => null;
+
     public IList<IYarnLockfileElement> Elements { get; }
   }
 
@@ -276,15 +307,18 @@ namespace Freshli.Languages.JavaScript {
     public IYarnLockfileElement Parent { get; }
 
     public IList<IYarnLockfileElement> Elements { get; }
+    public IList<string> Names => new List<string>();
+    public string Name => Names.FirstOrDefault();
 
     public ObjectEnumerator EnumerateObject() {
       return new ObjectEnumerator(this);
     }
 
-    public YarnLockfileProperty GetProperty(string name) {
-
-      return default;
+    public IYarnLockfileElement GetProperty(string name) {
+      return Elements.FirstOrDefault((item) => item.Names.Contains(name));
     }
+
+    public string Value => null;
 
     public string GetPropertyName() {
       return null;
@@ -305,6 +339,11 @@ namespace Freshli.Languages.JavaScript {
     public IYarnLockfileElement Parent { get; }
 
     public IList<IYarnLockfileElement> Elements { get; }
+    public IList<string> Names => new List<string>();
+    public string Name => Names.FirstOrDefault();
+    public IYarnLockfileElement GetProperty(string name) {
+      return null;
+    }
 
     public string Value { get; }
   }
