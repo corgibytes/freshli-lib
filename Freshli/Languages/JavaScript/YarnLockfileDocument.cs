@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Freshli.Languages.JavaScript {
   public class YarnLockfileStateMachine {
@@ -62,15 +64,15 @@ namespace Freshli.Languages.JavaScript {
 
     public YarnLockfileElement RootElement { get; }
 
-    public IYarnLockfileElement LastCreatedObject { get; set; }
+    public YarnLockfileElement LastCreatedObject { get; set; }
 
     public string FormatVersion { get; private set; }
 
     public Stack<string> Stack { get; }
 
-    public IYarnLockfileElement CurrentElement {
+    public YarnLockfileElement CurrentElement {
       get {
-        var objects = new List<IYarnLockfileElement>();
+        var objects = new List<YarnLockfileElement>();
         var current = LastCreatedObject;
         while (current != null) {
           objects.Insert(0, current);
@@ -220,7 +222,7 @@ namespace Freshli.Languages.JavaScript {
         names.Insert(index: 0, document.Stack.Pop());
       }
 
-      var element = new YarnLockfileObjectElement(document.CurrentElement, names);
+      var element = new YarnLockfileElement(document.CurrentElement, names);
       document.CurrentElement.Elements.Add(element);
       document.LastCreatedObject = element;
     }
@@ -250,75 +252,55 @@ namespace Freshli.Languages.JavaScript {
 
   }
 
-  public class YarnLockfilePropertyElement : IYarnLockfileElement {
+  public class YarnLockfilePropertyElement: YarnLockfileElement {
     public YarnLockfilePropertyElement(
-      IYarnLockfileElement parent,
+      YarnLockfileElement parent,
       string name,
       string value
-    ) {
-      Parent = parent;
-      Name = name;
+    ): base(parent) {
+      Names.Add(name);
       Value = value;
-      Elements = new List<IYarnLockfileElement>();
-    }
-
-    public IYarnLockfileElement Parent { get; }
-    public IList<IYarnLockfileElement> Elements { get; }
-    public IList<string> Names => new List<string>() {Name};
-    public string Name { get; }
-    public IYarnLockfileElement GetProperty(string name) {
-      return null;
     }
 
     public string Value { get; }
   }
 
-  public class YarnLockfileObjectElement : IYarnLockfileElement {
-    public YarnLockfileObjectElement(
-      IYarnLockfileElement parent,
-      List<string> names
-    ) {
-      Parent = parent;
-      Names = names;
-      Elements = new List<IYarnLockfileElement>();
-    }
-
-    public IYarnLockfileElement Parent { get; }
-    public IList<string> Names { get; }
-    public string Name => Names.FirstOrDefault();
-    public IYarnLockfileElement GetProperty(string name) {
-      return Elements.FirstOrDefault((item) => item.Names.Contains(name));
-    }
-
-    public string Value => null;
-
-    public IList<IYarnLockfileElement> Elements { get; }
-  }
-
-  public class YarnLockfileElement : IYarnLockfileElement {
+  public class YarnLockfileElement {
     public YarnLockfileDocument Document { get; private set; }
 
     public YarnLockfileElement(YarnLockfileDocument document) {
       Parent = null;
       Document = document;
-      Elements = new List<IYarnLockfileElement>();
+      Elements = new List<YarnLockfileElement>();
+      Names = new List<string>();
     }
 
-    public IYarnLockfileElement Parent { get; }
+    public YarnLockfileElement(
+      YarnLockfileElement parent
+    ) : this(parent.Document) {
+      Parent = parent;
+    }
 
-    public IList<IYarnLockfileElement> Elements { get; }
-    public IList<string> Names => new List<string>();
+    public YarnLockfileElement(
+      YarnLockfileElement parent,
+      List<string> names
+    ): this(parent) {
+      Names = names;
+    }
+
+    public YarnLockfileElement Parent { get; }
+
+    public IList<YarnLockfileElement> Elements { get; }
+    public IList<string> Names { get; protected set; }
     public string Name => Names.FirstOrDefault();
 
     public ObjectEnumerator EnumerateObject() {
       return new ObjectEnumerator(this);
     }
 
-    public IYarnLockfileElement GetProperty(string name) {
+    public YarnLockfileElement GetProperty(string name) {
       return Elements.FirstOrDefault((item) => item.Names.Contains(name));
     }
-
-    public string Value => null;
 
     public string GetPropertyName() {
       return null;
@@ -327,22 +309,32 @@ namespace Freshli.Languages.JavaScript {
     public string GetString() {
       return null;
     }
+
+    public YarnLockfileCommentIndexer Comments =>
+      new YarnLockfileCommentIndexer(this);
   }
 
-  public class YarnLockfileCommentElement: IYarnLockfileElement {
-    public YarnLockfileCommentElement(IYarnLockfileElement parent, string value) {
-      Parent = parent;
-      Elements = new List<IYarnLockfileElement>();
-      Value = value;
+  public class YarnLockfileCommentIndexer {
+    private YarnLockfileElement _element;
+    public YarnLockfileCommentIndexer(YarnLockfileElement element) {
+      _element = element;
     }
 
-    public IYarnLockfileElement Parent { get; }
+    public string this[int index] {
+      get {
+        var commentElements = _element.Elements.Where(
+          (value) => value is YarnLockfileCommentElement
+        ).ToList();
+        var commentElement = commentElements[index] as YarnLockfileCommentElement;
+        return commentElement?.Value;
+      }
+    }
+  }
 
-    public IList<IYarnLockfileElement> Elements { get; }
-    public IList<string> Names => new List<string>();
-    public string Name => Names.FirstOrDefault();
-    public IYarnLockfileElement GetProperty(string name) {
-      return null;
+  public class YarnLockfileCommentElement: YarnLockfileElement {
+    public YarnLockfileCommentElement(YarnLockfileElement parent, string value)
+      : base(parent) {
+      Value = value;
     }
 
     public string Value { get; }
