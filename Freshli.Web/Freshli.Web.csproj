@@ -15,7 +15,7 @@
     <PackageReference Include="DotNetEnv" Version="1.4.0" />
     <PackageReference Include="EFCore.NamingConventions" Version="1.1.0" />
     <PackageReference Include="Hangfire.AspNetCore" Version="1.7.12" />
-    <PackageReference Include="Hangfire.Core" Version="1.7.12" />
+    <PackageReference Include="Hangfire.Core" Version="1.7.13" />
     <PackageReference Include="Hangfire.Postgresql" Version="1.7.1" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.8">
