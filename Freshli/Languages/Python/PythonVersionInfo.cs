@@ -160,16 +160,6 @@ namespace Freshli.Languages.Python {
       }
     }
 
-    //TODO: See if needed
-    private bool IsFinal() {
-      return
-        PreReleaseLabel == null &&
-        PreReleaseValue == null &&
-        PostReleaseLabel == null &&
-        PostReleaseValue == null &&
-        DevelopmentReleaseValue == null;
-    }
-
     //TODO: Consolidate with logic in RubyGemsVersionInfo
     private static int CompareNumericValues(long v1, long v2) {
       if (v1 == v2) {
