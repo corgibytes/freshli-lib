@@ -44,50 +44,50 @@ namespace Freshli.Test.Unit.JavaScript {
 
       var root = document.RootElement;
 
-      // var ansiRegex = root.GetProperty("ansi-regex@^5.0.0");
-      // Assert.Equal("ansi-regex@^5.0.0", ansiRegex.Name);
-      // Assert.Equal("version", ansiRegex.Value.GetProperty("version").Name);
-      // Assert.Equal(
-      //   "5.0.0",
-      //   ansiRegex.Value.GetProperty("version").Value.GetString()
-      // );
-      //
-      // var normalizeUrl = root.GetProperty("normalize-url@^5.1.0");
-      // Assert.Equal("normalize-url@^5.1.0", normalizeUrl.Name);
-      // Assert.Equal("version", normalizeUrl.Value.GetProperty("version").Name);
-      // Assert.Equal(
-      //   "5.1.0",
-      //   normalizeUrl.Value.GetProperty("version").Value.GetString()
-      // );
-      //
-      // var stripAnsi = root.GetProperty("strip-ansi@^6.0.0");
-      // Assert.Equal("strip-ansi@^6.0.0", stripAnsi.Name);
-      // Assert.Equal("version", stripAnsi.Value.GetProperty("version").Name);
-      // Assert.Equal(
-      //   "6.0.0",
-      //   stripAnsi.Value.GetProperty("version").Value.GetString()
-      // );
+      var ansiRegex = root.GetProperty("ansi-regex@^5.0.0");
+      Assert.Equal("ansi-regex@^5.0.0", ansiRegex.Name);
+      Assert.Equal("version", ansiRegex.Value.GetProperty("version").Name);
+      Assert.Equal(
+        "5.0.0",
+        ansiRegex.Value.GetProperty("version").Value.GetString()
+      );
+
+      var normalizeUrl = root.GetProperty("normalize-url@^5.1.0");
+      Assert.Equal("normalize-url@^5.1.0", normalizeUrl.Name);
+      Assert.Equal("version", normalizeUrl.Value.GetProperty("version").Name);
+      Assert.Equal(
+        "5.1.0",
+        normalizeUrl.Value.GetProperty("version").Value.GetString()
+      );
+
+      var stripAnsi = root.GetProperty("strip-ansi@^6.0.0");
+      Assert.Equal("strip-ansi@^6.0.0", stripAnsi.Name);
+      Assert.Equal("version", stripAnsi.Value.GetProperty("version").Name);
+      Assert.Equal(
+        "6.0.0",
+        stripAnsi.Value.GetProperty("version").Value.GetString()
+      );
     }
 
     [Fact]
     public void ReadSimpleDocument() {
-      // var contents = File.ReadAllText(
-      //   Fixtures.Path("javascript", "yarn-simple", "yarn.lock")
-      // );
-      // var document = new YarnLockfileDocument(contents);
-      //
-      // Assert.Equal("1", document.FormatVersion);
-      //
-      // var dependencies = new Dictionary<string, string>();
-      // foreach (var dependency in document.RootElement.EnumerateObject()) {
-      //   var version = dependency.Value.GetProperty("version").Value;
-      //
-      //   dependencies[dependency.Name] = version;
-      // }
-      //
-      // Assert.Equal("5.0.0", dependencies["ansi-regex"]);
-      // Assert.Equal("5.1.0", dependencies["normalize-url"]);
-      // Assert.Equal("6.0.0", dependencies["strip-ansi"]);
+      var contents = File.ReadAllText(
+        Fixtures.Path("javascript", "yarn-simple", "yarn.lock")
+      );
+      var document = new YarnLockfileDocument(contents);
+
+      Assert.Equal("1", document.FormatVersion);
+
+      var dependencies = new Dictionary<string, string>();
+      foreach (var dependency in document.RootElement.EnumerateObject()) {
+        var version = dependency.Value.GetProperty("version").Value.GetString();
+
+        dependencies[dependency.PackageName] = version;
+      }
+
+      Assert.Equal("5.0.0", dependencies["ansi-regex"]);
+      Assert.Equal("5.1.0", dependencies["normalize-url"]);
+      Assert.Equal("6.0.0", dependencies["strip-ansi"]);
     }
   }
 }

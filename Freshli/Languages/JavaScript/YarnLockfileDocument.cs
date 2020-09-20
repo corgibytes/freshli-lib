@@ -2,8 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Metadata;
-using System.Security.Cryptography.X509Certificates;
 
 namespace Freshli.Languages.JavaScript {
   public class YarnLockfileStateMachine {
@@ -222,7 +220,7 @@ namespace Freshli.Languages.JavaScript {
         names.Insert(index: 0, document.Stack.Pop());
       }
 
-      var element = new YarnLockfileElement(document.CurrentElement, names);
+      var element = new YarnLockfilePropertyElement(document.CurrentElement, names);
       document.CurrentElement.Elements.Add(element);
       document.LastCreatedObject = element;
     }
@@ -252,17 +250,48 @@ namespace Freshli.Languages.JavaScript {
 
   }
 
-  public class YarnLockfilePropertyElement: YarnLockfileElement {
+  public class YarnLockfileStringValue : YarnLockfileElement {
+    private string _innerValue;
+
+    public YarnLockfileStringValue(YarnLockfileElement parent, string value): base(parent) {
+      _innerValue = value;
+    }
+
+    public override string GetString() {
+      return _innerValue;
+    }
+  }
+
+  public class YarnLockfilePropertyElement : YarnLockfileElement {
     public YarnLockfilePropertyElement(
       YarnLockfileElement parent,
       string name,
       string value
-    ): base(parent) {
+    ) : base(parent) {
       Names.Add(name);
-      Value = value;
+      Value = new YarnLockfileStringValue(this, value);
     }
 
-    public string Value { get; }
+    public YarnLockfilePropertyElement(
+      YarnLockfileElement parent,
+      List<string> names
+    ): base(parent) {
+      Names = names;
+      Value = this;
+    }
+
+    public YarnLockfileElement Value { get; }
+
+    public string PackageName {
+      get {
+        if (!Name.Contains("@")) {
+          return Name;
+        }
+
+        var splits = Name.Split("@");
+        return splits[0];
+      }
+    }
   }
 
   public class YarnLockfileElement {
@@ -298,15 +327,17 @@ namespace Freshli.Languages.JavaScript {
       return new ObjectEnumerator(this);
     }
 
-    public YarnLockfileElement GetProperty(string name) {
-      return Elements.FirstOrDefault((item) => item.Names.Contains(name));
+    public YarnLockfilePropertyElement GetProperty(string name) {
+      return (YarnLockfilePropertyElement) Elements.FirstOrDefault(
+        (item) => item.Names.Contains(name)
+      );
     }
 
     public string GetPropertyName() {
       return null;
     }
 
-    public string GetString() {
+    public virtual string GetString() {
       return null;
     }
 
@@ -350,14 +381,18 @@ namespace Freshli.Languages.JavaScript {
     }
   }
 
-  public struct ObjectEnumerator : IEnumerable<YarnLockfileProperty>,
-    IEnumerator<YarnLockfileProperty> {
+  public struct ObjectEnumerator : IEnumerable<YarnLockfilePropertyElement>,
+    IEnumerator<YarnLockfilePropertyElement> {
+    private int index;
+    private YarnLockfileElement _target;
+
     public ObjectEnumerator(YarnLockfileElement target) {
-      Current = default;
+      _target = target;
+      index = -1;
     }
 
-    public IEnumerator<YarnLockfileProperty> GetEnumerator() {
-      throw new NotImplementedException();
+    public IEnumerator<YarnLockfilePropertyElement> GetEnumerator() {
+      return this;
     }
 
     IEnumerator IEnumerable.GetEnumerator() {
@@ -365,19 +400,33 @@ namespace Freshli.Languages.JavaScript {
     }
 
     public bool MoveNext() {
-      throw new NotImplementedException();
+      index++;
+      while (index < _target.Elements.Count &&
+        !(_target.Elements[index] is YarnLockfilePropertyElement)) {
+        index++;
+      }
+
+      return index < _target.Elements.Count &&
+        _target.Elements[index] is YarnLockfilePropertyElement;
     }
 
     public void Reset() {
-      throw new NotImplementedException();
+      index = -1;
     }
 
-    public YarnLockfileProperty Current { get; }
+    public YarnLockfilePropertyElement Current {
+      get {
+        if (index < 0) {
+          return null!;
+        }
+
+        return (YarnLockfilePropertyElement) _target.Elements[index];
+      }
+    }
 
     object? IEnumerator.Current => Current;
 
     public void Dispose() {
-      throw new NotImplementedException();
     }
   }
 }
