@@ -62,7 +62,7 @@ namespace Freshli.Test.Unit.JavaScript {
       AssertTokenNone(reader);
 
       reader.Read();
-      AssertTokenPackageName(reader, value: "ansi-regex@^5.0.0");
+      AssertTokenIdentifier(reader, value: "ansi-regex@^5.0.0");
 
       reader.Read();
       AssertTokenColon(reader);
@@ -171,15 +171,6 @@ namespace Freshli.Test.Unit.JavaScript {
       Assert.Equal(YarnLockfileTokenType.Identifier, reader.CurrentTokenType);
       Assert.Equal(value, reader.CurrentTokenValue);
     }
-
-    private static void AssertTokenPackageName(
-      YarnLockfileReader reader,
-      string value
-    ) {
-      Assert.Equal(YarnLockfileTokenType.PackageName, reader.CurrentTokenType);
-      Assert.Equal(value, reader.CurrentTokenValue);
-    }
-
 
     private static void AssertTokenIndent(YarnLockfileReader reader) {
       Assert.Equal(YarnLockfileTokenType.Indent, reader.CurrentTokenType);

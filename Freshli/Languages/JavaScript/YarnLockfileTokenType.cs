@@ -11,7 +11,6 @@
     Indent,
     Invalid,
     Number,
-    Comma,
-    PackageName
+    Comma
   }
 }

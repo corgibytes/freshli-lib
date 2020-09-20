@@ -18,8 +18,7 @@ namespace Freshli.Languages.JavaScript {
     }
 
     public void Read() {
-      var packageNameExpression = new Regex(@"^(\w(?:\w|\d|-|@|\^|\.)*)");
-      var identifierExpression = new Regex(@"^(\w(?:\w|\d|_)*)");
+      var identifierExpression = new Regex(@"^(\w(?:\w|\d|-|@|\^|\.)*)");
       if (_currentLine == null) {
         _currentLine = _reader.ReadLine();
         if (_reader.Peek() != -1) {
@@ -58,11 +57,6 @@ namespace Freshli.Languages.JavaScript {
           startIndex: 0,
           CurrentTokenValue.Length
         );
-      } else if (packageNameExpression.IsMatch(_currentLine)) {
-        CurrentTokenType = YarnLockfileTokenType.PackageName;
-        CurrentTokenValue =
-          packageNameExpression.Match(_currentLine).Groups[0].Value;
-        _currentLine = _currentLine.Remove(0, CurrentTokenValue.Length);
       } else if (identifierExpression.IsMatch(_currentLine)) {
         CurrentTokenType = YarnLockfileTokenType.Identifier;
         CurrentTokenValue =

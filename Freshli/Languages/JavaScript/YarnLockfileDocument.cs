@@ -112,7 +112,7 @@ namespace Freshli.Languages.JavaScript {
       );
       states.Add(
         stateName: "Ready",
-        YarnLockfileTokenType.PackageName,
+        YarnLockfileTokenType.Identifier,
         "Name",
         Push
       );
