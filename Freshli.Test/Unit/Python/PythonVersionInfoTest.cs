@@ -7,83 +7,70 @@ namespace Freshli.Test.Unit.Python {
   public class PythonVersionInfoTest {
 
     [Theory]
-    [InlineData("1!1", 1, "1", new long[] { 1 }, null, null, null, null, null)]
+    [InlineData("1!1", 1, "1", new long[] { 1 }, null, null, false, null, null, false, null, false)]
     [InlineData
-      ("10!1", 10, "1", new long[] { 1 }, null, null, null, null, null)]
+      ("10!1", 10, "1", new long[] { 1 }, null, null, false, null, null, false, null, false)]
     [InlineData
-      ("10!1.0", 10, "1.0", new long[] { 1, 0 }, null, null, null, null, null)]
+      ("10!1.0", 10, "1.0", new long[] { 1, 0 }, null, null, false, null, null, false, null, false)]
     [InlineData("20200101!1",
-      20200101, "1", new long[] { 1 }, null, null, null, null, null)]
+      20200101, "1", new long[] { 1 }, null, null, false, null, null, false, null, false)]
     [InlineData
-      ("0.1", 0, "0.1", new long[] { 0, 1 }, null, null, null, null, null)]
+      ("0.1", 0, "0.1", new long[] { 0, 1 }, null, null, false, null, null, false, null, false)]
     [InlineData
-      ("0.10", 0, "0.10", new long[] { 0, 10 }, null, null, null, null, null)]
+      ("0.10", 0, "0.10", new long[] { 0, 10 }, null, null, false, null, null, false, null, false)]
     [InlineData("0.10.1",
-      0, "0.10.1", new long[] { 0, 10, 1 }, null, null, null, null, null)]
+      0, "0.10.1", new long[] { 0, 10, 1 }, null, null, false, null, null, false, null, false)]
     [InlineData
-      ("1.0", 0, "1.0", new long[] { 1, 0 }, null, null, null, null, null)]
+      ("1.0", 0, "1.0", new long[] { 1, 0 }, null, null, false, null, null, false, null, false)]
     [InlineData
-      ("10.0", 0, "10.0", new long[] { 10, 0 }, null, null, null, null, null)]
+      ("10.0", 0, "10.0", new long[] { 10, 0 }, null, null, false, null, null, false, null, false)]
     [InlineData("10.0.1.0",
-      0, "10.0.1.0", new long[] { 10, 0, 1, 0 }, null, null, null, null, null)]
+      0, "10.0.1.0", new long[] { 10, 0, 1, 0 }, null, null, false, null, null, false, null, false)]
     [InlineData("1.0.dev456",
-      0, "1.0", new long[] { 1, 0 }, null, null, null, null, 456)]
+      0, "1.0", new long[] { 1, 0 }, null, null, false, null, null, false, 456, true)]
     [InlineData
-      ("1.0a1", 0, "1.0", new long[] { 1, 0 }, "a", 1, null, null, null)]
+      ("1.0a1", 0, "1.0", new long[] { 1, 0 }, "a", 1, true, null, null, false, null, false)]
     [InlineData
-      ("1.0A1", 0, "1.0", new long[] { 1, 0 }, "a", 1, null, null, null)]
+      ("1.0A1", 0, "1.0", new long[] { 1, 0 }, "a", 1, true, null, null, false, null, false)]
     [InlineData
-      ("1.0.1a1", 0, "1.0.1", new long[] { 1, 0, 1 }, "a", 1, null, null, null)]
+      ("1.0.1a1", 0, "1.0.1", new long[] { 1, 0, 1 }, "a", 1, true, null, null, false, null, false)]
     [InlineData
-      ("1.0a2.dev456", 0, "1.0", new long[] { 1, 0 }, "a", 2, null, null, 456)]
+      ("1.0a2.dev456", 0, "1.0", new long[] { 1, 0 }, "a", 2, true, null, null, false, 456, true)]
     [InlineData("1.0a12.dev456",
-      0, "1.0", new long[] { 1, 0 }, "a", 12, null, null, 456)]
+      0, "1.0", new long[] { 1, 0 }, "a", 12, true, null, null, false, 456, true)]
     [InlineData("1.0a12.post456",
-      0, "1.0", new long[] { 1, 0 }, "a", 12, "post", 456, null)]
+      0, "1.0", new long[] { 1, 0 }, "a", 12, true, "post", 456, true, null, false)]
     [InlineData
-      ("1.0a12", 0, "1.0", new long[] { 1, 0 }, "a", 12, null, null, null)]
+      ("1.0a12", 0, "1.0", new long[] { 1, 0 }, "a", 12, true, null, null, false, null, false)]
     [InlineData
-      ("1.0b1.dev456", 0, "1.0", new long[] { 1, 0 }, "b", 1, null, null, 456)]
+      ("1.0b1.dev456", 0, "1.0", new long[] { 1, 0 }, "b", 1, true, null, null, false, 456, true)]
     [InlineData
-      ("1.0b2", 0, "1.0", new long[] { 1, 0 }, "b", 2, null, null, null)]
+      ("1.0b2", 0, "1.0", new long[] { 1, 0 }, "b", 2, true, null, null, false, null, false)]
     [InlineData("1.0b2.post345.dev456",
-      0, "1.0", new long[] { 1, 0 }, "b", 2, "post", 345, 456)]
+      0, "1.0", new long[] { 1, 0 }, "b", 2, true, "post", 345, true, 456, true)]
     [InlineData("1.0b2.post345",
-      0, "1.0", new long[] { 1, 0 }, "b", 2, "post", 345, null)]
+      0, "1.0", new long[] { 1, 0 }, "b", 2, true, "post", 345, true, null, false)]
     [InlineData
-      ("1.0rc1", 0, "1.0", new long[] { 1, 0 }, "rc", 1, null, null, null)]
+      ("1.0rc1", 0, "1.0", new long[] { 1, 0 }, "rc", 1, true, null, null, false, null, false)]
     [InlineData("1.0rc1.dev456",
-      0, "1.0", new long[] { 1, 0 }, "rc", 1, null, null, 456)]
+      0, "1.0", new long[] { 1, 0 }, "rc", 1, true, null, null, false, 456, true)]
     [InlineData("1.0rc1.post456",
-      0, "1.0", new long[] { 1, 0 }, "rc", 1, "post", 456, null)]
-    [InlineData("1.0alpha1",
-      0, "1.0", new long[] { 1, 0 }, "alpha", 1, null, null, null)]
-    [InlineData
-      ("1.0beta1", 0, "1.0", new long[] { 1, 0 }, "beta", 1, null, null, null)]
-    [InlineData
-      ("1.0pre1", 0, "1.0", new long[] { 1, 0 }, "pre", 1, null, null, null)]
-    [InlineData("1.0preview1",
-      0, "1.0", new long[] { 1, 0 }, "preview", 1, null, null, null)]
+      0, "1.0", new long[] { 1, 0 }, "rc", 1, true, "post", 456, true, null, false)]
     [InlineData("1.0.post456.dev34",
-      0, "1.0", new long[] { 1, 0 }, null, null, "post", 456, 34)]
+      0, "1.0", new long[] { 1, 0 }, null, null, false, "post", 456, true, 34, true)]
     [InlineData("1.0.post456",
-      0, "1.0", new long[] { 1, 0 }, null, null, "post", 456, null)]
+      0, "1.0", new long[] { 1, 0 }, null, null, false, "post", 456, true, null, false)]
     [InlineData("1.0.POST456",
-      0, "1.0", new long[] { 1, 0 }, null, null, "post", 456, null)]
-    [InlineData("1.0.rev456",
-      0, "1.0", new long[] { 1, 0 }, null, null, "rev", 456, null)]
-    [InlineData("1.0.REV456",
-      0, "1.0", new long[] { 1, 0 }, null, null, "rev", 456, null)]
+      0, "1.0", new long[] { 1, 0 }, null, null, false, "post", 456, true, null, false)]
     [InlineData
-      ("1.0.r456", 0, "1.0", new long[] { 1, 0 }, null, null, "r", 456, null)]
+      ("1.1.dev1", 0, "1.1", new long[] { 1, 1 }, null, null, false, null, null, false, 1, true)]
     [InlineData
-      ("1.0.R456", 0, "1.0", new long[] { 1, 0 }, null, null, "r", 456, null)]
-    [InlineData
-      ("1.1.dev1", 0, "1.1", new long[] { 1, 1 }, null, null, null, null, 1)]
-    [InlineData
-      ("1.1.DEV1", 0, "1.1", new long[] { 1, 1 }, null, null, null, null, 1)]
-    [InlineData("2020!1.0.1.2.3.4b2.post345.dev456", 2020, "1.0.1.2.3.4",
-      new long[] { 1, 0, 1, 2, 3, 4 }, "b", 2, "post", 345, 456)]
+      ("1.1.DEV1", 0, "1.1", new long[] { 1, 1 }, null, null, false, null, null, false, 1, true)]
+    [InlineData("2020!1.0.1.2.3.4b2.dev456", 2020, "1.0.1.2.3.4",
+      new long[] { 1, 0, 1, 2, 3, 4 }, "b", 2, true, null, null, false, 456, true)]
+    [InlineData("2020!1.0.1.2.3.4.post345.dev456", 2020, "1.0.1.2.3.4",
+      new long[] { 1, 0, 1, 2, 3, 4 }, null, null, false, "post", 345, true, 456, true)]
+
 
     public void VersionIsCorrectlyParsedIntoParts(
       string version,
@@ -91,26 +78,60 @@ namespace Freshli.Test.Unit.Python {
       string release,
       long[] releaseParts,
       string preReleaseLabel,
-      long? preReleaseValue,
+      long? preReleaseIncrement,
+      bool isPreRelease,
       string postReleaseLabel,
-      long? postReleaseValue,
-      long? developmentReleaseValue
+      long? postReleaseIncrement,
+      bool isPostRelease,
+      long? developmentReleaseIncrement,
+      bool isDevelopmentRelease
     ) {
       var info = new PythonVersionInfo {Version = version};
       Assert.Equal(epoch, info.Epoch);
       Assert.Equal(release, info.Release);
       Assert.Equal(releaseParts, info.ReleaseParts);
       Assert.Equal(preReleaseLabel, info.PreReleaseLabel);
-      Assert.Equal(preReleaseValue, info.PreReleaseValue);
+      Assert.Equal(preReleaseIncrement, info.PreReleaseIncrement);
+      Assert.Equal(isPreRelease, info.IsPreRelease);
       Assert.Equal(postReleaseLabel, info.PostReleaseLabel);
-      Assert.Equal(postReleaseValue, info.PostReleaseValue);
-      Assert.Equal(developmentReleaseValue, info.DevelopmentReleaseValue);
+      Assert.Equal(postReleaseIncrement, info.PostReleaseIncrement);
+      Assert.Equal(isPostRelease, info.IsPostRelease);
+      Assert.Equal(developmentReleaseIncrement, info.DevelopmentReleaseIncrement);
+      Assert.Equal(isDevelopmentRelease, info.IsDevelopmentRelease);
     }
 
     [Fact]
     public void ParseVersionThrowsExceptionIfVersionIsIncorrectlyFormatted() {
       Assert.Throws<VersionParseException>(testCode: () =>
         new PythonVersionInfo {Version = "1.0.invalid.format"});
+    }
+
+    [Theory]
+    [InlineData("1.0.dev456", PythonVersionInfo.Development, null, null)]
+    [InlineData("1.0a1", PythonVersionInfo.Pre, PythonVersionInfo.NoSuffix, null)]
+    [InlineData("1.0a2.dev456", PythonVersionInfo.Pre, PythonVersionInfo.Development, null)]
+    [InlineData("1.0a12.dev456", PythonVersionInfo.Pre, PythonVersionInfo.Development, null)]
+    [InlineData("1.0a12", PythonVersionInfo.Pre, PythonVersionInfo.NoSuffix, null)]
+    [InlineData("1.0b1.dev456", PythonVersionInfo.Pre, PythonVersionInfo.Development, null)]
+    [InlineData("1.0b2", PythonVersionInfo.Pre, PythonVersionInfo.NoSuffix, null)]
+    [InlineData("1.0b2.post345.dev456", PythonVersionInfo.Pre, PythonVersionInfo.Post, PythonVersionInfo.Development)]
+    [InlineData("1.0b2.post345", PythonVersionInfo.Pre, PythonVersionInfo.Post, PythonVersionInfo.NoSuffix)]
+    [InlineData("1.0rc1.dev456", PythonVersionInfo.Pre, PythonVersionInfo.Development, null)]
+    [InlineData("1.0rc1", PythonVersionInfo.Pre, PythonVersionInfo.NoSuffix, null)]
+    [InlineData("1.0", PythonVersionInfo.NoSuffix, null, null)]
+    [InlineData("1.0.post456.dev34", PythonVersionInfo.Post, null, PythonVersionInfo.Development)]
+    [InlineData("1.0.post456", PythonVersionInfo.Post, null, PythonVersionInfo.NoSuffix)]
+
+    public void SortPositionsAreCorrectlySet(
+      string version,
+      int? releaseSortPosition,
+      int? preReleaseSortPosition,
+      int? postReleaseSortPosition
+    ) {
+      var versionInfo = new PythonVersionInfo {Version = version};
+      Assert.Equal(releaseSortPosition, versionInfo.ReleaseSortPosition);
+      Assert.Equal(preReleaseSortPosition, versionInfo.PreReleaseSortPosition);
+      Assert.Equal(postReleaseSortPosition, versionInfo.PostReleaseSortPosition);
     }
 
     [Theory]
@@ -149,6 +170,232 @@ namespace Freshli.Test.Unit.Python {
     [InlineData("2.0.0", "2.0", 0)]
     [InlineData("2.2", "2.2.0", 0)]
     [InlineData("2.2.0", "2.2", 0)]
+
+    [InlineData("1.0.dev456", "1.0.dev678", -1)]
+    [InlineData("1.0.dev456", "1.0a1", -1)]
+    [InlineData("1.0.dev456", "1.0a2.dev456", -1)]
+    [InlineData("1.0.dev456", "1.0a12.dev456", -1)]
+    [InlineData("1.0.dev456", "1.0a12", -1)]
+    [InlineData("1.0.dev456", "1.0b1.dev456", -1)]
+    [InlineData("1.0.dev456", "1.0b2", -1)]
+    [InlineData("1.0.dev456", "1.0b2.post345.dev456", -1)]
+    [InlineData("1.0.dev456", "1.0b2.post345", -1)]
+    [InlineData("1.0.dev456", "1.0rc1.dev456", -1)]
+    [InlineData("1.0.dev456", "1.0rc1", -1)]
+    [InlineData("1.0.dev456", "1.0", -1)]
+    [InlineData("1.0.dev456", "1.0.post456.dev34", -1)]
+    [InlineData("1.0.dev456", "1.0.post456", -1)]
+    [InlineData("1.0.dev456", "1.1.dev1", -1)]
+    [InlineData("1.0a1", "1.0a2.dev456", -1)]
+    [InlineData("1.0a1", "1.0a12.dev456", -1)]
+    [InlineData("1.0a1", "1.0a12", -1)]
+    [InlineData("1.0a1", "1.0b1.dev456", -1)]
+    [InlineData("1.0a1", "1.0b2", -1)]
+    [InlineData("1.0a1", "1.0b2.post345.dev456", -1)]
+    [InlineData("1.0a1", "1.0b2.post345", -1)]
+    [InlineData("1.0a1", "1.0rc1.dev456", -1)]
+    [InlineData("1.0a1", "1.0rc1", -1)]
+    [InlineData("1.0a1", "1.0", -1)]
+    [InlineData("1.0a1", "1.0.post456.dev34", -1)]
+    [InlineData("1.0a1", "1.0.post456", -1)]
+    [InlineData("1.0a1", "1.1.dev1", -1)]
+    [InlineData("1.0a2.dev456", "1.0a12.dev456", -1)]
+    [InlineData("1.0a2.dev456", "1.0a12", -1)]
+    [InlineData("1.0a2.dev456", "1.0b1.dev456", -1)]
+    [InlineData("1.0a2.dev456", "1.0b2", -1)]
+    [InlineData("1.0a2.dev456", "1.0b2.post345.dev456", -1)]
+    [InlineData("1.0a2.dev456", "1.0b2.post345", -1)]
+    [InlineData("1.0a2.dev456", "1.0rc1.dev456", -1)]
+    [InlineData("1.0a2.dev456", "1.0rc1", -1)]
+    [InlineData("1.0a2.dev456", "1.0", -1)]
+    [InlineData("1.0a2.dev456", "1.0.post456.dev34", -1)]
+    [InlineData("1.0a2.dev456", "1.0.post456", -1)]
+    [InlineData("1.0a2.dev456", "1.1.dev1", -1)]
+    [InlineData("1.0a12.dev456", "1.0a12", -1)]
+    [InlineData("1.0a12.dev456", "1.0b1.dev456", -1)]
+    [InlineData("1.0a12.dev456", "1.0b2", -1)]
+    [InlineData("1.0a12.dev456", "1.0b2.post345.dev456", -1)]
+    [InlineData("1.0a12.dev456", "1.0b2.post345", -1)]
+    [InlineData("1.0a12.dev456", "1.0rc1.dev456", -1)]
+    [InlineData("1.0a12.dev456", "1.0rc1", -1)]
+    [InlineData("1.0a12.dev456", "1.0", -1)]
+    [InlineData("1.0a12.dev456", "1.0.post456.dev34", -1)]
+    [InlineData("1.0a12.dev456", "1.0.post456", -1)]
+    [InlineData("1.0a12.dev456", "1.1.dev1", -1)]
+    [InlineData("1.0a12", "1.0b1.dev456", -1)]
+    [InlineData("1.0a12", "1.0b2", -1)]
+    [InlineData("1.0a12", "1.0b2.post345.dev456", -1)]
+    [InlineData("1.0a12", "1.0b2.post345", -1)]
+    [InlineData("1.0a12", "1.0rc1.dev456", -1)]
+    [InlineData("1.0a12", "1.0rc1", -1)]
+    [InlineData("1.0a12", "1.0", -1)]
+    [InlineData("1.0a12", "1.0.post456.dev34", -1)]
+    [InlineData("1.0a12", "1.0.post456", -1)]
+    [InlineData("1.0a12", "1.1.dev1", -1)]
+    [InlineData("1.0b1.dev456", "1.0b2", -1)]
+    [InlineData("1.0b1.dev456", "1.0b2.post345.dev456", -1)]
+    [InlineData("1.0b1.dev456", "1.0b2.post345", -1)]
+    [InlineData("1.0b1.dev456", "1.0rc1.dev456", -1)]
+    [InlineData("1.0b1.dev456", "1.0rc1", -1)]
+    [InlineData("1.0b1.dev456", "1.0", -1)]
+    [InlineData("1.0b1.dev456", "1.0.post456.dev34", -1)]
+    [InlineData("1.0b1.dev456", "1.0.post456", -1)]
+    [InlineData("1.0b1.dev456", "1.1.dev1", -1)]
+    [InlineData("1.0b2", "1.0b2.post345.dev456", -1)]
+    [InlineData("1.0b2", "1.0b2.post345", -1)]
+    [InlineData("1.0b2", "1.0rc1.dev456", -1)]
+    [InlineData("1.0b2", "1.0rc1", -1)]
+    [InlineData("1.0b2", "1.0", -1)]
+    [InlineData("1.0b2", "1.0.post456.dev34", -1)]
+    [InlineData("1.0b2", "1.0.post456", -1)]
+    [InlineData("1.0b2", "1.1.dev1", -1)]
+    [InlineData("1.0b2.post345.dev456", "1.0b2.post345", -1)]
+    [InlineData("1.0b2.post345.dev456", "1.0rc1.dev456", -1)]
+    [InlineData("1.0b2.post345.dev456", "1.0rc1", -1)]
+    [InlineData("1.0b2.post345.dev456", "1.0", -1)]
+    [InlineData("1.0b2.post345.dev456", "1.0.post456.dev34", -1)]
+    [InlineData("1.0b2.post345.dev456", "1.0.post456", -1)]
+    [InlineData("1.0b2.post345.dev456", "1.1.dev1", -1)]
+    [InlineData("1.0b2.post345", "1.0rc1.dev456", -1)]
+    [InlineData("1.0b2.post345", "1.0rc1", -1)]
+    [InlineData("1.0b2.post345", "1.0", -1)]
+    [InlineData("1.0b2.post345", "1.0.post456.dev34", -1)]
+    [InlineData("1.0b2.post345", "1.0.post456", -1)]
+    [InlineData("1.0b2.post345", "1.1.dev1", -1)]
+    [InlineData("1.0rc1.dev456", "1.0rc1", -1)]
+    [InlineData("1.0rc1.dev456", "1.0", -1)]
+    [InlineData("1.0rc1.dev456", "1.0.post456.dev34", -1)]
+    [InlineData("1.0rc1.dev456", "1.0.post456", -1)]
+    [InlineData("1.0rc1.dev456", "1.1.dev1", -1)]
+    [InlineData("1.0rc1", "1.0", -1)]
+    [InlineData("1.0rc1", "1.0.post456.dev34", -1)]
+    [InlineData("1.0rc1", "1.0.post456", -1)]
+    [InlineData("1.0rc1", "1.1.dev1", -1)]
+    [InlineData("1.0", "1.0.post456.dev34", -1)]
+    [InlineData("1.0", "1.0.post456", -1)]
+    [InlineData("1.0", "1.1.dev1", -1)]
+    [InlineData("1.0.post456.dev34", "1.0.post456", -1)]
+    [InlineData("1.0.post456.dev34", "1.1.dev1", -1)]
+    [InlineData("1.0.post456", "1.1.dev1", -1)]
+    [InlineData("1.0a2", "2.0a1", -1)]
+    [InlineData("1.0a1", "2.0a1", -1)]
+    [InlineData("1.0.post345", "2.0.post1", -1)]
+    [InlineData("1.0.post345", "2.0.post345", -1)]
+    [InlineData("1.0.dev345", "2.0.dev1", -1)]
+    [InlineData("1.0.dev345", "2.0.dev345", -1)]
+
+    [InlineData("1.0.dev678", "1.0.dev456", 1)]
+    [InlineData("1.0a1", "1.0.dev456", 1)]
+    [InlineData("1.0a2.dev456", "1.0.dev456", 1)]
+    [InlineData("1.0a12.dev456", "1.0.dev456", 1)]
+    [InlineData("1.0a12", "1.0.dev456", 1)]
+    [InlineData("1.0b1.dev456", "1.0.dev456", 1)]
+    [InlineData("1.0b2", "1.0.dev456", 1)]
+    [InlineData("1.0b2.post345.dev456", "1.0.dev456", 1)]
+    [InlineData("1.0b2.post345", "1.0.dev456", 1)]
+    [InlineData("1.0rc1.dev456", "1.0.dev456", 1)]
+    [InlineData("1.0rc1", "1.0.dev456", 1)]
+    [InlineData("1.0", "1.0.dev456", 1)]
+    [InlineData("1.0.post456.dev34", "1.0.dev456", 1)]
+    [InlineData("1.0.post456", "1.0.dev456", 1)]
+    [InlineData("1.1.dev1", "1.0.dev456", 1)]
+    [InlineData("1.0a2.dev456", "1.0a1", 1)]
+    [InlineData("1.0a12.dev456", "1.0a1", 1)]
+    [InlineData("1.0a12", "1.0a1", 1)]
+    [InlineData("1.0b1.dev456", "1.0a1", 1)]
+    [InlineData("1.0b2", "1.0a1", 1)]
+    [InlineData("1.0b2.post345.dev456", "1.0a1", 1)]
+    [InlineData("1.0b2.post345", "1.0a1", 1)]
+    [InlineData("1.0rc1.dev456", "1.0a1", 1)]
+    [InlineData("1.0rc1", "1.0a1", 1)]
+    [InlineData("1.0", "1.0a1", 1)]
+    [InlineData("1.0.post456.dev34", "1.0a1", 1)]
+    [InlineData("1.0.post456", "1.0a1", 1)]
+    [InlineData("1.1.dev1", "1.0a1", 1)]
+    [InlineData("1.0a12.dev456", "1.0a2.dev456", 1)]
+    [InlineData("1.0a12", "1.0a2.dev456", 1)]
+    [InlineData("1.0b1.dev456", "1.0a2.dev456", 1)]
+    [InlineData("1.0b2", "1.0a2.dev456", 1)]
+    [InlineData("1.0b2.post345.dev456", "1.0a2.dev456", 1)]
+    [InlineData("1.0b2.post345", "1.0a2.dev456", 1)]
+    [InlineData("1.0rc1.dev456", "1.0a2.dev456", 1)]
+    [InlineData("1.0rc1","1.0a2.dev456", 1)]
+    [InlineData("1.0", "1.0a2.dev456", 1)]
+    [InlineData("1.0.post456.dev34", "1.0a2.dev456", 1)]
+    [InlineData("1.0.post456", "1.0a2.dev456", 1)]
+    [InlineData("1.1.dev1", "1.0a2.dev456", 1)]
+    [InlineData("1.0a12", "1.0a12.dev456", 1)]
+    [InlineData("1.0b1.dev456", "1.0a12.dev456", 1)]
+    [InlineData("1.0b2", "1.0a12.dev456", 1)]
+    [InlineData("1.0b2.post345.dev456", "1.0a12.dev456", 1)]
+    [InlineData("1.0b2.post345", "1.0a12.dev456", 1)]
+    [InlineData("1.0rc1.dev456", "1.0a12.dev456", 1)]
+    [InlineData("1.0rc1", "1.0a12.dev456", 1)]
+    [InlineData("1.0", "1.0a12.dev456", 1)]
+    [InlineData("1.0.post456.dev34", "1.0a12.dev456", 1)]
+    [InlineData("1.0.post456", "1.0a12.dev456", 1)]
+    [InlineData("1.1.dev1","1.0a12.dev456", 1)]
+    [InlineData("1.0b1.dev456", "1.0a12", 1)]
+    [InlineData("1.0b2", "1.0a12", 1)]
+    [InlineData("1.0b2.post345.dev456", "1.0a12", 1)]
+    [InlineData("1.0b2.post345", "1.0a12", 1)]
+    [InlineData("1.0rc1.dev456", "1.0a12", 1)]
+    [InlineData("1.0rc1", "1.0a12", 1)]
+    [InlineData("1.0", "1.0a12", 1)]
+    [InlineData("1.0.post456.dev34", "1.0a12", 1)]
+    [InlineData("1.0.post456", "1.0a12", 1)]
+    [InlineData("1.1.dev1", "1.0a12", 1)]
+    [InlineData("1.0b2", "1.0b1.dev456", 1)]
+    [InlineData("1.0b2.post345.dev456", "1.0b1.dev456", 1)]
+    [InlineData("1.0b2.post345", "1.0b1.dev456", 1)]
+    [InlineData("1.0rc1.dev456", "1.0b1.dev456", 1)]
+    [InlineData("1.0rc1", "1.0b1.dev456", 1)]
+    [InlineData("1.0", "1.0b1.dev456", 1)]
+    [InlineData("1.0.post456.dev34", "1.0b1.dev456", 1)]
+    [InlineData("1.0.post456", "1.0b1.dev456", 1)]
+    [InlineData("1.1.dev1", "1.0b1.dev456", 1)]
+    [InlineData("1.0b2.post345.dev456", "1.0b2", 1)]
+    [InlineData("1.0b2.post345", "1.0b2", 1)]
+    [InlineData("1.0rc1.dev456", "1.0b2", 1)]
+    [InlineData("1.0rc1", "1.0b2", 1)]
+    [InlineData("1.0", "1.0b2", 1)]
+    [InlineData("1.0.post456.dev34", "1.0b2", 1)]
+    [InlineData("1.0.post456", "1.0b2", 1)]
+    [InlineData("1.1.dev1", "1.0b2", 1)]
+    [InlineData("1.0b2.post345", "1.0b2.post345.dev456", 1)]
+    [InlineData("1.0rc1.dev456", "1.0b2.post345.dev456", 1)]
+    [InlineData("1.0rc1", "1.0b2.post345.dev456", 1)]
+    [InlineData("1.0", "1.0b2.post345.dev456", 1)]
+    [InlineData("1.0.post456.dev34","1.0b2.post345.dev456", 1)]
+    [InlineData("1.0.post456", "1.0b2.post345.dev456", 1)]
+    [InlineData("1.1.dev1", "1.0b2.post345.dev456", 1)]
+    [InlineData("1.0rc1.dev456", "1.0b2.post345", 1)]
+    [InlineData("1.0rc1", "1.0b2.post345", 1)]
+    [InlineData("1.0", "1.0b2.post345", 1)]
+    [InlineData("1.0.post456.dev34", "1.0b2.post345", 1)]
+    [InlineData("1.0.post456", "1.0b2.post345", 1)]
+    [InlineData("1.1.dev1", "1.0b2.post345", 1)]
+    [InlineData("1.0rc1", "1.0rc1.dev456", 1)]
+    [InlineData("1.0", "1.0rc1.dev456", 1)]
+    [InlineData("1.0.post456.dev34", "1.0rc1.dev456", 1)]
+    [InlineData("1.0.post456", "1.0rc1.dev456", 1)]
+    [InlineData("1.1.dev1", "1.0rc1.dev456", 1)]
+    [InlineData("1.0", "1.0rc1", 1)]
+    [InlineData("1.0.post456.dev34", "1.0rc1", 1)]
+    [InlineData("1.0.post456", "1.0rc1", 1)]
+    [InlineData("1.1.dev1", "1.0rc1", 1)]
+    [InlineData("1.0.post456.dev34", "1.0", 1)]
+    [InlineData("1.0.post456", "1.0", 1)]
+    [InlineData("1.1.dev1", "1.0", 1)]
+    [InlineData("1.0.post456", "1.0.post456.dev34", 1)]
+    [InlineData("1.1.dev1", "1.0.post456.dev34", 1)]
+    [InlineData("1.1.dev1", "1.0.post456", 1)]
+    [InlineData("2.0a1", "1.0a2", 1)]
+    [InlineData("2.0a1", "1.0a1", 1)]
+    [InlineData("2.0.post1", "1.0.post345", 1)]
+    [InlineData("2.0.post345", "1.0.post345", 1)]
+    [InlineData("2.0.dev1", "1.0.dev345", 1)]
+    [InlineData("2.0.dev345", "1.0.dev345", 1)]
 
     public void CompareToCorrectlySortsByVersion(
       string leftVersion,

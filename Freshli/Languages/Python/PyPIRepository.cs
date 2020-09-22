@@ -43,7 +43,7 @@ namespace Freshli.Languages.Python {
           var versionDate = DateTime.Parse(
             dateNode.Attributes["datetime"].Value).ToUniversalTime();
 
-          versions.Add(new SemVerVersionInfo(version, versionDate));
+          versions.Add(new PythonVersionInfo(version, versionDate));
         }
 
         _packages[name] = versions;
