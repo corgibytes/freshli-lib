@@ -99,11 +99,12 @@ namespace Freshli.Languages.Python {
         secondVersion.RemovePostReleaseMetadata();
         secondVersion.RemoveDevelopmentReleaseMetadata();
 
-        var second = new BasicVersionMatcher();
-        second.Operation = OperationKind.PrefixMatching;
-        second.BaseVersion = secondVersion;
+        var second =
+          new BasicVersionMatcher {
+            Operation = OperationKind.PrefixMatching,
+            BaseVersion = secondVersion
+          };
         compound.Add(second);
-
         result = compound;
       } else {
         result = null;

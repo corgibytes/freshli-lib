@@ -341,10 +341,12 @@ namespace Freshli.Languages.Python {
       PostReleaseSuffixType = null;
       IsPostRelease = false;
     }
+
     public void RemoveDevelopmentReleaseMetadata() {
       DevelopmentReleaseIncrement = null;
       IsDevelopmentRelease = false;
     }
+
     public void RemoveLastReleaseIncrement() {
       if (Release.Contains(".")) {
         Version = Release = Release.Remove(Release.LastIndexOf
