@@ -324,7 +324,7 @@ namespace Freshli.Languages.Python {
     }
 
     private void SetPostReleaseSuffixType() {
-      PostReleaseSuffixType = IsDevelopmentRelease ? 
+      PostReleaseSuffixType = IsDevelopmentRelease ?
           (int) SuffixType.Development : (int) SuffixType.NoSuffix;
     }
 
