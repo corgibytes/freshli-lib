@@ -7,69 +7,262 @@ namespace Freshli.Test.Unit.Python {
   public class PythonVersionInfoTest {
 
     [Theory]
-    [InlineData("1!1", 1, "1", new long[] { 1 }, null, null, false, null, null, false, null, false)]
-    [InlineData
-      ("10!1", 10, "1", new long[] { 1 }, null, null, false, null, null, false, null, false)]
-    [InlineData
-      ("10!1.0", 10, "1.0", new long[] { 1, 0 }, null, null, false, null, null, false, null, false)]
-    [InlineData("20200101!1",
-      20200101, "1", new long[] { 1 }, null, null, false, null, null, false, null, false)]
-    [InlineData
-      ("0.1", 0, "0.1", new long[] { 0, 1 }, null, null, false, null, null, false, null, false)]
-    [InlineData
-      ("0.10", 0, "0.10", new long[] { 0, 10 }, null, null, false, null, null, false, null, false)]
-    [InlineData("0.10.1",
-      0, "0.10.1", new long[] { 0, 10, 1 }, null, null, false, null, null, false, null, false)]
-    [InlineData
-      ("1.0", 0, "1.0", new long[] { 1, 0 }, null, null, false, null, null, false, null, false)]
-    [InlineData
-      ("10.0", 0, "10.0", new long[] { 10, 0 }, null, null, false, null, null, false, null, false)]
-    [InlineData("10.0.1.0",
-      0, "10.0.1.0", new long[] { 10, 0, 1, 0 }, null, null, false, null, null, false, null, false)]
-    [InlineData("1.0.dev456",
-      0, "1.0", new long[] { 1, 0 }, null, null, false, null, null, false, 456, true)]
-    [InlineData
-      ("1.0a1", 0, "1.0", new long[] { 1, 0 }, "a", 1, true, null, null, false, null, false)]
-    [InlineData
-      ("1.0A1", 0, "1.0", new long[] { 1, 0 }, "a", 1, true, null, null, false, null, false)]
-    [InlineData
-      ("1.0.1a1", 0, "1.0.1", new long[] { 1, 0, 1 }, "a", 1, true, null, null, false, null, false)]
-    [InlineData
-      ("1.0a2.dev456", 0, "1.0", new long[] { 1, 0 }, "a", 2, true, null, null, false, 456, true)]
-    [InlineData("1.0a12.dev456",
-      0, "1.0", new long[] { 1, 0 }, "a", 12, true, null, null, false, 456, true)]
-    [InlineData("1.0a12.post456",
-      0, "1.0", new long[] { 1, 0 }, "a", 12, true, "post", 456, true, null, false)]
-    [InlineData
-      ("1.0a12", 0, "1.0", new long[] { 1, 0 }, "a", 12, true, null, null, false, null, false)]
-    [InlineData
-      ("1.0b1.dev456", 0, "1.0", new long[] { 1, 0 }, "b", 1, true, null, null, false, 456, true)]
-    [InlineData
-      ("1.0b2", 0, "1.0", new long[] { 1, 0 }, "b", 2, true, null, null, false, null, false)]
-    [InlineData("1.0b2.post345.dev456",
-      0, "1.0", new long[] { 1, 0 }, "b", 2, true, "post", 345, true, 456, true)]
-    [InlineData("1.0b2.post345",
-      0, "1.0", new long[] { 1, 0 }, "b", 2, true, "post", 345, true, null, false)]
-    [InlineData
-      ("1.0rc1", 0, "1.0", new long[] { 1, 0 }, "rc", 1, true, null, null, false, null, false)]
-    [InlineData("1.0rc1.dev456",
-      0, "1.0", new long[] { 1, 0 }, "rc", 1, true, null, null, false, 456, true)]
-    [InlineData("1.0rc1.post456",
-      0, "1.0", new long[] { 1, 0 }, "rc", 1, true, "post", 456, true, null, false)]
-    [InlineData("1.0.post456.dev34",
-      0, "1.0", new long[] { 1, 0 }, null, null, false, "post", 456, true, 34, true)]
-    [InlineData("1.0.post456",
-      0, "1.0", new long[] { 1, 0 }, null, null, false, "post", 456, true, null, false)]
-    [InlineData("1.0.POST456",
-      0, "1.0", new long[] { 1, 0 }, null, null, false, "post", 456, true, null, false)]
-    [InlineData
-      ("1.1.dev1", 0, "1.1", new long[] { 1, 1 }, null, null, false, null, null, false, 1, true)]
-    [InlineData
-      ("1.1.DEV1", 0, "1.1", new long[] { 1, 1 }, null, null, false, null, null, false, 1, true)]
-    [InlineData("2020!1.0.1.2.3.4b2.dev456", 2020, "1.0.1.2.3.4",
-      new long[] { 1, 0, 1, 2, 3, 4 }, "b", 2, true, null, null, false, 456, true)]
-    [InlineData("2020!1.0.1.2.3.4.post345.dev456", 2020, "1.0.1.2.3.4",
-      new long[] { 1, 0, 1, 2, 3, 4 }, null, null, false, "post", 345, true, 456, true)]
+    [InlineData(
+      "1!1",
+      1,
+      "1", new long[] { 1 },
+      null, null, false,
+      null, null, false,
+      null, false)
+    ]
+    [InlineData(
+        "10!1",
+        10,
+        "1", new long[] { 1 },
+        null, null, false,
+        null, null, false,
+        null, false)
+    ]
+    [InlineData(
+      "10!1.0",
+      10,
+      "1.0", new long[] { 1, 0 },
+      null, null, false,
+      null, null, false,
+      null, false)
+    ]
+    [InlineData(
+      "20200101!1",
+      20200101,
+      "1", new long[] { 1 },
+      null, null, false,
+      null, null, false,
+      null, false)
+    ]
+    [InlineData(
+      "0.1",
+      0,
+      "0.1", new long[] { 0, 1 },
+      null, null, false,
+      null, null, false,
+      null, false)
+    ]
+    [InlineData(
+      "0.10",
+      0,
+      "0.10", new long[] { 0, 10 },
+      null, null, false,
+      null, null, false,
+      null, false)
+    ]
+    [InlineData(
+      "0.10.1",
+      0,
+      "0.10.1", new long[] { 0, 10, 1 },
+      null, null, false,
+      null, null, false,
+      null, false)
+    ]
+    [InlineData(
+      "1.0",
+      0,
+      "1.0", new long[] { 1, 0 },
+      null, null, false,
+      null, null, false,
+      null, false)
+    ]
+    [InlineData(
+      "10.0",
+      0,
+      "10.0", new long[] { 10, 0 },
+      null, null, false,
+      null, null, false,
+      null, false)
+    ]
+    [InlineData(
+      "10.0.1.0",
+      0,
+      "10.0.1.0", new long[] { 10, 0, 1, 0 },
+      null, null, false,
+      null, null, false,
+      null, false)
+    ]
+    [InlineData(
+      "1.0.dev456",
+      0,
+      "1.0", new long[] { 1, 0 },
+      null, null, false,
+      null, null, false,
+      456, true)
+    ]
+    [InlineData(
+      "1.0a1",
+      0,
+      "1.0", new long[] { 1, 0 },
+      "a", 1, true,
+      null, null, false,
+      null, false)
+    ]
+    [InlineData(
+      "1.0A1",
+      0,
+      "1.0", new long[] { 1, 0 },
+      "a", 1, true,
+      null, null, false,
+      null, false)
+    ]
+    [InlineData(
+      "1.0.1a1",
+      0,
+      "1.0.1", new long[] { 1, 0, 1 },
+      "a", 1, true,
+      null, null, false,
+      null, false)
+    ]
+    [InlineData(
+      "1.0a2.dev456",
+      0,
+      "1.0", new long[] { 1, 0 },
+      "a", 2, true,
+      null, null, false,
+      456, true)
+    ]
+    [InlineData(
+      "1.0a12.dev456",
+      0,
+      "1.0", new long[] { 1, 0 },
+      "a", 12, true,
+      null, null, false,
+      456, true)
+    ]
+    [InlineData(
+      "1.0a12.post456",
+      0,
+      "1.0", new long[] { 1, 0 },
+      "a", 12, true,
+      "post", 456, true,
+      null, false)
+    ]
+    [InlineData(
+      "1.0a12",
+      0,
+      "1.0", new long[] { 1, 0 },
+      "a", 12, true,
+      null, null, false,
+      null, false)
+    ]
+    [InlineData(
+      "1.0b1.dev456",
+      0,
+      "1.0", new long[] { 1, 0 },
+      "b", 1, true,
+      null, null, false,
+      456, true)
+    ]
+    [InlineData(
+      "1.0b2",
+      0,
+      "1.0", new long[] { 1, 0 },
+      "b", 2, true,
+      null, null, false,
+      null, false)
+    ]
+    [InlineData(
+      "1.0b2.post345.dev456",
+      0,
+      "1.0", new long[] { 1, 0 },
+      "b", 2, true,
+      "post", 345, true,
+      456, true)
+    ]
+    [InlineData(
+      "1.0b2.post345",
+      0,
+      "1.0", new long[] { 1, 0 },
+      "b", 2, true,
+      "post", 345, true,
+      null, false)
+    ]
+    [InlineData(
+      "1.0rc1",
+      0,
+      "1.0", new long[] { 1, 0 },
+      "rc", 1, true,
+      null, null, false,
+      null, false)
+    ]
+    [InlineData(
+      "1.0rc1.dev456",
+      0,
+      "1.0", new long[] { 1, 0 },
+      "rc", 1, true,
+      null, null, false,
+      456, true)
+    ]
+    [InlineData(
+      "1.0rc1.post456",
+      0,
+      "1.0", new long[] { 1, 0 },
+      "rc", 1, true,
+      "post", 456, true,
+      null, false)
+    ]
+    [InlineData(
+      "1.0.post456.dev34",
+      0,
+      "1.0", new long[] { 1, 0 },
+      null, null, false,
+      "post", 456, true,
+      34, true)
+    ]
+    [InlineData(
+      "1.0.post456",
+      0,
+      "1.0", new long[] { 1, 0 },
+      null, null, false,
+      "post", 456, true,
+      null, false)
+    ]
+    [InlineData(
+      "1.0.POST456",
+      0,
+      "1.0", new long[] { 1, 0 },
+      null, null, false,
+      "post", 456, true,
+      null, false)
+    ]
+    [InlineData(
+      "1.1.dev1",
+      0,
+      "1.1", new long[] { 1, 1 },
+      null, null, false,
+      null, null, false,
+      1, true)
+    ]
+    [InlineData(
+      "1.1.DEV1",
+      0,
+      "1.1", new long[] { 1, 1 },
+      null, null, false,
+      null, null, false,
+      1, true)
+    ]
+    [InlineData(
+      "2020!1.0.1.2.3.4b2.dev456",
+      2020,
+      "1.0.1.2.3.4", new long[] { 1, 0, 1, 2, 3, 4 },
+      "b", 2, true,
+      null, null, false,
+      456, true)
+    ]
+    [InlineData(
+      "2020!1.0.1.2.3.4.post345.dev456",
+      2020,
+      "1.0.1.2.3.4", new long[] { 1, 0, 1, 2, 3, 4 },
+      null, null, false,
+      "post", 345, true,
+      456, true)
+    ]
 
 
     public void VersionIsCorrectlyParsedIntoParts(
@@ -96,7 +289,8 @@ namespace Freshli.Test.Unit.Python {
       Assert.Equal(postReleaseLabel, info.PostReleaseLabel);
       Assert.Equal(postReleaseIncrement, info.PostReleaseIncrement);
       Assert.Equal(isPostRelease, info.IsPostRelease);
-      Assert.Equal(developmentReleaseIncrement, info.DevelopmentReleaseIncrement);
+      Assert.Equal(
+        developmentReleaseIncrement, info.DevelopmentReleaseIncrement);
       Assert.Equal(isDevelopmentRelease, info.IsDevelopmentRelease);
     }
 
@@ -107,20 +301,90 @@ namespace Freshli.Test.Unit.Python {
     }
 
     [Theory]
-    [InlineData("1.0.dev456", PythonVersionInfo.SuffixType.Development, null, null)]
-    [InlineData("1.0a1", PythonVersionInfo.SuffixType.Pre, PythonVersionInfo.SuffixType.NoSuffix, null)]
-    [InlineData("1.0a2.dev456", PythonVersionInfo.SuffixType.Pre, PythonVersionInfo.SuffixType.Development, null)]
-    [InlineData("1.0a12.dev456", PythonVersionInfo.SuffixType.Pre, PythonVersionInfo.SuffixType.Development, null)]
-    [InlineData("1.0a12", PythonVersionInfo.SuffixType.Pre, PythonVersionInfo.SuffixType.NoSuffix, null)]
-    [InlineData("1.0b1.dev456", PythonVersionInfo.SuffixType.Pre, PythonVersionInfo.SuffixType.Development, null)]
-    [InlineData("1.0b2", PythonVersionInfo.SuffixType.Pre, PythonVersionInfo.SuffixType.NoSuffix, null)]
-    [InlineData("1.0b2.post345.dev456", PythonVersionInfo.SuffixType.Pre, PythonVersionInfo.SuffixType.Post, PythonVersionInfo.SuffixType.Development)]
-    [InlineData("1.0b2.post345", PythonVersionInfo.SuffixType.Pre, PythonVersionInfo.SuffixType.Post, PythonVersionInfo.SuffixType.NoSuffix)]
-    [InlineData("1.0rc1.dev456", PythonVersionInfo.SuffixType.Pre, PythonVersionInfo.SuffixType.Development, null)]
-    [InlineData("1.0rc1", PythonVersionInfo.SuffixType.Pre, PythonVersionInfo.SuffixType.NoSuffix, null)]
-    [InlineData("1.0", PythonVersionInfo.SuffixType.NoSuffix, null, null)]
-    [InlineData("1.0.post456.dev34", PythonVersionInfo.SuffixType.Post, null, PythonVersionInfo.SuffixType.Development)]
-    [InlineData("1.0.post456", PythonVersionInfo.SuffixType.Post, null, PythonVersionInfo.SuffixType.NoSuffix)]
+    [InlineData(
+      "1.0.dev456",
+      PythonVersionInfo.SuffixType.Development,
+      null,
+      null)
+    ]
+    [InlineData(
+      "1.0a1",
+      PythonVersionInfo.SuffixType.Pre,
+      PythonVersionInfo.SuffixType.NoSuffix,
+      null)
+    ]
+    [InlineData(
+      "1.0a2.dev456",
+      PythonVersionInfo.SuffixType.Pre,
+      PythonVersionInfo.SuffixType.Development,
+      null)
+    ]
+    [InlineData(
+      "1.0a12.dev456",
+      PythonVersionInfo.SuffixType.Pre,
+      PythonVersionInfo.SuffixType.Development,
+      null)
+    ]
+    [InlineData(
+      "1.0a12",
+      PythonVersionInfo.SuffixType.Pre,
+      PythonVersionInfo.SuffixType.NoSuffix,
+      null)
+    ]
+    [InlineData(
+      "1.0b1.dev456",
+      PythonVersionInfo.SuffixType.Pre,
+      PythonVersionInfo.SuffixType.Development,
+      null)
+    ]
+    [InlineData(
+      "1.0b2",
+      PythonVersionInfo.SuffixType.Pre,
+      PythonVersionInfo.SuffixType.NoSuffix,
+      null)
+    ]
+    [InlineData(
+      "1.0b2.post345.dev456",
+      PythonVersionInfo.SuffixType.Pre,
+      PythonVersionInfo.SuffixType.Post,
+      PythonVersionInfo.SuffixType.Development)
+    ]
+    [InlineData(
+      "1.0b2.post345",
+      PythonVersionInfo.SuffixType.Pre,
+      PythonVersionInfo.SuffixType.Post,
+      PythonVersionInfo.SuffixType.NoSuffix)
+    ]
+    [InlineData(
+      "1.0rc1.dev456",
+      PythonVersionInfo.SuffixType.Pre,
+      PythonVersionInfo.SuffixType.Development,
+      null)
+    ]
+    [InlineData(
+      "1.0rc1",
+      PythonVersionInfo.SuffixType.Pre,
+      PythonVersionInfo.SuffixType.NoSuffix,
+      null)
+    ]
+    [InlineData(
+      "1.0",
+      PythonVersionInfo.SuffixType.NoSuffix,
+      null,
+      null)
+    ]
+    [InlineData(
+      "1.0.post456.dev34",
+      PythonVersionInfo.SuffixType.Post,
+      null,
+      PythonVersionInfo.SuffixType.Development)
+    ]
+    [InlineData(
+      "1.0.post456",
+      PythonVersionInfo.SuffixType.Post,
+      null,
+      PythonVersionInfo.SuffixType.NoSuffix)
+    ]
 
     public void SortPositionsAreCorrectlySet(
       string version,
@@ -170,7 +434,6 @@ namespace Freshli.Test.Unit.Python {
     [InlineData("2.0.0", "2.0", 0)]
     [InlineData("2.2", "2.2.0", 0)]
     [InlineData("2.2.0", "2.2", 0)]
-
     [InlineData("1.0.dev456", "1.0.dev678", -1)]
     [InlineData("1.0.dev456", "1.0a1", -1)]
     [InlineData("1.0.dev456", "1.0a2.dev456", -1)]
@@ -283,7 +546,6 @@ namespace Freshli.Test.Unit.Python {
     [InlineData("1.0.post345", "2.0.post345", -1)]
     [InlineData("1.0.dev345", "2.0.dev1", -1)]
     [InlineData("1.0.dev345", "2.0.dev345", -1)]
-
     [InlineData("1.0.dev678", "1.0.dev456", 1)]
     [InlineData("1.0a1", "1.0.dev456", 1)]
     [InlineData("1.0a2.dev456", "1.0.dev456", 1)]
@@ -410,7 +672,8 @@ namespace Freshli.Test.Unit.Python {
     [Fact]
     public void CompareToThrowsExceptionIfOtherVersionIsNull() {
       var version = new PythonVersionInfo {Version = "1.0"};
-      Assert.Throws<ArgumentException>(testCode: () => version.CompareTo(null));
+      Assert.Throws<ArgumentException>(testCode: () =>
+        version.CompareTo(null));
     }
 
     [Fact]
