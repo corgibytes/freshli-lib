@@ -335,6 +335,31 @@ namespace Freshli.Languages.Python {
       return -1;
     }
 
+    public void RemovePreReleaseMetadata() {
+      PreReleaseLabel = null;
+      PreReleaseIncrement = null;
+      PreReleaseSortPosition = null;
+      IsPreRelease = false;
+    }
+
+    public void RemovePostReleaseMetadata() {
+      PostReleaseLabel = null;
+      PostReleaseIncrement = null;
+      PostReleaseSortPosition = null;
+      IsPostRelease = false;
+    }
+    public void RemoveDevelopmentReleaseMetadata() {
+      DevelopmentReleaseIncrement = null;
+      IsDevelopmentRelease = false;
+    }
+    public void RemoveLastReleaseIncrement() {
+      if (Release.Contains(".")) {
+        Version = Release = Release.Remove(Release.LastIndexOf
+          (".", StringComparison.Ordinal));
+        ReleaseSortPosition = NoSuffix;
+      }
+    }
+
     public override string ToString() {
       return
         $"{nameof(Version)}: {Version}, " +

@@ -17,7 +17,7 @@ namespace Freshli.Languages.Python {
     }
 
     public OperationKind Operation { get; private set; }
-    public SemVerVersionInfo BaseVersion { get; private set; }
+    public PythonVersionInfo BaseVersion { get; private set; }
 
     public static VersionMatcher Create(string value) {
       VersionMatcher result;
@@ -49,7 +49,7 @@ namespace Freshli.Languages.Python {
           value = value.Replace(".*", "");
         }
 
-        result.BaseVersion = new SemVerVersionInfo() {Version = value};
+        result.BaseVersion = new PythonVersionInfo {Version = value};
       } else if (value.StartsWith("<")) {
         result = new BasicVersionMatcher();
         value = value.Remove(0, 1);
@@ -60,7 +60,7 @@ namespace Freshli.Languages.Python {
           result.Operation = OperationKind.LessThanEqual;
         }
 
-        result.BaseVersion = new SemVerVersionInfo() {Version = value};
+        result.BaseVersion = new PythonVersionInfo {Version = value};
       } else if (value.StartsWith(">")) {
         result = new BasicVersionMatcher();
         value = value.Remove(0, 1);
@@ -71,45 +71,38 @@ namespace Freshli.Languages.Python {
           result.Operation = OperationKind.GreaterThanEqual;
         }
 
-        result.BaseVersion = new SemVerVersionInfo() {Version = value};
+        result.BaseVersion = new PythonVersionInfo {Version = value};
       } else if (value.StartsWith("!=")) {
         result = new BasicVersionMatcher();
         value = value.Remove(0, 2);
         result.Operation = OperationKind.NotEqual;
 
-        result.BaseVersion = new SemVerVersionInfo() {Version = value};
+        result.BaseVersion = new PythonVersionInfo {Version = value};
       } else if (value.StartsWith("~=")) {
         var compound = new CompoundVersionMatcher();
         compound.Operation = OperationKind.Compatible;
         compound.BaseVersion =
-          new SemVerVersionInfo() {Version = value.Remove(0, 2)};
+          new PythonVersionInfo {Version = value.Remove(0, 2)};
 
         var first = new BasicVersionMatcher();
         first.Operation = OperationKind.GreaterThanEqual;
         var firstVersion =
-          new SemVerVersionInfo() {Version = compound.BaseVersion.Version};
+          new PythonVersionInfo {Version = compound.BaseVersion.Version};
 
         first.BaseVersion = firstVersion;
         compound.Add(first);
 
         var secondVersion =
-          new SemVerVersionInfo() {Version = compound.BaseVersion.Version};
-        secondVersion.RemoveBuildMetadata();
-        secondVersion.RemovePreRelease();
+          new PythonVersionInfo {Version = compound.BaseVersion.Version};
+        secondVersion.RemoveLastReleaseIncrement();
+        secondVersion.RemovePreReleaseMetadata();
+        secondVersion.RemovePostReleaseMetadata();
+        secondVersion.RemoveDevelopmentReleaseMetadata();
 
-        if (secondVersion.Minor.HasValue && secondVersion.Patch.HasValue) {
-          secondVersion.RemovePatch();
-          var second = new BasicVersionMatcher();
-          second.Operation = OperationKind.PrefixMatching;
-          second.BaseVersion = secondVersion;
-          compound.Add(second);
-        } else if (secondVersion.Minor.HasValue) {
-          secondVersion.RemoveMinor();
-          var second = new BasicVersionMatcher();
-          second.Operation = OperationKind.PrefixMatching;
-          second.BaseVersion = secondVersion;
-          compound.Add(second);
-        }
+        var second = new BasicVersionMatcher();
+        second.Operation = OperationKind.PrefixMatching;
+        second.BaseVersion = secondVersion;
+        compound.Add(second);
 
         result = compound;
       } else {

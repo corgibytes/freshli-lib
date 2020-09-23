@@ -7,41 +7,48 @@ namespace Freshli.Test.Unit.Python {
     [InlineData("!=1", VersionMatcher.OperationKind.NotEqual, "1")]
     [InlineData("!=1.1", VersionMatcher.OperationKind.NotEqual, "1.1")]
     [InlineData("!=1.1.1", VersionMatcher.OperationKind.NotEqual, "1.1.1")]
+    [InlineData("!=1.1.1a1", VersionMatcher.OperationKind.NotEqual, "1.1.1a1")]
     [InlineData(
-      "!=1.1.1-alpha",
+      "!=1.1.1a1.dev1",
       VersionMatcher.OperationKind.NotEqual,
-      "1.1.1-alpha"
+      "1.1.1a1.dev1"
     )]
     [InlineData(
-      "!=1.1.1-alpha+dev",
+      "!=1.1.1a1.post1.dev1",
       VersionMatcher.OperationKind.NotEqual,
-      "1.1.1-alpha+dev"
+      "1.1.1a1.post1.dev1"
     )]
     [InlineData("<1", VersionMatcher.OperationKind.LessThan, "1")]
     [InlineData("<1.1", VersionMatcher.OperationKind.LessThan, "1.1")]
     [InlineData("<1.1.1", VersionMatcher.OperationKind.LessThan, "1.1.1")]
+    [InlineData("<1.1.1a1", VersionMatcher.OperationKind.LessThan, "1.1.1a1")]
     [InlineData(
-      "<1.1.1-alpha",
+      "<1.1.1a1.dev1",
       VersionMatcher.OperationKind.LessThan,
-      "1.1.1-alpha"
+      "1.1.1a1.dev1"
     )]
     [InlineData(
-      "<1.1.1-alpha+dev",
+      "<1.1.1a1.post1.dev1",
       VersionMatcher.OperationKind.LessThan,
-      "1.1.1-alpha+dev"
+      "1.1.1a1.post1.dev1"
     )]
     [InlineData("<=1", VersionMatcher.OperationKind.LessThanEqual, "1")]
     [InlineData("<=1.1", VersionMatcher.OperationKind.LessThanEqual, "1.1")]
     [InlineData("<=1.1.1", VersionMatcher.OperationKind.LessThanEqual, "1.1.1")]
     [InlineData(
-      "<=1.1.1-alpha",
+      "<=1.1.1a1",
       VersionMatcher.OperationKind.LessThanEqual,
-      "1.1.1-alpha"
+      "1.1.1a1"
     )]
     [InlineData(
-      "<=1.1.1-alpha+dev",
+      "<=1.1.1a1.dev1",
       VersionMatcher.OperationKind.LessThanEqual,
-      "1.1.1-alpha+dev"
+      "1.1.1a1.dev1"
+    )]
+    [InlineData(
+      "<=1.1.1a1.post1.dev1",
+      VersionMatcher.OperationKind.LessThanEqual,
+      "1.1.1a1.post1.dev1"
     )]
     [InlineData("==1.*", VersionMatcher.OperationKind.PrefixMatching, "1")]
     [InlineData("==1.0.0", VersionMatcher.OperationKind.Matching, "1.0.0")]
@@ -55,14 +62,19 @@ namespace Freshli.Test.Unit.Python {
     [InlineData(">1.1", VersionMatcher.OperationKind.GreaterThan, "1.1")]
     [InlineData(">1.1.1", VersionMatcher.OperationKind.GreaterThan, "1.1.1")]
     [InlineData(
-      ">1.1.1-alpha",
+      ">1.1.1a1",
       VersionMatcher.OperationKind.GreaterThan,
-      "1.1.1-alpha"
+      "1.1.1a1"
     )]
     [InlineData(
-      ">1.1.1-alpha+dev",
+      ">1.1.1a1.dev1",
       VersionMatcher.OperationKind.GreaterThan,
-      "1.1.1-alpha+dev"
+      "1.1.1a1.dev1"
+    )]
+    [InlineData(
+      ">1.1.1a1.post1.dev1",
+      VersionMatcher.OperationKind.GreaterThan,
+      "1.1.1a1.post1.dev1"
     )]
     [InlineData(">=1", VersionMatcher.OperationKind.GreaterThanEqual, "1")]
     [InlineData(">=1.1", VersionMatcher.OperationKind.GreaterThanEqual, "1.1")]
@@ -72,14 +84,19 @@ namespace Freshli.Test.Unit.Python {
       "1.1.1"
     )]
     [InlineData(
-      ">=1.1.1-alpha",
+      ">=1.1.1a1",
       VersionMatcher.OperationKind.GreaterThanEqual,
-      "1.1.1-alpha"
+      "1.1.1a1"
     )]
     [InlineData(
-      ">=1.1.1-alpha+dev",
+      ">=1.1.1a1.dev1",
       VersionMatcher.OperationKind.GreaterThanEqual,
-      "1.1.1-alpha+dev"
+      "1.1.1a1.dev1"
+    )]
+    [InlineData(
+      ">=1.1.1a1.post1.dev1",
+      VersionMatcher.OperationKind.GreaterThanEqual,
+      "1.1.1a1.post1.dev1"
     )]
     public void SplitsIntoComponents(
       string expression,
@@ -89,18 +106,18 @@ namespace Freshli.Test.Unit.Python {
       var matcher = VersionMatcher.Create(expression);
       Assert.Equal(operationKind, matcher.Operation);
       Assert.Equal(
-        new SemVerVersionInfo {Version = baseVersion},
+        new PythonVersionInfo {Version = baseVersion},
         matcher.BaseVersion
       );
     }
 
     [Theory]
     [InlineData(
-      "~=1",
+      "~=1.0",
       VersionMatcher.OperationKind.Compatible,
-      "1",
+      "1.0",
       VersionMatcher.OperationKind.GreaterThanEqual,
-      "1",
+      "1.0",
       null,
       null
     )]
@@ -123,20 +140,20 @@ namespace Freshli.Test.Unit.Python {
       "1.1"
     )]
     [InlineData(
-      "~=1.1.1-alpha",
+      "~=1.1.1a1",
       VersionMatcher.OperationKind.Compatible,
-      "1.1.1-alpha",
+      "1.1.1a1",
       VersionMatcher.OperationKind.GreaterThanEqual,
-      "1.1.1-alpha",
+      "1.1.1a1",
       VersionMatcher.OperationKind.PrefixMatching,
       "1.1"
     )]
     [InlineData(
-      "~=1.1.1-alpha+dev",
+      "~=1.1.1a1.dev1",
       VersionMatcher.OperationKind.Compatible,
-      "1.1.1-alpha+dev",
+      "1.1.1a1.dev1",
       VersionMatcher.OperationKind.GreaterThanEqual,
-      "1.1.1-alpha+dev",
+      "1.1.1a1.dev1",
       VersionMatcher.OperationKind.PrefixMatching,
       "1.1"
     )]
@@ -152,7 +169,7 @@ namespace Freshli.Test.Unit.Python {
       var matcher = VersionMatcher.Create(expression);
       Assert.Equal(operationKind, matcher.Operation);
       Assert.Equal(
-        new SemVerVersionInfo {Version = baseVersion},
+        new PythonVersionInfo {Version = baseVersion},
         matcher.BaseVersion
       );
 
@@ -162,7 +179,7 @@ namespace Freshli.Test.Unit.Python {
       Assert.Equal(firstChildOperation, firstChild.Operation);
 
       var expectedFirstChildVersion =
-        new SemVerVersionInfo {Version = firstChildBaseVersion};
+        new PythonVersionInfo {Version = firstChildBaseVersion};
       Assert.Equal(expectedFirstChildVersion, firstChild.BaseVersion);
 
       if (secondChildOperation.HasValue) {
@@ -170,7 +187,7 @@ namespace Freshli.Test.Unit.Python {
         Assert.Equal(secondChildOperation, secondChild.Operation);
 
         var expectedSecondChildVersion =
-          new SemVerVersionInfo {Version = secondChildBaseVersion};
+          new PythonVersionInfo {Version = secondChildBaseVersion};
         Assert.Equal(expectedSecondChildVersion, secondChild.BaseVersion);
       }
     }
@@ -198,7 +215,7 @@ namespace Freshli.Test.Unit.Python {
       Assert.Equal(firstChildOperation, firstChild.Operation);
 
       var expectedFirstChildVersion =
-        new SemVerVersionInfo {Version = firstChildBaseVersion};
+        new PythonVersionInfo {Version = firstChildBaseVersion};
       Assert.Equal(expectedFirstChildVersion, firstChild.BaseVersion);
 
       if (secondChildOperation.HasValue) {
@@ -206,7 +223,7 @@ namespace Freshli.Test.Unit.Python {
         Assert.Equal(secondChildOperation, secondChild.Operation);
 
         var expectedSecondChildVersion =
-          new SemVerVersionInfo {Version = secondChildBaseVersion};
+          new PythonVersionInfo {Version = secondChildBaseVersion};
         Assert.Equal(expectedSecondChildVersion, secondChild.BaseVersion);
       }
     }
@@ -233,21 +250,21 @@ namespace Freshli.Test.Unit.Python {
     [InlineData("1.0.0", "!=0.0.1", true)]
     [InlineData("1.0.0", "!=0.1.0", true)]
     [InlineData("1.0.0", "!=1.0.0", false)]
-    [InlineData("1.0.0", "!=1.0.0-alpha", true)]
+    [InlineData("1.0.0", "!=1.0.0a1", true)]
     [InlineData("1.0.0", "!=1.0.1", true)]
     [InlineData("1.0.0", "!=1.1.0", true)]
     [InlineData("1.0.0", "!=2.0.0", true)]
     [InlineData("1.0.0", "<0.0.1", false)]
     [InlineData("1.0.0", "<0.1.0", false)]
     [InlineData("1.0.0", "<1.0.0", false)]
-    [InlineData("1.0.0", "<1.0.0-alpha", false)]
+    [InlineData("1.0.0", "<1.0.0a1", false)]
     [InlineData("1.0.0", "<1.0.1", true)]
     [InlineData("1.0.0", "<1.1.0", true)]
     [InlineData("1.0.0", "<2.0.0", true)]
     [InlineData("1.0.0", "<=0.0.1", false)]
     [InlineData("1.0.0", "<=0.1.0", false)]
     [InlineData("1.0.0", "<=1.0.0", true)]
-    [InlineData("1.0.0", "<=1.0.0-alpha", false)]
+    [InlineData("1.0.0", "<=1.0.0a1", false)]
     [InlineData("1.0.0", "<=1.0.1", true)]
     [InlineData("1.0.0", "<=1.1.0", true)]
     [InlineData("1.0.0", "<=2.0.0", true)]
@@ -256,57 +273,56 @@ namespace Freshli.Test.Unit.Python {
     [InlineData("1.0.0", ">0.0.1", true)]
     [InlineData("1.0.0", ">0.1.0", true)]
     [InlineData("1.0.0", ">1.0.0", false)]
-    [InlineData("1.0.0", ">1.0.0-alpha", true)]
+    [InlineData("1.0.0", ">1.0.0a1", true)]
     [InlineData("1.0.0", ">1.0.1", false)]
     [InlineData("1.0.0", ">1.1.0", false)]
     [InlineData("1.0.0", ">2.0.0", false)]
     [InlineData("1.0.0", ">=0.0.1", true)]
     [InlineData("1.0.0", ">=0.1.0", true)]
     [InlineData("1.0.0", ">=1.0.0", true)]
-    [InlineData("1.0.0", ">=1.0.0-alpha", true)]
+    [InlineData("1.0.0", ">=1.0.0a1", true)]
     [InlineData("1.0.0", ">=1.0.1", false)]
     [InlineData("1.0.0", ">=1.1.0", false)]
     [InlineData("1.0.0", ">=2.0.0", false)]
     [InlineData("1.0.0", "~=0.0.1", false)]
     [InlineData("1.0.0", "~=0.1.0", false)]
-    [InlineData("1.0.0", "~=1", true)]
     [InlineData("1.0.0", ">=1", true)]
     [InlineData("1.0.0", "~=1.0.0", true)]
-    [InlineData("1.0.0", "~=1.0.0-alpha", true)]
+    [InlineData("1.0.0", "~=1.0.0a1", true)]
     [InlineData("1.0.0", "~=1.0.1", false)]
-    [InlineData("1.0.0", "~=1.0.1-alpha1", false)]
+    [InlineData("1.0.0", "~=1.0.1a1", false)]
     [InlineData("1.0.0", "~=1.1", false)]
     [InlineData("1.0.0", "~=1.1.0", false)]
-    [InlineData("1.0.0", "~=1.1.0-alpha1", false)]
+    [InlineData("1.0.0", "~=1.1.0a1", false)]
     [InlineData("1.0.0", "~=2", false)]
     [InlineData("1.0.0", "~=2.0", false)]
     [InlineData("1.0.0", "~=2.0.0", false)]
-    [InlineData("1.0.0-alpha", "!=1.0.0", true)]
-    [InlineData("1.0.0-alpha", "<1.0.0", true)]
-    [InlineData("1.0.0-alpha", "<=1.0.0", true)]
-    [InlineData("1.0.0-alpha", ">1.0.0", false)]
-    [InlineData("1.0.0-alpha", ">=1.0.0", false)]
-    [InlineData("1.0.0-alpha", "~=1.0.0", false)]
-    [InlineData("1.0.0-alpha+test1", "!=1.0.0-alpha+test2", false)]
-    [InlineData("1.0.0-alpha+test1", "<1.0.0-alpha+test2", false)]
-    [InlineData("1.0.0-alpha+test1", "<=1.0.0-alpha+test2", true)]
-    [InlineData("1.0.0-alpha+test1", "==1.0.*", true)]
-    [InlineData("1.0.0-alpha+test1", ">1.0.0-alpha+test2", false)]
-    [InlineData("1.0.0-alpha+test1", ">=1.0.0-alpha+test2", true)]
-    [InlineData("1.0.0-alpha+test1", "~=1.0.0-alpha+test2", true)]
-    [InlineData("1.0.0-alpha+test2", "!=1.0.0-alpha+test1", false)]
-    [InlineData("1.0.0-alpha+test2", "<1.0.0-alpha+test1", false)]
-    [InlineData("1.0.0-alpha+test2", "<=1.0.0-alpha+test1", true)]
-    [InlineData("1.0.0-alpha+test2", "==1.0.*", true)]
-    [InlineData("1.0.0-alpha+test2", ">1.0.0-alpha+test1", false)]
-    [InlineData("1.0.0-alpha+test2", ">=1.0.0-alpha+test1", true)]
-    [InlineData("1.0.0-alpha+test2", "~=1.0.0-alpha+test1", true)]
-    [InlineData("1.0.0-alpha1", "~=1.0.1-alpha1", false)]
-    [InlineData("1.0.0-alpha1", "~=1.0.1-alpha2", false)]
-    [InlineData("1.0.0-alpha1", "~=1.1.0-alpha1", false)]
-    [InlineData("1.0.0-alpha1", "~=1.1.0-alpha2", false)]
-    [InlineData("1.0.0-alpha2", "~=1.0.1-alpha1", false)]
-    [InlineData("1.0.0-alpha2", "~=1.1.0-alpha1", false)]
+    [InlineData("1.0.0a1", "!=1.0.0", true)]
+    [InlineData("1.0.0a1", "<1.0.0", true)]
+    [InlineData("1.0.0a1", "<=1.0.0", true)]
+    [InlineData("1.0.0a1", ">1.0.0", false)]
+    [InlineData("1.0.0a1", ">=1.0.0", false)]
+    [InlineData("1.0.0a1", "~=1.0.0", false)]
+    [InlineData("1.0.0a1.dev1", "!=1.0.0a1.dev2", true)]
+    [InlineData("1.0.0a1.dev1", "<1.0.0a1.dev2", true)]
+    [InlineData("1.0.0a1.dev1", "<=1.0.0a1.dev2", true)]
+    [InlineData("1.0.0a1.dev1", "==1.0.*", true)]
+    [InlineData("1.0.0a1.dev1", ">1.0.0a1.dev2", false)]
+    [InlineData("1.0.0a1.dev1", ">=1.0.0a1.dev2", false)]
+    [InlineData("1.0.0a1.dev1", "~=1.0.0a1.dev2", false)]
+    [InlineData("1.0.0a1.dev2", "!=1.0.0a1.dev1", true)]
+    [InlineData("1.0.0a1.dev2", "<1.0.0a1.dev1", false)]
+    [InlineData("1.0.0a1.dev2", "<=1.0.0a1.dev1", false)]
+    [InlineData("1.0.0a1.dev2", "==1.0.*", true)]
+    [InlineData("1.0.0a1.dev2", ">1.0.0a1.dev1", true)]
+    [InlineData("1.0.0a1.dev2", ">=1.0.0a1.dev1", true)]
+    [InlineData("1.0.0a1.dev2", "~=1.0.0a1.dev1", true)]
+    [InlineData("1.0.0a1", "~=1.0.1a1", false)]
+    [InlineData("1.0.0a1", "~=1.0.1a2", false)]
+    [InlineData("1.0.0a1", "~=1.1.0a1", false)]
+    [InlineData("1.0.0a1", "~=1.1.0a2", false)]
+    [InlineData("1.0.0a2", "~=1.0.1a1", false)]
+    [InlineData("1.0.0a2", "~=1.1.0a1", false)]
     [InlineData("1.0.1", "!=1.0.0", true)]
     [InlineData("1.0.1", "<1.0.0", false)]
     [InlineData("1.0.1", "<=1.0.0", false)]
@@ -314,10 +330,10 @@ namespace Freshli.Test.Unit.Python {
     [InlineData("1.0.1", ">1.0.0", true)]
     [InlineData("1.0.1", ">=1.0.0", true)]
     [InlineData("1.0.1", "~=1.0.0", true)]
-    [InlineData("1.0.1", "~=1.0.0-alpha1", true)]
-    [InlineData("1.0.1-alpha1", "~=1.0.0-alpha1", true)]
-    [InlineData("1.0.1-alpha1", "~=1.0.0-alpha2", true)]
-    [InlineData("1.0.1-alpha2", "~=1.0.0-alpha1", true)]
+    [InlineData("1.0.1", "~=1.0.0a1", true)]
+    [InlineData("1.0.1a1", "~=1.0.0a1", true)]
+    [InlineData("1.0.1a1", "~=1.0.0a2", true)]
+    [InlineData("1.0.1a2", "~=1.0.0a1", true)]
     [InlineData("1.1.0", "!=1.0.0", true)]
     [InlineData("1.1.0", "<1.0.0", false)]
     [InlineData("1.1.0", "<=1.0.0", false)]
@@ -328,39 +344,37 @@ namespace Freshli.Test.Unit.Python {
     [InlineData("1.1.0", ">=1.0.0", true)]
     [InlineData("1.1.0", ">=1.1", true)]
     [InlineData("1.1.0", ">=1.1.0", true)]
-    [InlineData("1.1.0", ">=1.1.0-alpha1", true)]
-    [InlineData("1.1.0", "~=1", true)]
+    [InlineData("1.1.0", ">=1.1.0a1", true)]
     [InlineData("1.1.0", "~=1.0.0", false)]
-    [InlineData("1.1.0", "~=1.0.0-alpha1", false)]
+    [InlineData("1.1.0", "~=1.0.0a1", false)]
     [InlineData("1.1.0", "~=1.1", true)]
     [InlineData("1.1.0", "~=1.1.0", true)]
-    [InlineData("1.1.0", "~=1.1.0-alpha1", true)]
-    [InlineData("1.1.0-alpha1", "==1.1.*", true)]
-    [InlineData("1.1.0-alpha1", ">=1.1.0-alpha1", true)]
-    [InlineData("1.1.0-alpha1", "~=1.0.0-alpha1", false)]
-    [InlineData("1.1.0-alpha1", "~=1.0.0-alpha2", false)]
-    [InlineData("1.1.0-alpha1", "~=1.1.0-alpha1", true)]
-    [InlineData("1.1.0-alpha1", "~=1.1.0-alpha2", false)]
-    [InlineData("1.1.0-alpha2", "==1.1.*", true)]
-    [InlineData("1.1.0-alpha2", ">=1.1.0-alpha1", true)]
-    [InlineData("1.1.0-alpha2", "~=1.0.0-alpha1", false)]
-    [InlineData("1.1.0-alpha2", "~=1.1.0-alpha1", true)]
+    [InlineData("1.1.0", "~=1.1.0a1", true)]
+    [InlineData("1.1.0a1", "==1.1.*", true)]
+    [InlineData("1.1.0a1", ">=1.1.0a1", true)]
+    [InlineData("1.1.0a1", "~=1.0.0a1", false)]
+    [InlineData("1.1.0a1", "~=1.0.0a2", false)]
+    [InlineData("1.1.0a1", "~=1.1.0a1", true)]
+    [InlineData("1.1.0a1", "~=1.1.0a2", false)]
+    [InlineData("1.1.0a2", "==1.1.*", true)]
+    [InlineData("1.1.0a2", ">=1.1.0a1", true)]
+    [InlineData("1.1.0a2", "~=1.0.0a1", false)]
+    [InlineData("1.1.0a2", "~=1.1.0a1", true)]
     [InlineData("1.1.1", "==1.1.*", true)]
     [InlineData("1.1.1", ">=1.1.0", true)]
     [InlineData("1.1.1", "~=1.1.0", true)]
-    [InlineData("1.1.1", "~=1.1.0-alpha1", true)]
+    [InlineData("1.1.1", "~=1.1.0a1", true)]
     [InlineData("1.1.1", "~=1.2.0", false)]
-    [InlineData("1.1.1", "~=1.2.0-alpha1", false)]
-    [InlineData("1.1.1-alpha1", "~=1.1.0-alpha1", true)]
-    [InlineData("1.1.1-alpha1", "~=1.1.0-alpha2", true)]
-    [InlineData("1.1.1-alpha1", "~=1.2.0-alpha1", false)]
-    [InlineData("1.1.1-alpha1", "~=1.2.0-alpha2", false)]
-    [InlineData("1.1.1-alpha2", "~=1.1.0-alpha1", true)]
-    [InlineData("1.1.1-alpha2", "~=1.2.0-alpha1", false)]
+    [InlineData("1.1.1", "~=1.2.0a1", false)]
+    [InlineData("1.1.1a1", "~=1.1.0a1", true)]
+    [InlineData("1.1.1a1", "~=1.1.0a2", true)]
+    [InlineData("1.1.1a1", "~=1.2.0a1", false)]
+    [InlineData("1.1.1a1", "~=1.2.0a2", false)]
+    [InlineData("1.1.1a2", "~=1.1.0a1", true)]
+    [InlineData("1.1.1a2", "~=1.2.0a1", false)]
     [InlineData("1.2.0", "==1.*", true)]
     [InlineData("1.2.0", ">=1", true)]
     [InlineData("1.2.0", ">=1.1", true)]
-    [InlineData("1.2.0", "~=1", true)]
     [InlineData("1.2.0", "~=1.1", true)]
     [InlineData("1.2.3", "==1.*", true)]
     [InlineData("1.2.3", "==1.0.*", false)]
@@ -373,7 +387,6 @@ namespace Freshli.Test.Unit.Python {
     [InlineData("2.0.0", ">1.0.0", true)]
     [InlineData("2.0.0", ">=1", true)]
     [InlineData("2.0.0", ">=1.0.0", true)]
-    [InlineData("2.0.0", "~=1", true)]
     [InlineData("2.0.0", "~=1.0", false)]
     [InlineData("2.0.0", "~=1.0.0", false)]
     [InlineData("2.2.0", "==2.2", true)]
@@ -383,7 +396,7 @@ namespace Freshli.Test.Unit.Python {
       string expression,
       bool doesMatch
     ) {
-      var info = new SemVerVersionInfo() {Version = version};
+      var info = new PythonVersionInfo {Version = version};
       var matcher = VersionMatcher.Create(expression);
       Assert.Equal(doesMatch, matcher.DoesMatch(info));
     }
