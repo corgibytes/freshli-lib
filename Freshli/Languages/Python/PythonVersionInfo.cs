@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using Freshli.Exceptions;
+using Freshli.Util;
 
 namespace Freshli.Languages.Python {
   public class PythonVersionInfo : IVersionInfo {
@@ -98,7 +99,7 @@ namespace Freshli.Languages.Python {
           }
         }
         for (var i = 0; i < ReleaseParts.Count; i++) {
-          result = CompareNumericValues(
+          result = VersionHelper.CompareNumericValues(
             ReleaseParts[i],
             otherVersionInfo.ReleaseParts[i]
           );
@@ -110,7 +111,7 @@ namespace Freshli.Languages.Python {
           return result;
         }
 
-        result = CompareNumericValues(
+        result = VersionHelper.CompareNumericValues(
           ReleaseSortPosition,
           otherVersionInfo.ReleaseSortPosition
         );
@@ -120,7 +121,7 @@ namespace Freshli.Languages.Python {
         }
 
         if (ReleaseSortPosition == Development) {
-          return CompareNumericValues(
+          return VersionHelper.CompareNumericValues(
             DevelopmentReleaseIncrement,
             otherVersionInfo.DevelopmentReleaseIncrement
           );
@@ -157,7 +158,7 @@ namespace Freshli.Languages.Python {
         return result;
       }
 
-      result =  CompareNumericValues(
+      result = VersionHelper.CompareNumericValues(
         PreReleaseIncrement,
         otherVersionInfo.PreReleaseIncrement
       );
@@ -165,7 +166,7 @@ namespace Freshli.Languages.Python {
         return result;
       }
 
-      result = CompareNumericValues(
+      result = VersionHelper.CompareNumericValues(
         PreReleaseSortPosition,
         otherVersionInfo.PreReleaseSortPosition
       );
@@ -174,12 +175,12 @@ namespace Freshli.Languages.Python {
       }
 
       if (PreReleaseSortPosition == Development) {
-        result = CompareNumericValues(
+        result = VersionHelper.CompareNumericValues(
           DevelopmentReleaseIncrement,
           otherVersionInfo.DevelopmentReleaseIncrement
         );
       } else if (PreReleaseSortPosition == Post) {
-        result = CompareNumericValues(
+        result = VersionHelper.CompareNumericValues(
           PostReleaseIncrement,
           otherVersionInfo.PostReleaseIncrement
         );
@@ -187,7 +188,7 @@ namespace Freshli.Languages.Python {
           result = ComparePostReleaseVersions(otherVersionInfo);
         }
       } else {
-        result = CompareNumericValues(
+        result = VersionHelper.CompareNumericValues(
           PreReleaseIncrement,
           otherVersionInfo.PreReleaseIncrement
         );
@@ -198,7 +199,7 @@ namespace Freshli.Languages.Python {
 
     private int ComparePostReleaseVersions(PythonVersionInfo otherVersionInfo) {
 
-      var result =  CompareNumericValues(
+      var result = VersionHelper.CompareNumericValues(
         PostReleaseIncrement,
         otherVersionInfo.PostReleaseIncrement
       );
@@ -206,7 +207,7 @@ namespace Freshli.Languages.Python {
         return result;
       }
 
-      result = CompareNumericValues(
+      result = VersionHelper.CompareNumericValues(
         PostReleaseSortPosition,
         otherVersionInfo.PostReleaseSortPosition
       );
@@ -215,12 +216,12 @@ namespace Freshli.Languages.Python {
       }
 
       if (PostReleaseSortPosition == Development) {
-        result = CompareNumericValues(
+        result = VersionHelper.CompareNumericValues(
           DevelopmentReleaseIncrement,
           otherVersionInfo.DevelopmentReleaseIncrement
         );
       } else {
-        result = CompareNumericValues(
+        result = VersionHelper.CompareNumericValues(
           PostReleaseIncrement,
           otherVersionInfo.PostReleaseIncrement
         );
@@ -322,17 +323,6 @@ namespace Freshli.Languages.Python {
 
     private void SetPostReleaseSortPosition() {
       PostReleaseSortPosition = IsDevelopmentRelease ? Development : NoSuffix;
-    }
-
-    //TODO: Consolidate with logic in RubyGemsVersionInfo
-    private static int CompareNumericValues(long? v1, long? v2) {
-      if (v1 == v2) {
-        return 0;
-      }
-      if (v1 > v2) {
-        return 1;
-      }
-      return -1;
     }
 
     public void RemovePreReleaseMetadata() {
