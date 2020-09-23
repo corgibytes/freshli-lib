@@ -107,20 +107,20 @@ namespace Freshli.Test.Unit.Python {
     }
 
     [Theory]
-    [InlineData("1.0.dev456", PythonVersionInfo.Development, null, null)]
-    [InlineData("1.0a1", PythonVersionInfo.Pre, PythonVersionInfo.NoSuffix, null)]
-    [InlineData("1.0a2.dev456", PythonVersionInfo.Pre, PythonVersionInfo.Development, null)]
-    [InlineData("1.0a12.dev456", PythonVersionInfo.Pre, PythonVersionInfo.Development, null)]
-    [InlineData("1.0a12", PythonVersionInfo.Pre, PythonVersionInfo.NoSuffix, null)]
-    [InlineData("1.0b1.dev456", PythonVersionInfo.Pre, PythonVersionInfo.Development, null)]
-    [InlineData("1.0b2", PythonVersionInfo.Pre, PythonVersionInfo.NoSuffix, null)]
-    [InlineData("1.0b2.post345.dev456", PythonVersionInfo.Pre, PythonVersionInfo.Post, PythonVersionInfo.Development)]
-    [InlineData("1.0b2.post345", PythonVersionInfo.Pre, PythonVersionInfo.Post, PythonVersionInfo.NoSuffix)]
-    [InlineData("1.0rc1.dev456", PythonVersionInfo.Pre, PythonVersionInfo.Development, null)]
-    [InlineData("1.0rc1", PythonVersionInfo.Pre, PythonVersionInfo.NoSuffix, null)]
-    [InlineData("1.0", PythonVersionInfo.NoSuffix, null, null)]
-    [InlineData("1.0.post456.dev34", PythonVersionInfo.Post, null, PythonVersionInfo.Development)]
-    [InlineData("1.0.post456", PythonVersionInfo.Post, null, PythonVersionInfo.NoSuffix)]
+    [InlineData("1.0.dev456", PythonVersionInfo.SuffixType.Development, null, null)]
+    [InlineData("1.0a1", PythonVersionInfo.SuffixType.Pre, PythonVersionInfo.SuffixType.NoSuffix, null)]
+    [InlineData("1.0a2.dev456", PythonVersionInfo.SuffixType.Pre, PythonVersionInfo.SuffixType.Development, null)]
+    [InlineData("1.0a12.dev456", PythonVersionInfo.SuffixType.Pre, PythonVersionInfo.SuffixType.Development, null)]
+    [InlineData("1.0a12", PythonVersionInfo.SuffixType.Pre, PythonVersionInfo.SuffixType.NoSuffix, null)]
+    [InlineData("1.0b1.dev456", PythonVersionInfo.SuffixType.Pre, PythonVersionInfo.SuffixType.Development, null)]
+    [InlineData("1.0b2", PythonVersionInfo.SuffixType.Pre, PythonVersionInfo.SuffixType.NoSuffix, null)]
+    [InlineData("1.0b2.post345.dev456", PythonVersionInfo.SuffixType.Pre, PythonVersionInfo.SuffixType.Post, PythonVersionInfo.SuffixType.Development)]
+    [InlineData("1.0b2.post345", PythonVersionInfo.SuffixType.Pre, PythonVersionInfo.SuffixType.Post, PythonVersionInfo.SuffixType.NoSuffix)]
+    [InlineData("1.0rc1.dev456", PythonVersionInfo.SuffixType.Pre, PythonVersionInfo.SuffixType.Development, null)]
+    [InlineData("1.0rc1", PythonVersionInfo.SuffixType.Pre, PythonVersionInfo.SuffixType.NoSuffix, null)]
+    [InlineData("1.0", PythonVersionInfo.SuffixType.NoSuffix, null, null)]
+    [InlineData("1.0.post456.dev34", PythonVersionInfo.SuffixType.Post, null, PythonVersionInfo.SuffixType.Development)]
+    [InlineData("1.0.post456", PythonVersionInfo.SuffixType.Post, null, PythonVersionInfo.SuffixType.NoSuffix)]
 
     public void SortPositionsAreCorrectlySet(
       string version,
@@ -129,9 +129,9 @@ namespace Freshli.Test.Unit.Python {
       int? postReleaseSortPosition
     ) {
       var versionInfo = new PythonVersionInfo {Version = version};
-      Assert.Equal(releaseSortPosition, versionInfo.ReleaseSortPosition);
-      Assert.Equal(preReleaseSortPosition, versionInfo.PreReleaseSortPosition);
-      Assert.Equal(postReleaseSortPosition, versionInfo.PostReleaseSortPosition);
+      Assert.Equal(releaseSortPosition, versionInfo.ReleaseSuffixType);
+      Assert.Equal(preReleaseSortPosition, versionInfo.PreReleaseSuffixType);
+      Assert.Equal(postReleaseSortPosition, versionInfo.PostReleaseSuffixType);
     }
 
     [Theory]
