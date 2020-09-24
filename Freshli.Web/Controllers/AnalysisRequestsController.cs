@@ -37,8 +37,18 @@ namespace Freshli.Web.Controllers {
         return View();
       }
 
-      analysisRequest.State = AnalysisRequestState.New;
-      _db.AnalysisRequests.Add(analysisRequest);
+      var existingRequest = _db.AnalysisRequests.
+        Where(request => request.Name == analysisRequest.Name.Trim()).
+        Where(request => request.Email == analysisRequest.Email).
+        FirstOrDefault(request => request.Url == analysisRequest.Url);
+
+      if (existingRequest != null) {
+        existingRequest.State = AnalysisRequestState.Retrying;
+        _db.AnalysisRequests.Update(existingRequest);
+      } else {
+        analysisRequest.State = AnalysisRequestState.New;
+        _db.AnalysisRequests.Add(analysisRequest);
+      }
       _db.SaveChanges();
 
       EmailHelper.SendKickoffEmail(analysisRequest);
