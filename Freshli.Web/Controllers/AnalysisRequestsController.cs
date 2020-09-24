@@ -44,8 +44,11 @@ namespace Freshli.Web.Controllers {
 
       if (existingRequest != null) {
         analysisRequest = existingRequest;
-        analysisRequest.State = AnalysisRequestState.Retrying;
-        _db.AnalysisRequests.Update(analysisRequest);
+        if (existingRequest.State != AnalysisRequestState.Retrying &&
+          existingRequest.State != AnalysisRequestState.InProgress) {
+          analysisRequest.State = AnalysisRequestState.Retrying;
+          _db.AnalysisRequests.Update(analysisRequest);
+        }
       } else {
         analysisRequest.State = AnalysisRequestState.New;
         _db.AnalysisRequests.Add(analysisRequest);
