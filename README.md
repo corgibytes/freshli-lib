@@ -96,27 +96,7 @@ VersionInfo.cs(201,32): warning CS8632: The annotation for nullable reference ty
 
 ### Building `freshli`
 
-Freshli currently utilizes XPlot as a submodule as the current release of XPlot does not include a critical bug fix. As a result, before building Freshli for the first time, you'll need to pull down the XPlot code:
-```
-git submodule update --init
-```
-
-Then, you'll need to build XPlot. First navigate to the XPlot subdirectory:
-
-```
-cd XPlot
-```
-
-Then execute the following commands:
-
-```
-dotnet tool restore
-```
-```
-dotnet paket restore
-```
-
-Once XPlot has successfully built, you'll need to navigate back to the main directory and build Freshli. There are multiple ways to build `freshli`. The simplest is directly on the command line by running `dotnet build`.
+There are multiple ways to build `freshli`. The simplest is directly on the command line by running `dotnet build`.
 
 You can also use an IDE for working on `freshli`. Most of the project's developers use JetBrains Rider, but you can also use Visual Studio 2019. If you don't want to use an IDE, then a text editor with good C# support such as Visual Studio Code or Atom also works equally well.
 
@@ -284,108 +264,7 @@ projects["example"] = runner.Run("https://github.com/corgibytes/freshli-fixture-
 display(CreateLineGraphFor(projects))
 ```
 
-## Getting started with `freshli` web application
-
-This project is using `docker` and `docker-compose` to simplify the creation
-of a development environment for the web-based part of the application.
-
-To get started make sure that you have `docker` and `docker-compose`
-installed.
-
-Then execute the following command to build the Docker images used by the project:
-
-```
-docker-compose build
-```
-
-After the images have successfully built, you can run the site with this
-command:
-
-```
-docker-compose up
-```
-
-This will start the `web` container, the `worker` container, and the `db`
-container. The `eclint` container will also run and then stop (more on
-that container below). Once all of the containers are up and running, you
-can visit `http://localhost:5000` to view the site.
-
-An administrative `worker` dashboard exists at `http://localhost:5000/admin/jobs`.
-Authentication is required. The default user credentials are set in `IdentitySeedData.cs`.
-
-### The `web` container
-
-The `web` container contains the contents of the `Freshli.Web` project. This
-container exposes a website that will be the primary way that most people
-interact with Freshli. It will be hosted at https://freshli.io (once it's deployed).
-This container depends on the `db` container. More on that below.
-
-If you want to get a bash shell running inside the `web` container, you can run:
-
-```
-docker-compose run web bash
-```
-
-If you want to run the `web` container without running the `worker` container,
-you can do so by running the following:
-
-```
-docker-compose up web
-```
-
-### The `worker` container
-
-The `worker` container houses the worker process that executes each requested
-analysis by processing a queue of jobs. This container depends on the
-`db` container.
-
-If you want to get a bash shell inside the `worker` container, you can run:
-
-```
-docker-compose run worker bash
-```
-
-If you want to run just the `worker` container without running the `web`
-container you can do so by running the following:
-
-```
-docker-compose up worker
-```
-
-If you want to run more than one worker at a time you can run the following
-command after you've already run `docker-compose up`:
-
-```
-docker-compose scale worker=X
-```
-Where `X` is the number of `worker` containers that you want to run, for example 2.
-
-### The `db` container
-
-The `db` container holds the database that's used by both the `web` and
-`worker` containers. The database is a Postgresql instance that keeps data in a
-persistent volume so that data gets preserved between runs.
-
-The `db` container is mapped to port 5432 on localhost to assist with using
-database IDEs such as DataGrip.
-
-Relevant Datagrip settings are shown below:
-
-![DataGrip Settings](documentation/images/datagrip-settings.png)
-
-The password is saved in the `docker-compose.yml` file.
-
-You can completely delete all of the data by deleting the volume. This simplest
-way to do that is by running the following:
-
-```
-docker-compose down --volumes
-```
-
-Again, this will completely delete all of the data that's stored in the database
-including all of the tables. Take care when executing this command.
-
-### The `eclint` container
+## Running `eclint` via docker-compose
 
 The `eclint` container provides a convenient way to run the `eclint` command
 that's used by GitHub Actions as part of every pull request. To do so simply
@@ -394,7 +273,3 @@ run the following.
 ```
 docker-compose run eclint
 ```
-
-The output from running `eclint` will also show up when you run
-`docker-compose up` but the output is likely to be noisy and it can be easy
-to miss messages that the `eclint` container reports.
