@@ -7,6 +7,8 @@ namespace Freshli {
 
     public DateTime DatePublished { get; set; }
 
+    public bool IsPreRelease { get; set; }
+
     public string ToSimpleVersion();
 
   }

@@ -23,7 +23,7 @@ namespace Freshli.Languages.Ruby {
 
     public DateTime DatePublished { get; set; }
 
-    public bool IsPreRelease { get; private set; }
+    public bool IsPreRelease { get; set; }
 
     public List<string> VersionParts { get; private set; }
 
