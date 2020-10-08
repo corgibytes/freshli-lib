@@ -78,7 +78,7 @@ namespace Freshli {
       }
       var dateTime = DateTime.Now;
       var filePath =
-        $"{ResultsPath}/{dateTime:yyyy-MM-dd-ssfffffff}-results.txt";
+        $"{ResultsPath}/{dateTime:yyyy-MM-dd-hhmmssfffffff}-results.txt";
       using var file = new System.IO.StreamWriter(filePath);
       foreach (var result in results) {
         file.WriteLine(result);

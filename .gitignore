@@ -437,4 +437,5 @@ Acceptance.*.received.txt
 
 Freshli.sln.DotSettings.user
 *.log
+results/
 
