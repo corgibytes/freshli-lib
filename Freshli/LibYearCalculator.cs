@@ -23,8 +23,6 @@ namespace Freshli {
         IVersionInfo currentVersion;
 
         try {
-          latestVersion = Repository.Latest(package.Name, date);
-
           if (Manifest.UsesExactMatches) {
             currentVersion =
               Repository.VersionInfo(package.Name, package.Version);
@@ -35,6 +33,8 @@ namespace Freshli {
               thatMatches: package.Version
             );
           }
+          latestVersion =
+            Repository.Latest(package.Name, date, currentVersion.IsPreRelease);
         }
         catch (Exception e) {
           _logger.Warn($"Skipping {package.Name}: {e.Message}");
@@ -110,7 +110,8 @@ namespace Freshli {
           name,
           asOf,
           currentVersion,
-          latestVersion
+          latestVersion,
+          currentVersion.IsPreRelease
         )) {
           var value = Compute(currentVersion, version);
           if (value >= 0) {

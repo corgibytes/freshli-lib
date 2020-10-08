@@ -10,11 +10,16 @@ namespace Freshli.Languages.Ruby {
     private IDictionary<string, IList<IVersionInfo>> _packages =
       new Dictionary<string, IList<IVersionInfo>>();
 
-    private IEnumerable<IVersionInfo> GetReleaseHistory(string name) {
+    private IEnumerable<IVersionInfo> GetReleaseHistory(
+      string name,
+      bool includePreReleaseVersions)
+    {
       try {
-
-        if (_packages.ContainsKey(name)) {
-          return _packages[name];
+        var keySuffix =
+          includePreReleaseVersions ? "-with-pre-releases" : "";
+        var key = $"{name}{keySuffix}";
+        if (_packages.ContainsKey(key)) {
+          return _packages[key];
         }
 
         var url = $"https://rubygems.org/gems/{name}/versions";
@@ -34,12 +39,12 @@ namespace Freshli.Languages.Ruby {
           var versionDate = DateTime.ParseExact(rawDate, "MMMM dd, yyyy", null);
 
           var versionInfo = new RubyGemsVersionInfo(version, versionDate);
-          if (!versionInfo.IsPreRelease &&
+          if ((!versionInfo.IsPreRelease || includePreReleaseVersions) &&
             !IsReleasePlatformSpecific(releaseNode)) {
             versions.Add(versionInfo);
           }
         }
-        _packages[name] = versions;
+        _packages[key] = versions;
         return versions;
 
       } catch (Exception e) {
@@ -47,9 +52,14 @@ namespace Freshli.Languages.Ruby {
       }
     }
 
-    public IVersionInfo Latest(string name, DateTime asOf) {
+    public IVersionInfo Latest(
+      string name,
+      DateTime asOf,
+      bool includePreReleases)
+    {
       try {
-        return GetReleaseHistory(name).OrderByDescending(v => v).
+        return GetReleaseHistory(name, includePreReleases).
+          OrderByDescending(v => v).
           First(v => asOf >= v.DatePublished);
       } catch (Exception e) {
         throw new LatestVersionNotFoundException(name, asOf, e);
@@ -57,18 +67,30 @@ namespace Freshli.Languages.Ruby {
     }
 
     public IVersionInfo VersionInfo(string name, string version) {
-      return GetReleaseHistory(name).First(v => v.Version == version);
+      try {
+        return GetReleaseHistory(name, includePreReleaseVersions: true).
+          First(v => v.Version == version);
+      } catch (Exception e) {
+        throw new VersionNotFoundException(name, version, e);
+      }
     }
 
-    public IVersionInfo Latest(string name, DateTime asOf, string thatMatches) {
+    public IVersionInfo Latest(
+      string name,
+      DateTime asOf,
+      string thatMatches) {
       throw new NotImplementedException();
     }
 
-    public List<IVersionInfo> VersionsBetween(string name, DateTime asOf,
-      IVersionInfo earlierVersion, IVersionInfo laterVersion)
+    public List<IVersionInfo> VersionsBetween(
+      string name,
+      DateTime asOf,
+      IVersionInfo earlierVersion,
+      IVersionInfo laterVersion,
+      bool includePreReleases)
     {
       try {
-        return GetReleaseHistory(name).
+        return GetReleaseHistory(name , includePreReleases).
           OrderByDescending(v => v).
           Where(v => asOf >= v.DatePublished).
           Where(predicate: v => v.CompareTo(earlierVersion) == 1).

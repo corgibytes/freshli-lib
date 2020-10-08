@@ -19,7 +19,12 @@ namespace Freshli.Languages.Php {
       _baseUrl = baseUrl;
     }
 
-    public IVersionInfo Latest(string name, DateTime asOf) {
+    //TODO: Update logic to utilize includePreReleases
+    public IVersionInfo Latest(
+      string name,
+      DateTime asOf,
+      bool includePreReleases)
+    {
       var content = FetchPackageInfo(name);
       if (content == null) return null;
 
@@ -108,8 +113,12 @@ namespace Freshli.Languages.Php {
       throw new NotImplementedException();
     }
 
-    public List<IVersionInfo> VersionsBetween(string name, DateTime asOf,
-      IVersionInfo earlierVersion, IVersionInfo laterVersion)
+    public List<IVersionInfo> VersionsBetween(
+      string name,
+      DateTime asOf,
+      IVersionInfo earlierVersion,
+      IVersionInfo laterVersion,
+      bool includePreReleases)
     {
       //TODO: Implement method
       throw new NotImplementedException();
