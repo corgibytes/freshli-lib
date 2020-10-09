@@ -139,13 +139,59 @@ namespace Freshli.Test.Integration {
     }
 
     [Fact]
+    public void ComputeAsOfWithPreReleaseVersion() {
+      var manifest = new BundlerManifest();
+      manifest.Add("google-protobuf", "3.12.0.rc.1");
+      var repository = new RubyGemsRepository();
+      var calculator = new LibYearCalculator(repository, manifest);
+
+      var results = calculator.ComputeAsOf(new DateTime(2020, 06, 01));
+
+      Assert.Equal(0.063, results.Total, 3);
+      Assert.Equal(0.063, results["google-protobuf"].Value, 3);
+      Assert.Equal("3.12.0.rc.1", results["google-protobuf"].Version);
+      Assert.Equal(
+        new DateTime(2020, 05, 04),
+        results["google-protobuf"].PublishedAt
+      );
+      Assert.Equal("3.12.2", results["google-protobuf"].LatestVersion);
+      Assert.Equal(
+        new DateTime(2020, 05, 27),
+        results["google-protobuf"].LatestPublishedAt
+      );
+      Assert.True(results["google-protobuf"].UpgradeAvailable);
+    }
+
+    [Fact]
+    public void ComputeAsOfWithLatestVersionBeingPreReleaseVersion() {
+      var manifest = new BundlerManifest();
+      manifest.Add("google-protobuf", "3.10.0.rc.1");
+      var repository = new RubyGemsRepository();
+      var calculator = new LibYearCalculator(repository, manifest);
+
+      var results = calculator.ComputeAsOf(new DateTime(2019, 11, 25));
+
+      Assert.Equal(0.216, results.Total, 3);
+      Assert.Equal(0.216, results["google-protobuf"].Value, 3);
+      Assert.Equal("3.10.0.rc.1", results["google-protobuf"].Version);
+      Assert.Equal(
+        new DateTime(2019, 09, 05),
+        results["google-protobuf"].PublishedAt
+      );
+      Assert.Equal("3.11.0.rc.2", results["google-protobuf"].LatestVersion);
+      Assert.Equal(
+        new DateTime(2019, 11, 23),
+        results["google-protobuf"].LatestPublishedAt
+      );
+      Assert.True(results["google-protobuf"].UpgradeAvailable);
+    }
+
+    [Fact]
     public void Compute() {
       var olderVersion = new SemVerVersionInfo("1.7.0",
         new DateTime(2016, 12, 27));
       var newerVersion = new SemVerVersionInfo("1.7.1",
         new DateTime(2017, 03, 20));
-
-      var calculator = new LibYearCalculator(null, null);
 
       Assert.Equal(
         0.227,
