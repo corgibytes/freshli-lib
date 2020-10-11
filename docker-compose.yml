@@ -1,56 +1,8 @@
 version: '3.7'
 services:
-  web:
-    build:
-      context: .
-      dockerfile: Dockerfile.web
-      target: build
-    ports:
-      - 5000:80
-    stdin_open: true
-    tty: true
-    depends_on:
-      - db
-    entrypoint: ./docker-entrypoint-web.sh
-    volumes:
-      - .:/source
-    environment:
-      ASPNETCORE_ENVIRONMENT: "Development"
-      ASPNETCORE_URLS: "http://+:80"
-      DB_HOST: "db"
-  
-  worker:
-    build:
-      context: .
-      dockerfile: Dockerfile.worker
-      target: build
-    stdin_open: true
-    tty: true
-    depends_on:
-      - db
-    entrypoint: ./docker-entrypoint-worker.sh
-    volumes:
-      - .:/source
-    environment:
-      ASPNETCORE_ENVIRONMENT: "Development"
-      DB_HOST: "db"
-
-  db:
-    image: postgres:latest
-    environment:
-      POSTGRES_PASSWORD: password
-    ports:
-      - 5432:5432
-    volumes:
-      - db_data:/var/lib/postgresql/data
-  
   eclint:
     image: greut/eclint
     volumes:
       - .:/source
     working_dir: /source
     command: eclint -color=always
-
-volumes:
-  db_data:
-
