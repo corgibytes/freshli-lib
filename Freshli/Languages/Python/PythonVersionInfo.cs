@@ -143,9 +143,7 @@ namespace Freshli.Languages.Python {
         }
 
         return result;
-
-      }
-      catch (Exception e) {
+      } catch (Exception e) {
         throw new VersionComparisonException(
           Version, otherVersionInfo.Version, e);
       }
@@ -298,15 +296,12 @@ namespace Freshli.Languages.Python {
 
       if (!IsDevelopmentRelease && !IsPreRelease && !IsPostRelease) {
         ReleaseSuffixType = (int) SuffixType.NoSuffix;
-      }
-      else if (IsPreRelease) {
+      } else if (IsPreRelease) {
         ReleaseSuffixType = (int) SuffixType.Pre;
         SetPreReleaseSuffixType();
-      }
-      else if (IsDevelopmentRelease && !IsPreRelease && !IsPostRelease) {
+      } else if (IsDevelopmentRelease && !IsPreRelease && !IsPostRelease) {
         ReleaseSuffixType = (int) SuffixType.Development;
-      }
-      else if (IsPostRelease && !IsPreRelease) {
+      } else if (IsPostRelease && !IsPreRelease) {
         ReleaseSuffixType = (int) SuffixType.Post;
         SetPostReleaseSuffixType();
       }
@@ -315,11 +310,9 @@ namespace Freshli.Languages.Python {
     private void SetPreReleaseSuffixType() {
       if (!IsDevelopmentRelease && !IsPostRelease) {
         PreReleaseSuffixType = (int) SuffixType.NoSuffix;
-      }
-      else if (IsDevelopmentRelease && !IsPostRelease) {
+      } else if (IsDevelopmentRelease && !IsPostRelease) {
         PreReleaseSuffixType = (int) SuffixType.Development;
-      }
-      else if (IsPostRelease) {
+      } else if (IsPostRelease) {
         PreReleaseSuffixType = (int) SuffixType.Post;
         SetPostReleaseSuffixType();
       }
