@@ -145,7 +145,10 @@ namespace Freshli.Languages.Python {
         return result;
       } catch (Exception e) {
         throw new VersionComparisonException(
-          Version, otherVersionInfo.Version, e);
+          Version,
+          otherVersionInfo.Version,
+          e
+        );
       }
     }
 
@@ -320,7 +323,8 @@ namespace Freshli.Languages.Python {
 
     private void SetPostReleaseSuffixType() {
       PostReleaseSuffixType = IsDevelopmentRelease ?
-          (int) SuffixType.Development : (int) SuffixType.NoSuffix;
+        (int) SuffixType.Development :
+        (int) SuffixType.NoSuffix;
     }
 
     public void RemovePreReleaseMetadata() {
@@ -344,8 +348,9 @@ namespace Freshli.Languages.Python {
 
     public void RemoveLastReleaseIncrement() {
       if (Release.Contains(".")) {
-        Version = Release = Release.Remove(Release.LastIndexOf
-          (".", StringComparison.Ordinal));
+        Version = Release = Release.Remove(
+          Release.LastIndexOf(".", StringComparison.Ordinal)
+        );
         ReleaseSuffixType = (int) SuffixType.NoSuffix;
       }
     }
