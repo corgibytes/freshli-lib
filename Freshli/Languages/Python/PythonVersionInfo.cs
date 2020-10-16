@@ -197,37 +197,22 @@ namespace Freshli.Languages.Python {
     }
 
     private int ComparePreReleaseVersions(PythonVersionInfo otherVersionInfo) {
-      var result = string.Compare(
-        PreReleaseLabel,
-        otherVersionInfo.PreReleaseLabel,
-        StringComparison.InvariantCulture
-      );
-      if (result != 0) {
-        return result;
-      }
+      var comparisons = new List<Func<PythonVersionInfo, int>>() {
+        ComparePreReleaseLabel,
+        ComparePreReleaseIncrement,
+        ComparePreReleaseSuffixType,
+        CompareDevelopmentReleaseIncrement,
+        ComparePostReleaseIncrementIfPostSuffix
+      };
 
-      result = VersionHelper.CompareNumericValues(
-        PreReleaseIncrement,
-        otherVersionInfo.PreReleaseIncrement
-      );
-      if (result != 0) {
-        return result;
-      }
+      return ProcessComparisons(comparisons, otherVersionInfo);
+    }
 
-      result = VersionHelper.CompareNumericValues(
-        PreReleaseSuffixType,
-        otherVersionInfo.PreReleaseSuffixType
-      );
-      if (result != 0) {
-        return result;
-      }
-
-      if (PreReleaseSuffixType == (int) SuffixType.Development) {
-        result = VersionHelper.CompareNumericValues(
-          DevelopmentReleaseIncrement,
-          otherVersionInfo.DevelopmentReleaseIncrement
-        );
-      } else if (PreReleaseSuffixType == (int) SuffixType.Post) {
+    private int ComparePostReleaseIncrementIfPostSuffix(
+      PythonVersionInfo otherVersionInfo
+    ) {
+      int result = 0;
+      if (PreReleaseSuffixType == (int) SuffixType.Post) {
         result = VersionHelper.CompareNumericValues(
           PostReleaseIncrement,
           otherVersionInfo.PostReleaseIncrement
@@ -235,13 +220,47 @@ namespace Freshli.Languages.Python {
         if (result == 0) {
           result = ComparePostReleaseVersions(otherVersionInfo);
         }
-      } else {
+      }
+
+      return result;
+    }
+
+    private int CompareDevelopmentReleaseIncrement(PythonVersionInfo otherVersionInfo) {
+      int result = 0;
+      if (PreReleaseSuffixType == (int) SuffixType.Development) {
         result = VersionHelper.CompareNumericValues(
-          PreReleaseIncrement,
-          otherVersionInfo.PreReleaseIncrement
+          DevelopmentReleaseIncrement,
+          otherVersionInfo.DevelopmentReleaseIncrement
         );
       }
 
+      return result;
+    }
+
+    private int ComparePreReleaseSuffixType(PythonVersionInfo otherVersionInfo) {
+      int result;
+      result = VersionHelper.CompareNumericValues(
+        PreReleaseSuffixType,
+        otherVersionInfo.PreReleaseSuffixType
+      );
+      return result;
+    }
+
+    private int ComparePreReleaseIncrement(PythonVersionInfo otherVersionInfo) {
+      int result;
+      result = VersionHelper.CompareNumericValues(
+        PreReleaseIncrement,
+        otherVersionInfo.PreReleaseIncrement
+      );
+      return result;
+    }
+
+    private int ComparePreReleaseLabel(PythonVersionInfo otherVersionInfo) {
+      var result = string.Compare(
+        PreReleaseLabel,
+        otherVersionInfo.PreReleaseLabel,
+        StringComparison.InvariantCulture
+      );
       return result;
     }
 
