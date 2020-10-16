@@ -82,6 +82,7 @@ namespace Freshli.Languages.Python {
         if (Epoch.HasValue && otherVersionInfo.Epoch.HasValue) {
           result = Epoch.Value.CompareTo(otherVersionInfo.Epoch.Value);
         }
+
         if (result != 0) {
           return result;
         }
@@ -98,6 +99,7 @@ namespace Freshli.Languages.Python {
             otherReleaseParts.Add(0);
           }
         }
+
         for (var i = 0; i < ReleaseParts.Count; i++) {
           result = VersionHelper.CompareNumericValues(
             ReleaseParts[i],
@@ -107,6 +109,7 @@ namespace Freshli.Languages.Python {
             break;
           }
         }
+
         if (result != 0) {
           return result;
         }
@@ -120,25 +123,17 @@ namespace Freshli.Languages.Python {
           return result;
         }
 
-        if (ReleaseSuffixType == (int) SuffixType.Development) {
-          return VersionHelper.CompareNumericValues(
-            DevelopmentReleaseIncrement,
-            otherVersionInfo.DevelopmentReleaseIncrement
-          );
-        }
-
-        if (ReleaseSuffixType == (int) SuffixType.Pre) {
-          result = ComparePreReleaseVersions(otherVersionInfo);
-        }
-
+        result = CompareIfDevelopmentReleaseSuffixType(otherVersionInfo);
         if (result != 0) {
           return result;
         }
 
-        if (ReleaseSuffixType == (int) SuffixType.Post) {
-          result = ComparePostReleaseVersions(otherVersionInfo);
+        result = CompareIfPreReleaseSuffixType(otherVersionInfo);
+        if (result != 0) {
+          return result;
         }
 
+        result = CompareIfPostReleaseSuffixType(otherVersionInfo);
         return result;
       } catch (Exception e) {
         throw new VersionComparisonException(
@@ -147,6 +142,42 @@ namespace Freshli.Languages.Python {
           e
         );
       }
+    }
+
+    private int CompareIfDevelopmentReleaseSuffixType(
+      PythonVersionInfo otherVersionInfo
+    ) {
+      int result;
+      if (ReleaseSuffixType == (int) SuffixType.Development) {
+        result = VersionHelper.CompareNumericValues(
+          DevelopmentReleaseIncrement,
+          otherVersionInfo.DevelopmentReleaseIncrement
+        );
+      }
+
+      return result;
+    }
+
+    private int CompareIfPreReleaseSuffixType(
+      PythonVersionInfo otherVersionInfo
+    ) {
+      int result = 0;
+      if (ReleaseSuffixType == (int) SuffixType.Pre) {
+        result = ComparePreReleaseVersions(otherVersionInfo);
+      }
+
+      return result;
+    }
+
+    private int CompareIfPostReleaseSuffixType(
+      PythonVersionInfo otherVersionInfo
+    ) {
+      int result = 0;
+      if (ReleaseSuffixType == (int) SuffixType.Post) {
+        result = ComparePostReleaseVersions(otherVersionInfo);
+      }
+
+      return result;
     }
 
     private int ComparePreReleaseVersions(PythonVersionInfo otherVersionInfo) {
