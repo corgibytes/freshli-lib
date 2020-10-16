@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 using Freshli.Exceptions;
 using Freshli.Util;
@@ -289,50 +290,57 @@ namespace Freshli.Languages.Python {
       if (_versionExpression.IsMatch(_version)) {
         var match = _versionExpression.Match(_version);
 
-        var epoch = match.Groups[2].Value;
-        if (!string.IsNullOrWhiteSpace(epoch)) {
-          Epoch = Convert.ToInt64(epoch);
-        }
-
-        var release = match.Groups[3].Value;
-        if (!string.IsNullOrWhiteSpace(release)) {
-          Release = release;
-          foreach (var part in Release.Split('.')) {
-            ReleaseParts.Add(Convert.ToInt64(part));
-          }
-        }
-
-        var preReleaseLabel = match.Groups[6].Value;
-        if (!string.IsNullOrWhiteSpace(preReleaseLabel)) {
-          PreReleaseLabel = preReleaseLabel.ToLower();
-        }
-
-        var preReleaseValue = match.Groups[7].Value;
-        if (!string.IsNullOrWhiteSpace(preReleaseValue)) {
-          PreReleaseIncrement = Convert.ToInt64(preReleaseValue);
-          IsPreRelease = true;
-        }
-
-        var postReleaseLabel = match.Groups[9].Value;
-        if (!string.IsNullOrWhiteSpace(postReleaseLabel)) {
-          PostReleaseLabel = postReleaseLabel.ToLower();
-        }
-
-        var postReleaseValue = match.Groups[10].Value;
-        if (!string.IsNullOrWhiteSpace(postReleaseValue)) {
-          PostReleaseIncrement = Convert.ToInt64(postReleaseValue);
-          IsPostRelease = true;
-        }
-
-        var developmentReleaseValue = match.Groups[13].Value;
-        if (!string.IsNullOrWhiteSpace(developmentReleaseValue)) {
-          DevelopmentReleaseIncrement =
-            Convert.ToInt64(developmentReleaseValue);
-          IsDevelopmentRelease = true;
-        }
+        Epoch = SafeConvertToInt64(match.Groups[2].Value, 0);
+        Release = SafeExtractString(match.Groups[3].Value);
+        ReleaseParts.AddRange(SafeSplitIntoLongs(match.Groups[3].Value, '.'));
+        PreReleaseLabel = SafeToLower(match.Groups[6].Value);
+        PreReleaseIncrement = SafeConvertToInt64(match.Groups[7].Value, null);
+        IsPreRelease = HasValue(PreReleaseIncrement);
+        PostReleaseLabel = SafeToLower(match.Groups[9].Value);
+        PostReleaseIncrement = SafeConvertToInt64(match.Groups[10].Value, null);
+        IsPostRelease = HasValue(PostReleaseIncrement);
+        DevelopmentReleaseIncrement =
+          SafeConvertToInt64(match.Groups[13].Value, null);
+        IsDevelopmentRelease = HasValue(DevelopmentReleaseIncrement);
       } else {
         throw new VersionParseException(_version);
       }
+    }
+
+    private bool HasValue(long? value) {
+      return value != null;
+    }
+
+    private string SafeToLower(string value) {
+      if (!string.IsNullOrWhiteSpace(value)) {
+        return value.ToLower();
+      }
+
+      return null;
+    }
+
+    private long[] SafeSplitIntoLongs(string value, char separator) {
+      if (!string.IsNullOrWhiteSpace(value)) {
+        return value.Split(separator).Select(p => Convert.ToInt64(p)).ToArray();
+      }
+      return new long[] {};
+    }
+
+    private string SafeExtractString(string value) {
+      if (!string.IsNullOrWhiteSpace(value)) {
+        return value;
+      }
+
+      return null;
+    }
+
+    private long? SafeConvertToInt64(string value, long? defaultValue) {
+      var result = defaultValue;
+      if (!string.IsNullOrWhiteSpace(value)) {
+        result = Convert.ToInt64(value);
+      }
+
+      return result;
     }
 
     private void SetSuffixTypes() {
