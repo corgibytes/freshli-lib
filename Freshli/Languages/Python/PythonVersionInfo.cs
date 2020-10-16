@@ -86,16 +86,7 @@ namespace Freshli.Languages.Python {
           CompareIfPostReleaseSuffixType
         };
 
-        var result = 0;
-
-        foreach (var comparison in comparisons) {
-          result = comparison(otherVersionInfo);
-          if (result != 0) {
-            break;
-          }
-        }
-
-        return result;
+        return ProcessComparisons(comparisons, otherVersionInfo);
       } catch (Exception e) {
         throw new VersionComparisonException(
           Version,
@@ -103,6 +94,22 @@ namespace Freshli.Languages.Python {
           e
         );
       }
+    }
+
+    private static int ProcessComparisons(
+      List<Func<PythonVersionInfo, int>> comparisons,
+      PythonVersionInfo otherVersionInfo
+    ) {
+      var result = 0;
+
+      foreach (var comparison in comparisons) {
+        result = comparison(otherVersionInfo);
+        if (result != 0) {
+          return result;
+        }
+      }
+
+      return result;
     }
 
     private int CompareEpoch(PythonVersionInfo otherVersionInfo) {
