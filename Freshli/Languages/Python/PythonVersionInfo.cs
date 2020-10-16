@@ -83,7 +83,6 @@ namespace Freshli.Languages.Python {
         if (Epoch.HasValue && otherVersionInfo.Epoch.HasValue) {
           result = Epoch.Value.CompareTo(otherVersionInfo.Epoch.Value);
         }
-
         if (result != 0) {
           return result;
         }
@@ -100,7 +99,6 @@ namespace Freshli.Languages.Python {
             otherReleaseParts.Add(0);
           }
         }
-
         for (var i = 0; i < ReleaseParts.Count; i++) {
           result = VersionHelper.CompareNumericValues(
             ReleaseParts[i],
@@ -110,7 +108,6 @@ namespace Freshli.Languages.Python {
             break;
           }
         }
-
         if (result != 0) {
           return result;
         }
