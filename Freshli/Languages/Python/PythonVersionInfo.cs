@@ -77,34 +77,24 @@ namespace Freshli.Languages.Python {
       }
 
       try {
+        var comparisons = new List<Func<PythonVersionInfo, int>>() {
+          CompareEpoch,
+          CompareReleaseParts,
+          CompareReleaseSuffixType,
+          CompareIfDevelopmentReleaseSuffixType,
+          CompareIfPreReleaseSuffixType,
+          CompareIfPostReleaseSuffixType
+        };
+
         var result = 0;
-        result = CompareEpoch(otherVersionInfo);
 
-        if (result != 0) {
-          return result;
+        foreach (var comparison in comparisons) {
+          result = comparison(otherVersionInfo);
+          if (result != 0) {
+            break;
+          }
         }
 
-        result = CompareReleaseParts(otherVersionInfo);
-        if (result != 0) {
-          return result;
-        }
-
-        result = CompareReleaseSuffixType(otherVersionInfo);
-        if (result != 0) {
-          return result;
-        }
-
-        result = CompareIfDevelopmentReleaseSuffixType(otherVersionInfo);
-        if (result != 0) {
-          return result;
-        }
-
-        result = CompareIfPreReleaseSuffixType(otherVersionInfo);
-        if (result != 0) {
-          return result;
-        }
-
-        result = CompareIfPostReleaseSuffixType(otherVersionInfo);
         return result;
       } catch (Exception e) {
         throw new VersionComparisonException(
