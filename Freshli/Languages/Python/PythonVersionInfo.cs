@@ -6,16 +6,17 @@ using Freshli.Util;
 
 namespace Freshli.Languages.Python {
   public class PythonVersionInfo : IVersionInfo {
-    /*
-    * PythonVersionInfo assumes package versions follow the standards set forth
-    * by https://www.python.org/dev/peps/pep-0440:
-    *
-    * Epoch segment: N!
-    * Release segment: N(.N)*
-    * Pre-release segment: {a|b|rc}N
-    * Post-release segment: .postN
-    * Development release segment: .devN
-    */
+
+  /*
+  * PythonVersionInfo assumes package versions follow the standards set forth
+  * by https://www.python.org/dev/peps/pep-0440:
+  *
+  * Epoch segment: N!
+  * Release segment: N(.N)*
+  * Pre-release segment: {a|b|rc}N
+  * Post-release segment: .postN
+  * Development release segment: .devN
+  */
 
     public enum SuffixType {
       Development,
