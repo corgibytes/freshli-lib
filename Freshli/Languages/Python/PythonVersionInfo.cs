@@ -78,47 +78,18 @@ namespace Freshli.Languages.Python {
 
       try {
         var result = 0;
-
-        if (Epoch.HasValue && otherVersionInfo.Epoch.HasValue) {
-          result = Epoch.Value.CompareTo(otherVersionInfo.Epoch.Value);
-        }
+        result = CompareEpoch(otherVersionInfo);
 
         if (result != 0) {
           return result;
         }
 
-        var releaseParts = ReleaseParts;
-        var otherReleaseParts = otherVersionInfo.ReleaseParts;
-        var countDifference =
-          ReleaseParts.Count - otherVersionInfo.ReleaseParts.Count;
-
-        for (var i = 0; i < Math.Abs(countDifference); i++) {
-          if (countDifference < 0) {
-            releaseParts.Add(0);
-          } else {
-            otherReleaseParts.Add(0);
-          }
-        }
-
-        for (var i = 0; i < ReleaseParts.Count; i++) {
-          result = VersionHelper.CompareNumericValues(
-            ReleaseParts[i],
-            otherVersionInfo.ReleaseParts[i]
-          );
-          if (result != 0) {
-            break;
-          }
-        }
-
+        result = CompareReleaseParts(otherVersionInfo);
         if (result != 0) {
           return result;
         }
 
-        result = VersionHelper.CompareNumericValues(
-          ReleaseSuffixType,
-          otherVersionInfo.ReleaseSuffixType
-        );
-
+        result = CompareReleaseSuffixType(otherVersionInfo);
         if (result != 0) {
           return result;
         }
@@ -144,10 +115,57 @@ namespace Freshli.Languages.Python {
       }
     }
 
+    private int CompareEpoch(PythonVersionInfo otherVersionInfo) {
+      int result = 0;
+      if (Epoch.HasValue && otherVersionInfo.Epoch.HasValue) {
+        result = Epoch.Value.CompareTo(otherVersionInfo.Epoch.Value);
+      }
+
+      return result;
+    }
+
+    private int CompareReleaseParts(PythonVersionInfo otherVersionInfo) {
+      int result = 0;
+
+      var releaseParts = ReleaseParts;
+      var otherReleaseParts = otherVersionInfo.ReleaseParts;
+      var countDifference =
+        ReleaseParts.Count - otherVersionInfo.ReleaseParts.Count;
+
+      for (var i = 0; i < Math.Abs(countDifference); i++) {
+        if (countDifference < 0) {
+          releaseParts.Add(0);
+        } else {
+          otherReleaseParts.Add(0);
+        }
+      }
+
+      for (var i = 0; i < ReleaseParts.Count; i++) {
+        result = VersionHelper.CompareNumericValues(
+          ReleaseParts[i],
+          otherVersionInfo.ReleaseParts[i]
+        );
+        if (result != 0) {
+          break;
+        }
+      }
+
+      return result;
+    }
+
+    private int CompareReleaseSuffixType(PythonVersionInfo otherVersionInfo) {
+      int result;
+      result = VersionHelper.CompareNumericValues(
+        ReleaseSuffixType,
+        otherVersionInfo.ReleaseSuffixType
+      );
+      return result;
+    }
+
     private int CompareIfDevelopmentReleaseSuffixType(
       PythonVersionInfo otherVersionInfo
     ) {
-      int result;
+      int result = 0;
       if (ReleaseSuffixType == (int) SuffixType.Development) {
         result = VersionHelper.CompareNumericValues(
           DevelopmentReleaseIncrement,
