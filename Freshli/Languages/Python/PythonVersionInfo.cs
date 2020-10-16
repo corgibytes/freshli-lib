@@ -278,14 +278,7 @@ namespace Freshli.Languages.Python {
     }
 
     private void ParseVersion() {
-      Epoch = 0;
-      Release = null;
-      ReleaseParts = new List<long>();
-      PreReleaseLabel = null;
-      PreReleaseIncrement = null;
-      PostReleaseLabel = null;
-      PostReleaseIncrement = null;
-      DevelopmentReleaseIncrement = null;
+      ResetValuesToDefaults();
 
       if (_versionExpression.IsMatch(_version)) {
         var match = _versionExpression.Match(_version);
@@ -305,6 +298,17 @@ namespace Freshli.Languages.Python {
       } else {
         throw new VersionParseException(_version);
       }
+    }
+
+    private void ResetValuesToDefaults() {
+      Epoch = 0;
+      Release = null;
+      ReleaseParts = new List<long>();
+      PreReleaseLabel = null;
+      PreReleaseIncrement = null;
+      PostReleaseLabel = null;
+      PostReleaseIncrement = null;
+      DevelopmentReleaseIncrement = null;
     }
 
     private bool HasValue(long? value) {
