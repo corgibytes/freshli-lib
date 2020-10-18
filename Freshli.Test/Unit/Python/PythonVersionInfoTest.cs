@@ -320,8 +320,17 @@ namespace Freshli.Test.Unit.Python {
       }
       Assert.Equal(isPostRelease, info.IsPostRelease);
 
-      Assert.Equal(
-        developmentReleaseIncrement, info.DevelopmentReleaseIncrement);
+      if (developmentReleaseIncrement != null) {
+        Assert.Equal(
+          developmentReleaseIncrement,
+          info.DevelopmentRelease.Increment
+        );
+      } else if (info.DevelopmentRelease != null) {
+        Assert.Null(info.DevelopmentRelease.Increment);
+      } else {
+        Assert.Null(info.DevelopmentRelease);
+      }
+
       Assert.Equal(isDevelopmentRelease, info.IsDevelopmentRelease);
     }
 
