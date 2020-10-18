@@ -1,6 +1,7 @@
 using System;
 using Freshli.Exceptions;
 using Freshli.Languages.Python;
+using RestSharp.Extensions;
 using Xunit;
 
 namespace Freshli.Test.Unit.Python {
@@ -286,9 +287,24 @@ namespace Freshli.Test.Unit.Python {
       Assert.Equal(preReleaseLabel, info.PreReleaseLabel);
       Assert.Equal(preReleaseIncrement, info.PreReleaseIncrement);
       Assert.Equal(isPreRelease, info.IsPreRelease);
-      Assert.Equal(postReleaseLabel, info.PostReleaseLabel);
-      Assert.Equal(postReleaseIncrement, info.PostReleaseIncrement);
+
+      if (postReleaseLabel != null) {
+        Assert.Equal(postReleaseLabel, info.PostRelease.Label);
+      } else if (info.PostRelease != null) {
+        Assert.Null(info.PostRelease.Label);
+      } else {
+        Assert.Null(info.PostRelease);
+      }
+
+      if (postReleaseIncrement != null) {
+        Assert.Equal(postReleaseIncrement, info.PostRelease.Increment);
+      } else if (info.PostRelease != null) {
+        Assert.Null(info.PostRelease.Increment);
+      } else {
+        Assert.Null(info.PostRelease);
+      }
       Assert.Equal(isPostRelease, info.IsPostRelease);
+
       Assert.Equal(
         developmentReleaseIncrement, info.DevelopmentReleaseIncrement);
       Assert.Equal(isDevelopmentRelease, info.IsDevelopmentRelease);
