@@ -49,11 +49,9 @@ namespace Freshli.Languages.Python {
     public bool IsPreRelease { get; set; }
     public int? PreReleaseSuffixType { get; set; }
 
-    public bool IsPostRelease => PostRelease != null;
-
-    public int? PostReleaseSuffixType { get; set; }
-
     public PythonVersionPart PostRelease { get; set; }
+    public bool IsPostRelease => PostRelease != null;
+    public int? PostReleaseSuffixType { get; set; }
 
     public DateTime DatePublished { get; set; }
 
