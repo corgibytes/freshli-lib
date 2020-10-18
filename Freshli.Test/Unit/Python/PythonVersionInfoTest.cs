@@ -284,8 +284,23 @@ namespace Freshli.Test.Unit.Python {
       Assert.Equal(epoch, info.Epoch);
       Assert.Equal(release, info.Release);
       Assert.Equal(releaseParts, info.ReleaseParts);
-      Assert.Equal(preReleaseLabel, info.PreReleaseLabel);
-      Assert.Equal(preReleaseIncrement, info.PreReleaseIncrement);
+
+      if (preReleaseLabel != null) {
+        Assert.Equal(preReleaseLabel, info.PreRelease.Label);
+      } else if (info.PreRelease != null) {
+        Assert.Null(info.PreRelease.Label);
+      } else {
+        Assert.Null(info.PreRelease);
+      }
+
+      if (preReleaseIncrement != null) {
+        Assert.Equal(preReleaseIncrement, info.PreRelease.Increment);
+      } else if (info.PreRelease != null) {
+        Assert.Null(info.PreRelease.Increment);
+      } else {
+        Assert.Null(info.PreRelease);
+      }
+
       Assert.Equal(isPreRelease, info.IsPreRelease);
 
       if (postReleaseLabel != null) {
