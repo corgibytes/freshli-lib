@@ -39,7 +39,18 @@ namespace Freshli.Languages.Python {
 
     public string Release { get; private set; }
     public List<long> ReleaseParts { get; private set; }
-    public int? ReleaseSuffixType { get; set; }
+
+    public int? ReleaseSuffixType {
+      get {
+        if (ReleaseSuffix != null) {
+          return (int) ReleaseSuffix.Type;
+        }
+
+        return (int) SuffixType.NoSuffix;
+      }
+    }
+
+    public PythonVersionPart ReleaseSuffix { get; set; }
 
     public PythonVersionPart DevelopmentRelease { get; set; }
     public bool IsDevelopmentRelease => DevelopmentRelease != null;
@@ -325,30 +336,54 @@ namespace Freshli.Languages.Python {
 
         PreRelease = BuildVersionPart(
           match.Groups[6].Value,
-          match.Groups[7].Value
+          match.Groups[7].Value,
+          SuffixType.Pre
         );
+
+        if (PreRelease != null) {
+          ReleaseSuffix = PreRelease;
+        }
 
         PostRelease = BuildVersionPart(
           match.Groups[9].Value,
-          match.Groups[10].Value
+          match.Groups[10].Value,
+          SuffixType.Post
         );
+
+        if (ReleaseSuffix != null && PostRelease != null) {
+          ReleaseSuffix.Suffix = PostRelease;
+        } else if (PostRelease != null) {
+          ReleaseSuffix = PostRelease;
+        }
 
         DevelopmentRelease = BuildVersionPart(
           "dev",
-          match.Groups[13].Value
+          match.Groups[13].Value,
+          SuffixType.Development
         );
+
+        if (ReleaseSuffix != null && DevelopmentRelease != null) {
+          ReleaseSuffix.Suffix = DevelopmentRelease;
+        } else if (DevelopmentRelease != null) {
+          ReleaseSuffix = DevelopmentRelease;
+        }
       } else {
         throw new VersionParseException(_version);
       }
     }
 
-    private PythonVersionPart BuildVersionPart(string label, string increment) {
+    private PythonVersionPart BuildVersionPart(
+      string label,
+      string increment,
+      SuffixType suffixType
+    ) {
       var convertedLabel = Conversions.SafeToLower(label);
       var convertedIncrement = Conversions.SafeConvertToInt64(increment, null);
       if (convertedIncrement.HasValue) {
         return new PythonVersionPart {
           Label = convertedLabel,
-          Increment = convertedIncrement
+          Increment = convertedIncrement,
+          Type = suffixType
         };
       }
 
@@ -365,19 +400,14 @@ namespace Freshli.Languages.Python {
     }
 
     private void SetSuffixTypes() {
-      ReleaseSuffixType = null;
       PreReleaseSuffixType = null;
       PostReleaseSuffixType = null;
 
       if (!IsDevelopmentRelease && !IsPreRelease && !IsPostRelease) {
-        ReleaseSuffixType = (int) SuffixType.NoSuffix;
       } else if (IsPreRelease) {
-        ReleaseSuffixType = (int) SuffixType.Pre;
         SetPreReleaseSuffixType();
       } else if (IsDevelopmentRelease && !IsPreRelease && !IsPostRelease) {
-        ReleaseSuffixType = (int) SuffixType.Development;
       } else if (IsPostRelease && !IsPreRelease) {
-        ReleaseSuffixType = (int) SuffixType.Post;
         SetPostReleaseSuffixType();
       }
     }
@@ -418,7 +448,7 @@ namespace Freshli.Languages.Python {
         Version = Release = Release.Remove(
           Release.LastIndexOf(".", StringComparison.Ordinal)
         );
-        ReleaseSuffixType = (int) SuffixType.NoSuffix;
+        ReleaseSuffix = null;
       }
     }
 
