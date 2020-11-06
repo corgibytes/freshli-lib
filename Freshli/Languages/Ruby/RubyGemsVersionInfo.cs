@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using Freshli.Exceptions;
+using Freshli.Util;
 
 namespace Freshli.Languages.Ruby {
   public class RubyGemsVersionInfo : IVersionInfo {
@@ -122,7 +123,7 @@ namespace Freshli.Languages.Ruby {
 
     private static int CompareVersionParts(string part1, string part2) {
       if (IsOnlyNumeric(part1) && IsOnlyNumeric(part2)) {
-        return CompareNumericValues(Convert.ToInt64(part1),
+        return VersionHelper.CompareNumericValues(Convert.ToInt64(part1),
           Convert.ToInt64(part2));
       }
 
@@ -134,16 +135,6 @@ namespace Freshli.Languages.Ruby {
         return 1;
       }
 
-      return -1;
-    }
-
-    private static int CompareNumericValues(long v1, long v2) {
-      if (v1 == v2) {
-        return 0;
-      }
-      if (v1 > v2) {
-        return 1;
-      }
       return -1;
     }
 

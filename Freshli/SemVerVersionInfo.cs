@@ -1,7 +1,6 @@
 using System;
 using System.Text.RegularExpressions;
 using Freshli.Exceptions;
-using NLog;
 
 namespace Freshli {
   /*

@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using Freshli.Exceptions;
 using HtmlAgilityPack;
+using NLog;
 
 namespace Freshli.Languages.Python {
   public class PyPIRepository : IPackageRepository {
+
+    private static readonly Logger _logger = LogManager.GetCurrentClassLogger();
     private IDictionary<string, IList<IVersionInfo>> _packages =
       new Dictionary<string, IList<IVersionInfo>>();
 
@@ -43,7 +46,12 @@ namespace Freshli.Languages.Python {
           var versionDate = DateTime.Parse(
             dateNode.Attributes["datetime"].Value).ToUniversalTime();
 
-          versions.Add(new SemVerVersionInfo(version, versionDate));
+          try {
+            versions.Add(new PythonVersionInfo(version, versionDate));
+          } catch (VersionParseException e) {
+            _logger.Warn(
+              $"Error adding version to {name} release history: {e.Message}");
+          }
         }
 
         _packages[name] = versions;
