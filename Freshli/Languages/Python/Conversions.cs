@@ -26,7 +26,8 @@ namespace Freshli.Languages.Python {
 
     public static long[] SafeSplitIntoLongs(string value, char separator) {
       if (!string.IsNullOrWhiteSpace(value)) {
-        return value.Split(separator).Select(p => Convert.ToInt64((string?) p)).ToArray();
+        return value.Split(separator).Select(p => Convert.ToInt64((string?) p)).
+          ToArray();
       }
       return new long[] {};
     }
