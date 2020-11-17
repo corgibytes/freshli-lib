@@ -274,9 +274,5 @@ namespace Freshli {
         $"{nameof(BuildMetadata)}: {BuildMetadata}, " +
         $"{nameof(DatePublished)}: {DatePublished:d}";
     }
-
-    public string ToSimpleVersion() {
-      return $"{Major}.{Minor}.{Patch}";
-    }
   }
 }

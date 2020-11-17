@@ -457,9 +457,5 @@ namespace Freshli.Languages.Python {
         $"{nameof(Version)}: {Version}, " +
         $"{nameof(DatePublished)}: {DatePublished:d}";
     }
-
-    public string ToSimpleVersion() {
-      return $"{Version}";
-    }
   }
 }

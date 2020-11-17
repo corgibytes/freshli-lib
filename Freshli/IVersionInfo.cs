@@ -3,13 +3,11 @@ using System;
 namespace Freshli {
   public interface IVersionInfo : IComparable {
 
-    public string Version  { get; set; }
+    public string Version  { get; }
 
-    public DateTime DatePublished { get; set; }
+    public DateTime DatePublished { get; }
 
-    public bool IsPreRelease { get; set; }
-
-    public string ToSimpleVersion();
+    public bool IsPreRelease { get; }
 
   }
 }

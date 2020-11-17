@@ -143,9 +143,5 @@ namespace Freshli.Languages.Ruby {
         $"{nameof(Version)}: {Version}, " +
         $"{nameof(DatePublished)}: {DatePublished:d}";
     }
-
-    public string ToSimpleVersion() {
-      return $"{Version}";
-    }
   }
 }
