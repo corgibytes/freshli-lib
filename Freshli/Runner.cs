@@ -5,9 +5,6 @@ using NLog;
 namespace Freshli {
   public class Runner {
 
-    private static readonly string SaveResultsToFile =
-      Environment.GetEnvironmentVariable("SAVE_RESULTS_TO_FILE") ?? "false";
-
     private const string ResultsPath = "results";
 
     private static readonly Logger logger = LogManager.GetCurrentClassLogger();
@@ -61,7 +58,9 @@ namespace Freshli {
         logger.Warn("Unable to find a manifest file");
       }
 
-      if (SaveResultsToFile.ToLower() == "true") {
+      DotNetEnv.Env.Load();
+      if ((Environment.GetEnvironmentVariable("SAVE_RESULTS_TO_FILE")
+        ?? "false").ToLower() == "true") {
         WriteResultsToFile(metricsResults);
       }
 
