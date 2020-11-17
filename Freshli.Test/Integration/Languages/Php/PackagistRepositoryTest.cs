@@ -27,7 +27,7 @@ namespace Freshli.Test.Integration {
       );
       var versionInfo = repository.Latest(
         "monolog/monolog",
-        new DateTime(2020, 01, 01)
+        new DateTime(2020, 01, 01), includePreReleases: false
       );
 
       Assert.Equal("2.0.2", versionInfo.Version);
@@ -44,7 +44,7 @@ namespace Freshli.Test.Integration {
 
       var versionInfo = repository.Latest(
         "symfony/css-selector",
-        new DateTime(2020, 01, 01)
+        new DateTime(2020, 01, 01), includePreReleases: false
       );
 
       Assert.Equal("v5.0.2", versionInfo.Version);

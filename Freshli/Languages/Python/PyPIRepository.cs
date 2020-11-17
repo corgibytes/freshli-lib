@@ -62,7 +62,12 @@ namespace Freshli.Languages.Python {
       }
     }
 
-    public IVersionInfo Latest(string name, DateTime asOf) {
+    //TODO: Update logic to utilize includePreReleases
+    public IVersionInfo Latest(
+      string name,
+      DateTime asOf,
+      bool includePreReleases)
+    {
       try {
         return GetReleaseHistory(name).OrderByDescending(v => v).
           First(v => asOf >= v.DatePublished);
@@ -95,8 +100,13 @@ namespace Freshli.Languages.Python {
       }
     }
 
-    public List<IVersionInfo> VersionsBetween(string name, DateTime asOf,
-      IVersionInfo earlierVersion, IVersionInfo laterVersion)
+    //TODO: Update logic to utilize includePreReleases
+    public List<IVersionInfo> VersionsBetween(
+      string name,
+      DateTime asOf,
+      IVersionInfo earlierVersion,
+      IVersionInfo laterVersion,
+      bool includePreReleases)
     {
       try {
         return GetReleaseHistory(name).

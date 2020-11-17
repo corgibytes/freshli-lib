@@ -1921,6 +1921,7 @@ results[30] = { Date: 2013-09-01T00:00:00, ManifestSHA: 94db124c9d8f834e6ec76b4d
 { Name: "rubyzip", RepoVersion: "0.9.9", RepoVersionPublishedAt: 2012-06-17T00:00:00, LatestVersion: "1.0.0", LatestPublishedAt: 2013-08-29T00:00:00, UpgradeAvailable: True, Value: 1.2 },
 { Name: "sdoc", RepoVersion: "0.3.20", RepoVersionPublishedAt: 2012-11-21T00:00:00, LatestVersion: "0.3.20", LatestPublishedAt: 2012-11-21T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "selenium-webdriver", RepoVersion: "2.33.0", RepoVersionPublishedAt: 2013-05-26T00:00:00, LatestVersion: "2.35.1", LatestPublishedAt: 2013-08-26T00:00:00, UpgradeAvailable: True, Value: 0.25205479452054796 },
+{ Name: "shoulda-matchers", RepoVersion: "2.4.0.rc1", RepoVersionPublishedAt: 2013-08-16T00:00:00, LatestVersion: "2.4.0.rc1", LatestPublishedAt: 2013-08-16T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "sprockets", RepoVersion: "2.10.0", RepoVersionPublishedAt: 2013-05-24T00:00:00, LatestVersion: "2.10.0", LatestPublishedAt: 2013-05-24T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "sprockets-rails", RepoVersion: "2.0.0", RepoVersionPublishedAt: 2013-06-11T00:00:00, LatestVersion: "2.0.0", LatestPublishedAt: 2013-06-11T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "sqlite3", RepoVersion: "1.3.7", RepoVersionPublishedAt: 2013-01-12T00:00:00, LatestVersion: "1.3.8", LatestPublishedAt: 2013-08-17T00:00:00, UpgradeAvailable: True, Value: 0.5945205479452055 },
@@ -1987,6 +1988,7 @@ results[31] = { Date: 2013-10-01T00:00:00, ManifestSHA: 988ecbde705cc47c7889075c
 { Name: "rubyzip", RepoVersion: "0.9.9", RepoVersionPublishedAt: 2012-06-17T00:00:00, LatestVersion: "1.0.0", LatestPublishedAt: 2013-08-29T00:00:00, UpgradeAvailable: True, Value: 1.2 },
 { Name: "sdoc", RepoVersion: "0.3.20", RepoVersionPublishedAt: 2012-11-21T00:00:00, LatestVersion: "0.3.20", LatestPublishedAt: 2012-11-21T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "selenium-webdriver", RepoVersion: "2.33.0", RepoVersionPublishedAt: 2013-05-26T00:00:00, LatestVersion: "2.35.1", LatestPublishedAt: 2013-08-26T00:00:00, UpgradeAvailable: True, Value: 0.25205479452054796 },
+{ Name: "shoulda-matchers", RepoVersion: "2.4.0.rc1", RepoVersionPublishedAt: 2013-08-16T00:00:00, LatestVersion: "2.4.0", LatestPublishedAt: 2013-09-20T00:00:00, UpgradeAvailable: True, Value: 0.0958904109589041 },
 { Name: "sprockets", RepoVersion: "2.10.0", RepoVersionPublishedAt: 2013-05-24T00:00:00, LatestVersion: "2.10.0", LatestPublishedAt: 2013-05-24T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "sprockets-rails", RepoVersion: "2.0.0", RepoVersionPublishedAt: 2013-06-11T00:00:00, LatestVersion: "2.0.0", LatestPublishedAt: 2013-06-11T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "sqlite3", RepoVersion: "1.3.7", RepoVersionPublishedAt: 2013-01-12T00:00:00, LatestVersion: "1.3.8", LatestPublishedAt: 2013-08-17T00:00:00, UpgradeAvailable: True, Value: 0.5945205479452055 },
@@ -1998,7 +2000,7 @@ results[31] = { Date: 2013-10-01T00:00:00, ManifestSHA: 988ecbde705cc47c7889075c
 { Name: "tzinfo", RepoVersion: "0.3.37", RepoVersionPublishedAt: 2013-03-11T00:00:00, LatestVersion: "1.1.0", LatestPublishedAt: 2013-09-25T00:00:00, UpgradeAvailable: True, Value: 0.5424657534246575 },
 { Name: "websocket", RepoVersion: "1.0.7", RepoVersionPublishedAt: 2013-01-27T00:00:00, LatestVersion: "1.1.1", LatestPublishedAt: 2013-07-02T00:00:00, UpgradeAvailable: True, Value: 0.4273972602739726 },
 { Name: "xpath", RepoVersion: "1.0.0", RepoVersionPublishedAt: 2012-11-14T00:00:00, LatestVersion: "2.0.0", LatestPublishedAt: 2013-04-09T00:00:00, UpgradeAvailable: True, Value: 0.4 },
-], Total: 7.986301369863016 } }
+], Total: 8.08219178082192 } }
 
 results[32] = { Date: 2013-11-01T00:00:00, ManifestSHA: 2c930b0d0a7b8569e34ed27b0e9ab8d94a90caf9, LibYear: { _packagesValues: [
 { Name: "actionmailer", RepoVersion: "4.0.0", RepoVersionPublishedAt: 2013-06-25T00:00:00, LatestVersion: "4.0.1", LatestPublishedAt: 2013-11-01T00:00:00, UpgradeAvailable: True, Value: 0.35342465753424657 },
@@ -2053,6 +2055,7 @@ results[32] = { Date: 2013-11-01T00:00:00, ManifestSHA: 2c930b0d0a7b8569e34ed27b
 { Name: "rubyzip", RepoVersion: "0.9.9", RepoVersionPublishedAt: 2012-06-17T00:00:00, LatestVersion: "1.1.0", LatestPublishedAt: 2013-11-01T00:00:00, UpgradeAvailable: True, Value: 1.3753424657534246 },
 { Name: "sdoc", RepoVersion: "0.3.20", RepoVersionPublishedAt: 2012-11-21T00:00:00, LatestVersion: "0.3.20", LatestPublishedAt: 2012-11-21T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "selenium-webdriver", RepoVersion: "2.33.0", RepoVersionPublishedAt: 2013-05-26T00:00:00, LatestVersion: "2.37.0", LatestPublishedAt: 2013-10-18T00:00:00, UpgradeAvailable: True, Value: 0.3972602739726027 },
+{ Name: "shoulda-matchers", RepoVersion: "2.4.0.rc1", RepoVersionPublishedAt: 2013-08-16T00:00:00, LatestVersion: "2.4.0", LatestPublishedAt: 2013-09-20T00:00:00, UpgradeAvailable: True, Value: 0.0958904109589041 },
 { Name: "sprockets", RepoVersion: "2.10.0", RepoVersionPublishedAt: 2013-05-24T00:00:00, LatestVersion: "2.10.0", LatestPublishedAt: 2013-05-24T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "sprockets-rails", RepoVersion: "2.0.0", RepoVersionPublishedAt: 2013-06-11T00:00:00, LatestVersion: "2.0.1", LatestPublishedAt: 2013-10-16T00:00:00, UpgradeAvailable: True, Value: 0.34794520547945207 },
 { Name: "sqlite3", RepoVersion: "1.3.7", RepoVersionPublishedAt: 2013-01-12T00:00:00, LatestVersion: "1.3.8", LatestPublishedAt: 2013-08-17T00:00:00, UpgradeAvailable: True, Value: 0.5945205479452055 },
@@ -2064,7 +2067,7 @@ results[32] = { Date: 2013-11-01T00:00:00, ManifestSHA: 2c930b0d0a7b8569e34ed27b
 { Name: "tzinfo", RepoVersion: "0.3.37", RepoVersionPublishedAt: 2013-03-11T00:00:00, LatestVersion: "1.1.0", LatestPublishedAt: 2013-09-25T00:00:00, UpgradeAvailable: True, Value: 0.5424657534246575 },
 { Name: "websocket", RepoVersion: "1.0.7", RepoVersionPublishedAt: 2013-01-27T00:00:00, LatestVersion: "1.1.1", LatestPublishedAt: 2013-07-02T00:00:00, UpgradeAvailable: True, Value: 0.4273972602739726 },
 { Name: "xpath", RepoVersion: "1.0.0", RepoVersionPublishedAt: 2012-11-14T00:00:00, LatestVersion: "2.0.0", LatestPublishedAt: 2013-04-09T00:00:00, UpgradeAvailable: True, Value: 0.4 },
-], Total: 13.906849315068492 } }
+], Total: 14.002739726027396 } }
 
 results[33] = { Date: 2013-12-01T00:00:00, ManifestSHA: 18db3c7294a823a3a401182d869a4e4840ee4a0d, LibYear: { _packagesValues: [
 { Name: "actionmailer", RepoVersion: "4.0.0", RepoVersionPublishedAt: 2013-06-25T00:00:00, LatestVersion: "4.0.1", LatestPublishedAt: 2013-11-01T00:00:00, UpgradeAvailable: True, Value: 0.35342465753424657 },

@@ -61,7 +61,12 @@ namespace Freshli.Languages.Perl {
       return versions;
     }
 
-    public IVersionInfo Latest(string name, DateTime asOf) {
+    //TODO: Update logic to utilize includePreReleases
+    public IVersionInfo Latest(
+      string name,
+      DateTime asOf,
+      bool includePreReleases)
+    {
       return GetReleaseHistory(name).OrderByDescending(v => v).
         First(v => asOf >= v.DatePublished);
     }
@@ -77,8 +82,10 @@ namespace Freshli.Languages.Perl {
         First(v => expression.DoesMatch(v));
     }
 
+    //TODO: Update logic to utilize includePreReleases
     public List<IVersionInfo> VersionsBetween(string name, DateTime asOf,
-      IVersionInfo earlierVersion, IVersionInfo laterVersion)
+      IVersionInfo earlierVersion, IVersionInfo laterVersion,
+      bool includePreReleases)
     {
       try {
         return GetReleaseHistory(name).

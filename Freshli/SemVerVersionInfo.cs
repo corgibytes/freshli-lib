@@ -30,6 +30,7 @@ namespace Freshli {
       }
     }
 
+    public bool IsPreRelease { get; set; }
     public string PreReleaseLabel { get; private set; }
     public long? PreReleaseIncrement { get; private set; }
     public string BuildMetadata { get; private set; }
@@ -49,6 +50,7 @@ namespace Freshli {
 
     private void ParsePreRelease(string value) {
       if (!String.IsNullOrEmpty(value)) {
+        IsPreRelease = true;
         var match = _preReleaseExpression.Match(value);
         PreReleaseLabel = match.Groups[1].Value;
         var incrementValue = match.Groups[2].Value;
@@ -56,6 +58,7 @@ namespace Freshli {
           PreReleaseIncrement = Convert.ToInt64(incrementValue);
         }
       } else {
+        IsPreRelease = false;
         PreReleaseLabel = null;
         PreReleaseIncrement = null;
       }

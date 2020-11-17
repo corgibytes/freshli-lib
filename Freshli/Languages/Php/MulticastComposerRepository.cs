@@ -40,9 +40,13 @@ namespace Freshli.Languages.Php {
       }
     }
 
-    public IVersionInfo Latest(string name, DateTime asOf) {
+    public IVersionInfo Latest(
+      string name,
+      DateTime asOf,
+      bool includePreReleases)
+    {
       foreach (var repository in _composerRespositories) {
-        var result = repository.Latest(name, asOf);
+        var result = repository.Latest(name, asOf, includePreReleases);
         if (result != null) {
           return result;
         }
@@ -66,8 +70,12 @@ namespace Freshli.Languages.Php {
       throw new NotImplementedException();
     }
 
-    public List<IVersionInfo> VersionsBetween(string name, DateTime asOf,
-      IVersionInfo earlierVersion, IVersionInfo laterVersion)
+    public List<IVersionInfo> VersionsBetween(
+      string name,
+      DateTime asOf,
+      IVersionInfo earlierVersion,
+      IVersionInfo laterVersion,
+      bool includePreReleases)
     {
       //TODO: Implement method
       throw new NotImplementedException();

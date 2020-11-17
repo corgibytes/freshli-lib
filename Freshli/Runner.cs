@@ -4,6 +4,12 @@ using NLog;
 
 namespace Freshli {
   public class Runner {
+
+    private static readonly string SaveResultsToFile =
+      Environment.GetEnvironmentVariable("SAVE_RESULTS_TO_FILE") ?? "false";
+
+    private const string ResultsPath = "results";
+
     private static readonly Logger logger = LogManager.GetCurrentClassLogger();
 
     public ManifestFinder ManifestFinder { get; private set; }
@@ -55,11 +61,29 @@ namespace Freshli {
         logger.Warn("Unable to find a manifest file");
       }
 
+      if (SaveResultsToFile.ToLower() == "true") {
+        WriteResultsToFile(metricsResults);
+      }
+
       return metricsResults;
     }
 
     public IList<MetricsResult> Run(string analysisPath) {
       return Run(analysisPath, asOf: DateTime.Today);
     }
+
+    private static void WriteResultsToFile(List<MetricsResult> results) {
+      if (!System.IO.Directory.Exists(ResultsPath)) {
+        System.IO.Directory.CreateDirectory(ResultsPath);
+      }
+      var dateTime = DateTime.Now;
+      var filePath =
+        $"{ResultsPath}/{dateTime:yyyy-MM-dd-hhmmssfffffff}-results.txt";
+      using var file = new System.IO.StreamWriter(filePath);
+      foreach (var result in results) {
+        file.WriteLine(result);
+      }
+    }
+
   }
 }
