@@ -188,6 +188,12 @@ Total tests: 334
 
 The tests currently take longer to run than we would like. We're exploring ways to speed that up. You can run a subset of tests by including the `--filter` flag, e.g. `dotnet test --filter ComputeAsOf`.
 
+## Saving Results
+
+Analysis metrics can be saved to a local file by setting the `SAVE_RESULTS_TO_FILE` variable.
+
+First, create a `.env` file  based on the sample `.env-example` file. Set `SAVE_RESULTS_TO_FILE` to `true` and run the analysis. Results will be output to a text file in a newly created `results` directory.
+
 ## Logging
 
 [NLog](https://nlog-project.org/) is being used for logging within the application.
