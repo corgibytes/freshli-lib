@@ -27,5 +27,5 @@ jobs:
           #remote-repository-name:  enter the  remote repository name where the signatures should be stored (Default is storing the signatures in the same repository)
           create-file-commit-message: 'Adds file for storing CLA Signatures'
           signed-commit-message: 'Adds CLA signature for $contributorName (PR #$pullRequestNo)'
-          custom-notsigned-prcomment: 'Thank you for your submission to Freshli! Like many open-source projects, we ask that you sign our Contributor License Agreement before we can accept your contribution. You can sign the CLA by posting a comment in this PR matching the text below:'
+          custom-notsigned-prcomment: 'Thank you for your submission to Freshli! Like many open-source projects, we ask that you agree to our [Contributor License Agreement](https://github.com/corgibytes/freshli/blob/main/CLA/CLA-v1.0.md) before we can accept your contribution. You can sign the CLA by posting a comment in this PR matching the text below:'
           #custom-allsigned-prcomment: 'pull request comment when all contributors has signed, defaults to **CLA Assistant** All contributors have signed the CLA.'
