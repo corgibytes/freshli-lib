@@ -15,7 +15,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # the below token should have repo scope and must be manually added by you in the repository's secret
-          PERSONAL_ACCESS_TOKEN : ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          PERSONAL_ACCESS_TOKEN : ${{ secrets.CLA_ACCESS_TOKEN }}
         with:
           path-to-signatures: 'CLA/signatures/v1.0/cla.json'
           path-to-cla-document: 'https://github.com/corgibytes/freshli/blob/main/CLA/CLA-v1.0.md'
