@@ -21,4 +21,4 @@ You accept and agree to the following terms and conditions for Your present and 
 
 1.	You agree to notify Freshli of any facts or circumstances of which you become aware that would make these representations inaccurate in any respect.
 
-Revised: November 30, 2020.
+_Revised: November 23, 2020._
