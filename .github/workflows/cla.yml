@@ -20,7 +20,7 @@ jobs:
           path-to-signatures: 'CLA/signatures/v1.0/cla.json'
           path-to-cla-document: 'https://github.com/corgibytes/freshli/blob/main/CLA/CLA-v1.0.md'
           branch: 'main'
-          allowlist: dependabot
+          allowlist: dependabot[bot]
 
           #Configurable inputs
           #remote-organization-name: enter the remote organization name where the signatures should be stored (Default is storing the signatures in the same repository)
