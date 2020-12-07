@@ -11,7 +11,7 @@
       <PackageReference Include="Elasticsearch.Net" Version="7.10.0" />
       <PackageReference Include="HtmlAgilityPack" Version="1.11.28" />
       <PackageReference Include="LibGit2Sharp" Version="0.26.2" />
-      <PackageReference Include="NLog" Version="4.7.5" />
+      <PackageReference Include="NLog" Version="4.7.6" />
       <PackageReference Include="RestSharp" Version="106.11.7" />
     </ItemGroup>
     
