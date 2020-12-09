@@ -98,6 +98,37 @@ namespace Freshli.Test.Unit.Python {
       VersionMatcher.OperationKind.GreaterThanEqual,
       "1.1.1a1.post1.dev1"
     )]
+    [InlineData(
+      "==1.0.1; python_version < \"3.4\"",
+      VersionMatcher.OperationKind.Matching,
+      "1.0.1"
+    )]
+    [InlineData(
+      "!=1.0.1; python_version < \"3.4\"",
+      VersionMatcher.OperationKind.NotEqual,
+      "1.0.1"
+    )]
+    [InlineData(
+      "<1.0.1; python_version < \"3.4\"",
+      VersionMatcher.OperationKind.LessThan,
+      "1.0.1"
+    )]
+    [InlineData(
+      "<=1.0.1; python_version < \"3.4\"",
+      VersionMatcher.OperationKind.LessThanEqual,
+      "1.0.1"
+    )]
+    [InlineData(
+      ">1.0.1; python_version < \"3.4\"",
+      VersionMatcher.OperationKind.GreaterThan,
+      "1.0.1"
+    )]
+    [InlineData(
+      ">=1.0.1; python_version < \"3.4\"",
+      VersionMatcher.OperationKind.GreaterThanEqual,
+      "1.0.1"
+    )]
+
     public void SplitsIntoComponents(
       string expression,
       VersionMatcher.OperationKind operationKind,

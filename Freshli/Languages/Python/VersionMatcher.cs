@@ -33,87 +33,97 @@ namespace Freshli.Languages.Python {
         }
 
         result = compound;
-      } else if (value.StartsWith("==")) {
-        result = new BasicVersionMatcher();
-        value = value.Remove(0, 2);
-        result.Operation = OperationKind.Matching;
-
-        if (value.StartsWith("=")) {
-          throw new Exception(
-            $"Unsupported matcher: {OperationKind.Arbitrary}"
-          );
-        }
-
-        if (value.EndsWith(".*")) {
-          result.Operation = OperationKind.PrefixMatching;
-          value = value.Replace(".*", "");
-        }
-
-        result.BaseVersion = new PythonVersionInfo {Version = value};
-      } else if (value.StartsWith("<")) {
-        result = new BasicVersionMatcher();
-        value = value.Remove(0, 1);
-        result.Operation = OperationKind.LessThan;
-
-        if (value.StartsWith("=")) {
-          value = value.Remove(0, 1);
-          result.Operation = OperationKind.LessThanEqual;
-        }
-
-        result.BaseVersion = new PythonVersionInfo {Version = value};
-      } else if (value.StartsWith(">")) {
-        result = new BasicVersionMatcher();
-        value = value.Remove(0, 1);
-        result.Operation = OperationKind.GreaterThan;
-
-        if (value.StartsWith("=")) {
-          value = value.Remove(0, 1);
-          result.Operation = OperationKind.GreaterThanEqual;
-        }
-
-        result.BaseVersion = new PythonVersionInfo {Version = value};
-      } else if (value.StartsWith("!=")) {
-        result = new BasicVersionMatcher();
-        value = value.Remove(0, 2);
-        result.Operation = OperationKind.NotEqual;
-
-        result.BaseVersion = new PythonVersionInfo {Version = value};
-      } else if (value.StartsWith("~=")) {
-        var compound = new CompoundVersionMatcher();
-        compound.Operation = OperationKind.Compatible;
-        compound.BaseVersion =
-          new PythonVersionInfo {Version = value.Remove(0, 2)};
-
-        var first = new BasicVersionMatcher();
-        first.Operation = OperationKind.GreaterThanEqual;
-        var firstVersion =
-          new PythonVersionInfo {Version = compound.BaseVersion.Version};
-
-        first.BaseVersion = firstVersion;
-        compound.Add(first);
-
-        var secondVersion =
-          new PythonVersionInfo {Version = compound.BaseVersion.Version};
-        secondVersion.RemoveLastReleaseIncrement();
-        secondVersion.RemovePreReleaseMetadata();
-        secondVersion.RemovePostReleaseMetadata();
-        secondVersion.RemoveDevelopmentReleaseMetadata();
-
-        var second =
-          new BasicVersionMatcher {
-            Operation = OperationKind.PrefixMatching,
-            BaseVersion = secondVersion
-          };
-        compound.Add(second);
-        result = compound;
       } else {
-        result = null;
+        value = RemoveEnvironmentMarkers(value);
+
+        if (value.StartsWith("==")) {
+          result = new BasicVersionMatcher();
+          value = value.Remove(0, 2);
+          result.Operation = OperationKind.Matching;
+
+          if (value.StartsWith("=")) {
+            throw new Exception(
+              $"Unsupported matcher: {OperationKind.Arbitrary}"
+            );
+          }
+
+          if (value.EndsWith(".*")) {
+            result.Operation = OperationKind.PrefixMatching;
+            value = value.Replace(".*", "");
+          }
+
+          result.BaseVersion = new PythonVersionInfo {Version = value};
+        } else if (value.StartsWith("<")) {
+          result = new BasicVersionMatcher();
+          value = value.Remove(0, 1);
+          result.Operation = OperationKind.LessThan;
+
+          if (value.StartsWith("=")) {
+            value = value.Remove(0, 1);
+            result.Operation = OperationKind.LessThanEqual;
+          }
+
+          result.BaseVersion = new PythonVersionInfo {Version = value};
+        } else if (value.StartsWith(">")) {
+          result = new BasicVersionMatcher();
+          value = value.Remove(0, 1);
+          result.Operation = OperationKind.GreaterThan;
+
+          if (value.StartsWith("=")) {
+            value = value.Remove(0, 1);
+            result.Operation = OperationKind.GreaterThanEqual;
+          }
+
+          result.BaseVersion = new PythonVersionInfo {Version = value};
+        } else if (value.StartsWith("!=")) {
+          result = new BasicVersionMatcher();
+          value = value.Remove(0, 2);
+          result.Operation = OperationKind.NotEqual;
+
+          result.BaseVersion = new PythonVersionInfo {Version = value};
+        } else if (value.StartsWith("~=")) {
+          var compound = new CompoundVersionMatcher();
+          compound.Operation = OperationKind.Compatible;
+          compound.BaseVersion =
+            new PythonVersionInfo {Version = value.Remove(0, 2)};
+
+          var first = new BasicVersionMatcher();
+          first.Operation = OperationKind.GreaterThanEqual;
+          var firstVersion =
+            new PythonVersionInfo {Version = compound.BaseVersion.Version};
+
+          first.BaseVersion = firstVersion;
+          compound.Add(first);
+
+          var secondVersion =
+            new PythonVersionInfo {Version = compound.BaseVersion.Version};
+          secondVersion.RemoveLastReleaseIncrement();
+          secondVersion.RemovePreReleaseMetadata();
+          secondVersion.RemovePostReleaseMetadata();
+          secondVersion.RemoveDevelopmentReleaseMetadata();
+
+          var second =
+            new BasicVersionMatcher {
+              Operation = OperationKind.PrefixMatching,
+              BaseVersion = secondVersion
+            };
+          compound.Add(second);
+          result = compound;
+        } else {
+          result = null;
+        }
       }
 
       return result;
     }
 
     public abstract bool DoesMatch(IVersionInfo version);
+
+    private static string RemoveEnvironmentMarkers(string value)
+    {
+      var pos = value.IndexOf(";", StringComparison.Ordinal);
+      return pos > 0 ? value.Remove(pos) : value;
+    }
   }
 
   public class BasicVersionMatcher : VersionMatcher {
