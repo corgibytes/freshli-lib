@@ -8,7 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="DotNetEnv" Version="1.4.0" />
+      <PackageReference Include="DotNetEnv" Version="2.0.0" />
       <PackageReference Include="Elasticsearch.Net" Version="7.10.1" />
       <PackageReference Include="HtmlAgilityPack" Version="1.11.28" />
       <PackageReference Include="LibGit2Sharp" Version="0.26.2" />
