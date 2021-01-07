@@ -90,7 +90,7 @@ namespace Freshli.Test.Unit {
       var dates =
         new List<DateTime>() {ParseExact("2016-12-15T00:00:00.0000000Z")};
 
-      // TODO If we now switched to EoD, should we stop one tick before stop date?
+      // TODO Is the name stopDate misleading as it is now inclusive?
       history.Setup(mock => mock.Dates).Returns(dates);
       var stopDate = ParseExact("2019-01-01T00:00:00.0000000Z");
       var analysisDates = new AnalysisDates(
