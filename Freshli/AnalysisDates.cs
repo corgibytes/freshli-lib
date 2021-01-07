@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Freshli.Util;
 
 namespace Freshli {
   public class AnalysisDates : IEnumerable<DateTime> {
@@ -21,7 +22,8 @@ namespace Freshli {
         }
 
         while (date <= asOf) {
-          _dates.Add(date);
+          var dayOf = DateTimeHelper.ConvertToEndOfDay(date);
+          _dates.Add(dayOf);
           date = date.AddMonths(1);
         }
       }
