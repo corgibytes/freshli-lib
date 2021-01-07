@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Freshli.Util;
 using NLog;
 
 namespace Freshli {
@@ -68,7 +69,8 @@ namespace Freshli {
     }
 
     public IList<MetricsResult> Run(string analysisPath) {
-      return Run(analysisPath, asOf: DateTime.Today);
+      var asOf = DateTimeHelper.ConvertToEndOfDay(DateTime.Today);
+      return Run(analysisPath, asOf: asOf);
     }
 
     private static void WriteResultsToFile(List<MetricsResult> results) {

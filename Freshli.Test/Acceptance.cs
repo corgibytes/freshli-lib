@@ -111,6 +111,19 @@ namespace Freshli.Test {
     }
 
     [Fact]
+    public void SpaCyWithHistoryViaGitHub() {
+      var runner = new Runner();
+
+      var results = runner.Run(
+        "https://github.com/explosion/spaCy",
+        asOf: new DateTime(2017,6,1,0,0,0)
+      );
+
+      Assert.True(runner.ManifestFinder.Successful);
+      Approvals.VerifyAll(results, "results");
+    }
+
+    [Fact]
     public void UnsupportedGitRepository()
     {
       var runner = new Runner();
