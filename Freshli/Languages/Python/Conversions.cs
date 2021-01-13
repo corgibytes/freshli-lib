@@ -1,4 +1,5 @@
-﻿using System;
+﻿#nullable enable
+using System;
 using System.Linq;
 
 namespace Freshli.Languages.Python {
@@ -16,7 +17,7 @@ namespace Freshli.Languages.Python {
       return value != null;
     }
 
-    public static string SafeToLower(string value) {
+    public static string? SafeToLower(string value) {
       if (!string.IsNullOrWhiteSpace(value)) {
         return value.ToLower();
       }
@@ -32,7 +33,7 @@ namespace Freshli.Languages.Python {
       return new long[] {};
     }
 
-    public static string SafeExtractString(string value) {
+    public static string? SafeExtractString(string value) {
       if (!string.IsNullOrWhiteSpace(value)) {
         return value;
       }
