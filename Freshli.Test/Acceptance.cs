@@ -116,7 +116,7 @@ namespace Freshli.Test {
       var runner = new Runner();
 
       var results = runner.Run(
-        "https://github.com/gocd/gocd",
+        "https://github.com/gohugoio/hugo",
         asOf: _testingBoundary
       );
 
