@@ -2,7 +2,7 @@
 using System.IO;
 using NLog;
 
-namespace Freshli {
+namespace Freshli.cli {
   class Program {
     private static readonly Logger logger = LogManager.GetCurrentClassLogger();
 
@@ -10,10 +10,6 @@ namespace Freshli {
       logger.Info($"Main({string.Join(separator: ",", args)})");
 
       try {
-        ManifestFinder.RegisterAll();
-
-        FileHistoryFinder.Register<GitFileHistoryFinder>();
-
         var runner = new Runner();
         var directory = SafelyGetFullPath(args[0]);
 

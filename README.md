@@ -184,7 +184,7 @@ Test Run Successful.
 Total tests: 334
      Passed: 334
  Total time: 2.6251 Minutes
- ```
+```
 
 The tests currently take longer to run than we would like. We're exploring ways to speed that up. You can run a subset of tests by including the `--filter` flag, e.g. `dotnet test --filter ComputeAsOf`.
 

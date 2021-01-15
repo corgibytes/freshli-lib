@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.IO;
 
-namespace Freshli {
+namespace Freshli.cli {
   public class OutputFormatter {
     private readonly TextWriter _writer;
 
