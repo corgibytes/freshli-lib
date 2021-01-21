@@ -35,7 +35,7 @@ Freshli reads source code repository history to access previous version of each 
 
 ### Running `freshli`
 
-Right now to run `freshli` from the command line, you need to have the .NET Core SDK installed.
+Right now to run `freshli` from the command line, you need to have the [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) installed.
 
 Once you do, you can run use `dotnet run --project Freshli/Freshli.csproj -- <url>` to run the project.
 
