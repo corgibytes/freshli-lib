@@ -38,7 +38,7 @@ namespace Freshli.Test.Unit.Perl {
       string expression,
       bool doesMatch
     ) {
-      var info = new SemVerVersionInfo() {Version = version};
+      var info = new SemVerVersionInfo(version);
       var matcher = VersionMatcher.Create(expression);
       Assert.Equal(doesMatch, matcher.DoesMatch(info));
     }
@@ -67,7 +67,7 @@ namespace Freshli.Test.Unit.Perl {
       var basicMatcher = (BasicVersionMatcher) matcher;
       Assert.Equal(operation, basicMatcher.Operation);
       Assert.Equal(
-        new SemVerVersionInfo {Version = version},
+        new SemVerVersionInfo(version),
         basicMatcher.BaseVersion
       );
     }

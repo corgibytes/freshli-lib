@@ -25,7 +25,7 @@ namespace Freshli.Languages.Perl {
         var version = value.Replace("==", "").Trim();
         return new BasicVersionMatcher {
           Operation = OperationKind.Matching,
-          BaseVersion = new SemVerVersionInfo {Version = version}
+          BaseVersion = new SemVerVersionInfo(version)
         };
       }
 
@@ -33,7 +33,7 @@ namespace Freshli.Languages.Perl {
         var version = value.Replace(">=", "").Trim();
         return new BasicVersionMatcher {
           Operation = OperationKind.GreaterThanEqual,
-          BaseVersion = new SemVerVersionInfo {Version = version}
+          BaseVersion = new SemVerVersionInfo(version)
         };
       }
 
@@ -41,7 +41,7 @@ namespace Freshli.Languages.Perl {
         var version = value.Replace("<=", "").Trim();
         return new BasicVersionMatcher {
           Operation = OperationKind.LessThanEqual,
-          BaseVersion = new SemVerVersionInfo {Version = version}
+          BaseVersion = new SemVerVersionInfo(version)
         };
       }
 
@@ -49,7 +49,7 @@ namespace Freshli.Languages.Perl {
         var version = value.Replace("<", "").Trim();
         return new BasicVersionMatcher {
           Operation = OperationKind.LessThan,
-          BaseVersion = new SemVerVersionInfo {Version = version}
+          BaseVersion = new SemVerVersionInfo(version)
         };
       }
 
@@ -57,7 +57,7 @@ namespace Freshli.Languages.Perl {
         var version = value.Replace(">", "").Trim();
         return new BasicVersionMatcher {
           Operation = OperationKind.GreaterThan,
-          BaseVersion = new SemVerVersionInfo {Version = version}
+          BaseVersion = new SemVerVersionInfo(version)
         };
       }
 
@@ -65,13 +65,13 @@ namespace Freshli.Languages.Perl {
         var version = value.Replace("!=", "").Trim();
         return new BasicVersionMatcher {
           Operation = OperationKind.NotEqual,
-          BaseVersion = new SemVerVersionInfo {Version = version}
+          BaseVersion = new SemVerVersionInfo(version)
         };
       }
 
       return new BasicVersionMatcher {
         Operation = OperationKind.GreaterThanEqual,
-        BaseVersion = new SemVerVersionInfo {Version = value}
+        BaseVersion = new SemVerVersionInfo(value)
       };
     }
 

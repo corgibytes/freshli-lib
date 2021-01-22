@@ -96,8 +96,8 @@ namespace Freshli.Test.Integration.Languages.Perl {
     public void VersionsBetween() {
       var repository = new MetaCpanRepository();
       var targetDate = new DateTime(2015, 01, 01);
-      var earlierVersion = new SemVerVersionInfo() {Version = "1.0027"};
-      var laterVersion = new SemVerVersionInfo {Version = "1.0045"};
+      var earlierVersion = new SemVerVersionInfo("1.0027");
+      var laterVersion = new SemVerVersionInfo("1.0045");
 
       var versions = repository.VersionsBetween("Plack", targetDate,
         earlierVersion, laterVersion, includePreReleases: false);

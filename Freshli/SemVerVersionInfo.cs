@@ -8,19 +8,11 @@ namespace Freshli {
     forth by https://semver.org/.
 */
   public class SemVerVersionInfo : IVersionInfo {
-    private string _version;
-
-    public string Version {
-      get => _version;
-      set {
-        _version = value;
-        ParseVersion();
-      }
-    }
-
+    public string Version { get; private set; }
     public long? Major { get; private set; }
     public long? Minor { get; private set; }
     public long? Patch { get; private set; }
+    public DateTime DatePublished { get; set; }
 
     public string PreRelease {
       get => _preRelease;
@@ -48,138 +40,17 @@ namespace Freshli {
 
     private string _preRelease;
 
-    private void ParsePreRelease(string value) {
-      if (!String.IsNullOrEmpty(value)) {
-        IsPreRelease = true;
-        var match = _preReleaseExpression.Match(value);
-        PreReleaseLabel = match.Groups[1].Value;
-        var incrementValue = match.Groups[2].Value;
-        if (!string.IsNullOrWhiteSpace(incrementValue)) {
-          PreReleaseIncrement = Convert.ToInt64(incrementValue);
-        }
-      } else {
-        IsPreRelease = false;
-        PreReleaseLabel = null;
-        PreReleaseIncrement = null;
-      }
-    }
-
-    private enum SkippableVersionComponent {
-      Minor,
-      Patch,
-      PreRelease,
-      BuildMetadata
-    }
-
-    private void ParseVersion(
-      SkippableVersionComponent? componentToSkip = null
-    ) {
-      Major = null;
-      Minor = null;
-      Patch = null;
-      PreRelease = null;
-      BuildMetadata = null;
-
-      if (_versionExpression.IsMatch(_version)) {
-        var match = _versionExpression.Match(_version);
-
-        var majorValue = match.Groups[1].Value;
-        if (!string.IsNullOrWhiteSpace(majorValue)) {
-          Major = Convert.ToInt64(majorValue);
-        }
-
-        if (componentToSkip.HasValue) {
-          var start = 0;
-          var length = 0;
-
-          if (componentToSkip.Value == SkippableVersionComponent.Minor) {
-            if (match.Groups[2].Success) {
-              start = match.Groups[2].Index - 1;
-              length = match.Groups[2].Length + 1;
-              if (match.Groups[3].Success) {
-                length += match.Groups[3].Length + 1;
-              }
-            }
-          } else if (componentToSkip.Value == SkippableVersionComponent.Patch) {
-            if (match.Groups[3].Success) {
-              start = match.Groups[3].Index - 1;
-              length = match.Groups[3].Length + 1;
-            }
-          } else if (componentToSkip == SkippableVersionComponent.PreRelease) {
-            if (match.Groups[4].Success) {
-              start = match.Groups[4].Index;
-              length = match.Groups[4].Length;
-              if (start > 0 && _version[start - 1] == '-') {
-                start--;
-                length++;
-              }
-            }
-          } else if (componentToSkip ==
-            SkippableVersionComponent.BuildMetadata) {
-            if (match.Groups[5].Success) {
-              start = match.Groups[5].Index - 1;
-              length = match.Groups[5].Length + 1;
-            }
-          }
-
-          _version = _version.Remove(start, length);
-        }
-
-        match = _versionExpression.Match(_version);
-
-        var minorValue = match.Groups[2].Value;
-        Minor = null;
-        if (!string.IsNullOrWhiteSpace(minorValue)) {
-          Minor = Convert.ToInt64(minorValue);
-        }
-
-        var patchValue = match.Groups[3].Value;
-        Patch = null;
-        if (!string.IsNullOrWhiteSpace(patchValue)) {
-          Patch = Convert.ToInt64(patchValue);
-        }
-
-        var preReleaseValue = match.Groups[4].Value;
-        PreRelease = null;
-        if (!string.IsNullOrWhiteSpace(preReleaseValue)) {
-          PreRelease = preReleaseValue;
-        }
-
-        var buildMetadataValue = match.Groups[5].Value;
-        BuildMetadata = null;
-        if (!string.IsNullOrWhiteSpace(buildMetadataValue)) {
-          BuildMetadata = buildMetadataValue;
-        }
-      } else {
-        throw new VersionParseException(_version);
-      }
-    }
-
-    public void RemoveBuildMetadata() {
-      ParseVersion(SkippableVersionComponent.BuildMetadata);
-    }
-
-    public void RemovePreRelease() {
-      ParseVersion(SkippableVersionComponent.PreRelease);
-    }
-
-    public void RemovePatch() {
-      ParseVersion(SkippableVersionComponent.Patch);
-    }
-
-    public void RemoveMinor() {
-      ParseVersion(SkippableVersionComponent.Minor);
-    }
-
-    public DateTime DatePublished { get; set; }
-
-    public SemVerVersionInfo() { }
-
-    public SemVerVersionInfo(string version, DateTime datePublished) {
+    public SemVerVersionInfo(string version, DateTime? datePublished = null) {
       Version = version;
-      DatePublished = datePublished;
+      if (datePublished.HasValue) { DatePublished = datePublished.Value; }
+
+      ParseVersion();
     }
 
+    // returns the following:
+    //  -1 = less than comparer
+    //  0 = equal
+    //  1 = greater than comparer
     public int CompareTo(object other) {
       var otherVersionInfo = other as SemVerVersionInfo;
       if (otherVersionInfo == null) {
@@ -265,6 +136,32 @@ namespace Freshli {
       return 0;
     }
 
+    private void ParseVersion(
+      SkippableVersionComponent? componentToSkip = null
+    ) {
+
+      if (!_versionExpression.IsMatch(Version)) {
+        throw new VersionParseException(Version);
+      }
+      
+      var match = _versionExpression.Match(Version);
+      Major = Convert.ToInt64(match.Groups[1].Value);
+
+      if (componentToSkip.HasValue) {
+        int start, length;
+        ProcessSkippedComponent(componentToSkip, match, out start, out length);
+
+        Version = Version.Remove(start, length);
+      }
+
+      match = _versionExpression.Match(Version);
+
+      Minor = Convert.ToInt64(match.Groups[2].Value);
+      Patch = Convert.ToInt64(match.Groups[3].Value);
+      PreRelease = match.Groups[4].Value;
+      BuildMetadata = match.Groups[5].Value;
+    }
+
     public override string ToString() {
       return
         $"{nameof(Major)}: {Major}, " +
@@ -273,6 +170,75 @@ namespace Freshli {
         $"{nameof(PreRelease)}: {PreRelease}, " +
         $"{nameof(BuildMetadata)}: {BuildMetadata}, " +
         $"{nameof(DatePublished)}: {DatePublished:d}";
+    }
+
+    private void ParsePreRelease(string value) {
+      if (!String.IsNullOrEmpty(value)) {
+        IsPreRelease = true;
+        var match = _preReleaseExpression.Match(value);
+        PreReleaseLabel = match.Groups[1].Value;
+        var incrementValue = match.Groups[2].Value;
+        if (!string.IsNullOrWhiteSpace(incrementValue)) {
+          PreReleaseIncrement = Convert.ToInt64(incrementValue);
+        }
+      } else {
+        IsPreRelease = false;
+        PreReleaseLabel = null;
+        PreReleaseIncrement = null;
+      }
+    }
+
+    private enum SkippableVersionComponent {
+      Minor,
+      Patch,
+      PreRelease,
+      BuildMetadata
+    }
+
+    private void ProcessSkippedComponent(
+      SkippableVersionComponent? componentToSkip,
+      Match match,
+      out int start,
+      out int length
+    ) {
+      start = 0;
+      length = 0;
+
+      switch(componentToSkip.Value)
+      {
+        case SkippableVersionComponent.Minor:
+          if (match.Groups[2].Success) {
+            start = match.Groups[2].Index - 1;
+            length = match.Groups[2].Length + 1;
+            if (match.Groups[3].Success) {
+              length += match.Groups[3].Length + 1;
+            }
+          }
+          break;
+        case SkippableVersionComponent.Patch:
+          if (match.Groups[3].Success) {
+            start = match.Groups[3].Index - 1;
+            length = match.Groups[3].Length + 1;
+          }
+          break;
+        case SkippableVersionComponent.PreRelease:
+          if (match.Groups[4].Success) {
+            start = match.Groups[4].Index;
+            length = match.Groups[4].Length;
+            if (start > 0 && Version[start - 1] == '-') {
+              start--;
+              length++;
+            }
+          }
+          break;
+        case SkippableVersionComponent.BuildMetadata:
+          if (match.Groups[5].Success) {
+            start = match.Groups[5].Index - 1;
+            length = match.Groups[5].Length + 1;
+          }
+          break;
+        default: break;
+      }
     }
   }
 }

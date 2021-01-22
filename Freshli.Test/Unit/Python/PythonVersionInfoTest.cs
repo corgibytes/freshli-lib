@@ -720,7 +720,7 @@ namespace Freshli.Test.Unit.Python {
     public void CompareToThrowsExceptionIfOtherVersionIsNotPythonVersionInfo()
     {
       var versionInfo = new PythonVersionInfo {Version = "1.0"};
-      var otherVersion = new SemVerVersionInfo {Version = "1.0"};;
+      var otherVersion = new SemVerVersionInfo("1.0");
       Assert.Throws<ArgumentException>(testCode: () =>
         versionInfo.CompareTo(otherVersion));
     }
