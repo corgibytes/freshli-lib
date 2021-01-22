@@ -143,9 +143,9 @@ namespace Freshli {
       if (!_versionExpression.IsMatch(Version)) {
         throw new VersionParseException(Version);
       }
-      
+
       var match = _versionExpression.Match(Version);
-      Major = Convert.ToInt64(match.Groups[1].Value);
+      Major = ConvertToNullableNumber(match.Groups[1].Value);
 
       if (componentToSkip.HasValue) {
         int start, length;
@@ -156,10 +156,10 @@ namespace Freshli {
 
       match = _versionExpression.Match(Version);
 
-      Minor = Convert.ToInt64(match.Groups[2].Value);
-      Patch = Convert.ToInt64(match.Groups[3].Value);
-      PreRelease = match.Groups[4].Value;
-      BuildMetadata = match.Groups[5].Value;
+      Minor = ConvertToNullableNumber(match.Groups[2].Value);
+      Patch = ConvertToNullableNumber(match.Groups[3].Value);
+      PreRelease = ConvertToNullableString(match.Groups[4].Value);
+      BuildMetadata = ConvertToNullableString(match.Groups[5].Value);
     }
 
     public override string ToString() {
@@ -239,6 +239,18 @@ namespace Freshli {
           break;
         default: break;
       }
+    }
+
+    private long? ConvertToNullableNumber(string value) {
+      if (string.IsNullOrWhiteSpace(value)) { return null; }
+
+      return Convert.ToInt64(value);
+    }
+
+    private string ConvertToNullableString(string value) {
+      if (string.IsNullOrWhiteSpace(value)) { return null; }
+
+      return value;
     }
   }
 }

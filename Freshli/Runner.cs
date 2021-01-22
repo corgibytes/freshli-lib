@@ -26,7 +26,12 @@ namespace Freshli {
       if (!ManifestFinder.Successful) {
         logger.Warn("Unable to find a manifest file");
       } else {
-        ProcessManifestFile(analysisPath, asOf, metricsResults, fileHistoryFinder);
+        ProcessManifestFile(
+          analysisPath,
+          asOf,
+          metricsResults,
+          fileHistoryFinder
+        );
       }
 
       DotNetEnv.Env.Load();
