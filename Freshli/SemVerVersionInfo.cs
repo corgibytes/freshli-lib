@@ -81,7 +81,7 @@ namespace Freshli {
     private int CompareMinor(long? otherMinor) {
       if (Minor.HasValue && otherMinor.HasValue) {
         return Minor.Value.CompareTo(otherMinor.Value);
-      } 
+      }
 
       if (Minor.HasValue) {
         return Minor.Value == 0 ? 0 : 1;
