@@ -52,7 +52,7 @@ namespace Freshli.Languages.Python {
             value = value.Replace(".*", "");
           }
 
-          result.BaseVersion = new PythonVersionInfo {Version = value};
+          result.BaseVersion = new PythonVersionInfo(value);
         } else if (value.StartsWith("<")) {
           result = new BasicVersionMatcher();
           value = value.Remove(0, 1);
@@ -63,7 +63,7 @@ namespace Freshli.Languages.Python {
             result.Operation = OperationKind.LessThanEqual;
           }
 
-          result.BaseVersion = new PythonVersionInfo {Version = value};
+          result.BaseVersion = new PythonVersionInfo(value);
         } else if (value.StartsWith(">")) {
           result = new BasicVersionMatcher();
           value = value.Remove(0, 1);
@@ -74,33 +74,33 @@ namespace Freshli.Languages.Python {
             result.Operation = OperationKind.GreaterThanEqual;
           }
 
-          result.BaseVersion = new PythonVersionInfo {Version = value};
+          result.BaseVersion = new PythonVersionInfo(value);
         } else if (value.StartsWith("!=")) {
           result = new BasicVersionMatcher();
           value = value.Remove(0, 2);
           result.Operation = OperationKind.NotEqual;
 
-          result.BaseVersion = new PythonVersionInfo {Version = value};
+          result.BaseVersion = new PythonVersionInfo(value);
         } else if (value.StartsWith("~=")) {
           var compound = new CompoundVersionMatcher();
           compound.Operation = OperationKind.Compatible;
           compound.BaseVersion =
-            new PythonVersionInfo {Version = value.Remove(0, 2)};
+            new PythonVersionInfo(value.Remove(0, 2));
 
           var first = new BasicVersionMatcher();
           first.Operation = OperationKind.GreaterThanEqual;
           var firstVersion =
-            new PythonVersionInfo {Version = compound.BaseVersion.Version};
+            new PythonVersionInfo(compound.BaseVersion.Version);
 
           first.BaseVersion = firstVersion;
           compound.Add(first);
 
           var secondVersion =
-            new PythonVersionInfo {Version = compound.BaseVersion.Version};
+            new PythonVersionInfo(compound.BaseVersion.Version);
           secondVersion.RemoveLastReleaseIncrement();
-          secondVersion.RemovePreReleaseMetadata();
-          secondVersion.RemovePostReleaseMetadata();
-          secondVersion.RemoveDevelopmentReleaseMetadata();
+          secondVersion.PreRelease = null;
+          secondVersion.PostRelease = null;
+          secondVersion.DevelopmentRelease = null;
 
           var second =
             new BasicVersionMatcher {

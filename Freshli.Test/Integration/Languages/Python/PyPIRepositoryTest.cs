@@ -83,8 +83,8 @@ namespace Freshli.Test.Integration.Languages.Python {
     public void VersionsBetween() {
     var repository = new PyPIRepository();
     var targetDate = new DateTime(2015, 12, 01, 0, 0, 0, DateTimeKind.Utc);
-    var earlierVersion = new PythonVersionInfo {Version = "2.9"};
-    var laterVersion = new PythonVersionInfo {Version = "3.0.3"};
+    var earlierVersion = new PythonVersionInfo("2.9");
+    var laterVersion = new PythonVersionInfo("3.0.3");
 
     var versions = repository.VersionsBetween("pymongo", targetDate,
       earlierVersion, laterVersion, includePreReleases: false);
