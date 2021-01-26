@@ -26,7 +26,7 @@ namespace Freshli.Languages.Python {
 
     private string _version;
     public string Version
-    { 
+    {
       get => _version;
       private set {
         _version = value;
@@ -297,7 +297,7 @@ namespace Freshli.Languages.Python {
       if (!_versionExpression.IsMatch(Version)) {
         throw new VersionParseException(Version);
       }
-      
+
       var match = _versionExpression.Match(Version);
 
       Epoch = Conversions.SafeConvertToInt64(match.Groups[2].Value, 0);
