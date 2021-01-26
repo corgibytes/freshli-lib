@@ -27,8 +27,7 @@ namespace Freshli.Test.Unit {
 
       var results = new List<MetricsResult>();
       foreach (var dateAndValue in datesAndValues) {
-        var result = new LibYearResult();
-        result.Add(
+        var packageResult = new LibYearPackageResult(
           "test_package",
           "1.0",
           dateAndValue.Date,
@@ -38,6 +37,8 @@ namespace Freshli.Test.Unit {
           dateAndValue.UpgradeAvailable,
           dateAndValue.Skipped
         );
+        var result = new LibYearResult();
+        result.Add(packageResult);
         results.Add(new MetricsResult(dateAndValue.Date, "N/A", result));
       }
 

@@ -27,27 +27,6 @@ namespace Freshli {
       }
     }
 
-    public void Add(
-      string name,
-      string version,
-      DateTime publishedAt,
-      string latestVersion,
-      DateTime latestPublishedAt,
-      double value,
-      bool upgradeAvailable,
-      bool skipped
-    ) {
-      Add(new LibYearPackageResult(
-        name,
-        version,
-        publishedAt,
-        latestVersion,
-        latestPublishedAt,
-        value,
-        upgradeAvailable,
-        skipped));
-    }
-
     public LibYearPackageResult this[string packageName] {
       get { return _packageResults.Find(item => item.Name == packageName); }
     }

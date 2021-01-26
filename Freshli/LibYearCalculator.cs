@@ -38,7 +38,7 @@ namespace Freshli {
         }
         catch (Exception e) {
           _logger.Warn($"Skipping {package.Name}: {e.Message}");
-          result.Add(
+          var packageResult = new LibYearPackageResult(
             package.Name,
             version: package.Version,
             publishedAt: DateTime.MinValue,
@@ -46,7 +46,9 @@ namespace Freshli {
             latestPublishedAt: DateTime.MinValue,
             value: 0,
             upgradeAvailable: false,
-            skipped: true);
+            skipped: true
+          );
+          result.Add(packageResult);
           _logger.Trace(e.StackTrace);
           continue;
         }
