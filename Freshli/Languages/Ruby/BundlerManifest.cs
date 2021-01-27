@@ -35,7 +35,7 @@ namespace Freshli.Languages.Ruby {
       var match = expression.Match(line);
       if (match.Success) {
         Add(
-          match.Groups["name"].Value, 
+          match.Groups["name"].Value,
           match.Groups["version"].Value
         );
       }

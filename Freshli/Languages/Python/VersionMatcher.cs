@@ -25,7 +25,7 @@ namespace Freshli.Languages.Python {
       if (string.IsNullOrEmpty(value)) {
         return new AnyVersionMatcher();
       }
-      
+
       if (value.Contains(",")) {
         return ProcessCommaVersionMatcher(value);
       }
