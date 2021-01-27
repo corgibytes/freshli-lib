@@ -24,18 +24,24 @@ namespace Freshli.Languages.Ruby {
 
       line = reader.ReadLine();
       while (line != null && line.Trim() != "") {
-        var expression = new Regex(
-          @"^    (?<name>[\w\d_\-\.]+) \((?<version>[^\)]+)\)"
-        );
-        var match = expression.Match(line);
-        if (match.Success) {
-          var packageName = match.Groups["name"].Value;
-          var packageVersion = match.Groups["version"].Value;
-          Add(packageName, packageVersion);
-        }
-
-        line = reader.ReadLine();
+        line = ProcessLine(reader, line);
       }
+    }
+
+    private string ProcessLine(StringReader reader, string line) {
+      var expression = new Regex(
+                @"^    (?<name>[\w\d_\-\.]+) \((?<version>[^\)]+)\)"
+              );
+      var match = expression.Match(line);
+      if (match.Success) {
+        Add(
+          match.Groups["name"].Value, 
+          match.Groups["version"].Value
+        );
+      }
+
+      line = reader.ReadLine();
+      return line;
     }
 
     public override bool UsesExactMatches => true;
