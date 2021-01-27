@@ -109,7 +109,7 @@ namespace Freshli.Languages.Python {
 
       VersionMatcher result = new BasicVersionMatcher();
       value = value.Remove(0, 1);
-      result.Operation = OperationKind.GreaterThan;
+      result.Operation = operationKind;
 
       if (value.StartsWith("=")) {
         value = value.Remove(0, 1);
