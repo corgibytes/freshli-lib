@@ -24,11 +24,11 @@ namespace Freshli.Languages.Perl {
     public static string StripVersionRequirements(string value)
         {
             return value.Trim().Replace("==", "")
-                               .Replace(">=", "")
-                               .Replace("<=", "")
-                               .Replace("<", "")
-                               .Replace(">", "")
-                               .Replace("!=", "").Trim();
+              .Replace(">=", "")
+              .Replace("<=", "")
+              .Replace("<", "")
+              .Replace(">", "")
+              .Replace("!=", "").Trim();
         }
   }
 
