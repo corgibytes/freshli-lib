@@ -279,3 +279,11 @@ run the following.
 ```
 docker-compose run eclint
 ```
+
+## Running CodeClimate locally
+
+To run CodeClimate locally, do the following:
+
+1. Make sure Docker is installed on your OS.
+2. Follow the directions for [CodeClimate CLI installation](https://github.com/codeclimate/codeclimate#installation)
+3. Run the following command `sudo codeclimate analyze`.

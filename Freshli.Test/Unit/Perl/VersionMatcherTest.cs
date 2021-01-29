@@ -44,22 +44,22 @@ namespace Freshli.Test.Unit.Perl {
     }
 
     [Theory]
-    [InlineData("2.0", VersionMatcher.OperationKind.GreaterThanEqual, "2.0")]
-    [InlineData(">= 2.0", VersionMatcher.OperationKind.GreaterThanEqual, "2.0")]
-    [InlineData("== 2.0", VersionMatcher.OperationKind.Matching, "2.0")]
-    [InlineData("<= 2.0", VersionMatcher.OperationKind.LessThanEqual, "2.0")]
-    [InlineData("< 2.0", VersionMatcher.OperationKind.LessThan, "2.0")]
-    [InlineData("> 2.0", VersionMatcher.OperationKind.GreaterThan, "2.0")]
-    [InlineData("!= 2.0", VersionMatcher.OperationKind.NotEqual, "2.0")]
-    [InlineData(">=2.0", VersionMatcher.OperationKind.GreaterThanEqual, "2.0")]
-    [InlineData("==2.0", VersionMatcher.OperationKind.Matching, "2.0")]
-    [InlineData("<=2.0", VersionMatcher.OperationKind.LessThanEqual, "2.0")]
-    [InlineData("<2.0", VersionMatcher.OperationKind.LessThan, "2.0")]
-    [InlineData(">2.0", VersionMatcher.OperationKind.GreaterThan, "2.0")]
-    [InlineData("!=2.0", VersionMatcher.OperationKind.NotEqual, "2.0")]
+    [InlineData("2.0", OperationKind.GreaterThanEqual, "2.0")]
+    [InlineData(">= 2.0", OperationKind.GreaterThanEqual, "2.0")]
+    [InlineData("== 2.0", OperationKind.Matching, "2.0")]
+    [InlineData("<= 2.0", OperationKind.LessThanEqual, "2.0")]
+    [InlineData("< 2.0", OperationKind.LessThan, "2.0")]
+    [InlineData("> 2.0", OperationKind.GreaterThan, "2.0")]
+    [InlineData("!= 2.0", OperationKind.NotEqual, "2.0")]
+    [InlineData(">=2.0", OperationKind.GreaterThanEqual, "2.0")]
+    [InlineData("==2.0", OperationKind.Matching, "2.0")]
+    [InlineData("<=2.0", OperationKind.LessThanEqual, "2.0")]
+    [InlineData("<2.0", OperationKind.LessThan, "2.0")]
+    [InlineData(">2.0", OperationKind.GreaterThan, "2.0")]
+    [InlineData("!=2.0", OperationKind.NotEqual, "2.0")]
     public void IdentifiesOperationAndVersion(
       string expression,
-      VersionMatcher.OperationKind operation,
+      OperationKind operation,
       string version
     ) {
       var matcher = VersionMatcher.Create(expression);
