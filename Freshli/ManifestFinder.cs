@@ -17,7 +17,7 @@ namespace Freshli {
 
     public IManifestFinder Finder { get; }
 
-    public string LockFileName => Finder.LockFileName;
+    public string[] ManifestFiles => Finder.GetManifestFilenames(_projectRootPath);
     public bool Successful { get; }
 
     public LibYearCalculator Calculator => new LibYearCalculator(
@@ -33,7 +33,7 @@ namespace Freshli {
       Successful = false;
       foreach (var finder in Finders.ToImmutableList()) {
         finder.FileFinder = fileFinder;
-        if (finder.DoesPathContainManifest(projectRootPath)) {
+        if (finder.GetManifestFilenames(projectRootPath).Any()) {
           Finder = finder;
           Successful = true;
           break;

@@ -91,5 +91,13 @@ namespace Freshli {
       string clonedProjectRoot = NormalizeLocation(projectRootPath);
       return File.ReadAllText(Path.Combine(clonedProjectRoot, filePath));
     }
+
+    public string[] GetManifestFilenames(string projectRootPath, string pattern) {
+      string clonedProjectRoot = NormalizeLocation(projectRootPath);
+      return Directory.GetFiles(clonedProjectRoot,
+                                pattern,
+                                SearchOption.AllDirectories)
+                      .Select(f => Path.GetFileName(f)).ToArray();
+    }
   }
 }

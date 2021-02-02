@@ -10,9 +10,7 @@
             "request": "launch",
             "preLaunchTask": "build",
             "program": "${workspaceFolder}/Freshli/bin/Debug/net5.0/Freshli.dll",
-            // "args": ["https://github.com/corgibytes/freshli-fixture-csharp-test"],
-            // "args": ["https://github.com/corgibytes/freshli-fixture-ruby-nokotest"],
-            "args": ["https://github.com/dfar-io/freshaddress-integration-for-nopcommerce"],
+            "args": ["https://github.com/corgibytes/freshli-fixture-csharp-test"],
             "cwd": "${workspaceFolder}/Freshli",
             "console": "internalConsole",
             "stopAtEntry": false
