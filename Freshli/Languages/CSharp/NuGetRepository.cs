@@ -1,8 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using Freshli.Exceptions;
-using HtmlAgilityPack;
+using NuGet.Common;
+using NuGet.Protocol;
+using NuGet.Protocol.Core.Types;
 
 namespace Freshli.Languages.CSharp {
   public class NuGetRepository : IPackageRepository {
@@ -12,9 +15,32 @@ namespace Freshli.Languages.CSharp {
 
     private IEnumerable<IVersionInfo> GetReleaseHistory(
       string name,
-      bool includePreReleaseVersions)
-    {
-      return new List<IVersionInfo>();
+      bool includePreReleaseVersions) {
+      var versions = GetMetadata(name);
+
+      return versions.Select(v => new FreshliNuGetVersionInfo(v));
+    }
+
+    private IEnumerable<IPackageSearchMetadata> GetMetadata(string name) {
+      ILogger logger = NullLogger.Instance;
+      CancellationToken cancellationToken = CancellationToken.None;
+
+      SourceCacheContext cache = new SourceCacheContext();
+      SourceRepository repository = Repository.Factory.GetCoreV3(
+        "https://api.nuget.org/v3/index.json"
+      );
+      PackageMetadataResource resource =
+        repository.GetResourceAsync<PackageMetadataResource>().Result;
+
+      IEnumerable<IPackageSearchMetadata> packages = resource.GetMetadataAsync(
+          name,
+          includePrerelease: true,
+          includeUnlisted: false,
+          cache,
+          logger,
+          cancellationToken).Result;
+
+      return packages;
     }
 
     public IVersionInfo Latest(
@@ -24,7 +50,7 @@ namespace Freshli.Languages.CSharp {
     {
       try {
         return GetReleaseHistory(name, includePreReleases).
-          OrderByDescending(v => v).
+          OrderByDescending(v => v.DatePublished).
           First(v => asOf >= v.DatePublished);
       } catch (Exception e) {
         throw new LatestVersionNotFoundException(name, asOf, e);
@@ -38,13 +64,6 @@ namespace Freshli.Languages.CSharp {
       } catch (Exception e) {
         throw new VersionNotFoundException(name, version, e);
       }
-    }
-
-    public IVersionInfo Latest(
-      string name,
-      DateTime asOf,
-      string thatMatches) {
-      throw new NotImplementedException();
     }
 
     public List<IVersionInfo> VersionsBetween(
@@ -67,16 +86,8 @@ namespace Freshli.Languages.CSharp {
       }
     }
 
-    private static bool IsReleasePlatformSpecific(HtmlNode node) {
-      var platformSpecific = false;
-      foreach (var span in node.Descendants("span")) {
-        foreach (var className in span.GetClasses()) {
-          if (className == "platform") {
-            platformSpecific = true;
-          }
-        }
-      }
-      return platformSpecific;
+    public IVersionInfo Latest(string name, DateTime asOf, string thatMatches) {
+      throw new NotImplementedException();
     }
   }
 }
