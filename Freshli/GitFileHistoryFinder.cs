@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using LibGit2Sharp;
 
 namespace Freshli {
@@ -82,7 +83,8 @@ namespace Freshli {
 
     public bool Exists(string projectRootPath, string filePath) {
       string clonedProjectRoot = NormalizeLocation(projectRootPath);
-      return File.Exists(Path.Combine(clonedProjectRoot, filePath));
+      //return File.Exists(Path.Combine(clonedProjectRoot, filePath));
+      return Directory.GetFiles(clonedProjectRoot, filePath).Any();
     }
 
     public string ReadAllText(string projectRootPath, string filePath) {
