@@ -26,12 +26,12 @@ namespace Freshli {
         logger.Trace(
           "{analysisPath}: LockFileName: {LockFileName}",
           analysisPath,
-          ManifestFinder.LockFileName
+          ManifestFinder.ManifestFiles[0]
         );
         var calculator = ManifestFinder.Calculator;
 
         var fileHistory = fileHistoryFinder.FileHistoryOf(
-          ManifestFinder.LockFileName
+          ManifestFinder.ManifestFiles[0]
         );
 
         var analysisDates = new AnalysisDates(fileHistory, asOf);
@@ -47,7 +47,7 @@ namespace Freshli {
             "currentDate = {currentDate:d}, " +
             "sha = {sha}, " +
             "libYear = {ComputeAsOf}",
-            ManifestFinder.LockFileName,
+            ManifestFinder.ManifestFiles[0],
             currentDate,
             sha,
             libYear.Total

@@ -1,12 +1,8 @@
 namespace Freshli.Languages.Ruby {
   public class RubyBundlerManifestFinder : IManifestFinder {
+    private string _manifestPattern = "Gemfile.lock";
+
     public IFileHistoryFinder FileFinder { get; set; }
-
-    public bool DoesPathContainManifest(string projectRootPath) {
-      return FileFinder.Exists(projectRootPath, LockFileName);
-    }
-
-    public string LockFileName => "Gemfile.lock";
 
     public IPackageRepository RepositoryFor(string projectRootPath) {
       return new RubyGemsRepository();
@@ -14,6 +10,10 @@ namespace Freshli.Languages.Ruby {
 
     public IManifest ManifestFor(string projectRootPath) {
       return new BundlerManifest();
+    }
+
+    public string[] GetManifestFilenames(string projectRootPath) {
+      return FileFinder.GetManifestFilenames(projectRootPath, _manifestPattern);
     }
   }
 }
