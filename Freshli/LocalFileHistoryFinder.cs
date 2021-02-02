@@ -22,7 +22,10 @@ namespace Freshli {
       return File.ReadAllText(Path.Combine(projectRootPath, filePath));
     }
 
-    public string[] GetManifestFilenames(string projectRootPath, string pattern) {
+    public string[] GetManifestFilenames(
+      string projectRootPath,
+      string pattern
+    ) {
       return Directory.GetFiles(projectRootPath,
                                 pattern,
                                 SearchOption.AllDirectories)
