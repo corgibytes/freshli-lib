@@ -91,7 +91,7 @@ namespace Freshli {
     }
 
     public IList<MetricsResult> Run(string analysisPath) {
-      var asOf = DateTimeHelper.ConvertToEndOfDay(DateTime.Today);
+      var asOf = DateTime.Today.ToEndOfDay();
       return Run(analysisPath, asOf: asOf);
     }
 
