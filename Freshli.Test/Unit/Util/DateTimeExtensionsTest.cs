@@ -3,7 +3,7 @@ using Freshli.Util;
 using Xunit;
 
 namespace Freshli.Test.Unit.Util {
-  public class DateTimeHelperTest {
+  public class DateTimeExtensionsTest {
     private readonly DateTime _baseDateTime =
       new DateTime(2020, 1, 6, 23, 59, 59, 999).AddTicks(9999);
 
@@ -38,7 +38,7 @@ namespace Freshli.Test.Unit.Util {
         millisecond
       ).AddTicks(tick);
 
-      var inputDateEoD = DateTimeHelper.ConvertToEndOfDay(inputDate);
+      var inputDateEoD = inputDate.ToEndOfDay();
 
       Assert.Equal(
         comparison,
