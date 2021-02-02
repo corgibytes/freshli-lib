@@ -1,12 +1,11 @@
 using System;
 using NuGet.Protocol.Core.Types;
-using NuGet.Versioning;
 
 namespace Freshli.Languages.CSharp {
   /**
-   *  This serves as a wrapper for the 'NuGetVersion' class in the NuGet
-   *  Client SDK.
-   */
+  *  This serves as a wrapper for the 'NuGetVersion' class in the NuGet
+  *  Client SDK.
+  */
   public class FreshliNuGetVersionInfo : IVersionInfo {
     private IPackageSearchMetadata _packageSearchMetadata;
 
