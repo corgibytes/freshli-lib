@@ -212,16 +212,23 @@ The console output is designed to make it easy to copy and paste into a spreadsh
 
 ### Jupyter Notebook
 
+#### Prerequisites
 If you want to generate graphs in a Jupyter Notebook, there is some additional setup that you need to follow.
 
-1. Install Jupyter-Lab or nteract
-1. Install dontet/interactive
+1. Install [Jupyter-Lab](https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html) or nteract.
+1. Install [dontet/interactive.](https://github.com/dotnet/interactive/blob/main/docs/NotebooksLocalExperience.md)
 
+#### Sample Notebook
 A [sample notebook](https://github.com/corgibytes/freshli/blob/main/Sample.ipynb) can be found in this repository.
+To run the statements within this sample file, you will need to pull down a local version of
+[XPlot]() and run the build script located inside of this project. Note that, currently,
+the XPlot build will fail unless the 3.1.201 SDK is installed on your local machine as a breaking
+change to this project was introduced in dotnet SDK 3.1.300. However, for the sample below, this step is unnecessary.
 
+#### Initial Steps
 Before working with `freshli` in a Jupyter Notebook you have to package it as a NuGet package by running `dotnet pack`.
 
-Once that's done, you'll need to import and require `freshli` as a NuGet package by running the following.
+Once that's done, you'll need to import and require `freshli` as a NuGet package by running the following within a C# Jupyter Notebook.
 
 ```
 #i nuget:/Users/mscottford/src/corgibytes/freshli/Freshli/bin/Debug
@@ -230,6 +237,7 @@ Once that's done, you'll need to import and require `freshli` as a NuGet package
 
 You'll need to change the path above to match the absolute path where the `.nupkg` file can be found.
 
+#### Processing Freshli and Generating a Graph
 The following script will allow you to create simple line graphs to plot a project or multiple projects.
 
 ```csharp
@@ -241,14 +249,12 @@ using Freshli.Languages.Ruby;
 using Freshli.Languages.Php;
 using Freshli.Languages.Python;
 
-ManifestFinder.Register<RubyBundlerManifestFinder>();
-ManifestFinder.Register<PhpComposerManifestFinder>();
-ManifestFinder.Register<PipRequirementsTxtManifestFinder>();
+ManifestFinder.RegisterAll();
 
 FileHistoryFinder.Register<GitFileHistoryFinder>();
 
 PlotlyChart CreateLineGraphFor(Dictionary<string, IList<MetricsResult>> projects) {
-    var lineSeries = projects.Select(p => new Scattergl {
+    var lineSeries = projects.Select(p => new Graph.Scattergl {
         name = p.Key,
         x = p.Value.Select(r => r.Date),
         y = p.Value.Select(r => r.LibYear.Total)
@@ -265,10 +271,14 @@ You can then generate a graph by running:
 
 ```csharp
 var runner = new Runner();
-var projects = new Dictionary<string, IList<MetrictsResult>>();
+var projects = new Dictionary<string, IList<MetricsResult>>();
 projects["example"] = runner.Run("https://github.com/corgibytes/freshli-fixture-ruby-nokotest");
 display(CreateLineGraphFor(projects))
 ```
+
+Note that depending on the size and complexity of your project, the graph may take a minute to display as it will take Freshli a moment to process through all of the data.
+
+
 
 ## Running `eclint` via docker-compose
 
