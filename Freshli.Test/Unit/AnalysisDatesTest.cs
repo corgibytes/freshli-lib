@@ -35,13 +35,13 @@ namespace Freshli.Test.Unit {
     public void DateRange() {
       var history = new Mock<IFileHistory>();
       var dates = new List<DateTime>() {
-        ParseExact("2017-01-01T00:00:00.0000000Z"),
-        ParseExact("2018-01-01T00:00:00.0000000Z"),
-        ParseExact("2019-01-01T00:00:00.0000000Z")
+        ParseExact("2017-01-01T23:59:59.9999999Z"),
+        ParseExact("2018-01-01T23:59:59.9999999Z"),
+        ParseExact("2019-01-01T23:59:59.9999999Z")
       };
 
       history.Setup(mock => mock.Dates).Returns(dates);
-      var stopDate = ParseExact("2020-01-01T00:00:00.0000000Z");
+      var stopDate = ParseExact("2020-01-01T23:59:59.9999999Z");
       var analysisDates = new AnalysisDates(
         history.Object,
         asOf: stopDate
@@ -61,14 +61,14 @@ namespace Freshli.Test.Unit {
     public void DateRangeStopsOnSpeciedDate() {
       var history = new Mock<IFileHistory>();
       var dates = new List<DateTime>() {
-        ParseExact("2017-01-01T00:00:00.0000000Z"),
-        ParseExact("2018-01-01T00:00:00.0000000Z"),
-        ParseExact("2019-01-01T00:00:00.0000000Z"),
-        ParseExact("2020-01-01T00:00:00.0000000Z")
+        ParseExact("2017-01-01T23:59:59.9999999Z"),
+        ParseExact("2018-01-01T23:59:59.9999999Z"),
+        ParseExact("2019-01-01T23:59:59.9999999Z"),
+        ParseExact("2020-01-01T23:59:59.9999999Z")
       };
 
       history.Setup(mock => mock.Dates).Returns(dates);
-      var stopDate = ParseExact("2019-01-01T00:00:00.0000000Z");
+      var stopDate = ParseExact("2019-01-01T23:59:59.9999999Z");
       var analysisDates = new AnalysisDates(
         history.Object,
         asOf: stopDate
@@ -90,6 +90,7 @@ namespace Freshli.Test.Unit {
       var dates =
         new List<DateTime>() {ParseExact("2016-12-15T00:00:00.0000000Z")};
 
+      // TODO Is the name stopDate misleading as it is now inclusive?
       history.Setup(mock => mock.Dates).Returns(dates);
       var stopDate = ParseExact("2019-01-01T00:00:00.0000000Z");
       var analysisDates = new AnalysisDates(
@@ -98,7 +99,7 @@ namespace Freshli.Test.Unit {
       );
 
       Assert.Equal(
-        ParseExact("2017-01-01T00:00:00.0000000Z"),
+        ParseExact("2017-01-01T23:59:59.9999999Z"),
         analysisDates.First()
       );
     }
