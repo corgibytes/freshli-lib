@@ -440,3 +440,5 @@ Freshli.sln.DotSettings.user
 *.log
 results/
 
+Freshli.Test/coverage.json
+Freshli.Test/lcov.info
