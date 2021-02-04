@@ -20,11 +20,16 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.101
-    - name: Install dependencies
-      run: dotnet restore
+    - name: Set up CodeClimate Test Reporter
+      run: |
+        curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./codeclimate-test-reporter
+        chmod +x ./codeclimate-test-reporter
+        ./codeclimate-test-reporter before-build
     - name: Build
-      run: dotnet build --configuration Release --no-restore
+      run: dotnet build --configuration Release
     - name: Test
       run: |
-        timedatectl set-timezone 'Etc/UTC'
-        dotnet test --no-restore --verbosity normal
+        dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=lcov
+        mkdir coverage && mv ./Freshli.Test/coverage.info ./coverage/lcov.info
+    - name: Send Test Report to CodeClimate
+      run: ./codeclimate-test-reporter after-build -t lcov -r ${{ secrets.TEST_REPORTER_ID }}
