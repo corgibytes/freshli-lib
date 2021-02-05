@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Freshli.Extensions;
 
 namespace Freshli.Languages.Python {
   public abstract class VersionMatcher {
@@ -20,8 +21,6 @@ namespace Freshli.Languages.Python {
     public PythonVersionInfo BaseVersion { get; private set; }
 
     public static VersionMatcher Create(string value) {
-      VersionMatcher result = null;
-
       if (string.IsNullOrEmpty(value)) {
         return new AnyVersionMatcher();
       }
@@ -32,19 +31,24 @@ namespace Freshli.Languages.Python {
 
       value = RemoveEnvironmentMarkers(value);
 
-      if (value.StartsWith("==")) {
-        result = ProcessEqual(ref value);
-      } else if (value.StartsWith("<")) {
-        result = ProcessLessThan(value);
-      } else if (value.StartsWith(">")) {
-        result = ProcessGreaterThan(value);
-      } else if (value.StartsWith("!=")) {
-        result = ProcessNotEqual(ref value);
-      } else if (value.StartsWith("~=")) {
-        result = ProcessCompatible(value);
+      switch (value.GetVersionRequirement())
+      {
+        case "==":
+          return ProcessEqual(ref value);
+        case "<":
+        case "<=":
+          return ProcessLessThan(value);
+        case ">":
+        case ">=":
+          return ProcessGreaterThan(value);
+        case "!=":
+          return ProcessNotEqual(ref value);
+        case "~=":
+          return ProcessCompatible(value);
+        default:
+          throw new ArgumentException($"Invalid value '{value}' provided" +
+                                       "for Python VersionMatcher.Create()");
       }
-
-      return result;
     }
 
     private static VersionMatcher ProcessGreaterThan(string value) {
@@ -182,10 +186,11 @@ namespace Freshli.Languages.Python {
           return version.CompareTo(BaseVersion) >= 0;
         case OperationKind.NotEqual:
           return version.CompareTo(BaseVersion) != 0;
+        default:
+          throw new ArgumentException($"Invalid OperationKind {Operation} " +
+                                      "provided for VersionMatcher.DoesMatch()"
+                                      );
       }
-
-      // should this be an exception? I don't think this should be reachable.
-      return false;
     }
   }
 

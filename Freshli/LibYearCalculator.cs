@@ -99,7 +99,6 @@ namespace Freshli {
       return packageResult;
     }
 
-    // We should look into moving this into LibYearPackageResult.cs
     public static double Compute(
       IVersionInfo olderVersion, IVersionInfo newerVersion)
     {
@@ -151,8 +150,10 @@ namespace Freshli {
             );
           }
         }
-      // Should we log this instead?
-      } catch (NotImplementedException) {}
+      } catch (NotImplementedException) {
+        _logger.Trace("Unable to calculate versions between due to language " +
+                      "not being implemented, skipping.");
+      }
 
       return null;
     }

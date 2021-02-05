@@ -156,9 +156,6 @@ namespace Freshli {
 
       var match = _versionExpression.Match(Version);
       Major = ConvertToNullableNumber(match.Groups[1].Value);
-
-      match = _versionExpression.Match(Version);
-
       Minor = ConvertToNullableNumber(match.Groups[2].Value);
       Patch = ConvertToNullableNumber(match.Groups[3].Value);
       PreRelease = ConvertToNullableString(match.Groups[4].Value);

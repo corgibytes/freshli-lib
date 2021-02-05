@@ -1,8 +1,5 @@
-using System;
-using System.Text.RegularExpressions;
-
 namespace Freshli.Languages.Perl {
-    public enum OperationKind {
+  public enum OperationKind {
         NotFound,
         Matching,
         LessThan,
@@ -16,11 +13,7 @@ namespace Freshli.Languages.Perl {
     {
         public static OperationKind ToOperationKind(this string value)
         {
-            string pattern = @"[<>=!]{1,2}";
-            Match m = Regex.Match(value, pattern);
-            var versionRequirement = m.Value;
-
-            switch (versionRequirement)
+            switch (value.GetVersionRequirement())
             {
                 case "==":
                     return OperationKind.Matching;
