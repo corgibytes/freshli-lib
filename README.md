@@ -35,63 +35,11 @@ Freshli reads source code repository history to access previous version of each 
 
 ### Running `freshli`
 
-Right now to run `freshli` from the command line, you need to have the [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) installed.
+To run `freshli` from the command line, the project [freshli-cli](https://github.com/corgibytes/freshli-cli) is required.
+Please reference the [README](https://github.com/corgibytes/freshli-cli#getting-started-with-freshli-cli) instructions found there.
 
-Once you do, you can run use `dotnet run --project Freshli/Freshli.csproj -- <url>` to run the project.
 
-Here's an example:
-
-```
-➜  freshli git:(main) ✗ dotnet run --project Freshli/Freshli.csproj -- http://github.com/corgibytes/freshli-fixture-ruby-nokotest
-VersionInfo.cs(201,32): warning CS8632: The annotation for nullable reference types should only be used in code within a '#nullable' annotations context. [/Users/mscottford/src/corgibytes/freshli/Freshli/Freshli.csproj]
-2020/06/18 16:20:36.449| INFO|Freshli.Program:16|Main(System.String[])
-2020/06/18 16:20:36.480| INFO|Freshli.Program:29|Collecting data for http://github.com/corgibytes/freshli-fixture-ruby-nokotest
-2020/06/18 16:20:36.480| INFO|Freshli.Runner:13|Run(http://github.com/corgibytes/freshli-fixture-ruby-nokotest, 6/18/2020 12:00:00 AM)
-2017/01/01	0.000
-2017/02/01	0.022
-2017/03/01	0.022
-2017/04/01	0.227
-2017/05/01	0.227
-2017/06/01	0.364
-2017/07/01	1.852
-2017/08/01	1.852
-2017/09/01	1.852
-2017/10/01	2.416
-2017/11/01	2.416
-2017/12/01	2.416
-2018/01/01	0.000
-2018/02/01	0.362
-2018/03/01	0.362
-2018/04/01	0.362
-2018/05/01	0.362
-2018/06/01	0.362
-2018/07/01	0.740
-2018/08/01	0.789
-2018/09/01	0.789
-2018/10/01	0.789
-2018/11/01	1.044
-2018/12/01	1.044
-2019/01/01	0.000
-2019/02/01	0.071
-2019/03/01	0.071
-2019/04/01	0.266
-2019/05/01	0.342
-2019/06/01	0.342
-2019/07/01	0.342
-2019/08/01	0.342
-2019/09/01	0.647
-2019/10/01	0.647
-2019/11/01	0.868
-2019/12/01	0.868
-2020/01/01	0.962
-2020/02/01	0.962
-2020/03/01	2.378
-2020/04/01	2.433
-2020/05/01	2.433
-2020/06/01	2.433
-```
-
-`freshli` should build and run on any platform that's supported by the .NET Core SDK. It is heavily tested on both macOS and Windows. If you run into problems, please open an issue. The output from above was captured from running in `zsh` on macOS Catalina (10.15.5).
+`freshli` should build and run on any platform that's supported by the .NET Core SDK. It is heavily tested on both macOS and Windows. If you run into problems, please open an issue.
 
 
 ### Building `freshli`
@@ -104,15 +52,14 @@ This is what a successful command line build looks like:
 
 ```
 ➜  freshli git:(main) ✗ dotnet build
-Microsoft (R) Build Engine version 16.6.0+5ff7b0c9e for .NET Core
+Microsoft (R) Build Engine version 16.8.0+126527ff1 for .NET
 Copyright (C) Microsoft Corporation. All rights reserved.
 
   Determining projects to restore...
-  Restored /Users/mscottford/src/corgibytes/freshli/Freshli/Freshli.csproj (in 244 ms).
-  Restored /Users/mscottford/src/corgibytes/freshli/Freshli.Test/Freshli.Test.csproj (in 303 ms).
-VersionInfo.cs(200,32): warning CS8632: The annotation for nullable reference types should only be used in code within a '#nullable' annotations context. [/Users/mscottford/src/corgibytes/freshli/Freshli/Freshli.csproj]
-  Freshli -> /Users/mscottford/src/corgibytes/freshli/Freshli/bin/Debug/netcoreapp3.1/Freshli.dll
-  Freshli.Test -> /Users/mscottford/src/corgibytes/freshli/Freshli.Test/bin/Debug/netcoreapp3.1/Freshli.Test.dll
+  Restored /Users/danhein/RiderProjects/freshli/Freshli/Freshli.csproj (in 259 ms).
+  Restored /Users/danhein/RiderProjects/freshli/Freshli.Test/Freshli.Test.csproj (in 283 ms).
+  Freshli -> /Users/danhein/RiderProjects/freshli/Freshli/bin/Debug/net5.0/Freshli.dll
+  Freshli.Test -> /Users/danhein/RiderProjects/freshli/Freshli.Test/bin/Debug/net5.0/Freshli.Test.dll
   Archive:  nokotest.zip
     inflating: nokotest/Gemfile
     inflating: nokotest/Gemfile.lock
@@ -148,12 +95,10 @@ VersionInfo.cs(200,32): warning CS8632: The annotation for nullable reference ty
    extracting: nokotest/.git/COMMIT_EDITMSG
 
 Build succeeded.
-
-VersionInfo.cs(200,32): warning CS8632: The annotation for nullable reference types should only be used in code within a '#nullable' annotations context. [/Users/mscottford/src/corgibytes/freshli/Freshli/Freshli.csproj]
-    1 Warning(s)
+    0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:06.31
+Time Elapsed 00:00:04.29
 ```
 
 ### Running the test suite
@@ -164,26 +109,27 @@ Here's an example of a successful test run:
 
 ```
 ➜  freshli git:(main) ✗ dotnet test
-VersionInfo.cs(200,32): warning CS8632: The annotation for nullable reference types should only be used in code within a '#nullable' annotations context. [/Users/mscottford/src/corgibytes/freshli/Freshli/Freshli.csproj]
-Test run for /Users/mscottford/src/corgibytes/freshli/Freshli.Test/bin/Debug/netcoreapp3.1/Freshli.Test.dll(.NETCoreApp,Version=v3.1)
-Microsoft (R) Test Execution Command Line Tool Version 16.6.0
+Test run for /Users/dev/RiderProjects/freshli/Freshli.Test/bin/Debug/net5.0/Freshli.Test.dll (.NETCoreApp,Version=v5.0)
+Microsoft (R) Test Execution Command Line Tool Version 16.8.1
 Copyright (c) Microsoft Corporation.  All rights reserved.
+
 
 Starting test execution, please wait...
 
+Starting test execution, please wait...
 A total of 1 test files matched the specified pattern.
-2020/06/18 16:26:41.137| INFO|Freshli.Runner:13|Run(/Users/mscottford/src/corgibytes/freshli/Freshli.Test/bin/Debug/netcoreapp3.1/fixtures/ruby/nokotest, 1/1/2020 12:00:00 AM)
-2020/06/18 16:26:41.727| INFO|Freshli.Runner:13|Run(https://github.com/feedbin/feedbin, 1/1/2020 12:00:00 AM)
-2020/06/18 16:27:44.109| INFO|Freshli.Runner:13|Run(/Users/mscottford/src/corgibytes/freshli/Freshli.Test/bin/Debug/netcoreapp3.1/fixtures/php/large, 1/1/2020 12:00:00 AM)
-2020/06/18 16:28:29.944| INFO|Freshli.Runner:13|Run(/Users/mscottford/src/corgibytes/freshli/Freshli.Test/bin/Debug/netcoreapp3.1/fixtures/php/drupal, 1/1/2020 12:00:00 AM)
-2020/06/18 16:28:38.347| INFO|Freshli.Runner:13|Run(https://github.com/binux/pyspider, 1/1/2020 12:00:00 AM)
-2020/06/18 16:28:50.405| INFO|Freshli.Runner:13|Run(https://github.com/corgibytes/freshli-fixture-ruby-nokotest, 1/1/2020 12:00:00 AM)
-2020/06/18 16:28:52.291| INFO|Freshli.Runner:13|Run(https://github.com/thoughtbot/clearance, 6/18/2020 12:00:00 AM)
+2021/02/08 12:56:19.720| INFO|Freshli.ManifestFinder:57|Registering IManifestFinder: Freshli.Languages.Ruby.RubyBundlerManifestFinder
+2021/02/08 12:56:19.720| INFO|Freshli.ManifestFinder:57|Registering IManifestFinder: Freshli.Languages.Ruby.RubyBundlerManifestFinder
+2021/02/08 12:56:19.762| INFO|Freshli.ManifestFinder:57|Registering IManifestFinder: Freshli.Languages.Python.PipRequirementsTxtManifestFinder
+2021/02/08 12:56:19.762| INFO|Freshli.ManifestFinder:57|Registering IManifestFinder: Freshli.Languages.Python.PipRequirementsTxtManifestFinder
+2021/02/08 12:56:19.765| INFO|Freshli.ManifestFinder:57|Registering IManifestFinder: Freshli.Languages.Php.PhpComposerManifestFinder
+2021/02/08 12:56:19.765| INFO|Freshli.ManifestFinder:57|Registering IManifestFinder: Freshli.Languages.Php.PhpComposerManifestFinder
+2021/02/08 12:56:19.765| INFO|Freshli.ManifestFinder:57|Registering IManifestFinder: Freshli.Languages.Perl.CpanfileManifestFinder
+2021/02/08 12:56:19.766| INFO|Freshli.ManifestFinder:57|Registering IManifestFinder: Freshli.Languages.Perl.CpanfileManifestFinder
+. . .
 
-Test Run Successful.
-Total tests: 334
-     Passed: 334
- Total time: 2.6251 Minutes
+
+Passed!  - Failed:     0, Passed:   823, Skipped:     0, Total:   823, Duration: 6 m 37 s
 ```
 
 The tests currently take longer to run than we would like. We're exploring ways to speed that up. You can run a subset of tests by including the `--filter` flag, e.g. `dotnet test --filter ComputeAsOf`.
