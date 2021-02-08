@@ -1,8 +1,7 @@
 [![.NET Core](https://github.com/corgibytes/freshli/workflows/.NET%20Core/badge.svg)](https://github.com/corgibytes/freshli/actions?query=workflow%3A%22.NET+Core%22)
 [![Docker Image CI](https://github.com/corgibytes/freshli/workflows/Docker%20Image%20CI/badge.svg)](https://github.com/corgibytes/freshli/actions?query=workflow%3A%22Docker+Image+CI%22)
 [![EditorConfig Lint](https://github.com/corgibytes/freshli/workflows/EditorConfig%20Lint/badge.svg)](https://github.com/corgibytes/freshli/actions?query=workflow%3A%22EditorConfig+Lint%22)
-[![Maintainability](https://api.codeclimate.com/v1/badges/d808370d214bbda62e58/maintainability)](https://codeclimate.com/repos/601c1f18f9414200c900094b/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/d808370d214bbda62e58/test_coverage)](https://codeclimate.com/repos/601c1f18f9414200c900094b/test_coverage)
+<a href="https://codeclimate.com/github/corgibytes/freshli/maintainability"><img src="https://api.codeclimate.com/v1/badges/b5bd41216ffbc74eb0ee/maintainability" /></a>
 
 # freshli
 A tool for collecting historical metrics about a project's dependencies
@@ -279,4 +278,24 @@ run the following.
 
 ```
 docker-compose run eclint
+```
+
+## Running CodeClimate locally
+
+To run CodeClimate locally, do the following:
+
+1. Make sure Docker is installed on your OS.
+2. Follow the directions for [CodeClimate CLI installation](https://github.com/codeclimate/codeclimate#installation)
+3. Run the following command `sudo codeclimate analyze`.
+
+## Running Github Action locally
+
+When developing the Github Action, consider running it locally before commit
+with the [act](https://github.com/nektos/act) tool.
+
+1. [Install](https://github.com/nektos/act#installation) act.
+2. Run with the following command, noting you can add secrets:
+
+```
+act -s secret_key=secret_value
 ```
