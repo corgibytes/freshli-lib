@@ -23,7 +23,6 @@ namespace Freshli.Languages.CSharp {
         _packageSearchMetadata.Identity.Version.IsPrerelease;
 
     public int CompareTo(object obj) {
-      //throw new NotImplementedException();
       return 0;
     }
   }
