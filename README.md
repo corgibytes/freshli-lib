@@ -103,6 +103,8 @@ With Visual Studio Code, you can quickly get started with development with the
 [Remote Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
 
 1. Install Docker, Visual Studio Code, and the [Remote Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
+1. Open the project inside of Visual Studio Code, and use the Command Palette to `Rebuild and Reopen in Container`.
+1. After reloading, press F5 to `Start Debugging`, using the default argument provided. 
 
 #### Other Methods
 
