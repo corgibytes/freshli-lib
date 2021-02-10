@@ -83,7 +83,6 @@ namespace Freshli {
 
     public bool Exists(string projectRootPath, string filePath) {
       string clonedProjectRoot = NormalizeLocation(projectRootPath);
-      //return File.Exists(Path.Combine(clonedProjectRoot, filePath));
       return Directory.GetFiles(clonedProjectRoot, filePath).Any();
     }
 
