@@ -56,7 +56,10 @@ namespace Freshli {
       }
 
       foreach (var type in manifestFinderTypes) {
-        logger.Log(LogLevel.Info, $"Registering AbstractManifestFinder: {type}");
+        logger.Log(
+          LogLevel.Info,
+          $"Registering AbstractManifestFinder: {type}"
+        );
         Register((AbstractManifestFinder) Activator.CreateInstance(type));
       }
     }

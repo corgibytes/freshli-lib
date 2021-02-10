@@ -1,7 +1,7 @@
 namespace Freshli.Languages.Ruby {
   public class RubyBundlerManifestFinder : AbstractManifestFinder {
     protected override string ManifestPattern => "Gemfile.lock";
-    
+
     public override IPackageRepository RepositoryFor(string projectRootPath) {
       return new RubyGemsRepository();
     }
