@@ -8,9 +8,7 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -20,11 +18,13 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.101
-    - name: Install dependencies
-      run: dotnet restore
     - name: Build
-      run: dotnet build --configuration Release --no-restore
-    - name: Test
-      run: |
-        timedatectl set-timezone 'Etc/UTC'
-        dotnet test --no-restore --verbosity normal
+      run: dotnet build --configuration Release
+    - name: Test, Generate Code Coverage  
+      uses: paambaati/codeclimate-action@v2.7.5
+      env:
+        CC_TEST_REPORTER_ID: ${{ secrets.TEST_REPORTER_ID }}
+      with:
+        coverageCommand: dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=lcov
+        coverageLocations: |
+          ${{github.workspace}}/Freshli.Test/coverage.info:lcov

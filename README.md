@@ -279,3 +279,23 @@ run the following.
 ```
 docker-compose run eclint
 ```
+
+## Running CodeClimate locally
+
+To run CodeClimate locally, do the following:
+
+1. Make sure Docker is installed on your OS.
+2. Follow the directions for [CodeClimate CLI installation](https://github.com/codeclimate/codeclimate#installation)
+3. Run the following command `sudo codeclimate analyze`.
+
+## Running Github Action locally
+
+When developing the Github Action, consider running it locally before commit
+with the [act](https://github.com/nektos/act) tool.
+
+1. [Install](https://github.com/nektos/act#installation) act.
+2. Run with the following command, noting you can add secrets:
+
+```
+act -s secret_key=secret_value
+```
