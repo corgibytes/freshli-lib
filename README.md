@@ -97,6 +97,15 @@ VersionInfo.cs(201,32): warning CS8632: The annotation for nullable reference ty
 
 ### Building `freshli`
 
+#### Using Visual Studio Code
+
+With Visual Studio Code, you can quickly get started with development with the
+[Remote Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
+
+1. Install Docker, Visual Studio Code, and the [Remote Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
+
+#### Other Methods
+
 There are multiple ways to build `freshli`. The simplest is directly on the command line by running `dotnet build`.
 
 You can also use an IDE for working on `freshli`. Most of the project's developers use JetBrains Rider, but you can also use Visual Studio 2019. If you don't want to use an IDE, then a text editor with good C# support such as Visual Studio Code or Atom also works equally well.
