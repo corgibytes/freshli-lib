@@ -7,11 +7,6 @@ using Xunit;
 namespace Freshli.Test {
   [UseReporter(typeof(XUnit2Reporter))]
   public class Acceptance {
-    public Acceptance() {
-      ManifestFinder.RegisterAll();
-
-      FileHistoryFinder.Register<GitFileHistoryFinder>();
-    }
 
     private DateTime _testingBoundary =
       new DateTime(2020, 01, 01, 0, 0, 0, DateTimeKind.Utc);
