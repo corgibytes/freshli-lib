@@ -46,8 +46,9 @@ namespace Freshli.Languages.Python {
         case "~=":
           return ProcessCompatible(value);
         default:
-          throw new ArgumentException($"Invalid value '{value}' provided" +
-                                       "for Python VersionMatcher.Create()");
+          throw new ArgumentException(
+            $"Invalid value '{value}' provided for Python " +
+            "VersionMatcher.Create()");
       }
     }
 
