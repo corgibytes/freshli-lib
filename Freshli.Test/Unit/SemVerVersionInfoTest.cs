@@ -1,3 +1,4 @@
+using System;
 using Freshli.Exceptions;
 using Xunit;
 
@@ -122,6 +123,26 @@ namespace Freshli.Test.Unit {
     public void ParseVersionThrowsErrorIfNotParsable(string version) {
       Assert.Throws<VersionParseException>
         (() => new SemVerVersionInfo(version));
+    }
+
+    [Fact]
+    public void CompareToThrowsExceptionIfNull() {
+      Assert.Throws<ArgumentException>
+        (() => new SemVerVersionInfo("1.0.0").CompareTo(null));
+    }
+
+    [Fact]
+    public void ConvertsToString() {
+      var versionInfo = new SemVerVersionInfo("1.0.0");
+      Assert.Equal(
+        $"{nameof(versionInfo.Major)}: {versionInfo.Major}, " +
+        $"{nameof(versionInfo.Minor)}: {versionInfo.Minor}, " +
+        $"{nameof(versionInfo.Patch)}: {versionInfo.Patch}, " +
+        $"{nameof(versionInfo.PreRelease)}: {versionInfo.PreRelease}, " +
+        $"{nameof(versionInfo.BuildMetadata)}: {versionInfo.BuildMetadata}, " +
+        $"{nameof(versionInfo.DatePublished)}: {versionInfo.DatePublished:d}",
+        versionInfo.ToString()
+      );
     }
   }
 }

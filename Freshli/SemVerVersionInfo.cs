@@ -22,7 +22,7 @@ namespace Freshli {
     private string _preRelease;
 
     public string Version { get; private set; }
-    public long? Major { get; private set; }
+    public long Major { get; private set; }
     public long? Minor { get; private set; }
     public long? Patch { get; private set; }
     public DateTime DatePublished { get; set; }
@@ -70,12 +70,8 @@ namespace Freshli {
 
     // We are treating zero as either equal or doesn't exist, meaning
     // we should go to the next item.
-    private int CompareMajor(long? otherMajor) {
-      if (!Major.HasValue || !otherMajor.HasValue) {
-        return 0;
-      }
-
-      return Major.Value.CompareTo(otherMajor.Value);
+    private int CompareMajor(long otherMajor) {
+      return Major.CompareTo(otherMajor);
     }
 
     private int CompareMinor(long? otherMinor) {
@@ -155,7 +151,7 @@ namespace Freshli {
       }
 
       var match = _versionExpression.Match(Version);
-      Major = ConvertToNullableNumber(match.Groups[1].Value);
+      Major = Convert.ToInt64(match.Groups[1].Value);
       Minor = ConvertToNullableNumber(match.Groups[2].Value);
       Patch = ConvertToNullableNumber(match.Groups[3].Value);
       PreRelease = ConvertToNullableString(match.Groups[4].Value);

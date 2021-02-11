@@ -1,3 +1,4 @@
+using System;
 using Freshli.Languages.Python;
 using Xunit;
 
@@ -430,6 +431,12 @@ namespace Freshli.Test.Unit.Python {
       var info = new PythonVersionInfo(version);
       var matcher = VersionMatcher.Create(expression);
       Assert.Equal(doesMatch, matcher.DoesMatch(info));
+    }
+
+    [Fact]
+    public void ThrowsExceptionForInvalidExpression() {
+      Assert.Throws<ArgumentException>(testCode: () =>
+        VersionMatcher.Create("~~1.0"));
     }
   }
 }

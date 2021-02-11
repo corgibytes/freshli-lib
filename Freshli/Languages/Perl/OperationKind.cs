@@ -1,3 +1,5 @@
+using Freshli.Extensions;
+
 namespace Freshli.Languages.Perl {
   public enum OperationKind {
         NotFound,

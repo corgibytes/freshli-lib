@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 
 namespace Freshli.Languages.Perl {
   public abstract class VersionMatcher {

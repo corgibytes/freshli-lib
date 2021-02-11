@@ -71,5 +71,12 @@ namespace Freshli.Test.Unit.Perl {
         basicMatcher.BaseVersion
       );
     }
+
+    [Fact]
+    public void HandlesNoMatchingOperationKind() {
+      var basicMatcher = new BasicVersionMatcher();
+      var versionInfo = new SemVerVersionInfo("1.0.0");
+      Assert.False(basicMatcher.DoesMatch(versionInfo));
+    }
   }
 }

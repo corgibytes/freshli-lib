@@ -724,5 +724,17 @@ namespace Freshli.Test.Unit.Python {
       Assert.Throws<ArgumentException>(testCode: () =>
         versionInfo.CompareTo(otherVersion));
     }
+
+    [Fact]
+    public void ConvertsToString()
+    {
+      var now = DateTime.UtcNow;
+      var versionInfo = new PythonVersionInfo("1.0.0", now);
+      Assert.Equal(
+        $"{nameof(versionInfo.Version)}: {versionInfo.Version}, " +
+        $"{nameof(versionInfo.DatePublished)}: {versionInfo.DatePublished:d}",
+        versionInfo.ToString()
+      );
+    }
   }
 }
