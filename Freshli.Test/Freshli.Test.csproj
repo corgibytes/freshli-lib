@@ -26,8 +26,8 @@
       <None Update="fixtures\**">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="Unit\Generic\test_manifest.json">
-        <DependentUpon>GenericManifestTest.cs</DependentUpon>
+      <None Update="Unit\Generic\Model\test_manifest.json">
+        <DependentUpon>ManifestModelTest.cs</DependentUpon>
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
     </ItemGroup>

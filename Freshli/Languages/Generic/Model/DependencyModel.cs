@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
+using Freshli.Exceptions;
 using Newtonsoft.Json;
 
-namespace Freshli.Languages.Generic {
-  public class GenericDependency {
+namespace Freshli.Languages.Generic.Model {
+  public class DependencyModel {
     [JsonProperty("name")] public string Name { get; set; }
 
     [JsonProperty("allows_prerelease")]
@@ -13,33 +13,39 @@ namespace Freshli.Languages.Generic {
     [JsonProperty("specs")]
     public IList<Spec> VersionSpecs { get; set; }
 
-    public enum Operator {
-      Equals,
-      LessThan,
-      LessThanOrEqualTo,
-      GreaterThan,
-      GreaterThanOrEqualTo,
-      LatestMinor,
-      Unknown
+    public string ConvertSpecsToString() {
+      return string.Join(',', VersionSpecs);
     }
 
-    public static Operator FromStringToOperator(string op) {
-      return op switch {
-        "=" => Operator.Equals,
-        "<" => Operator.LessThan,
-        "<=" => Operator.LessThanOrEqualTo,
-        ">" => Operator.GreaterThan,
-        ">=" => Operator.GreaterThanOrEqualTo,
-        "latest" => Operator.LatestMinor,
-        _ => Operator.Unknown
-      };
+    public static IList<Spec> ParseSpecsFromString(string aggregatedSpecs) {
+      var specs = new List<Spec>();
+
+      foreach (var specPair in aggregatedSpecs.Split(',')) {
+        var splitSpec = specPair.Split(' ');
+        if (splitSpec.Length != 2) {
+          throw new VersionParseException(specPair);
+        }
+
+        var spec = new Spec {
+          Op = GenericOperator.FromStringToOperator(splitSpec[0]),
+          Version = splitSpec[1]
+        };
+
+        specs.Add(spec);
+      }
+
+      return specs;
     }
 
     public class Spec {
       [JsonProperty("operator")]
       [JsonConverter(typeof(OperatorConverter))]
-      public Operator Op { get; set; }
+      public GenericOperator.Operator Op { get; set; }
       [JsonProperty("version")] public string Version { get; set; }
+
+      public override string ToString() {
+        return GenericOperator.FromOperatorToString(Op) + " " + Version;
+      }
     }
 
     private class OperatorConverter : JsonConverter
@@ -52,7 +58,7 @@ namespace Freshli.Languages.Generic {
         {
             var enumString = (string)reader.Value;
 
-            return FromStringToOperator(enumString);
+            return GenericOperator.FromStringToOperator(enumString);
         }
 
         public override bool CanConvert(Type objectType)
