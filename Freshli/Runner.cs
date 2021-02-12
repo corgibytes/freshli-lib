@@ -13,6 +13,11 @@ namespace Freshli {
 
     public ManifestFinder ManifestFinder { get; private set; }
 
+    public Runner() {
+      ManifestFinder.RegisterAll();
+      FileHistoryFinder.Register<GitFileHistoryFinder>();
+    }
+
     public IList<MetricsResult> Run(string analysisPath, DateTime asOf) {
       logger.Info($"Run({analysisPath}, {asOf:d})");
 
