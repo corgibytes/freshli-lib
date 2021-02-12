@@ -31,6 +31,24 @@ namespace Freshli {
       Skipped = skipped;
     }
 
+    public LibYearPackageResult(
+      string name,
+      IVersionInfo version,
+      IVersionInfo latestVersion,
+      double value,
+      bool upgradeAvailable,
+      bool skipped
+    ) {
+      Name = name;
+      Version = version.Version;
+      PublishedAt = version.DatePublished;
+      LatestVersion = latestVersion.Version;
+      LatestPublishedAt = latestVersion.DatePublished;
+      Value = value;
+      UpgradeAvailable = upgradeAvailable;
+      Skipped = skipped;
+    }
+
     public override string ToString() {
       return
         $"{{ Name: \"{Name}\", " +

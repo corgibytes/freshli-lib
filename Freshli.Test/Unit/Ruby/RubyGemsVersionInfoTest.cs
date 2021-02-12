@@ -127,7 +127,7 @@ namespace Freshli.Test.Unit.Ruby {
     public void CompareToThrowsExceptionIfOtherVersionIsNotRubyGemsVersionInfo()
     {
       var versionInfo = new RubyGemsVersionInfo {Version = "1.0"};
-      var otherVersion = new SemVerVersionInfo {Version = "1.0"};;
+      var otherVersion = new SemVerVersionInfo("1.0");
       Assert.Throws<ArgumentException>(() =>
         versionInfo.CompareTo(otherVersion));
     }

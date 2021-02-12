@@ -38,28 +38,28 @@ namespace Freshli.Test.Unit.Perl {
       string expression,
       bool doesMatch
     ) {
-      var info = new SemVerVersionInfo() {Version = version};
+      var info = new SemVerVersionInfo(version);
       var matcher = VersionMatcher.Create(expression);
       Assert.Equal(doesMatch, matcher.DoesMatch(info));
     }
 
     [Theory]
-    [InlineData("2.0", VersionMatcher.OperationKind.GreaterThanEqual, "2.0")]
-    [InlineData(">= 2.0", VersionMatcher.OperationKind.GreaterThanEqual, "2.0")]
-    [InlineData("== 2.0", VersionMatcher.OperationKind.Matching, "2.0")]
-    [InlineData("<= 2.0", VersionMatcher.OperationKind.LessThanEqual, "2.0")]
-    [InlineData("< 2.0", VersionMatcher.OperationKind.LessThan, "2.0")]
-    [InlineData("> 2.0", VersionMatcher.OperationKind.GreaterThan, "2.0")]
-    [InlineData("!= 2.0", VersionMatcher.OperationKind.NotEqual, "2.0")]
-    [InlineData(">=2.0", VersionMatcher.OperationKind.GreaterThanEqual, "2.0")]
-    [InlineData("==2.0", VersionMatcher.OperationKind.Matching, "2.0")]
-    [InlineData("<=2.0", VersionMatcher.OperationKind.LessThanEqual, "2.0")]
-    [InlineData("<2.0", VersionMatcher.OperationKind.LessThan, "2.0")]
-    [InlineData(">2.0", VersionMatcher.OperationKind.GreaterThan, "2.0")]
-    [InlineData("!=2.0", VersionMatcher.OperationKind.NotEqual, "2.0")]
+    [InlineData("2.0", OperationKind.GreaterThanEqual, "2.0")]
+    [InlineData(">= 2.0", OperationKind.GreaterThanEqual, "2.0")]
+    [InlineData("== 2.0", OperationKind.Matching, "2.0")]
+    [InlineData("<= 2.0", OperationKind.LessThanEqual, "2.0")]
+    [InlineData("< 2.0", OperationKind.LessThan, "2.0")]
+    [InlineData("> 2.0", OperationKind.GreaterThan, "2.0")]
+    [InlineData("!= 2.0", OperationKind.NotEqual, "2.0")]
+    [InlineData(">=2.0", OperationKind.GreaterThanEqual, "2.0")]
+    [InlineData("==2.0", OperationKind.Matching, "2.0")]
+    [InlineData("<=2.0", OperationKind.LessThanEqual, "2.0")]
+    [InlineData("<2.0", OperationKind.LessThan, "2.0")]
+    [InlineData(">2.0", OperationKind.GreaterThan, "2.0")]
+    [InlineData("!=2.0", OperationKind.NotEqual, "2.0")]
     public void IdentifiesOperationAndVersion(
       string expression,
-      VersionMatcher.OperationKind operation,
+      OperationKind operation,
       string version
     ) {
       var matcher = VersionMatcher.Create(expression);
@@ -67,9 +67,16 @@ namespace Freshli.Test.Unit.Perl {
       var basicMatcher = (BasicVersionMatcher) matcher;
       Assert.Equal(operation, basicMatcher.Operation);
       Assert.Equal(
-        new SemVerVersionInfo {Version = version},
+        new SemVerVersionInfo(version),
         basicMatcher.BaseVersion
       );
+    }
+
+    [Fact]
+    public void HandlesNoMatchingOperationKind() {
+      var basicMatcher = new BasicVersionMatcher();
+      var versionInfo = new SemVerVersionInfo("1.0.0");
+      Assert.False(basicMatcher.DoesMatch(versionInfo));
     }
   }
 }

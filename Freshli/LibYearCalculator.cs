@@ -23,76 +23,80 @@ namespace Freshli {
         IVersionInfo currentVersion;
 
         try {
-          if (Manifest.UsesExactMatches) {
-            currentVersion =
-              Repository.VersionInfo(package.Name, package.Version);
-          } else {
-            currentVersion = Repository.Latest(
-              package.Name,
-              asOf: date,
-              thatMatches: package.Version
-            );
-          }
-          latestVersion =
-            Repository.Latest(package.Name, date, currentVersion.IsPreRelease);
-        }
-        catch (Exception e) {
-          _logger.Warn($"Skipping {package.Name}: {e.Message}");
-          result.Add(
-            package.Name,
-            version: package.Version,
-            publishedAt: DateTime.MinValue,
-            latestVersion: null,
-            latestPublishedAt: DateTime.MinValue,
-            value: 0,
-            upgradeAvailable: false,
-            skipped: true);
-          _logger.Trace(e.StackTrace);
+          GetVersions(date, package, out latestVersion, out currentVersion);
+        } catch (Exception e) {
+          HandleFailedPackage(result, package, e);
           continue;
         }
 
-        if (latestVersion != null && currentVersion != null) {
-          var libYearValue = Compute(currentVersion, latestVersion);
-          var upgradeAvailable = libYearValue > 0;
-
-          var packageResult = new LibYearPackageResult(
-            package.Name,
-            currentVersion.Version,
-            currentVersion.DatePublished,
-            latestVersion.Version,
-            latestVersion.DatePublished,
-            Math.Max(0, libYearValue),
-            upgradeAvailable,
-            skipped: false);
-
-          if (libYearValue < 0) {
-            var updatedPackageResult = ComputeUsingVersionsBetween(
-              package.Name, date, currentVersion, latestVersion);
-
-            if (updatedPackageResult != null) {
-              packageResult = updatedPackageResult;
-            } else {
-              packageResult.UpgradeAvailable = true;
-              _logger.Warn($"Negative value ({libYearValue:0.000}) " +
-                $"computed for {package.Name} as of {date:d}; " +
-                $"setting value to 0: {packageResult}");
-            }
-          }
-
-          _logger.Trace(
-            $"PackageResult({package.Name}, {package.Version}): " +
-            $"{{current = {packageResult.Version}" +
-            $"@{packageResult.PublishedAt:d}, " +
-            $"latest = {packageResult.LatestVersion}" +
-            $"@{packageResult.LatestPublishedAt:d}, " +
-            $"value = {packageResult.Value:0.000}}}"
-          );
-
-          result.Add(packageResult);
+        if (latestVersion == null || currentVersion == null) {
+          continue;
         }
+
+        var packageResult = ProcessPackageResult(
+          date,
+          package,
+          latestVersion,
+          currentVersion
+        );
+
+        result.Add(packageResult);
       }
 
       return result;
+    }
+
+    private void GetVersions(
+      DateTime date,
+      PackageInfo package,
+      out IVersionInfo latestVersion,
+      out IVersionInfo currentVersion
+    ) {
+      currentVersion = Manifest.UsesExactMatches ?
+                  Repository.VersionInfo(package.Name, package.Version) :
+                  Repository.Latest(
+                    package.Name,
+                    asOf: date,
+                    thatMatches: package.Version
+                  );
+
+      latestVersion =
+        Repository.Latest(package.Name, date, currentVersion.IsPreRelease);
+    }
+
+    private LibYearPackageResult ProcessPackageResult(
+      DateTime date,
+      PackageInfo package,
+      IVersionInfo latestVersion,
+      IVersionInfo currentVersion)
+    {
+      var libYearValue = Compute(currentVersion, latestVersion);
+      var upgradeAvailable = libYearValue > 0;
+
+      var packageResult = new LibYearPackageResult(
+        package.Name,
+        currentVersion,
+        latestVersion,
+        Math.Max(0, libYearValue),
+        upgradeAvailable,
+        skipped: false);
+
+      if (libYearValue < 0) {
+        var updatedPackageResult = ComputeUsingVersionsBetween(
+          package.Name, date, currentVersion, latestVersion);
+
+        if (updatedPackageResult != null) {
+          packageResult = updatedPackageResult;
+        } else {
+          packageResult.UpgradeAvailable = true;
+          _logger.Warn($"Negative value ({libYearValue:0.000}) " +
+            $"computed for {package.Name} as of {date:d}; " +
+            $"setting value to 0: {packageResult}");
+        }
+      }
+
+      _logger.Trace($"PackageResult: {packageResult.ToString()}");
+      return packageResult;
     }
 
     public static double Compute(
@@ -102,25 +106,44 @@ namespace Freshli {
         TotalDays / 365.0;
     }
 
+    private static void HandleFailedPackage(
+      LibYearResult result,
+      PackageInfo package,
+      Exception e
+    ) {
+      _logger.Warn($"Skipping {package.Name}: {e.Message}");
+      var packageResult = new LibYearPackageResult(
+        package.Name,
+        version: package.Version,
+        publishedAt: DateTime.MinValue,
+        latestVersion: null,
+        latestPublishedAt: DateTime.MinValue,
+        value: 0,
+        upgradeAvailable: false,
+        skipped: true
+      );
+      result.Add(packageResult);
+      _logger.Trace(e.StackTrace);
+    }
+
     private LibYearPackageResult ComputeUsingVersionsBetween(string name,
       DateTime asOf, IVersionInfo currentVersion, IVersionInfo latestVersion)
     {
       try {
-        foreach (var version in Repository.VersionsBetween(
+        var versions = Repository.VersionsBetween(
           name,
           asOf,
           currentVersion,
           latestVersion,
           currentVersion.IsPreRelease
-        )) {
+        );
+        foreach (var version in versions) {
           var value = Compute(currentVersion, version);
           if (value >= 0) {
             return new LibYearPackageResult(
               name,
-              currentVersion.Version,
-              currentVersion.DatePublished,
-              version.Version,
-              version.DatePublished,
+              currentVersion,
+              version,
               value,
               upgradeAvailable: true,
               skipped: false
@@ -128,8 +151,10 @@ namespace Freshli {
           }
         }
       } catch (NotImplementedException) {
-        return null;
+        _logger.Trace("Unable to calculate versions between due to language " +
+                      "not being implemented, skipping.");
       }
+
       return null;
     }
   }
