@@ -60,7 +60,8 @@ namespace Freshli.Languages.CSharp {
       bool includePreReleases)
     {
       try {
-        return GetReleaseHistory(name, includePreReleases).First(v => asOf >= v.DatePublished);
+        return GetReleaseHistory(name, includePreReleases)
+        .First(v => asOf >= v.DatePublished);
       } catch (Exception e) {
         throw new LatestVersionNotFoundException(name, asOf, e);
       }
@@ -68,7 +69,8 @@ namespace Freshli.Languages.CSharp {
 
     public IVersionInfo VersionInfo(string name, string version) {
       try {
-        return GetReleaseHistory(name, includePreReleaseVersions: true).First(v => v.Version == version);
+        return GetReleaseHistory(name, includePreReleaseVersions: true)
+        .First(v => v.Version == version);
       } catch (Exception e) {
         throw new VersionNotFoundException(name, version, e);
       }

@@ -51,8 +51,10 @@ namespace Freshli.Test.Integration.Languages.CSharp {
       var versionsBetween = _repository.VersionsBetween(
         "Newtonsoft.Json",
         asOfDate,
-        new FreshliNuGetVersionInfo(new NuGetVersion("11.0.2"), DateTime.UtcNow),
-        new FreshliNuGetVersionInfo(new NuGetVersion("12.0.3"), DateTime.UtcNow),
+        new FreshliNuGetVersionInfo(
+          new NuGetVersion("11.0.2"), DateTime.UtcNow),
+        new FreshliNuGetVersionInfo(
+          new NuGetVersion("12.0.3"), DateTime.UtcNow),
         false
       );
 

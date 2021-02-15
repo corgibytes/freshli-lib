@@ -1,14 +1,10 @@
 using System;
 using Freshli.Languages.CSharp;
-using Newtonsoft.Json;
-using NuGet.Protocol;
 using NuGet.Versioning;
 using Xunit;
 
 namespace Freshli.Test.Unit.CSharp {
   public class FreshliNuGetVersionInfoTest {
-    
-
     [Theory]
     [InlineData("1", "2", -1)]
     [InlineData("1", "1", 0)]
@@ -29,7 +25,7 @@ namespace Freshli.Test.Unit.CSharp {
       var versionInfo2 = new FreshliNuGetVersionInfo(
           new NuGetVersion(version2), DateTime.UtcNow
       );
-      
+
       Assert.Equal(versionInfo1.CompareTo(versionInfo2), result);
     }
 
@@ -43,7 +39,7 @@ namespace Freshli.Test.Unit.CSharp {
       var versionInfo = new FreshliNuGetVersionInfo(
           new NuGetVersion(version), DateTime.UtcNow
       );
-      
+
       Assert.Equal(versionInfo.IsPreRelease, result);
     }
 
@@ -53,29 +49,29 @@ namespace Freshli.Test.Unit.CSharp {
       var versionInfo = new FreshliNuGetVersionInfo(
           new NuGetVersion(version), DateTime.UtcNow
       );
-      
+
       Assert.Equal(versionInfo.Version, version);
     }
 
     [Fact]
     public void ThrowsExceptionIfNull()
     {
-        Assert.Throws<ArgumentException>
-        (() => new FreshliNuGetVersionInfo(
-            new NuGetVersion("1.0.0"),
-            DateTime.UtcNow).CompareTo(null));
+      Assert.Throws<ArgumentException>
+      (() => new FreshliNuGetVersionInfo(
+          new NuGetVersion("1.0.0"),
+          DateTime.UtcNow).CompareTo(null));
     }
 
     [Fact]
     public void ThrowsExceptionIfNonMatchingType()
     {
-        Assert.Throws<ArgumentException>
-        (() => new FreshliNuGetVersionInfo(
-            new NuGetVersion("1.0.0"),
-            DateTime.UtcNow).CompareTo(
-                new SemVerVersionInfo("1.0.0")
-            )
-        );
+      Assert.Throws<ArgumentException>
+      (() => new FreshliNuGetVersionInfo(
+          new NuGetVersion("1.0.0"),
+          DateTime.UtcNow).CompareTo(
+              new SemVerVersionInfo("1.0.0")
+          )
+      );
     }
   }
 }
