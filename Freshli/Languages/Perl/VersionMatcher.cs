@@ -2,15 +2,6 @@
 
 namespace Freshli.Languages.Perl {
   public abstract class VersionMatcher {
-    public enum OperationKind {
-      Matching,
-      LessThan,
-      LessThanEqual,
-      GreaterThan,
-      GreaterThanEqual,
-      NotEqual
-    }
-
     public static VersionMatcher Create(string value) {
       value = value.Trim();
 
@@ -21,61 +12,23 @@ namespace Freshli.Languages.Perl {
         );
       }
 
-      if (value.StartsWith("==")) {
-        var version = value.Replace("==", "").Trim();
-        return new BasicVersionMatcher {
-          Operation = OperationKind.Matching,
-          BaseVersion = new SemVerVersionInfo {Version = version}
-        };
-      }
-
-      if (value.StartsWith(">=")) {
-        var version = value.Replace(">=", "").Trim();
-        return new BasicVersionMatcher {
-          Operation = OperationKind.GreaterThanEqual,
-          BaseVersion = new SemVerVersionInfo {Version = version}
-        };
-      }
-
-      if (value.StartsWith("<=")) {
-        var version = value.Replace("<=", "").Trim();
-        return new BasicVersionMatcher {
-          Operation = OperationKind.LessThanEqual,
-          BaseVersion = new SemVerVersionInfo {Version = version}
-        };
-      }
-
-      if (value.StartsWith("<")) {
-        var version = value.Replace("<", "").Trim();
-        return new BasicVersionMatcher {
-          Operation = OperationKind.LessThan,
-          BaseVersion = new SemVerVersionInfo {Version = version}
-        };
-      }
-
-      if (value.StartsWith(">")) {
-        var version = value.Replace(">", "").Trim();
-        return new BasicVersionMatcher {
-          Operation = OperationKind.GreaterThan,
-          BaseVersion = new SemVerVersionInfo {Version = version}
-        };
-      }
-
-      if (value.StartsWith("!=")) {
-        var version = value.Replace("!=", "").Trim();
-        return new BasicVersionMatcher {
-          Operation = OperationKind.NotEqual,
-          BaseVersion = new SemVerVersionInfo {Version = version}
-        };
-      }
-
       return new BasicVersionMatcher {
-        Operation = OperationKind.GreaterThanEqual,
-        BaseVersion = new SemVerVersionInfo {Version = value}
+        Operation = value.ToOperationKind(),
+        BaseVersion = new SemVerVersionInfo(StripVersionRequirements(value))
       };
     }
 
     public abstract bool DoesMatch(IVersionInfo version);
+
+    public static string StripVersionRequirements(string value)
+        {
+            return value.Trim().Replace("==", "")
+              .Replace(">=", "")
+              .Replace("<=", "")
+              .Replace("<", "")
+              .Replace(">", "")
+              .Replace("!=", "").Trim();
+        }
   }
 
   public class BasicVersionMatcher : VersionMatcher {
@@ -83,31 +36,23 @@ namespace Freshli.Languages.Perl {
     public SemVerVersionInfo BaseVersion { get; set; }
 
     public override bool DoesMatch(IVersionInfo version) {
-      if (Operation == OperationKind.NotEqual) {
-        return version.CompareTo(BaseVersion) != 0;
+      switch (Operation)
+      {
+        case OperationKind.NotEqual:
+          return version.CompareTo(BaseVersion) != 0;
+        case OperationKind.GreaterThan:
+          return version.CompareTo(BaseVersion) > 0;
+        case OperationKind.GreaterThanEqual:
+          return version.CompareTo(BaseVersion) >= 0;
+        case OperationKind.LessThan:
+          return version.CompareTo(BaseVersion) < 0;
+        case OperationKind.LessThanEqual:
+          return version.CompareTo(BaseVersion) <= 0;
+        case OperationKind.Matching:
+          return version.CompareTo(BaseVersion) == 0;
+        default:
+          return false;
       }
-
-      if (Operation == OperationKind.GreaterThan) {
-        return version.CompareTo(BaseVersion) > 0;
-      }
-
-      if (Operation == OperationKind.GreaterThanEqual) {
-        return version.CompareTo(BaseVersion) >= 0;
-      }
-
-      if (Operation == OperationKind.LessThan) {
-        return version.CompareTo(BaseVersion) < 0;
-      }
-
-      if (Operation == OperationKind.LessThanEqual) {
-        return version.CompareTo(BaseVersion) <= 0;
-      }
-
-      if (Operation == OperationKind.Matching) {
-        return version.CompareTo(BaseVersion) == 0;
-      }
-
-      return false;
     }
   }
 

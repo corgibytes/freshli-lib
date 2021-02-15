@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 using Freshli.Exceptions;
 using Freshli.Util;
@@ -39,25 +40,19 @@ namespace Freshli.Languages.Ruby {
       if (!(other is RubyGemsVersionInfo otherVersionInfo)) {
         throw new ArgumentException();
       }
-      var result = 0;
 
-      var versionParts = VersionParts;
+      var result = 0;
       var otherVersionParts = otherVersionInfo.VersionParts;
 
-      var countDifference =
-        VersionParts.Count - otherVersionInfo.VersionParts.Count;
-      for (var i = 0; i < Math.Abs(countDifference); i++) {
-        if (countDifference < 0) {
-          versionParts.Add("0");
-        } else {
-          otherVersionParts.Add("0");
-        }
-      }
-
-      for (var i = 0; i < VersionParts.Count; i++) {
+      var highestVersionPartsCount = Math.Max(
+        VersionParts.Count,
+        otherVersionParts.Count
+      );
+      for (var i = 0; i < highestVersionPartsCount; i++) {
         result = CompareVersionParts(
-          VersionParts[i],
-          otherVersionInfo.VersionParts[i]
+          // Substitute "0" if a version part isn't available
+          VersionParts.ElementAtOrDefault(i) ?? "0",
+          otherVersionInfo.VersionParts.ElementAtOrDefault(i) ?? "0"
         );
 
         if (result != 0) {

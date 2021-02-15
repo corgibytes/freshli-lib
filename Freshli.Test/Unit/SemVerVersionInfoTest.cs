@@ -1,3 +1,4 @@
+using System;
 using Freshli.Exceptions;
 using Xunit;
 
@@ -41,7 +42,7 @@ namespace Freshli.Test.Unit {
       string preRelease,
       string buildMetadata
     ) {
-      var info = new SemVerVersionInfo() {Version = version};
+      var info = new SemVerVersionInfo(version);
       Assert.Equal(major, info.Major);
       Assert.Equal(minor, info.Minor);
       Assert.Equal(patch, info.Patch);
@@ -59,7 +60,7 @@ namespace Freshli.Test.Unit {
       string preReleaseLabel,
       int? preReleaseIncrement
     ) {
-      var info = new SemVerVersionInfo() {Version = version};
+      var info = new SemVerVersionInfo(version);
       Assert.Equal(preReleaseLabel, info.PreReleaseLabel);
       Assert.Equal(preReleaseIncrement, info.PreReleaseIncrement);
     }
@@ -112,103 +113,36 @@ namespace Freshli.Test.Unit {
       string rightVersion,
       int expected
     ) {
-      var left = new SemVerVersionInfo() {Version = leftVersion};
-      var right = new SemVerVersionInfo() {Version = rightVersion};
+      var left = new SemVerVersionInfo(leftVersion);
+      var right = new SemVerVersionInfo(rightVersion);
       Assert.Equal(expected, left.CompareTo(right));
-    }
-
-    [Theory]
-    [InlineData("1+dev", "1")]
-    [InlineData("1.2+dev", "1.2")]
-    [InlineData("1.2.3+dev", "1.2.3")]
-    [InlineData("1.2.3-alpha1+dev", "1.2.3-alpha1")]
-    public void RemovableBuildMetadata(
-      string beforeVersion,
-      string afterVersion
-    ) {
-      var info = new SemVerVersionInfo {Version = beforeVersion};
-      info.RemoveBuildMetadata();
-
-      Assert.Equal(new SemVerVersionInfo {Version = afterVersion}, info);
-      Assert.Equal(afterVersion, info.Version);
-    }
-
-    [Theory]
-    [InlineData("1", "1")]
-    [InlineData("1+dev", "1+dev")]
-    [InlineData("1-alpha+dev", "1+dev")]
-    [InlineData("1-alpha1+dev", "1+dev")]
-    [InlineData("1.2", "1.2")]
-    [InlineData("1.2+dev", "1.2+dev")]
-    [InlineData("1.2-alpha+dev", "1.2+dev")]
-    [InlineData("1.2-alpha1+dev", "1.2+dev")]
-    [InlineData("1.2.3", "1.2.3")]
-    [InlineData("1.2.3+dev", "1.2.3+dev")]
-    [InlineData("1.2.3-alpha+dev", "1.2.3+dev")]
-    [InlineData("1.2.3-alpha1+dev", "1.2.3+dev")]
-    [InlineData("1.2.3alpha+dev", "1.2.3+dev")]
-    [InlineData("1.2.3alpha1+dev", "1.2.3+dev")]
-    [InlineData("1.2alpha+dev", "1.2+dev")]
-    [InlineData("1.2alpha1+dev", "1.2+dev")]
-    [InlineData("1alpha+dev", "1+dev")]
-    [InlineData("1alpha1+dev", "1+dev")]
-    public void RemovablePreRelease(
-      string beforeVersion,
-      string afterVersion
-    ) {
-      var info = new SemVerVersionInfo {Version = beforeVersion};
-      info.RemovePreRelease();
-
-      Assert.Equal(new SemVerVersionInfo {Version = afterVersion}, info);
-      Assert.Equal(afterVersion, info.Version);
-    }
-
-    [Theory]
-    [InlineData("1", "1")]
-    [InlineData("1+dev", "1+dev")]
-    [InlineData("1.2", "1.2")]
-    [InlineData("1.2+dev", "1.2+dev")]
-    [InlineData("1.2.3", "1.2")]
-    [InlineData("1.2.3+dev", "1.2+dev")]
-    [InlineData("1.2.3-alpha", "1.2-alpha")]
-    [InlineData("1.2.3-alpha+dev", "1.2-alpha+dev")]
-    public void RemovablePatch(
-      string beforeVersion,
-      string afterVersion
-    ) {
-      var info = new SemVerVersionInfo {Version = beforeVersion};
-      info.RemovePatch();
-
-      Assert.Equal(new SemVerVersionInfo {Version = afterVersion}, info);
-      Assert.Equal(afterVersion, info.Version);
-    }
-
-    [Theory]
-    [InlineData("1", "1")]
-    [InlineData("1+dev", "1+dev")]
-    [InlineData("1.2", "1")]
-    [InlineData("1.2+dev", "1+dev")]
-    [InlineData("1.2.3", "1")]
-    [InlineData("1.2.3+dev", "1+dev")]
-    [InlineData("1.2.3-alpha", "1-alpha")]
-    [InlineData("1.2.3-alpha+dev", "1-alpha+dev")]
-    public void RemovableMinor(
-      string beforeVersion,
-      string afterVersion
-    ) {
-      var info = new SemVerVersionInfo {Version = beforeVersion};
-      info.RemoveMinor();
-
-      Assert.Equal(new SemVerVersionInfo {Version = afterVersion}, info);
-      Assert.Equal(afterVersion, info.Version);
     }
 
     [Theory]
     [InlineData("dev-master")]
     public void ParseVersionThrowsErrorIfNotParsable(string version) {
       Assert.Throws<VersionParseException>
-        (() => new SemVerVersionInfo() {Version = version});
+        (() => new SemVerVersionInfo(version));
     }
 
+    [Fact]
+    public void CompareToThrowsExceptionIfNull() {
+      Assert.Throws<ArgumentException>
+        (() => new SemVerVersionInfo("1.0.0").CompareTo(null));
+    }
+
+    [Fact]
+    public void ConvertsToString() {
+      var versionInfo = new SemVerVersionInfo("1.0.0");
+      Assert.Equal(
+        $"{nameof(versionInfo.Major)}: {versionInfo.Major}, " +
+        $"{nameof(versionInfo.Minor)}: {versionInfo.Minor}, " +
+        $"{nameof(versionInfo.Patch)}: {versionInfo.Patch}, " +
+        $"{nameof(versionInfo.PreRelease)}: {versionInfo.PreRelease}, " +
+        $"{nameof(versionInfo.BuildMetadata)}: {versionInfo.BuildMetadata}, " +
+        $"{nameof(versionInfo.DatePublished)}: {versionInfo.DatePublished:d}",
+        versionInfo.ToString()
+      );
+    }
   }
 }

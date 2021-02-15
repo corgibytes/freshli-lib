@@ -1,3 +1,4 @@
+using System;
 using Freshli.Languages.Ruby;
 using Xunit;
 
@@ -521,6 +522,12 @@ DEPENDENCIES
       Assert.Equal("2.1.4", manifest["uuidtools"].Version);
       Assert.Equal("3.0.4", manifest["will_paginate"].Version);
       Assert.Equal("1.1.0", manifest["yajl-ruby"].Version);
+    }
+
+    [Fact]
+    public void ThrowsExceptionForInvalidContent() {
+      Assert.Throws<FormatException>(testCode: () =>
+        new BundlerManifest().Parse("test content"));
     }
   }
 }

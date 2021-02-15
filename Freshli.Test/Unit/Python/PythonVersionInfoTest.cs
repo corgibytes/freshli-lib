@@ -280,7 +280,7 @@ namespace Freshli.Test.Unit.Python {
       long? developmentReleaseIncrement,
       bool isDevelopmentRelease
     ) {
-      var info = new PythonVersionInfo {Version = version};
+      var info = new PythonVersionInfo(version);
       Assert.Equal(epoch, info.Epoch);
       Assert.Equal(release, info.Release);
       Assert.Equal(releaseParts, info.ReleaseParts);
@@ -337,7 +337,7 @@ namespace Freshli.Test.Unit.Python {
     [Fact]
     public void ParseVersionThrowsExceptionIfVersionIsIncorrectlyFormatted() {
       Assert.Throws<VersionParseException>(testCode: () =>
-        new PythonVersionInfo {Version = "1.0.invalid.format"});
+        new PythonVersionInfo("1.0.invalid.format"));
     }
 
     [Theory]
@@ -432,8 +432,8 @@ namespace Freshli.Test.Unit.Python {
       int? preReleaseSortPosition,
       int? postReleaseSortPosition
     ) {
-      var versionInfo = new PythonVersionInfo {Version = version};
-      Assert.Equal(releaseSortPosition, versionInfo.ReleaseSuffixType);
+      var versionInfo = new PythonVersionInfo(version);
+      Assert.Equal(releaseSortPosition, (int)versionInfo.ReleaseSuffixType);
       Assert.Equal(preReleaseSortPosition, versionInfo.PreReleaseSuffixType);
       Assert.Equal(postReleaseSortPosition, versionInfo.PostReleaseSuffixType);
     }
@@ -704,14 +704,14 @@ namespace Freshli.Test.Unit.Python {
       string rightVersion,
       int expected
     ) {
-      var left = new PythonVersionInfo {Version = leftVersion};
-      var right = new PythonVersionInfo {Version = rightVersion};
+      var left = new PythonVersionInfo(leftVersion);
+      var right = new PythonVersionInfo(rightVersion);
       Assert.Equal(expected, left.CompareTo(right));
     }
 
     [Fact]
     public void CompareToThrowsExceptionIfOtherVersionIsNull() {
-      var version = new PythonVersionInfo {Version = "1.0"};
+      var version = new PythonVersionInfo("1.0");
       Assert.Throws<ArgumentException>(testCode: () =>
         version.CompareTo(null));
     }
@@ -719,10 +719,22 @@ namespace Freshli.Test.Unit.Python {
     [Fact]
     public void CompareToThrowsExceptionIfOtherVersionIsNotPythonVersionInfo()
     {
-      var versionInfo = new PythonVersionInfo {Version = "1.0"};
-      var otherVersion = new SemVerVersionInfo {Version = "1.0"};;
+      var versionInfo = new PythonVersionInfo("1.0");
+      var otherVersion = new SemVerVersionInfo("1.0");
       Assert.Throws<ArgumentException>(testCode: () =>
         versionInfo.CompareTo(otherVersion));
+    }
+
+    [Fact]
+    public void ConvertsToString()
+    {
+      var now = DateTime.UtcNow;
+      var versionInfo = new PythonVersionInfo("1.0.0", now);
+      Assert.Equal(
+        $"{nameof(versionInfo.Version)}: {versionInfo.Version}, " +
+        $"{nameof(versionInfo.DatePublished)}: {versionInfo.DatePublished:d}",
+        versionInfo.ToString()
+      );
     }
   }
 }
