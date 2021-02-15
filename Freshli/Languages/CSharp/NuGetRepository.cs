@@ -10,15 +10,26 @@ using NuGet.Protocol.Core.Types;
 namespace Freshli.Languages.CSharp {
   public class NuGetRepository : IPackageRepository {
 
-    private IDictionary<string, IList<IVersionInfo>> _packages =
-      new Dictionary<string, IList<IVersionInfo>>();
+    private IDictionary<string, IEnumerable<FreshliNuGetVersionInfo>> _packages
+      = new Dictionary<string, IEnumerable<FreshliNuGetVersionInfo>>();
 
     private IEnumerable<IVersionInfo> GetReleaseHistory(
       string name,
-      bool includePreReleaseVersions) {
-      var versions = GetMetadata(name);
+      bool includePreReleaseVersions
+    ) {
+      if (_packages.ContainsKey(name)) {
+        return _packages[name];
+      }
 
-      return versions.Select(v => new FreshliNuGetVersionInfo(v));
+      var versions = GetMetadata(name);
+      _packages[name] = versions
+        .OrderByDescending(nv => nv.Published)
+        .Select(v => new FreshliNuGetVersionInfo(
+          v.Identity.Version,
+          v.Published.Value.UtcDateTime
+        ));
+
+      return _packages[name];
     }
 
     private IEnumerable<IPackageSearchMetadata> GetMetadata(string name) {
@@ -49,9 +60,7 @@ namespace Freshli.Languages.CSharp {
       bool includePreReleases)
     {
       try {
-        return GetReleaseHistory(name, includePreReleases).
-          OrderByDescending(v => v.DatePublished).
-          First(v => asOf >= v.DatePublished);
+        return GetReleaseHistory(name, includePreReleases).First(v => asOf >= v.DatePublished);
       } catch (Exception e) {
         throw new LatestVersionNotFoundException(name, asOf, e);
       }
@@ -59,8 +68,7 @@ namespace Freshli.Languages.CSharp {
 
     public IVersionInfo VersionInfo(string name, string version) {
       try {
-        return GetReleaseHistory(name, includePreReleaseVersions: true).
-          First(v => v.Version == version);
+        return GetReleaseHistory(name, includePreReleaseVersions: true).First(v => v.Version == version);
       } catch (Exception e) {
         throw new VersionNotFoundException(name, version, e);
       }
@@ -73,17 +81,11 @@ namespace Freshli.Languages.CSharp {
       IVersionInfo laterVersion,
       bool includePreReleases)
     {
-      try {
-        return GetReleaseHistory(name , includePreReleases).
-          OrderByDescending(v => v).
-          Where(v => asOf >= v.DatePublished).
-          Where(predicate: v => v.CompareTo(earlierVersion) == 1).
-          Where(predicate: v => v.CompareTo(laterVersion) == -1).ToList();
-      }
-      catch (Exception e) {
-        throw new VersionsBetweenNotFoundException(
-          name, earlierVersion.Version, laterVersion.Version, e);
-      }
+      return GetReleaseHistory(name , includePreReleases)
+        .Where(v => asOf >= v.DatePublished)
+        .Where(predicate: v => v.CompareTo(earlierVersion) == 1)
+        .Where(predicate: v => v.CompareTo(laterVersion) == -1)
+        .ToList();
     }
 
     public IVersionInfo Latest(string name, DateTime asOf, string thatMatches) {
