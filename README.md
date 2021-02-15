@@ -246,3 +246,9 @@ with the [act](https://github.com/nektos/act) tool.
 ```
 act -s secret_key=secret_value
 ```
+
+## Branching and Versioning
+
+This project uses cactus branching which means development is done in feature branches merged to the `main` branch and releases are done in `release-X.Y` branches off of main.  Any fixes found testing a release are merged back to the release branch and then merged back to main.  Another name for this branching strategy is Trunk Based [Development](https://trunkbaseddevelopment.com/).
+
+The next version is automatically calculated using [GitVersion](https://github.com/GitTools/GitVersion).  Commits to the main branch have the alpha suffix in their version number (e.g. v1.0.0-alpha0001).  All commits to the release branches have the rc suffix (e.g. v1.0.0-rc1).  When a production release is done a tag without any suffix is used (e.g. v1.0.0).  This tag is then used by GitVersion to calculate future versions.  The configuration for GitVersion can be found [GitVersion.yml].
