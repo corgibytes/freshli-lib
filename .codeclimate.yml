@@ -1,3 +1,4 @@
 exclude_patterns:
   - "Freshli/obj/**"
   - "Freshli.Test/**"
+  - "Freshli/Languages/CSharp/NuGetRepository.cs"
