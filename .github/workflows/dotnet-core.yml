@@ -37,7 +37,7 @@ jobs:
         uses: gittools/actions/gitversion/execute@v0.9.9
         with:
           useConfigFile: true
-          updateAssemblyInfo: true
+          additionalArguments: '/updateprojectfiles'
     
       - name: Build
         run: dotnet build --configuration Release
