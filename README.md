@@ -220,12 +220,10 @@ If you want to generate graphs in a Jupyter Notebook, there is some additional s
 
 #### Sample Notebook
 A [sample notebook](https://github.com/corgibytes/freshli/blob/main/Sample.ipynb) can be found in this repository.
-To run the statements within this sample file, you will need to pull down a local version of
-[XPlot]() and run the build script located inside of this project. Note that, currently,
-the XPlot build will fail unless the 3.1.201 SDK is installed on your local machine as a breaking
-change to this project was introduced in dotnet SDK 3.1.300. However, for the sample below, this step is unnecessary.
 
 #### Initial Steps
+The following is a quick example to test Jupyter integration. The source notebook can be found [here.](https://github.com/corgibytes/freshli/blob/main/Example.ipynb)
+
 Before working with `freshli` in a Jupyter Notebook you have to package it as a NuGet package by running `dotnet pack`.
 
 Once that's done, you'll need to import and require `freshli` as a NuGet package by running the following within a C# Jupyter Notebook.
