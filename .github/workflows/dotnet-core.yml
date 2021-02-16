@@ -23,18 +23,18 @@ jobs:
           dotnet-version: 5.0.101
 
       - name: Install GitVersion
-        uses: gittools/actions/gitversion/setup@v0.9.8
+        uses: gittools/actions/gitversion/setup@v0.9.9
         with:
           versionSpec: '5.6.6'
 
       - name: Show GitVersion Config
-        uses: gittools/actions/gitversion/execute@v0.9.8
+        uses: gittools/actions/gitversion/execute@v0.9.9
         with:
           useConfigFile: true
           additionalArguments: '/showConfig'
 
       - name: Determine Version
-        uses: gittools/actions/gitversion/execute@v0.9.8
+        uses: gittools/actions/gitversion/execute@v0.9.9
         with:
           useConfigFile: true
           updateAssemblyInfo: true
