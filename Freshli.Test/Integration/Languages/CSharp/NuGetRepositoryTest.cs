@@ -30,7 +30,7 @@ namespace Freshli.Test.Integration.Languages.CSharp {
         new DateTime(2019, 11, 10, 01, 27, 30, 723, DateTimeKind.Utc);
       var latest = _repository.Latest("Newtonsoft.Json", asOfDate, false);
 
-      Assert.Equal(latest.Version, "12.0.3");
+      Assert.Equal("12.0.3", latest.Version);
     }
 
     [Fact]
@@ -58,9 +58,9 @@ namespace Freshli.Test.Integration.Languages.CSharp {
         false
       );
 
-      Assert.Equal(versionsBetween.Count, 2);
-      Assert.Equal(versionsBetween[0].Version, "12.0.2");
-      Assert.Equal(versionsBetween[1].Version, "12.0.1");
+      Assert.Equal(2, versionsBetween.Count);
+      Assert.Equal("12.0.2", versionsBetween[0].Version);
+      Assert.Equal("12.0.1", versionsBetween[1].Version);
     }
   }
 }

@@ -21,7 +21,7 @@ namespace Freshli.Test.Unit.CSharp {
 
       manifest.Parse(testContent);
 
-      Assert.Equal(manifest.Count, 6);
+      Assert.Equal(6, manifest.Count);
     }
   }
 }
