@@ -2,8 +2,7 @@ name: .NET Core
 
 on:
   push:
-    # change this to just main
-    branches: [ main, nuget-package ]
+    branches: [ main ]
   pull_request:
     branches: [ main ]
 
