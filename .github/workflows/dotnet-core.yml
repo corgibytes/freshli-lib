@@ -21,7 +21,6 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release
     - name: Test, Generate Code Coverage
-      if: ${{ !env.ACT }}
       uses: paambaati/codeclimate-action@v2.7.5
       env:
         CC_TEST_REPORTER_ID: ${{ secrets.TEST_REPORTER_ID }}
