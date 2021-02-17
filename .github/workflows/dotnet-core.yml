@@ -33,4 +33,4 @@ jobs:
       run: dotnet pack -c Release
     - name: Publish Alpha Package to Github Packages
       if: github.event_name == 'push'
-      run: dotnet nuget push ./Freshli/bin/Release/*.nupkg -k ${{ secrets.GITHUB_TOKEN }}  --skip-duplicate -n true -s https://nuget.pkg.github.com/corgibytes/index.json
+      run: dotnet nuget push ./Freshli/bin/Release/*.nupkg -k ${{ secrets.GITHUB_TOKEN }} --skip-duplicate -n true -s https://nuget.pkg.github.com/corgibytes/index.json
