@@ -2,7 +2,8 @@ name: .NET Core
 
 on:
   push:
-    branches: [ main ]
+    # change this to just main
+    branches: [ main, nuget-package ]
   pull_request:
     branches: [ main ]
 
@@ -18,9 +19,13 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.101
+        source-url: https://nuget.pkg.github.com/corgibytes/index.json
+      env:
+        NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
     - name: Build
       run: dotnet build --configuration Release
-    - name: Test, Generate Code Coverage  
+    - name: Test, Generate Code Coverage
+      if: ${{ !env.ACT }}
       uses: paambaati/codeclimate-action@v2.7.5
       env:
         CC_TEST_REPORTER_ID: ${{ secrets.TEST_REPORTER_ID }}
@@ -28,3 +33,11 @@ jobs:
         coverageCommand: dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=lcov
         coverageLocations: |
           ${{github.workspace}}/Freshli.Test/coverage.info:lcov
+    - name: Package and Publish Alpha to Github Packages
+      if: github.event_name == 'push'
+      # this needs to get the correct version from GitVersioning
+      run: |
+        dotnet pack -c Release
+    - name: Pulish Alpha Package to Github Packages
+      if: github.event_name == 'push'
+      run: dotnet nuget push Freshli/bin/Release/*.nupkg --skip-duplicate -n
