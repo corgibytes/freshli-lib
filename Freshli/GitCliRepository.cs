@@ -44,7 +44,12 @@ namespace Freshli {
 
     public Dictionary<DateTime, string> LogEntriesFor(string path) {
       // Run in ${repositoryRoot}
-      // git log --full-history --topo-order --date=iso-strict --pretty=format:"%cd %H" -- ${path}
+      // git log \
+      //   --full-history \
+      //   --topo-order \
+      //   --date=iso-strict \
+      //   --pretty=format:"%cd %H" \
+      //   -- ${path}
 
       var command = Cli.Wrap("git").
         WithWorkingDirectory(RepositoryRoot).
