@@ -31,18 +31,7 @@ namespace Freshli.Languages.Ruby {
           Where(li => li.HasClass("gem__version-wrap"));
 
         foreach (var releaseNode in releaseNodes) {
-          var version = releaseNode.Descendants("a").
-            First(a => a.HasClass("t-list__item")).InnerText;
-
-          var rawDate = releaseNode.Descendants("small").First().InnerText.
-            Replace("- ", "");
-          var versionDate = DateTime.ParseExact(rawDate, "MMMM dd, yyyy", null);
-
-          var versionInfo = new RubyGemsVersionInfo(version, versionDate);
-          if ((!versionInfo.IsPreRelease || includePreReleaseVersions) &&
-            !IsReleasePlatformSpecific(releaseNode)) {
-            versions.Add(versionInfo);
-          }
+          ProcessReleaseNode(includePreReleaseVersions, versions, releaseNode);
         }
         _packages[key] = versions;
         return versions;
@@ -112,6 +101,25 @@ namespace Freshli.Languages.Ruby {
         }
       }
       return platformSpecific;
+    }
+
+    private static void ProcessReleaseNode(
+      bool includePreReleaseVersions,
+      List<IVersionInfo> versions,
+      HtmlNode releaseNode
+    ) {
+      var version = releaseNode.Descendants("a").
+                  First(a => a.HasClass("t-list__item")).InnerText;
+
+      var rawDate = releaseNode.Descendants("small").First().InnerText.
+        Replace("- ", "");
+      var versionDate = DateTime.ParseExact(rawDate, "MMMM dd, yyyy", null);
+
+      var versionInfo = new RubyGemsVersionInfo(version, versionDate);
+      if ((!versionInfo.IsPreRelease || includePreReleaseVersions) &&
+        !IsReleasePlatformSpecific(releaseNode)) {
+        versions.Add(versionInfo);
+      }
     }
   }
 }

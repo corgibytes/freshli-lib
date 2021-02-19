@@ -1,3 +1,4 @@
+using System;
 using Freshli.Languages.Python;
 using Xunit;
 
@@ -137,7 +138,7 @@ namespace Freshli.Test.Unit.Python {
       var matcher = VersionMatcher.Create(expression);
       Assert.Equal(operationKind, matcher.Operation);
       Assert.Equal(
-        new PythonVersionInfo {Version = baseVersion},
+        new PythonVersionInfo(baseVersion),
         matcher.BaseVersion
       );
     }
@@ -200,7 +201,7 @@ namespace Freshli.Test.Unit.Python {
       var matcher = VersionMatcher.Create(expression);
       Assert.Equal(operationKind, matcher.Operation);
       Assert.Equal(
-        new PythonVersionInfo {Version = baseVersion},
+        new PythonVersionInfo(baseVersion),
         matcher.BaseVersion
       );
 
@@ -210,7 +211,7 @@ namespace Freshli.Test.Unit.Python {
       Assert.Equal(firstChildOperation, firstChild.Operation);
 
       var expectedFirstChildVersion =
-        new PythonVersionInfo {Version = firstChildBaseVersion};
+        new PythonVersionInfo(firstChildBaseVersion);
       Assert.Equal(expectedFirstChildVersion, firstChild.BaseVersion);
 
       if (secondChildOperation.HasValue) {
@@ -218,7 +219,7 @@ namespace Freshli.Test.Unit.Python {
         Assert.Equal(secondChildOperation, secondChild.Operation);
 
         var expectedSecondChildVersion =
-          new PythonVersionInfo {Version = secondChildBaseVersion};
+          new PythonVersionInfo(secondChildBaseVersion);
         Assert.Equal(expectedSecondChildVersion, secondChild.BaseVersion);
       }
     }
@@ -246,7 +247,7 @@ namespace Freshli.Test.Unit.Python {
       Assert.Equal(firstChildOperation, firstChild.Operation);
 
       var expectedFirstChildVersion =
-        new PythonVersionInfo {Version = firstChildBaseVersion};
+        new PythonVersionInfo(firstChildBaseVersion);
       Assert.Equal(expectedFirstChildVersion, firstChild.BaseVersion);
 
       if (secondChildOperation.HasValue) {
@@ -254,7 +255,7 @@ namespace Freshli.Test.Unit.Python {
         Assert.Equal(secondChildOperation, secondChild.Operation);
 
         var expectedSecondChildVersion =
-          new PythonVersionInfo {Version = secondChildBaseVersion};
+          new PythonVersionInfo(secondChildBaseVersion);
         Assert.Equal(expectedSecondChildVersion, secondChild.BaseVersion);
       }
     }
@@ -427,9 +428,15 @@ namespace Freshli.Test.Unit.Python {
       string expression,
       bool doesMatch
     ) {
-      var info = new PythonVersionInfo {Version = version};
+      var info = new PythonVersionInfo(version);
       var matcher = VersionMatcher.Create(expression);
       Assert.Equal(doesMatch, matcher.DoesMatch(info));
+    }
+
+    [Fact]
+    public void ThrowsExceptionForInvalidExpression() {
+      Assert.Throws<ArgumentException>(testCode: () =>
+        VersionMatcher.Create("~~1.0"));
     }
   }
 }
