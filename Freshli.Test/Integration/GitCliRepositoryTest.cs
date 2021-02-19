@@ -58,7 +58,7 @@ namespace Freshli.Test.Integration {
       );
       Approvals.VerifyAll(
         files.Select(f =>
-          f.Replace(targetDir, "")),
+          f.Replace(targetDir, "").Replace("\\", "/")),
         "files"
       );
       ForceDelete(targetDir);
