@@ -7,7 +7,7 @@ using Castle.Core.Internal;
 using Xunit;
 
 namespace Freshli.Test.Integration {
-  [UseReporter(typeof(DiffReporter))]
+  [UseReporter(typeof(XUnit2Reporter))]
   public class GitCliRepositoryTest {
     [Fact]
     public void IsValidReturnsTrue() {
@@ -82,7 +82,7 @@ namespace Freshli.Test.Integration {
       var repository = new GitCliRepository(fixturePath);
 
       Approvals.VerifyAll(
-        repository.LogEntriesFor("Gemfile"),
+        repository.LogEntriesFor("Gemfile.lock"),
         (date, sha) => $"{date.ToString("u")} => {sha}"
       );
     }
