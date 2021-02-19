@@ -1,9 +1,8 @@
 ﻿using System.IO;
 using System.Linq;
 using ApprovalTests;
-using ApprovalTests.Namers;
 using ApprovalTests.Reporters;
-using Castle.Core.Internal;
+using ApprovalTests.Reporters.TestFrameworks;
 using Xunit;
 
 namespace Freshli.Test.Integration {
