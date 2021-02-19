@@ -1,12 +1,9 @@
 ﻿using System.IO;
 using System.Linq;
 using ApprovalTests;
-using ApprovalTests.Reporters;
-using ApprovalTests.Reporters.TestFrameworks;
 using Xunit;
 
 namespace Freshli.Test.Integration {
-  [UseReporter(typeof(XUnit2Reporter))]
   public class GitCliRepositoryTest {
     [Fact]
     public void IsValidReturnsTrue() {

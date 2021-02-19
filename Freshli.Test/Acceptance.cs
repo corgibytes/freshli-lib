@@ -1,11 +1,8 @@
 using System;
 using ApprovalTests;
-using ApprovalTests.Reporters;
-using ApprovalTests.Reporters.TestFrameworks;
 using Xunit;
 
 namespace Freshli.Test {
-  [UseReporter(typeof(XUnit2Reporter))]
   public class Acceptance {
 
     private DateTime _testingBoundary =
