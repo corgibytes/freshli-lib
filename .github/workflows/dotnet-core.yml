@@ -8,29 +8,56 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
+
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-      with:
-        submodules: 'recursive'
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 5.0.101
-    - name: Build
-      run: dotnet build --configuration Release
-    - name: Test, Generate Code Coverage
-      uses: paambaati/codeclimate-action@v2.7.5
-      env:
-        CC_TEST_REPORTER_ID: ${{ secrets.TEST_REPORTER_ID }}
-      with:
-        coverageCommand: dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=lcov
-        coverageLocations: |
-          ${{github.workspace}}/Freshli.Test/coverage.info:lcov
-    - name: Package
-      if: github.event_name == 'push'
-      run: dotnet pack -c Release
-    - name: Publish Alpha Package to Github Packages
-      if: github.event_name == 'push'
-      run: dotnet nuget push ./Freshli/bin/Release/*.nupkg -k ${{ secrets.GITHUB_TOKEN }} --skip-duplicate -n true -s https://nuget.pkg.github.com/corgibytes/index.json
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # Required for GitVersion
+          submodules: 'recursive'
+      
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 5.0.101
+
+      - name: Install GitVersion
+        uses: gittools/actions/gitversion/setup@v0.9.9
+        with:
+          versionSpec: '5.6.6'
+
+      - name: Show GitVersion Config
+        uses: gittools/actions/gitversion/execute@v0.9.9
+        with:
+          useConfigFile: true
+          additionalArguments: '/showConfig'
+
+      - name: Determine Version and Update csproj Files
+        uses: gittools/actions/gitversion/execute@v0.9.9
+        with:
+          useConfigFile: true
+          additionalArguments: '/updateprojectfiles'
+    
+      - name: Display updated csproj File
+        run: cat Freshli/Freshli.csproj
+
+      - name: Build
+        run: dotnet build --configuration Release
+    
+      - name: Test, Generate Code Coverage  
+        uses: paambaati/codeclimate-action@v2.7.5
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.TEST_REPORTER_ID }}
+        with:
+          coverageCommand: dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=lcov
+          coverageLocations: |
+            ${{github.workspace}}/Freshli.Test/coverage.info:lcov
+
+      - name: Package
+        if: github.event_name == 'push'
+        run: dotnet pack -c Release
+
+      - name: Publish Alpha Package to Github Packages
+        if: github.event_name == 'push'
+        run: dotnet nuget push ./Freshli/bin/Release/*.nupkg -k ${{ secrets.GITHUB_TOKEN }} --skip-duplicate -n true -s https://nuget.pkg.github.com/corgibytes/index.json

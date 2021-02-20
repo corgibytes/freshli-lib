@@ -441,3 +441,8 @@ Freshli.sln.DotSettings.user
 results/
 
 Freshli.Test/coverage.info
+
+# Ignore Act files
+# https://github.com/nektos/act
+act.exe
+act/
