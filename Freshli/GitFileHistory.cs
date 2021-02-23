@@ -37,10 +37,10 @@ namespace Freshli {
               new CommitFilter {
                 SortBy = CommitSortStrategies.Topological
               }
-            ).Where(c => c.Tree[targetFile] != null);
+            ).Where(c => GetTreeEntry(c, targetFile) != null);
 
         foreach (var logEntry in logEntries) {
-          var blob = logEntry.Tree[targetFile].Target as Blob;
+          var blob = GetTreeEntry(logEntry, targetFile).Target as Blob;
           var contents = blob.GetContentText();
           var date = logEntry.Committer.When.Date;
           _historyByDate[date] =
@@ -66,6 +66,13 @@ namespace Freshli {
       return Dates.Last(d => d <= date);
     }
 
+    // This will get the TreeEntry regardless of the location in the Git repo
+    // This will need to recursively go through each directory and see if
+    // the file exists
+    private TreeEntry GetTreeEntry(Commit commit, string targetFileName)
+    {
+      return commit.Tree[targetFileName];
+    }
   }
 
   public class FileHistory {

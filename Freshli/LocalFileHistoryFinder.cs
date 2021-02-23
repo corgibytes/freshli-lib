@@ -1,4 +1,5 @@
 using System.IO;
+using System.Linq;
 
 namespace Freshli {
   public class LocalFileHistoryFinder : IFileHistoryFinder {
@@ -19,6 +20,16 @@ namespace Freshli {
 
     public string ReadAllText(string projectRootPath, string filePath) {
       return File.ReadAllText(Path.Combine(projectRootPath, filePath));
+    }
+
+    public string[] GetManifestFilenames(
+      string projectRootPath,
+      string pattern
+    ) {
+      return Directory.GetFiles(projectRootPath,
+                                pattern,
+                                SearchOption.AllDirectories)
+                      .Select(f => Path.GetFileName(f)).ToArray();
     }
   }
 }

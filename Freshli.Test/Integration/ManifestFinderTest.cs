@@ -26,7 +26,7 @@ namespace Freshli.Test.Integration {
       var finder = new ManifestFinder(rubyFixturePath, fileFinder.Finder);
 
       Assert.True(finder.Successful);
-      Assert.Equal("Gemfile.lock", finder.LockFileName);
+      Assert.Equal("Gemfile.lock", finder.ManifestFiles[0]);
 
       Assert.IsType<RubyGemsRepository>(finder.Calculator.Repository);
       Assert.IsType<BundlerManifest>(finder.Calculator.Manifest);
@@ -40,7 +40,7 @@ namespace Freshli.Test.Integration {
       var finder = new ManifestFinder(phpFixturePath, fileFinder.Finder);
 
       Assert.True(finder.Successful);
-      Assert.Equal("composer.lock", finder.LockFileName);
+      Assert.Equal("composer.lock", finder.ManifestFiles[0]);
 
       Assert.IsType<MulticastComposerRepository>(finder.Calculator.Repository);
       Assert.IsType<ComposerManifest>(finder.Calculator.Manifest);
@@ -58,7 +58,7 @@ namespace Freshli.Test.Integration {
       var finder = new ManifestFinder(pythonFixturePath, fileFinder.Finder);
 
       Assert.True(finder.Successful);
-      Assert.Equal("requirements.txt", finder.LockFileName);
+      Assert.Equal("requirements.txt", finder.ManifestFiles[0]);
 
       Assert.IsType<PyPIRepository>(finder.Calculator.Repository);
       Assert.IsType<PipRequirementsTxtManifest>(finder.Calculator.Manifest);
@@ -77,7 +77,7 @@ namespace Freshli.Test.Integration {
       var finder = new ManifestFinder(fixturePath, fileFinder.Finder);
 
       Assert.True(finder.Successful);
-      Assert.Equal("cpanfile", finder.LockFileName);
+      Assert.Equal("cpanfile", finder.ManifestFiles[0]);
 
       Assert.IsType<MetaCpanRepository>(finder.Calculator.Repository);
       Assert.IsType<CpanfileManifest>(finder.Calculator.Manifest);
