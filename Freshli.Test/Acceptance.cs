@@ -131,19 +131,5 @@ namespace Freshli.Test {
       Assert.False(runner.ManifestFinder.Successful);
       Approvals.VerifyAll(results, "results");
     }
-
-    [Fact]
-    public void NuGetWithHistoryViaGitHub()
-    {
-      var runner = new Runner();
-
-      var results = runner.Run(
-        "https://github.com/corgibytes/freshli-fixture-csharp-test",
-        asOf: new DateTime(2021, 02, 01, 0, 0, 0, DateTimeKind.Utc)
-      );
-
-      Assert.True(runner.ManifestFinder.Successful);
-      Approvals.VerifyAll(results, "results");
-    }
   }
 }
