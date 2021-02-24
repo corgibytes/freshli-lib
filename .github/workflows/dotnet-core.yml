@@ -72,10 +72,11 @@ jobs:
           cat CHANGELOG.md
 
       - uses: stefanzweifel/git-auto-commit-action@v4
-        name: Commit Change Log if it Changed
+        name: Commit Change Log and if it Changed
         with:
           commit_message: Committing auto generated change log.
           file_pattern: CHANGELOG.md
+          skip_fetch: true
 
       - name: Build
         run: dotnet build --configuration Release
