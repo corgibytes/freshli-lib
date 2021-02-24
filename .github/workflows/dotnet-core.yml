@@ -43,6 +43,13 @@ jobs:
       - name: Display updated csproj File
         run: cat Freshli/Freshli.csproj
 
+      # Required by GitReleaseManager.  Hopefully not for long.
+      # https://github.com/GitTools/actions/issues/347
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 3.0.x
+
       - uses: gittools/actions/gitreleasemanager/setup@v0.9.9
         name: Install GitReleaseManager
         with:
