@@ -9,7 +9,7 @@ Here are a few ways to contribute to the Freshli project:
 
 When fixing an issue, assign yourself to the issue to indicate that you're the person currently working on it.
 
-When submitting a PR, please be sure to use Closing statements in the PR description to link to the issue at hand. 
+When submitting a PR, please be sure to use Closing statements in the PR description to link to the issue at hand.
 
 ### Running `freshli`
 
