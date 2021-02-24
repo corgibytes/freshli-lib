@@ -15,6 +15,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0 # Required for GitVersion
+          ref: ${{ github.head_ref }} # Requried for commiting change log (https://github.com/stefanzweifel/git-auto-commit-action#checkout-the-correct-branch).
           submodules: 'recursive'
       
       - name: Setup .NET Core
