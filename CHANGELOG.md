@@ -2,6 +2,7 @@
 
 
 As part of this release we had [4 issues](https://github.com/corgibytes/freshli/milestone/4?closed=1) closed.
+
 Goals for this milestone:
 
 - Alpha NuGet package published to GitHub Packages
