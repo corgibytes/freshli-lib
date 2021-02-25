@@ -20,10 +20,16 @@ jobs:
         with:
           fetch-depth: 0 # Required for GitVersion
         
+      # Require .NET 5 for GitVersion and .NET 3 for GitRelesaseManager
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: 3.0.x
+          dotnet-version: 5.x
+
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 3.x
       
       - name: Install GitVersion
         uses: gittools/actions/gitversion/setup@v0.9.9
