@@ -5,9 +5,11 @@ on:
     branches:
       - 'main'
       - 'release/**'
+      - 'feature/**'
     pull_request:
       branches:
         - 'feature/**'
+        - 'main'
 
 jobs:
   release_notes:
