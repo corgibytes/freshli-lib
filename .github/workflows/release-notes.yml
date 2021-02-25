@@ -1,4 +1,4 @@
-name: Generate/Update Release Notes
+name: Release Notes
 
 on:
   push:
@@ -21,12 +21,12 @@ jobs:
           fetch-depth: 0 # Required for GitVersion
         
       # Require .NET 5 for GitVersion and .NET 3 for GitRelesaseManager
-      - name: Setup .NET Core
+      - name: Setup .NET Core 5
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: 5.x
 
-      - name: Setup .NET Core
+      - name: Setup .NET Core 3
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: 3.x
