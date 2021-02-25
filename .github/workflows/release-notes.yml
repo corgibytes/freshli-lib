@@ -5,7 +5,9 @@ on:
     branches:
       - 'main'
       - 'release/**'
-      - 'feature/**'
+    pull_request:
+      branches:
+        - 'feature/**'
 
 jobs:
   release_notes:
@@ -14,6 +16,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+          fetch-depth: 0 # Required for GitVersion
         
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v1
