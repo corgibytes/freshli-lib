@@ -219,64 +219,10 @@ If you want to generate graphs in a Jupyter Notebook, there is some additional s
 1. Install [dontet/interactive.](https://github.com/dotnet/interactive/blob/main/docs/NotebooksLocalExperience.md)
 
 #### Sample Notebook
-A [sample notebook](https://github.com/corgibytes/freshli/blob/main/Sample.ipynb) can be found in this repository.
+You can test your Jupyter setup by running this [simple notebook.](https://github.com/corgibytes/freshli/blob/main/simple-example.ipynb)
 
-#### Initial Steps
-The following is a quick example to test Jupyter integration. The source notebook can be found [here.](https://github.com/corgibytes/freshli/blob/main/Example.ipynb)
-
-Before working with `freshli` in a Jupyter Notebook you have to package it as a NuGet package by running `dotnet pack`.
-
-Once that's done, you'll need to import and require `freshli` as a NuGet package by running the following within a C# Jupyter Notebook.
-
-```
-#i nuget:/Users/mscottford/src/corgibytes/freshli/Freshli/bin/Debug
-#r nuget:freshli,1.0.0-dev
-```
-
-You'll need to change the path above to match the absolute path where the `.nupkg` file can be found.
-
-#### Processing Freshli and Generating a Graph
-The following script will allow you to create simple line graphs to plot a project or multiple projects.
-
-```csharp
-
-using XPlot.Plotly;
-
-using Freshli;
-using Freshli.Languages.Ruby;
-using Freshli.Languages.Php;
-using Freshli.Languages.Python;
-
-ManifestFinder.RegisterAll();
-
-FileHistoryFinder.Register<GitFileHistoryFinder>();
-
-PlotlyChart CreateLineGraphFor(Dictionary<string, IList<MetricsResult>> projects) {
-    var lineSeries = projects.Select(p => new Graph.Scattergl {
-        name = p.Key,
-        x = p.Value.Select(r => r.Date),
-        y = p.Value.Select(r => r.LibYear.Total)
-    });
-
-
-    var chart = Chart.Plot(lineSeries.ToArray());
-    chart.WithTitle("LibYear over time");
-    return chart;
-}
-```
-
-You can then generate a graph by running:
-
-```csharp
-var runner = new Runner();
-var projects = new Dictionary<string, IList<MetricsResult>>();
-projects["example"] = runner.Run("https://github.com/corgibytes/freshli-fixture-ruby-nokotest");
-display(CreateLineGraphFor(projects))
-```
-
-Note that depending on the size and complexity of your project, the graph may take a minute to display as it will take Freshli a moment to process through all of the data.
-
-
+#### Feature Notebook
+A full featured example of Freshli and Jupyter integration can be found [here.](https://github.com/corgibytes/freshli/blob/main/feature-example.ipynb)
 
 ## Running `eclint` via docker-compose
 
