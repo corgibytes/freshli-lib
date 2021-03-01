@@ -75,3 +75,4 @@ jobs:
         with:
           commit_message: Committing auto generated change log.
           file_pattern: CHANGELOG.md
+
