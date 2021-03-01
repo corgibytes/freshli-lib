@@ -27,6 +27,10 @@ namespace Freshli.Languages.Ruby {
 
     public bool IsPreRelease { get; set; }
 
+    public bool IsPlatformSpecific => PlatformSpecifier != null;
+
+    public string PlatformSpecifier { get; set; }
+
     public List<string> VersionParts { get; private set; }
 
     public RubyGemsVersionInfo() { }
