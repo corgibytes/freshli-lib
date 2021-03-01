@@ -69,14 +69,22 @@ namespace Freshli.Languages.Ruby {
         foreach (var versionPart in _version.Split('.')) {
           AddVersionPart(versionPart);
         }
-
-        IsPreRelease = Regex.IsMatch(_version, @"[a-zA-Z]");
       } catch {
         throw new VersionParseException(_version);
       }
     }
 
     private void AddVersionPart(string part) {
+      if (part.Contains("-")) {
+        var subParts = part.Split("-");
+        part = subParts.First();
+        PlatformSpecifier = String.Join("-", subParts.Skip(1));
+      }
+
+      if (!IsPreRelease) {
+        IsPreRelease = Regex.IsMatch(part, @"[a-zA-Z]");
+      }
+
       if (IsOnlyAlpha(part) || IsOnlyNumeric(part)) {
         VersionParts.Add(part);
       } else {

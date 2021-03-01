@@ -12,42 +12,67 @@ namespace Freshli.Test.Unit.Ruby {
     }
 
     [Theory]
-    [InlineData("1", new[] { "1" }, false)]
-    [InlineData("3.6.0", new[] { "3", "6", "0" }, false)]
-    [InlineData("1.2", new[] { "1", "2" }, false)]
-    [InlineData("1.2.3", new[] { "1", "2", "3" }, false)]
-    [InlineData("1.2.3.4", new[] { "1", "2", "3", "4" }, false)]
-    [InlineData("1.2.3.4.5", new[] { "1", "2", "3", "4", "5" }, false)]
-    [InlineData("1.2.3.4.5.6", new[] { "1", "2", "3", "4", "5", "6" }, false)]
-    [InlineData("1.5.6.rc1", new[] { "1", "5", "6", "rc", "1" }, true)]
-    [InlineData("1.5.6.rc2", new[] { "1", "5", "6", "rc", "2" }, true)]
-    [InlineData("1.5.6.rc22", new[] { "1", "5", "6", "rc", "22" }, true)]
-    [InlineData("1.5.6.rc22alpha",
-      new[] { "1", "5", "6", "rc", "22", "alpha" }, true)]
-    [InlineData("1.5.6.rc22alpha1",
-      new[] { "1", "5", "6", "rc", "22", "alpha", "1" }, true)]
-    [InlineData("1.5.6.1alpha", new[] { "1", "5", "6", "1", "alpha" }, true)]
+    [InlineData("0.9",  new[] { "0", "9" }, false, false, null)]
+    [InlineData("1", new[] { "1" }, false, false, null)]
+    [InlineData("1-x86-linux", new[] { "1" }, false, true, "x86-linux")]
+    [InlineData("1.0.a.2", new[] { "1", "0", "a", "2" }, true, false, null)]
+    [InlineData("1.0.b1", new[] { "1", "0", "b", "1" }, true, false, null)]
+    [InlineData("1.0.b10", new[] { "1", "0", "b", "10" }, true, false, null)]
+    [InlineData("1.0009",  new[] { "1", "0009" }, false, false, null)]
+    [InlineData("1.0045",  new[] { "1", "0045" }, false, false, null)]
+    [InlineData("1.2", new[] { "1", "2" }, false, false, null)]
+    [InlineData("1.2-x86-linux", new[] { "1", "2" }, false, true, "x86-linux")]
+    [InlineData("1.2.3", new[] { "1", "2", "3" }, false, false, null)]
+    [InlineData("1.2.3-x86-linux",
+      new[] { "1", "2", "3" }, false, true, "x86-linux")]
+    [InlineData("1.2.3.4", new[] { "1", "2", "3", "4" }, false, false, null)]
+    [InlineData("1.2.3.4-x86-linux",
+      new[] { "1", "2", "3", "4" }, false, true, "x86-linux")]
+    [InlineData("1.2.3.4.5",
+      new[] { "1", "2", "3", "4", "5" }, false, false, null)]
+    [InlineData("1.2.3.4.5-x86-linux",
+      new[] { "1", "2", "3", "4", "5" }, false, true, "x86-linux")]
+    [InlineData("1.2.3.4.5.6",
+      new[] { "1", "2", "3", "4", "5", "6" }, false, false, null)]
+    [InlineData("1.2.3.4.5.6-x86-linux",
+      new[] { "1", "2", "3", "4", "5", "6" }, false, true, "x86-linux")]
+    [InlineData("1.2.3a1",
+      new[] { "1", "2", "3", "a", "1" }, true, false, null)]
     [InlineData("1.5.6.123alpha",
-      new[] { "1", "5", "6", "123", "alpha" }, true)]
+      new[] { "1", "5", "6", "123", "alpha" }, true, false, null)]
     [InlineData("1.5.6.123alpha123",
-      new[] { "1", "5", "6", "123", "alpha", "123" }, true)]
-    [InlineData("1.0.b1", new[] { "1", "0", "b", "1" }, true)]
-    [InlineData("1.0.b10", new[] { "1", "0", "b", "10" }, true)]
-    [InlineData("1.0.a.2", new[] { "1", "0", "a", "2" }, true)]
-    [InlineData("0.9",  new[] { "0", "9" }, false)]
-    [InlineData("1.2.3a1",  new[] { "1", "2", "3", "a", "1" }, true)]
-    [InlineData("1.0045",  new[] { "1", "0045" }, false)]
-    [InlineData("1.0009",  new[] { "1", "0009" }, false)]
-    [InlineData("20110131120940",  new[] { "20110131120940" }, false)]
-    [InlineData("2.20110131120940",  new[] { "2", "20110131120940" }, false)]
+      new[] { "1", "5", "6", "123", "alpha", "123" }, true, false, null)]
+    [InlineData("1.5.6.1alpha",
+      new[] { "1", "5", "6", "1", "alpha" }, true, false, null)]
+    [InlineData("1.5.6.rc1",
+      new[] { "1", "5", "6", "rc", "1" }, true, false, null)]
+    [InlineData("1.5.6.rc1-x86-linux",
+      new[] { "1", "5", "6", "rc", "1" }, true, true, "x86-linux")]
+    [InlineData("1.5.6.rc2",
+      new[] { "1", "5", "6", "rc", "2" }, true, false, null)]
+    [InlineData("1.5.6.rc22",
+      new[] { "1", "5", "6", "rc", "22" }, true, false, null)]
+    [InlineData("1.5.6.rc22alpha",
+      new[] { "1", "5", "6", "rc", "22", "alpha" }, true, false, null)]
+    [InlineData("1.5.6.rc22alpha1",
+      new[] { "1", "5", "6", "rc", "22", "alpha", "1" }, true, false, null)]
     [InlineData("2.0.20110131120940",
-      new[] { "2", "0", "20110131120940" }, false)]
-    [InlineData("2.0.8.beta.20110131120940",  new[] { "2", "0", "8", "beta",
-      "20110131120940" }, true)]
+      new[] { "2", "0", "20110131120940" }, false, false, null)]
+    [InlineData("2.0.8.beta.20110131120940",
+      new[] { "2", "0", "8", "beta", "20110131120940" }, true, false, null)]
+    [InlineData("2.20110131120940",
+      new[] { "2", "20110131120940" }, false, false, null)]
+    [InlineData("20110131120940",
+      new[] { "20110131120940" }, false, false, null)]
+    [InlineData("3.6.0", new[] { "3", "6", "0" }, false, false, null)]
+    [InlineData("3.6.0-x86-linux",
+      new[] { "3", "6", "0" }, false, true, "x86-linux")]
     public void VersionIsParsedIntoParts(
       string version,
       string[] versionParts,
-      bool isPreRelease
+      bool isPreRelease,
+      bool isPlatformSpecific,
+      string platformSpecifier
     ) {
       var info = new RubyGemsVersionInfo() {Version = version};
 
@@ -57,6 +82,8 @@ namespace Freshli.Test.Unit.Ruby {
 
       Assert.Equal(versionParts, info.VersionParts);
       Assert.Equal(isPreRelease, info.IsPreRelease);
+      Assert.Equal(isPlatformSpecific, info.IsPlatformSpecific);
+      Assert.Equal(platformSpecifier, info.PlatformSpecifier);
     }
 
     [Theory]
