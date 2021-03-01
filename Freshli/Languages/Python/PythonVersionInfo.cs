@@ -62,7 +62,7 @@ namespace Freshli.Languages.Python {
     public bool IsPostRelease => PostRelease != null;
     public int? PostReleaseSuffixType { get; set; }
 
-    public DateTime DatePublished { get; set; }
+    public DateTimeOffset DatePublished { get; set; }
 
     private readonly Regex _versionExpression = new Regex(
       @"^(?i)(([0-9]+)!)?" +

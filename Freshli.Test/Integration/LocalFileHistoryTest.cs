@@ -9,7 +9,7 @@ namespace Freshli.Test.Integration {
       var emptyFixturePath = Fixtures.Path("empty");
       var history = new LocalFileHistory(emptyFixturePath, "readme.md");
 
-      Assert.Equal(new List<DateTime> {DateTime.Today}, history.Dates);
+      Assert.Equal(new List<DateTimeOffset> {DateTime.Today}, history.Dates);
     }
 
     [Fact]

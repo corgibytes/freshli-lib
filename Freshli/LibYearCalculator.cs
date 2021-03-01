@@ -15,7 +15,7 @@ namespace Freshli {
       Manifest = manifest;
     }
 
-    public LibYearResult ComputeAsOf(DateTime date) {
+    public LibYearResult ComputeAsOf(DateTimeOffset date) {
       var result = new LibYearResult();
 
       foreach (var package in Manifest) {
@@ -47,7 +47,7 @@ namespace Freshli {
     }
 
     private void GetVersions(
-      DateTime date,
+      DateTimeOffset date,
       PackageInfo package,
       out IVersionInfo latestVersion,
       out IVersionInfo currentVersion
@@ -65,7 +65,7 @@ namespace Freshli {
     }
 
     private LibYearPackageResult ProcessPackageResult(
-      DateTime date,
+      DateTimeOffset date,
       PackageInfo package,
       IVersionInfo latestVersion,
       IVersionInfo currentVersion)
@@ -126,9 +126,12 @@ namespace Freshli {
       _logger.Trace(e.StackTrace);
     }
 
-    private LibYearPackageResult ComputeUsingVersionsBetween(string name,
-      DateTime asOf, IVersionInfo currentVersion, IVersionInfo latestVersion)
-    {
+    private LibYearPackageResult ComputeUsingVersionsBetween(
+      string name,
+      DateTimeOffset asOf,
+      IVersionInfo currentVersion,
+      IVersionInfo latestVersion
+    ) {
       try {
         var versions = Repository.VersionsBetween(
           name,

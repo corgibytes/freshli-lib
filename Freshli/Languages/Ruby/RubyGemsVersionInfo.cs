@@ -23,7 +23,7 @@ namespace Freshli.Languages.Ruby {
       }
     }
 
-    public DateTime DatePublished { get; set; }
+    public DateTimeOffset DatePublished { get; set; }
 
     public bool IsPreRelease { get; set; }
 
@@ -35,7 +35,7 @@ namespace Freshli.Languages.Ruby {
 
     public RubyGemsVersionInfo() { }
 
-    public RubyGemsVersionInfo(string version, DateTime datePublished) {
+    public RubyGemsVersionInfo(string version, DateTimeOffset datePublished) {
       Version = version;
       DatePublished = datePublished;
     }
@@ -148,7 +148,7 @@ namespace Freshli.Languages.Ruby {
     public override string ToString() {
       return
         $"{nameof(Version)}: {Version}, " +
-        $"{nameof(DatePublished)}: {DatePublished:d}";
+        $"{nameof(DatePublished)}: {DatePublished:O}";
     }
   }
 }

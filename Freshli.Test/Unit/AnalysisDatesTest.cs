@@ -19,7 +19,7 @@ namespace Freshli.Test.Unit {
     [Fact]
     public void SingleDate() {
       var history = new Mock<IFileHistory>();
-      var dates = new List<DateTime>();
+      var dates = new List<DateTimeOffset>();
       history.Setup(mock => mock.Dates).Returns(dates);
       var analysisDates = new AnalysisDates(
         history.Object,
@@ -34,7 +34,7 @@ namespace Freshli.Test.Unit {
     [Fact]
     public void DateRange() {
       var history = new Mock<IFileHistory>();
-      var dates = new List<DateTime>() {
+      var dates = new List<DateTimeOffset>() {
         ParseExact("2017-01-01T23:59:59.9999999Z"),
         ParseExact("2018-01-01T23:59:59.9999999Z"),
         ParseExact("2019-01-01T23:59:59.9999999Z")
@@ -48,7 +48,7 @@ namespace Freshli.Test.Unit {
       );
 
       var expectedDates = new List<DateTime>();
-      var currentDate = dates.First();
+      var currentDate = dates.First().Date;
       while (currentDate <= stopDate) {
         expectedDates.Add(currentDate);
         currentDate = currentDate.AddMonths(1);
@@ -60,7 +60,7 @@ namespace Freshli.Test.Unit {
     [Fact]
     public void DateRangeStopsOnSpeciedDate() {
       var history = new Mock<IFileHistory>();
-      var dates = new List<DateTime>() {
+      var dates = new List<DateTimeOffset>() {
         ParseExact("2017-01-01T23:59:59.9999999Z"),
         ParseExact("2018-01-01T23:59:59.9999999Z"),
         ParseExact("2019-01-01T23:59:59.9999999Z"),
@@ -75,7 +75,7 @@ namespace Freshli.Test.Unit {
       );
 
       var expectedDates = new List<DateTime>();
-      var currentDate = dates.First();
+      var currentDate = dates.First().Date;
       while (currentDate <= stopDate) {
         expectedDates.Add(currentDate);
         currentDate = currentDate.AddMonths(1);
@@ -88,7 +88,7 @@ namespace Freshli.Test.Unit {
     public void FirstFileCreatedBeforeStartOfMonth() {
       var history = new Mock<IFileHistory>();
       var dates =
-        new List<DateTime>() {ParseExact("2016-12-15T00:00:00.0000000Z")};
+        new List<DateTimeOffset>() {ParseExact("2016-12-15T00:00:00.0000000Z")};
 
       // TODO Is the name stopDate misleading as it is now inclusive?
       history.Setup(mock => mock.Dates).Returns(dates);
@@ -99,7 +99,7 @@ namespace Freshli.Test.Unit {
       );
 
       Assert.Equal(
-        ParseExact("2017-01-01T23:59:59.9999999Z"),
+        ParseExact("2017-01-01T00:00:00.0000000Z"),
         analysisDates.First()
       );
     }
@@ -108,7 +108,7 @@ namespace Freshli.Test.Unit {
     public void FileDateIsNewerThanAsOfDateAndHistoryOnlyContainsOneVersion() {
       var history = new Mock<IFileHistory>();
       var dates =
-        new List<DateTime>() {ParseExact("2020-01-20T00:00:00.0000000Z")};
+        new List<DateTimeOffset>() {ParseExact("2020-01-20T00:00:00.0000000Z")};
 
       history.Setup(mock => mock.Dates).Returns(dates);
       var stopDate = ParseExact("2020-01-01T00:00:00.0000000Z");

@@ -4,11 +4,14 @@ using System.Collections.Generic;
 namespace Freshli {
   public interface IPackageRepository {
     IVersionInfo VersionInfo(string name, string version);
-    IVersionInfo Latest(string name, DateTime asOf, bool includePreReleases);
-    IVersionInfo Latest(string name, DateTime asOf, string thatMatches);
+    IVersionInfo Latest(
+      string name,
+      DateTimeOffset asOf,
+      bool includePreReleases);
+    IVersionInfo Latest(string name, DateTimeOffset asOf, string thatMatches);
     List<IVersionInfo> VersionsBetween(
       string name,
-      DateTime asOf,
+      DateTimeOffset asOf,
       IVersionInfo earlierVersion,
       IVersionInfo laterVersion,
       bool includePreReleases

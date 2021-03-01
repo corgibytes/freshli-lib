@@ -10,10 +10,10 @@ namespace Freshli.Test.Integration {
       var rubyFixturePath = Fixtures.Path("ruby", "nokotest");
       var history = new GitFileHistory(rubyFixturePath, "Gemfile.lock");
 
-      var expectedDates = new List<DateTime>() {
-        new DateTime(2017, 01, 01),
-        new DateTime(2018, 01, 01),
-        new DateTime(2019, 01, 01)
+      var expectedDates = new List<DateTimeOffset>() {
+        new(new DateTime(2017, 01, 01, 00, 01, 29), TimeSpan.FromHours(-8)),
+        new(new DateTime(2018, 01, 01, 00, 00, 59), TimeSpan.FromHours(-8)),
+        new(new DateTime(2019, 01, 01, 00, 00, 46), TimeSpan.FromHours(-8))
       };
 
       Assert.Equal(expectedDates, history.Dates);

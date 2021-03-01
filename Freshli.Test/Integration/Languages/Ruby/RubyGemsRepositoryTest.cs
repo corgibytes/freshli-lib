@@ -9,7 +9,8 @@ namespace Freshli.Test.Integration.Languages.Ruby {
     public void VersionInfoCorrectlyCreatesVersion() {
       var repository = new RubyGemsRepository();
       var versionInfo = repository.VersionInfo("tzinfo", "1.2.7");
-      var expectedDate = new DateTime(2020, 04, 02);
+      var expectedDate =
+        new DateTimeOffset(2020, 04, 02, 21, 42, 11, TimeSpan.Zero);
 
       Assert.Equal("1.2.7", versionInfo.Version);
       Assert.Equal(expectedDate, versionInfo.DatePublished);
@@ -19,7 +20,8 @@ namespace Freshli.Test.Integration.Languages.Ruby {
     public void VersionInfoCorrectlyCreatesPreReleaseVersion() {
       var repository = new RubyGemsRepository();
       var versionInfo = repository.VersionInfo("git", "1.6.0.pre1");
-      var expectedDate = new DateTime(2020, 01, 20);
+      var expectedDate =
+        new DateTimeOffset(2020, 01, 20, 20, 50, 43, TimeSpan.Zero);
 
       Assert.Equal("1.6.0.pre1", versionInfo.Version);
       Assert.Equal(expectedDate, versionInfo.DatePublished);
@@ -30,7 +32,8 @@ namespace Freshli.Test.Integration.Languages.Ruby {
       var repository = new RubyGemsRepository();
       var targetDate = new DateTime(2020, 02, 01);
       var versionInfo = repository.Latest("git", targetDate, false);
-      var expectedDate = new DateTime(2018, 08, 10);
+      var expectedDate =
+        new DateTimeOffset(2018, 08, 10, 07, 58, 25, TimeSpan.Zero);
 
       Assert.Equal("1.5.0", versionInfo.Version);
       Assert.Equal(expectedDate, versionInfo.DatePublished);
@@ -42,7 +45,8 @@ namespace Freshli.Test.Integration.Languages.Ruby {
       var repository = new RubyGemsRepository();
       var targetDate = new DateTime(2020, 02, 01);
       var versionInfo = repository.Latest("git", targetDate, true);
-      var expectedDate = new DateTime(2020, 01, 20);
+      var expectedDate =
+        new DateTimeOffset(2020, 01, 20, 20, 50, 43, TimeSpan.Zero);
 
       Assert.Equal("1.6.0.pre1", versionInfo.Version);
       Assert.Equal(expectedDate, versionInfo.DatePublished);

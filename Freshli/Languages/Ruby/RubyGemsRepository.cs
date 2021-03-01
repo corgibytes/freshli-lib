@@ -43,7 +43,7 @@ namespace Freshli.Languages.Ruby {
 
     public IVersionInfo Latest(
       string name,
-      DateTime asOf,
+      DateTimeOffset asOf,
       bool includePreReleases)
     {
       try {
@@ -66,14 +66,14 @@ namespace Freshli.Languages.Ruby {
 
     public IVersionInfo Latest(
       string name,
-      DateTime asOf,
+      DateTimeOffset asOf,
       string thatMatches) {
       throw new NotImplementedException();
     }
 
     public List<IVersionInfo> VersionsBetween(
       string name,
-      DateTime asOf,
+      DateTimeOffset asOf,
       IVersionInfo earlierVersion,
       IVersionInfo laterVersion,
       bool includePreReleases)
@@ -113,7 +113,12 @@ namespace Freshli.Languages.Ruby {
 
       var rawDate = releaseNode.Descendants("small").First().InnerText.
         Replace("- ", "");
-      var versionDate = DateTime.ParseExact(rawDate, "MMMM dd, yyyy", null);
+      var versionDate = DateTime.ParseExact(
+        rawDate,
+        "MMMM dd, yyyy",
+        CultureInfo.InvariantCulture,
+        DateTimeStyles.AssumeUniversal
+      );
 
       var versionInfo = new RubyGemsVersionInfo(version, versionDate);
       if ((!versionInfo.IsPreRelease || includePreReleaseVersions) &&

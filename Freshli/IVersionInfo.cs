@@ -5,7 +5,7 @@ namespace Freshli {
 
     public string Version  { get; }
 
-    public DateTime DatePublished { get; }
+    public DateTimeOffset DatePublished { get; }
 
     public bool IsPreRelease { get; }
 

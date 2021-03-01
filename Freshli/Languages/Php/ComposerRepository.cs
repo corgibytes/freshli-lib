@@ -22,7 +22,7 @@ namespace Freshli.Languages.Php {
     //TODO: Update logic to utilize includePreReleases
     public IVersionInfo Latest(
       string name,
-      DateTime asOf,
+      DateTimeOffset asOf,
       bool includePreReleases)
     {
       var content = FetchPackageInfo(name);
@@ -68,7 +68,7 @@ namespace Freshli.Languages.Php {
       return filteredVersions.Last();
     }
 
-    private static DateTime ParsePublishedDate(JsonElement versionJson) {
+    private static DateTimeOffset ParsePublishedDate(JsonElement versionJson) {
       DateTime result = DateTime.MinValue;
 
       if (versionJson.TryGetProperty("time", out var standardTime)) {
@@ -109,13 +109,13 @@ namespace Freshli.Languages.Php {
       return null;
     }
 
-    public IVersionInfo Latest(string name, DateTime asOf, string thatMatches) {
+    public IVersionInfo Latest(string name, DateTimeOffset asOf, string thatMatches) {
       throw new NotImplementedException();
     }
 
     public List<IVersionInfo> VersionsBetween(
       string name,
-      DateTime asOf,
+      DateTimeOffset asOf,
       IVersionInfo earlierVersion,
       IVersionInfo laterVersion,
       bool includePreReleases)

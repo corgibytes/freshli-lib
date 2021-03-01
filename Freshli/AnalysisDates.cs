@@ -22,7 +22,7 @@ namespace Freshli {
         }
 
         while (date <= asOf) {
-          var dayOf = date.ToEndOfDay();
+          var dayOf = date.Date;
           _dates.Add(dayOf);
           date = date.AddMonths(1);
         }
