@@ -2,9 +2,13 @@ name: .NET Core
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - 'main'
+      - 'release/**'
   pull_request:
-    branches: [ main ]
+    branches:
+      - 'main'
+      - 'release/**'
 
 jobs:
   build:
@@ -60,5 +64,9 @@ jobs:
         run: dotnet pack -c Release
 
       - name: Publish Alpha Package to Github Packages
-        if: github.event_name == 'push'
+        if: github.event_name == 'push' && github.ref == 'ref/head/main'
         run: dotnet nuget push ./Freshli/bin/Release/*.nupkg -k ${{ secrets.GITHUB_TOKEN }} --skip-duplicate -n true -s https://nuget.pkg.github.com/corgibytes/index.json
+
+      - name: Publish Package to NuGet
+        if: github.event_name == 'push' && contains(github.ref, "release")
+        run: echo test
