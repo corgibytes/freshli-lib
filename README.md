@@ -38,14 +38,6 @@ Freshli reads source code repository history to access previous version of each 
 
 To use Freshli in a project, you have two options:
 
-### Stable and Beta Releases
-
-Stable and beta releases are found at https://www.nuget.org/packages/Freshli/ and can be added with the [`dotnet add package`](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-add-package) command:
-
-```
-dotnet add package Freshli.Core
-```
-
 ### Alpha Releases
 
 To use an alpha release, you'll need to [set up a GitHub personal access token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) and then create a `nuget.config` file in your project root with the following contents:
