@@ -19,6 +19,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0 # Required for GitVersion
+          ref: ${{ github.head_ref }} # Required for Git Auto Commit
         
       # Require .NET 5 for GitVersion and .NET 3 for GitRelesaseManager
       - name: Setup .NET Core 5 (GitVersion)
@@ -74,3 +75,4 @@ jobs:
         with:
           commit_message: Committing auto generated change log.
           file_pattern: CHANGELOG.md
+
