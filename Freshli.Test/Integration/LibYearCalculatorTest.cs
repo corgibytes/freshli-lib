@@ -21,23 +21,23 @@ namespace Freshli.Test.Integration {
       Assert.Equal(0.0, results["mini_portile2"].Value, 3);
       Assert.Equal("2.1.0", results["mini_portile2"].Version);
       Assert.Equal(
-        new DateTime(2016, 01, 06),
+        new DateTimeOffset(2016, 01, 06, 19, 10, 42, TimeSpan.Zero),
         results["mini_portile2"].PublishedAt
       );
       Assert.Equal("2.1.0", results["mini_portile2"].LatestVersion);
       Assert.Equal(
-        new DateTime(2016, 01, 06),
+        new DateTimeOffset(2016, 01, 06, 19, 10, 42, TimeSpan.Zero),
         results["mini_portile2"].LatestPublishedAt
       );
       Assert.False(results["mini_portile2"].UpgradeAvailable);
       Assert.Equal(0.227, results["nokogiri"].Value, 3);
       Assert.Equal("1.7.0", results["nokogiri"].Version);
       Assert.Equal(
-        new DateTime(2016, 12, 27),
+        new DateTimeOffset(2016, 12, 27, 03, 49, 28, TimeSpan.Zero),
         results["nokogiri"].PublishedAt);
       Assert.Equal("1.7.1", results["nokogiri"].LatestVersion);
       Assert.Equal(
-        new DateTime(2017, 03, 20),
+        new DateTimeOffset(2017, 03, 20, 03, 39, 14, TimeSpan.Zero),
         results["nokogiri"].LatestPublishedAt);
       Assert.True(results["nokogiri"].UpgradeAvailable);
     }
@@ -151,12 +151,12 @@ namespace Freshli.Test.Integration {
       Assert.Equal(0.063, results["google-protobuf"].Value, 3);
       Assert.Equal("3.12.0.rc.1", results["google-protobuf"].Version);
       Assert.Equal(
-        new DateTime(2020, 05, 04),
+        new DateTimeOffset(2020, 05, 04, 22, 46, 23, TimeSpan.Zero),
         results["google-protobuf"].PublishedAt
       );
       Assert.Equal("3.12.2", results["google-protobuf"].LatestVersion);
       Assert.Equal(
-        new DateTime(2020, 05, 27),
+        new DateTimeOffset(2020, 05, 27, 18, 50, 26, TimeSpan.Zero),
         results["google-protobuf"].LatestPublishedAt
       );
       Assert.True(results["google-protobuf"].UpgradeAvailable);
