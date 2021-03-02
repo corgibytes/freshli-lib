@@ -40,7 +40,7 @@ jobs:
           additionalArguments: '/updateprojectfiles'
     
       - name: Display updated csproj File
-        run: cat Freshli/Freshli.csproj
+        run: cat Freshli/Freshli.Lib.csproj
 
       - name: Build
         run: dotnet build --configuration Release
