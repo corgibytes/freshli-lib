@@ -22,7 +22,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Freshli\Freshli.csproj" />
+      <ProjectReference Include="..\Freshli\Freshli.Lib.csproj" />
     </ItemGroup>
 
     <ItemGroup>
