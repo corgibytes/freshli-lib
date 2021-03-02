@@ -38,9 +38,9 @@ Freshli reads source code repository history to access previous version of each 
 
 To use Freshli in a project, you have two options:
 
-### Alpha Releases
+### Beta & Alpha Releases
 
-To use an alpha release, you'll need to [set up a GitHub personal access token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) and then create a `nuget.config` file in your project root with the following contents:
+To use a beta or alpha release, you'll need to [set up a GitHub personal access token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) and then create a `nuget.config` file in your project root with the following contents:
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
