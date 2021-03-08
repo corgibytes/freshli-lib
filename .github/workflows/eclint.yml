@@ -2,9 +2,9 @@ name: EditorConfig Lint
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, release* ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, release* ]
 
 jobs:
   eclint:
@@ -13,4 +13,4 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: ECLint
-        uses: greut/eclint-action@v0.3.0
+        uses: greut/eclint-action@v0.3.1

@@ -10,14 +10,16 @@ namespace Freshli {
     private static readonly Logger logger = LogManager.GetCurrentClassLogger();
     private readonly string _projectRootPath;
 
-    private static readonly IList<IManifestFinder> _finders =
-      new List<IManifestFinder>();
+    private static readonly IList<AbstractManifestFinder> _finders =
+      new List<AbstractManifestFinder>();
 
-    public static IList<IManifestFinder> Finders => _finders;
+    public static IList<AbstractManifestFinder> Finders => _finders;
 
-    public IManifestFinder Finder { get; }
+    public AbstractManifestFinder Finder { get; }
 
-    public string LockFileName => Finder.LockFileName;
+    public string[] ManifestFiles =>
+      Finder.GetManifestFilenames(_projectRootPath);
+
     public bool Successful { get; }
 
     public LibYearCalculator Calculator => new LibYearCalculator(
@@ -33,7 +35,7 @@ namespace Freshli {
       Successful = false;
       foreach (var finder in Finders.ToImmutableList()) {
         finder.FileFinder = fileFinder;
-        if (finder.DoesPathContainManifest(projectRootPath)) {
+        if (finder.GetManifestFilenames(projectRootPath).Any()) {
           Finder = finder;
           Successful = true;
           break;
@@ -41,7 +43,7 @@ namespace Freshli {
       }
     }
 
-    public static void Register(IManifestFinder finder) {
+    public static void Register(AbstractManifestFinder finder) {
       Finders.Add(finder);
     }
 
@@ -54,8 +56,11 @@ namespace Freshli {
       }
 
       foreach (var type in manifestFinderTypes) {
-        logger.Log(LogLevel.Info, $"Registering IManifestFinder: {type}");
-        Register((IManifestFinder) Activator.CreateInstance(type));
+        logger.Log(
+          LogLevel.Info,
+          $"Registering AbstractManifestFinder: {type}"
+        );
+        Register((AbstractManifestFinder) Activator.CreateInstance(type));
       }
     }
 
@@ -63,7 +68,7 @@ namespace Freshli {
       try {
         return assembly.GetTypes().
           Where(
-            type => type.GetInterfaces().Contains(typeof(IManifestFinder)) &&
+            type => type.BaseType == typeof(AbstractManifestFinder) &&
               type.GetConstructor(Type.EmptyTypes) != null
           );
       } catch {

@@ -2,9 +2,9 @@ name: .NET Core
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, release* ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, release* ]
 
 jobs:
   build:
@@ -46,6 +46,7 @@ jobs:
         run: dotnet build --configuration Release
     
       - name: Test, Generate Code Coverage  
+        if: ${{ !env.ACT }}
         uses: paambaati/codeclimate-action@v2.7.5
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.TEST_REPORTER_ID }}
@@ -53,3 +54,11 @@ jobs:
           coverageCommand: dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=lcov
           coverageLocations: |
             ${{github.workspace}}/Freshli.Test/coverage.info:lcov
+
+      - name: Package
+        if: github.event_name == 'push'
+        run: dotnet pack -c Release
+
+      - name: Publish Alpha Package to Github Packages
+        if: github.event_name == 'push'
+        run: dotnet nuget push ./Freshli/bin/Release/*.nupkg -k ${{ secrets.GITHUB_TOKEN }} --skip-duplicate -n true -s https://nuget.pkg.github.com/corgibytes/index.json

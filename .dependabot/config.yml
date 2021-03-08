@@ -1,0 +1,8 @@
+version: 1
+update_configs:
+  - package_manager: "php:composer"
+    directory: "/Freshli.Test/fixtures/php"
+    update_schedule: "daily"
+    ignored_updates:
+      - match:
+          dependency_name: "*"
