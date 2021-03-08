@@ -140,7 +140,7 @@ namespace Freshli.Test.Unit {
         $"{nameof(versionInfo.Patch)}: {versionInfo.Patch}, " +
         $"{nameof(versionInfo.PreRelease)}: {versionInfo.PreRelease}, " +
         $"{nameof(versionInfo.BuildMetadata)}: {versionInfo.BuildMetadata}, " +
-        $"{nameof(versionInfo.DatePublished)}: {versionInfo.DatePublished:d}",
+        $"{nameof(versionInfo.DatePublished)}: {versionInfo.DatePublished:O}",
         versionInfo.ToString()
       );
     }
