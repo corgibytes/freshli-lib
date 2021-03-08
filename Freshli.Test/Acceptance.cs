@@ -5,8 +5,8 @@ using Xunit;
 namespace Freshli.Test {
   public class Acceptance {
 
-    private DateTime _testingBoundary =
-      new DateTime(2020, 01, 01, 0, 0, 0, DateTimeKind.Utc);
+    private DateTimeOffset _testingBoundary =
+      new DateTimeOffset(2020, 01, 01, 0, 0, 0, 0, TimeSpan.Zero);
 
     [Fact]
     public void RubyGemsWithGitHistory() {

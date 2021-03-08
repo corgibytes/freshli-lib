@@ -1,5 +1,7 @@
 using System;
+using System.Linq;
 using Freshli.Languages.Ruby;
+using Freshli.Util;
 using Xunit;
 
 namespace Freshli.Test.Integration.Languages.Ruby {
@@ -30,7 +32,8 @@ namespace Freshli.Test.Integration.Languages.Ruby {
     [Fact]
     public void LatestAsOfCorrectlyFindsLatestVersion() {
       var repository = new RubyGemsRepository();
-      var targetDate = new DateTime(2020, 02, 01);
+      var targetDate =
+        new DateTimeOffset(2020, 02, 01, 00, 00, 00, TimeSpan.Zero);
       var versionInfo = repository.Latest("git", targetDate, false);
       var expectedDate =
         new DateTimeOffset(2018, 08, 10, 07, 58, 25, TimeSpan.Zero);
@@ -43,7 +46,8 @@ namespace Freshli.Test.Integration.Languages.Ruby {
     public void
       LatestAsOfCorrectlyFindsLatestPreReleaseVersion() {
       var repository = new RubyGemsRepository();
-      var targetDate = new DateTime(2020, 02, 01);
+      var targetDate =
+        new DateTimeOffset(2020, 02, 01, 00, 00, 00, TimeSpan.Zero);
       var versionInfo = repository.Latest("git", targetDate, true);
       var expectedDate =
         new DateTimeOffset(2020, 01, 20, 20, 50, 43, TimeSpan.Zero);
@@ -55,7 +59,8 @@ namespace Freshli.Test.Integration.Languages.Ruby {
     [Fact]
     public void VersionsBetweenFindsVersionsReleasedBeforeTargetDate() {
     var repository = new RubyGemsRepository();
-    var targetDate = new DateTime(2014, 04, 01);
+    var targetDate =
+      new DateTimeOffset(2014, 04, 01, 00, 00, 00, TimeSpan.Zero);
     var earlierVersion = new RubyGemsVersionInfo {Version = "0.3.38"};
     var laterVersion = new RubyGemsVersionInfo {Version = "1.1.0"};
 
@@ -68,7 +73,8 @@ namespace Freshli.Test.Integration.Languages.Ruby {
     [Fact]
     public void VersionsBetweenCorrectlyFindsVersions() {
       var repository = new RubyGemsRepository();
-      var targetDate = new DateTime(2020, 09, 01);
+      var targetDate =
+        new DateTimeOffset(2020, 09, 01, 00, 00, 00, TimeSpan.Zero);
       var earlierVersion = new RubyGemsVersionInfo {Version = "3.11.0"};
       var laterVersion = new RubyGemsVersionInfo {Version = "3.13.0"};
 
@@ -82,7 +88,8 @@ namespace Freshli.Test.Integration.Languages.Ruby {
     [Fact]
     public void VersionsBetweenCorrectlyFindsVersionsWithPreReleases() {
       var repository = new RubyGemsRepository();
-      var targetDate = new DateTime(2020, 09, 01);
+      var targetDate =
+        new DateTimeOffset(2020, 09, 01, 00, 00, 00, TimeSpan.Zero);
       var earlierVersion = new RubyGemsVersionInfo {Version = "3.11.0"};
       var laterVersion = new RubyGemsVersionInfo {Version = "3.13.0"};
 
