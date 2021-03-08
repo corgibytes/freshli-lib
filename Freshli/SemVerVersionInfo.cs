@@ -168,7 +168,7 @@ namespace Freshli {
         $"{nameof(Patch)}: {Patch}, " +
         $"{nameof(PreRelease)}: {PreRelease}, " +
         $"{nameof(BuildMetadata)}: {BuildMetadata}, " +
-        $"{nameof(DatePublished)}: {DatePublished:d}";
+        $"{nameof(DatePublished)}: {DatePublished:O}";
     }
 
     private void ParsePreRelease(string value) {

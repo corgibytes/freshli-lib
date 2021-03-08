@@ -14,7 +14,7 @@ namespace Freshli {
     }
 
     public override string ToString() {
-      return $"{{ Date: {Date:s}, ManifestSHA: {_manifestSha}, " +
+      return $"{{ Date: {Date:O}, ManifestSHA: {_manifestSha}, " +
         $"LibYear: {LibYear} }}\n";
     }
   }

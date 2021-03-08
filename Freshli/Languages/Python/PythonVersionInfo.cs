@@ -399,7 +399,7 @@ namespace Freshli.Languages.Python {
     public override string ToString() {
       return
         $"{nameof(Version)}: {Version}, " +
-        $"{nameof(DatePublished)}: {DatePublished:d}";
+        $"{nameof(DatePublished)}: {DatePublished:O}";
     }
   }
 }

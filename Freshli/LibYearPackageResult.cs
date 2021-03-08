@@ -53,9 +53,9 @@ namespace Freshli {
       return
         $"{{ Name: \"{Name}\", " +
         $"RepoVersion: \"{Version}\", " +
-        $"RepoVersionPublishedAt: {PublishedAt:s}, " +
+        $"RepoVersionPublishedAt: {PublishedAt:O}, " +
         $"LatestVersion: \"{LatestVersion}\", " +
-        $"LatestPublishedAt: {LatestPublishedAt:s}, " +
+        $"LatestPublishedAt: {LatestPublishedAt:O}, " +
         $"UpgradeAvailable: {UpgradeAvailable}, " +
         $"Value: {Value} }}";
     }
