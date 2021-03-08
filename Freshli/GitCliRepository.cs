@@ -42,7 +42,7 @@ namespace Freshli {
       RepositoryRoot = repositoryRoot;
     }
 
-    public Dictionary<DateTime, string> LogEntriesFor(string path) {
+    public Dictionary<DateTimeOffset, string> LogEntriesFor(string path) {
       // Run in ${repositoryRoot}
       // git log \
       //   --full-history \
@@ -69,14 +69,14 @@ namespace Freshli {
         StringSplitOptions.None
       );
 
-      var result = new Dictionary<DateTime, string>();
+      var result = new Dictionary<DateTimeOffset, string>();
       foreach (var line in lines) {
         var splits = line.Trim().Split(" ");
         var date = DateTimeOffset.Parse(
           splits[0],
           null,
           DateTimeStyles.RoundtripKind
-        ).DateTime;
+        );
         result.Add(date, splits[1]);
       }
 

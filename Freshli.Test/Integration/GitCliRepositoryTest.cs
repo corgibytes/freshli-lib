@@ -68,7 +68,7 @@ namespace Freshli.Test.Integration {
 
       Approvals.VerifyAll(
         repository.LogEntriesFor("Gemfile"),
-        (date, sha) => $"{date.ToString("u")} => {sha}"
+        (date, sha) => $"{date.ToString("O")} => {sha}"
       );
     }
 
@@ -79,7 +79,7 @@ namespace Freshli.Test.Integration {
 
       Approvals.VerifyAll(
         repository.LogEntriesFor("Gemfile.lock"),
-        (date, sha) => $"{date.ToString("u")} => {sha}"
+        (date, sha) => $"{date.ToString("O")} => {sha}"
       );
     }
 
