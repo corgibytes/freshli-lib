@@ -91,5 +91,66 @@ namespace Freshli.Test.Integration.Languages.Ruby {
 
       Assert.Equal(11, versions.Count);
     }
+
+    [Fact]
+    public void ProperlyHandlesRateLimits() {
+      var repository = new RubyGemsRepository();
+      var targetDate =
+        new DateTimeOffset(2021, 03, 10, 00, 00, 00, TimeSpan.Zero);
+
+      var packages = new[] {
+        ("bundler", "2.2.13"),
+        ("rspec-mocks", "3.10.2"),
+        ("rspec-support", "3.10.2"),
+        ("i18n", "1.8.9"),
+        ("activesupport", "6.1.3"),
+        ("aws-sdk-core", "3.112.1"),
+        ("rubygems-update", "3.2.13"),
+        ("thor", "1.10.0"),
+        ("nokogiri", "1.11.1"),
+        ("minitest", "5.14.4"),
+        ("aws-sigv4", "1.2.3"),
+        ("faraday", "1.3.0"),
+        ("concurrent-ruby", "1.1.8"),
+        ("ffi", "1.15.0"),
+        ("activemodel", "6.1.3"),
+        ("activerecord", "6.1.3"),
+        ("actionpack", "6.1.3"),
+        ("rails", "6.1.3"),
+        ("aws-sdk", "3.0.2"),
+        ("actionmailer", "6.1.3"),
+        ("railties", "6.1.3"),
+        ("aws-partitions", "1.431.1"),
+        ("aws-eventstream", "1.1.1"),
+        ("aws-sdk-resources", "3.94.1"),
+        ("actionview", "6.1.3"),
+        ("mime-types-data", "3.2021.0225"),
+        ("loofah", "2.9.0"),
+        ("activejob", "6.1.3"),
+        ("pry", "0.14.0"),
+        ("excon", "0.79.0"),
+        ("aws-sdk-s3", "1.89.0")
+      }.ToList();
+
+      packages.ForEach(
+        packageAndVersion => {
+          var latest = repository.Latest(
+            packageAndVersion.Item1,
+            asOf: targetDate,
+            true
+          );
+
+          var allVersions = repository.VersionsBetween(
+            name: packageAndVersion.Item1,
+            targetDate,
+            RubyGemsVersionInfo.MinimumVersion,
+            new RubyGemsVersionInfo(latest.Version, latest.DatePublished),
+            includePreReleases: true
+          );
+
+          Assert.NotEmpty(allVersions);
+        }
+      );
+    }
   }
 }

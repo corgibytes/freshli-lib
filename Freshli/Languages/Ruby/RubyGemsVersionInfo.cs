@@ -13,6 +13,9 @@ namespace Freshli.Languages.Ruby {
   *  https://ruby-doc.org/stdlib-2.5.0/libdoc/rubygems/rdoc/Gem/Version.html.
   */
 
+  public static IVersionInfo MinimumVersion =
+    new RubyGemsVersionInfo("0", DateTimeOffset.MinValue);
+
     private string _version;
 
     public string Version {
