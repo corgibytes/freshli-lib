@@ -72,7 +72,7 @@ namespace Freshli.Languages.Python {
       @"(\.(dev)([0-9]+))?(?-i)$"
     );
 
-    public PythonVersionInfo(string version, DateTime? datePublished = null) {
+    public PythonVersionInfo(string version, DateTimeOffset? datePublished = null) {
       Version = version;
       if (datePublished.HasValue) { DatePublished = datePublished.Value; }
     }

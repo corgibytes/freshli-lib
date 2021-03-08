@@ -96,14 +96,16 @@ namespace Freshli.Test.Integration {
 
       var calculator = new LibYearCalculator(repository, manifest);
 
-      var results = calculator.ComputeAsOf(new DateTime(2018, 02, 01));
+      var results = calculator.ComputeAsOf(
+        new DateTimeOffset(2018, 02, 01, 00, 00, 00, TimeSpan.FromHours(-5))
+      );
 
-      Assert.Equal(0.362, results.Total, 3);
+      Assert.Equal(0.361, results.Total, 3);
 
       Assert.Equal(0.0, results["mini_portile2"].Value, 3);
       Assert.Equal("2.3.0", results["mini_portile2"].LatestVersion);
       Assert.False(results["mini_portile2"].UpgradeAvailable);
-      Assert.Equal(0.362, results["nokogiri"].Value, 3);
+      Assert.Equal(0.361, results["nokogiri"].Value, 3);
       Assert.Equal("1.8.2", results["nokogiri"].LatestVersion);
       Assert.True(results["nokogiri"].UpgradeAvailable);
     }
@@ -169,18 +171,20 @@ namespace Freshli.Test.Integration {
       var repository = new RubyGemsRepository();
       var calculator = new LibYearCalculator(repository, manifest);
 
-      var results = calculator.ComputeAsOf(new DateTime(2019, 11, 25));
+      var results = calculator.ComputeAsOf(
+        new DateTimeOffset(2019, 11, 25, 00, 00, 00, TimeSpan.FromHours(-5))
+      );
 
-      Assert.Equal(0.216, results.Total, 3);
-      Assert.Equal(0.216, results["google-protobuf"].Value, 3);
+      Assert.Equal(0.214, results.Total, 3);
+      Assert.Equal(0.214, results["google-protobuf"].Value, 3);
       Assert.Equal("3.10.0.rc.1", results["google-protobuf"].Version);
       Assert.Equal(
-        new DateTime(2019, 09, 05),
+        new DateTimeOffset(2019, 09, 05, 19, 43, 14, TimeSpan.Zero),
         results["google-protobuf"].PublishedAt
       );
       Assert.Equal("3.11.0.rc.2", results["google-protobuf"].LatestVersion);
       Assert.Equal(
-        new DateTime(2019, 11, 23),
+        new DateTimeOffset(2019, 11, 23, 00, 10, 38, TimeSpan.Zero),
         results["google-protobuf"].LatestPublishedAt
       );
       Assert.True(results["google-protobuf"].UpgradeAvailable);

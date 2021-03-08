@@ -2,14 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using Freshli.Util;
 using Moq;
 using Xunit;
 
 namespace Freshli.Test.Unit {
   public class AnalysisDatesTest {
-    private static DateTime ParseExact(string value) {
-      return DateTime.ParseExact(
-        value,
+    private static DateTimeOffset ParseExact(string value) {
+      return DateTimeOffset.ParseExact(value,
         "o",
         CultureInfo.InvariantCulture,
         DateTimeStyles.RoundtripKind
@@ -47,8 +47,8 @@ namespace Freshli.Test.Unit {
         asOf: stopDate
       );
 
-      var expectedDates = new List<DateTime>();
-      var currentDate = dates.First().Date;
+      var expectedDates = new List<DateTimeOffset>();
+      var currentDate = dates.First().ToStartOfDay();
       while (currentDate <= stopDate) {
         expectedDates.Add(currentDate);
         currentDate = currentDate.AddMonths(1);
@@ -74,8 +74,8 @@ namespace Freshli.Test.Unit {
         asOf: stopDate
       );
 
-      var expectedDates = new List<DateTime>();
-      var currentDate = dates.First().Date;
+      var expectedDates = new List<DateTimeOffset>();
+      var currentDate = dates.First().ToStartOfDay();
       while (currentDate <= stopDate) {
         expectedDates.Add(currentDate);
         currentDate = currentDate.AddMonths(1);
@@ -118,7 +118,7 @@ namespace Freshli.Test.Unit {
       );
 
       Assert.Equal(
-        new List<DateTime> {ParseExact("2020-01-01T00:00:00.0000000Z")},
+        new List<DateTimeOffset> {ParseExact("2020-01-01T00:00:00.0000000Z")},
         analysisDates
       );
     }

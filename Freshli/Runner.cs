@@ -18,8 +18,8 @@ namespace Freshli {
       FileHistoryFinder.Register<GitFileHistoryFinder>();
     }
 
-    public IList<MetricsResult> Run(string analysisPath, DateTime asOf) {
-      logger.Info($"Run({analysisPath}, {asOf:d})");
+    public IList<MetricsResult> Run(string analysisPath, DateTimeOffset asOf) {
+      logger.Info($"Run({analysisPath}, {asOf:O})");
 
       var metricsResults = new List<MetricsResult>();
 
@@ -50,7 +50,7 @@ namespace Freshli {
 
     private void ProcessManifestFile(
       string analysisPath,
-      DateTime asOf,
+      DateTimeOffset asOf,
       List<MetricsResult> metricsResults,
       FileHistoryFinder fileHistoryFinder
     ) {
@@ -74,7 +74,7 @@ namespace Freshli {
       List<MetricsResult> metricsResults,
       LibYearCalculator calculator,
       IFileHistory fileHistory,
-      DateTime currentDate
+      DateTimeOffset currentDate
     ) {
       var content = fileHistory.ContentsAsOf(currentDate);
       calculator.Manifest.Parse(content);
@@ -84,7 +84,7 @@ namespace Freshli {
       LibYearResult libYear = calculator.ComputeAsOf(currentDate);
       logger.Trace(
         "Adding MetricResult: {manifestFile}, " +
-        "currentDate = {currentDate:d}, " +
+        "currentDate = {currentDate:O}, " +
         "sha = {sha}, " +
         "libYear = {ComputeAsOf}",
         ManifestFinder.ManifestFiles[0],
@@ -96,7 +96,7 @@ namespace Freshli {
     }
 
     public IList<MetricsResult> Run(string analysisPath) {
-      var asOf = DateTime.Today.ToEndOfDay();
+      var asOf = DateTimeOffset.Now.ToEndOfDay();
       return Run(analysisPath, asOf: asOf);
     }
 

@@ -90,7 +90,7 @@ namespace Freshli {
         } else {
           packageResult.UpgradeAvailable = true;
           _logger.Warn($"Negative value ({libYearValue:0.000}) " +
-            $"computed for {package.Name} as of {date:d}; " +
+            $"computed for {package.Name} as of {date:O}; " +
             $"setting value to 0: {packageResult}");
         }
       }

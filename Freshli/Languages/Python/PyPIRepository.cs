@@ -43,8 +43,8 @@ namespace Freshli.Languages.Python {
           var version = versionSplits[0];
 
           var dateNode = releaseNode.Descendants("time").First();
-          var versionDate = DateTime.Parse(
-            dateNode.Attributes["datetime"].Value).ToUniversalTime();
+          var versionDate = DateTimeOffset.Parse(
+            dateNode.Attributes["datetime"].Value);
 
           try {
             versions.Add(new PythonVersionInfo(version, versionDate));

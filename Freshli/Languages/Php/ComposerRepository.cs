@@ -50,7 +50,7 @@ namespace Freshli.Languages.Php {
 
         var version = versionJson.Name;
         var publishedDate = ParsePublishedDate(versionJson.Value);
-        var versionInfo = new SemVerVersionInfo(version, publishedDate.Date);
+        var versionInfo = new SemVerVersionInfo(version, publishedDate);
         if (versionInfo.PreRelease != null) {
           continue;
         }
@@ -69,19 +69,17 @@ namespace Freshli.Languages.Php {
     }
 
     private static DateTimeOffset ParsePublishedDate(JsonElement versionJson) {
-      DateTime result = DateTime.MinValue;
+      var result = DateTimeOffset.MinValue;
 
       if (versionJson.TryGetProperty("time", out var standardTime)) {
-        var dateTime = DateTime.Parse(standardTime.GetString());
-        result = dateTime.ToUniversalTime().Date;
+        result = DateTimeOffset.Parse(standardTime.GetString());
       } else if (versionJson.TryGetProperty("extra", out var extraData)) {
         var datestamp = extraData.GetProperty("drupal").
           GetProperty("datestamp").GetString();
-        result = DateTimeOffset.FromUnixTimeSeconds(Convert.ToInt64(datestamp)).
-          Date.Date;
+        result = DateTimeOffset.FromUnixTimeSeconds(Convert.ToInt64(datestamp));
       }
 
-      return result.Date;
+      return result;
     }
 
     public IVersionInfo VersionInfo(string name, string version) {
@@ -103,7 +101,7 @@ namespace Freshli.Languages.Php {
       if (versionsJson.TryGetProperty(version, out var versionJson)) {
         var publishedDate = ParsePublishedDate(versionJson);
 
-        return new SemVerVersionInfo(version, publishedDate.Date);
+        return new SemVerVersionInfo(version, publishedDate);
       }
 
       return null;

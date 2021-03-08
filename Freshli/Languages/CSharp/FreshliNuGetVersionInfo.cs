@@ -13,7 +13,7 @@ namespace Freshli.Languages.CSharp {
     private int Minor => _nuGetVersion.Minor;
     private int Patch => _nuGetVersion.Patch;
 
-    public DateTime DatePublished { get; init; }
+    public DateTimeOffset DatePublished { get; init; }
 
     public FreshliNuGetVersionInfo(
       NuGetVersion nuGetVersion,

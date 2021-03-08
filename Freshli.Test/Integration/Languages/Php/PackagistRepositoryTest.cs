@@ -14,7 +14,10 @@ namespace Freshli.Test.Integration {
       );
       var versionInfo = repository.VersionInfo("monolog/monolog", "1.11.0");
 
-      Assert.Equal(new DateTime(2014, 09, 30), versionInfo.DatePublished);
+      Assert.Equal(
+        new DateTimeOffset(2014, 09, 30, 13, 30, 58, TimeSpan.Zero),
+        versionInfo.DatePublished
+      );
     }
 
     [Fact]

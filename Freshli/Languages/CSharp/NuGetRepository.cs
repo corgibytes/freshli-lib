@@ -56,7 +56,7 @@ namespace Freshli.Languages.CSharp {
 
     public IVersionInfo Latest(
       string name,
-      DateTime asOf,
+      DateTimeOffset asOf,
       bool includePreReleases)
     {
       try {
@@ -78,7 +78,7 @@ namespace Freshli.Languages.CSharp {
 
     public List<IVersionInfo> VersionsBetween(
       string name,
-      DateTime asOf,
+      DateTimeOffset asOf,
       IVersionInfo earlierVersion,
       IVersionInfo laterVersion,
       bool includePreReleases)
@@ -90,7 +90,7 @@ namespace Freshli.Languages.CSharp {
         .ToList();
     }
 
-    public IVersionInfo Latest(string name, DateTime asOf, string thatMatches) {
+    public IVersionInfo Latest(string name, DateTimeOffset asOf, string thatMatches) {
       throw new NotImplementedException();
     }
   }
