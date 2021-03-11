@@ -3,7 +3,7 @@
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
         <LangVersion>9</LangVersion>
-        <RepositoryUrl>https://github.com/corgibytes/freshli</RepositoryUrl>
+        <RepositoryUrl>https://github.com/corgibytes/freshli-lib</RepositoryUrl>
         <PackageId>Corgibytes.Freshli.Lib</PackageId>
         <Authors>Corgibytes</Authors>
         <Description>Core library for collecting historical metrics about a project's dependencies</Description>
