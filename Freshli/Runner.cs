@@ -96,7 +96,7 @@ namespace Freshli {
     }
 
     public IList<MetricsResult> Run(string analysisPath) {
-      var asOf = DateTimeOffset.Now.ToEndOfDay();
+      var asOf = DateTimeOffset.UtcNow.ToEndOfDay();
       return Run(analysisPath, asOf: asOf);
     }
 
@@ -104,7 +104,7 @@ namespace Freshli {
       if (!System.IO.Directory.Exists(ResultsPath)) {
         System.IO.Directory.CreateDirectory(ResultsPath);
       }
-      var dateTime = DateTime.Now;
+      var dateTime = DateTimeOffset.UtcNow;
       var filePath =
         $"{ResultsPath}/{dateTime:yyyy-MM-dd-hhmmssfffffff}-results.txt";
       using var file = new System.IO.StreamWriter(filePath);

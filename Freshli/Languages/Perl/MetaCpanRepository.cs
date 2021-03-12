@@ -48,7 +48,7 @@ namespace Freshli.Languages.Perl {
       foreach (var hit in hitsJson.GetProperty("hits").EnumerateArray()) {
         var fields = hit.GetProperty("fields");
         var version = fields.GetProperty("version").GetString();
-        var date = DateTime.Parse(
+        var date = DateTimeOffset.Parse(
           fields.GetProperty("date").GetString(),
           CultureInfo.InvariantCulture,
           DateTimeStyles.AssumeUniversal

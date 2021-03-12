@@ -128,7 +128,7 @@ namespace Freshli.Languages.Ruby {
 
       var rawDate = releaseNode.Descendants("small").First().InnerText.
         Replace("- ", "");
-      var versionDate = DateTime.ParseExact(
+      var versionDate = DateTimeOffset.ParseExact(
         rawDate,
         "MMMM dd, yyyy",
         CultureInfo.InvariantCulture,

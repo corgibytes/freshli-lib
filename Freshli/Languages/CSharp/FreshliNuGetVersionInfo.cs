@@ -17,7 +17,7 @@ namespace Freshli.Languages.CSharp {
 
     public FreshliNuGetVersionInfo(
       NuGetVersion nuGetVersion,
-      DateTime datePublished
+      DateTimeOffset datePublished
     ) {
         _nuGetVersion = nuGetVersion;
         DatePublished = datePublished;

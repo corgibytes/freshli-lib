@@ -47,7 +47,7 @@ namespace Freshli.Test {
       var runner = new Runner();
       var results = runner.Run(
         "https://github.com/thoughtbot/clearance",
-        asOf: new DateTime(2020, 06, 01, 00, 00, 00, DateTimeKind.Utc)
+        asOf: new DateTimeOffset(2020, 06, 01, 00, 00, 00, 00, TimeSpan.Zero)
       );
 
       Assert.True(runner.ManifestFinder.Successful);
@@ -108,7 +108,7 @@ namespace Freshli.Test {
 
       var results = runner.Run(
         "https://github.com/explosion/spaCy",
-        asOf: new DateTime(2017,6,1,0,0,0)
+        asOf: new DateTimeOffset(2017, 06, 01, 00, 00, 00, TimeSpan.Zero)
       );
 
       Assert.True(runner.ManifestFinder.Successful);

@@ -13,7 +13,7 @@ namespace Freshli {
     }
 
     public IList<DateTimeOffset> Dates => new List<DateTimeOffset> {
-      DateTime.Today
+      DateTimeOffset.UtcNow
     };
 
     public string ContentsAsOf(DateTimeOffset date) {

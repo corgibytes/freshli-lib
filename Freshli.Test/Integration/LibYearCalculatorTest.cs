@@ -14,7 +14,9 @@ namespace Freshli.Test.Integration {
 
       var calculator = new LibYearCalculator(repository, manifest);
 
-      var results = calculator.ComputeAsOf(new DateTime(2017, 04, 01));
+      var results = calculator.ComputeAsOf(
+        new DateTimeOffset(2017, 04, 01, 00, 00, 00, TimeSpan.Zero)
+      );
 
       Assert.Equal(0.227, results.Total, 3);
 
@@ -52,7 +54,9 @@ namespace Freshli.Test.Integration {
 
       var calculator = new LibYearCalculator(repository, manifest);
 
-      var results = calculator.ComputeAsOf(new DateTime(2017, 02, 01));
+      var results = calculator.ComputeAsOf(
+        new DateTimeOffset(2017, 02, 01, 00, 00, 00, TimeSpan.Zero)
+      );
 
       Assert.Equal(0.022, results.Total, 3);
 
@@ -74,7 +78,9 @@ namespace Freshli.Test.Integration {
 
       var calculator = new LibYearCalculator(repository, manifest);
 
-      var results = calculator.ComputeAsOf(new DateTime(2018, 01, 01));
+      var results = calculator.ComputeAsOf(
+        new DateTimeOffset(2018, 01, 01, 00, 00, 00, TimeSpan.Zero)
+      );
 
       Assert.Equal(0, results.Total, 3);
 
@@ -117,7 +123,9 @@ namespace Freshli.Test.Integration {
       manifest.Add("tzinfo", "0.3.38");
       var calculator = new LibYearCalculator(repository, manifest);
 
-      var results = calculator.ComputeAsOf(new DateTime(2014, 03, 01));
+      var results = calculator.ComputeAsOf(
+        new DateTimeOffset(2014, 03, 01, 00, 00, 00, TimeSpan.Zero)
+      );
 
       Assert.Equal(0, results.Total);
       Assert.Equal( 0, results["tzinfo"].Value);
@@ -132,7 +140,9 @@ namespace Freshli.Test.Integration {
       manifest.Add("tzinfo", "0.3.38");
       var calculator = new LibYearCalculator(repository, manifest);
 
-      var results = calculator.ComputeAsOf(new DateTime(2014, 04, 01));
+      var results = calculator.ComputeAsOf(
+        new DateTimeOffset(2014, 04, 01, 00, 00, 00, TimeSpan.Zero)
+      );
 
       Assert.Equal(0.416, results.Total, 3);
       Assert.Equal( 0.416, results["tzinfo"].Value, 3);
@@ -147,7 +157,9 @@ namespace Freshli.Test.Integration {
       var repository = new RubyGemsRepository();
       var calculator = new LibYearCalculator(repository, manifest);
 
-      var results = calculator.ComputeAsOf(new DateTime(2020, 06, 01));
+      var results = calculator.ComputeAsOf(
+        new DateTimeOffset(2020, 06, 01, 00, 00, 00, TimeSpan.Zero)
+      );
 
       Assert.Equal(0.063, results.Total, 3);
       Assert.Equal(0.063, results["google-protobuf"].Value, 3);
@@ -193,9 +205,9 @@ namespace Freshli.Test.Integration {
     [Fact]
     public void Compute() {
       var olderVersion = new SemVerVersionInfo("1.7.0",
-        new DateTime(2016, 12, 27));
+        new DateTimeOffset(2016, 12, 27, 00, 00, 00, TimeSpan.Zero));
       var newerVersion = new SemVerVersionInfo("1.7.1",
-        new DateTime(2017, 03, 20));
+        new DateTimeOffset(2017, 03, 20, 00, 00, 00, TimeSpan.Zero));
 
       Assert.Equal(
         0.227,

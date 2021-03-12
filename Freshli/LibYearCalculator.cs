@@ -115,9 +115,9 @@ namespace Freshli {
       var packageResult = new LibYearPackageResult(
         package.Name,
         version: package.Version,
-        publishedAt: DateTime.MinValue,
+        publishedAt: DateTimeOffset.MinValue,
         latestVersion: null,
-        latestPublishedAt: DateTime.MinValue,
+        latestPublishedAt: DateTimeOffset.MinValue,
         value: 0,
         upgradeAvailable: false,
         skipped: true

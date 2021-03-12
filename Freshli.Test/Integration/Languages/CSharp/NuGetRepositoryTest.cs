@@ -12,7 +12,7 @@ namespace Freshli.Test.Integration.Languages.CSharp {
     public void VersionInfo() {
       var versionInfo = _repository.VersionInfo("Newtonsoft.Json", "12.0.3");
       var expectedDate =
-        new DateTime(2019, 11, 09, 01, 27, 30, 723, DateTimeKind.Utc);
+        new DateTimeOffset(2019, 11, 09, 01, 27, 30, 723, TimeSpan.Zero);
 
       Assert.Equal("12.0.3", versionInfo.Version);
       Assert.Equal(expectedDate, versionInfo.DatePublished);
@@ -27,7 +27,7 @@ namespace Freshli.Test.Integration.Languages.CSharp {
     [Fact]
     public void Latest() {
       var asOfDate =
-        new DateTime(2019, 11, 10, 01, 27, 30, 723, DateTimeKind.Utc);
+        new DateTimeOffset(2019, 11, 10, 01, 27, 30, 723, TimeSpan.Zero);
       var latest = _repository.Latest("Newtonsoft.Json", asOfDate, false);
 
       Assert.Equal("12.0.3", latest.Version);
@@ -38,7 +38,7 @@ namespace Freshli.Test.Integration.Languages.CSharp {
       Assert.Throws<LatestVersionNotFoundException>(testCode: () =>
         new NuGetRepository().Latest(
           "Newtonsoft.Json",
-          new DateTime(1900, 11, 10, 01, 27, 30, 723, DateTimeKind.Utc),
+          new DateTimeOffset(1900, 11, 10, 01, 27, 30, 723, TimeSpan.Zero),
           false
         )
       );
@@ -47,14 +47,14 @@ namespace Freshli.Test.Integration.Languages.CSharp {
     [Fact]
     public void VersionsBetween() {
       var asOfDate =
-        new DateTime(2019, 11, 10, 01, 27, 30, 723, DateTimeKind.Utc);
+        new DateTimeOffset(2019, 11, 10, 01, 27, 30, 723, TimeSpan.Zero);
       var versionsBetween = _repository.VersionsBetween(
         "Newtonsoft.Json",
         asOfDate,
         new FreshliNuGetVersionInfo(
-          new NuGetVersion("11.0.2"), DateTime.UtcNow),
+          new NuGetVersion("11.0.2"), DateTimeOffset.UtcNow),
         new FreshliNuGetVersionInfo(
-          new NuGetVersion("12.0.3"), DateTime.UtcNow),
+          new NuGetVersion("12.0.3"), DateTimeOffset.UtcNow),
         false
       );
 

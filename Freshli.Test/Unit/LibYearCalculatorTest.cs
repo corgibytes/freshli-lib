@@ -6,9 +6,9 @@ namespace Freshli.Test.Unit {
     [Fact]
     public void Tokenizer() {
       var oldVersion = new SemVerVersionInfo("1.1.0",
-        new DateTime(2017, 04, 07));
+        new DateTimeOffset(2017, 04, 07, 00, 00, 00, TimeSpan.Zero));
       var newVersion = new SemVerVersionInfo("1.1.3",
-        new DateTime(2019, 06, 13));
+        new DateTimeOffset(2019, 06, 13, 00, 00, 00, TimeSpan.Zero));
 
       Assert.Equal(2.18, LibYearCalculator.Compute(oldVersion, newVersion), 2);
     }
@@ -16,9 +16,9 @@ namespace Freshli.Test.Unit {
     [Fact]
     public void Parser() {
       var oldVersion = new SemVerVersionInfo("v3.6.0",
-        new DateTime(2018, 02, 08));
+        new DateTimeOffset(2018, 02, 08, 00, 00, 00, TimeSpan.Zero));
       var newVersion = new SemVerVersionInfo("v4.0.0",
-        new DateTime(2019, 08, 28));
+        new DateTimeOffset(2019, 08, 28, 00, 00, 00, TimeSpan.Zero));
 
       Assert.Equal(1.55, LibYearCalculator.Compute(oldVersion, newVersion), 2);
     }
@@ -26,9 +26,9 @@ namespace Freshli.Test.Unit {
     [Fact]
     public void VfsStream() {
       var oldVersion = new SemVerVersionInfo("v1.1.4",
-        new DateTime(2014, 09, 14));
+        new DateTimeOffset(2014, 09, 14, 00, 00, 00, 00, TimeSpan.Zero));
       var newVersion = new SemVerVersionInfo("v1.6.8",
-        new DateTime(2019, 10, 30));
+        new DateTimeOffset(2019, 10, 30, 00, 00, 00, TimeSpan.Zero));
 
       Assert.Equal(5.13, LibYearCalculator.Compute(oldVersion, newVersion), 2);
     }
