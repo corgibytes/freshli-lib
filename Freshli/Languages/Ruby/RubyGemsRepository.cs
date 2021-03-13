@@ -49,6 +49,7 @@ namespace Freshli.Languages.Ruby {
           versions.RemoveAll(version => version.IsPreRelease);
         }
 
+        _packages.Add(key, versions.Cast<IVersionInfo>().ToList());
         return versions;
 
       } catch (Exception e) {
