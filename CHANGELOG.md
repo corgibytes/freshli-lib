@@ -1,7 +1,7 @@
 ## v0.4.0
 
 
-As part of this release we had [4 issues](https://github.com/corgibytes/freshli-lib/milestone/5?closed=1) closed.
+As part of this release we had [6 issues](https://github.com/corgibytes/freshli-lib/milestone/5?closed=1) closed.
 Goals for this milestone:
 
 - Common Freshli dependency interface.
@@ -18,6 +18,11 @@ __DevOps__
 __Dependencies__
 
 - [__#260__](https://github.com/corgibytes/freshli-lib/pull/260) Bump DotNetEnv from 2.1.0 to 2.1.1
+
+__Enhancements__
+
+- [__#266__](https://github.com/corgibytes/freshli-lib/issues/266) Labels not included in release notes
+- [__#259__](https://github.com/corgibytes/freshli-lib/issues/259) Rename this repo and/or C# namespace
 
 
 ## v0.3.0
