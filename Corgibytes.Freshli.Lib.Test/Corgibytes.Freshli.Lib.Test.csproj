@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+
+        <IsPackable>false</IsPackable>
+
+        <LangVersion>9</LangVersion>
+
+        <AssemblyName>Corgibytes.Freshli.Lib.Test</AssemblyName>
+
+        <RootNamespace>Corgibytes.Freshli.Lib.Test</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="ApprovalTests" Version="5.4.6" />
+        <PackageReference Include="coverlet.msbuild" Version="3.0.3">
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="DiffEngine" Version="6.5.7" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.1" />
+        <PackageReference Include="Moq" Version="4.16.1" />
+        <PackageReference Include="xunit" Version="2.4.1" />
+        <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Corgibytes.Freshli.Lib\Corgibytes.Freshli.Lib.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="fixtures\**">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="fixtures\php\small" />
+    </ItemGroup>
+
+    <Target Name="UnzipArchive" AfterTargets="Build">
+      <Exec Condition="'$(OS)' != 'Windows_NT'" Command="unzip -o nokotest.zip" WorkingDirectory="$(OutputPath)/fixtures/ruby" />
+      <Exec Condition="'$(OS)' == 'Windows_NT'" Command="PowerShell -NonInteractive -Command &quot;&amp;{Expand-Archive -Force -Path nokotest.zip -DestinationPath .}&quot;" WorkingDirectory="$(OutputPath)/fixtures/ruby" />
+    </Target>
+
+    <Target Name="CleanFixtureDir" AfterTargets="Clean">
+      <RemoveDir Directories="$(OutputPath)/fixtures" />
+    </Target>
+
+</Project>
