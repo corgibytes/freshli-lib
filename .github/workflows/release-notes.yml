@@ -69,9 +69,15 @@ jobs:
           dotnet-gitreleasemanager export --token ${{ secrets.GITHUB_TOKEN }} -o 'corgibytes' -r 'freshli-lib' -f 'CHANGELOG.md'
           cat CHANGELOG.md
 
+      # Need to use force push and personal access token to allow pushing
+      # to GitHub protected branches.
+      #
+      #  https://github.com/stefanzweifel/git-auto-commit-action#push-to-protected-branches
       - uses: stefanzweifel/git-auto-commit-action@v4
         name: Commit Change Log and if it Changed
         with:
           commit_message: Committing auto generated change log.
+          push_options: --force
           file_pattern: CHANGELOG.md
+          token: #{{ secrets.PERSONAL_ACCESS_TOKEN }}
 
