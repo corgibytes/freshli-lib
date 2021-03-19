@@ -47,8 +47,38 @@ namespace Freshli.Test.Unit {
         asOf: stopDate
       );
 
-      var expectedDates = new List<DateTimeOffset>();
-      var currentDate = dates.First().ToStartOfDay();
+      var expectedDates = new List<DateTimeOffset>() {
+        ParseExact("2017-01-01T23:59:59.9999999Z")
+      };
+      var currentDate = ParseExact("2017-02-01T00:00:00.0000000Z");
+      while (currentDate <= stopDate) {
+        expectedDates.Add(currentDate);
+        currentDate = currentDate.AddMonths(1);
+      }
+
+      Assert.Equal(expectedDates, analysisDates);
+    }
+
+    [Fact]
+    public void DateRangeStartsExactlyAtStartOfMonth() {
+      var history = new Mock<IFileHistory>();
+      var dates = new List<DateTimeOffset>() {
+        ParseExact("2017-01-01T00:00:00.0000000Z"),
+        ParseExact("2018-01-01T23:59:59.9999999Z"),
+        ParseExact("2019-01-01T23:59:59.9999999Z")
+      };
+
+      history.Setup(mock => mock.Dates).Returns(dates);
+      var stopDate = ParseExact("2020-01-01T23:59:59.9999999Z");
+      var analysisDates = new AnalysisDates(
+        history.Object,
+        asOf: stopDate
+      );
+
+      var expectedDates = new List<DateTimeOffset>() {
+        ParseExact("2017-01-01T00:00:00.0000000Z")
+      };
+      var currentDate = ParseExact("2017-02-01T00:00:00.0000000Z");
       while (currentDate <= stopDate) {
         expectedDates.Add(currentDate);
         currentDate = currentDate.AddMonths(1);
@@ -74,8 +104,10 @@ namespace Freshli.Test.Unit {
         asOf: stopDate
       );
 
-      var expectedDates = new List<DateTimeOffset>();
-      var currentDate = dates.First().ToStartOfDay();
+      var expectedDates = new List<DateTimeOffset>() {
+        ParseExact("2017-01-01T23:59:59.9999999Z")
+      };
+      var currentDate = ParseExact("2017-02-01T00:00:00.0000000Z");
       while (currentDate <= stopDate) {
         expectedDates.Add(currentDate);
         currentDate = currentDate.AddMonths(1);
@@ -85,7 +117,7 @@ namespace Freshli.Test.Unit {
     }
 
     [Fact]
-    public void FirstFileCreatedBeforeStartOfMonth() {
+    public void FirstFileCreatedBeforeStartOfMonthSingleFileVersion() {
       var history = new Mock<IFileHistory>();
       var dates =
         new List<DateTimeOffset>() {ParseExact("2016-12-15T00:00:00.0000000Z")};
@@ -98,11 +130,99 @@ namespace Freshli.Test.Unit {
         asOf: stopDate
       );
 
-      Assert.Equal(
-        ParseExact("2017-01-01T00:00:00.0000000Z"),
-        analysisDates.First()
-      );
+      var expectedDates = new List<DateTimeOffset>() {
+        ParseExact("2016-12-15T00:00:00.0000000Z")
+      };
+      var currentDate = ParseExact("2017-01-01T00:00:00.0000000Z");
+      while (currentDate <= stopDate) {
+        expectedDates.Add(currentDate);
+        currentDate = currentDate.AddMonths(1);
+      }
+
+      Assert.Equal(expectedDates, analysisDates);
     }
+
+    [Fact]
+    public void FirstFileCreatedAfterStartOfMonthMultipleFileVersions() {
+      var history = new Mock<IFileHistory>();
+      var dates =
+        new List<DateTimeOffset>() {
+          ParseExact("2016-12-15T00:00:00.0000000Z"),
+          ParseExact("2017-12-15T00:00:00.0000000Z")
+        };
+
+      history.Setup(mock => mock.Dates).Returns(dates);
+      var stopDate = ParseExact("2019-01-01T00:00:00.0000000Z");
+      var analysisDates = new AnalysisDates(
+        history.Object,
+        asOf: stopDate
+      );
+
+      var expectedDates = new List<DateTimeOffset>() {
+        ParseExact("2016-12-15T00:00:00.0000000Z")
+      };
+      var currentDate = ParseExact("2017-01-01T00:00:00.0000000Z");
+      while (currentDate <= stopDate) {
+        expectedDates.Add(currentDate);
+        currentDate = currentDate.AddMonths(1);
+      }
+
+      Assert.Equal(expectedDates, analysisDates);
+    }
+
+    [Fact]
+    public void FirstFileCreatedOnStartOfMonthSingleFileVersion() {
+      var history = new Mock<IFileHistory>();
+      var dates =
+        new List<DateTimeOffset>() {ParseExact("2016-12-01T02:00:00.0000000Z")};
+
+      history.Setup(mock => mock.Dates).Returns(dates);
+      var stopDate = ParseExact("2019-01-01T00:00:00.0000000Z");
+      var analysisDates = new AnalysisDates(
+        history.Object,
+        asOf: stopDate
+      );
+
+      var expectedDates = new List<DateTimeOffset>() {
+        ParseExact("2016-12-01T02:00:00.0000000Z")
+      };
+      var currentDate = ParseExact("2017-01-01T00:00:00.0000000Z");
+      while (currentDate <= stopDate) {
+        expectedDates.Add(currentDate);
+        currentDate = currentDate.AddMonths(1);
+      }
+
+      Assert.Equal(expectedDates, analysisDates);
+    }
+
+    [Fact]
+    public void FirstFileCreatedOnStartOfMonthMultipleFileVersions() {
+      var history = new Mock<IFileHistory>();
+      var dates =
+        new List<DateTimeOffset>() {
+          ParseExact("2016-12-01T02:00:00.0000000Z"),
+          ParseExact("2017-12-01T02:00:00.0000000Z")
+        };
+
+      history.Setup(mock => mock.Dates).Returns(dates);
+      var stopDate = ParseExact("2019-01-01T00:00:00.0000000Z");
+      var analysisDates = new AnalysisDates(
+        history.Object,
+        asOf: stopDate
+      );
+
+      var expectedDates = new List<DateTimeOffset>() {
+        ParseExact("2016-12-01T02:00:00.0000000Z")
+      };
+      var currentDate = ParseExact("2017-01-01T00:00:00.0000000Z");
+      while (currentDate <= stopDate) {
+        expectedDates.Add(currentDate);
+        currentDate = currentDate.AddMonths(1);
+      }
+
+      Assert.Equal(expectedDates, analysisDates);
+    }
+
 
     [Fact]
     public void FileDateIsNewerThanAsOfDateAndHistoryOnlyContainsOneVersion() {

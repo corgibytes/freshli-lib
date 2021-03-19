@@ -17,5 +17,15 @@ namespace Freshli.Util {
         AddMilliseconds(-date.Millisecond).
         AddTicks(-(date.Ticks % 10_000));
     }
+
+    public static DateTimeOffset ToStartOfMonth(this DateTimeOffset date) {
+      return date.
+        AddDays(-date.Day + 1).
+        AddHours(-date.Hour).
+        AddMinutes(-date.Minute).
+        AddSeconds(-date.Second).
+        AddMilliseconds(-date.Millisecond).
+        AddTicks(-(date.Ticks % 10_000));
+    }
   }
 }

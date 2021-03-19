@@ -16,14 +16,13 @@ namespace Freshli {
       } else {
         var date = history.Dates.First();
 
-        if (date.Day > 1) {
-          date = date.AddDays(-date.Day + 1).ToStartOfDay();
-          date = date.AddMonths(1);
+        if (date != date.ToStartOfMonth()) {
+          _dates.Add(date);
+          date = date.AddMonths(1).ToStartOfMonth();
         }
 
         while (date <= asOf) {
-          var dayOf = date.ToStartOfDay();
-          _dates.Add(dayOf);
+          _dates.Add(date);
           date = date.AddMonths(1);
         }
       }
