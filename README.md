@@ -66,5 +66,3 @@ dotnet add package Freshli -v 0.3.0-alpha0030
 ## Contributing to `freshli`
 
 More information can be found at the [Contributing Guide](CONTRIBUTING.md)
-
-Update to trigger release notes generation, remove after.
