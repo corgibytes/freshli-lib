@@ -60,6 +60,34 @@ namespace Freshli.Test.Unit {
     }
 
     [Fact]
+    public void DateRangeUsesTimeZoneFromAsOfValue() {
+      var history = new Mock<IFileHistory>();
+      var dates = new List<DateTimeOffset>() {
+        ParseExact("2017-01-01T23:59:59.9999999Z"),
+        ParseExact("2018-01-01T23:59:59.9999999Z"),
+        ParseExact("2019-01-01T23:59:59.9999999Z")
+      };
+
+      history.Setup(mock => mock.Dates).Returns(dates);
+      var stopDate = ParseExact("2020-01-01T23:59:59.9999999-08:00");
+      var analysisDates = new AnalysisDates(
+        history.Object,
+        asOf: stopDate
+      );
+
+      var expectedDates = new List<DateTimeOffset>() {
+        ParseExact("2017-01-01T23:59:59.9999999Z")
+      };
+      var currentDate = ParseExact("2017-02-01T00:00:00.0000000-08:00");
+      while (currentDate <= stopDate) {
+        expectedDates.Add(currentDate);
+        currentDate = currentDate.AddMonths(1);
+      }
+
+      Assert.Equal(expectedDates, analysisDates);
+    }
+
+    [Fact]
     public void DateRangeStartsExactlyAtStartOfMonth() {
       var history = new Mock<IFileHistory>();
       var dates = new List<DateTimeOffset>() {

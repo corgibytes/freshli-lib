@@ -14,7 +14,7 @@ namespace Freshli {
       } else if (history.Dates.Count == 1 && asOf <= history.Dates[0]) {
         _dates.Add(asOf);
       } else {
-        var date = history.Dates.First();
+        var date = history.Dates.First().ToOffset(asOf.Offset);
 
         if (date != date.ToStartOfMonth()) {
           _dates.Add(date);
