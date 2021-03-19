@@ -1,4 +1,4 @@
-﻿results[0] = { Date: 2014-03-01T00:00:00.0000000+08:00, ManifestSHA: d3502a365b2e189d49c95db5277c63cc1d388302, LibYear: { _packagesValues: [
+﻿results[0] = { Date: 2014-02-28T09:42:11.0000000+00:00, ManifestSHA: d3502a365b2e189d49c95db5277c63cc1d388302, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.10.1", RepoVersionPublishedAt: 2013-06-14T08:54:17.0000000+00:00, LatestVersion: "0.10.1", LatestPublishedAt: 2013-06-14T08:54:17.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.7.2", RepoVersionPublishedAt: 2014-01-10T10:42:39.0000000+00:00, LatestVersion: "2.7.2", LatestPublishedAt: 2014-01-10T10:42:39.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "MarkupSafe", RepoVersion: "0.18", RepoVersionPublishedAt: 2013-05-22T01:15:41.0000000+00:00, LatestVersion: "0.18", LatestPublishedAt: 2013-05-22T01:15:41.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -14,7 +14,23 @@
 { Name: "tornado", RepoVersion: "3.2", RepoVersionPublishedAt: 2014-01-14T13:44:21.0000000+00:00, LatestVersion: "3.2", LatestPublishedAt: 2014-01-14T13:44:21.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[1] = { Date: 2014-04-01T00:00:00.0000000+08:00, ManifestSHA: 2cc6383d14a44717cf62b24317ece8458429dfc0, LibYear: { _packagesValues: [
+results[1] = { Date: 2014-03-01T00:00:00.0000000+00:00, ManifestSHA: d3502a365b2e189d49c95db5277c63cc1d388302, LibYear: { _packagesValues: [
+{ Name: "Flask", RepoVersion: "0.10.1", RepoVersionPublishedAt: 2013-06-14T08:54:17.0000000+00:00, LatestVersion: "0.10.1", LatestPublishedAt: 2013-06-14T08:54:17.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "Jinja2", RepoVersion: "2.7.2", RepoVersionPublishedAt: 2014-01-10T10:42:39.0000000+00:00, LatestVersion: "2.7.2", LatestPublishedAt: 2014-01-10T10:42:39.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "MarkupSafe", RepoVersion: "0.18", RepoVersionPublishedAt: 2013-05-22T01:15:41.0000000+00:00, LatestVersion: "0.18", LatestPublishedAt: 2013-05-22T01:15:41.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "Werkzeug", RepoVersion: "0.9.4", RepoVersionPublishedAt: 2013-08-25T23:20:27.0000000+00:00, LatestVersion: "0.9.4", LatestPublishedAt: 2013-08-25T23:20:27.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "backports.ssl-match-hostname", RepoVersion: "3.4.0.2", RepoVersionPublishedAt: 2013-10-27T19:24:07.0000000+00:00, LatestVersion: "3.4.0.2", LatestPublishedAt: 2013-10-27T19:24:07.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "chardet", RepoVersion: "2.2.1", RepoVersionPublishedAt: 2013-12-18T18:40:06.0000000+00:00, LatestVersion: "2.2.1", LatestPublishedAt: 2013-12-18T18:40:06.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "cssselect", RepoVersion: "0.9.1", RepoVersionPublishedAt: 2013-10-17T13:39:35.0000000+00:00, LatestVersion: "0.9.1", LatestPublishedAt: 2013-10-17T13:39:35.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "itsdangerous", RepoVersion: "0.23", RepoVersionPublishedAt: 2013-08-08T17:10:20.0000000+00:00, LatestVersion: "0.23", LatestPublishedAt: 2013-08-08T17:10:20.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "lxml", RepoVersion: "3.3.2", RepoVersionPublishedAt: 2014-02-26T19:42:33.0000000+00:00, LatestVersion: "3.3.2", LatestPublishedAt: 2014-02-26T19:42:33.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "pycurl", RepoVersion: "7.19.3.1", RepoVersionPublishedAt: 2014-02-06T10:14:02.0000000+00:00, LatestVersion: "7.19.3.1", LatestPublishedAt: 2014-02-06T10:14:02.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "pyquery", RepoVersion: "1.2.8", RepoVersionPublishedAt: 2013-12-21T11:51:34.0000000+00:00, LatestVersion: "1.2.8", LatestPublishedAt: 2013-12-21T11:51:34.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "requests", RepoVersion: "2.2.1", RepoVersionPublishedAt: 2014-01-23T18:26:07.0000000+00:00, LatestVersion: "2.2.1", LatestPublishedAt: 2014-01-23T18:26:07.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "tornado", RepoVersion: "3.2", RepoVersionPublishedAt: 2014-01-14T13:44:21.0000000+00:00, LatestVersion: "3.2", LatestPublishedAt: 2014-01-14T13:44:21.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+], Total: 0 } }
+
+results[2] = { Date: 2014-04-01T00:00:00.0000000+00:00, ManifestSHA: 2cc6383d14a44717cf62b24317ece8458429dfc0, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.10.1", RepoVersionPublishedAt: 2013-06-14T08:54:17.0000000+00:00, LatestVersion: "0.10.1", LatestPublishedAt: 2013-06-14T08:54:17.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.7.2", RepoVersionPublishedAt: 2014-01-10T10:42:39.0000000+00:00, LatestVersion: "2.7.2", LatestPublishedAt: 2014-01-10T10:42:39.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "2.2.1", RepoVersionPublishedAt: 2013-12-18T18:40:06.0000000+00:00, LatestVersion: "2.2.1", LatestPublishedAt: 2013-12-18T18:40:06.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -26,7 +42,7 @@ results[1] = { Date: 2014-04-01T00:00:00.0000000+08:00, ManifestSHA: 2cc6383d14a
 { Name: "tornado", RepoVersion: "3.2", RepoVersionPublishedAt: 2014-01-14T13:44:21.0000000+00:00, LatestVersion: "3.2", LatestPublishedAt: 2014-01-14T13:44:21.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[2] = { Date: 2014-05-01T00:00:00.0000000+08:00, ManifestSHA: 48308344cc86972f27bb13916ff6ca44fe2aa97e, LibYear: { _packagesValues: [
+results[3] = { Date: 2014-05-01T00:00:00.0000000+00:00, ManifestSHA: 48308344cc86972f27bb13916ff6ca44fe2aa97e, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.10.1", RepoVersionPublishedAt: 2013-06-14T08:54:17.0000000+00:00, LatestVersion: "0.10.1", LatestPublishedAt: 2013-06-14T08:54:17.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.7.2", RepoVersionPublishedAt: 2014-01-10T10:42:39.0000000+00:00, LatestVersion: "2.7.2", LatestPublishedAt: 2014-01-10T10:42:39.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "2.2.1", RepoVersionPublishedAt: 2013-12-18T18:40:06.0000000+00:00, LatestVersion: "2.2.1", LatestPublishedAt: 2013-12-18T18:40:06.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -38,7 +54,7 @@ results[2] = { Date: 2014-05-01T00:00:00.0000000+08:00, ManifestSHA: 48308344cc8
 { Name: "tornado", RepoVersion: "3.2", RepoVersionPublishedAt: 2014-01-14T13:44:21.0000000+00:00, LatestVersion: "3.2", LatestPublishedAt: 2014-01-14T13:44:21.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[3] = { Date: 2014-06-01T00:00:00.0000000+08:00, ManifestSHA: f761ff1ee8279d44251428ee1afb694ef0ed1e76, LibYear: { _packagesValues: [
+results[4] = { Date: 2014-06-01T00:00:00.0000000+00:00, ManifestSHA: f761ff1ee8279d44251428ee1afb694ef0ed1e76, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.10.1", RepoVersionPublishedAt: 2013-06-14T08:54:17.0000000+00:00, LatestVersion: "0.10.1", LatestPublishedAt: 2013-06-14T08:54:17.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.7.2", RepoVersionPublishedAt: 2014-01-10T10:42:39.0000000+00:00, LatestVersion: "2.7.2", LatestPublishedAt: 2014-01-10T10:42:39.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "2.2.1", RepoVersionPublishedAt: 2013-12-18T18:40:06.0000000+00:00, LatestVersion: "2.2.1", LatestPublishedAt: 2013-12-18T18:40:06.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -50,7 +66,7 @@ results[3] = { Date: 2014-06-01T00:00:00.0000000+08:00, ManifestSHA: f761ff1ee82
 { Name: "tornado", RepoVersion: "3.2.1", RepoVersionPublishedAt: 2014-05-06T02:37:51.0000000+00:00, LatestVersion: "3.2.1", LatestPublishedAt: 2014-05-06T02:37:51.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[4] = { Date: 2014-07-01T00:00:00.0000000+08:00, ManifestSHA: f761ff1ee8279d44251428ee1afb694ef0ed1e76, LibYear: { _packagesValues: [
+results[5] = { Date: 2014-07-01T00:00:00.0000000+00:00, ManifestSHA: f761ff1ee8279d44251428ee1afb694ef0ed1e76, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.10.1", RepoVersionPublishedAt: 2013-06-14T08:54:17.0000000+00:00, LatestVersion: "0.10.1", LatestPublishedAt: 2013-06-14T08:54:17.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.7.3", RepoVersionPublishedAt: 2014-06-06T16:49:16.0000000+00:00, LatestVersion: "2.7.3", LatestPublishedAt: 2014-06-06T16:49:16.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "2.2.1", RepoVersionPublishedAt: 2013-12-18T18:40:06.0000000+00:00, LatestVersion: "2.2.1", LatestPublishedAt: 2013-12-18T18:40:06.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -62,7 +78,7 @@ results[4] = { Date: 2014-07-01T00:00:00.0000000+08:00, ManifestSHA: f761ff1ee82
 { Name: "tornado", RepoVersion: "3.2.2", RepoVersionPublishedAt: 2014-06-04T03:40:47.0000000+00:00, LatestVersion: "3.2.2", LatestPublishedAt: 2014-06-04T03:40:47.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[5] = { Date: 2014-08-01T00:00:00.0000000+08:00, ManifestSHA: 2b1718afe5e0080192bedb69da90f93813b2f307, LibYear: { _packagesValues: [
+results[6] = { Date: 2014-08-01T00:00:00.0000000+00:00, ManifestSHA: 2b1718afe5e0080192bedb69da90f93813b2f307, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.10.1", RepoVersionPublishedAt: 2013-06-14T08:54:17.0000000+00:00, LatestVersion: "0.10.1", LatestPublishedAt: 2013-06-14T08:54:17.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.7.3", RepoVersionPublishedAt: 2014-06-06T16:49:16.0000000+00:00, LatestVersion: "2.7.3", LatestPublishedAt: 2014-06-06T16:49:16.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "2.2.1", RepoVersionPublishedAt: 2013-12-18T18:40:06.0000000+00:00, LatestVersion: "2.2.1", LatestPublishedAt: 2013-12-18T18:40:06.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -75,7 +91,7 @@ results[5] = { Date: 2014-08-01T00:00:00.0000000+08:00, ManifestSHA: 2b1718afe5e
 { Name: "mysql-connector-python", RepoVersion: "1.2.2", RepoVersionPublishedAt: 2014-06-03T11:58:25.0000000+00:00, LatestVersion: "1.2.2", LatestPublishedAt: 2014-06-03T11:58:25.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[6] = { Date: 2014-09-01T00:00:00.0000000+08:00, ManifestSHA: 2b1718afe5e0080192bedb69da90f93813b2f307, LibYear: { _packagesValues: [
+results[7] = { Date: 2014-09-01T00:00:00.0000000+00:00, ManifestSHA: 2b1718afe5e0080192bedb69da90f93813b2f307, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.10.1", RepoVersionPublishedAt: 2013-06-14T08:54:17.0000000+00:00, LatestVersion: "0.10.1", LatestPublishedAt: 2013-06-14T08:54:17.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.7.3", RepoVersionPublishedAt: 2014-06-06T16:49:16.0000000+00:00, LatestVersion: "2.7.3", LatestPublishedAt: 2014-06-06T16:49:16.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "2.2.1", RepoVersionPublishedAt: 2013-12-18T18:40:06.0000000+00:00, LatestVersion: "2.2.1", LatestPublishedAt: 2013-12-18T18:40:06.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -88,7 +104,7 @@ results[6] = { Date: 2014-09-01T00:00:00.0000000+08:00, ManifestSHA: 2b1718afe5e
 { Name: "mysql-connector-python", RepoVersion: "1.2.2", RepoVersionPublishedAt: 2014-06-03T11:58:25.0000000+00:00, LatestVersion: "1.2.2", LatestPublishedAt: 2014-06-03T11:58:25.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[7] = { Date: 2014-10-01T00:00:00.0000000+08:00, ManifestSHA: 3ab39cb789efad54e2d2d423d51ba2065854ae20, LibYear: { _packagesValues: [
+results[8] = { Date: 2014-10-01T00:00:00.0000000+00:00, ManifestSHA: 3ab39cb789efad54e2d2d423d51ba2065854ae20, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.10.1", RepoVersionPublishedAt: 2013-06-14T08:54:17.0000000+00:00, LatestVersion: "0.10.1", LatestPublishedAt: 2013-06-14T08:54:17.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.7.3", RepoVersionPublishedAt: 2014-06-06T16:49:16.0000000+00:00, LatestVersion: "2.7.3", LatestPublishedAt: 2014-06-06T16:49:16.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "2.2.1", RepoVersionPublishedAt: 2013-12-18T18:40:06.0000000+00:00, LatestVersion: "2.2.1", LatestPublishedAt: 2013-12-18T18:40:06.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -101,7 +117,7 @@ results[7] = { Date: 2014-10-01T00:00:00.0000000+08:00, ManifestSHA: 3ab39cb789e
 { Name: "mysql-connector-python", RepoVersion: "2.0.1", RepoVersionPublishedAt: 2014-09-30T08:52:34.0000000+00:00, LatestVersion: "2.0.1", LatestPublishedAt: 2014-09-30T08:52:34.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[8] = { Date: 2014-11-01T00:00:00.0000000+08:00, ManifestSHA: c286411f062b5736a88c19041d19f1d7fd7b98a5, LibYear: { _packagesValues: [
+results[9] = { Date: 2014-11-01T00:00:00.0000000+00:00, ManifestSHA: c286411f062b5736a88c19041d19f1d7fd7b98a5, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.10.1", RepoVersionPublishedAt: 2013-06-14T08:54:17.0000000+00:00, LatestVersion: "0.10.1", LatestPublishedAt: 2013-06-14T08:54:17.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.7.3", RepoVersionPublishedAt: 2014-06-06T16:49:16.0000000+00:00, LatestVersion: "2.7.3", LatestPublishedAt: 2014-06-06T16:49:16.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2014-10-07T15:05:47.0000000+00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2014-10-07T15:05:47.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -118,7 +134,7 @@ results[8] = { Date: 2014-11-01T00:00:00.0000000+08:00, ManifestSHA: c286411f062
 { Name: "Flask-Login", RepoVersion: "0.2.11", RepoVersionPublishedAt: 2014-05-20T01:23:55.0000000+00:00, LatestVersion: "0.2.11", LatestPublishedAt: 2014-05-20T01:23:55.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[9] = { Date: 2014-12-01T00:00:00.0000000+08:00, ManifestSHA: 007a809b15c9dad9da9a62722cba9eae85cab0c5, LibYear: { _packagesValues: [
+results[10] = { Date: 2014-12-01T00:00:00.0000000+00:00, ManifestSHA: 007a809b15c9dad9da9a62722cba9eae85cab0c5, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.10.1", RepoVersionPublishedAt: 2013-06-14T08:54:17.0000000+00:00, LatestVersion: "0.10.1", LatestPublishedAt: 2013-06-14T08:54:17.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.7.3", RepoVersionPublishedAt: 2014-06-06T16:49:16.0000000+00:00, LatestVersion: "2.7.3", LatestPublishedAt: 2014-06-06T16:49:16.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2014-10-07T15:05:47.0000000+00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2014-10-07T15:05:47.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -137,7 +153,7 @@ results[9] = { Date: 2014-12-01T00:00:00.0000000+08:00, ManifestSHA: 007a809b15c
 { Name: "click", RepoVersion: "3.3", RepoVersionPublishedAt: 2014-09-07T21:40:38.0000000+00:00, LatestVersion: "3.3", LatestPublishedAt: 2014-09-07T21:40:38.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[10] = { Date: 2015-01-01T00:00:00.0000000+08:00, ManifestSHA: c754f4322352daa6716dbcfc92dd44af0a4bacf3, LibYear: { _packagesValues: [
+results[11] = { Date: 2015-01-01T00:00:00.0000000+00:00, ManifestSHA: c754f4322352daa6716dbcfc92dd44af0a4bacf3, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.10.1", RepoVersionPublishedAt: 2013-06-14T08:54:17.0000000+00:00, LatestVersion: "0.10.1", LatestPublishedAt: 2013-06-14T08:54:17.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.7.3", RepoVersionPublishedAt: 2014-06-06T16:49:16.0000000+00:00, LatestVersion: "2.7.3", LatestPublishedAt: 2014-06-06T16:49:16.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2014-10-07T15:05:47.0000000+00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2014-10-07T15:05:47.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -159,7 +175,7 @@ results[10] = { Date: 2015-01-01T00:00:00.0000000+08:00, ManifestSHA: c754f43223
 { Name: "amqp", RepoVersion: "1.4.6", RepoVersionPublishedAt: 2014-08-11T17:02:39.0000000+00:00, LatestVersion: "1.4.6", LatestPublishedAt: 2014-08-11T17:02:39.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[11] = { Date: 2015-02-01T00:00:00.0000000+08:00, ManifestSHA: aa5eb5220f59ba58efa721ce3d1b3f76826c0705, LibYear: { _packagesValues: [
+results[12] = { Date: 2015-02-01T00:00:00.0000000+00:00, ManifestSHA: aa5eb5220f59ba58efa721ce3d1b3f76826c0705, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.10.1", RepoVersionPublishedAt: 2013-06-14T08:54:17.0000000+00:00, LatestVersion: "0.10.1", LatestPublishedAt: 2013-06-14T08:54:17.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.7.3", RepoVersionPublishedAt: 2014-06-06T16:49:16.0000000+00:00, LatestVersion: "2.7.3", LatestPublishedAt: 2014-06-06T16:49:16.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2014-10-07T15:05:47.0000000+00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2014-10-07T15:05:47.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -181,7 +197,7 @@ results[11] = { Date: 2015-02-01T00:00:00.0000000+08:00, ManifestSHA: aa5eb5220f
 { Name: "amqp", RepoVersion: "1.4.6", RepoVersionPublishedAt: 2014-08-11T17:02:39.0000000+00:00, LatestVersion: "1.4.6", LatestPublishedAt: 2014-08-11T17:02:39.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[12] = { Date: 2015-03-01T00:00:00.0000000+08:00, ManifestSHA: a132a246047426caa112a27b7868ac52a8ff33eb, LibYear: { _packagesValues: [
+results[13] = { Date: 2015-03-01T00:00:00.0000000+00:00, ManifestSHA: a132a246047426caa112a27b7868ac52a8ff33eb, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.10.1", RepoVersionPublishedAt: 2013-06-14T08:54:17.0000000+00:00, LatestVersion: "0.10.1", LatestPublishedAt: 2013-06-14T08:54:17.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.7.3", RepoVersionPublishedAt: 2014-06-06T16:49:16.0000000+00:00, LatestVersion: "2.7.3", LatestPublishedAt: 2014-06-06T16:49:16.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2014-10-07T15:05:47.0000000+00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2014-10-07T15:05:47.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -203,7 +219,7 @@ results[12] = { Date: 2015-03-01T00:00:00.0000000+08:00, ManifestSHA: a132a24604
 { Name: "amqp", RepoVersion: "1.4.6", RepoVersionPublishedAt: 2014-08-11T17:02:39.0000000+00:00, LatestVersion: "1.4.6", LatestPublishedAt: 2014-08-11T17:02:39.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[13] = { Date: 2015-04-01T00:00:00.0000000+08:00, ManifestSHA: d68c17568da33f26499c220088b892f6cb42a13e, LibYear: { _packagesValues: [
+results[14] = { Date: 2015-04-01T00:00:00.0000000+00:00, ManifestSHA: d68c17568da33f26499c220088b892f6cb42a13e, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.10.1", RepoVersionPublishedAt: 2013-06-14T08:54:17.0000000+00:00, LatestVersion: "0.10.1", LatestPublishedAt: 2013-06-14T08:54:17.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.7.3", RepoVersionPublishedAt: 2014-06-06T16:49:16.0000000+00:00, LatestVersion: "2.7.3", LatestPublishedAt: 2014-06-06T16:49:16.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2014-10-07T15:05:47.0000000+00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2014-10-07T15:05:47.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -219,13 +235,13 @@ results[13] = { Date: 2015-04-01T00:00:00.0000000+08:00, ManifestSHA: d68c17568d
 { Name: "unittest2", RepoVersion: "1.0.1", RepoVersionPublishedAt: 2015-03-12T02:56:10.0000000+00:00, LatestVersion: "1.0.1", LatestPublishedAt: 2015-03-12T02:56:10.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Flask-Login", RepoVersion: "0.2.11", RepoVersionPublishedAt: 2014-05-20T01:23:55.0000000+00:00, LatestVersion: "0.2.11", LatestPublishedAt: 2014-05-20T01:23:55.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "u-msgpack-python", RepoVersion: "2.0", RepoVersionPublishedAt: 2014-09-29T14:16:37.0000000+00:00, LatestVersion: "2.0", LatestPublishedAt: 2014-09-29T14:16:37.0000000+00:00, UpgradeAvailable: False, Value: 0 },
-{ Name: "click", RepoVersion: "3.3", RepoVersionPublishedAt: 2014-09-07T21:40:38.0000000+00:00, LatestVersion: "3.3", LatestPublishedAt: 2014-09-07T21:40:38.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "click", RepoVersion: "4.0", RepoVersionPublishedAt: 2015-03-31T16:01:58.0000000+00:00, LatestVersion: "4.0", LatestPublishedAt: 2015-03-31T16:01:58.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "SQLAlchemy", RepoVersion: "0.9.9", RepoVersionPublishedAt: 2015-03-10T19:55:33.0000000+00:00, LatestVersion: "0.9.9", LatestPublishedAt: 2015-03-10T19:55:33.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "six", RepoVersion: "1.9.0", RepoVersionPublishedAt: 2015-01-02T16:38:04.0000000+00:00, LatestVersion: "1.9.0", LatestPublishedAt: 2015-01-02T16:38:04.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "amqp", RepoVersion: "1.4.6", RepoVersionPublishedAt: 2014-08-11T17:02:39.0000000+00:00, LatestVersion: "1.4.6", LatestPublishedAt: 2014-08-11T17:02:39.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[14] = { Date: 2015-05-01T00:00:00.0000000+08:00, ManifestSHA: 70d7ee96f011ab523536584a575c060315f8574d, LibYear: { _packagesValues: [
+results[15] = { Date: 2015-05-01T00:00:00.0000000+00:00, ManifestSHA: 70d7ee96f011ab523536584a575c060315f8574d, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.10.1", RepoVersionPublishedAt: 2013-06-14T08:54:17.0000000+00:00, LatestVersion: "0.10.1", LatestPublishedAt: 2013-06-14T08:54:17.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.7.3", RepoVersionPublishedAt: 2014-06-06T16:49:16.0000000+00:00, LatestVersion: "2.7.3", LatestPublishedAt: 2014-06-06T16:49:16.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2014-10-07T15:05:47.0000000+00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2014-10-07T15:05:47.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -248,7 +264,7 @@ results[14] = { Date: 2015-05-01T00:00:00.0000000+08:00, ManifestSHA: 70d7ee96f0
 { Name: "redis", RepoVersion: "2.10.3", RepoVersionPublishedAt: 2014-08-14T17:19:18.0000000+00:00, LatestVersion: "2.10.3", LatestPublishedAt: 2014-08-14T17:19:18.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0.22729569381024858 } }
 
-results[15] = { Date: 2015-06-01T00:00:00.0000000+08:00, ManifestSHA: 09cb7653ee16345918bb44ab194b48f1674fc8b9, LibYear: { _packagesValues: [
+results[16] = { Date: 2015-06-01T00:00:00.0000000+00:00, ManifestSHA: 09cb7653ee16345918bb44ab194b48f1674fc8b9, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.10.1", RepoVersionPublishedAt: 2013-06-14T08:54:17.0000000+00:00, LatestVersion: "0.10.1", LatestPublishedAt: 2013-06-14T08:54:17.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.7.3", RepoVersionPublishedAt: 2014-06-06T16:49:16.0000000+00:00, LatestVersion: "2.7.3", LatestPublishedAt: 2014-06-06T16:49:16.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2014-10-07T15:05:47.0000000+00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2014-10-07T15:05:47.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -272,7 +288,7 @@ results[15] = { Date: 2015-06-01T00:00:00.0000000+08:00, ManifestSHA: 09cb7653ee
 { Name: "kombu", RepoVersion: "3.0.26", RepoVersionPublishedAt: 2015-04-22T18:16:49.0000000+00:00, LatestVersion: "3.0.26", LatestPublishedAt: 2015-04-22T18:16:49.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0.002627029426686961 } }
 
-results[16] = { Date: 2015-07-01T00:00:00.0000000+08:00, ManifestSHA: a18b9ea8da07a7a1a8f84a901e9e640fb0c5186f, LibYear: { _packagesValues: [
+results[17] = { Date: 2015-07-01T00:00:00.0000000+00:00, ManifestSHA: a18b9ea8da07a7a1a8f84a901e9e640fb0c5186f, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.10.1", RepoVersionPublishedAt: 2013-06-14T08:54:17.0000000+00:00, LatestVersion: "0.10.1", LatestPublishedAt: 2013-06-14T08:54:17.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.7.3", RepoVersionPublishedAt: 2014-06-06T16:49:16.0000000+00:00, LatestVersion: "2.7.3", LatestPublishedAt: 2014-06-06T16:49:16.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2014-10-07T15:05:47.0000000+00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2014-10-07T15:05:47.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -296,7 +312,7 @@ results[16] = { Date: 2015-07-01T00:00:00.0000000+08:00, ManifestSHA: a18b9ea8da
 { Name: "kombu", RepoVersion: "3.0.26", RepoVersionPublishedAt: 2015-04-22T18:16:49.0000000+00:00, LatestVersion: "3.0.26", LatestPublishedAt: 2015-04-22T18:16:49.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0.002627029426686961 } }
 
-results[17] = { Date: 2015-08-01T00:00:00.0000000+08:00, ManifestSHA: c82cf47f6c5b0cf4e01a2f70e88dbcb38006a2af, LibYear: { _packagesValues: [
+results[18] = { Date: 2015-08-01T00:00:00.0000000+00:00, ManifestSHA: c82cf47f6c5b0cf4e01a2f70e88dbcb38006a2af, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.10.1", RepoVersionPublishedAt: 2013-06-14T08:54:17.0000000+00:00, LatestVersion: "0.10.1", LatestPublishedAt: 2013-06-14T08:54:17.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.8", RepoVersionPublishedAt: 2015-07-26T17:49:46.0000000+00:00, LatestVersion: "2.8", LatestPublishedAt: 2015-07-26T17:49:46.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2014-10-07T15:05:47.0000000+00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2014-10-07T15:05:47.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -320,7 +336,7 @@ results[17] = { Date: 2015-08-01T00:00:00.0000000+08:00, ManifestSHA: c82cf47f6c
 { Name: "kombu", RepoVersion: "3.0.26", RepoVersionPublishedAt: 2015-04-22T18:16:49.0000000+00:00, LatestVersion: "3.0.26", LatestPublishedAt: 2015-04-22T18:16:49.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0.1374738394216134 } }
 
-results[18] = { Date: 2015-09-01T00:00:00.0000000+08:00, ManifestSHA: c4d87d54879321cc77448728832e7b76e1709e88, LibYear: { _packagesValues: [
+results[19] = { Date: 2015-09-01T00:00:00.0000000+00:00, ManifestSHA: c4d87d54879321cc77448728832e7b76e1709e88, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.10.1", RepoVersionPublishedAt: 2013-06-14T08:54:17.0000000+00:00, LatestVersion: "0.10.1", LatestPublishedAt: 2013-06-14T08:54:17.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.8", RepoVersionPublishedAt: 2015-07-26T17:49:46.0000000+00:00, LatestVersion: "2.8", LatestPublishedAt: 2015-07-26T17:49:46.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2014-10-07T15:05:47.0000000+00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2014-10-07T15:05:47.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -344,7 +360,7 @@ results[18] = { Date: 2015-09-01T00:00:00.0000000+08:00, ManifestSHA: c4d87d5487
 { Name: "kombu", RepoVersion: "3.0.26", RepoVersionPublishedAt: 2015-04-22T18:16:49.0000000+00:00, LatestVersion: "3.0.26", LatestPublishedAt: 2015-04-22T18:16:49.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0.1374738394216134 } }
 
-results[19] = { Date: 2015-10-01T00:00:00.0000000+08:00, ManifestSHA: 5a99d89812d70a9e81dd5b5d5b5344a9db820397, LibYear: { _packagesValues: [
+results[20] = { Date: 2015-10-01T00:00:00.0000000+00:00, ManifestSHA: ff2236af7e45916b4b723a73600f0b6d3b9134c7, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.10.1", RepoVersionPublishedAt: 2013-06-14T08:54:17.0000000+00:00, LatestVersion: "0.10.1", LatestPublishedAt: 2013-06-14T08:54:17.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.8", RepoVersionPublishedAt: 2015-07-26T17:49:46.0000000+00:00, LatestVersion: "2.8", LatestPublishedAt: 2015-07-26T17:49:46.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2014-10-07T15:05:47.0000000+00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2014-10-07T15:05:47.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -356,9 +372,9 @@ results[19] = { Date: 2015-10-01T00:00:00.0000000+08:00, ManifestSHA: 5a99d89812
 { Name: "tornado", RepoVersion: "4.2.1", RepoVersionPublishedAt: 2015-07-17T15:52:34.0000000+00:00, LatestVersion: "4.2.1", LatestPublishedAt: 2015-07-17T15:52:34.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "mysql-connector-python", RepoVersion: "2.0.4", RepoVersionPublishedAt: 2015-06-08T09:38:06.0000000+00:00, LatestVersion: "2.0.4", LatestPublishedAt: 2015-06-08T09:38:06.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "pika", RepoVersion: "0.10.0", RepoVersionPublishedAt: 2015-09-02T17:34:32.0000000+00:00, LatestVersion: "0.10.0", LatestPublishedAt: 2015-09-02T17:34:32.0000000+00:00, UpgradeAvailable: False, Value: 0 },
-{ Name: "pymongo", RepoVersion: "2.8.1", RepoVersionPublishedAt: 2015-05-11T20:27:20.0000000+00:00, LatestVersion: "3.0.3", LatestPublishedAt: 2015-07-01T00:43:35.0000000+00:00, UpgradeAvailable: True, Value: 0.1374738394216134 },
+{ Name: "pymongo", RepoVersion: "2.9", RepoVersionPublishedAt: 2015-09-30T23:34:44.0000000+00:00, LatestVersion: "3.0.3", LatestPublishedAt: 2015-07-01T00:43:35.0000000+00:00, UpgradeAvailable: True, Value: 0 },
 { Name: "unittest2", RepoVersion: "1.1.0", RepoVersionPublishedAt: 2015-06-30T06:48:25.0000000+00:00, LatestVersion: "1.1.0", LatestPublishedAt: 2015-06-30T06:48:25.0000000+00:00, UpgradeAvailable: False, Value: 0 },
-{ Name: "Flask-Login", RepoVersion: "0.3.0", RepoVersionPublishedAt: 2015-09-10T16:51:34.0000000+00:00, LatestVersion: "0.3.0", LatestPublishedAt: 2015-09-10T16:51:34.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "Flask-Login", RepoVersion: "0.3.1", RepoVersionPublishedAt: 2015-09-30T16:41:23.0000000+00:00, LatestVersion: "0.3.1", LatestPublishedAt: 2015-09-30T16:41:23.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "u-msgpack-python", RepoVersion: "2.1", RepoVersionPublishedAt: 2015-05-10T02:39:36.0000000+00:00, LatestVersion: "2.1", LatestPublishedAt: 2015-05-10T02:39:36.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "click", RepoVersion: "5.1", RepoVersionPublishedAt: 2015-08-17T11:24:17.0000000+00:00, LatestVersion: "5.1", LatestPublishedAt: 2015-08-17T11:24:17.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "SQLAlchemy", RepoVersion: "1.0.8", RepoVersionPublishedAt: 2015-07-23T00:08:16.0000000+00:00, LatestVersion: "1.0.8", LatestPublishedAt: 2015-07-23T00:08:16.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -367,9 +383,9 @@ results[19] = { Date: 2015-10-01T00:00:00.0000000+08:00, ManifestSHA: 5a99d89812
 { Name: "redis", RepoVersion: "2.10.3", RepoVersionPublishedAt: 2014-08-14T17:19:18.0000000+00:00, LatestVersion: "2.10.3", LatestPublishedAt: 2014-08-14T17:19:18.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "kombu", RepoVersion: "3.0.26", RepoVersionPublishedAt: 2015-04-22T18:16:49.0000000+00:00, LatestVersion: "3.0.26", LatestPublishedAt: 2015-04-22T18:16:49.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "psycopg2", RepoVersion: "2.6.1", RepoVersionPublishedAt: 2015-06-15T09:50:34.0000000+00:00, LatestVersion: "2.6.1", LatestPublishedAt: 2015-06-15T09:50:34.0000000+00:00, UpgradeAvailable: False, Value: 0 },
-], Total: 0.1374738394216134 } }
+], Total: 0 } }
 
-results[20] = { Date: 2015-11-01T00:00:00.0000000+08:00, ManifestSHA: 81899855ae6fb54b84912a6a7665523b2da0e00d, LibYear: { _packagesValues: [
+results[21] = { Date: 2015-11-01T00:00:00.0000000+00:00, ManifestSHA: 81899855ae6fb54b84912a6a7665523b2da0e00d, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.10.1", RepoVersionPublishedAt: 2013-06-14T08:54:17.0000000+00:00, LatestVersion: "0.10.1", LatestPublishedAt: 2013-06-14T08:54:17.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.8", RepoVersionPublishedAt: 2015-07-26T17:49:46.0000000+00:00, LatestVersion: "2.8", LatestPublishedAt: 2015-07-26T17:49:46.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2014-10-07T15:05:47.0000000+00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2014-10-07T15:05:47.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -394,7 +410,7 @@ results[20] = { Date: 2015-11-01T00:00:00.0000000+08:00, ManifestSHA: 81899855ae
 { Name: "psycopg2", RepoVersion: "2.6.1", RepoVersionPublishedAt: 2015-06-15T09:50:34.0000000+00:00, LatestVersion: "2.6.1", LatestPublishedAt: 2015-06-15T09:50:34.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[21] = { Date: 2015-12-01T00:00:00.0000000+08:00, ManifestSHA: e8a7e0b0d1efd12e81cb1b5c913be3dfce722309, LibYear: { _packagesValues: [
+results[22] = { Date: 2015-12-01T00:00:00.0000000+00:00, ManifestSHA: e8a7e0b0d1efd12e81cb1b5c913be3dfce722309, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.10.1", RepoVersionPublishedAt: 2013-06-14T08:54:17.0000000+00:00, LatestVersion: "0.10.1", LatestPublishedAt: 2013-06-14T08:54:17.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.8", RepoVersionPublishedAt: 2015-07-26T17:49:46.0000000+00:00, LatestVersion: "2.8", LatestPublishedAt: 2015-07-26T17:49:46.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2014-10-07T15:05:47.0000000+00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2014-10-07T15:05:47.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -419,7 +435,7 @@ results[21] = { Date: 2015-12-01T00:00:00.0000000+08:00, ManifestSHA: e8a7e0b0d1
 { Name: "psycopg2", RepoVersion: "2.6.1", RepoVersionPublishedAt: 2015-06-15T09:50:34.0000000+00:00, LatestVersion: "2.6.1", LatestPublishedAt: 2015-06-15T09:50:34.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[22] = { Date: 2016-01-01T00:00:00.0000000+08:00, ManifestSHA: 169fe4fad70d6687900acd4b8c5718427b9b49cc, LibYear: { _packagesValues: [
+results[23] = { Date: 2016-01-01T00:00:00.0000000+00:00, ManifestSHA: 169fe4fad70d6687900acd4b8c5718427b9b49cc, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.10.1", RepoVersionPublishedAt: 2013-06-14T08:54:17.0000000+00:00, LatestVersion: "0.10.1", LatestPublishedAt: 2013-06-14T08:54:17.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.8", RepoVersionPublishedAt: 2015-07-26T17:49:46.0000000+00:00, LatestVersion: "2.8", LatestPublishedAt: 2015-07-26T17:49:46.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2014-10-07T15:05:47.0000000+00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2014-10-07T15:05:47.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -444,7 +460,7 @@ results[22] = { Date: 2016-01-01T00:00:00.0000000+08:00, ManifestSHA: 169fe4fad7
 { Name: "psycopg2", RepoVersion: "2.6.1", RepoVersionPublishedAt: 2015-06-15T09:50:34.0000000+00:00, LatestVersion: "2.6.1", LatestPublishedAt: 2015-06-15T09:50:34.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[23] = { Date: 2016-02-01T00:00:00.0000000+08:00, ManifestSHA: 468202f282e2dfb1f12830d44c7e2ea7c5b3d811, LibYear: { _packagesValues: [
+results[24] = { Date: 2016-02-01T00:00:00.0000000+00:00, ManifestSHA: 468202f282e2dfb1f12830d44c7e2ea7c5b3d811, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.10.1", RepoVersionPublishedAt: 2013-06-14T08:54:17.0000000+00:00, LatestVersion: "0.10.1", LatestPublishedAt: 2013-06-14T08:54:17.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.8", RepoVersionPublishedAt: 2015-07-26T17:49:46.0000000+00:00, LatestVersion: "2.8", LatestPublishedAt: 2015-07-26T17:49:46.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2014-10-07T15:05:47.0000000+00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2014-10-07T15:05:47.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -470,7 +486,7 @@ results[23] = { Date: 2016-02-01T00:00:00.0000000+08:00, ManifestSHA: 468202f282
 { Name: "elasticsearch", RepoVersion: "2.2.0", RepoVersionPublishedAt: 2016-01-05T11:05:46.0000000+00:00, LatestVersion: "2.2.0", LatestPublishedAt: 2016-01-05T11:05:46.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[24] = { Date: 2016-03-01T00:00:00.0000000+08:00, ManifestSHA: 468202f282e2dfb1f12830d44c7e2ea7c5b3d811, LibYear: { _packagesValues: [
+results[25] = { Date: 2016-03-01T00:00:00.0000000+00:00, ManifestSHA: fe41f86e539cf0c10c7a7d97aa77bff1f4cc0192, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.10.1", RepoVersionPublishedAt: 2013-06-14T08:54:17.0000000+00:00, LatestVersion: "0.10.1", LatestPublishedAt: 2013-06-14T08:54:17.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.8", RepoVersionPublishedAt: 2015-07-26T17:49:46.0000000+00:00, LatestVersion: "2.8", LatestPublishedAt: 2015-07-26T17:49:46.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2014-10-07T15:05:47.0000000+00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2014-10-07T15:05:47.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -493,10 +509,10 @@ results[24] = { Date: 2016-03-01T00:00:00.0000000+08:00, ManifestSHA: 468202f282
 { Name: "redis", RepoVersion: "2.10.5", RepoVersionPublishedAt: 2015-11-03T00:21:07.0000000+00:00, LatestVersion: "2.10.5", LatestPublishedAt: 2015-11-03T00:21:07.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "kombu", RepoVersion: "3.0.33", RepoVersionPublishedAt: 2016-01-09T02:38:06.0000000+00:00, LatestVersion: "3.0.33", LatestPublishedAt: 2016-01-09T02:38:06.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "psycopg2", RepoVersion: "2.6.1", RepoVersionPublishedAt: 2015-06-15T09:50:34.0000000+00:00, LatestVersion: "2.6.1", LatestPublishedAt: 2015-06-15T09:50:34.0000000+00:00, UpgradeAvailable: False, Value: 0 },
-{ Name: "elasticsearch", RepoVersion: "2.2.0", RepoVersionPublishedAt: 2016-01-05T11:05:46.0000000+00:00, LatestVersion: "2.2.0", LatestPublishedAt: 2016-01-05T11:05:46.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "elasticsearch", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2016-02-29T21:59:49.0000000+00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2016-02-29T21:59:49.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[25] = { Date: 2016-04-01T00:00:00.0000000+08:00, ManifestSHA: 31940c9a913c43c104fd8013aa1a9ef8df21a2e1, LibYear: { _packagesValues: [
+results[26] = { Date: 2016-04-01T00:00:00.0000000+00:00, ManifestSHA: 31940c9a913c43c104fd8013aa1a9ef8df21a2e1, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.10.1", RepoVersionPublishedAt: 2013-06-14T08:54:17.0000000+00:00, LatestVersion: "0.10.1", LatestPublishedAt: 2013-06-14T08:54:17.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.8", RepoVersionPublishedAt: 2015-07-26T17:49:46.0000000+00:00, LatestVersion: "2.8", LatestPublishedAt: 2015-07-26T17:49:46.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2014-10-07T15:05:47.0000000+00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2014-10-07T15:05:47.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -522,7 +538,7 @@ results[25] = { Date: 2016-04-01T00:00:00.0000000+08:00, ManifestSHA: 31940c9a91
 { Name: "elasticsearch", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2016-02-29T21:59:49.0000000+00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2016-02-29T21:59:49.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[26] = { Date: 2016-05-01T00:00:00.0000000+08:00, ManifestSHA: 8cad381dea280ae1c3e611c41e04171400505a21, LibYear: { _packagesValues: [
+results[27] = { Date: 2016-05-01T00:00:00.0000000+00:00, ManifestSHA: 8cad381dea280ae1c3e611c41e04171400505a21, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.10.1", RepoVersionPublishedAt: 2013-06-14T08:54:17.0000000+00:00, LatestVersion: "0.10.1", LatestPublishedAt: 2013-06-14T08:54:17.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.8", RepoVersionPublishedAt: 2015-07-26T17:49:46.0000000+00:00, LatestVersion: "2.8", LatestPublishedAt: 2015-07-26T17:49:46.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2014-10-07T15:05:47.0000000+00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2014-10-07T15:05:47.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -548,7 +564,7 @@ results[26] = { Date: 2016-05-01T00:00:00.0000000+08:00, ManifestSHA: 8cad381dea
 { Name: "elasticsearch", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2016-02-29T21:59:49.0000000+00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2016-02-29T21:59:49.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[27] = { Date: 2016-06-01T00:00:00.0000000+08:00, ManifestSHA: 0d0c9d68913f9feba86739034bb57e3eb7c6f829, LibYear: { _packagesValues: [
+results[28] = { Date: 2016-06-01T00:00:00.0000000+00:00, ManifestSHA: 0d0c9d68913f9feba86739034bb57e3eb7c6f829, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.11", RepoVersionPublishedAt: 2016-05-29T09:02:28.0000000+00:00, LatestVersion: "0.11", LatestPublishedAt: 2016-05-29T09:02:28.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.8", RepoVersionPublishedAt: 2015-07-26T17:49:46.0000000+00:00, LatestVersion: "2.8", LatestPublishedAt: 2015-07-26T17:49:46.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2014-10-07T15:05:47.0000000+00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2014-10-07T15:05:47.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -574,7 +590,7 @@ results[27] = { Date: 2016-06-01T00:00:00.0000000+08:00, ManifestSHA: 0d0c9d6891
 { Name: "elasticsearch", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2016-02-29T21:59:49.0000000+00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2016-02-29T21:59:49.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[28] = { Date: 2016-07-01T00:00:00.0000000+08:00, ManifestSHA: 57ce12a70cac9d2428d324b059b456b6a09a0e8c, LibYear: { _packagesValues: [
+results[29] = { Date: 2016-07-01T00:00:00.0000000+00:00, ManifestSHA: 57ce12a70cac9d2428d324b059b456b6a09a0e8c, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.11.1", RepoVersionPublishedAt: 2016-06-07T16:25:02.0000000+00:00, LatestVersion: "0.11.1", LatestPublishedAt: 2016-06-07T16:25:02.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.8", RepoVersionPublishedAt: 2015-07-26T17:49:46.0000000+00:00, LatestVersion: "2.8", LatestPublishedAt: 2015-07-26T17:49:46.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2014-10-07T15:05:47.0000000+00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2014-10-07T15:05:47.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -600,7 +616,7 @@ results[28] = { Date: 2016-07-01T00:00:00.0000000+08:00, ManifestSHA: 57ce12a70c
 { Name: "elasticsearch", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2016-02-29T21:59:49.0000000+00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2016-02-29T21:59:49.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0.42177375063419587 } }
 
-results[29] = { Date: 2016-08-01T00:00:00.0000000+08:00, ManifestSHA: 03e847dbad70e830b7681fb2a73b6534c11253dc, LibYear: { _packagesValues: [
+results[30] = { Date: 2016-08-01T00:00:00.0000000+00:00, ManifestSHA: 03e847dbad70e830b7681fb2a73b6534c11253dc, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.11.1", RepoVersionPublishedAt: 2016-06-07T16:25:02.0000000+00:00, LatestVersion: "0.11.1", LatestPublishedAt: 2016-06-07T16:25:02.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.8", RepoVersionPublishedAt: 2015-07-26T17:49:46.0000000+00:00, LatestVersion: "2.8", LatestPublishedAt: 2015-07-26T17:49:46.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2014-10-07T15:05:47.0000000+00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2014-10-07T15:05:47.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -626,7 +642,7 @@ results[29] = { Date: 2016-08-01T00:00:00.0000000+08:00, ManifestSHA: 03e847dbad
 { Name: "elasticsearch", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2016-02-29T21:59:49.0000000+00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2016-02-29T21:59:49.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0.5069909944190766 } }
 
-results[30] = { Date: 2016-09-01T00:00:00.0000000+08:00, ManifestSHA: 2fd0d7004e33e36624a259b3c9fe50d32a7cc746, LibYear: { _packagesValues: [
+results[31] = { Date: 2016-09-01T00:00:00.0000000+00:00, ManifestSHA: 2fd0d7004e33e36624a259b3c9fe50d32a7cc746, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.11.1", RepoVersionPublishedAt: 2016-06-07T16:25:02.0000000+00:00, LatestVersion: "0.11.1", LatestPublishedAt: 2016-06-07T16:25:02.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.8", RepoVersionPublishedAt: 2015-07-26T17:49:46.0000000+00:00, LatestVersion: "2.8", LatestPublishedAt: 2015-07-26T17:49:46.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2014-10-07T15:05:47.0000000+00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2014-10-07T15:05:47.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -652,7 +668,7 @@ results[30] = { Date: 2016-09-01T00:00:00.0000000+08:00, ManifestSHA: 2fd0d7004e
 { Name: "elasticsearch", RepoVersion: "2.4.0", RepoVersionPublishedAt: 2016-08-17T14:32:13.0000000+00:00, LatestVersion: "2.4.0", LatestPublishedAt: 2016-08-17T14:32:13.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0.5069909944190766 } }
 
-results[31] = { Date: 2016-10-01T00:00:00.0000000+08:00, ManifestSHA: aa7beea76224ed93d5d94ade0dddd53526ada320, LibYear: { _packagesValues: [
+results[32] = { Date: 2016-10-01T00:00:00.0000000+00:00, ManifestSHA: aa7beea76224ed93d5d94ade0dddd53526ada320, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.11.1", RepoVersionPublishedAt: 2016-06-07T16:25:02.0000000+00:00, LatestVersion: "0.11.1", LatestPublishedAt: 2016-06-07T16:25:02.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.8", RepoVersionPublishedAt: 2015-07-26T17:49:46.0000000+00:00, LatestVersion: "2.8", LatestPublishedAt: 2015-07-26T17:49:46.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2014-10-07T15:05:47.0000000+00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2014-10-07T15:05:47.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -661,7 +677,7 @@ results[31] = { Date: 2016-10-01T00:00:00.0000000+08:00, ManifestSHA: aa7beea762
 { Name: "pycurl", RepoVersion: "7.43.0", RepoVersionPublishedAt: 2016-02-05T06:09:27.0000000+00:00, LatestVersion: "7.43.0", LatestPublishedAt: 2016-02-05T06:09:27.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "pyquery", RepoVersion: "1.2.13", RepoVersionPublishedAt: 2016-04-12T16:02:19.0000000+00:00, LatestVersion: "1.2.13", LatestPublishedAt: 2016-04-12T16:02:19.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "requests", RepoVersion: "2.11.1", RepoVersionPublishedAt: 2016-08-17T20:04:20.0000000+00:00, LatestVersion: "2.11.1", LatestPublishedAt: 2016-08-17T20:04:20.0000000+00:00, UpgradeAvailable: False, Value: 0 },
-{ Name: "tornado", RepoVersion: "4.4.1", RepoVersionPublishedAt: 2016-07-23T17:19:55.0000000+00:00, LatestVersion: "4.4.1", LatestPublishedAt: 2016-07-23T17:19:55.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "tornado", RepoVersion: "4.4.2", RepoVersionPublishedAt: 2016-09-30T23:31:38.0000000+00:00, LatestVersion: "4.4.2", LatestPublishedAt: 2016-09-30T23:31:38.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "mysql-connector-python", RepoVersion: "2.0.4", RepoVersionPublishedAt: 2015-06-08T09:38:06.0000000+00:00, LatestVersion: "2.0.4", LatestPublishedAt: 2015-06-08T09:38:06.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "pika", RepoVersion: "0.10.0", RepoVersionPublishedAt: 2015-09-02T17:34:32.0000000+00:00, LatestVersion: "0.10.0", LatestPublishedAt: 2015-09-02T17:34:32.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "pymongo", RepoVersion: "3.3.0", RepoVersionPublishedAt: 2016-07-12T21:25:22.0000000+00:00, LatestVersion: "3.3.0", LatestPublishedAt: 2016-07-12T21:25:22.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -673,12 +689,12 @@ results[31] = { Date: 2016-10-01T00:00:00.0000000+08:00, ManifestSHA: aa7beea762
 { Name: "six", RepoVersion: "1.10.0", RepoVersionPublishedAt: 2015-10-07T03:17:19.0000000+00:00, LatestVersion: "1.10.0", LatestPublishedAt: 2015-10-07T03:17:19.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "amqp", RepoVersion: "1.4.9", RepoVersionPublishedAt: 2016-01-09T01:58:12.0000000+00:00, LatestVersion: "2.1.0", LatestPublishedAt: 2016-09-07T23:49:20.0000000+00:00, UpgradeAvailable: True, Value: 0.6655082445459158 },
 { Name: "redis", RepoVersion: "2.10.5", RepoVersionPublishedAt: 2015-11-03T00:21:07.0000000+00:00, LatestVersion: "2.10.5", LatestPublishedAt: 2015-11-03T00:21:07.0000000+00:00, UpgradeAvailable: False, Value: 0 },
-{ Name: "kombu", RepoVersion: "3.0.35", RepoVersionPublishedAt: 2016-03-22T19:15:07.0000000+00:00, LatestVersion: "3.0.35", LatestPublishedAt: 2016-03-22T19:15:07.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "kombu", RepoVersion: "3.0.36", RepoVersionPublishedAt: 2016-09-30T22:20:35.0000000+00:00, LatestVersion: "3.0.36", LatestPublishedAt: 2016-09-30T22:20:35.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "psycopg2", RepoVersion: "2.6.2", RepoVersionPublishedAt: 2016-07-07T02:23:57.0000000+00:00, LatestVersion: "2.6.2", LatestPublishedAt: 2016-07-07T02:23:57.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "elasticsearch", RepoVersion: "2.4.0", RepoVersionPublishedAt: 2016-08-17T14:32:13.0000000+00:00, LatestVersion: "2.4.0", LatestPublishedAt: 2016-08-17T14:32:13.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0.6655082445459158 } }
 
-results[32] = { Date: 2016-11-01T00:00:00.0000000+08:00, ManifestSHA: 8bd2ae4f342891861e7c5ff2cce0017bd04f0937, LibYear: { _packagesValues: [
+results[33] = { Date: 2016-11-01T00:00:00.0000000+00:00, ManifestSHA: 8bd2ae4f342891861e7c5ff2cce0017bd04f0937, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.11.1", RepoVersionPublishedAt: 2016-06-07T16:25:02.0000000+00:00, LatestVersion: "0.11.1", LatestPublishedAt: 2016-06-07T16:25:02.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.8", RepoVersionPublishedAt: 2015-07-26T17:49:46.0000000+00:00, LatestVersion: "2.8", LatestPublishedAt: 2015-07-26T17:49:46.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2014-10-07T15:05:47.0000000+00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2014-10-07T15:05:47.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -704,7 +720,7 @@ results[32] = { Date: 2016-11-01T00:00:00.0000000+08:00, ManifestSHA: 8bd2ae4f34
 { Name: "elasticsearch", RepoVersion: "5.0.0", RepoVersionPublishedAt: 2016-10-19T14:28:07.0000000+00:00, LatestVersion: "5.0.0", LatestPublishedAt: 2016-10-19T14:28:07.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0.7647235223236936 } }
 
-results[33] = { Date: 2016-12-01T00:00:00.0000000+08:00, ManifestSHA: af647c6214a6114192871a9050384561e5c5795f, LibYear: { _packagesValues: [
+results[34] = { Date: 2016-12-01T00:00:00.0000000+00:00, ManifestSHA: af647c6214a6114192871a9050384561e5c5795f, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.11.1", RepoVersionPublishedAt: 2016-06-07T16:25:02.0000000+00:00, LatestVersion: "0.11.1", LatestPublishedAt: 2016-06-07T16:25:02.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.8", RepoVersionPublishedAt: 2015-07-26T17:49:46.0000000+00:00, LatestVersion: "2.8", LatestPublishedAt: 2015-07-26T17:49:46.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2014-10-07T15:05:47.0000000+00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2014-10-07T15:05:47.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -730,7 +746,7 @@ results[33] = { Date: 2016-12-01T00:00:00.0000000+08:00, ManifestSHA: af647c6214
 { Name: "elasticsearch", RepoVersion: "5.0.1", RepoVersionPublishedAt: 2016-11-02T18:51:23.0000000+00:00, LatestVersion: "5.0.1", LatestPublishedAt: 2016-11-02T18:51:23.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0.7647235223236936 } }
 
-results[34] = { Date: 2017-01-01T00:00:00.0000000+08:00, ManifestSHA: c6a89d56cd6bef2a395ac207081335c2173138ac, LibYear: { _packagesValues: [
+results[35] = { Date: 2017-01-01T00:00:00.0000000+00:00, ManifestSHA: c6a89d56cd6bef2a395ac207081335c2173138ac, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.12", RepoVersionPublishedAt: 2016-12-21T20:22:12.0000000+00:00, LatestVersion: "0.12", LatestPublishedAt: 2016-12-21T20:22:12.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.8.1", RepoVersionPublishedAt: 2016-12-29T13:16:20.0000000+00:00, LatestVersion: "2.8.1", LatestPublishedAt: 2016-12-29T13:16:20.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2014-10-07T15:05:47.0000000+00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2014-10-07T15:05:47.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -756,7 +772,7 @@ results[34] = { Date: 2017-01-01T00:00:00.0000000+08:00, ManifestSHA: c6a89d56cd
 { Name: "elasticsearch", RepoVersion: "5.0.1", RepoVersionPublishedAt: 2016-11-02T18:51:23.0000000+00:00, LatestVersion: "5.0.1", LatestPublishedAt: 2016-11-02T18:51:23.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0.9340063736681888 } }
 
-results[35] = { Date: 2017-02-01T00:00:00.0000000+08:00, ManifestSHA: d990cc3a697c833aa0a857e7096a11e8ed87698a, LibYear: { _packagesValues: [
+results[36] = { Date: 2017-02-01T00:00:00.0000000+00:00, ManifestSHA: d990cc3a697c833aa0a857e7096a11e8ed87698a, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.12", RepoVersionPublishedAt: 2016-12-21T20:22:12.0000000+00:00, LatestVersion: "0.12", LatestPublishedAt: 2016-12-21T20:22:12.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.9.5", RepoVersionPublishedAt: 2017-01-28T14:42:34.0000000+00:00, LatestVersion: "2.9.5", LatestPublishedAt: 2017-01-28T14:42:34.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2014-10-07T15:05:47.0000000+00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2014-10-07T15:05:47.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -783,7 +799,7 @@ results[35] = { Date: 2017-02-01T00:00:00.0000000+08:00, ManifestSHA: d990cc3a69
 { Name: "tblib", RepoVersion: "1.3.0", RepoVersionPublishedAt: 2016-03-08T18:07:39.0000000+00:00, LatestVersion: "1.3.0", LatestPublishedAt: 2016-03-08T18:07:39.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0.9340063736681888 } }
 
-results[36] = { Date: 2017-03-01T00:00:00.0000000+08:00, ManifestSHA: 21dd4021f00d37e1609146bc1dc96ca57e21a238, LibYear: { _packagesValues: [
+results[37] = { Date: 2017-03-01T00:00:00.0000000+00:00, ManifestSHA: 21dd4021f00d37e1609146bc1dc96ca57e21a238, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.12", RepoVersionPublishedAt: 2016-12-21T20:22:12.0000000+00:00, LatestVersion: "0.12", LatestPublishedAt: 2016-12-21T20:22:12.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.9.5", RepoVersionPublishedAt: 2017-01-28T14:42:34.0000000+00:00, LatestVersion: "2.9.5", LatestPublishedAt: 2017-01-28T14:42:34.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2014-10-07T15:05:47.0000000+00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2014-10-07T15:05:47.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -800,7 +816,7 @@ results[36] = { Date: 2017-03-01T00:00:00.0000000+08:00, ManifestSHA: 21dd4021f0
 { Name: "Flask-Login", RepoVersion: "0.4.0", RepoVersionPublishedAt: 2016-10-26T17:39:38.0000000+00:00, LatestVersion: "0.4.0", LatestPublishedAt: 2016-10-26T17:39:38.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "u-msgpack-python", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2016-10-19T12:55:59.0000000+00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2016-10-19T12:55:59.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "click", RepoVersion: "6.7", RepoVersionPublishedAt: 2017-01-06T22:41:13.0000000+00:00, LatestVersion: "6.7", LatestPublishedAt: 2017-01-06T22:41:13.0000000+00:00, UpgradeAvailable: False, Value: 0 },
-{ Name: "SQLAlchemy", RepoVersion: "1.1.5", RepoVersionPublishedAt: 2017-01-17T21:37:24.0000000+00:00, LatestVersion: "1.1.5", LatestPublishedAt: 2017-01-17T21:37:24.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "SQLAlchemy", RepoVersion: "1.1.6", RepoVersionPublishedAt: 2017-02-28T16:47:25.0000000+00:00, LatestVersion: "1.1.6", LatestPublishedAt: 2017-02-28T16:47:25.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "six", RepoVersion: "1.10.0", RepoVersionPublishedAt: 2015-10-07T03:17:19.0000000+00:00, LatestVersion: "1.10.0", LatestPublishedAt: 2015-10-07T03:17:19.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "amqp", RepoVersion: "1.4.9", RepoVersionPublishedAt: 2016-01-09T01:58:12.0000000+00:00, LatestVersion: "2.1.4", LatestPublishedAt: 2016-12-14T23:51:57.0000000+00:00, UpgradeAvailable: True, Value: 0.9340063736681888 },
 { Name: "redis", RepoVersion: "2.10.5", RepoVersionPublishedAt: 2015-11-03T00:21:07.0000000+00:00, LatestVersion: "2.10.5", LatestPublishedAt: 2015-11-03T00:21:07.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -810,8 +826,8 @@ results[36] = { Date: 2017-03-01T00:00:00.0000000+08:00, ManifestSHA: 21dd4021f0
 { Name: "tblib", RepoVersion: "1.3.0", RepoVersionPublishedAt: 2016-03-08T18:07:39.0000000+00:00, LatestVersion: "1.3.0", LatestPublishedAt: 2016-03-08T18:07:39.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0.9340063736681888 } }
 
-results[37] = { Date: 2017-04-01T00:00:00.0000000+08:00, ManifestSHA: 2bcd5d298d799e22293853db0478ec3cc71f6cf7, LibYear: { _packagesValues: [
-{ Name: "Flask", RepoVersion: "0.12", RepoVersionPublishedAt: 2016-12-21T20:22:12.0000000+00:00, LatestVersion: "0.12", LatestPublishedAt: 2016-12-21T20:22:12.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+results[38] = { Date: 2017-04-01T00:00:00.0000000+00:00, ManifestSHA: 2bcd5d298d799e22293853db0478ec3cc71f6cf7, LibYear: { _packagesValues: [
+{ Name: "Flask", RepoVersion: "0.12.1", RepoVersionPublishedAt: 2017-03-31T16:43:38.0000000+00:00, LatestVersion: "0.12.1", LatestPublishedAt: 2017-03-31T16:43:38.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.9.5", RepoVersionPublishedAt: 2017-01-28T14:42:34.0000000+00:00, LatestVersion: "2.9.5", LatestPublishedAt: 2017-01-28T14:42:34.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2014-10-07T15:05:47.0000000+00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2014-10-07T15:05:47.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "cssselect", RepoVersion: "1.0.1", RepoVersionPublishedAt: 2017-01-10T15:18:18.0000000+00:00, LatestVersion: "1.0.1", LatestPublishedAt: 2017-01-10T15:18:18.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -827,7 +843,7 @@ results[37] = { Date: 2017-04-01T00:00:00.0000000+08:00, ManifestSHA: 2bcd5d298d
 { Name: "Flask-Login", RepoVersion: "0.4.0", RepoVersionPublishedAt: 2016-10-26T17:39:38.0000000+00:00, LatestVersion: "0.4.0", LatestPublishedAt: 2016-10-26T17:39:38.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "u-msgpack-python", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2016-10-19T12:55:59.0000000+00:00, LatestVersion: "2.3.0", LatestPublishedAt: 2016-10-19T12:55:59.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "click", RepoVersion: "6.7", RepoVersionPublishedAt: 2017-01-06T22:41:13.0000000+00:00, LatestVersion: "6.7", LatestPublishedAt: 2017-01-06T22:41:13.0000000+00:00, UpgradeAvailable: False, Value: 0 },
-{ Name: "SQLAlchemy", RepoVersion: "1.1.7", RepoVersionPublishedAt: 2017-03-27T21:35:16.0000000+00:00, LatestVersion: "1.1.7", LatestPublishedAt: 2017-03-27T21:35:16.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "SQLAlchemy", RepoVersion: "1.1.8", RepoVersionPublishedAt: 2017-03-31T18:32:43.0000000+00:00, LatestVersion: "1.1.8", LatestPublishedAt: 2017-03-31T18:32:43.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "six", RepoVersion: "1.10.0", RepoVersionPublishedAt: 2015-10-07T03:17:19.0000000+00:00, LatestVersion: "1.10.0", LatestPublishedAt: 2015-10-07T03:17:19.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "amqp", RepoVersion: "1.4.9", RepoVersionPublishedAt: 2016-01-09T01:58:12.0000000+00:00, LatestVersion: "2.1.4", LatestPublishedAt: 2016-12-14T23:51:57.0000000+00:00, UpgradeAvailable: True, Value: 0.9340063736681888 },
 { Name: "redis", RepoVersion: "2.10.5", RepoVersionPublishedAt: 2015-11-03T00:21:07.0000000+00:00, LatestVersion: "2.10.5", LatestPublishedAt: 2015-11-03T00:21:07.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -837,7 +853,7 @@ results[37] = { Date: 2017-04-01T00:00:00.0000000+08:00, ManifestSHA: 2bcd5d298d
 { Name: "tblib", RepoVersion: "1.3.1", RepoVersionPublishedAt: 2017-03-27T11:46:21.0000000+00:00, LatestVersion: "1.3.1", LatestPublishedAt: 2017-03-27T11:46:21.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0.9340063736681888 } }
 
-results[38] = { Date: 2017-05-01T00:00:00.0000000+08:00, ManifestSHA: 941704dc50de7bc913b20a805e05341ebed94b35, LibYear: { _packagesValues: [
+results[39] = { Date: 2017-05-01T00:00:00.0000000+00:00, ManifestSHA: 941704dc50de7bc913b20a805e05341ebed94b35, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.12.1", RepoVersionPublishedAt: 2017-03-31T16:43:38.0000000+00:00, LatestVersion: "0.12.1", LatestPublishedAt: 2017-03-31T16:43:38.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.9.6", RepoVersionPublishedAt: 2017-04-03T13:11:24.0000000+00:00, LatestVersion: "2.9.6", LatestPublishedAt: 2017-04-03T13:11:24.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "3.0.2", RepoVersionPublishedAt: 2017-04-12T19:22:06.0000000+00:00, LatestVersion: "3.0.2", LatestPublishedAt: 2017-04-12T19:22:06.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -864,7 +880,7 @@ results[38] = { Date: 2017-05-01T00:00:00.0000000+08:00, ManifestSHA: 941704dc50
 { Name: "tblib", RepoVersion: "1.3.2", RepoVersionPublishedAt: 2017-04-09T20:12:24.0000000+00:00, LatestVersion: "1.3.2", LatestPublishedAt: 2017-04-09T20:12:24.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0.9340063736681888 } }
 
-results[39] = { Date: 2017-06-01T00:00:00.0000000+08:00, ManifestSHA: 941704dc50de7bc913b20a805e05341ebed94b35, LibYear: { _packagesValues: [
+results[40] = { Date: 2017-06-01T00:00:00.0000000+00:00, ManifestSHA: 941704dc50de7bc913b20a805e05341ebed94b35, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.12.2", RepoVersionPublishedAt: 2017-05-16T06:39:34.0000000+00:00, LatestVersion: "0.12.2", LatestPublishedAt: 2017-05-16T06:39:34.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.9.6", RepoVersionPublishedAt: 2017-04-03T13:11:24.0000000+00:00, LatestVersion: "2.9.6", LatestPublishedAt: 2017-04-03T13:11:24.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "3.0.3", RepoVersionPublishedAt: 2017-05-16T18:41:02.0000000+00:00, LatestVersion: "3.0.3", LatestPublishedAt: 2017-05-16T18:41:02.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -891,7 +907,7 @@ results[39] = { Date: 2017-06-01T00:00:00.0000000+08:00, ManifestSHA: 941704dc50
 { Name: "tblib", RepoVersion: "1.3.2", RepoVersionPublishedAt: 2017-04-09T20:12:24.0000000+00:00, LatestVersion: "1.3.2", LatestPublishedAt: 2017-04-09T20:12:24.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0.9340063736681888 } }
 
-results[40] = { Date: 2017-07-01T00:00:00.0000000+08:00, ManifestSHA: 72f8c6efdfc9de4923e1ee2ec1144e1a7a6bdf81, LibYear: { _packagesValues: [
+results[41] = { Date: 2017-07-01T00:00:00.0000000+00:00, ManifestSHA: 72f8c6efdfc9de4923e1ee2ec1144e1a7a6bdf81, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.12.2", RepoVersionPublishedAt: 2017-05-16T06:39:34.0000000+00:00, LatestVersion: "0.12.2", LatestPublishedAt: 2017-05-16T06:39:34.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.9.6", RepoVersionPublishedAt: 2017-04-03T13:11:24.0000000+00:00, LatestVersion: "2.9.6", LatestPublishedAt: 2017-04-03T13:11:24.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "3.0.4", RepoVersionPublishedAt: 2017-06-08T14:34:33.0000000+00:00, LatestVersion: "3.0.4", LatestPublishedAt: 2017-06-08T14:34:33.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -919,7 +935,7 @@ results[40] = { Date: 2017-07-01T00:00:00.0000000+08:00, ManifestSHA: 72f8c6efdf
 { Name: "tblib", RepoVersion: "1.3.2", RepoVersionPublishedAt: 2017-04-09T20:12:24.0000000+00:00, LatestVersion: "1.3.2", LatestPublishedAt: 2017-04-09T20:12:24.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0.9340063736681888 } }
 
-results[41] = { Date: 2017-08-01T00:00:00.0000000+08:00, ManifestSHA: 72f8c6efdfc9de4923e1ee2ec1144e1a7a6bdf81, LibYear: { _packagesValues: [
+results[42] = { Date: 2017-08-01T00:00:00.0000000+00:00, ManifestSHA: 72f8c6efdfc9de4923e1ee2ec1144e1a7a6bdf81, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.12.2", RepoVersionPublishedAt: 2017-05-16T06:39:34.0000000+00:00, LatestVersion: "0.12.2", LatestPublishedAt: 2017-05-16T06:39:34.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.9.6", RepoVersionPublishedAt: 2017-04-03T13:11:24.0000000+00:00, LatestVersion: "2.9.6", LatestPublishedAt: 2017-04-03T13:11:24.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "3.0.4", RepoVersionPublishedAt: 2017-06-08T14:34:33.0000000+00:00, LatestVersion: "3.0.4", LatestPublishedAt: 2017-06-08T14:34:33.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -947,7 +963,7 @@ results[41] = { Date: 2017-08-01T00:00:00.0000000+08:00, ManifestSHA: 72f8c6efdf
 { Name: "tblib", RepoVersion: "1.3.2", RepoVersionPublishedAt: 2017-04-09T20:12:24.0000000+00:00, LatestVersion: "1.3.2", LatestPublishedAt: 2017-04-09T20:12:24.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 1.5127878297818367 } }
 
-results[42] = { Date: 2017-09-01T00:00:00.0000000+08:00, ManifestSHA: f2b7fb03401c6f11387478da4815d772dcbae7b2, LibYear: { _packagesValues: [
+results[43] = { Date: 2017-09-01T00:00:00.0000000+00:00, ManifestSHA: f2b7fb03401c6f11387478da4815d772dcbae7b2, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.12.2", RepoVersionPublishedAt: 2017-05-16T06:39:34.0000000+00:00, LatestVersion: "0.12.2", LatestPublishedAt: 2017-05-16T06:39:34.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.9.6", RepoVersionPublishedAt: 2017-04-03T13:11:24.0000000+00:00, LatestVersion: "2.9.6", LatestPublishedAt: 2017-04-03T13:11:24.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "3.0.4", RepoVersionPublishedAt: 2017-06-08T14:34:33.0000000+00:00, LatestVersion: "3.0.4", LatestPublishedAt: 2017-06-08T14:34:33.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -975,7 +991,7 @@ results[42] = { Date: 2017-09-01T00:00:00.0000000+08:00, ManifestSHA: f2b7fb0340
 { Name: "tblib", RepoVersion: "1.3.2", RepoVersionPublishedAt: 2017-04-09T20:12:24.0000000+00:00, LatestVersion: "1.3.2", LatestPublishedAt: 2017-04-09T20:12:24.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 1.5127878297818367 } }
 
-results[43] = { Date: 2017-10-01T00:00:00.0000000+08:00, ManifestSHA: f2b7fb03401c6f11387478da4815d772dcbae7b2, LibYear: { _packagesValues: [
+results[44] = { Date: 2017-10-01T00:00:00.0000000+00:00, ManifestSHA: f2b7fb03401c6f11387478da4815d772dcbae7b2, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.12.2", RepoVersionPublishedAt: 2017-05-16T06:39:34.0000000+00:00, LatestVersion: "0.12.2", LatestPublishedAt: 2017-05-16T06:39:34.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.9.6", RepoVersionPublishedAt: 2017-04-03T13:11:24.0000000+00:00, LatestVersion: "2.9.6", LatestPublishedAt: 2017-04-03T13:11:24.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "3.0.4", RepoVersionPublishedAt: 2017-06-08T14:34:33.0000000+00:00, LatestVersion: "3.0.4", LatestPublishedAt: 2017-06-08T14:34:33.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -1003,7 +1019,7 @@ results[43] = { Date: 2017-10-01T00:00:00.0000000+08:00, ManifestSHA: f2b7fb0340
 { Name: "tblib", RepoVersion: "1.3.2", RepoVersionPublishedAt: 2017-04-09T20:12:24.0000000+00:00, LatestVersion: "1.3.2", LatestPublishedAt: 2017-04-09T20:12:24.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 1.683316114916286 } }
 
-results[44] = { Date: 2017-11-01T00:00:00.0000000+08:00, ManifestSHA: f2b7fb03401c6f11387478da4815d772dcbae7b2, LibYear: { _packagesValues: [
+results[45] = { Date: 2017-11-01T00:00:00.0000000+00:00, ManifestSHA: f2b7fb03401c6f11387478da4815d772dcbae7b2, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.12.2", RepoVersionPublishedAt: 2017-05-16T06:39:34.0000000+00:00, LatestVersion: "0.12.2", LatestPublishedAt: 2017-05-16T06:39:34.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.9.6", RepoVersionPublishedAt: 2017-04-03T13:11:24.0000000+00:00, LatestVersion: "2.9.6", LatestPublishedAt: 2017-04-03T13:11:24.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "3.0.4", RepoVersionPublishedAt: 2017-06-08T14:34:33.0000000+00:00, LatestVersion: "3.0.4", LatestPublishedAt: 2017-06-08T14:34:33.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -1031,7 +1047,7 @@ results[44] = { Date: 2017-11-01T00:00:00.0000000+08:00, ManifestSHA: f2b7fb0340
 { Name: "tblib", RepoVersion: "1.3.2", RepoVersionPublishedAt: 2017-04-09T20:12:24.0000000+00:00, LatestVersion: "1.3.2", LatestPublishedAt: 2017-04-09T20:12:24.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 1.683316114916286 } }
 
-results[45] = { Date: 2017-12-01T00:00:00.0000000+08:00, ManifestSHA: f2b7fb03401c6f11387478da4815d772dcbae7b2, LibYear: { _packagesValues: [
+results[46] = { Date: 2017-12-01T00:00:00.0000000+00:00, ManifestSHA: f2b7fb03401c6f11387478da4815d772dcbae7b2, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.12.2", RepoVersionPublishedAt: 2017-05-16T06:39:34.0000000+00:00, LatestVersion: "0.12.2", LatestPublishedAt: 2017-05-16T06:39:34.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.10", RepoVersionPublishedAt: 2017-11-08T20:13:42.0000000+00:00, LatestVersion: "2.10", LatestPublishedAt: 2017-11-08T20:13:42.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "3.0.4", RepoVersionPublishedAt: 2017-06-08T14:34:33.0000000+00:00, LatestVersion: "3.0.4", LatestPublishedAt: 2017-06-08T14:34:33.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -1059,7 +1075,7 @@ results[45] = { Date: 2017-12-01T00:00:00.0000000+08:00, ManifestSHA: f2b7fb0340
 { Name: "tblib", RepoVersion: "1.3.2", RepoVersionPublishedAt: 2017-04-09T20:12:24.0000000+00:00, LatestVersion: "1.3.2", LatestPublishedAt: 2017-04-09T20:12:24.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 1.683316114916286 } }
 
-results[46] = { Date: 2018-01-01T00:00:00.0000000+08:00, ManifestSHA: f2b7fb03401c6f11387478da4815d772dcbae7b2, LibYear: { _packagesValues: [
+results[47] = { Date: 2018-01-01T00:00:00.0000000+00:00, ManifestSHA: f2b7fb03401c6f11387478da4815d772dcbae7b2, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.12.2", RepoVersionPublishedAt: 2017-05-16T06:39:34.0000000+00:00, LatestVersion: "0.12.2", LatestPublishedAt: 2017-05-16T06:39:34.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.10", RepoVersionPublishedAt: 2017-11-08T20:13:42.0000000+00:00, LatestVersion: "2.10", LatestPublishedAt: 2017-11-08T20:13:42.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "3.0.4", RepoVersionPublishedAt: 2017-06-08T14:34:33.0000000+00:00, LatestVersion: "3.0.4", LatestPublishedAt: 2017-06-08T14:34:33.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -1087,7 +1103,7 @@ results[46] = { Date: 2018-01-01T00:00:00.0000000+08:00, ManifestSHA: f2b7fb0340
 { Name: "tblib", RepoVersion: "1.3.2", RepoVersionPublishedAt: 2017-04-09T20:12:24.0000000+00:00, LatestVersion: "1.3.2", LatestPublishedAt: 2017-04-09T20:12:24.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 1.683316114916286 } }
 
-results[47] = { Date: 2018-02-01T00:00:00.0000000+08:00, ManifestSHA: f2b7fb03401c6f11387478da4815d772dcbae7b2, LibYear: { _packagesValues: [
+results[48] = { Date: 2018-02-01T00:00:00.0000000+00:00, ManifestSHA: f2b7fb03401c6f11387478da4815d772dcbae7b2, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.12.2", RepoVersionPublishedAt: 2017-05-16T06:39:34.0000000+00:00, LatestVersion: "0.12.2", LatestPublishedAt: 2017-05-16T06:39:34.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.10", RepoVersionPublishedAt: 2017-11-08T20:13:42.0000000+00:00, LatestVersion: "2.10", LatestPublishedAt: 2017-11-08T20:13:42.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "3.0.4", RepoVersionPublishedAt: 2017-06-08T14:34:33.0000000+00:00, LatestVersion: "3.0.4", LatestPublishedAt: 2017-06-08T14:34:33.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -1115,7 +1131,7 @@ results[47] = { Date: 2018-02-01T00:00:00.0000000+08:00, ManifestSHA: f2b7fb0340
 { Name: "tblib", RepoVersion: "1.3.2", RepoVersionPublishedAt: 2017-04-09T20:12:24.0000000+00:00, LatestVersion: "1.3.2", LatestPublishedAt: 2017-04-09T20:12:24.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 1.683316114916286 } }
 
-results[48] = { Date: 2018-03-01T00:00:00.0000000+08:00, ManifestSHA: f2b7fb03401c6f11387478da4815d772dcbae7b2, LibYear: { _packagesValues: [
+results[49] = { Date: 2018-03-01T00:00:00.0000000+00:00, ManifestSHA: f2b7fb03401c6f11387478da4815d772dcbae7b2, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.12.2", RepoVersionPublishedAt: 2017-05-16T06:39:34.0000000+00:00, LatestVersion: "0.12.2", LatestPublishedAt: 2017-05-16T06:39:34.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.10", RepoVersionPublishedAt: 2017-11-08T20:13:42.0000000+00:00, LatestVersion: "2.10", LatestPublishedAt: 2017-11-08T20:13:42.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "3.0.4", RepoVersionPublishedAt: 2017-06-08T14:34:33.0000000+00:00, LatestVersion: "3.0.4", LatestPublishedAt: 2017-06-08T14:34:33.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -1143,7 +1159,7 @@ results[48] = { Date: 2018-03-01T00:00:00.0000000+08:00, ManifestSHA: f2b7fb0340
 { Name: "tblib", RepoVersion: "1.3.2", RepoVersionPublishedAt: 2017-04-09T20:12:24.0000000+00:00, LatestVersion: "1.3.2", LatestPublishedAt: 2017-04-09T20:12:24.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 1.683316114916286 } }
 
-results[49] = { Date: 2018-04-01T00:00:00.0000000+08:00, ManifestSHA: 87337e7ce8a19677109a95b202ce6c77ba448af1, LibYear: { _packagesValues: [
+results[50] = { Date: 2018-04-01T00:00:00.0000000+00:00, ManifestSHA: 87337e7ce8a19677109a95b202ce6c77ba448af1, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.12.2", RepoVersionPublishedAt: 2017-05-16T06:39:34.0000000+00:00, LatestVersion: "0.12.2", LatestPublishedAt: 2017-05-16T06:39:34.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.10", RepoVersionPublishedAt: 2017-11-08T20:13:42.0000000+00:00, LatestVersion: "2.10", LatestPublishedAt: 2017-11-08T20:13:42.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "3.0.4", RepoVersionPublishedAt: 2017-06-08T14:34:33.0000000+00:00, LatestVersion: "3.0.4", LatestPublishedAt: 2017-06-08T14:34:33.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -1171,7 +1187,7 @@ results[49] = { Date: 2018-04-01T00:00:00.0000000+08:00, ManifestSHA: 87337e7ce8
 { Name: "tblib", RepoVersion: "1.3.2", RepoVersionPublishedAt: 2017-04-09T20:12:24.0000000+00:00, LatestVersion: "1.3.2", LatestPublishedAt: 2017-04-09T20:12:24.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 1.8775726471334346 } }
 
-results[50] = { Date: 2018-05-01T00:00:00.0000000+08:00, ManifestSHA: c350f6216b442c037869e0481d120a401a2424fa, LibYear: { _packagesValues: [
+results[51] = { Date: 2018-05-01T00:00:00.0000000+00:00, ManifestSHA: c350f6216b442c037869e0481d120a401a2424fa, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "1.0.1", RepoVersionPublishedAt: 2018-04-30T02:09:48.0000000+00:00, LatestVersion: "1.0.1", LatestPublishedAt: 2018-04-30T02:09:48.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.10", RepoVersionPublishedAt: 2017-11-08T20:13:42.0000000+00:00, LatestVersion: "2.10", LatestPublishedAt: 2017-11-08T20:13:42.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "3.0.4", RepoVersionPublishedAt: 2017-06-08T14:34:33.0000000+00:00, LatestVersion: "3.0.4", LatestPublishedAt: 2017-06-08T14:34:33.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -1199,7 +1215,7 @@ results[50] = { Date: 2018-05-01T00:00:00.0000000+08:00, ManifestSHA: c350f6216b
 { Name: "tblib", RepoVersion: "1.3.2", RepoVersionPublishedAt: 2017-04-09T20:12:24.0000000+00:00, LatestVersion: "1.3.2", LatestPublishedAt: 2017-04-09T20:12:24.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 1.9333794393708776 } }
 
-results[51] = { Date: 2018-06-01T00:00:00.0000000+08:00, ManifestSHA: 124ffef77163a2712f8e6630365686212e06f639, LibYear: { _packagesValues: [
+results[52] = { Date: 2018-06-01T00:00:00.0000000+00:00, ManifestSHA: 124ffef77163a2712f8e6630365686212e06f639, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "1.0.2", RepoVersionPublishedAt: 2018-05-02T14:26:26.0000000+00:00, LatestVersion: "1.0.2", LatestPublishedAt: 2018-05-02T14:26:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.10", RepoVersionPublishedAt: 2017-11-08T20:13:42.0000000+00:00, LatestVersion: "2.10", LatestPublishedAt: 2017-11-08T20:13:42.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "3.0.4", RepoVersionPublishedAt: 2017-06-08T14:34:33.0000000+00:00, LatestVersion: "3.0.4", LatestPublishedAt: 2017-06-08T14:34:33.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -1227,7 +1243,7 @@ results[51] = { Date: 2018-06-01T00:00:00.0000000+08:00, ManifestSHA: 124ffef771
 { Name: "tblib", RepoVersion: "1.3.2", RepoVersionPublishedAt: 2017-04-09T20:12:24.0000000+00:00, LatestVersion: "1.3.2", LatestPublishedAt: 2017-04-09T20:12:24.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 2.6403197932521563 } }
 
-results[52] = { Date: 2018-07-01T00:00:00.0000000+08:00, ManifestSHA: 3fb9167983f0123b9cac6615e543e9fbaf68cc04, LibYear: { _packagesValues: [
+results[53] = { Date: 2018-07-01T00:00:00.0000000+00:00, ManifestSHA: 3fb9167983f0123b9cac6615e543e9fbaf68cc04, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "1.0.2", RepoVersionPublishedAt: 2018-05-02T14:26:26.0000000+00:00, LatestVersion: "1.0.2", LatestPublishedAt: 2018-05-02T14:26:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.10", RepoVersionPublishedAt: 2017-11-08T20:13:42.0000000+00:00, LatestVersion: "2.10", LatestPublishedAt: 2017-11-08T20:13:42.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "3.0.4", RepoVersionPublishedAt: 2017-06-08T14:34:33.0000000+00:00, LatestVersion: "3.0.4", LatestPublishedAt: 2017-06-08T14:34:33.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -1255,7 +1271,7 @@ results[52] = { Date: 2018-07-01T00:00:00.0000000+08:00, ManifestSHA: 3fb9167983
 { Name: "tblib", RepoVersion: "1.3.2", RepoVersionPublishedAt: 2017-04-09T20:12:24.0000000+00:00, LatestVersion: "1.3.2", LatestPublishedAt: 2017-04-09T20:12:24.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 2.6403197932521563 } }
 
-results[53] = { Date: 2018-08-01T00:00:00.0000000+08:00, ManifestSHA: 3fb9167983f0123b9cac6615e543e9fbaf68cc04, LibYear: { _packagesValues: [
+results[54] = { Date: 2018-08-01T00:00:00.0000000+00:00, ManifestSHA: 3fb9167983f0123b9cac6615e543e9fbaf68cc04, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "1.0.2", RepoVersionPublishedAt: 2018-05-02T14:26:26.0000000+00:00, LatestVersion: "1.0.2", LatestPublishedAt: 2018-05-02T14:26:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.10", RepoVersionPublishedAt: 2017-11-08T20:13:42.0000000+00:00, LatestVersion: "2.10", LatestPublishedAt: 2017-11-08T20:13:42.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "3.0.4", RepoVersionPublishedAt: 2017-06-08T14:34:33.0000000+00:00, LatestVersion: "3.0.4", LatestPublishedAt: 2017-06-08T14:34:33.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -1283,7 +1299,7 @@ results[53] = { Date: 2018-08-01T00:00:00.0000000+08:00, ManifestSHA: 3fb9167983
 { Name: "tblib", RepoVersion: "1.3.2", RepoVersionPublishedAt: 2017-04-09T20:12:24.0000000+00:00, LatestVersion: "1.3.2", LatestPublishedAt: 2017-04-09T20:12:24.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 2.8993368214104516 } }
 
-results[54] = { Date: 2018-09-01T00:00:00.0000000+08:00, ManifestSHA: 3fb9167983f0123b9cac6615e543e9fbaf68cc04, LibYear: { _packagesValues: [
+results[55] = { Date: 2018-09-01T00:00:00.0000000+00:00, ManifestSHA: 3fb9167983f0123b9cac6615e543e9fbaf68cc04, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "1.0.2", RepoVersionPublishedAt: 2018-05-02T14:26:26.0000000+00:00, LatestVersion: "1.0.2", LatestPublishedAt: 2018-05-02T14:26:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.10", RepoVersionPublishedAt: 2017-11-08T20:13:42.0000000+00:00, LatestVersion: "2.10", LatestPublishedAt: 2017-11-08T20:13:42.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "3.0.4", RepoVersionPublishedAt: 2017-06-08T14:34:33.0000000+00:00, LatestVersion: "3.0.4", LatestPublishedAt: 2017-06-08T14:34:33.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -1311,7 +1327,7 @@ results[54] = { Date: 2018-09-01T00:00:00.0000000+08:00, ManifestSHA: 3fb9167983
 { Name: "tblib", RepoVersion: "1.3.2", RepoVersionPublishedAt: 2017-04-09T20:12:24.0000000+00:00, LatestVersion: "1.3.2", LatestPublishedAt: 2017-04-09T20:12:24.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 2.8993368214104516 } }
 
-results[55] = { Date: 2018-10-01T00:00:00.0000000+08:00, ManifestSHA: 3fb9167983f0123b9cac6615e543e9fbaf68cc04, LibYear: { _packagesValues: [
+results[56] = { Date: 2018-10-01T00:00:00.0000000+00:00, ManifestSHA: 3fb9167983f0123b9cac6615e543e9fbaf68cc04, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "1.0.2", RepoVersionPublishedAt: 2018-05-02T14:26:26.0000000+00:00, LatestVersion: "1.0.2", LatestPublishedAt: 2018-05-02T14:26:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.10", RepoVersionPublishedAt: 2017-11-08T20:13:42.0000000+00:00, LatestVersion: "2.10", LatestPublishedAt: 2017-11-08T20:13:42.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "3.0.4", RepoVersionPublishedAt: 2017-06-08T14:34:33.0000000+00:00, LatestVersion: "3.0.4", LatestPublishedAt: 2017-06-08T14:34:33.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -1339,7 +1355,7 @@ results[55] = { Date: 2018-10-01T00:00:00.0000000+08:00, ManifestSHA: 3fb9167983
 { Name: "tblib", RepoVersion: "1.3.2", RepoVersionPublishedAt: 2017-04-09T20:12:24.0000000+00:00, LatestVersion: "1.3.2", LatestPublishedAt: 2017-04-09T20:12:24.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 3.083546740233384 } }
 
-results[56] = { Date: 2018-11-01T00:00:00.0000000+08:00, ManifestSHA: 984b8ca215ef88bcc1fbf4bae34886fa5d69a55e, LibYear: { _packagesValues: [
+results[57] = { Date: 2018-11-01T00:00:00.0000000+00:00, ManifestSHA: 984b8ca215ef88bcc1fbf4bae34886fa5d69a55e, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "1.0.2", RepoVersionPublishedAt: 2018-05-02T14:26:26.0000000+00:00, LatestVersion: "1.0.2", LatestPublishedAt: 2018-05-02T14:26:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.10", RepoVersionPublishedAt: 2017-11-08T20:13:42.0000000+00:00, LatestVersion: "2.10", LatestPublishedAt: 2017-11-08T20:13:42.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "3.0.4", RepoVersionPublishedAt: 2017-06-08T14:34:33.0000000+00:00, LatestVersion: "3.0.4", LatestPublishedAt: 2017-06-08T14:34:33.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -1356,7 +1372,7 @@ results[56] = { Date: 2018-11-01T00:00:00.0000000+08:00, ManifestSHA: 984b8ca215
 { Name: "Flask-Login", RepoVersion: "0.4.1", RepoVersionPublishedAt: 2017-12-02T02:35:30.0000000+00:00, LatestVersion: "0.4.1", LatestPublishedAt: 2017-12-02T02:35:30.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "u-msgpack-python", RepoVersion: "2.5.0", RepoVersionPublishedAt: 2018-04-01T01:04:34.0000000+00:00, LatestVersion: "2.5.0", LatestPublishedAt: 2018-04-01T01:04:34.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "click", RepoVersion: "7.0", RepoVersionPublishedAt: 2018-09-25T20:57:05.0000000+00:00, LatestVersion: "7.0", LatestPublishedAt: 2018-09-25T20:57:05.0000000+00:00, UpgradeAvailable: False, Value: 0 },
-{ Name: "SQLAlchemy", RepoVersion: "1.2.12", RepoVersionPublishedAt: 2018-09-19T18:14:55.0000000+00:00, LatestVersion: "1.2.12", LatestPublishedAt: 2018-09-19T18:14:55.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "SQLAlchemy", RepoVersion: "1.2.13", RepoVersionPublishedAt: 2018-10-31T20:48:57.0000000+00:00, LatestVersion: "1.2.13", LatestPublishedAt: 2018-10-31T20:48:57.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "six", RepoVersion: "1.11.0", RepoVersionPublishedAt: 2017-09-17T18:46:53.0000000+00:00, LatestVersion: "1.11.0", LatestPublishedAt: 2017-09-17T18:46:53.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "amqp", RepoVersion: "1.4.9", RepoVersionPublishedAt: 2016-01-09T01:58:12.0000000+00:00, LatestVersion: "2.3.2", LatestPublishedAt: 2018-05-30T12:37:00.0000000+00:00, UpgradeAvailable: True, Value: 2.3902564687975647 },
 { Name: "redis", RepoVersion: "2.10.6", RepoVersionPublishedAt: 2017-08-16T23:37:33.0000000+00:00, LatestVersion: "2.10.6", LatestPublishedAt: 2017-08-16T23:37:33.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -1367,7 +1383,7 @@ results[56] = { Date: 2018-11-01T00:00:00.0000000+08:00, ManifestSHA: 984b8ca215
 { Name: "tblib", RepoVersion: "1.3.2", RepoVersionPublishedAt: 2017-04-09T20:12:24.0000000+00:00, LatestVersion: "1.3.2", LatestPublishedAt: 2017-04-09T20:12:24.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 3.083546740233384 } }
 
-results[57] = { Date: 2018-12-01T00:00:00.0000000+08:00, ManifestSHA: 936aa7ce14b491fa8ff0e0bea2d7d936aa22e9d3, LibYear: { _packagesValues: [
+results[58] = { Date: 2018-12-01T00:00:00.0000000+00:00, ManifestSHA: 936aa7ce14b491fa8ff0e0bea2d7d936aa22e9d3, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "1.0.2", RepoVersionPublishedAt: 2018-05-02T14:26:26.0000000+00:00, LatestVersion: "1.0.2", LatestPublishedAt: 2018-05-02T14:26:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.10", RepoVersionPublishedAt: 2017-11-08T20:13:42.0000000+00:00, LatestVersion: "2.10", LatestPublishedAt: 2017-11-08T20:13:42.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "3.0.4", RepoVersionPublishedAt: 2017-06-08T14:34:33.0000000+00:00, LatestVersion: "3.0.4", LatestPublishedAt: 2017-06-08T14:34:33.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -1395,7 +1411,7 @@ results[57] = { Date: 2018-12-01T00:00:00.0000000+08:00, ManifestSHA: 936aa7ce14
 { Name: "tblib", RepoVersion: "1.3.2", RepoVersionPublishedAt: 2017-04-09T20:12:24.0000000+00:00, LatestVersion: "1.3.2", LatestPublishedAt: 2017-04-09T20:12:24.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 3.083546740233384 } }
 
-results[58] = { Date: 2019-01-01T00:00:00.0000000+08:00, ManifestSHA: 936aa7ce14b491fa8ff0e0bea2d7d936aa22e9d3, LibYear: { _packagesValues: [
+results[59] = { Date: 2019-01-01T00:00:00.0000000+00:00, ManifestSHA: 936aa7ce14b491fa8ff0e0bea2d7d936aa22e9d3, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "1.0.2", RepoVersionPublishedAt: 2018-05-02T14:26:26.0000000+00:00, LatestVersion: "1.0.2", LatestPublishedAt: 2018-05-02T14:26:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.10", RepoVersionPublishedAt: 2017-11-08T20:13:42.0000000+00:00, LatestVersion: "2.10", LatestPublishedAt: 2017-11-08T20:13:42.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "3.0.4", RepoVersionPublishedAt: 2017-06-08T14:34:33.0000000+00:00, LatestVersion: "3.0.4", LatestPublishedAt: 2017-06-08T14:34:33.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -1423,7 +1439,7 @@ results[58] = { Date: 2019-01-01T00:00:00.0000000+08:00, ManifestSHA: 936aa7ce14
 { Name: "tblib", RepoVersion: "1.3.2", RepoVersionPublishedAt: 2017-04-09T20:12:24.0000000+00:00, LatestVersion: "1.3.2", LatestPublishedAt: 2017-04-09T20:12:24.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 3.083546740233384 } }
 
-results[59] = { Date: 2019-02-01T00:00:00.0000000+08:00, ManifestSHA: 563b5194fed34067c1dc5c00339ecefbf588014d, LibYear: { _packagesValues: [
+results[60] = { Date: 2019-02-01T00:00:00.0000000+00:00, ManifestSHA: 563b5194fed34067c1dc5c00339ecefbf588014d, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "1.0.2", RepoVersionPublishedAt: 2018-05-02T14:26:26.0000000+00:00, LatestVersion: "1.0.2", LatestPublishedAt: 2018-05-02T14:26:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.10", RepoVersionPublishedAt: 2017-11-08T20:13:42.0000000+00:00, LatestVersion: "2.10", LatestPublishedAt: 2017-11-08T20:13:42.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "3.0.4", RepoVersionPublishedAt: 2017-06-08T14:34:33.0000000+00:00, LatestVersion: "3.0.4", LatestPublishedAt: 2017-06-08T14:34:33.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -1451,12 +1467,12 @@ results[59] = { Date: 2019-02-01T00:00:00.0000000+08:00, ManifestSHA: 563b5194fe
 { Name: "tblib", RepoVersion: "1.3.2", RepoVersionPublishedAt: 2017-04-09T20:12:24.0000000+00:00, LatestVersion: "1.3.2", LatestPublishedAt: 2017-04-09T20:12:24.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 3.7082974061390157 } }
 
-results[60] = { Date: 2019-03-01T00:00:00.0000000+08:00, ManifestSHA: 8178a97fe4d4c987a228c115fe105f1695c972ff, LibYear: { _packagesValues: [
+results[61] = { Date: 2019-03-01T00:00:00.0000000+00:00, ManifestSHA: 8178a97fe4d4c987a228c115fe105f1695c972ff, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "1.0.2", RepoVersionPublishedAt: 2018-05-02T14:26:26.0000000+00:00, LatestVersion: "1.0.2", LatestPublishedAt: 2018-05-02T14:26:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.10", RepoVersionPublishedAt: 2017-11-08T20:13:42.0000000+00:00, LatestVersion: "2.10", LatestPublishedAt: 2017-11-08T20:13:42.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "3.0.4", RepoVersionPublishedAt: 2017-06-08T14:34:33.0000000+00:00, LatestVersion: "3.0.4", LatestPublishedAt: 2017-06-08T14:34:33.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "cssselect", RepoVersion: "1.0.3", RepoVersionPublishedAt: 2017-12-27T16:07:20.0000000+00:00, LatestVersion: "1.0.3", LatestPublishedAt: 2017-12-27T16:07:20.0000000+00:00, UpgradeAvailable: False, Value: 0 },
-{ Name: "lxml", RepoVersion: "4.3.1", RepoVersionPublishedAt: 2019-02-09T06:16:03.0000000+00:00, LatestVersion: "4.3.1", LatestPublishedAt: 2019-02-09T06:16:03.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "lxml", RepoVersion: "4.3.2", RepoVersionPublishedAt: 2019-02-28T21:14:30.0000000+00:00, LatestVersion: "4.3.2", LatestPublishedAt: 2019-02-28T21:14:30.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "pycurl", RepoVersion: "7.43.0.2", RepoVersionPublishedAt: 2018-06-02T12:23:47.0000000+00:00, LatestVersion: "7.43.0.2", LatestPublishedAt: 2018-06-02T12:23:47.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "pyquery", RepoVersion: "1.4.0", RepoVersionPublishedAt: 2018-01-11T19:50:58.0000000+00:00, LatestVersion: "1.4.0", LatestPublishedAt: 2018-01-11T19:50:58.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "requests", RepoVersion: "2.21.0", RepoVersionPublishedAt: 2018-12-10T15:40:08.0000000+00:00, LatestVersion: "2.21.0", LatestPublishedAt: 2018-12-10T15:40:08.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -1479,7 +1495,7 @@ results[60] = { Date: 2019-03-01T00:00:00.0000000+08:00, ManifestSHA: 8178a97fe4
 { Name: "tblib", RepoVersion: "1.3.2", RepoVersionPublishedAt: 2017-04-09T20:12:24.0000000+00:00, LatestVersion: "1.3.2", LatestPublishedAt: 2017-04-09T20:12:24.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 3.7677861491628613 } }
 
-results[61] = { Date: 2019-04-01T00:00:00.0000000+08:00, ManifestSHA: 3fccfabe2b057b7a56d4a4c79dc0dd6cd2239fe9, LibYear: { _packagesValues: [
+results[62] = { Date: 2019-04-01T00:00:00.0000000+00:00, ManifestSHA: 3fccfabe2b057b7a56d4a4c79dc0dd6cd2239fe9, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "1.0.2", RepoVersionPublishedAt: 2018-05-02T14:26:26.0000000+00:00, LatestVersion: "1.0.2", LatestPublishedAt: 2018-05-02T14:26:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.10", RepoVersionPublishedAt: 2017-11-08T20:13:42.0000000+00:00, LatestVersion: "2.10", LatestPublishedAt: 2017-11-08T20:13:42.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "3.0.4", RepoVersionPublishedAt: 2017-06-08T14:34:33.0000000+00:00, LatestVersion: "3.0.4", LatestPublishedAt: 2017-06-08T14:34:33.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -1507,7 +1523,7 @@ results[61] = { Date: 2019-04-01T00:00:00.0000000+08:00, ManifestSHA: 3fccfabe2b
 { Name: "tblib", RepoVersion: "1.3.2", RepoVersionPublishedAt: 2017-04-09T20:12:24.0000000+00:00, LatestVersion: "1.3.2", LatestPublishedAt: 2017-04-09T20:12:24.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 4.358177384576358 } }
 
-results[62] = { Date: 2019-05-01T00:00:00.0000000+08:00, ManifestSHA: 3fccfabe2b057b7a56d4a4c79dc0dd6cd2239fe9, LibYear: { _packagesValues: [
+results[63] = { Date: 2019-05-01T00:00:00.0000000+00:00, ManifestSHA: 3fccfabe2b057b7a56d4a4c79dc0dd6cd2239fe9, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "1.0.2", RepoVersionPublishedAt: 2018-05-02T14:26:26.0000000+00:00, LatestVersion: "1.0.2", LatestPublishedAt: 2018-05-02T14:26:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.10.1", RepoVersionPublishedAt: 2019-04-06T18:59:59.0000000+00:00, LatestVersion: "2.10.1", LatestPublishedAt: 2019-04-06T18:59:59.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "3.0.4", RepoVersionPublishedAt: 2017-06-08T14:34:33.0000000+00:00, LatestVersion: "3.0.4", LatestPublishedAt: 2017-06-08T14:34:33.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -1535,7 +1551,7 @@ results[62] = { Date: 2019-05-01T00:00:00.0000000+08:00, ManifestSHA: 3fccfabe2b
 { Name: "tblib", RepoVersion: "1.3.2", RepoVersionPublishedAt: 2017-04-09T20:12:24.0000000+00:00, LatestVersion: "1.3.2", LatestPublishedAt: 2017-04-09T20:12:24.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 4.358177384576358 } }
 
-results[63] = { Date: 2019-06-01T00:00:00.0000000+08:00, ManifestSHA: 3fccfabe2b057b7a56d4a4c79dc0dd6cd2239fe9, LibYear: { _packagesValues: [
+results[64] = { Date: 2019-06-01T00:00:00.0000000+00:00, ManifestSHA: 3fccfabe2b057b7a56d4a4c79dc0dd6cd2239fe9, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "1.0.3", RepoVersionPublishedAt: 2019-05-17T17:59:03.0000000+00:00, LatestVersion: "1.0.3", LatestPublishedAt: 2019-05-17T17:59:03.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.10.1", RepoVersionPublishedAt: 2019-04-06T18:59:59.0000000+00:00, LatestVersion: "2.10.1", LatestPublishedAt: 2019-04-06T18:59:59.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "3.0.4", RepoVersionPublishedAt: 2017-06-08T14:34:33.0000000+00:00, LatestVersion: "3.0.4", LatestPublishedAt: 2017-06-08T14:34:33.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -1563,7 +1579,7 @@ results[63] = { Date: 2019-06-01T00:00:00.0000000+08:00, ManifestSHA: 3fccfabe2b
 { Name: "tblib", RepoVersion: "1.4.0", RepoVersionPublishedAt: 2019-05-02T12:24:47.0000000+00:00, LatestVersion: "1.4.0", LatestPublishedAt: 2019-05-02T12:24:47.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 4.598169837645865 } }
 
-results[64] = { Date: 2019-07-01T00:00:00.0000000+08:00, ManifestSHA: 3fccfabe2b057b7a56d4a4c79dc0dd6cd2239fe9, LibYear: { _packagesValues: [
+results[65] = { Date: 2019-07-01T00:00:00.0000000+00:00, ManifestSHA: 3fccfabe2b057b7a56d4a4c79dc0dd6cd2239fe9, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "1.0.3", RepoVersionPublishedAt: 2019-05-17T17:59:03.0000000+00:00, LatestVersion: "1.0.3", LatestPublishedAt: 2019-05-17T17:59:03.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.10.1", RepoVersionPublishedAt: 2019-04-06T18:59:59.0000000+00:00, LatestVersion: "2.10.1", LatestPublishedAt: 2019-04-06T18:59:59.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "3.0.4", RepoVersionPublishedAt: 2017-06-08T14:34:33.0000000+00:00, LatestVersion: "3.0.4", LatestPublishedAt: 2017-06-08T14:34:33.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -1591,7 +1607,7 @@ results[64] = { Date: 2019-07-01T00:00:00.0000000+08:00, ManifestSHA: 3fccfabe2b
 { Name: "tblib", RepoVersion: "1.4.0", RepoVersionPublishedAt: 2019-05-02T12:24:47.0000000+00:00, LatestVersion: "1.4.0", LatestPublishedAt: 2019-05-02T12:24:47.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 4.850862601471334 } }
 
-results[65] = { Date: 2019-08-01T00:00:00.0000000+08:00, ManifestSHA: 3fccfabe2b057b7a56d4a4c79dc0dd6cd2239fe9, LibYear: { _packagesValues: [
+results[66] = { Date: 2019-08-01T00:00:00.0000000+00:00, ManifestSHA: 3fccfabe2b057b7a56d4a4c79dc0dd6cd2239fe9, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "1.1.1", RepoVersionPublishedAt: 2019-07-08T18:00:28.0000000+00:00, LatestVersion: "1.1.1", LatestPublishedAt: 2019-07-08T18:00:28.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.10.1", RepoVersionPublishedAt: 2019-04-06T18:59:59.0000000+00:00, LatestVersion: "2.10.1", LatestPublishedAt: 2019-04-06T18:59:59.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "3.0.4", RepoVersionPublishedAt: 2017-06-08T14:34:33.0000000+00:00, LatestVersion: "3.0.4", LatestPublishedAt: 2017-06-08T14:34:33.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -1619,7 +1635,7 @@ results[65] = { Date: 2019-08-01T00:00:00.0000000+08:00, ManifestSHA: 3fccfabe2b
 { Name: "tblib", RepoVersion: "1.4.0", RepoVersionPublishedAt: 2019-05-02T12:24:47.0000000+00:00, LatestVersion: "1.4.0", LatestPublishedAt: 2019-05-02T12:24:47.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 4.850862601471334 } }
 
-results[66] = { Date: 2019-09-01T00:00:00.0000000+08:00, ManifestSHA: 3fccfabe2b057b7a56d4a4c79dc0dd6cd2239fe9, LibYear: { _packagesValues: [
+results[67] = { Date: 2019-09-01T00:00:00.0000000+00:00, ManifestSHA: 3fccfabe2b057b7a56d4a4c79dc0dd6cd2239fe9, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "1.1.1", RepoVersionPublishedAt: 2019-07-08T18:00:28.0000000+00:00, LatestVersion: "1.1.1", LatestPublishedAt: 2019-07-08T18:00:28.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.10.1", RepoVersionPublishedAt: 2019-04-06T18:59:59.0000000+00:00, LatestVersion: "2.10.1", LatestPublishedAt: 2019-04-06T18:59:59.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "3.0.4", RepoVersionPublishedAt: 2017-06-08T14:34:33.0000000+00:00, LatestVersion: "3.0.4", LatestPublishedAt: 2017-06-08T14:34:33.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -1647,7 +1663,7 @@ results[66] = { Date: 2019-09-01T00:00:00.0000000+08:00, ManifestSHA: 3fccfabe2b
 { Name: "tblib", RepoVersion: "1.4.0", RepoVersionPublishedAt: 2019-05-02T12:24:47.0000000+00:00, LatestVersion: "1.4.0", LatestPublishedAt: 2019-05-02T12:24:47.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 5.0596182775241 } }
 
-results[67] = { Date: 2019-10-01T00:00:00.0000000+08:00, ManifestSHA: 3fccfabe2b057b7a56d4a4c79dc0dd6cd2239fe9, LibYear: { _packagesValues: [
+results[68] = { Date: 2019-10-01T00:00:00.0000000+00:00, ManifestSHA: 3fccfabe2b057b7a56d4a4c79dc0dd6cd2239fe9, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "1.1.1", RepoVersionPublishedAt: 2019-07-08T18:00:28.0000000+00:00, LatestVersion: "1.1.1", LatestPublishedAt: 2019-07-08T18:00:28.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Jinja2", RepoVersion: "2.10.1", RepoVersionPublishedAt: 2019-04-06T18:59:59.0000000+00:00, LatestVersion: "2.10.1", LatestPublishedAt: 2019-04-06T18:59:59.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "chardet", RepoVersion: "3.0.4", RepoVersionPublishedAt: 2017-06-08T14:34:33.0000000+00:00, LatestVersion: "3.0.4", LatestPublishedAt: 2017-06-08T14:34:33.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -1675,7 +1691,7 @@ results[67] = { Date: 2019-10-01T00:00:00.0000000+08:00, ManifestSHA: 3fccfabe2b
 { Name: "tblib", RepoVersion: "1.4.0", RepoVersionPublishedAt: 2019-05-02T12:24:47.0000000+00:00, LatestVersion: "1.4.0", LatestPublishedAt: 2019-05-02T12:24:47.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 5.188068461440893 } }
 
-results[68] = { Date: 2019-11-01T00:00:00.0000000+08:00, ManifestSHA: 9538a850305290cffaf8f40975a569fb7e8e16a1, LibYear: { _packagesValues: [
+results[69] = { Date: 2019-11-01T00:00:00.0000000+00:00, ManifestSHA: 616c66185bf7de7c95a86dc5bf710057a80aae61, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.10", RepoVersionPublishedAt: 2013-06-13T08:35:48.0000000+00:00, LatestVersion: "1.1.1", LatestPublishedAt: 2019-07-08T18:00:28.0000000+00:00, UpgradeAvailable: True, Value: 6.07230720446474 },
 { Name: "Jinja2", RepoVersion: "2.7", RepoVersionPublishedAt: 2013-05-20T13:03:00.0000000+00:00, LatestVersion: "2.10.3", LatestPublishedAt: 2019-10-04T18:52:37.0000000+00:00, UpgradeAvailable: True, Value: 6.378747368087266 },
 { Name: "chardet", RepoVersion: "2.2.1", RepoVersionPublishedAt: 2013-12-18T18:40:06.0000000+00:00, LatestVersion: "3.0.4", LatestPublishedAt: 2017-06-08T14:34:33.0000000+00:00, UpgradeAvailable: True, Value: 3.4735054223744295 },
@@ -1702,7 +1718,7 @@ results[68] = { Date: 2019-11-01T00:00:00.0000000+08:00, ManifestSHA: 9538a85030
 { Name: "tblib", RepoVersion: "1.4.0", RepoVersionPublishedAt: 2019-05-02T12:24:47.0000000+00:00, LatestVersion: "1.5.0", LatestPublishedAt: 2019-10-23T12:28:47.0000000+00:00, UpgradeAvailable: True, Value: 0.47671993911719934 },
 ], Total: 54.76181348300356 } }
 
-results[69] = { Date: 2019-12-01T00:00:00.0000000+08:00, ManifestSHA: ad3ae13fa2167226791acf72cd8eecc89cffe515, LibYear: { _packagesValues: [
+results[70] = { Date: 2019-12-01T00:00:00.0000000+00:00, ManifestSHA: ad3ae13fa2167226791acf72cd8eecc89cffe515, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.10", RepoVersionPublishedAt: 2013-06-13T08:35:48.0000000+00:00, LatestVersion: "1.1.1", LatestPublishedAt: 2019-07-08T18:00:28.0000000+00:00, UpgradeAvailable: True, Value: 6.07230720446474 },
 { Name: "Jinja2", RepoVersion: "2.7", RepoVersionPublishedAt: 2013-05-20T13:03:00.0000000+00:00, LatestVersion: "2.10.3", LatestPublishedAt: 2019-10-04T18:52:37.0000000+00:00, UpgradeAvailable: True, Value: 6.378747368087266 },
 { Name: "chardet", RepoVersion: "2.2.1", RepoVersionPublishedAt: 2013-12-18T18:40:06.0000000+00:00, LatestVersion: "3.0.4", LatestPublishedAt: 2017-06-08T14:34:33.0000000+00:00, UpgradeAvailable: True, Value: 3.4735054223744295 },
@@ -1729,7 +1745,7 @@ results[69] = { Date: 2019-12-01T00:00:00.0000000+08:00, ManifestSHA: ad3ae13fa2
 { Name: "tblib", RepoVersion: "1.4.0", RepoVersionPublishedAt: 2019-05-02T12:24:47.0000000+00:00, LatestVersion: "1.5.0", LatestPublishedAt: 2019-10-23T12:28:47.0000000+00:00, UpgradeAvailable: True, Value: 0.47671993911719934 },
 ], Total: 56.28162141679352 } }
 
-results[70] = { Date: 2020-01-01T00:00:00.0000000+08:00, ManifestSHA: ad3ae13fa2167226791acf72cd8eecc89cffe515, LibYear: { _packagesValues: [
+results[71] = { Date: 2020-01-01T00:00:00.0000000+00:00, ManifestSHA: ad3ae13fa2167226791acf72cd8eecc89cffe515, LibYear: { _packagesValues: [
 { Name: "Flask", RepoVersion: "0.10", RepoVersionPublishedAt: 2013-06-13T08:35:48.0000000+00:00, LatestVersion: "1.1.1", LatestPublishedAt: 2019-07-08T18:00:28.0000000+00:00, UpgradeAvailable: True, Value: 6.07230720446474 },
 { Name: "Jinja2", RepoVersion: "2.7", RepoVersionPublishedAt: 2013-05-20T13:03:00.0000000+00:00, LatestVersion: "2.10.3", LatestPublishedAt: 2019-10-04T18:52:37.0000000+00:00, UpgradeAvailable: True, Value: 6.378747368087266 },
 { Name: "chardet", RepoVersion: "2.2.1", RepoVersionPublishedAt: 2013-12-18T18:40:06.0000000+00:00, LatestVersion: "3.0.4", LatestPublishedAt: 2017-06-08T14:34:33.0000000+00:00, UpgradeAvailable: True, Value: 3.4735054223744295 },
@@ -1755,4 +1771,31 @@ results[70] = { Date: 2020-01-01T00:00:00.0000000+08:00, ManifestSHA: ad3ae13fa2
 { Name: "elasticsearch", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2016-02-29T21:59:49.0000000+00:00, LatestVersion: "7.1.0", LatestPublishedAt: 2019-11-14T08:32:08.0000000+00:00, UpgradeAvailable: True, Value: 3.708052352866565 },
 { Name: "tblib", RepoVersion: "1.4.0", RepoVersionPublishedAt: 2019-05-02T12:24:47.0000000+00:00, LatestVersion: "1.6.0", LatestPublishedAt: 2019-12-07T10:06:26.0000000+00:00, UpgradeAvailable: True, Value: 0.5997367770167428 },
 ], Total: 56.899174150177586 } }
+
+results[72] = { Date: 2020-02-01T00:00:00.0000000+00:00, ManifestSHA: ad3ae13fa2167226791acf72cd8eecc89cffe515, LibYear: { _packagesValues: [
+{ Name: "Flask", RepoVersion: "0.10", RepoVersionPublishedAt: 2013-06-13T08:35:48.0000000+00:00, LatestVersion: "1.1.1", LatestPublishedAt: 2019-07-08T18:00:28.0000000+00:00, UpgradeAvailable: True, Value: 6.07230720446474 },
+{ Name: "Jinja2", RepoVersion: "2.7", RepoVersionPublishedAt: 2013-05-20T13:03:00.0000000+00:00, LatestVersion: "2.11.1", LatestPublishedAt: 2020-01-30T18:09:32.0000000+00:00, UpgradeAvailable: True, Value: 6.701953069507864 },
+{ Name: "chardet", RepoVersion: "2.2.1", RepoVersionPublishedAt: 2013-12-18T18:40:06.0000000+00:00, LatestVersion: "3.0.4", LatestPublishedAt: 2017-06-08T14:34:33.0000000+00:00, UpgradeAvailable: True, Value: 3.4735054223744295 },
+{ Name: "cssselect", RepoVersion: "0.9", RepoVersionPublishedAt: 2013-10-11T16:36:01.0000000+00:00, LatestVersion: "1.1.0", LatestPublishedAt: 2019-08-09T09:20:30.0000000+00:00, UpgradeAvailable: True, Value: 5.829308377727043 },
+{ Name: "lxml", RepoVersion: "4.3.3", RepoVersionPublishedAt: 2019-03-26T17:39:43.0000000+00:00, LatestVersion: "4.5.0", LatestPublishedAt: 2020-01-29T12:25:51.0000000+00:00, UpgradeAvailable: True, Value: 0.8459781836631151 },
+{ Name: "pycurl", RepoVersion: "7.43.0.3", RepoVersionPublishedAt: 2019-06-17T05:57:36.0000000+00:00, LatestVersion: "7.43.0.5", LatestPublishedAt: 2020-01-30T05:08:32.0000000+00:00, UpgradeAvailable: True, Value: 0.6218244545915779 },
+{ Name: "pyquery", RepoVersion: "1.4.0", RepoVersionPublishedAt: 2018-01-11T19:50:58.0000000+00:00, LatestVersion: "1.4.1", LatestPublishedAt: 2019-10-26T08:47:50.0000000+00:00, UpgradeAvailable: True, Value: 1.7877794266869609 },
+{ Name: "requests", RepoVersion: "2.2.0", RepoVersionPublishedAt: 2014-01-09T19:33:23.0000000+00:00, LatestVersion: "2.22.0", LatestPublishedAt: 2019-05-16T14:37:14.0000000+00:00, UpgradeAvailable: True, Value: 5.350121480213089 },
+{ Name: "tornado", RepoVersion: "4.5.3", RepoVersionPublishedAt: 2018-01-06T18:09:36.0000000+00:00, LatestVersion: "6.0.3", LatestPublishedAt: 2019-06-23T22:32:30.0000000+00:00, UpgradeAvailable: True, Value: 1.4607741628614916 },
+{ Name: "mysql-connector-python", RepoVersion: "8.0.16", RepoVersionPublishedAt: 2019-04-25T02:55:28.0000000+00:00, LatestVersion: "8.0.19", LatestPublishedAt: 2020-01-13T09:29:59.0000000+00:00, UpgradeAvailable: True, Value: 0.7212985476915272 },
+{ Name: "pika", RepoVersion: "1.1.0", RepoVersionPublishedAt: 2019-07-16T18:55:16.0000000+00:00, LatestVersion: "1.1.0", LatestPublishedAt: 2019-07-16T18:55:16.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "pymongo", RepoVersion: "3.9.0", RepoVersionPublishedAt: 2019-08-14T01:09:02.0000000+00:00, LatestVersion: "3.10.1", LatestPublishedAt: 2020-01-08T01:16:33.0000000+00:00, UpgradeAvailable: True, Value: 0.4027540271435819 },
+{ Name: "Flask-Login", RepoVersion: "0.2.11", RepoVersionPublishedAt: 2014-05-20T01:23:55.0000000+00:00, LatestVersion: "0.4.1", LatestPublishedAt: 2017-12-02T02:35:30.0000000+00:00, UpgradeAvailable: True, Value: 3.5398622209538306 },
+{ Name: "u-msgpack-python", RepoVersion: "1.6", RepoVersionPublishedAt: 2014-01-17T08:58:45.0000000+00:00, LatestVersion: "2.5.2", LatestPublishedAt: 2019-08-15T07:21:26.0000000+00:00, UpgradeAvailable: True, Value: 5.577897038305429 },
+{ Name: "click", RepoVersion: "6.6", RepoVersionPublishedAt: 2016-04-04T16:51:36.0000000+00:00, LatestVersion: "7.0", LatestPublishedAt: 2018-09-25T20:57:05.0000000+00:00, UpgradeAvailable: True, Value: 2.477179382293252 },
+{ Name: "SQLAlchemy", RepoVersion: "1.3.10", RepoVersionPublishedAt: 2019-10-10T00:17:14.0000000+00:00, LatestVersion: "1.3.13", LatestPublishedAt: 2020-01-22T16:56:38.0000000+00:00, UpgradeAvailable: True, Value: 0.28683295281582954 },
+{ Name: "six", RepoVersion: "1.10.0", RepoVersionPublishedAt: 2015-10-07T03:17:19.0000000+00:00, LatestVersion: "1.14.0", LatestPublishedAt: 2020-01-15T18:10:19.0000000+00:00, UpgradeAvailable: True, Value: 4.278411339421614 },
+{ Name: "amqp", RepoVersion: "2.4.0", RepoVersionPublishedAt: 2019-01-13T13:25:57.0000000+00:00, LatestVersion: "2.5.2", LatestPublishedAt: 2019-09-30T13:04:05.0000000+00:00, UpgradeAvailable: True, Value: 0.7122871638762049 },
+{ Name: "redis", RepoVersion: "2.10.6", RepoVersionPublishedAt: 2017-08-16T23:37:33.0000000+00:00, LatestVersion: "3.4.0", LatestPublishedAt: 2020-01-31T02:14:11.0000000+00:00, UpgradeAvailable: True, Value: 2.457832255200406 },
+{ Name: "redis-py-cluster", RepoVersion: "1.3.6", RepoVersionPublishedAt: 2018-11-16T14:55:22.0000000+00:00, LatestVersion: "2.0.0", LatestPublishedAt: 2019-08-19T22:11:21.0000000+00:00, UpgradeAvailable: True, Value: 0.7569938800101471 },
+{ Name: "kombu", RepoVersion: "4.4.0", RepoVersionPublishedAt: 2019-03-03T19:05:36.0000000+00:00, LatestVersion: "4.6.7", LatestPublishedAt: 2019-12-07T14:46:32.0000000+00:00, UpgradeAvailable: True, Value: 0.76389066463724 },
+{ Name: "psycopg2", RepoVersion: "2.8.2", RepoVersionPublishedAt: 2019-04-14T17:20:39.0000000+00:00, LatestVersion: "2.8.4", LatestPublishedAt: 2019-10-20T09:11:38.0000000+00:00, UpgradeAvailable: True, Value: 0.5168778221714865 },
+{ Name: "elasticsearch", RepoVersion: "2.3.0", RepoVersionPublishedAt: 2016-02-29T21:59:49.0000000+00:00, LatestVersion: "7.5.1", LatestPublishedAt: 2020-01-19T01:06:52.0000000+00:00, UpgradeAvailable: True, Value: 3.8880271118721463 },
+{ Name: "tblib", RepoVersion: "1.4.0", RepoVersionPublishedAt: 2019-05-02T12:24:47.0000000+00:00, LatestVersion: "1.6.0", LatestPublishedAt: 2019-12-07T10:06:26.0000000+00:00, UpgradeAvailable: True, Value: 0.5997367770167428 },
+], Total: 59.12343296549975 } }
 

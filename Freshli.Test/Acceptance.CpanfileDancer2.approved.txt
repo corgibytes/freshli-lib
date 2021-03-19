@@ -1,4 +1,16 @@
-﻿results[0] = { Date: 2016-11-01T00:00:00.0000000-05:00, ManifestSHA: f6ccbec3541938f2d8b3d75a2c529de860da5054, LibYear: { _packagesValues: [
+﻿results[0] = { Date: 2016-10-10T02:12:52.0000000+00:00, ManifestSHA: 435228bf080c75f2fb41b9b42e3ea30e3fee4d44, LibYear: { _packagesValues: [
+{ Name: "Exporter", RepoVersion: "5.72", RepoVersionPublishedAt: 2015-06-09T20:42:28.0000000+00:00, LatestVersion: "5.72", LatestPublishedAt: 2015-06-09T20:42:28.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "List::Util", RepoVersion: "1.46_03", RepoVersionPublishedAt: 2016-08-23T18:50:55.0000000+00:00, LatestVersion: "1.46_03", LatestPublishedAt: 2016-08-23T18:50:55.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "MIME::Base64", RepoVersion: "3.15", RepoVersionPublishedAt: 2015-01-12T20:30:03.0000000+00:00, LatestVersion: "3.15", LatestPublishedAt: 2015-01-12T20:30:03.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "Moo", RepoVersion: "2.002004", RepoVersionPublishedAt: 2016-06-28T02:35:20.0000000+00:00, LatestVersion: "2.002004", LatestPublishedAt: 2016-06-28T02:35:20.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "Plack", RepoVersion: "1.0042", RepoVersionPublishedAt: 2016-09-29T05:38:42.0000000+00:00, LatestVersion: "1.0042", LatestPublishedAt: 2016-09-29T05:38:42.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "Role::Tiny", RepoVersion: "2.000003", RepoVersionPublishedAt: 2016-04-21T22:04:08.0000000+00:00, LatestVersion: "2.000003", LatestPublishedAt: 2016-04-21T22:04:08.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "YAML", RepoVersion: "1.18", RepoVersionPublishedAt: 2016-07-08T14:53:24.0000000+00:00, LatestVersion: "1.18", LatestPublishedAt: 2016-07-08T14:53:24.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "Capture::Tiny", RepoVersion: "0.44", RepoVersionPublishedAt: 2016-08-05T18:02:43.0000000+00:00, LatestVersion: "0.44", LatestPublishedAt: 2016-08-05T18:02:43.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "Test::More", RepoVersion: "1.301001_050", RepoVersionPublishedAt: 2014-09-26T05:44:26.0000000+00:00, LatestVersion: "1.301001_050", LatestPublishedAt: 2014-09-26T05:44:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+], Total: 0 } }
+
+results[1] = { Date: 2016-11-01T00:00:00.0000000+00:00, ManifestSHA: f6ccbec3541938f2d8b3d75a2c529de860da5054, LibYear: { _packagesValues: [
 { Name: "Exporter", RepoVersion: "5.72", RepoVersionPublishedAt: 2015-06-09T20:42:28.0000000+00:00, LatestVersion: "5.72", LatestPublishedAt: 2015-06-09T20:42:28.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "List::Util", RepoVersion: "1.46_03", RepoVersionPublishedAt: 2016-08-23T18:50:55.0000000+00:00, LatestVersion: "1.46_03", LatestPublishedAt: 2016-08-23T18:50:55.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "MIME::Base64", RepoVersion: "3.15", RepoVersionPublishedAt: 2015-01-12T20:30:03.0000000+00:00, LatestVersion: "3.15", LatestPublishedAt: 2015-01-12T20:30:03.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -10,7 +22,7 @@
 { Name: "Test::More", RepoVersion: "1.301001_050", RepoVersionPublishedAt: 2014-09-26T05:44:26.0000000+00:00, LatestVersion: "1.301001_050", LatestPublishedAt: 2014-09-26T05:44:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[1] = { Date: 2016-12-01T00:00:00.0000000-05:00, ManifestSHA: f6ccbec3541938f2d8b3d75a2c529de860da5054, LibYear: { _packagesValues: [
+results[2] = { Date: 2016-12-01T00:00:00.0000000+00:00, ManifestSHA: f6ccbec3541938f2d8b3d75a2c529de860da5054, LibYear: { _packagesValues: [
 { Name: "Exporter", RepoVersion: "5.72", RepoVersionPublishedAt: 2015-06-09T20:42:28.0000000+00:00, LatestVersion: "5.72", LatestPublishedAt: 2015-06-09T20:42:28.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "List::Util", RepoVersion: "1.46_03", RepoVersionPublishedAt: 2016-08-23T18:50:55.0000000+00:00, LatestVersion: "1.46_03", LatestPublishedAt: 2016-08-23T18:50:55.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "MIME::Base64", RepoVersion: "3.15", RepoVersionPublishedAt: 2015-01-12T20:30:03.0000000+00:00, LatestVersion: "3.15", LatestPublishedAt: 2015-01-12T20:30:03.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -22,7 +34,7 @@ results[1] = { Date: 2016-12-01T00:00:00.0000000-05:00, ManifestSHA: f6ccbec3541
 { Name: "Test::More", RepoVersion: "1.301001_050", RepoVersionPublishedAt: 2014-09-26T05:44:26.0000000+00:00, LatestVersion: "1.301001_050", LatestPublishedAt: 2014-09-26T05:44:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[2] = { Date: 2017-01-01T00:00:00.0000000-05:00, ManifestSHA: 7675ce157c780a8bc843e394a9e1dd4c14b44914, LibYear: { _packagesValues: [
+results[3] = { Date: 2017-01-01T00:00:00.0000000+00:00, ManifestSHA: 7675ce157c780a8bc843e394a9e1dd4c14b44914, LibYear: { _packagesValues: [
 { Name: "Exporter", RepoVersion: "5.72", RepoVersionPublishedAt: 2015-06-09T20:42:28.0000000+00:00, LatestVersion: "5.72", LatestPublishedAt: 2015-06-09T20:42:28.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "List::Util", RepoVersion: "1.46_03", RepoVersionPublishedAt: 2016-08-23T18:50:55.0000000+00:00, LatestVersion: "1.46_03", LatestPublishedAt: 2016-08-23T18:50:55.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "MIME::Base64", RepoVersion: "3.15", RepoVersionPublishedAt: 2015-01-12T20:30:03.0000000+00:00, LatestVersion: "3.15", LatestPublishedAt: 2015-01-12T20:30:03.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -34,7 +46,7 @@ results[2] = { Date: 2017-01-01T00:00:00.0000000-05:00, ManifestSHA: 7675ce157c7
 { Name: "Test::More", RepoVersion: "1.301001_050", RepoVersionPublishedAt: 2014-09-26T05:44:26.0000000+00:00, LatestVersion: "1.301001_050", LatestPublishedAt: 2014-09-26T05:44:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[3] = { Date: 2017-02-01T00:00:00.0000000-05:00, ManifestSHA: da004bb70cac6283f22a8047e9ad44df45d8a121, LibYear: { _packagesValues: [
+results[4] = { Date: 2017-02-01T00:00:00.0000000+00:00, ManifestSHA: da004bb70cac6283f22a8047e9ad44df45d8a121, LibYear: { _packagesValues: [
 { Name: "Exporter", RepoVersion: "5.72", RepoVersionPublishedAt: 2015-06-09T20:42:28.0000000+00:00, LatestVersion: "5.72", LatestPublishedAt: 2015-06-09T20:42:28.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "List::Util", RepoVersion: "1.46_03", RepoVersionPublishedAt: 2016-08-23T18:50:55.0000000+00:00, LatestVersion: "1.46_03", LatestPublishedAt: 2016-08-23T18:50:55.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "MIME::Base64", RepoVersion: "3.15", RepoVersionPublishedAt: 2015-01-12T20:30:03.0000000+00:00, LatestVersion: "3.15", LatestPublishedAt: 2015-01-12T20:30:03.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -46,7 +58,7 @@ results[3] = { Date: 2017-02-01T00:00:00.0000000-05:00, ManifestSHA: da004bb70ca
 { Name: "Test::More", RepoVersion: "1.301001_050", RepoVersionPublishedAt: 2014-09-26T05:44:26.0000000+00:00, LatestVersion: "1.301001_050", LatestPublishedAt: 2014-09-26T05:44:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[4] = { Date: 2017-03-01T00:00:00.0000000-05:00, ManifestSHA: 9b1c6c98bfc96d79cfc62bbc261fa7208539e87a, LibYear: { _packagesValues: [
+results[5] = { Date: 2017-03-01T00:00:00.0000000+00:00, ManifestSHA: 9b1c6c98bfc96d79cfc62bbc261fa7208539e87a, LibYear: { _packagesValues: [
 { Name: "Exporter", RepoVersion: "5.72", RepoVersionPublishedAt: 2015-06-09T20:42:28.0000000+00:00, LatestVersion: "5.72", LatestPublishedAt: 2015-06-09T20:42:28.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "List::Util", RepoVersion: "1.46_03", RepoVersionPublishedAt: 2016-08-23T18:50:55.0000000+00:00, LatestVersion: "1.46_03", LatestPublishedAt: 2016-08-23T18:50:55.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "MIME::Base64", RepoVersion: "3.15", RepoVersionPublishedAt: 2015-01-12T20:30:03.0000000+00:00, LatestVersion: "3.15", LatestPublishedAt: 2015-01-12T20:30:03.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -58,7 +70,7 @@ results[4] = { Date: 2017-03-01T00:00:00.0000000-05:00, ManifestSHA: 9b1c6c98bfc
 { Name: "Test::More", RepoVersion: "1.301001_050", RepoVersionPublishedAt: 2014-09-26T05:44:26.0000000+00:00, LatestVersion: "1.301001_050", LatestPublishedAt: 2014-09-26T05:44:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[5] = { Date: 2017-04-01T00:00:00.0000000-05:00, ManifestSHA: c67fe69d5eea95d5ef05f5bb4003ddfd893b4d58, LibYear: { _packagesValues: [
+results[6] = { Date: 2017-04-01T00:00:00.0000000+00:00, ManifestSHA: c67fe69d5eea95d5ef05f5bb4003ddfd893b4d58, LibYear: { _packagesValues: [
 { Name: "Exporter", RepoVersion: "5.72", RepoVersionPublishedAt: 2015-06-09T20:42:28.0000000+00:00, LatestVersion: "5.72", LatestPublishedAt: 2015-06-09T20:42:28.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "List::Util", RepoVersion: "1.46_03", RepoVersionPublishedAt: 2016-08-23T18:50:55.0000000+00:00, LatestVersion: "1.46_03", LatestPublishedAt: 2016-08-23T18:50:55.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "MIME::Base64", RepoVersion: "3.15", RepoVersionPublishedAt: 2015-01-12T20:30:03.0000000+00:00, LatestVersion: "3.15", LatestPublishedAt: 2015-01-12T20:30:03.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -71,7 +83,7 @@ results[5] = { Date: 2017-04-01T00:00:00.0000000-05:00, ManifestSHA: c67fe69d5ee
 { Name: "Test::More", RepoVersion: "1.301001_050", RepoVersionPublishedAt: 2014-09-26T05:44:26.0000000+00:00, LatestVersion: "1.301001_050", LatestPublishedAt: 2014-09-26T05:44:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[6] = { Date: 2017-05-01T00:00:00.0000000-05:00, ManifestSHA: c67fe69d5eea95d5ef05f5bb4003ddfd893b4d58, LibYear: { _packagesValues: [
+results[7] = { Date: 2017-05-01T00:00:00.0000000+00:00, ManifestSHA: c67fe69d5eea95d5ef05f5bb4003ddfd893b4d58, LibYear: { _packagesValues: [
 { Name: "Exporter", RepoVersion: "5.72", RepoVersionPublishedAt: 2015-06-09T20:42:28.0000000+00:00, LatestVersion: "5.72", LatestPublishedAt: 2015-06-09T20:42:28.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "List::Util", RepoVersion: "1.46_03", RepoVersionPublishedAt: 2016-08-23T18:50:55.0000000+00:00, LatestVersion: "1.46_03", LatestPublishedAt: 2016-08-23T18:50:55.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "MIME::Base64", RepoVersion: "3.15", RepoVersionPublishedAt: 2015-01-12T20:30:03.0000000+00:00, LatestVersion: "3.15", LatestPublishedAt: 2015-01-12T20:30:03.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -84,7 +96,7 @@ results[6] = { Date: 2017-05-01T00:00:00.0000000-05:00, ManifestSHA: c67fe69d5ee
 { Name: "Test::More", RepoVersion: "1.301001_050", RepoVersionPublishedAt: 2014-09-26T05:44:26.0000000+00:00, LatestVersion: "1.301001_050", LatestPublishedAt: 2014-09-26T05:44:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[7] = { Date: 2017-06-01T00:00:00.0000000-05:00, ManifestSHA: 3e7fcd54f769b30de86fea90d787ef4f28b9b8a6, LibYear: { _packagesValues: [
+results[8] = { Date: 2017-06-01T00:00:00.0000000+00:00, ManifestSHA: 3e7fcd54f769b30de86fea90d787ef4f28b9b8a6, LibYear: { _packagesValues: [
 { Name: "Exporter", RepoVersion: "5.72", RepoVersionPublishedAt: 2015-06-09T20:42:28.0000000+00:00, LatestVersion: "5.72", LatestPublishedAt: 2015-06-09T20:42:28.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "List::Util", RepoVersion: "1.46_03", RepoVersionPublishedAt: 2016-08-23T18:50:55.0000000+00:00, LatestVersion: "1.46_03", LatestPublishedAt: 2016-08-23T18:50:55.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "MIME::Base64", RepoVersion: "3.15", RepoVersionPublishedAt: 2015-01-12T20:30:03.0000000+00:00, LatestVersion: "3.15", LatestPublishedAt: 2015-01-12T20:30:03.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -97,7 +109,7 @@ results[7] = { Date: 2017-06-01T00:00:00.0000000-05:00, ManifestSHA: 3e7fcd54f76
 { Name: "Test::More", RepoVersion: "1.301001_050", RepoVersionPublishedAt: 2014-09-26T05:44:26.0000000+00:00, LatestVersion: "1.301001_050", LatestPublishedAt: 2014-09-26T05:44:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[8] = { Date: 2017-07-01T00:00:00.0000000-05:00, ManifestSHA: 0d0aa29a254a9b8437fed8939acd944710a482e1, LibYear: { _packagesValues: [
+results[9] = { Date: 2017-07-01T00:00:00.0000000+00:00, ManifestSHA: 0d0aa29a254a9b8437fed8939acd944710a482e1, LibYear: { _packagesValues: [
 { Name: "Exporter", RepoVersion: "5.72", RepoVersionPublishedAt: 2015-06-09T20:42:28.0000000+00:00, LatestVersion: "5.72", LatestPublishedAt: 2015-06-09T20:42:28.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "List::Util", RepoVersion: "1.46_03", RepoVersionPublishedAt: 2016-08-23T18:50:55.0000000+00:00, LatestVersion: "1.46_03", LatestPublishedAt: 2016-08-23T18:50:55.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "MIME::Base64", RepoVersion: "3.15", RepoVersionPublishedAt: 2015-01-12T20:30:03.0000000+00:00, LatestVersion: "3.15", LatestPublishedAt: 2015-01-12T20:30:03.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -110,7 +122,7 @@ results[8] = { Date: 2017-07-01T00:00:00.0000000-05:00, ManifestSHA: 0d0aa29a254
 { Name: "Test::More", RepoVersion: "1.301001_050", RepoVersionPublishedAt: 2014-09-26T05:44:26.0000000+00:00, LatestVersion: "1.301001_050", LatestPublishedAt: 2014-09-26T05:44:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[9] = { Date: 2017-08-01T00:00:00.0000000-05:00, ManifestSHA: 01c6a362a569e230bd8edac37fe4d4c1e1261b9f, LibYear: { _packagesValues: [
+results[10] = { Date: 2017-08-01T00:00:00.0000000+00:00, ManifestSHA: 01c6a362a569e230bd8edac37fe4d4c1e1261b9f, LibYear: { _packagesValues: [
 { Name: "Exporter", RepoVersion: "5.72", RepoVersionPublishedAt: 2015-06-09T20:42:28.0000000+00:00, LatestVersion: "5.72", LatestPublishedAt: 2015-06-09T20:42:28.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "List::Util", RepoVersion: "1.46_03", RepoVersionPublishedAt: 2016-08-23T18:50:55.0000000+00:00, LatestVersion: "1.46_03", LatestPublishedAt: 2016-08-23T18:50:55.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "MIME::Base64", RepoVersion: "3.15", RepoVersionPublishedAt: 2015-01-12T20:30:03.0000000+00:00, LatestVersion: "3.15", LatestPublishedAt: 2015-01-12T20:30:03.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -124,7 +136,7 @@ results[9] = { Date: 2017-08-01T00:00:00.0000000-05:00, ManifestSHA: 01c6a362a56
 { Name: "Test::More", RepoVersion: "1.301001_050", RepoVersionPublishedAt: 2014-09-26T05:44:26.0000000+00:00, LatestVersion: "1.301001_050", LatestPublishedAt: 2014-09-26T05:44:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[10] = { Date: 2017-09-01T00:00:00.0000000-05:00, ManifestSHA: e885ad69de1eb0896b3bf33c8a0f75ae336bda41, LibYear: { _packagesValues: [
+results[11] = { Date: 2017-09-01T00:00:00.0000000+00:00, ManifestSHA: e885ad69de1eb0896b3bf33c8a0f75ae336bda41, LibYear: { _packagesValues: [
 { Name: "Exporter", RepoVersion: "5.72", RepoVersionPublishedAt: 2015-06-09T20:42:28.0000000+00:00, LatestVersion: "5.72", LatestPublishedAt: 2015-06-09T20:42:28.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "List::Util", RepoVersion: "1.46_03", RepoVersionPublishedAt: 2016-08-23T18:50:55.0000000+00:00, LatestVersion: "1.46_03", LatestPublishedAt: 2016-08-23T18:50:55.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "MIME::Base64", RepoVersion: "3.15", RepoVersionPublishedAt: 2015-01-12T20:30:03.0000000+00:00, LatestVersion: "3.15", LatestPublishedAt: 2015-01-12T20:30:03.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -138,7 +150,7 @@ results[10] = { Date: 2017-09-01T00:00:00.0000000-05:00, ManifestSHA: e885ad69de
 { Name: "Test::More", RepoVersion: "1.301001_050", RepoVersionPublishedAt: 2014-09-26T05:44:26.0000000+00:00, LatestVersion: "1.301001_050", LatestPublishedAt: 2014-09-26T05:44:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[11] = { Date: 2017-10-01T00:00:00.0000000-05:00, ManifestSHA: fd090403ecd25035798ed8d05c44d652e449446a, LibYear: { _packagesValues: [
+results[12] = { Date: 2017-10-01T00:00:00.0000000+00:00, ManifestSHA: fd090403ecd25035798ed8d05c44d652e449446a, LibYear: { _packagesValues: [
 { Name: "Exporter", RepoVersion: "5.72", RepoVersionPublishedAt: 2015-06-09T20:42:28.0000000+00:00, LatestVersion: "5.72", LatestPublishedAt: 2015-06-09T20:42:28.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "List::Util", RepoVersion: "1.46_03", RepoVersionPublishedAt: 2016-08-23T18:50:55.0000000+00:00, LatestVersion: "1.46_03", LatestPublishedAt: 2016-08-23T18:50:55.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "MIME::Base64", RepoVersion: "3.15", RepoVersionPublishedAt: 2015-01-12T20:30:03.0000000+00:00, LatestVersion: "3.15", LatestPublishedAt: 2015-01-12T20:30:03.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -152,7 +164,7 @@ results[11] = { Date: 2017-10-01T00:00:00.0000000-05:00, ManifestSHA: fd090403ec
 { Name: "Test::More", RepoVersion: "1.301001_050", RepoVersionPublishedAt: 2014-09-26T05:44:26.0000000+00:00, LatestVersion: "1.301001_050", LatestPublishedAt: 2014-09-26T05:44:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[12] = { Date: 2017-11-01T00:00:00.0000000-05:00, ManifestSHA: 4d0d79f1db1ec625922a7f819f608321dfb6968f, LibYear: { _packagesValues: [
+results[13] = { Date: 2017-11-01T00:00:00.0000000+00:00, ManifestSHA: 4d0d79f1db1ec625922a7f819f608321dfb6968f, LibYear: { _packagesValues: [
 { Name: "Exporter", RepoVersion: "5.72", RepoVersionPublishedAt: 2015-06-09T20:42:28.0000000+00:00, LatestVersion: "5.72", LatestPublishedAt: 2015-06-09T20:42:28.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "List::Util", RepoVersion: "1.46_03", RepoVersionPublishedAt: 2016-08-23T18:50:55.0000000+00:00, LatestVersion: "1.46_03", LatestPublishedAt: 2016-08-23T18:50:55.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "MIME::Base64", RepoVersion: "3.15", RepoVersionPublishedAt: 2015-01-12T20:30:03.0000000+00:00, LatestVersion: "3.15", LatestPublishedAt: 2015-01-12T20:30:03.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -166,11 +178,11 @@ results[12] = { Date: 2017-11-01T00:00:00.0000000-05:00, ManifestSHA: 4d0d79f1db
 { Name: "Test::More", RepoVersion: "1.301001_050", RepoVersionPublishedAt: 2014-09-26T05:44:26.0000000+00:00, LatestVersion: "1.301001_050", LatestPublishedAt: 2014-09-26T05:44:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[13] = { Date: 2017-12-01T00:00:00.0000000-05:00, ManifestSHA: 262ffa798f4aa070e0160e06df171089253895c8, LibYear: { _packagesValues: [
+results[14] = { Date: 2017-12-01T00:00:00.0000000+00:00, ManifestSHA: 262ffa798f4aa070e0160e06df171089253895c8, LibYear: { _packagesValues: [
 { Name: "Exporter", RepoVersion: "5.72", RepoVersionPublishedAt: 2015-06-09T20:42:28.0000000+00:00, LatestVersion: "5.72", LatestPublishedAt: 2015-06-09T20:42:28.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "List::Util", RepoVersion: "1.46_03", RepoVersionPublishedAt: 2016-08-23T18:50:55.0000000+00:00, LatestVersion: "1.46_03", LatestPublishedAt: 2016-08-23T18:50:55.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "MIME::Base64", RepoVersion: "3.15", RepoVersionPublishedAt: 2015-01-12T20:30:03.0000000+00:00, LatestVersion: "3.15", LatestPublishedAt: 2015-01-12T20:30:03.0000000+00:00, UpgradeAvailable: False, Value: 0 },
-{ Name: "Moo", RepoVersion: "2.003004", RepoVersionPublishedAt: 2017-12-01T01:48:32.0000000+00:00, LatestVersion: "2.003004", LatestPublishedAt: 2017-12-01T01:48:32.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "Moo", RepoVersion: "2.003003", RepoVersionPublishedAt: 2017-11-16T16:23:35.0000000+00:00, LatestVersion: "2.003003", LatestPublishedAt: 2017-11-16T16:23:35.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Plack", RepoVersion: "1.0044", RepoVersionPublishedAt: 2017-04-27T17:48:20.0000000+00:00, LatestVersion: "1.0044", LatestPublishedAt: 2017-04-27T17:48:20.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Role::Tiny", RepoVersion: "2.000006", RepoVersionPublishedAt: 2017-11-08T01:04:34.0000000+00:00, LatestVersion: "2.000006", LatestPublishedAt: 2017-11-08T01:04:34.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Type::Tiny", RepoVersion: "1.002001", RepoVersionPublishedAt: 2017-06-08T12:16:22.0000000+00:00, LatestVersion: "1.002001", LatestPublishedAt: 2017-06-08T12:16:22.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -180,7 +192,7 @@ results[13] = { Date: 2017-12-01T00:00:00.0000000-05:00, ManifestSHA: 262ffa798f
 { Name: "Test::More", RepoVersion: "1.301001_050", RepoVersionPublishedAt: 2014-09-26T05:44:26.0000000+00:00, LatestVersion: "1.301001_050", LatestPublishedAt: 2014-09-26T05:44:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[14] = { Date: 2018-01-01T00:00:00.0000000-05:00, ManifestSHA: 262ffa798f4aa070e0160e06df171089253895c8, LibYear: { _packagesValues: [
+results[15] = { Date: 2018-01-01T00:00:00.0000000+00:00, ManifestSHA: 262ffa798f4aa070e0160e06df171089253895c8, LibYear: { _packagesValues: [
 { Name: "Exporter", RepoVersion: "5.72", RepoVersionPublishedAt: 2015-06-09T20:42:28.0000000+00:00, LatestVersion: "5.72", LatestPublishedAt: 2015-06-09T20:42:28.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "List::Util", RepoVersion: "1.46_03", RepoVersionPublishedAt: 2016-08-23T18:50:55.0000000+00:00, LatestVersion: "1.46_03", LatestPublishedAt: 2016-08-23T18:50:55.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "MIME::Base64", RepoVersion: "3.15", RepoVersionPublishedAt: 2015-01-12T20:30:03.0000000+00:00, LatestVersion: "3.15", LatestPublishedAt: 2015-01-12T20:30:03.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -194,7 +206,7 @@ results[14] = { Date: 2018-01-01T00:00:00.0000000-05:00, ManifestSHA: 262ffa798f
 { Name: "Test::More", RepoVersion: "1.301001_050", RepoVersionPublishedAt: 2014-09-26T05:44:26.0000000+00:00, LatestVersion: "1.301001_050", LatestPublishedAt: 2014-09-26T05:44:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[15] = { Date: 2018-02-01T00:00:00.0000000-05:00, ManifestSHA: 7225a3a295e8b6aa5fc36a4fde0e50b91606c28d, LibYear: { _packagesValues: [
+results[16] = { Date: 2018-02-01T00:00:00.0000000+00:00, ManifestSHA: 7225a3a295e8b6aa5fc36a4fde0e50b91606c28d, LibYear: { _packagesValues: [
 { Name: "Exporter", RepoVersion: "5.72", RepoVersionPublishedAt: 2015-06-09T20:42:28.0000000+00:00, LatestVersion: "5.72", LatestPublishedAt: 2015-06-09T20:42:28.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "List::Util", RepoVersion: "1.46_03", RepoVersionPublishedAt: 2016-08-23T18:50:55.0000000+00:00, LatestVersion: "1.46_03", LatestPublishedAt: 2016-08-23T18:50:55.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "MIME::Base64", RepoVersion: "3.15", RepoVersionPublishedAt: 2015-01-12T20:30:03.0000000+00:00, LatestVersion: "3.15", LatestPublishedAt: 2015-01-12T20:30:03.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -208,7 +220,7 @@ results[15] = { Date: 2018-02-01T00:00:00.0000000-05:00, ManifestSHA: 7225a3a295
 { Name: "Test::More", RepoVersion: "1.301001_050", RepoVersionPublishedAt: 2014-09-26T05:44:26.0000000+00:00, LatestVersion: "1.301001_050", LatestPublishedAt: 2014-09-26T05:44:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[16] = { Date: 2018-03-01T00:00:00.0000000-05:00, ManifestSHA: 9af3b7ce8ef4c08a1f83c94c6566fadaea9ba511, LibYear: { _packagesValues: [
+results[17] = { Date: 2018-03-01T00:00:00.0000000+00:00, ManifestSHA: 9af3b7ce8ef4c08a1f83c94c6566fadaea9ba511, LibYear: { _packagesValues: [
 { Name: "Exporter", RepoVersion: "5.72", RepoVersionPublishedAt: 2015-06-09T20:42:28.0000000+00:00, LatestVersion: "5.72", LatestPublishedAt: 2015-06-09T20:42:28.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "List::Util", RepoVersion: "1.46_03", RepoVersionPublishedAt: 2016-08-23T18:50:55.0000000+00:00, LatestVersion: "1.46_03", LatestPublishedAt: 2016-08-23T18:50:55.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "MIME::Base64", RepoVersion: "3.15", RepoVersionPublishedAt: 2015-01-12T20:30:03.0000000+00:00, LatestVersion: "3.15", LatestPublishedAt: 2015-01-12T20:30:03.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -222,7 +234,7 @@ results[16] = { Date: 2018-03-01T00:00:00.0000000-05:00, ManifestSHA: 9af3b7ce8e
 { Name: "Test::More", RepoVersion: "1.301001_050", RepoVersionPublishedAt: 2014-09-26T05:44:26.0000000+00:00, LatestVersion: "1.301001_050", LatestPublishedAt: 2014-09-26T05:44:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[17] = { Date: 2018-04-01T00:00:00.0000000-05:00, ManifestSHA: 29b13e5f63d60cccbc3b99c7eaf8c0e98b79f8e4, LibYear: { _packagesValues: [
+results[18] = { Date: 2018-04-01T00:00:00.0000000+00:00, ManifestSHA: 29b13e5f63d60cccbc3b99c7eaf8c0e98b79f8e4, LibYear: { _packagesValues: [
 { Name: "Exporter", RepoVersion: "5.72", RepoVersionPublishedAt: 2015-06-09T20:42:28.0000000+00:00, LatestVersion: "5.72", LatestPublishedAt: 2015-06-09T20:42:28.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "List::Util", RepoVersion: "1.46_03", RepoVersionPublishedAt: 2016-08-23T18:50:55.0000000+00:00, LatestVersion: "1.46_03", LatestPublishedAt: 2016-08-23T18:50:55.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "MIME::Base64", RepoVersion: "3.15", RepoVersionPublishedAt: 2015-01-12T20:30:03.0000000+00:00, LatestVersion: "3.15", LatestPublishedAt: 2015-01-12T20:30:03.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -236,7 +248,7 @@ results[17] = { Date: 2018-04-01T00:00:00.0000000-05:00, ManifestSHA: 29b13e5f63
 { Name: "Test::More", RepoVersion: "1.301001_050", RepoVersionPublishedAt: 2014-09-26T05:44:26.0000000+00:00, LatestVersion: "1.301001_050", LatestPublishedAt: 2014-09-26T05:44:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[18] = { Date: 2018-05-01T00:00:00.0000000-05:00, ManifestSHA: 0d4efb99c8b76cdeec23e392bc2f244ffed74702, LibYear: { _packagesValues: [
+results[19] = { Date: 2018-05-01T00:00:00.0000000+00:00, ManifestSHA: 0d4efb99c8b76cdeec23e392bc2f244ffed74702, LibYear: { _packagesValues: [
 { Name: "Exporter", RepoVersion: "5.72", RepoVersionPublishedAt: 2015-06-09T20:42:28.0000000+00:00, LatestVersion: "5.72", LatestPublishedAt: 2015-06-09T20:42:28.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "HTTP::Headers::Fast", RepoVersion: "0.21", RepoVersionPublishedAt: 2017-02-10T03:10:49.0000000+00:00, LatestVersion: "0.21", LatestPublishedAt: 2017-02-10T03:10:49.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "List::Util", RepoVersion: "1.46_03", RepoVersionPublishedAt: 2016-08-23T18:50:55.0000000+00:00, LatestVersion: "1.46_03", LatestPublishedAt: 2016-08-23T18:50:55.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -251,7 +263,7 @@ results[18] = { Date: 2018-05-01T00:00:00.0000000-05:00, ManifestSHA: 0d4efb99c8
 { Name: "Test::More", RepoVersion: "1.301001_050", RepoVersionPublishedAt: 2014-09-26T05:44:26.0000000+00:00, LatestVersion: "1.301001_050", LatestPublishedAt: 2014-09-26T05:44:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[19] = { Date: 2018-06-01T00:00:00.0000000-05:00, ManifestSHA: 91de21cbe11050cad8d84d474d580ae5cb9be5d1, LibYear: { _packagesValues: [
+results[20] = { Date: 2018-06-01T00:00:00.0000000+00:00, ManifestSHA: 91de21cbe11050cad8d84d474d580ae5cb9be5d1, LibYear: { _packagesValues: [
 { Name: "Exporter", RepoVersion: "5.72", RepoVersionPublishedAt: 2015-06-09T20:42:28.0000000+00:00, LatestVersion: "5.72", LatestPublishedAt: 2015-06-09T20:42:28.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "HTTP::Headers::Fast", RepoVersion: "0.21", RepoVersionPublishedAt: 2017-02-10T03:10:49.0000000+00:00, LatestVersion: "0.21", LatestPublishedAt: 2017-02-10T03:10:49.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "List::Util", RepoVersion: "1.46_03", RepoVersionPublishedAt: 2016-08-23T18:50:55.0000000+00:00, LatestVersion: "1.46_03", LatestPublishedAt: 2016-08-23T18:50:55.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -266,7 +278,7 @@ results[19] = { Date: 2018-06-01T00:00:00.0000000-05:00, ManifestSHA: 91de21cbe1
 { Name: "Test::More", RepoVersion: "1.301001_050", RepoVersionPublishedAt: 2014-09-26T05:44:26.0000000+00:00, LatestVersion: "1.301001_050", LatestPublishedAt: 2014-09-26T05:44:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[20] = { Date: 2018-07-01T00:00:00.0000000-05:00, ManifestSHA: d01c974cb4b513e37ab322b6532aa98717c433ca, LibYear: { _packagesValues: [
+results[21] = { Date: 2018-07-01T00:00:00.0000000+00:00, ManifestSHA: d01c974cb4b513e37ab322b6532aa98717c433ca, LibYear: { _packagesValues: [
 { Name: "Exporter", RepoVersion: "5.72", RepoVersionPublishedAt: 2015-06-09T20:42:28.0000000+00:00, LatestVersion: "5.72", LatestPublishedAt: 2015-06-09T20:42:28.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "HTTP::Headers::Fast", RepoVersion: "0.21", RepoVersionPublishedAt: 2017-02-10T03:10:49.0000000+00:00, LatestVersion: "0.21", LatestPublishedAt: 2017-02-10T03:10:49.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "List::Util", RepoVersion: "1.46_03", RepoVersionPublishedAt: 2016-08-23T18:50:55.0000000+00:00, LatestVersion: "1.46_03", LatestPublishedAt: 2016-08-23T18:50:55.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -281,7 +293,7 @@ results[20] = { Date: 2018-07-01T00:00:00.0000000-05:00, ManifestSHA: d01c974cb4
 { Name: "Test::More", RepoVersion: "1.301001_050", RepoVersionPublishedAt: 2014-09-26T05:44:26.0000000+00:00, LatestVersion: "1.301001_050", LatestPublishedAt: 2014-09-26T05:44:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[21] = { Date: 2018-08-01T00:00:00.0000000-05:00, ManifestSHA: 063c9c433d704654caebbebef57c9f04d06d7f19, LibYear: { _packagesValues: [
+results[22] = { Date: 2018-08-01T00:00:00.0000000+00:00, ManifestSHA: 063c9c433d704654caebbebef57c9f04d06d7f19, LibYear: { _packagesValues: [
 { Name: "Exporter", RepoVersion: "5.72", RepoVersionPublishedAt: 2015-06-09T20:42:28.0000000+00:00, LatestVersion: "5.72", LatestPublishedAt: 2015-06-09T20:42:28.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "HTTP::Headers::Fast", RepoVersion: "0.21", RepoVersionPublishedAt: 2017-02-10T03:10:49.0000000+00:00, LatestVersion: "0.21", LatestPublishedAt: 2017-02-10T03:10:49.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "List::Util", RepoVersion: "1.46_03", RepoVersionPublishedAt: 2016-08-23T18:50:55.0000000+00:00, LatestVersion: "1.46_03", LatestPublishedAt: 2016-08-23T18:50:55.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -296,7 +308,7 @@ results[21] = { Date: 2018-08-01T00:00:00.0000000-05:00, ManifestSHA: 063c9c433d
 { Name: "Test::More", RepoVersion: "1.301001_050", RepoVersionPublishedAt: 2014-09-26T05:44:26.0000000+00:00, LatestVersion: "1.301001_050", LatestPublishedAt: 2014-09-26T05:44:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[22] = { Date: 2018-09-01T00:00:00.0000000-05:00, ManifestSHA: 063c9c433d704654caebbebef57c9f04d06d7f19, LibYear: { _packagesValues: [
+results[23] = { Date: 2018-09-01T00:00:00.0000000+00:00, ManifestSHA: 063c9c433d704654caebbebef57c9f04d06d7f19, LibYear: { _packagesValues: [
 { Name: "Exporter", RepoVersion: "5.72", RepoVersionPublishedAt: 2015-06-09T20:42:28.0000000+00:00, LatestVersion: "5.72", LatestPublishedAt: 2015-06-09T20:42:28.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "HTTP::Headers::Fast", RepoVersion: "0.21", RepoVersionPublishedAt: 2017-02-10T03:10:49.0000000+00:00, LatestVersion: "0.21", LatestPublishedAt: 2017-02-10T03:10:49.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "List::Util", RepoVersion: "1.46_03", RepoVersionPublishedAt: 2016-08-23T18:50:55.0000000+00:00, LatestVersion: "1.46_03", LatestPublishedAt: 2016-08-23T18:50:55.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -311,7 +323,7 @@ results[22] = { Date: 2018-09-01T00:00:00.0000000-05:00, ManifestSHA: 063c9c433d
 { Name: "Test::More", RepoVersion: "1.301001_050", RepoVersionPublishedAt: 2014-09-26T05:44:26.0000000+00:00, LatestVersion: "1.301001_050", LatestPublishedAt: 2014-09-26T05:44:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[23] = { Date: 2018-10-01T00:00:00.0000000-05:00, ManifestSHA: 24952cf66bd54473d22fb70650921d6dc8b88e26, LibYear: { _packagesValues: [
+results[24] = { Date: 2018-10-01T00:00:00.0000000+00:00, ManifestSHA: 24952cf66bd54473d22fb70650921d6dc8b88e26, LibYear: { _packagesValues: [
 { Name: "Exporter", RepoVersion: "5.73", RepoVersionPublishedAt: 2018-09-21T16:17:34.0000000+00:00, LatestVersion: "5.73", LatestPublishedAt: 2018-09-21T16:17:34.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "HTTP::Headers::Fast", RepoVersion: "0.21", RepoVersionPublishedAt: 2017-02-10T03:10:49.0000000+00:00, LatestVersion: "0.21", LatestPublishedAt: 2017-02-10T03:10:49.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "List::Util", RepoVersion: "1.46_03", RepoVersionPublishedAt: 2016-08-23T18:50:55.0000000+00:00, LatestVersion: "1.46_03", LatestPublishedAt: 2016-08-23T18:50:55.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -326,7 +338,7 @@ results[23] = { Date: 2018-10-01T00:00:00.0000000-05:00, ManifestSHA: 24952cf66b
 { Name: "Test::More", RepoVersion: "1.301001_050", RepoVersionPublishedAt: 2014-09-26T05:44:26.0000000+00:00, LatestVersion: "1.301001_050", LatestPublishedAt: 2014-09-26T05:44:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[24] = { Date: 2018-11-01T00:00:00.0000000-05:00, ManifestSHA: f0307084e33003862ae9ab42e98d104e4d7bf03a, LibYear: { _packagesValues: [
+results[25] = { Date: 2018-11-01T00:00:00.0000000+00:00, ManifestSHA: f0307084e33003862ae9ab42e98d104e4d7bf03a, LibYear: { _packagesValues: [
 { Name: "Exporter", RepoVersion: "5.73", RepoVersionPublishedAt: 2018-09-21T16:17:34.0000000+00:00, LatestVersion: "5.73", LatestPublishedAt: 2018-09-21T16:17:34.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "HTTP::Headers::Fast", RepoVersion: "0.21", RepoVersionPublishedAt: 2017-02-10T03:10:49.0000000+00:00, LatestVersion: "0.21", LatestPublishedAt: 2017-02-10T03:10:49.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "List::Util", RepoVersion: "1.46_03", RepoVersionPublishedAt: 2016-08-23T18:50:55.0000000+00:00, LatestVersion: "1.46_03", LatestPublishedAt: 2016-08-23T18:50:55.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -341,7 +353,7 @@ results[24] = { Date: 2018-11-01T00:00:00.0000000-05:00, ManifestSHA: f0307084e3
 { Name: "Test::More", RepoVersion: "1.301001_050", RepoVersionPublishedAt: 2014-09-26T05:44:26.0000000+00:00, LatestVersion: "1.301001_050", LatestPublishedAt: 2014-09-26T05:44:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[25] = { Date: 2018-12-01T00:00:00.0000000-05:00, ManifestSHA: 616b89a63c265cdcaefaa744b7014efad5b04d22, LibYear: { _packagesValues: [
+results[26] = { Date: 2018-12-01T00:00:00.0000000+00:00, ManifestSHA: 616b89a63c265cdcaefaa744b7014efad5b04d22, LibYear: { _packagesValues: [
 { Name: "Exporter", RepoVersion: "5.73", RepoVersionPublishedAt: 2018-09-21T16:17:34.0000000+00:00, LatestVersion: "5.73", LatestPublishedAt: 2018-09-21T16:17:34.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "HTTP::Headers::Fast", RepoVersion: "0.21", RepoVersionPublishedAt: 2017-02-10T03:10:49.0000000+00:00, LatestVersion: "0.21", LatestPublishedAt: 2017-02-10T03:10:49.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "List::Util", RepoVersion: "1.46_03", RepoVersionPublishedAt: 2016-08-23T18:50:55.0000000+00:00, LatestVersion: "1.46_03", LatestPublishedAt: 2016-08-23T18:50:55.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -355,7 +367,7 @@ results[25] = { Date: 2018-12-01T00:00:00.0000000-05:00, ManifestSHA: 616b89a63c
 { Name: "Test::More", RepoVersion: "1.301001_050", RepoVersionPublishedAt: 2014-09-26T05:44:26.0000000+00:00, LatestVersion: "1.301001_050", LatestPublishedAt: 2014-09-26T05:44:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[26] = { Date: 2019-01-01T00:00:00.0000000-05:00, ManifestSHA: 616b89a63c265cdcaefaa744b7014efad5b04d22, LibYear: { _packagesValues: [
+results[27] = { Date: 2019-01-01T00:00:00.0000000+00:00, ManifestSHA: 616b89a63c265cdcaefaa744b7014efad5b04d22, LibYear: { _packagesValues: [
 { Name: "Exporter", RepoVersion: "5.73", RepoVersionPublishedAt: 2018-09-21T16:17:34.0000000+00:00, LatestVersion: "5.73", LatestPublishedAt: 2018-09-21T16:17:34.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "HTTP::Headers::Fast", RepoVersion: "0.21", RepoVersionPublishedAt: 2017-02-10T03:10:49.0000000+00:00, LatestVersion: "0.21", LatestPublishedAt: 2017-02-10T03:10:49.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "List::Util", RepoVersion: "1.46_03", RepoVersionPublishedAt: 2016-08-23T18:50:55.0000000+00:00, LatestVersion: "1.46_03", LatestPublishedAt: 2016-08-23T18:50:55.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -369,7 +381,7 @@ results[26] = { Date: 2019-01-01T00:00:00.0000000-05:00, ManifestSHA: 616b89a63c
 { Name: "Test::More", RepoVersion: "1.301001_050", RepoVersionPublishedAt: 2014-09-26T05:44:26.0000000+00:00, LatestVersion: "1.301001_050", LatestPublishedAt: 2014-09-26T05:44:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[27] = { Date: 2019-02-01T00:00:00.0000000-05:00, ManifestSHA: 09bb44868a7d3a97a375a0ebb166c6e9f6533d2f, LibYear: { _packagesValues: [
+results[28] = { Date: 2019-02-01T00:00:00.0000000+00:00, ManifestSHA: 09bb44868a7d3a97a375a0ebb166c6e9f6533d2f, LibYear: { _packagesValues: [
 { Name: "Exporter", RepoVersion: "5.73", RepoVersionPublishedAt: 2018-09-21T16:17:34.0000000+00:00, LatestVersion: "5.73", LatestPublishedAt: 2018-09-21T16:17:34.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "HTTP::Headers::Fast", RepoVersion: "0.21", RepoVersionPublishedAt: 2017-02-10T03:10:49.0000000+00:00, LatestVersion: "0.21", LatestPublishedAt: 2017-02-10T03:10:49.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "List::Util", RepoVersion: "1.46_03", RepoVersionPublishedAt: 2016-08-23T18:50:55.0000000+00:00, LatestVersion: "1.46_03", LatestPublishedAt: 2016-08-23T18:50:55.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -383,7 +395,7 @@ results[27] = { Date: 2019-02-01T00:00:00.0000000-05:00, ManifestSHA: 09bb44868a
 { Name: "Test::More", RepoVersion: "1.301001_050", RepoVersionPublishedAt: 2014-09-26T05:44:26.0000000+00:00, LatestVersion: "1.301001_050", LatestPublishedAt: 2014-09-26T05:44:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[28] = { Date: 2019-03-01T00:00:00.0000000-05:00, ManifestSHA: 09bb44868a7d3a97a375a0ebb166c6e9f6533d2f, LibYear: { _packagesValues: [
+results[29] = { Date: 2019-03-01T00:00:00.0000000+00:00, ManifestSHA: 09bb44868a7d3a97a375a0ebb166c6e9f6533d2f, LibYear: { _packagesValues: [
 { Name: "Exporter", RepoVersion: "5.73", RepoVersionPublishedAt: 2018-09-21T16:17:34.0000000+00:00, LatestVersion: "5.73", LatestPublishedAt: 2018-09-21T16:17:34.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "HTTP::Headers::Fast", RepoVersion: "0.21", RepoVersionPublishedAt: 2017-02-10T03:10:49.0000000+00:00, LatestVersion: "0.21", LatestPublishedAt: 2017-02-10T03:10:49.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "List::Util", RepoVersion: "1.46_03", RepoVersionPublishedAt: 2016-08-23T18:50:55.0000000+00:00, LatestVersion: "1.46_03", LatestPublishedAt: 2016-08-23T18:50:55.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -397,7 +409,7 @@ results[28] = { Date: 2019-03-01T00:00:00.0000000-05:00, ManifestSHA: 09bb44868a
 { Name: "Test::More", RepoVersion: "1.301001_050", RepoVersionPublishedAt: 2014-09-26T05:44:26.0000000+00:00, LatestVersion: "1.301001_050", LatestPublishedAt: 2014-09-26T05:44:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[29] = { Date: 2019-04-01T00:00:00.0000000-05:00, ManifestSHA: 09bb44868a7d3a97a375a0ebb166c6e9f6533d2f, LibYear: { _packagesValues: [
+results[30] = { Date: 2019-04-01T00:00:00.0000000+00:00, ManifestSHA: 09bb44868a7d3a97a375a0ebb166c6e9f6533d2f, LibYear: { _packagesValues: [
 { Name: "Exporter", RepoVersion: "5.73", RepoVersionPublishedAt: 2018-09-21T16:17:34.0000000+00:00, LatestVersion: "5.73", LatestPublishedAt: 2018-09-21T16:17:34.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "HTTP::Headers::Fast", RepoVersion: "0.21", RepoVersionPublishedAt: 2017-02-10T03:10:49.0000000+00:00, LatestVersion: "0.21", LatestPublishedAt: 2017-02-10T03:10:49.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "List::Util", RepoVersion: "1.46_03", RepoVersionPublishedAt: 2016-08-23T18:50:55.0000000+00:00, LatestVersion: "1.46_03", LatestPublishedAt: 2016-08-23T18:50:55.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -411,7 +423,7 @@ results[29] = { Date: 2019-04-01T00:00:00.0000000-05:00, ManifestSHA: 09bb44868a
 { Name: "Test::More", RepoVersion: "1.301001_050", RepoVersionPublishedAt: 2014-09-26T05:44:26.0000000+00:00, LatestVersion: "1.301001_050", LatestPublishedAt: 2014-09-26T05:44:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[30] = { Date: 2019-05-01T00:00:00.0000000-05:00, ManifestSHA: 09bb44868a7d3a97a375a0ebb166c6e9f6533d2f, LibYear: { _packagesValues: [
+results[31] = { Date: 2019-05-01T00:00:00.0000000+00:00, ManifestSHA: 09bb44868a7d3a97a375a0ebb166c6e9f6533d2f, LibYear: { _packagesValues: [
 { Name: "Exporter", RepoVersion: "5.73", RepoVersionPublishedAt: 2018-09-21T16:17:34.0000000+00:00, LatestVersion: "5.73", LatestPublishedAt: 2018-09-21T16:17:34.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "HTTP::Headers::Fast", RepoVersion: "0.22", RepoVersionPublishedAt: 2019-04-16T01:59:14.0000000+00:00, LatestVersion: "0.22", LatestPublishedAt: 2019-04-16T01:59:14.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "List::Util", RepoVersion: "1.46_03", RepoVersionPublishedAt: 2016-08-23T18:50:55.0000000+00:00, LatestVersion: "1.46_03", LatestPublishedAt: 2016-08-23T18:50:55.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -425,7 +437,7 @@ results[30] = { Date: 2019-05-01T00:00:00.0000000-05:00, ManifestSHA: 09bb44868a
 { Name: "Test::More", RepoVersion: "1.301001_050", RepoVersionPublishedAt: 2014-09-26T05:44:26.0000000+00:00, LatestVersion: "1.301001_050", LatestPublishedAt: 2014-09-26T05:44:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[31] = { Date: 2019-06-01T00:00:00.0000000-05:00, ManifestSHA: 09bb44868a7d3a97a375a0ebb166c6e9f6533d2f, LibYear: { _packagesValues: [
+results[32] = { Date: 2019-06-01T00:00:00.0000000+00:00, ManifestSHA: 09bb44868a7d3a97a375a0ebb166c6e9f6533d2f, LibYear: { _packagesValues: [
 { Name: "Exporter", RepoVersion: "5.73", RepoVersionPublishedAt: 2018-09-21T16:17:34.0000000+00:00, LatestVersion: "5.73", LatestPublishedAt: 2018-09-21T16:17:34.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "HTTP::Headers::Fast", RepoVersion: "0.22", RepoVersionPublishedAt: 2019-04-16T01:59:14.0000000+00:00, LatestVersion: "0.22", LatestPublishedAt: 2019-04-16T01:59:14.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "List::Util", RepoVersion: "1.46_03", RepoVersionPublishedAt: 2016-08-23T18:50:55.0000000+00:00, LatestVersion: "1.46_03", LatestPublishedAt: 2016-08-23T18:50:55.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -439,7 +451,7 @@ results[31] = { Date: 2019-06-01T00:00:00.0000000-05:00, ManifestSHA: 09bb44868a
 { Name: "Test::More", RepoVersion: "1.301001_050", RepoVersionPublishedAt: 2014-09-26T05:44:26.0000000+00:00, LatestVersion: "1.301001_050", LatestPublishedAt: 2014-09-26T05:44:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[32] = { Date: 2019-07-01T00:00:00.0000000-05:00, ManifestSHA: de814620e76888ad79950ff00663b5c3c5e2e726, LibYear: { _packagesValues: [
+results[33] = { Date: 2019-07-01T00:00:00.0000000+00:00, ManifestSHA: de814620e76888ad79950ff00663b5c3c5e2e726, LibYear: { _packagesValues: [
 { Name: "Exporter", RepoVersion: "5.73", RepoVersionPublishedAt: 2018-09-21T16:17:34.0000000+00:00, LatestVersion: "5.73", LatestPublishedAt: 2018-09-21T16:17:34.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "HTTP::Headers::Fast", RepoVersion: "0.22", RepoVersionPublishedAt: 2019-04-16T01:59:14.0000000+00:00, LatestVersion: "0.22", LatestPublishedAt: 2019-04-16T01:59:14.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "List::Util", RepoVersion: "1.46_03", RepoVersionPublishedAt: 2016-08-23T18:50:55.0000000+00:00, LatestVersion: "1.46_03", LatestPublishedAt: 2016-08-23T18:50:55.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -453,7 +465,7 @@ results[32] = { Date: 2019-07-01T00:00:00.0000000-05:00, ManifestSHA: de814620e7
 { Name: "Test::More", RepoVersion: "1.301001_050", RepoVersionPublishedAt: 2014-09-26T05:44:26.0000000+00:00, LatestVersion: "1.301001_050", LatestPublishedAt: 2014-09-26T05:44:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[33] = { Date: 2019-08-01T00:00:00.0000000-05:00, ManifestSHA: de814620e76888ad79950ff00663b5c3c5e2e726, LibYear: { _packagesValues: [
+results[34] = { Date: 2019-08-01T00:00:00.0000000+00:00, ManifestSHA: de814620e76888ad79950ff00663b5c3c5e2e726, LibYear: { _packagesValues: [
 { Name: "Exporter", RepoVersion: "5.73", RepoVersionPublishedAt: 2018-09-21T16:17:34.0000000+00:00, LatestVersion: "5.73", LatestPublishedAt: 2018-09-21T16:17:34.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "HTTP::Headers::Fast", RepoVersion: "0.22", RepoVersionPublishedAt: 2019-04-16T01:59:14.0000000+00:00, LatestVersion: "0.22", LatestPublishedAt: 2019-04-16T01:59:14.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "List::Util", RepoVersion: "1.46_03", RepoVersionPublishedAt: 2016-08-23T18:50:55.0000000+00:00, LatestVersion: "1.46_03", LatestPublishedAt: 2016-08-23T18:50:55.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -467,7 +479,7 @@ results[33] = { Date: 2019-08-01T00:00:00.0000000-05:00, ManifestSHA: de814620e7
 { Name: "Test::More", RepoVersion: "1.301001_050", RepoVersionPublishedAt: 2014-09-26T05:44:26.0000000+00:00, LatestVersion: "1.301001_050", LatestPublishedAt: 2014-09-26T05:44:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[34] = { Date: 2019-09-01T00:00:00.0000000-05:00, ManifestSHA: 127410571ace91c61ea67ee9622da3219dc3c2c5, LibYear: { _packagesValues: [
+results[35] = { Date: 2019-09-01T00:00:00.0000000+00:00, ManifestSHA: 127410571ace91c61ea67ee9622da3219dc3c2c5, LibYear: { _packagesValues: [
 { Name: "Exporter", RepoVersion: "5.73", RepoVersionPublishedAt: 2018-09-21T16:17:34.0000000+00:00, LatestVersion: "5.73", LatestPublishedAt: 2018-09-21T16:17:34.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "HTTP::Headers::Fast", RepoVersion: "0.22", RepoVersionPublishedAt: 2019-04-16T01:59:14.0000000+00:00, LatestVersion: "0.22", LatestPublishedAt: 2019-04-16T01:59:14.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "List::Util", RepoVersion: "1.46_03", RepoVersionPublishedAt: 2016-08-23T18:50:55.0000000+00:00, LatestVersion: "1.46_03", LatestPublishedAt: 2016-08-23T18:50:55.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -481,7 +493,7 @@ results[34] = { Date: 2019-09-01T00:00:00.0000000-05:00, ManifestSHA: 127410571a
 { Name: "Test::More", RepoVersion: "1.301001_050", RepoVersionPublishedAt: 2014-09-26T05:44:26.0000000+00:00, LatestVersion: "1.301001_050", LatestPublishedAt: 2014-09-26T05:44:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[35] = { Date: 2019-10-01T00:00:00.0000000-05:00, ManifestSHA: 868237a8c942e66529c3ee9dc5eea457a13947bd, LibYear: { _packagesValues: [
+results[36] = { Date: 2019-10-01T00:00:00.0000000+00:00, ManifestSHA: 868237a8c942e66529c3ee9dc5eea457a13947bd, LibYear: { _packagesValues: [
 { Name: "Exporter", RepoVersion: "5.73", RepoVersionPublishedAt: 2018-09-21T16:17:34.0000000+00:00, LatestVersion: "5.73", LatestPublishedAt: 2018-09-21T16:17:34.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "HTTP::Headers::Fast", RepoVersion: "0.22", RepoVersionPublishedAt: 2019-04-16T01:59:14.0000000+00:00, LatestVersion: "0.22", LatestPublishedAt: 2019-04-16T01:59:14.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "List::Util", RepoVersion: "1.46_03", RepoVersionPublishedAt: 2016-08-23T18:50:55.0000000+00:00, LatestVersion: "1.46_03", LatestPublishedAt: 2016-08-23T18:50:55.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -495,7 +507,7 @@ results[35] = { Date: 2019-10-01T00:00:00.0000000-05:00, ManifestSHA: 868237a8c9
 { Name: "Test::More", RepoVersion: "1.301001_050", RepoVersionPublishedAt: 2014-09-26T05:44:26.0000000+00:00, LatestVersion: "1.301001_050", LatestPublishedAt: 2014-09-26T05:44:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[36] = { Date: 2019-11-01T00:00:00.0000000-05:00, ManifestSHA: 868237a8c942e66529c3ee9dc5eea457a13947bd, LibYear: { _packagesValues: [
+results[37] = { Date: 2019-11-01T00:00:00.0000000+00:00, ManifestSHA: 868237a8c942e66529c3ee9dc5eea457a13947bd, LibYear: { _packagesValues: [
 { Name: "Exporter", RepoVersion: "5.73", RepoVersionPublishedAt: 2018-09-21T16:17:34.0000000+00:00, LatestVersion: "5.73", LatestPublishedAt: 2018-09-21T16:17:34.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "HTTP::Headers::Fast", RepoVersion: "0.22", RepoVersionPublishedAt: 2019-04-16T01:59:14.0000000+00:00, LatestVersion: "0.22", LatestPublishedAt: 2019-04-16T01:59:14.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "List::Util", RepoVersion: "1.46_03", RepoVersionPublishedAt: 2016-08-23T18:50:55.0000000+00:00, LatestVersion: "1.46_03", LatestPublishedAt: 2016-08-23T18:50:55.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -509,7 +521,7 @@ results[36] = { Date: 2019-11-01T00:00:00.0000000-05:00, ManifestSHA: 868237a8c9
 { Name: "Test::More", RepoVersion: "1.301001_050", RepoVersionPublishedAt: 2014-09-26T05:44:26.0000000+00:00, LatestVersion: "1.301001_050", LatestPublishedAt: 2014-09-26T05:44:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
 
-results[37] = { Date: 2019-12-01T00:00:00.0000000-05:00, ManifestSHA: 36edc18b681391c4d96d99da59953d7442ae8cc8, LibYear: { _packagesValues: [
+results[38] = { Date: 2019-12-01T00:00:00.0000000+00:00, ManifestSHA: 36edc18b681391c4d96d99da59953d7442ae8cc8, LibYear: { _packagesValues: [
 { Name: "Exporter", RepoVersion: "5.73", RepoVersionPublishedAt: 2018-09-21T16:17:34.0000000+00:00, LatestVersion: "5.73", LatestPublishedAt: 2018-09-21T16:17:34.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "HTTP::Headers::Fast", RepoVersion: "0.22", RepoVersionPublishedAt: 2019-04-16T01:59:14.0000000+00:00, LatestVersion: "0.22", LatestPublishedAt: 2019-04-16T01:59:14.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "List::Util", RepoVersion: "1.46_03", RepoVersionPublishedAt: 2016-08-23T18:50:55.0000000+00:00, LatestVersion: "1.46_03", LatestPublishedAt: 2016-08-23T18:50:55.0000000+00:00, UpgradeAvailable: False, Value: 0 },
@@ -519,6 +531,34 @@ results[37] = { Date: 2019-12-01T00:00:00.0000000-05:00, ManifestSHA: 36edc18b68
 { Name: "Role::Tiny", RepoVersion: "2.001004", RepoVersionPublishedAt: 2019-10-25T08:10:09.0000000+00:00, LatestVersion: "2.001004", LatestPublishedAt: 2019-10-25T08:10:09.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Type::Tiny", RepoVersion: "1.006000", RepoVersionPublishedAt: 2019-11-12T09:34:51.0000000+00:00, LatestVersion: "1.006000", LatestPublishedAt: 2019-11-12T09:34:51.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "YAML", RepoVersion: "1.29", RepoVersionPublishedAt: 2019-05-11T08:28:01.0000000+00:00, LatestVersion: "1.29", LatestPublishedAt: 2019-05-11T08:28:01.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "Capture::Tiny", RepoVersion: "0.48", RepoVersionPublishedAt: 2018-04-22T07:09:08.0000000+00:00, LatestVersion: "0.48", LatestPublishedAt: 2018-04-22T07:09:08.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "Test::More", RepoVersion: "1.301001_050", RepoVersionPublishedAt: 2014-09-26T05:44:26.0000000+00:00, LatestVersion: "1.301001_050", LatestPublishedAt: 2014-09-26T05:44:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+], Total: 0 } }
+
+results[39] = { Date: 2020-01-01T00:00:00.0000000+00:00, ManifestSHA: 84665e58df52eafc85151652b95017ddab1cfe20, LibYear: { _packagesValues: [
+{ Name: "Exporter", RepoVersion: "5.73", RepoVersionPublishedAt: 2018-09-21T16:17:34.0000000+00:00, LatestVersion: "5.73", LatestPublishedAt: 2018-09-21T16:17:34.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "HTTP::Headers::Fast", RepoVersion: "0.22", RepoVersionPublishedAt: 2019-04-16T01:59:14.0000000+00:00, LatestVersion: "0.22", LatestPublishedAt: 2019-04-16T01:59:14.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "List::Util", RepoVersion: "1.46_03", RepoVersionPublishedAt: 2016-08-23T18:50:55.0000000+00:00, LatestVersion: "1.46_03", LatestPublishedAt: 2016-08-23T18:50:55.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "MIME::Base64", RepoVersion: "3.15", RepoVersionPublishedAt: 2015-01-12T20:30:03.0000000+00:00, LatestVersion: "3.15", LatestPublishedAt: 2015-01-12T20:30:03.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "Moo", RepoVersion: "2.003006", RepoVersionPublishedAt: 2019-10-25T11:21:57.0000000+00:00, LatestVersion: "2.003006", LatestPublishedAt: 2019-10-25T11:21:57.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "Plack", RepoVersion: "1.0047", RepoVersionPublishedAt: 2018-02-10T09:25:30.0000000+00:00, LatestVersion: "1.0047", LatestPublishedAt: 2018-02-10T09:25:30.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "Role::Tiny", RepoVersion: "2.001004", RepoVersionPublishedAt: 2019-10-25T08:10:09.0000000+00:00, LatestVersion: "2.001004", LatestPublishedAt: 2019-10-25T08:10:09.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "Type::Tiny", RepoVersion: "1.008001", RepoVersionPublishedAt: 2019-12-28T15:37:56.0000000+00:00, LatestVersion: "1.008001", LatestPublishedAt: 2019-12-28T15:37:56.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "YAML", RepoVersion: "1.29", RepoVersionPublishedAt: 2019-05-11T08:28:01.0000000+00:00, LatestVersion: "1.29", LatestPublishedAt: 2019-05-11T08:28:01.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "Capture::Tiny", RepoVersion: "0.48", RepoVersionPublishedAt: 2018-04-22T07:09:08.0000000+00:00, LatestVersion: "0.48", LatestPublishedAt: 2018-04-22T07:09:08.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "Test::More", RepoVersion: "1.301001_050", RepoVersionPublishedAt: 2014-09-26T05:44:26.0000000+00:00, LatestVersion: "1.301001_050", LatestPublishedAt: 2014-09-26T05:44:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+], Total: 0 } }
+
+results[40] = { Date: 2020-02-01T00:00:00.0000000+00:00, ManifestSHA: 84665e58df52eafc85151652b95017ddab1cfe20, LibYear: { _packagesValues: [
+{ Name: "Exporter", RepoVersion: "5.74", RepoVersionPublishedAt: 2020-01-20T07:31:23.0000000+00:00, LatestVersion: "5.74", LatestPublishedAt: 2020-01-20T07:31:23.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "HTTP::Headers::Fast", RepoVersion: "0.22", RepoVersionPublishedAt: 2019-04-16T01:59:14.0000000+00:00, LatestVersion: "0.22", LatestPublishedAt: 2019-04-16T01:59:14.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "List::Util", RepoVersion: "1.46_03", RepoVersionPublishedAt: 2016-08-23T18:50:55.0000000+00:00, LatestVersion: "1.46_03", LatestPublishedAt: 2016-08-23T18:50:55.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "MIME::Base64", RepoVersion: "3.15", RepoVersionPublishedAt: 2015-01-12T20:30:03.0000000+00:00, LatestVersion: "3.15", LatestPublishedAt: 2015-01-12T20:30:03.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "Moo", RepoVersion: "2.003006", RepoVersionPublishedAt: 2019-10-25T11:21:57.0000000+00:00, LatestVersion: "2.003006", LatestPublishedAt: 2019-10-25T11:21:57.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "Plack", RepoVersion: "1.0047", RepoVersionPublishedAt: 2018-02-10T09:25:30.0000000+00:00, LatestVersion: "1.0047", LatestPublishedAt: 2018-02-10T09:25:30.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "Role::Tiny", RepoVersion: "2.001004", RepoVersionPublishedAt: 2019-10-25T08:10:09.0000000+00:00, LatestVersion: "2.001004", LatestPublishedAt: 2019-10-25T08:10:09.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "Type::Tiny", RepoVersion: "1.008005", RepoVersionPublishedAt: 2020-01-30T13:59:43.0000000+00:00, LatestVersion: "1.008005", LatestPublishedAt: 2020-01-30T13:59:43.0000000+00:00, UpgradeAvailable: False, Value: 0 },
+{ Name: "YAML", RepoVersion: "1.30", RepoVersionPublishedAt: 2020-01-27T22:10:33.0000000+00:00, LatestVersion: "1.30", LatestPublishedAt: 2020-01-27T22:10:33.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Capture::Tiny", RepoVersion: "0.48", RepoVersionPublishedAt: 2018-04-22T07:09:08.0000000+00:00, LatestVersion: "0.48", LatestPublishedAt: 2018-04-22T07:09:08.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "Test::More", RepoVersion: "1.301001_050", RepoVersionPublishedAt: 2014-09-26T05:44:26.0000000+00:00, LatestVersion: "1.301001_050", LatestPublishedAt: 2014-09-26T05:44:26.0000000+00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 0 } }
