@@ -77,7 +77,7 @@ jobs:
       #
       #  https://github.com/stefanzweifel/git-auto-commit-action#push-to-protected-branches
       - uses: stefanzweifel/git-auto-commit-action@v4
-        name: Commit Change Log and if it Changed
+        name: Commit Change Log if it Changed
         with:
           commit_message: Committing auto generated change log.
           push_options: --force
