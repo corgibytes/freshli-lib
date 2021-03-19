@@ -5,10 +5,14 @@ on:
     branches:
       - 'main'
       - 'release*'
+    paths-ignore:
+      - CHANGELOG.md
   pull_request:
     branches:
       - 'main'
       - 'release*'
+    paths-ignore:
+      - CHANGELOG.md
 
 jobs:
   release_notes:
@@ -69,8 +73,7 @@ jobs:
           dotnet-gitreleasemanager export --token ${{ secrets.GITHUB_TOKEN }} -o 'corgibytes' -r 'freshli-lib' -f 'CHANGELOG.md'
           cat CHANGELOG.md
 
-      # Need to use force push and personal access token to allow pushing
-      # to GitHub protected branches.
+      # Need to use force push to allow pushing to GitHub protected branches.
       #
       #  https://github.com/stefanzweifel/git-auto-commit-action#push-to-protected-branches
       - uses: stefanzweifel/git-auto-commit-action@v4
@@ -79,5 +82,4 @@ jobs:
           commit_message: Committing auto generated change log.
           push_options: --force
           file_pattern: CHANGELOG.md
-          token: #{{ secrets.PERSONAL_ACCESS_TOKEN }}
 
