@@ -6,7 +6,7 @@ namespace Freshli.Test {
   public class Acceptance {
 
     private DateTimeOffset _testingBoundary =
-      new DateTimeOffset(2020, 01, 01, 0, 0, 0, 0, TimeSpan.Zero);
+      new DateTimeOffset(2020, 02, 01, 0, 0, 0, 0, TimeSpan.Zero);
 
     [Fact]
     public void RubyGemsWithGitHistory() {
