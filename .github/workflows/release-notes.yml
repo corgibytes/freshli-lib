@@ -20,7 +20,7 @@ jobs:
         with:
           fetch-depth: 0 # Required for GitVersion
           ref: ${{ github.head_ref }} # Required for Git Auto Commit
-        
+
       # Require .NET 5 for GitVersion and .NET 3 for GitRelesaseManager
       - name: Setup .NET Core 5 (GitVersion)
         uses: actions/setup-dotnet@v1
@@ -31,7 +31,7 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: 3.0.x
-      
+
       - name: Install GitVersion
         uses: gittools/actions/gitversion/setup@v0.9.9
         with:
@@ -48,7 +48,7 @@ jobs:
         id: gitversion
         with:
           useConfigFile: true
-      
+
       - uses: gittools/actions/gitreleasemanager/setup@v0.9.9
         name: Install GitReleaseManager
         with:
@@ -60,7 +60,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           owner: 'corgibytes'
           repository: 'freshli-lib'
-          milestone: 'v${{ steps.gitversion.outputs.majorMinorPatch }}' 
+          milestone: 'v${{ steps.gitversion.outputs.majorMinorPatch }}'
 
       # This will generate the change log for all the GitHub Releases, feature
       # is not included in the GitReleaseManager action yet.
@@ -72,6 +72,6 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v4
         name: Commit Change Log and if it Changed
         with:
-          commit_message: Committing auto generated change log.
+          commit_message: Committing auto generated change log. [skip ci]
           file_pattern: CHANGELOG.md
 
