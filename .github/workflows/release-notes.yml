@@ -18,6 +18,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
         with:
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           fetch-depth: 0 # Required for GitVersion
           ref: ${{ github.head_ref }} # Required for Git Auto Commit
 
@@ -66,12 +67,14 @@ jobs:
       # is not included in the GitReleaseManager action yet.
       - name: Generate Change Log
         run: |
-          dotnet-gitreleasemanager export --token ${{ secrets.GITHUB_TOKEN }} -o 'corgibytes' -r 'freshli-lib' -f 'CHANGELOG.md'
+          dotnet-gitreleasemanager export --token ${{ secrets.PERSONAL_ACCESS_TOKEN }} -o 'corgibytes' -r 'freshli-lib' -f 'CHANGELOG.md'
           cat CHANGELOG.md
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         name: Commit Change Log and if it Changed
         with:
-          commit_message: Committing auto generated change log. [skip ci]
+          commit_message: Committing auto generated change log.
           file_pattern: CHANGELOG.md
+          commit_user_name: M. Scott Ford (as bot)
+          commit_user_email: scott@corgibytes.com
 
