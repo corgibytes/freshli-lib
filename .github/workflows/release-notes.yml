@@ -56,18 +56,17 @@ jobs:
 
       - uses: gittools/actions/gitreleasemanager/create@v0.9.9
         name: Create/Update GitHub Release ${{ steps.gitversion.outputs.majorMinorPatch }}
-        continue-on-error: true
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           owner: 'corgibytes'
-          repository: 'freshli'
+          repository: 'freshli-lib'
           milestone: 'v${{ steps.gitversion.outputs.majorMinorPatch }}' 
 
       # This will generate the change log for all the GitHub Releases, feature
       # is not included in the GitReleaseManager action yet.
       - name: Generate Change Log
         run: |
-          dotnet-gitreleasemanager export --token ${{ secrets.GITHUB_TOKEN }} -o 'corgibytes' -r 'freshli' -f 'CHANGELOG.md'
+          dotnet-gitreleasemanager export --token ${{ secrets.GITHUB_TOKEN }} -o 'corgibytes' -r 'freshli-lib' -f 'CHANGELOG.md'
           cat CHANGELOG.md
 
       - uses: stefanzweifel/git-auto-commit-action@v4
