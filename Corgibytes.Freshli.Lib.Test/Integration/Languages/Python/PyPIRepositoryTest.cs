@@ -25,7 +25,8 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Python {
     [Fact]
     public void LatestAsOf() {
       var repository = new PyPIRepository();
-      var targetDate = new DateTimeOffset(2020, 01, 01, 00, 00, 00, TimeSpan.Zero);
+      var targetDate =
+        new DateTimeOffset(2020, 01, 01, 00, 00, 00, TimeSpan.Zero);
       var versionInfo = repository.Latest(
         "numpy", targetDate, includePreReleases: false);
       var expectedDate = new DateTimeOffset(
@@ -57,7 +58,8 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Python {
       int expectedSecond,
       string expectedVersion
     ) {
-      var targetDate = new DateTimeOffset(2020, 01, 01, 00, 00, 00, TimeSpan.Zero);
+      var targetDate =
+        new DateTimeOffset(2020, 01, 01, 00, 00, 00, TimeSpan.Zero);
 
       var repository = new PyPIRepository();
       var versionInfo = repository.Latest(

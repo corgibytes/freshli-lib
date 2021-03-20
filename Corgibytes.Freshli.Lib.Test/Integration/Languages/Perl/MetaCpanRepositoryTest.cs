@@ -95,7 +95,8 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Perl {
     [Fact]
     public void VersionsBetween() {
       var repository = new MetaCpanRepository();
-      var targetDate = new DateTimeOffset(2015, 01, 01, 00, 00, 00, TimeSpan.Zero);
+      var targetDate =
+        new DateTimeOffset(2015, 01, 01, 00, 00, 00, TimeSpan.Zero);
       var earlierVersion = new SemVerVersionInfo("1.0027");
       var laterVersion = new SemVerVersionInfo("1.0045");
 

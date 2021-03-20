@@ -107,7 +107,11 @@ namespace Corgibytes.Freshli.Lib.Languages.Php {
       return null;
     }
 
-    public IVersionInfo Latest(string name, DateTimeOffset asOf, string thatMatches) {
+    public IVersionInfo Latest(
+      string name,
+      DateTimeOffset asOf,
+      string thatMatches
+    ) {
       throw new NotImplementedException();
     }
 

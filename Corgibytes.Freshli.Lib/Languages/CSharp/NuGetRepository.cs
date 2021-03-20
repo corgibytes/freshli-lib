@@ -90,7 +90,11 @@ namespace Corgibytes.Freshli.Lib.Languages.CSharp {
         .ToList();
     }
 
-    public IVersionInfo Latest(string name, DateTimeOffset asOf, string thatMatches) {
+    public IVersionInfo Latest(
+      string name,
+      DateTimeOffset asOf,
+      string thatMatches
+    ) {
       throw new NotImplementedException();
     }
   }
