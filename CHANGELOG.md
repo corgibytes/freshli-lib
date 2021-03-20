@@ -1,7 +1,7 @@
 ## v0.4.0
 
 
-As part of this release we had [7 issues](https://github.com/corgibytes/freshli-lib/milestone/5?closed=1) closed.
+As part of this release we had [8 issues](https://github.com/corgibytes/freshli-lib/milestone/5?closed=1) closed.
 Goals for this milestone:
 
 - Common Freshli dependency interface.
@@ -11,6 +11,7 @@ Goals for this milestone:
 
 __DevOps__
 
+- [__#283__](https://github.com/corgibytes/freshli-lib/issues/283) Remove old Dependabot config
 - [__#277__](https://github.com/corgibytes/freshli-lib/pull/277) Add nuspec information
 - [__#268__](https://github.com/corgibytes/freshli-lib/issues/268) Version not correctly incremented when merging tag from release to main
 - [__#261__](https://github.com/corgibytes/freshli-lib/pull/261) Sets up minimal rename for NuGet push
