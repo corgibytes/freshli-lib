@@ -1,5 +1,5 @@
 exclude_patterns:
-  - "Freshli/obj/**"
-  - "Freshli.Test/**"
+  - "Corgibytes.Freshli.Lib/obj/**"
+  - "Corgibytes.Freshli.Lib.Test/obj/**"
   # Needs to be addressed in https://github.com/corgibytes/freshli/issues/236
-  - "Freshli/Languages/CSharp/NuGetRepository.cs"
+  - "Corgibytes.Freshli.Lib/Languages/CSharp/NuGetRepository.cs"
