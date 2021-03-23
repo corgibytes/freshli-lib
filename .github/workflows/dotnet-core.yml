@@ -40,7 +40,7 @@ jobs:
           additionalArguments: '/updateprojectfiles'
     
       - name: Display updated csproj File
-        run: cat Freshli/Freshli.csproj
+        run: cat Corgibytes.Freshli.Lib/Corgibytes.Freshli.Lib.csproj
 
       - name: Build
         run: dotnet build --configuration Release
@@ -53,7 +53,7 @@ jobs:
         with:
           coverageCommand: dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=lcov
           coverageLocations: |
-            ${{github.workspace}}/Freshli.Test/coverage.info:lcov
+            ${{github.workspace}}/Corgibytes.Freshli.Lib.Test/coverage.info:lcov
 
       - name: Package
         if: github.event_name == 'push'
@@ -61,4 +61,4 @@ jobs:
 
       - name: Publish Alpha Package to Github Packages
         if: github.event_name == 'push'
-        run: dotnet nuget push ./Freshli/bin/Release/*.nupkg -k ${{ secrets.GITHUB_TOKEN }} --skip-duplicate -n true -s https://nuget.pkg.github.com/corgibytes/index.json
+        run: dotnet nuget push ./Corgibytes.Freshli.Lib/bin/Release/*.nupkg -k ${{ secrets.GITHUB_TOKEN }} --skip-duplicate -n true -s https://nuget.pkg.github.com/corgibytes/index.json
