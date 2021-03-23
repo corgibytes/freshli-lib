@@ -67,7 +67,8 @@ jobs:
       # is not included in the GitReleaseManager action yet.
       - name: Generate Change Log
         run: |
-          dotnet-gitreleasemanager export --token ${{ secrets.PERSONAL_ACCESS_TOKEN }} -o 'corgibytes' -r 'freshli-lib' -f 'CHANGELOG.md'
+          dotnet-gitreleasemanager export --token ${{ secrets.GITHUB_TOKEN }} -o 'corgibytes' -r 'freshli-lib' -f 'CHANGELOG.md'
+          git add --renormalize CHANGELOG.md
           cat CHANGELOG.md
 
       - uses: stefanzweifel/git-auto-commit-action@v4
