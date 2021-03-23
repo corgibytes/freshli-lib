@@ -1,13 +1,17 @@
 ## v0.4.0
 
 
-As part of this release we had [9 issues](https://github.com/corgibytes/freshli-lib/milestone/5?closed=1) closed.
+As part of this release we had [10 issues](https://github.com/corgibytes/freshli-lib/milestone/5?closed=1) closed.
 Goals for this milestone:
 
 - Common Freshli dependency interface.
 - Support parsing multiple manifests but specifically focusing on .NET for this release.
 - Beta version of NuGet package.
 - Fail build if metrics like CodeClimate, Coverage, etc, are worse then previous build.
+
+__Bug__
+
+- [__#290__](https://github.com/corgibytes/freshli-lib/pull/290) Fix changelog line endings for git auto commit
 
 __DevOps__
 
