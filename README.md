@@ -1,8 +1,8 @@
 [![.NET Core](https://github.com/corgibytes/freshli/workflows/.NET%20Core/badge.svg)](https://github.com/corgibytes/freshli/actions?query=workflow%3A%22.NET+Core%22)
 [![Docker Image CI](https://github.com/corgibytes/freshli/workflows/Docker%20Image%20CI/badge.svg)](https://github.com/corgibytes/freshli/actions?query=workflow%3A%22Docker+Image+CI%22)
 [![EditorConfig Lint](https://github.com/corgibytes/freshli/workflows/EditorConfig%20Lint/badge.svg)](https://github.com/corgibytes/freshli/actions?query=workflow%3A%22EditorConfig+Lint%22)
-[![Maintainability](https://api.codeclimate.com/v1/badges/d808370d214bbda62e58/maintainability)](https://codeclimate.com/repos/601c1f18f9414200c900094b/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/d808370d214bbda62e58/test_coverage)](https://codeclimate.com/repos/601c1f18f9414200c900094b/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/4d7b974eedea679e6b03/maintainability)](https://codeclimate.com/github/corgibytes/freshli-lib/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/4d7b974eedea679e6b03/test_coverage)](https://codeclimate.com/github/corgibytes/freshli-lib/test_coverage)
 
 # freshli
 A tool for collecting historical metrics about a project's dependencies
