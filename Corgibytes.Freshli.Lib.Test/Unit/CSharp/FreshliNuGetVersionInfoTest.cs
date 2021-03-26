@@ -20,10 +20,10 @@ namespace Corgibytes.Freshli.Lib.Test.Unit.CSharp {
       int result
     ) {
       var versionInfo1 = new FreshliNuGetVersionInfo(
-          new NuGetVersion(version1), DateTime.UtcNow
+          new NuGetVersion(version1), DateTimeOffset.UtcNow
       );
       var versionInfo2 = new FreshliNuGetVersionInfo(
-          new NuGetVersion(version2), DateTime.UtcNow
+          new NuGetVersion(version2), DateTimeOffset.UtcNow
       );
 
       Assert.Equal(versionInfo1.CompareTo(versionInfo2), result);
@@ -37,7 +37,7 @@ namespace Corgibytes.Freshli.Lib.Test.Unit.CSharp {
       bool result
     ) {
       var versionInfo = new FreshliNuGetVersionInfo(
-          new NuGetVersion(version), DateTime.UtcNow
+          new NuGetVersion(version), DateTimeOffset.UtcNow
       );
 
       Assert.Equal(versionInfo.IsPreRelease, result);
@@ -47,7 +47,7 @@ namespace Corgibytes.Freshli.Lib.Test.Unit.CSharp {
     public void ProvidesVersion() {
       var version = "1.0.0";
       var versionInfo = new FreshliNuGetVersionInfo(
-          new NuGetVersion(version), DateTime.UtcNow
+          new NuGetVersion(version), DateTimeOffset.UtcNow
       );
 
       Assert.Equal(versionInfo.Version, version);
@@ -59,7 +59,7 @@ namespace Corgibytes.Freshli.Lib.Test.Unit.CSharp {
       Assert.Throws<ArgumentException>
       (() => new FreshliNuGetVersionInfo(
           new NuGetVersion("1.0.0"),
-          DateTime.UtcNow).CompareTo(null));
+          DateTimeOffset.UtcNow).CompareTo(null));
     }
 
     [Fact]
@@ -68,7 +68,7 @@ namespace Corgibytes.Freshli.Lib.Test.Unit.CSharp {
       Assert.Throws<ArgumentException>
       (() => new FreshliNuGetVersionInfo(
           new NuGetVersion("1.0.0"),
-          DateTime.UtcNow).CompareTo(
+          DateTimeOffset.UtcNow).CompareTo(
               new SemVerVersionInfo("1.0.0")
           )
       );

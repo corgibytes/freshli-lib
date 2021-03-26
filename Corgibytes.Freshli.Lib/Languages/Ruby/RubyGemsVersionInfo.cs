@@ -13,6 +13,9 @@ namespace Corgibytes.Freshli.Lib.Languages.Ruby {
   *  https://ruby-doc.org/stdlib-2.5.0/libdoc/rubygems/rdoc/Gem/Version.html.
   */
 
+  public static IVersionInfo MinimumVersion =
+    new RubyGemsVersionInfo("0", DateTimeOffset.MinValue);
+
     private string _version;
 
     public string Version {
@@ -23,15 +26,19 @@ namespace Corgibytes.Freshli.Lib.Languages.Ruby {
       }
     }
 
-    public DateTime DatePublished { get; set; }
+    public DateTimeOffset DatePublished { get; set; }
 
     public bool IsPreRelease { get; set; }
+
+    public bool IsPlatformSpecific => PlatformSpecifier != null;
+
+    public string PlatformSpecifier { get; set; }
 
     public List<string> VersionParts { get; private set; }
 
     public RubyGemsVersionInfo() { }
 
-    public RubyGemsVersionInfo(string version, DateTime datePublished) {
+    public RubyGemsVersionInfo(string version, DateTimeOffset datePublished) {
       Version = version;
       DatePublished = datePublished;
     }
@@ -69,14 +76,22 @@ namespace Corgibytes.Freshli.Lib.Languages.Ruby {
         foreach (var versionPart in _version.Split('.')) {
           AddVersionPart(versionPart);
         }
-
-        IsPreRelease = Regex.IsMatch(_version, @"[a-zA-Z]");
       } catch {
         throw new VersionParseException(_version);
       }
     }
 
     private void AddVersionPart(string part) {
+      if (part.Contains("-")) {
+        var subParts = part.Split("-");
+        part = subParts.First();
+        PlatformSpecifier = String.Join("-", subParts.Skip(1));
+      }
+
+      if (!IsPreRelease) {
+        IsPreRelease = Regex.IsMatch(part, @"[a-zA-Z]");
+      }
+
       if (IsOnlyAlpha(part) || IsOnlyNumeric(part)) {
         VersionParts.Add(part);
       } else {
@@ -136,7 +151,7 @@ namespace Corgibytes.Freshli.Lib.Languages.Ruby {
     public override string ToString() {
       return
         $"{nameof(Version)}: {Version}, " +
-        $"{nameof(DatePublished)}: {DatePublished:d}";
+        $"{nameof(DatePublished)}: {DatePublished:O}";
     }
   }
 }

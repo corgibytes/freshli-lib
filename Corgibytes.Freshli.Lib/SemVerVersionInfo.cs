@@ -25,7 +25,7 @@ namespace Corgibytes.Freshli.Lib {
     public long Major { get; private set; }
     public long? Minor { get; private set; }
     public long? Patch { get; private set; }
-    public DateTime DatePublished { get; set; }
+    public DateTimeOffset DatePublished { get; set; }
 
     public string PreRelease {
       get => _preRelease;
@@ -40,7 +40,10 @@ namespace Corgibytes.Freshli.Lib {
     public long? PreReleaseIncrement { get; private set; }
     public string BuildMetadata { get; private set; }
 
-    public SemVerVersionInfo(string version, DateTime? datePublished = null) {
+    public SemVerVersionInfo(
+      string version,
+      DateTimeOffset? datePublished = null
+    ) {
       Version = version;
       if (datePublished.HasValue) { DatePublished = datePublished.Value; }
 
@@ -165,7 +168,7 @@ namespace Corgibytes.Freshli.Lib {
         $"{nameof(Patch)}: {Patch}, " +
         $"{nameof(PreRelease)}: {PreRelease}, " +
         $"{nameof(BuildMetadata)}: {BuildMetadata}, " +
-        $"{nameof(DatePublished)}: {DatePublished:d}";
+        $"{nameof(DatePublished)}: {DatePublished:O}";
     }
 
     private void ParsePreRelease(string value) {

@@ -42,7 +42,7 @@ namespace Corgibytes.Freshli.Lib.Languages.Php {
 
     public IVersionInfo Latest(
       string name,
-      DateTime asOf,
+      DateTimeOffset asOf,
       bool includePreReleases)
     {
       foreach (var repository in _composerRespositories) {
@@ -66,17 +66,21 @@ namespace Corgibytes.Freshli.Lib.Languages.Php {
       return null;
     }
 
-    public IVersionInfo Latest(string name, DateTime asOf, string thatMatches) {
+    public IVersionInfo Latest(
+      string name,
+      DateTimeOffset asOf,
+      string thatMatches
+    ) {
       throw new NotImplementedException();
     }
 
     public List<IVersionInfo> VersionsBetween(
       string name,
-      DateTime asOf,
+      DateTimeOffset asOf,
       IVersionInfo earlierVersion,
       IVersionInfo laterVersion,
-      bool includePreReleases)
-    {
+      bool includePreReleases
+    ) {
       //TODO: Implement method
       throw new NotImplementedException();
     }

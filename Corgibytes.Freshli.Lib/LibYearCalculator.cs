@@ -15,7 +15,7 @@ namespace Corgibytes.Freshli.Lib {
       Manifest = manifest;
     }
 
-    public LibYearResult ComputeAsOf(DateTime date) {
+    public LibYearResult ComputeAsOf(DateTimeOffset date) {
       var result = new LibYearResult();
 
       foreach (var package in Manifest) {
@@ -47,7 +47,7 @@ namespace Corgibytes.Freshli.Lib {
     }
 
     private void GetVersions(
-      DateTime date,
+      DateTimeOffset date,
       PackageInfo package,
       out IVersionInfo latestVersion,
       out IVersionInfo currentVersion
@@ -65,7 +65,7 @@ namespace Corgibytes.Freshli.Lib {
     }
 
     private LibYearPackageResult ProcessPackageResult(
-      DateTime date,
+      DateTimeOffset date,
       PackageInfo package,
       IVersionInfo latestVersion,
       IVersionInfo currentVersion)
@@ -90,7 +90,7 @@ namespace Corgibytes.Freshli.Lib {
         } else {
           packageResult.UpgradeAvailable = true;
           _logger.Warn($"Negative value ({libYearValue:0.000}) " +
-            $"computed for {package.Name} as of {date:d}; " +
+            $"computed for {package.Name} as of {date:O}; " +
             $"setting value to 0: {packageResult}");
         }
       }
@@ -115,9 +115,9 @@ namespace Corgibytes.Freshli.Lib {
       var packageResult = new LibYearPackageResult(
         package.Name,
         version: package.Version,
-        publishedAt: DateTime.MinValue,
+        publishedAt: DateTimeOffset.MinValue,
         latestVersion: null,
-        latestPublishedAt: DateTime.MinValue,
+        latestPublishedAt: DateTimeOffset.MinValue,
         value: 0,
         upgradeAvailable: false,
         skipped: true
@@ -126,9 +126,12 @@ namespace Corgibytes.Freshli.Lib {
       _logger.Trace(e.StackTrace);
     }
 
-    private LibYearPackageResult ComputeUsingVersionsBetween(string name,
-      DateTime asOf, IVersionInfo currentVersion, IVersionInfo latestVersion)
-    {
+    private LibYearPackageResult ComputeUsingVersionsBetween(
+      string name,
+      DateTimeOffset asOf,
+      IVersionInfo currentVersion,
+      IVersionInfo latestVersion
+    ) {
       try {
         var versions = Repository.VersionsBetween(
           name,

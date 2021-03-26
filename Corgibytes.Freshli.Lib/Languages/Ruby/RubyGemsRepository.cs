@@ -1,8 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Net;
+using System.Xml.Linq;
 using Corgibytes.Freshli.Lib.Exceptions;
 using HtmlAgilityPack;
+using Polly;
 
 namespace Corgibytes.Freshli.Lib.Languages.Ruby {
   public class RubyGemsRepository : IPackageRepository {
@@ -22,18 +26,30 @@ namespace Corgibytes.Freshli.Lib.Languages.Ruby {
           return _packages[key];
         }
 
-        var url = $"https://rubygems.org/gems/{name}/versions";
-        var web = new HtmlWeb();
-        var document = web.Load(url);
-        var versions = new List<IVersionInfo>();
+        var url = $"https://rubygems.org/gems/{name}/versions.atom";
+        var document = Policy.
+          Handle<System.Net.Http.HttpRequestException>().
+          WaitAndRetry(5, retryAttempt =>
+            TimeSpan.FromMilliseconds(100 * Math.Pow(2, retryAttempt))
+          ).ExecuteAndCapture(() => XDocument.Load(url)).Result;
+        XNamespace atom = "http://www.w3.org/2005/Atom";
 
-        var releaseNodes = document.DocumentNode.Descendants("li").
-          Where(li => li.HasClass("gem__version-wrap"));
+        var versions = document.Descendants(atom + "entry").Select(
+          entry => new RubyGemsVersionInfo(
+            entry.Descendants(atom + "id").First().Value.Split("/").Last(),
+            DateTimeOffset.Parse(
+              entry.Descendants(atom + "updated").First().Value
+            )
+          )
+        ).ToList();
 
-        foreach (var releaseNode in releaseNodes) {
-          ProcessReleaseNode(includePreReleaseVersions, versions, releaseNode);
+        versions.RemoveAll(version => version.IsPlatformSpecific);
+
+        if (!includePreReleaseVersions) {
+          versions.RemoveAll(version => version.IsPreRelease);
         }
-        _packages[key] = versions;
+
+        _packages.Add(key, versions.Cast<IVersionInfo>().ToList());
         return versions;
 
       } catch (Exception e) {
@@ -43,7 +59,7 @@ namespace Corgibytes.Freshli.Lib.Languages.Ruby {
 
     public IVersionInfo Latest(
       string name,
-      DateTime asOf,
+      DateTimeOffset asOf,
       bool includePreReleases)
     {
       try {
@@ -66,14 +82,14 @@ namespace Corgibytes.Freshli.Lib.Languages.Ruby {
 
     public IVersionInfo Latest(
       string name,
-      DateTime asOf,
+      DateTimeOffset asOf,
       string thatMatches) {
       throw new NotImplementedException();
     }
 
     public List<IVersionInfo> VersionsBetween(
       string name,
-      DateTime asOf,
+      DateTimeOffset asOf,
       IVersionInfo earlierVersion,
       IVersionInfo laterVersion,
       bool includePreReleases)
@@ -113,7 +129,12 @@ namespace Corgibytes.Freshli.Lib.Languages.Ruby {
 
       var rawDate = releaseNode.Descendants("small").First().InnerText.
         Replace("- ", "");
-      var versionDate = DateTime.ParseExact(rawDate, "MMMM dd, yyyy", null);
+      var versionDate = DateTimeOffset.ParseExact(
+        rawDate,
+        "MMMM dd, yyyy",
+        CultureInfo.InvariantCulture,
+        DateTimeStyles.AssumeUniversal
+      );
 
       var versionInfo = new RubyGemsVersionInfo(version, versionDate);
       if ((!versionInfo.IsPreRelease || includePreReleaseVersions) &&

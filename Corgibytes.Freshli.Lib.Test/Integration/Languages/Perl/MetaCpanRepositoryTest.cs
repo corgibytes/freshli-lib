@@ -9,7 +9,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Perl {
       var repository = new MetaCpanRepository();
       var versionInfo = repository.VersionInfo("Plack", "1.0026");
       var expectedDate =
-        new DateTime(2013, 06, 13, 06, 01, 17, DateTimeKind.Utc);
+        new DateTimeOffset(2013, 06, 13, 06, 01, 17, TimeSpan.Zero);
 
       Assert.Equal("1.0026", versionInfo.Version);
       Assert.Equal(expectedDate, versionInfo.DatePublished);
@@ -20,7 +20,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Perl {
       var repository = new MetaCpanRepository();
       var versionInfo = repository.VersionInfo("Test::More", "1.301001_048");
       var expectedDate =
-        new DateTime(2014, 09, 25, 03, 39, 01, DateTimeKind.Utc);
+        new DateTimeOffset(2014, 09, 25, 03, 39, 01, TimeSpan.Zero);
 
       Assert.Equal("1.301001_048", versionInfo.Version);
       Assert.Equal(expectedDate, versionInfo.DatePublished);
@@ -29,17 +29,17 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Perl {
     [Fact]
     public void LatestAsOf() {
       var repository = new MetaCpanRepository();
-      var targetDate = new DateTime(2018, 01, 01, 0, 0, 0, DateTimeKind.Utc);
+      var targetDate = new DateTimeOffset(2018, 01, 01, 0, 0, 0, TimeSpan.Zero);
       var versionInfo = repository.Latest(
         "Plack", targetDate, includePreReleases: false);
-      var expectedDate = new DateTime(
+      var expectedDate = new DateTimeOffset(
         2017,
         12,
         31,
         20,
         42,
         50,
-        DateTimeKind.Utc
+        TimeSpan.Zero
       );
 
       Assert.Equal("1.0045", versionInfo.Version);
@@ -72,20 +72,20 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Perl {
       string expectedVersion
     ) {
       var repository = new MetaCpanRepository();
-      var targetDate = new DateTime(2018, 01, 01, 0, 0, 0, DateTimeKind.Utc);
+      var targetDate = new DateTimeOffset(2018, 01, 01, 0, 0, 0, TimeSpan.Zero);
       var versionInfo = repository.Latest(
         packageName,
         asOf: targetDate,
         thatMatches: versionExpression
       );
-      var expectedDate = new DateTime(
+      var expectedDate = new DateTimeOffset(
         expectedYear,
         expectedMonth,
         expectedDay,
         expectedHour,
         expectedMinute,
         expectedSecond,
-        DateTimeKind.Utc
+        TimeSpan.Zero
       );
 
       Assert.Equal(expectedVersion, versionInfo.Version);
@@ -95,7 +95,8 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Perl {
     [Fact]
     public void VersionsBetween() {
       var repository = new MetaCpanRepository();
-      var targetDate = new DateTime(2015, 01, 01);
+      var targetDate =
+        new DateTimeOffset(2015, 01, 01, 00, 00, 00, TimeSpan.Zero);
       var earlierVersion = new SemVerVersionInfo("1.0027");
       var laterVersion = new SemVerVersionInfo("1.0045");
 

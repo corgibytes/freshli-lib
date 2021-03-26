@@ -48,7 +48,7 @@ namespace Corgibytes.Freshli.Lib.Languages.Perl {
       foreach (var hit in hitsJson.GetProperty("hits").EnumerateArray()) {
         var fields = hit.GetProperty("fields");
         var version = fields.GetProperty("version").GetString();
-        var date = DateTime.Parse(
+        var date = DateTimeOffset.Parse(
           fields.GetProperty("date").GetString(),
           CultureInfo.InvariantCulture,
           DateTimeStyles.AssumeUniversal
@@ -64,7 +64,7 @@ namespace Corgibytes.Freshli.Lib.Languages.Perl {
     //TODO: Update logic to utilize includePreReleases
     public IVersionInfo Latest(
       string name,
-      DateTime asOf,
+      DateTimeOffset asOf,
       bool includePreReleases)
     {
       return GetReleaseHistory(name).OrderByDescending(v => v).
@@ -75,7 +75,11 @@ namespace Corgibytes.Freshli.Lib.Languages.Perl {
       return GetReleaseHistory(name).First(v => v.Version == version);
     }
 
-    public IVersionInfo Latest(string name, DateTime asOf, string thatMatches) {
+    public IVersionInfo Latest(
+      string name,
+      DateTimeOffset asOf,
+      string thatMatches
+    ) {
       var expression = VersionMatcher.Create(thatMatches);
       return GetReleaseHistory(name).OrderByDescending(v => v).
         Where(v => v.DatePublished <= asOf).
@@ -83,7 +87,7 @@ namespace Corgibytes.Freshli.Lib.Languages.Perl {
     }
 
     //TODO: Update logic to utilize includePreReleases
-    public List<IVersionInfo> VersionsBetween(string name, DateTime asOf,
+    public List<IVersionInfo> VersionsBetween(string name, DateTimeOffset asOf,
       IVersionInfo earlierVersion, IVersionInfo laterVersion,
       bool includePreReleases)
     {

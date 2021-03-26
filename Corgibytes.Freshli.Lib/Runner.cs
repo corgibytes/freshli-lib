@@ -18,8 +18,8 @@ namespace Corgibytes.Freshli.Lib {
       FileHistoryFinder.Register<GitFileHistoryFinder>();
     }
 
-    public IList<MetricsResult> Run(string analysisPath, DateTime asOf) {
-      logger.Info($"Run({analysisPath}, {asOf:d})");
+    public IList<MetricsResult> Run(string analysisPath, DateTimeOffset asOf) {
+      logger.Info($"Run({analysisPath}, {asOf:O})");
 
       var metricsResults = new List<MetricsResult>();
 
@@ -50,7 +50,7 @@ namespace Corgibytes.Freshli.Lib {
 
     private void ProcessManifestFile(
       string analysisPath,
-      DateTime asOf,
+      DateTimeOffset asOf,
       List<MetricsResult> metricsResults,
       FileHistoryFinder fileHistoryFinder
     ) {
@@ -74,7 +74,7 @@ namespace Corgibytes.Freshli.Lib {
       List<MetricsResult> metricsResults,
       LibYearCalculator calculator,
       IFileHistory fileHistory,
-      DateTime currentDate
+      DateTimeOffset currentDate
     ) {
       var content = fileHistory.ContentsAsOf(currentDate);
       calculator.Manifest.Parse(content);
@@ -84,7 +84,7 @@ namespace Corgibytes.Freshli.Lib {
       LibYearResult libYear = calculator.ComputeAsOf(currentDate);
       logger.Trace(
         "Adding MetricResult: {manifestFile}, " +
-        "currentDate = {currentDate:d}, " +
+        "currentDate = {currentDate:O}, " +
         "sha = {sha}, " +
         "libYear = {ComputeAsOf}",
         ManifestFinder.ManifestFiles[0],
@@ -96,7 +96,7 @@ namespace Corgibytes.Freshli.Lib {
     }
 
     public IList<MetricsResult> Run(string analysisPath) {
-      var asOf = DateTime.Today.ToEndOfDay();
+      var asOf = DateTimeOffset.UtcNow.ToEndOfDay();
       return Run(analysisPath, asOf: asOf);
     }
 
@@ -104,7 +104,7 @@ namespace Corgibytes.Freshli.Lib {
       if (!System.IO.Directory.Exists(ResultsPath)) {
         System.IO.Directory.CreateDirectory(ResultsPath);
       }
-      var dateTime = DateTime.Now;
+      var dateTime = DateTimeOffset.UtcNow;
       var filePath =
         $"{ResultsPath}/{dateTime:yyyy-MM-dd-hhmmssfffffff}-results.txt";
       using var file = new System.IO.StreamWriter(filePath);

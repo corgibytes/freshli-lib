@@ -14,7 +14,10 @@ namespace Corgibytes.Freshli.Lib.Test.Integration {
       );
       var versionInfo = repository.VersionInfo("monolog/monolog", "1.11.0");
 
-      Assert.Equal(new DateTime(2014, 09, 30), versionInfo.DatePublished);
+      Assert.Equal(
+        new DateTimeOffset(2014, 09, 30, 13, 30, 58, TimeSpan.Zero),
+        versionInfo.DatePublished
+      );
     }
 
     [Fact]
@@ -27,7 +30,8 @@ namespace Corgibytes.Freshli.Lib.Test.Integration {
       );
       var versionInfo = repository.Latest(
         "monolog/monolog",
-        new DateTime(2020, 01, 01), includePreReleases: false
+        new DateTimeOffset(2020, 01, 01, 00, 00, 00, TimeSpan.Zero),
+        includePreReleases: false
       );
 
       Assert.Equal("2.0.2", versionInfo.Version);
@@ -44,7 +48,8 @@ namespace Corgibytes.Freshli.Lib.Test.Integration {
 
       var versionInfo = repository.Latest(
         "symfony/css-selector",
-        new DateTime(2020, 01, 01), includePreReleases: false
+        new DateTimeOffset(2020, 01, 01, 00, 00, 00, TimeSpan.Zero),
+        includePreReleases: false
       );
 
       Assert.Equal("v5.0.2", versionInfo.Version);
