@@ -19,30 +19,12 @@ namespace Corgibytes.Freshli.Lib.Languages.Ruby {
       bool includePreReleaseVersions)
     {
       try {
-        var keySuffix =
-          includePreReleaseVersions ? "-with-pre-releases" : "";
-        var key = $"{name}{keySuffix}";
+        var key = BuildCacheKey(name, includePreReleaseVersions);
         if (_packages.ContainsKey(key)) {
           return _packages[key];
         }
 
-        var url = $"https://rubygems.org/gems/{name}/versions.atom";
-        var document = Policy.
-          Handle<System.Net.Http.HttpRequestException>().
-          WaitAndRetry(5, retryAttempt =>
-            TimeSpan.FromMilliseconds(100 * Math.Pow(2, retryAttempt))
-          ).ExecuteAndCapture(() => XDocument.Load(url)).Result;
-        XNamespace atom = "http://www.w3.org/2005/Atom";
-
-        var versions = document.Descendants(atom + "entry").Select(
-          entry => new RubyGemsVersionInfo(
-            entry.Descendants(atom + "id").First().Value.Split("/").Last(),
-            DateTimeOffset.Parse(
-              entry.Descendants(atom + "updated").First().Value
-            )
-          )
-        ).ToList();
-
+        var versions = GetReleaseHistoryForGem(name);
         versions.RemoveAll(version => version.IsPlatformSpecific);
 
         if (!includePreReleaseVersions) {
@@ -55,6 +37,36 @@ namespace Corgibytes.Freshli.Lib.Languages.Ruby {
       } catch (Exception e) {
         throw new DependencyNotFoundException(name, e);
       }
+    }
+
+    private static string BuildCacheKey(string name, bool includePreReleaseVersions)
+    {
+      var keySuffix =
+        includePreReleaseVersions ? "-with-pre-releases" : "";
+      var key = $"{name}{keySuffix}";
+      return key;
+    }
+
+    private static List<RubyGemsVersionInfo> GetReleaseHistoryForGem(string name)
+    {
+      var url = $"https://rubygems.org/gems/{name}/versions.atom";
+      var document = Policy.Handle<System.Net.Http.HttpRequestException>().
+        WaitAndRetry(
+          5,
+          retryAttempt =>
+            TimeSpan.FromMilliseconds(100 * Math.Pow(2, retryAttempt))
+      ).ExecuteAndCapture(() => XDocument.Load(url)).Result;
+      XNamespace atom = "http://www.w3.org/2005/Atom";
+
+      var versions = document.Descendants(atom + "entry").Select(
+        entry => new RubyGemsVersionInfo(
+          entry.Descendants(atom + "id").First().Value.Split("/").Last(),
+          DateTimeOffset.Parse(
+            entry.Descendants(atom + "updated").First().Value
+          )
+        )
+      ).ToList();
+      return versions;
     }
 
     public IVersionInfo Latest(
