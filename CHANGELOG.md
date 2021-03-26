@@ -1,13 +1,17 @@
 ## v0.4.0
 
 
-As part of this release we had [9 issues](https://github.com/corgibytes/freshli-lib/milestone/5?closed=1) closed.
+As part of this release we had [11 issues](https://github.com/corgibytes/freshli-lib/milestone/5?closed=1) closed.
 Goals for this milestone:
 
 - Common Freshli dependency interface.
 - Support parsing multiple manifests but specifically focusing on .NET for this release.
 - Beta version of NuGet package.
 - Fail build if metrics like CodeClimate, Coverage, etc, are worse then previous build.
+
+__Bug__
+
+- [__#290__](https://github.com/corgibytes/freshli-lib/pull/290) Fix changelog line endings for git auto commit
 
 __DevOps__
 
@@ -16,6 +20,7 @@ __DevOps__
 - [__#277__](https://github.com/corgibytes/freshli-lib/pull/277) Add nuspec information
 - [__#268__](https://github.com/corgibytes/freshli-lib/issues/268) Version not correctly incremented when merging tag from release to main
 - [__#261__](https://github.com/corgibytes/freshli-lib/pull/261) Sets up minimal rename for NuGet push
+- [__#253__](https://github.com/corgibytes/freshli-lib/issues/253) Fix multiple CodeClimate Freshli projects
 
 __Dependencies__
 
