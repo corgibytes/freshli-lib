@@ -101,46 +101,5 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Ruby {
 
       Assert.Equal(11, versions.Count);
     }
-
-    [Fact]
-    public void ProperlyHandlesRateLimits() {
-      var repository = new RubyGemsRepository();
-      var targetDate =
-        new DateTimeOffset(2021, 03, 10, 00, 00, 00, TimeSpan.Zero);
-
-      var packages = File.ReadAllLines(
-        Fixtures.Path("ruby", "rate_limit_packages.txt")
-      ).ToList();
-      var packagesAndResults = new Dictionary<string, List<IVersionInfo>>();
-
-      packages.ForEach(
-        package => {
-          var latest = repository.Latest(
-            package,
-            asOf: targetDate,
-            true
-          );
-
-          var allVersions = repository.VersionsBetween(
-            name: package,
-            targetDate,
-            RubyGemsVersionInfo.MinimumVersion,
-            new RubyGemsVersionInfo(latest.Version, latest.DatePublished),
-            includePreReleases: true
-          );
-
-          packagesAndResults.Add(package, allVersions);
-        }
-      );
-
-      Approvals.VerifyAll(packagesAndResults, (package, values) => {
-          var joinedValues = String.Join(
-            ", ",
-            values.Select(v => v.ToString()).ToList()
-          );
-          return $"{package}: [ {joinedValues} ]";
-        }
-      );
-    }
   }
 }
