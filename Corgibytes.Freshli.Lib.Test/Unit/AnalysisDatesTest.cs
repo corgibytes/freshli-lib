@@ -8,14 +8,6 @@ using Xunit;
 
 namespace Corgibytes.Freshli.Lib.Test.Unit {
   public class AnalysisDatesTest {
-    private static DateTimeOffset ParseExact(string value) {
-      return DateTimeOffset.ParseExact(value,
-        "o",
-        CultureInfo.InvariantCulture,
-        DateTimeStyles.RoundtripKind
-      );
-    }
-
     [Fact]
     public void SingleDate() {
       var history = new Mock<IFileHistory>();
@@ -268,6 +260,14 @@ namespace Corgibytes.Freshli.Lib.Test.Unit {
       Assert.Equal(
         new List<DateTimeOffset> {ParseExact("2020-01-01T00:00:00.0000000Z")},
         analysisDates
+      );
+    }
+
+    private static DateTimeOffset ParseExact(string value) {
+      return DateTimeOffset.ParseExact(value,
+        "o",
+        CultureInfo.InvariantCulture,
+        DateTimeStyles.RoundtripKind
       );
     }
   }
