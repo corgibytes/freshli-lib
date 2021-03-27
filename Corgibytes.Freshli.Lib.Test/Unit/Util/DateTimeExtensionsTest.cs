@@ -5,36 +5,20 @@ using Xunit;
 namespace Corgibytes.Freshli.Lib.Test.Unit.Util {
   public class DateTimeExtensionsTest {
     [Theory]
-    [InlineData(2020, 1, 5, 23, 59, 59, 999, 9998, -1)]
-    [InlineData(2020, 1, 5, 23, 59, 59, 999, 9999, -1)]
-    [InlineData(2020, 1, 6, 0, 0, 0, 0, 0, 0)]
-    [InlineData(2020, 1, 6, 0, 0, 0, 0, 1, 0)]
-    [InlineData(2020, 1, 6, 12, 0, 0, 0, 0, 0)]
-    [InlineData(2020, 1, 6, 23, 59, 59, 999, 9998, 0)]
-    [InlineData(2020, 1, 6, 23, 59, 59, 999, 9999, 0)]
-    [InlineData(2020, 1, 7, 0, 0, 0, 0, 0, 1)]
-    [InlineData(2020, 1, 7, 0, 0, 0, 0, 1, 1)]
+    [InlineData(new[] {2020, 1, 5, 23, 59, 59, 999, 9998}, -1)]
+    [InlineData(new[] {2020, 1, 5, 23, 59, 59, 999, 9999}, -1)]
+    [InlineData(new[] {2020, 1, 6, 0, 0, 0, 0, 0}, 0)]
+    [InlineData(new[] {2020, 1, 6, 0, 0, 0, 0, 1}, 0)]
+    [InlineData(new[] {2020, 1, 6, 12, 0, 0, 0, 0}, 0)]
+    [InlineData(new[] {2020, 1, 6, 23, 59, 59, 999, 9998}, 0)]
+    [InlineData(new[] {2020, 1, 6, 23, 59, 59, 999, 9999}, 0)]
+    [InlineData(new[] {2020, 1, 7, 0, 0, 0, 0, 0}, 1)]
+    [InlineData(new[] {2020, 1, 7, 0, 0, 0, 0, 1}, 1)]
     public void EndOfDayValuesCompareCorrectly(
-      int year,
-      int month,
-      int day,
-      int hour,
-      int minute,
-      int second,
-      int millisecond,
-      int tick,
+      int[] dateArguments,
       int comparison
     ) {
-      var inputDate = new DateTimeOffset(
-        year,
-        month,
-        day,
-        hour,
-        minute,
-        second,
-        millisecond,
-        TimeSpan.Zero
-      ).AddTicks(tick);
+      var inputDate = BuildDateTimeOffset(dateArguments);
 
       var endOfDayOn2020106 =
         new DateTimeOffset(2020, 1, 6, 23, 59, 59, 999, TimeSpan.Zero).
@@ -49,36 +33,20 @@ namespace Corgibytes.Freshli.Lib.Test.Unit.Util {
     }
 
     [Theory]
-    [InlineData(2020, 1, 5, 23, 59, 59, 999, 9998, -1)]
-    [InlineData(2020, 1, 5, 23, 59, 59, 999, 9999, -1)]
-    [InlineData(2020, 1, 6, 0, 0, 0, 0, 0, 0)]
-    [InlineData(2020, 1, 6, 0, 0, 0, 0, 1, 0)]
-    [InlineData(2020, 1, 6, 12, 0, 0, 0, 0, 0)]
-    [InlineData(2020, 1, 6, 23, 59, 59, 999, 9998, 0)]
-    [InlineData(2020, 1, 6, 23, 59, 59, 999, 9999, 0)]
-    [InlineData(2020, 1, 7, 0, 0, 0, 0, 0, 1)]
-    [InlineData(2020, 1, 7, 0, 0, 0, 0, 1, 1)]
+    [InlineData(new[] {2020, 1, 5, 23, 59, 59, 999, 9998}, -1)]
+    [InlineData(new[] {2020, 1, 5, 23, 59, 59, 999, 9999}, -1)]
+    [InlineData(new[] {2020, 1, 6, 0, 0, 0, 0, 0}, 0)]
+    [InlineData(new[] {2020, 1, 6, 0, 0, 0, 0, 1}, 0)]
+    [InlineData(new[] {2020, 1, 6, 12, 0, 0, 0, 0}, 0)]
+    [InlineData(new[] {2020, 1, 6, 23, 59, 59, 999, 9998}, 0)]
+    [InlineData(new[] {2020, 1, 6, 23, 59, 59, 999, 9999}, 0)]
+    [InlineData(new[] {2020, 1, 7, 0, 0, 0, 0, 0}, 1)]
+    [InlineData(new[] {2020, 1, 7, 0, 0, 0, 0, 1}, 1)]
     public void StartOfDayValuesCompareCorrectly(
-      int year,
-      int month,
-      int day,
-      int hour,
-      int minute,
-      int second,
-      int millisecond,
-      int tick,
+      int[] dateArguments,
       int comparison
     ) {
-      var inputDate = new DateTimeOffset(
-        year,
-        month,
-        day,
-        hour,
-        minute,
-        second,
-        millisecond,
-        TimeSpan.Zero
-      ).AddTicks(tick);
+      var inputDate = BuildDateTimeOffset(dateArguments);
 
       var startOfDayOn2020106 =
         new DateTimeOffset(2020, 1, 6, 00, 00, 00, 000, TimeSpan.Zero);
@@ -92,39 +60,23 @@ namespace Corgibytes.Freshli.Lib.Test.Unit.Util {
     }
 
     [Theory]
-    [InlineData(2019, 12, 5, 23, 59, 59, 999, 9998, -1)]
-    [InlineData(2020, 1, 5, 23, 59, 59, 999, 9998, 0)]
-    [InlineData(2020, 1, 5, 23, 59, 59, 999, 9999, 0)]
-    [InlineData(2020, 1, 6, 0, 0, 0, 0, 0, 0)]
-    [InlineData(2020, 1, 6, 0, 0, 0, 0, 1, 0)]
-    [InlineData(2020, 1, 6, 12, 0, 0, 0, 0, 0)]
-    [InlineData(2020, 1, 6, 23, 59, 59, 999, 9998, 0)]
-    [InlineData(2020, 1, 6, 23, 59, 59, 999, 9999, 0)]
-    [InlineData(2020, 1, 7, 0, 0, 0, 0, 0, 0)]
-    [InlineData(2020, 1, 7, 0, 0, 0, 0, 1, 0)]
-    [InlineData(2020, 2, 7, 0, 0, 0, 0, 0, 1)]
-    [InlineData(2020, 2, 7, 0, 0, 0, 0, 1, 1)]
+    [InlineData(new[] {2019, 12, 5, 23, 59, 59, 999, 9998}, -1)]
+    [InlineData(new[] {2020, 1, 5, 23, 59, 59, 999, 9998}, 0)]
+    [InlineData(new[] {2020, 1, 5, 23, 59, 59, 999, 9999}, 0)]
+    [InlineData(new[] {2020, 1, 6, 0, 0, 0, 0, 0}, 0)]
+    [InlineData(new[] {2020, 1, 6, 0, 0, 0, 0, 1}, 0)]
+    [InlineData(new[] {2020, 1, 6, 12, 0, 0, 0, 0}, 0)]
+    [InlineData(new[] {2020, 1, 6, 23, 59, 59, 999, 9998}, 0)]
+    [InlineData(new[] {2020, 1, 6, 23, 59, 59, 999, 9999}, 0)]
+    [InlineData(new[] {2020, 1, 7, 0, 0, 0, 0, 0}, 0)]
+    [InlineData(new[] {2020, 1, 7, 0, 0, 0, 0, 1}, 0)]
+    [InlineData(new[] {2020, 2, 7, 0, 0, 0, 0, 0}, 1)]
+    [InlineData(new[] {2020, 2, 7, 0, 0, 0, 0, 1}, 1)]
     public void StartOfMonthValuesCompareCorrectly(
-      int year,
-      int month,
-      int day,
-      int hour,
-      int minute,
-      int second,
-      int millisecond,
-      int tick,
+      int[] dateArguments,
       int comparison
     ) {
-      var inputDate = new DateTimeOffset(
-        year,
-        month,
-        day,
-        hour,
-        minute,
-        second,
-        millisecond,
-        TimeSpan.Zero
-      ).AddTicks(tick);
+      var inputDate = BuildDateTimeOffset(dateArguments);
 
       var startOfDayOn2020101 =
         new DateTimeOffset(2020, 01, 01, 00, 00, 00, 000, TimeSpan.Zero);
@@ -137,5 +89,19 @@ namespace Corgibytes.Freshli.Lib.Test.Unit.Util {
       );
     }
 
+    private static DateTimeOffset BuildDateTimeOffset(int[] dateArguments)
+    {
+      var inputDate = new DateTimeOffset(
+        dateArguments[0],
+        dateArguments[1],
+        dateArguments[2],
+        dateArguments[3],
+        dateArguments[4],
+        dateArguments[5],
+        dateArguments[6],
+        TimeSpan.Zero
+      ).AddTicks(dateArguments[7]);
+      return inputDate;
+    }
   }
 }
