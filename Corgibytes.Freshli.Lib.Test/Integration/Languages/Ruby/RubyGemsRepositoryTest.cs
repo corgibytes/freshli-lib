@@ -31,27 +31,48 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Ruby {
       Assert.Equal(expectedDate, versionInfo.DatePublished);
     }
 
-    [Fact]
-    public void LatestAsOfCorrectlyFindsLatestVersion() {
-      var targetDate =
-        new DateTimeOffset(2020, 02, 01, 00, 00, 00, TimeSpan.Zero);
-      var versionInfo = _repository.Latest("git", targetDate, false);
-      var expectedDate =
-        new DateTimeOffset(2018, 08, 10, 07, 58, 25, TimeSpan.Zero);
-
-      Assert.Equal("1.5.0", versionInfo.Version);
-      Assert.Equal(expectedDate, versionInfo.DatePublished);
+    private DateTimeOffset BuildDateTimeOffsetFromParts(int[] dateParts) {
+      return new(
+        dateParts[0],
+        dateParts[1],
+        dateParts[2],
+        dateParts[3],
+        dateParts[4],
+        dateParts[5],
+        TimeSpan.Zero
+      );
     }
 
-    [Fact]
-    public void LatestAsOfCorrectlyFindsLatestPreReleaseVersion() {
-      var targetDate =
-        new DateTimeOffset(2020, 02, 01, 00, 00, 00, TimeSpan.Zero);
-      var versionInfo = _repository.Latest("git", targetDate, true);
-      var expectedDate =
-        new DateTimeOffset(2020, 01, 20, 20, 50, 43, TimeSpan.Zero);
+    [Theory]
+    [InlineData(
+      new object[] {"git", false},
+      new[] {2020, 02, 01, 00, 00, 00},
+      "1.5.0",
+      new[] {2018, 08, 10, 07, 58, 25}
+    )]
+    [InlineData(
+      new object[] {"git", true},
+      new[] {2020, 02, 01, 00, 00, 00},
+      "1.6.0.pre1",
+      new[] {2020, 01, 20, 20, 50, 43}
+    )]
+    public void Latest(
+      object[] methodParams,
+      int[] targetDateParts,
+      string expectedVersion,
+      int[] expectedDateParts
+    ) {
+      var gemName = (string) methodParams[0];
+      var includePreReleases = (bool) methodParams[1];
+      var targetDate = BuildDateTimeOffsetFromParts(targetDateParts);
+      var versionInfo = _repository.Latest(
+        gemName,
+        targetDate,
+        includePreReleases
+      );
+      var expectedDate = BuildDateTimeOffsetFromParts(expectedDateParts);
 
-      Assert.Equal("1.6.0.pre1", versionInfo.Version);
+      Assert.Equal(expectedVersion, versionInfo.Version);
       Assert.Equal(expectedDate, versionInfo.DatePublished);
     }
 
