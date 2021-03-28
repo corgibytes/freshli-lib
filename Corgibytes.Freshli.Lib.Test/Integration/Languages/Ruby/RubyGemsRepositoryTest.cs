@@ -12,23 +12,28 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Ruby {
   public class RubyGemsRepositoryTest {
     private RubyGemsRepository _repository = new();
 
-    [Fact]
-    public void VersionInfoCorrectlyCreatesVersion() {
-      var versionInfo = _repository.VersionInfo("tzinfo", "1.2.7");
-      var expectedDate =
-        new DateTimeOffset(2020, 04, 02, 21, 42, 11, TimeSpan.Zero);
+    [Theory]
+    [InlineData(
+      new[] {"tzinfo", "1.2.7"},
+      new[] {2020, 04, 02, 21, 42, 11},
+      "1.2.7"
+    ),
+    InlineData(
+      new[] {"git", "1.6.0.pre1"},
+      new[] {2020, 01, 20, 20, 50, 43},
+      "1.6.0.pre1"
+    )]
+    public void VersionInfo(
+      string[] methodParams,
+      int[] expectedDateParts,
+      string expectedVersion
+    ) {
+      var gemName = methodParams[0];
+      var gemVersion = methodParams[1];
+      var versionInfo = _repository.VersionInfo(gemName, gemVersion);
+      var expectedDate = BuildDateTimeOffsetFromParts(expectedDateParts);
 
-      Assert.Equal("1.2.7", versionInfo.Version);
-      Assert.Equal(expectedDate, versionInfo.DatePublished);
-    }
-
-    [Fact]
-    public void VersionInfoCorrectlyCreatesPreReleaseVersion() {
-      var versionInfo = _repository.VersionInfo("git", "1.6.0.pre1");
-      var expectedDate =
-        new DateTimeOffset(2020, 01, 20, 20, 50, 43, TimeSpan.Zero);
-
-      Assert.Equal("1.6.0.pre1", versionInfo.Version);
+      Assert.Equal(expectedVersion, versionInfo.Version);
       Assert.Equal(expectedDate, versionInfo.DatePublished);
     }
 
