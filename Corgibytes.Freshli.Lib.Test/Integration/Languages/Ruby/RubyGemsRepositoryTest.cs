@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using ApprovalTests;
 using Corgibytes.Freshli.Lib.Languages.Ruby;
 using Corgibytes.Freshli.Lib.Util;
@@ -76,49 +77,46 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Ruby {
       Assert.Equal(expectedDate, versionInfo.DatePublished);
     }
 
-    [Fact]
-    public void VersionsBetweenFindsVersionsReleasedBeforeTargetDate() {
-      var targetDate =
-        new DateTimeOffset(2014, 04, 01, 00, 00, 00, TimeSpan.Zero);
-      var earlierVersion = new RubyGemsVersionInfo {Version = "0.3.38"};
-      var laterVersion = new RubyGemsVersionInfo {Version = "1.1.0"};
+    [Theory]
+    [InlineData(
+      new object[] {"tzinfo", true},
+      new[] {2014, 04, 01, 00, 00, 00},
+      new[] {"0.3.38", "1.1.0"},
+      3
+    )]
+    [InlineData(
+      new object[] {"google-protobuf", false},
+      new[] {2020, 09, 01, 00, 00, 00},
+      new[] {"3.11.0", "3.13.0"},
+      8
+    )]
+    [InlineData(
+      new object[] {"google-protobuf", true},
+      new[] {2020, 09, 01, 00, 00, 00},
+      new[] {"3.11.0", "3.13.0"},
+      11
+    )]
+    public void VersionsBetween(
+      object[] methodParams,
+      int[] targetDateParts,
+      string[] versionRange,
+      int expectedVersionCount
+    ) {
+      var targetDate = BuildDateTimeOffsetFromParts(targetDateParts);
+      var earlierVersion = new RubyGemsVersionInfo {Version = versionRange[0]};
+      var laterVersion = new RubyGemsVersionInfo {Version = versionRange[1]};
 
+      var gemName = (string) methodParams[0];
+      var includePreReleases = (bool) methodParams[1];
       var versions = _repository.VersionsBetween(
-        "tzinfo",
+        gemName,
         targetDate,
         earlierVersion,
         laterVersion,
-        includePreReleases: true
+        includePreReleases
       );
 
-      Assert.Equal(3, versions.Count);
-    }
-
-    [Fact]
-    public void VersionsBetweenCorrectlyFindsVersions() {
-      var targetDate =
-        new DateTimeOffset(2020, 09, 01, 00, 00, 00, TimeSpan.Zero);
-      var earlierVersion = new RubyGemsVersionInfo {Version = "3.11.0"};
-      var laterVersion = new RubyGemsVersionInfo {Version = "3.13.0"};
-
-      var versions = _repository.VersionsBetween(name: "google-protobuf",
-        targetDate, earlierVersion, laterVersion, includePreReleases: false);
-
-      Assert.Equal(8, versions.Count);
-    }
-
-
-    [Fact]
-    public void VersionsBetweenCorrectlyFindsVersionsWithPreReleases() {
-      var targetDate =
-        new DateTimeOffset(2020, 09, 01, 00, 00, 00, TimeSpan.Zero);
-      var earlierVersion = new RubyGemsVersionInfo {Version = "3.11.0"};
-      var laterVersion = new RubyGemsVersionInfo {Version = "3.13.0"};
-
-      var versions = _repository.VersionsBetween(name: "google-protobuf",
-        targetDate, earlierVersion, laterVersion, includePreReleases: true);
-
-      Assert.Equal(11, versions.Count);
+      Assert.Equal(expectedVersionCount, versions.Count);
     }
   }
 }
