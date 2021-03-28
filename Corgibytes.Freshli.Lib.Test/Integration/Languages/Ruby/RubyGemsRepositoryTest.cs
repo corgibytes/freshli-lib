@@ -1,11 +1,5 @@
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices;
-using ApprovalTests;
 using Corgibytes.Freshli.Lib.Languages.Ruby;
-using Corgibytes.Freshli.Lib.Util;
 using Xunit;
 
 namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Ruby {
