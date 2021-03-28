@@ -32,14 +32,11 @@ namespace Corgibytes.Freshli.Lib.Test.Unit {
         asOf: stopDate
       );
 
-      var expectedDates = new List<DateTimeOffset>() {
-        ParseExact("2017-01-01T23:59:59.9999999Z")
-      };
-      var currentDate = ParseExact("2017-02-01T00:00:00.0000000Z");
-      while (currentDate <= stopDate) {
-        expectedDates.Add(currentDate);
-        currentDate = currentDate.AddMonths(1);
-      }
+      var expectedDates = BuildExpectedDates(
+        firstDateString: "2017-01-01T23:59:59.9999999Z",
+        secondDateString: "2017-02-01T00:00:00.0000000Z",
+        stopDate
+      );
 
       Assert.Equal(expectedDates, analysisDates);
     }
@@ -53,14 +50,11 @@ namespace Corgibytes.Freshli.Lib.Test.Unit {
         asOf: stopDate
       );
 
-      var expectedDates = new List<DateTimeOffset>() {
-        ParseExact("2017-01-01T23:59:59.9999999Z")
-      };
-      var currentDate = ParseExact("2017-02-01T00:00:00.0000000-08:00");
-      while (currentDate <= stopDate) {
-        expectedDates.Add(currentDate);
-        currentDate = currentDate.AddMonths(1);
-      }
+      var expectedDates = BuildExpectedDates(
+        firstDateString: "2017-01-01T23:59:59.9999999Z",
+        secondDateString: "2017-02-01T00:00:00.0000000-08:00",
+        stopDate
+      );
 
       Assert.Equal(expectedDates, analysisDates);
     }
@@ -78,14 +72,11 @@ namespace Corgibytes.Freshli.Lib.Test.Unit {
         asOf: stopDate
       );
 
-      var expectedDates = new List<DateTimeOffset>() {
-        ParseExact("2017-01-01T00:00:00.0000000Z")
-      };
-      var currentDate = ParseExact("2017-02-01T00:00:00.0000000Z");
-      while (currentDate <= stopDate) {
-        expectedDates.Add(currentDate);
-        currentDate = currentDate.AddMonths(1);
-      }
+      var expectedDates = BuildExpectedDates(
+        firstDateString: "2017-01-01T00:00:00.0000000Z",
+        secondDateString: "2017-02-01T00:00:00.0000000Z",
+        stopDate
+      );
 
       Assert.Equal(expectedDates, analysisDates);
     }
@@ -99,16 +90,13 @@ namespace Corgibytes.Freshli.Lib.Test.Unit {
         asOf: stopDate
       );
 
-      var expectedDates = new List<DateTimeOffset>() {
-        ParseExact("2017-01-01T23:59:59.9999999Z")
-      };
-      var currentDate = ParseExact("2017-02-01T00:00:00.0000000Z");
-      while (currentDate <= stopDate) {
-        expectedDates.Add(currentDate);
-        currentDate = currentDate.AddMonths(1);
-      }
+      var expectedDates = BuildExpectedDates(
+        firstDateString: "2017-01-01T23:59:59.9999999Z",
+        secondDateString: "2017-02-01T00:00:00.0000000Z",
+        stopDate
+      );
 
-      Assert.Equal(expectedDates, analysisDates);
+        Assert.Equal(expectedDates, analysisDates);
     }
 
     [Fact]
@@ -120,14 +108,11 @@ namespace Corgibytes.Freshli.Lib.Test.Unit {
         asOf: stopDate
       );
 
-      var expectedDates = new List<DateTimeOffset>() {
-        ParseExact("2016-12-15T00:00:00.0000000Z")
-      };
-      var currentDate = ParseExact("2017-01-01T00:00:00.0000000Z");
-      while (currentDate <= stopDate) {
-        expectedDates.Add(currentDate);
-        currentDate = currentDate.AddMonths(1);
-      }
+      var expectedDates = BuildExpectedDates(
+        firstDateString: "2016-12-15T00:00:00.0000000Z",
+        secondDateString: "2017-01-01T00:00:00.0000000Z",
+        stopDate
+      );
 
       Assert.Equal(expectedDates, analysisDates);
     }
@@ -144,14 +129,11 @@ namespace Corgibytes.Freshli.Lib.Test.Unit {
         asOf: stopDate
       );
 
-      var expectedDates = new List<DateTimeOffset>() {
-        ParseExact("2016-12-15T00:00:00.0000000Z")
-      };
-      var currentDate = ParseExact("2017-01-01T00:00:00.0000000Z");
-      while (currentDate <= stopDate) {
-        expectedDates.Add(currentDate);
-        currentDate = currentDate.AddMonths(1);
-      }
+      var expectedDates = BuildExpectedDates(
+        firstDateString: "2016-12-15T00:00:00.0000000Z",
+        secondDateString: "2017-01-01T00:00:00.0000000Z",
+        stopDate
+      );
 
       Assert.Equal(expectedDates, analysisDates);
     }
@@ -165,14 +147,11 @@ namespace Corgibytes.Freshli.Lib.Test.Unit {
         asOf: stopDate
       );
 
-      var expectedDates = new List<DateTimeOffset>() {
-        ParseExact("2016-12-01T02:00:00.0000000Z")
-      };
-      var currentDate = ParseExact("2017-01-01T00:00:00.0000000Z");
-      while (currentDate <= stopDate) {
-        expectedDates.Add(currentDate);
-        currentDate = currentDate.AddMonths(1);
-      }
+      var expectedDates = BuildExpectedDates(
+        firstDateString: "2016-12-01T02:00:00.0000000Z",
+        secondDateString: "2017-01-01T00:00:00.0000000Z",
+        stopDate
+      );
 
       Assert.Equal(expectedDates, analysisDates);
     }
@@ -189,14 +168,11 @@ namespace Corgibytes.Freshli.Lib.Test.Unit {
         asOf: stopDate
       );
 
-      var expectedDates = new List<DateTimeOffset>() {
-        ParseExact("2016-12-01T02:00:00.0000000Z")
-      };
-      var currentDate = ParseExact("2017-01-01T00:00:00.0000000Z");
-      while (currentDate <= stopDate) {
-        expectedDates.Add(currentDate);
-        currentDate = currentDate.AddMonths(1);
-      }
+      var expectedDates = BuildExpectedDates(
+        firstDateString: "2016-12-01T02:00:00.0000000Z",
+        secondDateString: "2017-01-01T00:00:00.0000000Z",
+        stopDate
+      );
 
       Assert.Equal(expectedDates, analysisDates);
     }
@@ -238,6 +214,22 @@ namespace Corgibytes.Freshli.Lib.Test.Unit {
         Select(year => $"{year}-01-01T23:59:59.9999999Z").
         ToArray();
       ConfigureDateHistory(dateStrings);
+    }
+
+    private static List<DateTimeOffset> BuildExpectedDates(
+      string firstDateString,
+      string secondDateString,
+      DateTimeOffset stopDate
+    ) {
+      var expectedDates =
+        new List<DateTimeOffset>() {ParseExact(firstDateString)};
+      var currentDate = ParseExact(secondDateString);
+      while (currentDate <= stopDate) {
+        expectedDates.Add(currentDate);
+        currentDate = currentDate.AddMonths(1);
+      }
+
+      return expectedDates;
     }
   }
 }
