@@ -201,19 +201,5 @@ namespace Corgibytes.Freshli.Lib.Test.Integration {
       );
       Assert.True(results["google-protobuf"].UpgradeAvailable);
     }
-
-    [Fact]
-    public void Compute() {
-      var olderVersion = new SemVerVersionInfo("1.7.0",
-        new DateTimeOffset(2016, 12, 27, 00, 00, 00, TimeSpan.Zero));
-      var newerVersion = new SemVerVersionInfo("1.7.1",
-        new DateTimeOffset(2017, 03, 20, 00, 00, 00, TimeSpan.Zero));
-
-      Assert.Equal(
-        0.227,
-        LibYearCalculator.Compute(olderVersion, newerVersion),
-        3
-      );
-    }
   }
 }
