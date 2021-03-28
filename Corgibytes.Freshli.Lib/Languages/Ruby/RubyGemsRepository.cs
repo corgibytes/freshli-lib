@@ -39,23 +39,26 @@ namespace Corgibytes.Freshli.Lib.Languages.Ruby {
       }
     }
 
-    private static string BuildCacheKey(string name, bool includePreReleaseVersions)
-    {
+    private static string BuildCacheKey(
+      string name,
+      bool includePreReleaseVersions
+    ) {
       var keySuffix =
         includePreReleaseVersions ? "-with-pre-releases" : "";
       var key = $"{name}{keySuffix}";
       return key;
     }
 
-    private static List<RubyGemsVersionInfo> GetReleaseHistoryForGem(string name)
-    {
+    private static List<RubyGemsVersionInfo> GetReleaseHistoryForGem(
+      string name
+    ) {
       var url = $"https://rubygems.org/gems/{name}/versions.atom";
       var document = Policy.Handle<System.Net.Http.HttpRequestException>().
         WaitAndRetry(
           5,
           retryAttempt =>
             TimeSpan.FromMilliseconds(100 * Math.Pow(2, retryAttempt))
-      ).ExecuteAndCapture(() => XDocument.Load(url)).Result;
+        ).ExecuteAndCapture(() => XDocument.Load(url)).Result;
       XNamespace atom = "http://www.w3.org/2005/Atom";
 
       var versions = document.Descendants(atom + "entry").Select(
