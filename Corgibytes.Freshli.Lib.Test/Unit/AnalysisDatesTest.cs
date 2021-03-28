@@ -25,11 +25,7 @@ namespace Corgibytes.Freshli.Lib.Test.Unit {
 
     [Fact]
     public void DateRange() {
-      ConfigureDateHistory(
-        "2017-01-01T23:59:59.9999999Z",
-        "2018-01-01T23:59:59.9999999Z",
-        "2019-01-01T23:59:59.9999999Z"
-      );
+      ConfigureDateHistoryByYear(year: 2017, count: 3);
       var stopDate = ParseExact("2020-01-01T23:59:59.9999999Z");
       var analysisDates = new AnalysisDates(
         _history.Object,
@@ -50,11 +46,7 @@ namespace Corgibytes.Freshli.Lib.Test.Unit {
 
     [Fact]
     public void DateRangeUsesTimeZoneFromAsOfValue() {
-      ConfigureDateHistory(
-        "2017-01-01T23:59:59.9999999Z",
-        "2018-01-01T23:59:59.9999999Z",
-        "2019-01-01T23:59:59.9999999Z"
-      );
+      ConfigureDateHistoryByYear(year: 2017, count: 3);
       var stopDate = ParseExact("2020-01-01T23:59:59.9999999-08:00");
       var analysisDates = new AnalysisDates(
         _history.Object,
@@ -100,12 +92,7 @@ namespace Corgibytes.Freshli.Lib.Test.Unit {
 
     [Fact]
     public void DateRangeStopsOnSpeciedDate() {
-      ConfigureDateHistory(
-        "2017-01-01T23:59:59.9999999Z",
-        "2018-01-01T23:59:59.9999999Z",
-        "2019-01-01T23:59:59.9999999Z",
-        "2020-01-01T23:59:59.9999999Z"
-      );
+      ConfigureDateHistoryByYear(year: 2017, count: 4);
       var stopDate = ParseExact("2019-01-01T23:59:59.9999999Z");
       var analysisDates = new AnalysisDates(
         _history.Object,
@@ -243,6 +230,14 @@ namespace Corgibytes.Freshli.Lib.Test.Unit {
       _history.Setup(mock => mock.Dates).Returns(
         dateStrings.Select(ParseExact).ToList()
       );
+    }
+
+    private void ConfigureDateHistoryByYear(int year, int count) {
+      var dateStrings = Enumerable.
+        Range(year, count).
+        Select(year => $"{year}-01-01T23:59:59.9999999Z").
+        ToArray();
+      ConfigureDateHistory(dateStrings);
     }
   }
 }
