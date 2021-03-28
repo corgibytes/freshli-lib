@@ -15,15 +15,6 @@ namespace Corgibytes.Freshli.Lib.Test.Integration {
       _calculator = new LibYearCalculator(_repository, _manifest);
     }
 
-    private void BuildBundlerManifest(
-      Dictionary<string, string> packagesAndVersions
-    ) {
-      _manifest.Clear();
-      foreach (var entry in packagesAndVersions) {
-        _manifest.Add(entry.Key, entry.Value);
-      }
-    }
-
     [Fact]
     public void ComputeAsOf() {
       BuildBundlerManifest(new Dictionary<string, string> {
@@ -207,6 +198,15 @@ namespace Corgibytes.Freshli.Lib.Test.Integration {
           {"mini_portile2", miniPortileVersion}, {"nokogiri", nokogiriVersion}
         }
       );
+    }
+
+    private void BuildBundlerManifest(
+      Dictionary<string, string> packagesAndVersions
+    ) {
+      _manifest.Clear();
+      foreach (var entry in packagesAndVersions) {
+        _manifest.Add(entry.Key, entry.Value);
+      }
     }
   }
 }
