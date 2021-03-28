@@ -1,20 +1,37 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using Corgibytes.Freshli.Lib.Languages.Ruby;
 using Xunit;
 
 namespace Corgibytes.Freshli.Lib.Test.Integration {
   public class LibYearCalculatorTest {
+    private RubyGemsRepository _repository = new();
+    private BundlerManifest _manifest = new();
+    private LibYearCalculator _calculator;
+
+    public LibYearCalculatorTest() {
+      _calculator = new LibYearCalculator(_repository, _manifest);
+    }
+
+    private void BuildBundlerManifest(
+      Dictionary<string, string> packagesAndVersions
+    ) {
+      _manifest.Clear();
+      foreach (var entry in packagesAndVersions) {
+        _manifest.Add(entry.Key, entry.Value);
+      }
+    }
+
     [Fact]
     public void ComputeAsOf() {
-      var manifest = new BundlerManifest();
-      manifest.Add("mini_portile2", "2.1.0");
-      manifest.Add("nokogiri", "1.7.0");
+      BuildBundlerManifest(new Dictionary<string, string> {
+        {"mini_portile2", "2.1.0"},
+        {"nokogiri", "1.7.0"}
+      });
 
-      var repository = new RubyGemsRepository();
-
-      var calculator = new LibYearCalculator(repository, manifest);
-
-      var results = calculator.ComputeAsOf(
+      var results = _calculator.ComputeAsOf(
         new DateTimeOffset(2017, 04, 01, 00, 00, 00, TimeSpan.Zero)
       );
 
@@ -46,15 +63,12 @@ namespace Corgibytes.Freshli.Lib.Test.Integration {
 
     [Fact]
     public void ComputeAsOfSmallValue() {
-      var manifest = new BundlerManifest();
-      manifest.Add("mini_portile2", "2.1.0");
-      manifest.Add("nokogiri", "1.7.0");
+      BuildBundlerManifestWithMiniPortileAndNokogiri(
+        miniPortileVersion: "2.1.0",
+        nokogiriVersion: "1.7.0"
+      );
 
-      var repository = new RubyGemsRepository();
-
-      var calculator = new LibYearCalculator(repository, manifest);
-
-      var results = calculator.ComputeAsOf(
+      var results = _calculator.ComputeAsOf(
         new DateTimeOffset(2017, 02, 01, 00, 00, 00, TimeSpan.Zero)
       );
 
@@ -70,15 +84,9 @@ namespace Corgibytes.Freshli.Lib.Test.Integration {
 
     [Fact]
     public void ComputeAsOfEdgeCase() {
-      var manifest = new BundlerManifest();
-      manifest.Add("mini_portile2", "2.3.0");
-      manifest.Add("nokogiri", "1.8.1");
+      BuildBundlerManifestWithMiniPortileAndNokogiri();
 
-      var repository = new RubyGemsRepository();
-
-      var calculator = new LibYearCalculator(repository, manifest);
-
-      var results = calculator.ComputeAsOf(
+      var results = _calculator.ComputeAsOf(
         new DateTimeOffset(2018, 01, 01, 00, 00, 00, TimeSpan.Zero)
       );
 
@@ -94,15 +102,9 @@ namespace Corgibytes.Freshli.Lib.Test.Integration {
 
     [Fact]
     public void ComputeAsOfOtherEdgeCase() {
-      var manifest = new BundlerManifest();
-      manifest.Add("mini_portile2", "2.3.0");
-      manifest.Add("nokogiri", "1.8.1");
+      BuildBundlerManifestWithMiniPortileAndNokogiri();
 
-      var repository = new RubyGemsRepository();
-
-      var calculator = new LibYearCalculator(repository, manifest);
-
-      var results = calculator.ComputeAsOf(
+      var results = _calculator.ComputeAsOf(
         new DateTimeOffset(2018, 02, 01, 00, 00, 00, TimeSpan.FromHours(-5))
       );
 
@@ -118,12 +120,11 @@ namespace Corgibytes.Freshli.Lib.Test.Integration {
 
     [Fact]
     public void ComputeAsOfWithNoNewerMinorReleases() {
-      var repository = new RubyGemsRepository();
-      var manifest = new BundlerManifest();
-      manifest.Add("tzinfo", "0.3.38");
-      var calculator = new LibYearCalculator(repository, manifest);
+      BuildBundlerManifest(new Dictionary<string, string> {
+        {"tzinfo", "0.3.38"}
+      });
 
-      var results = calculator.ComputeAsOf(
+      var results = _calculator.ComputeAsOf(
         new DateTimeOffset(2014, 03, 01, 00, 00, 00, TimeSpan.Zero)
       );
 
@@ -135,12 +136,11 @@ namespace Corgibytes.Freshli.Lib.Test.Integration {
 
     [Fact]
     public void ComputeAsOfWithNewerMinorReleases() {
-      var repository = new RubyGemsRepository();
-      var manifest = new BundlerManifest();
-      manifest.Add("tzinfo", "0.3.38");
-      var calculator = new LibYearCalculator(repository, manifest);
+      BuildBundlerManifest(new Dictionary<string, string> {
+        {"tzinfo", "0.3.38"}
+      });
 
-      var results = calculator.ComputeAsOf(
+      var results = _calculator.ComputeAsOf(
         new DateTimeOffset(2014, 04, 01, 00, 00, 00, TimeSpan.Zero)
       );
 
@@ -152,12 +152,11 @@ namespace Corgibytes.Freshli.Lib.Test.Integration {
 
     [Fact]
     public void ComputeAsOfWithPreReleaseVersion() {
-      var manifest = new BundlerManifest();
-      manifest.Add("google-protobuf", "3.12.0.rc.1");
-      var repository = new RubyGemsRepository();
-      var calculator = new LibYearCalculator(repository, manifest);
+      BuildBundlerManifest(new Dictionary<string, string> {
+        {"google-protobuf", "3.12.0.rc.1"}
+      });
 
-      var results = calculator.ComputeAsOf(
+      var results = _calculator.ComputeAsOf(
         new DateTimeOffset(2020, 06, 01, 00, 00, 00, TimeSpan.Zero)
       );
 
@@ -178,12 +177,11 @@ namespace Corgibytes.Freshli.Lib.Test.Integration {
 
     [Fact]
     public void ComputeAsOfWithLatestVersionBeingPreReleaseVersion() {
-      var manifest = new BundlerManifest();
-      manifest.Add("google-protobuf", "3.10.0.rc.1");
-      var repository = new RubyGemsRepository();
-      var calculator = new LibYearCalculator(repository, manifest);
+      BuildBundlerManifest(new Dictionary<string, string> {
+        {"google-protobuf", "3.10.0.rc.1"}
+      });
 
-      var results = calculator.ComputeAsOf(
+      var results = _calculator.ComputeAsOf(
         new DateTimeOffset(2019, 11, 25, 00, 00, 00, TimeSpan.FromHours(-5))
       );
 
@@ -200,6 +198,15 @@ namespace Corgibytes.Freshli.Lib.Test.Integration {
         results["google-protobuf"].LatestPublishedAt
       );
       Assert.True(results["google-protobuf"].UpgradeAvailable);
+    }
+
+    private void BuildBundlerManifestWithMiniPortileAndNokogiri(
+      string miniPortileVersion = "2.3.0", string nokogiriVersion = "1.8.1") {
+      BuildBundlerManifest(
+        new Dictionary<string, string> {
+          {"mini_portile2", miniPortileVersion}, {"nokogiri", nokogiriVersion}
+        }
+      );
     }
   }
 }
