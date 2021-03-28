@@ -32,18 +32,6 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Ruby {
       Assert.Equal(expectedDate, versionInfo.DatePublished);
     }
 
-    private DateTimeOffset BuildDateTimeOffsetFromParts(int[] dateParts) {
-      return new(
-        dateParts[0],
-        dateParts[1],
-        dateParts[2],
-        dateParts[3],
-        dateParts[4],
-        dateParts[5],
-        TimeSpan.Zero
-      );
-    }
-
     [Theory]
     [InlineData(
       new object[] {"git", false},
@@ -117,6 +105,18 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Ruby {
       );
 
       Assert.Equal(expectedVersionCount, versions.Count);
+    }
+
+    private DateTimeOffset BuildDateTimeOffsetFromParts(int[] dateParts) {
+      return new(
+        dateParts[0],
+        dateParts[1],
+        dateParts[2],
+        dateParts[3],
+        dateParts[4],
+        dateParts[5],
+        TimeSpan.Zero
+      );
     }
   }
 }
