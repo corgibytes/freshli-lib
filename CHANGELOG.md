@@ -1,7 +1,7 @@
 ## v0.4.0
 
 
-As part of this release we had [11 issues](https://github.com/corgibytes/freshli-lib/milestone/5?closed=1) closed.
+As part of this release we had [12 issues](https://github.com/corgibytes/freshli-lib/milestone/5?closed=1) closed.
 Goals for this milestone:
 
 - Common Freshli dependency interface.
@@ -24,6 +24,7 @@ __DevOps__
 
 __Dependencies__
 
+- [__#292__](https://github.com/corgibytes/freshli-lib/pull/292) Bump ApprovalTests from 5.4.6 to 5.4.7
 - [__#280__](https://github.com/corgibytes/freshli-lib/pull/280) Bump DiffEngine from 6.5.7 to 6.5.9
 - [__#260__](https://github.com/corgibytes/freshli-lib/pull/260) Bump DotNetEnv from 2.1.0 to 2.1.1
 
