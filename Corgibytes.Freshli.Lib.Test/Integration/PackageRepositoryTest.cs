@@ -146,8 +146,8 @@ namespace Corgibytes.Freshli.Lib.Test.Integration {
       var cleanedParameters = PrepareParameters(methodParams);
       return (IVersionInfo) repository.GetType().InvokeMember(
         "Latest",
-        BindingFlags.Instance,
-        null,
+        BindingFlags.InvokeMethod | BindingFlags.OptionalParamBinding,
+        Type.DefaultBinder,
         repository,
         cleanedParameters
       );
