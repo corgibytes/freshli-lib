@@ -110,7 +110,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration {
       typeof(MulticastComposerRepository),
       new object[] {"monolog/monolog", new[] {2020, 01, 01, 00, 00, 00}, false},
       "2.0.2",
-      new[] {2019, 12, 20, 14, 22, 00}
+      new[] {2019, 12, 20, 14, 22, 59}
     )]
     [InlineData(
       typeof(MulticastComposerRepository),
@@ -118,7 +118,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration {
         "symfony/css-selector", new[] {2020, 01, 01, 00, 00, 00}, false
       },
       "v5.0.2",
-      new[] {2019, 11, 18, 17, 27, 00}
+      new[] {2019, 11, 18, 17, 27, 11}
     )]
     public void Latest(
       Type repositoryType,
