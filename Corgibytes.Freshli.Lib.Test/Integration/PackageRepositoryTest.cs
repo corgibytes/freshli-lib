@@ -1,7 +1,9 @@
 using System;
+using System.Reflection;
 using Corgibytes.Freshli.Lib.Languages.Perl;
 using Corgibytes.Freshli.Lib.Languages.Php;
 using Corgibytes.Freshli.Lib.Languages.Ruby;
+using Elasticsearch.Net;
 using Xunit;
 
 namespace Corgibytes.Freshli.Lib.Test.Integration {
@@ -128,12 +130,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration {
     ) {
       var repository = CreateRepository(repositoryType);
 
-      IVersionInfo versionInfo;
-      if (methodParams[2] is bool) {
-        versionInfo = CallLatestWithPreReleaseCheck(methodParams, repository);
-      } else {
-        versionInfo = CallLatestWithMatchExpression(methodParams, repository);
-      }
+      IVersionInfo versionInfo = InvokeLatest(repository, methodParams);
 
       var expectedDate =
         DateBuilder.BuildDateTimeOffsetFromParts(expectedDateParts);
@@ -142,42 +139,28 @@ namespace Corgibytes.Freshli.Lib.Test.Integration {
       Assert.Equal(expectedDate, versionInfo.DatePublished);
     }
 
-    private static IVersionInfo CallLatestWithMatchExpression(
-      object[] methodParams,
-      IPackageRepository repository
+    private static IVersionInfo InvokeLatest(
+      IPackageRepository repository,
+      object[] methodParams
     ) {
-      var matchExpression = (string) methodParams[2];
-      var gemName = BuildParameters(methodParams, out var targetDate);
-      var versionInfo = repository.Latest(
-        gemName,
-        targetDate,
-        matchExpression
+      var cleanedParameters = PrepareParameters(methodParams);
+      return (IVersionInfo) repository.GetType().InvokeMember(
+        "Latest",
+        BindingFlags.Instance,
+        null,
+        repository,
+        cleanedParameters
       );
-      return versionInfo;
     }
 
-    private static string BuildParameters(
-      object[] methodParams,
-      out DateTimeOffset targetDate
+    private static object[] PrepareParameters(
+      object[] methodParams
     ) {
-      var gemName = (string) methodParams[0];
-      targetDate =
-        DateBuilder.BuildDateTimeOffsetFromParts((int[]) methodParams[1]);
-      return gemName;
-    }
-
-    private static IVersionInfo CallLatestWithPreReleaseCheck(
-      object[] methodParams,
-      IPackageRepository repository
-    ) {
-      var includePreReleases = (bool) methodParams[2];
-      var gemName = BuildParameters(methodParams, out var targetDate);
-      var versionInfo = repository.Latest(
-        gemName,
-        targetDate,
-        includePreReleases
-      );
-      return versionInfo;
+      return new[] {
+        methodParams[0],
+        DateBuilder.BuildDateTimeOffsetFromParts((int[]) methodParams[1]),
+        methodParams[2]
+      };
     }
 
     [Theory]
