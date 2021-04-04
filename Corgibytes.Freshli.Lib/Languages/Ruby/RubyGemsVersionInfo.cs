@@ -38,9 +38,14 @@ namespace Corgibytes.Freshli.Lib.Languages.Ruby {
 
     public RubyGemsVersionInfo() { }
 
-    public RubyGemsVersionInfo(string version, DateTimeOffset datePublished) {
+    public RubyGemsVersionInfo(
+      string version,
+      DateTimeOffset? datePublished = null
+    ) {
       Version = version;
-      DatePublished = datePublished;
+      if (datePublished.HasValue) {
+        DatePublished = datePublished.Value;
+      }
     }
 
     public int CompareTo(object other) {
