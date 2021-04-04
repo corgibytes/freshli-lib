@@ -20,17 +20,17 @@ namespace Corgibytes.Freshli.Lib.Test.Integration {
       "1.301001_048"
     )]
     [InlineData(
-       typeof(RubyGemsRepository),
-       new[] {"tzinfo", "1.2.7"},
-       new[] {2020, 04, 02, 21, 42, 11},
-       "1.2.7"
-     ),
-     InlineData(
-       typeof(RubyGemsRepository),
-       new[] {"git", "1.6.0.pre1"},
-       new[] {2020, 01, 20, 20, 50, 43},
-       "1.6.0.pre1"
-     )]
+      typeof(RubyGemsRepository),
+      new[] {"tzinfo", "1.2.7"},
+      new[] {2020, 04, 02, 21, 42, 11},
+      "1.2.7"
+    )]
+    [InlineData(
+      typeof(RubyGemsRepository),
+      new[] {"git", "1.6.0.pre1"},
+      new[] {2020, 01, 20, 20, 50, 43},
+      "1.6.0.pre1"
+    )]
     [InlineData(
       typeof(MulticastComposerRepository),
       new[] {"monolog/monolog", "1.11.0"},
