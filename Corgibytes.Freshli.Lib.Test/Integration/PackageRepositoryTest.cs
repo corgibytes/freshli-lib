@@ -146,26 +146,32 @@ namespace Corgibytes.Freshli.Lib.Test.Integration {
       object[] methodParams,
       IPackageRepository repository
     ) {
-      var gemName = (string) methodParams[0];
-      var matchExrpession = (string) methodParams[2];
-      var targetDate =
-        DateBuilder.BuildDateTimeOffsetFromParts((int[]) methodParams[1]);
+      var matchExpression = (string) methodParams[2];
+      var gemName = BuildParameters(methodParams, out var targetDate);
       var versionInfo = repository.Latest(
         gemName,
         targetDate,
-        matchExrpession
+        matchExpression
       );
       return versionInfo;
+    }
+
+    private static string BuildParameters(
+      object[] methodParams,
+      out DateTimeOffset targetDate
+    ) {
+      var gemName = (string) methodParams[0];
+      targetDate =
+        DateBuilder.BuildDateTimeOffsetFromParts((int[]) methodParams[1]);
+      return gemName;
     }
 
     private static IVersionInfo CallLatestWithPreReleaseCheck(
       object[] methodParams,
       IPackageRepository repository
     ) {
-      var gemName = (string) methodParams[0];
       var includePreReleases = (bool) methodParams[2];
-      var targetDate =
-        DateBuilder.BuildDateTimeOffsetFromParts((int[]) methodParams[1]);
+      var gemName = BuildParameters(methodParams, out var targetDate);
       var versionInfo = repository.Latest(
         gemName,
         targetDate,
