@@ -1,11 +1,11 @@
 using System;
 using Corgibytes.Freshli.Lib.Languages.Perl;
+using Corgibytes.Freshli.Lib.Languages.Php;
 using Corgibytes.Freshli.Lib.Languages.Ruby;
 using Xunit;
 
 namespace Corgibytes.Freshli.Lib.Test.Integration {
   public class PackageRepositoryTest {
-
     [Theory]
     [InlineData(
       typeof(MetaCpanRepository),
@@ -31,6 +31,12 @@ namespace Corgibytes.Freshli.Lib.Test.Integration {
        new[] {2020, 01, 20, 20, 50, 43},
        "1.6.0.pre1"
      )]
+    [InlineData(
+      typeof(MulticastComposerRepository),
+      new[] {"monolog/monolog", "1.11.0"},
+      new[] {2014, 09, 30, 13, 30, 58},
+      "1.11.0"
+    )]
     public void VersionInfo(
       Type repositoryType,
       string[] methodParams,
@@ -39,14 +45,26 @@ namespace Corgibytes.Freshli.Lib.Test.Integration {
     ) {
       var gemName = methodParams[0];
       var gemVersion = methodParams[1];
-      var repository =
-        (IPackageRepository) Activator.CreateInstance(repositoryType);
+      var repository = CreateRepository(repositoryType);
       var versionInfo = repository.VersionInfo(gemName, gemVersion);
       var expectedDate =
         DateBuilder.BuildDateTimeOffsetFromParts(expectedDateParts);
 
       Assert.Equal(expectedVersion, versionInfo.Version);
       Assert.Equal(expectedDate, versionInfo.DatePublished);
+    }
+
+    private static IPackageRepository CreateRepository(Type repositoryType) {
+      if (repositoryType != typeof(MulticastComposerRepository)) {
+        return (IPackageRepository) Activator.CreateInstance(repositoryType);
+      }
+
+      var phpFixturePath = Fixtures.Path("php", "small");
+      var fileFinder = new FileHistoryFinder(phpFixturePath);
+      return new MulticastComposerRepository(
+        phpFixturePath,
+        fileFinder.Finder
+      );
     }
 
     [Theory]
@@ -88,21 +106,35 @@ namespace Corgibytes.Freshli.Lib.Test.Integration {
       "1.301001_050",
       new[] {2014, 09, 26, 05, 44, 26}
     )]
+    [InlineData(
+      typeof(MulticastComposerRepository),
+      new object[] {"monolog/monolog", new[] {2020, 01, 01, 00, 00, 00}, false},
+      "2.0.2",
+      new[] {2019, 12, 20, 14, 22, 00}
+    )]
+    [InlineData(
+      typeof(MulticastComposerRepository),
+      new object[] {
+        "symfony/css-selector", new[] {2020, 01, 01, 00, 00, 00}, false
+      },
+      "v5.0.2",
+      new[] {2019, 11, 18, 17, 27, 00}
+    )]
     public void Latest(
       Type repositoryType,
       object[] methodParams,
       string expectedVersion,
       int[] expectedDateParts
     ) {
-      var repository =
-        (IPackageRepository) Activator.CreateInstance(repositoryType);
+      var repository = CreateRepository(repositoryType);
 
       IVersionInfo versionInfo;
-      if (methodParams[2].GetType() == typeof(bool)) {
+      if (methodParams[2] is bool) {
         versionInfo = CallLatestWithPreReleaseCheck(methodParams, repository);
       } else {
         versionInfo = CallLatestWithMatchExpression(methodParams, repository);
       }
+
       var expectedDate =
         DateBuilder.BuildDateTimeOffsetFromParts(expectedDateParts);
 
@@ -204,8 +236,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration {
 
       var gemName = (string) methodParams[0];
       var includePreReleases = (bool) methodParams[4];
-      var repository =
-        (IPackageRepository) Activator.CreateInstance(repositoryType);
+      var repository = CreateRepository(repositoryType);
       var versions = repository.VersionsBetween(
         gemName,
         targetDate,
