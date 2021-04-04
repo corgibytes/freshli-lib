@@ -9,14 +9,14 @@ namespace Corgibytes.Freshli.Lib.Test.Integration {
     [Theory]
     [InlineData(
       typeof(MetaCpanRepository),
-      new[] { "Plack", "1.0026" },
-      new[] { 2013, 06, 13, 06, 01, 17 },
+      new[] {"Plack", "1.0026"},
+      new[] {2013, 06, 13, 06, 01, 17},
       "1.0026"
     )]
     [InlineData(
       typeof(MetaCpanRepository),
-      new[] { "Test::More", "1.301001_048" },
-      new[] { 2014, 09, 25, 03, 39, 01 },
+      new[] {"Test::More", "1.301001_048"},
+      new[] {2014, 09, 25, 03, 39, 01},
       "1.301001_048"
     )]
     [InlineData(
@@ -72,7 +72,8 @@ namespace Corgibytes.Freshli.Lib.Test.Integration {
       typeof(MetaCpanRepository),
       new object[] {"Plack", new[] {2018, 01, 01, 0, 0, 0}, "1.0"},
       "1.0045",
-      new[] {2017, 12, 31, 20, 42, 50})]
+      new[] {2017, 12, 31, 20, 42, 50}
+    )]
     [InlineData(
       typeof(MetaCpanRepository),
       new object[] {"JSON", new[] {2018, 01, 01, 0, 0, 0}, ">= 2.00, < 2.80"},
@@ -81,7 +82,9 @@ namespace Corgibytes.Freshli.Lib.Test.Integration {
     )]
     [InlineData(
       typeof(MetaCpanRepository),
-      new object[] {"Test::More", new[] {2018, 01, 01, 0, 0, 0}, ">= 0.96, < 2.0"},
+      new object[] {
+        "Test::More", new[] {2018, 01, 01, 0, 0, 0}, ">= 0.96, < 2.0"
+      },
       "1.301001_050",
       new[] {2014, 09, 26, 05, 44, 26}
     )]
@@ -123,8 +126,10 @@ namespace Corgibytes.Freshli.Lib.Test.Integration {
       return versionInfo;
     }
 
-    private static IVersionInfo CallLatestWithPreReleaseCheck(object[] methodParams, IPackageRepository repository)
-    {
+    private static IVersionInfo CallLatestWithPreReleaseCheck(
+      object[] methodParams,
+      IPackageRepository repository
+    ) {
       var gemName = (string) methodParams[0];
       var includePreReleases = (bool) methodParams[2];
       var targetDate =
@@ -142,11 +147,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration {
       typeof(RubyGemsRepository),
       typeof(RubyGemsVersionInfo),
       new object[] {
-        "tzinfo",
-        new[] {2014, 04, 01, 00, 00, 00},
-        "0.3.38",
-        "1.1.0",
-        true
+        "tzinfo", new[] {2014, 04, 01, 00, 00, 00}, "0.3.38", "1.1.0", true
       },
       3
     )]
@@ -178,11 +179,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration {
       typeof(MetaCpanRepository),
       typeof(SemVerVersionInfo),
       new object[] {
-        "Plack",
-        new[] {2015, 01, 01, 00, 00, 00},
-        "1.0027",
-        "1.0045",
-        false
+        "Plack", new[] {2015, 01, 01, 00, 00, 00}, "1.0027", "1.0045", false
       },
       6
     )]
@@ -194,8 +191,16 @@ namespace Corgibytes.Freshli.Lib.Test.Integration {
     ) {
       var targetDate =
         DateBuilder.BuildDateTimeOffsetFromParts((int[]) methodParams[1]);
-      var earlierVersion = (IVersionInfo) Activator.CreateInstance(versionInfoType, methodParams[2], null);
-      var laterVersion = (IVersionInfo) Activator.CreateInstance(versionInfoType, methodParams[3], null);
+      var earlierVersion = (IVersionInfo) Activator.CreateInstance(
+        versionInfoType,
+        methodParams[2],
+        null
+      );
+      var laterVersion = (IVersionInfo) Activator.CreateInstance(
+        versionInfoType,
+        methodParams[3],
+        null
+      );
 
       var gemName = (string) methodParams[0];
       var includePreReleases = (bool) methodParams[4];
