@@ -1,7 +1,7 @@
 ## v0.4.0
 
 
-As part of this release we had [12 issues](https://github.com/corgibytes/freshli-lib/milestone/5?closed=1) closed.
+As part of this release we had [13 issues](https://github.com/corgibytes/freshli-lib/milestone/5?closed=1) closed.
 Goals for this milestone:
 
 - Common Freshli dependency interface.
@@ -15,6 +15,7 @@ __Bug__
 
 __DevOps__
 
+- [__#293__](https://github.com/corgibytes/freshli-lib/issues/293) Release notes CI fails for Dependabot PRs
 - [__#287__](https://github.com/corgibytes/freshli-lib/pull/287) Solve `Some checks haven't completed yet` issue caused by use of `git-auto-commit-action`
 - [__#283__](https://github.com/corgibytes/freshli-lib/issues/283) Remove old Dependabot config
 - [__#277__](https://github.com/corgibytes/freshli-lib/pull/277) Add nuspec information
