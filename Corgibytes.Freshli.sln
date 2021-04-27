@@ -7,7 +7,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Corgibytes.Freshli.Lib", "C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Corgibytes.Freshli.Lib.Test", "Corgibytes.Freshli.Lib.Test\Corgibytes.Freshli.Lib.Test.csproj", "{7C5BE77F-B9FA-495A-828C-ABA44F6536C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleClient", "ExampleClient\ExampleClient.csproj", "{2EB4454A-48B4-4A03-A2A5-47E888654AC9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExampleClient", "ExampleClient\ExampleClient.csproj", "{2EB4454A-48B4-4A03-A2A5-47E888654AC9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{429C5E3B-D6A2-4D93-9592-1414CE1A6084}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
