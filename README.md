@@ -4,10 +4,10 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/4d7b974eedea679e6b03/maintainability)](https://codeclimate.com/github/corgibytes/freshli-lib/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/4d7b974eedea679e6b03/test_coverage)](https://codeclimate.com/github/corgibytes/freshli-lib/test_coverage)
 
-# freshli
+# Freshli-Lib
 A tool for collecting historical metrics about a project's dependencies
 
-The `freshli` tool captures historical metrics about a project's dependencies. In it's current form, the only metric that it computes is [libyear](https://libyear.com/).
+The `Freshli` tool captures historical metrics about a project's dependencies. In it's current form, the only metric that it computes is [libyear](https://libyear.com/).
 
 For each language that the tool supports, the libyear metric is computed for each month in the past where dependency information is available.
 
@@ -34,7 +34,7 @@ Freshli reads source code repository history to access previous version of each 
 
 * Git
 
-## Using Freshli in a Project
+## Using Freshli-Lib in a Project
 
 To use Freshli in a project, you have two options:
 
