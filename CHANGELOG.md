@@ -1,7 +1,7 @@
 ## v0.4.0
 
 
-As part of this release we had [11 issues](https://github.com/corgibytes/freshli-lib/milestone/5?closed=1) closed.
+As part of this release we had [17 issues](https://github.com/corgibytes/freshli-lib/milestone/5?closed=1) closed.
 Goals for this milestone:
 
 - Common Freshli dependency interface.
@@ -15,6 +15,7 @@ __Bug__
 
 __DevOps__
 
+- [__#293__](https://github.com/corgibytes/freshli-lib/issues/293) Release notes CI fails for Dependabot PRs
 - [__#287__](https://github.com/corgibytes/freshli-lib/pull/287) Solve `Some checks haven't completed yet` issue caused by use of `git-auto-commit-action`
 - [__#283__](https://github.com/corgibytes/freshli-lib/issues/283) Remove old Dependabot config
 - [__#277__](https://github.com/corgibytes/freshli-lib/pull/277) Add nuspec information
@@ -24,6 +25,11 @@ __DevOps__
 
 __Dependencies__
 
+- [__#300__](https://github.com/corgibytes/freshli-lib/pull/300) Bump Microsoft.NET.Test.Sdk from 16.9.1 to 16.9.4
+- [__#297__](https://github.com/corgibytes/freshli-lib/pull/297) Bump NLog from 4.7.8 to 4.7.9
+- [__#296__](https://github.com/corgibytes/freshli-lib/pull/296) Bump Elasticsearch.Net from 7.11.1 to 7.12.0
+- [__#295__](https://github.com/corgibytes/freshli-lib/pull/295) Bump HtmlAgilityPack from 1.11.31 to 1.11.32
+- [__#292__](https://github.com/corgibytes/freshli-lib/pull/292) Bump ApprovalTests from 5.4.6 to 5.4.7
 - [__#280__](https://github.com/corgibytes/freshli-lib/pull/280) Bump DiffEngine from 6.5.7 to 6.5.9
 - [__#260__](https://github.com/corgibytes/freshli-lib/pull/260) Bump DotNetEnv from 2.1.0 to 2.1.1
 
