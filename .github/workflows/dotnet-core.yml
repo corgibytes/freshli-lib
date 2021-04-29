@@ -45,13 +45,21 @@ jobs:
       - name: Build
         run: dotnet build --configuration Release
     
-      - name: Test, Generate Code Coverage  
-        if: ${{ !env.ACT }}
+      - name: Run Tests
+        run: dontnet test /p:CollectCoverage=true /p:CoverletOutputFormat=lcov
+
+      # Only submit the test results on Code Climate on push.  When a dependabot PR
+      # is created the submit to Code Climate will fail as the TEST_REPORTER_ID is not
+      # available.
+      #
+      #  https://github.blog/changelog/2021-02-19-github-actions-workflows-triggered-by-dependabot-prs-will-run-with-read-only-permissions/
+      #
+      - name: Submit Test Results to Code Climate
+        if: ${{ !env.ACT && github.event_name == 'push' }}
         uses: paambaati/codeclimate-action@v2.7.5
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.TEST_REPORTER_ID }}
         with:
-          coverageCommand: dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=lcov
           coverageLocations: |
             ${{github.workspace}}/Corgibytes.Freshli.Lib.Test/coverage.info:lcov
 
