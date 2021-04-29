@@ -21,8 +21,8 @@ jobs:
 
       - name: Linting Auto-Formatting
         run: |
-          dotnet install dotnet-format --version 5.0.*
-          dotnet tool format
+          dotnet tool install dotnet-format --version 5.0.*
+          dotnet format
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         name: Commit Auto-Format Changes
