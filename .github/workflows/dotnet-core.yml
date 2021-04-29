@@ -7,7 +7,30 @@ on:
     branches: [ main, release* ]
 
 jobs:
+  auto-format:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 5.0.101
+
+      - name: Linting Auto-Formatting
+        run: |
+          dotnet install dotnet-format --version 5.0.*
+          dotnet tool format
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        name: Commit Auto-Format Changes
+        with:
+          commit_message: Committing auto-formatted code changes.
+
   build:
+    needs: auto-format
     runs-on: ubuntu-20.04
 
     steps:
@@ -15,8 +38,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0 # Required for GitVersion
-          submodules: 'recursive'
-      
+
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v1
         with:
@@ -38,14 +60,14 @@ jobs:
         with:
           useConfigFile: true
           additionalArguments: '/updateprojectfiles'
-    
+
       - name: Display updated csproj File
         run: cat Corgibytes.Freshli.Lib/Corgibytes.Freshli.Lib.csproj
 
       - name: Build
         run: dotnet build --configuration Release
-    
-      - name: Test, Generate Code Coverage  
+
+      - name: Test, Generate Code Coverage
         if: ${{ !env.ACT }}
         uses: paambaati/codeclimate-action@v2.7.5
         env:
