@@ -1,7 +1,7 @@
 ## v0.4.0
 
 
-As part of this release we had [18 issues](https://github.com/corgibytes/freshli-lib/milestone/5?closed=1) closed.
+As part of this release we had [19 issues](https://github.com/corgibytes/freshli-lib/milestone/5?closed=1) closed.
 Goals for this milestone:
 
 - Common Freshli dependency interface.
@@ -26,6 +26,7 @@ __DevOps__
 __Dependencies__
 
 - [__#306__](https://github.com/corgibytes/freshli-lib/pull/306) Bump HtmlAgilityPack from 1.11.32 to 1.11.33
+- [__#302__](https://github.com/corgibytes/freshli-lib/pull/302) Bump DiffEngine from 6.6.1 to 6.7.0
 - [__#300__](https://github.com/corgibytes/freshli-lib/pull/300) Bump Microsoft.NET.Test.Sdk from 16.9.1 to 16.9.4
 - [__#297__](https://github.com/corgibytes/freshli-lib/pull/297) Bump NLog from 4.7.8 to 4.7.9
 - [__#296__](https://github.com/corgibytes/freshli-lib/pull/296) Bump Elasticsearch.Net from 7.11.1 to 7.12.0
