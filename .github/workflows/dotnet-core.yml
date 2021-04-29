@@ -46,7 +46,7 @@ jobs:
         run: dotnet build --configuration Release
     
       - name: Run Tests
-        run: dontnet test /p:CollectCoverage=true /p:CoverletOutputFormat=lcov
+        run: dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=lcov
 
       # Only submit the test results on Code Climate on push.  When a dependabot PR
       # is created the submit to Code Climate will fail as the TEST_REPORTER_ID is not
