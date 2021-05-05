@@ -1,10 +1,11 @@
 version: "2"
 
-# Empty exclude so we include the tests.  By default
-# Code Climate will ignore test folders.  Add additional
-# excludes as needed.
-#
-#  https://docs.codeclimate.com/docs/default-analysis-configuration
+checks:
+  method-lines:
+    enabled: true
+    config:
+      threashold: 30
+
 exclude_patterns:
-  - "**/obj/**"
-  - "Corgibytes.Freshli.Lib.Test/**"
+  - "**/obj/"
+  - "Corgibytes.Freshli.Lib.Test/"

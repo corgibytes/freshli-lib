@@ -48,8 +48,6 @@ namespace Corgibytes.Freshli.Lib
             return metricsResults;
         }
 
-        // run --interactive --tty --rm --env CODECLIMATE_CODE="$PWD" --volume "$PWD":/code --volume /var/run/docker.sock:/var/run/docker.sock --volume /tmp/cc:/tmp/cc codeclimate/codeclimate help
-
         private void ProcessManifestFile(
           string analysisPath,
           DateTime asOf,
