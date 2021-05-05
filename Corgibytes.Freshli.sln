@@ -17,6 +17,12 @@ ProjectSection(SolutionItems) = preProject
 	.github\workflows\release-notes.yml = .github\workflows\release-notes.yml
 EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "root", "root", "{7E860C04-F1D7-4624-BDEF-CE1EFD9133D1}"
+ProjectSection(SolutionItems) = preProject
+	.codeclimate.yml = .codeclimate.yml
+	.editorconfig = .editorconfig
+EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

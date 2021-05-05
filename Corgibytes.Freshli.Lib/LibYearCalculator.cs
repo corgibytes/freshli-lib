@@ -42,13 +42,7 @@ namespace Corgibytes.Freshli.Lib
                     continue;
                 }
 
-                var packageResult = ProcessPackageResult(
-                  date,
-                  package,
-                  latestVersion,
-                  currentVersion
-                );
-
+                var packageResult = ProcessPackageResult(date, package, latestVersion, currentVersion);
                 result.Add(packageResult);
             }
 
@@ -93,8 +87,7 @@ namespace Corgibytes.Freshli.Lib
 
             if (libYearValue < 0)
             {
-                var updatedPackageResult = ComputeUsingVersionsBetween(
-                  package.Name, date, currentVersion, latestVersion);
+                var updatedPackageResult = ComputeUsingVersionsBetween(package.Name, date, currentVersion, latestVersion);
 
                 if (updatedPackageResult != null)
                 {
@@ -103,6 +96,7 @@ namespace Corgibytes.Freshli.Lib
                 else
                 {
                     packageResult.UpgradeAvailable = true;
+
                     _logger.Warn($"Negative value ({libYearValue:0.000}) " +
                       $"computed for {package.Name} as of {date:d}; " +
                       $"setting value to 0: {packageResult}");

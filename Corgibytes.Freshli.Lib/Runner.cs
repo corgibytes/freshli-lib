@@ -28,10 +28,7 @@ namespace Corgibytes.Freshli.Lib
             var metricsResults = new List<MetricsResult>();
 
             var fileHistoryFinder = new FileHistoryFinder(analysisPath);
-            ManifestFinder = new ManifestFinder(
-              analysisPath,
-              fileHistoryFinder.Finder
-            );
+            ManifestFinder = new ManifestFinder(analysisPath, fileHistoryFinder.Finder);
 
             if (!ManifestFinder.Successful)
             {
@@ -39,12 +36,7 @@ namespace Corgibytes.Freshli.Lib
             }
             else
             {
-                ProcessManifestFile(
-                  analysisPath,
-                  asOf,
-                  metricsResults,
-                  fileHistoryFinder
-                );
+                ProcessManifestFile(analysisPath, asOf, metricsResults, fileHistoryFinder);
             }
 
             DotNetEnv.Env.Load();
@@ -55,6 +47,8 @@ namespace Corgibytes.Freshli.Lib
 
             return metricsResults;
         }
+
+        // run --interactive --tty --rm --env CODECLIMATE_CODE="$PWD" --volume "$PWD":/code --volume /var/run/docker.sock:/var/run/docker.sock --volume /tmp/cc:/tmp/cc codeclimate/codeclimate help
 
         private void ProcessManifestFile(
           string analysisPath,
