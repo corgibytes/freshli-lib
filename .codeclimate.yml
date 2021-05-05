@@ -2,9 +2,8 @@ version: "2"
 
 checks:
   method-lines:
-    enabled: true
     config:
-      threashold: 30
+      threshold: 30
 
 exclude_patterns:
   - "**/obj/"
