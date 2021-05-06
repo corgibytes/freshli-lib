@@ -28,7 +28,10 @@ namespace Corgibytes.Freshli.Lib
             var metricsResults = new List<MetricsResult>();
 
             var fileHistoryFinder = new FileHistoryFinder(analysisPath);
-            ManifestFinder = new ManifestFinder(analysisPath, fileHistoryFinder.Finder);
+            ManifestFinder = new ManifestFinder(
+                analysisPath,
+                fileHistoryFinder.Finder
+            );
 
             if (!ManifestFinder.Successful)
             {
@@ -36,7 +39,12 @@ namespace Corgibytes.Freshli.Lib
             }
             else
             {
-                ProcessManifestFile(analysisPath, asOf, metricsResults, fileHistoryFinder);
+                ProcessManifestFile(
+                    analysisPath,
+                    asOf,
+                    metricsResults,
+                    fileHistoryFinder
+                );
             }
 
             DotNetEnv.Env.Load();
