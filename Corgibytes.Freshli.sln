@@ -14,6 +14,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{C2E53355-4A4C-4E25-9DE1-265AD73373FD}"
+ProjectSection(SolutionItems) = preProject
+	.github\dependabot.yml = .github\dependabot.yml
+EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{EEEC1A43-207D-4448-8F63-31D4820DBD65}"
+ProjectSection(SolutionItems) = preProject
+	.github\workflows\cla.yml = .github\workflows\cla.yml
+	.github\workflows\dotnet-core.yml = .github\workflows\dotnet-core.yml
+	.github\workflows\eclint.yml = .github\workflows\eclint.yml
+	.github\workflows\release-notes.yml = .github\workflows\release-notes.yml
+EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,5 +51,8 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {815F602F-03CC-488A-AAA4-40E49E6620B5}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EEEC1A43-207D-4448-8F63-31D4820DBD65} = {C2E53355-4A4C-4E25-9DE1-265AD73373FD}
 	EndGlobalSection
 EndGlobal
