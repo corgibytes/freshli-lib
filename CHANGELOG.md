@@ -1,7 +1,7 @@
 ## v0.4.0
 
 
-As part of this release we had [21 issues](https://github.com/corgibytes/freshli-lib/milestone/5?closed=1) closed.
+As part of this release we had [23 issues](https://github.com/corgibytes/freshli-lib/milestone/5?closed=1) closed.
 Goals for this milestone:
 
 - Common Freshli dependency interface.
@@ -15,6 +15,7 @@ __Bug__
 
 __DevOps__
 
+- [__#308__](https://github.com/corgibytes/freshli-lib/pull/308) Don't submit the Code Climate test results on PRs
 - [__#293__](https://github.com/corgibytes/freshli-lib/issues/293) Release notes CI fails for Dependabot PRs
 - [__#287__](https://github.com/corgibytes/freshli-lib/pull/287) Solve `Some checks haven't completed yet` issue caused by use of `git-auto-commit-action`
 - [__#283__](https://github.com/corgibytes/freshli-lib/issues/283) Remove old Dependabot config
@@ -25,6 +26,7 @@ __DevOps__
 
 __Dependencies__
 
+- [__#311__](https://github.com/corgibytes/freshli-lib/pull/311) Bump actions/setup-dotnet from v1 to v1.8.0
 - [__#306__](https://github.com/corgibytes/freshli-lib/pull/306) Bump HtmlAgilityPack from 1.11.32 to 1.11.33
 - [__#305__](https://github.com/corgibytes/freshli-lib/pull/305) Bump Elasticsearch.Net from 7.12.0 to 7.12.1
 - [__#303__](https://github.com/corgibytes/freshli-lib/pull/303) Bump NuGet.Protocol from 5.9.0 to 5.9.1
