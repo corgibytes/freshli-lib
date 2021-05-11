@@ -2,10 +2,10 @@
 
 We would love your help with Freshli-Lib!  The two default ways to contribute are:
 
-* [Open issues](https://github.com/corgibytes/freshli/issues/new) for any bugs you find or enhancments you would like to see in future versions.
+* [Open issues](https://github.com/corgibytes/freshli/issues/new) for any bugs you find or enhancements you would like to see in future versions.
 * Submit PRs for any [issues](https://github.com/corgibytes/freshli/issues) listed.
 
-Feel free to submit issues/PRs that aren't code related.  Confused by the documenation or the lack thereof?  Questions about using Freshli?  Something else?  Let us know.
+Feel free to submit issues/PRs that aren't code related.  Confused by the documentation or the lack thereof?  Questions about using Freshli?  Something else?  Let us know.
 
 ## Fixing an Issue and Submitting a PR
 
@@ -109,7 +109,7 @@ The tests currently take longer to run than we would like. We're exploring ways 
 
 ## Running
 
-There is cross platform [Exmple Client](https://github.com/corgibytes/freshli-lib/tree/feature-add-example-client/ExampleClient) that you can use to see how Freshli-Lib works.  Run or debug the example client in [Visual Studio](https://docs.microsoft.com/en-us/visualstudio/get-started/csharp/run-program?view=vs-2019) or [Rider](https://www.jetbrains.com/help/rider/Run_Debug_Configuration_dotNet_Project.html).
+There is cross platform [Example Client](https://github.com/corgibytes/freshli-lib/tree/feature-add-example-client/ExampleClient) that you can use to see how Freshli-Lib works.  Run or debug the example client in [Visual Studio](https://docs.microsoft.com/en-us/visualstudio/get-started/csharp/run-program?view=vs-2019) or [Rider](https://www.jetbrains.com/help/rider/Run_Debug_Configuration_dotNet_Project.html).
 
 If all goes well the Example Client window should appear.  Enter in a public git repo and click the "Run Freshli" button and the results will be displayed below.  You can find some projects we use for testing [here](https://github.com/corgibytes?q=freshli+fixture&type=&language=&sort=).
 
