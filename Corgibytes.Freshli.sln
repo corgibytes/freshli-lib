@@ -12,20 +12,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{429C5E3B-D6A2-4D93-9592-1414CE1A6084}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		.codeclimate.yml = .codeclimate.yml
 	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{C2E53355-4A4C-4E25-9DE1-265AD73373FD}"
-ProjectSection(SolutionItems) = preProject
-	.github\dependabot.yml = .github\dependabot.yml
-EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{EEEC1A43-207D-4448-8F63-31D4820DBD65}"
-ProjectSection(SolutionItems) = preProject
-	.github\workflows\cla.yml = .github\workflows\cla.yml
-	.github\workflows\dotnet-core.yml = .github\workflows\dotnet-core.yml
-	.github\workflows\eclint.yml = .github\workflows\eclint.yml
-	.github\workflows\release-notes.yml = .github\workflows\release-notes.yml
-EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{B3EA95D6-EC91-4BC7-9280-F07108D61ED3}"
 ProjectSection(SolutionItems) = preProject
@@ -37,12 +25,6 @@ ProjectSection(SolutionItems) = preProject
 	.github\workflows\cla.yml = .github\workflows\cla.yml
 	.github\workflows\dotnet-core.yml = .github\workflows\dotnet-core.yml
 	.github\workflows\release-notes.yml = .github\workflows\release-notes.yml
-EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "root", "root", "{7E860C04-F1D7-4624-BDEF-CE1EFD9133D1}"
-ProjectSection(SolutionItems) = preProject
-	.codeclimate.yml = .codeclimate.yml
-	.editorconfig = .editorconfig
 EndProjectSection
 EndProject
 Global
@@ -71,7 +53,6 @@ Global
 		SolutionGuid = {815F602F-03CC-488A-AAA4-40E49E6620B5}
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{EEEC1A43-207D-4448-8F63-31D4820DBD65} = {C2E53355-4A4C-4E25-9DE1-265AD73373FD}
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{92997AA4-C9E3-4A60-B072-CB4604EAD6B4} = {B3EA95D6-EC91-4BC7-9280-F07108D61ED3}
