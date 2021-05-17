@@ -446,3 +446,6 @@ Freshli.Test/coverage.info
 # https://github.com/nektos/act
 act.exe
 act/
+
+# Ignore test coverage file
+Corgibytes.Freshli.Lib.Test/coverage.info
