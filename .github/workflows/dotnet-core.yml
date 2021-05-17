@@ -3,7 +3,7 @@ name: .NET Core
 on:
   push:
     branches: [ main, release* ]
-    tags: '*'
+    tags: 'v*'
   pull_request:
     branches: [ main, release* ]
 
