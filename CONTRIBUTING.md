@@ -1,36 +1,21 @@
-## Contributing to `freshli`
+# Contributing to Freshli-Lib
 
-Here are a few ways to contribute to the Freshli project:
+We would love your help with Freshli-Lib!  The two default ways to contribute are:
 
-* [Open issues](https://github.com/corgibytes/freshli/issues/new) for any bugs you may find.
+* [Open issues](https://github.com/corgibytes/freshli/issues/new) for any bugs you find or enhancements you would like to see in future versions.
 * Submit PRs for any [issues](https://github.com/corgibytes/freshli/issues) listed.
 
-### Fixing an Issue and Submitting a PR
+Feel free to submit issues/PRs that aren't code related.  Confused by the documentation or the lack thereof?  Questions about using Freshli?  Something else?  Let us know.
+
+## Fixing an Issue and Submitting a PR
 
 When fixing an issue, assign yourself to the issue to indicate that you're the person currently working on it.
 
 When submitting a PR, please be sure to use Closing statements in the PR description to link to the issue at hand.
 
-### Running `freshli`
+## Development Environment Setup
 
-To run `freshli` from the command line, the project [freshli-cli](https://github.com/corgibytes/freshli-cli) is required.
-Please reference the [README](https://github.com/corgibytes/freshli-cli#getting-started-with-freshli-cli) instructions found there.
-
-`freshli` should build and run on any platform that's supported by the .NET Core SDK. It is heavily tested on both macOS and Windows. If you run into problems, please open an issue.
-
-### Building `freshli`
-
-#### Using Visual Studio Code Remote Containers
-
-If using Visual Studio Code, there is a Remote Container configuration that allows for easily building and running tests inside of a development container that contains all dependencies.
-
-#### Other Methods
-
-There are multiple ways to build `freshli`. The simplest is directly on the command line by running `dotnet build`.
-
-You can also use an IDE for working on `freshli`. Most of the project's developers use JetBrains Rider, but you can also use Visual Studio 2019. If you don't want to use an IDE, then a text editor with good C# support such as Visual Studio Code or Atom also works equally well.
-
-This is what a successful command line build looks like:
+Freshli-Lib requires [.NET 5](https://dotnet.microsoft.com/download/dotnet/5.0) to be installed.  Once installed you should be able to build Freshli-Lib via the command line:
 
 ```
 ➜  freshli git:(main) ✗ dotnet build
@@ -83,11 +68,17 @@ Build succeeded.
 Time Elapsed 00:00:04.29
 ```
 
+### VS Code Containers
+
+If using Visual Studio Code, there is a [Remote Container](https://code.visualstudio.com/docs/remote/containers) [configuration](.devcontainer) that allows for building and running tests inside of a development container that contains all dependencies.  This only works for Visual Studio Code and requires [Docker](https://www.docker.com/).
+
+### IDE
+
+Most of the project's developers use [JetBrains Rider](https://www.jetbrains.com/rider/) but some other popular IDEs include [Visual Studio](https://visualstudio.microsoft.com/) and [Visual Studio Code](https://code.visualstudio.com/).
+
 ### Running the test suite
 
-Simply running `dotnet test` will kick off the test runner. If you're using an IDE to build `freshli`, such as JetBrains Rider or Visual Studio 2019, then you can use the test runner that's built into the IDE.
-
-Here's an example of a successful test run:
+Tests can be run from your IDE or using the command line.
 
 ```
 ➜  freshli git:(main) ✗ dotnet test
@@ -115,6 +106,12 @@ Passed!  - Failed:     0, Passed:   823, Skipped:     0, Total:   823, Duration:
 ```
 
 The tests currently take longer to run than we would like. We're exploring ways to speed that up. You can run a subset of tests by including the `--filter` flag, e.g. `dotnet test --filter ComputeAsOf`.
+
+## Running
+
+There is cross platform [Example Client](https://github.com/corgibytes/freshli-lib/tree/feature-add-example-client/ExampleClient) that you can use to see how Freshli-Lib works.  Run or debug the example client in [Visual Studio](https://docs.microsoft.com/en-us/visualstudio/get-started/csharp/run-program?view=vs-2019) or [Rider](https://www.jetbrains.com/help/rider/Run_Debug_Configuration_dotNet_Project.html).
+
+If all goes well the Example Client window should appear.  Enter in a public git repo and click the "Run Freshli" button and the results will be displayed below.  You can find some projects we use for testing [here](https://github.com/corgibytes?q=freshli+fixture&type=&language=&sort=).
 
 ## Saving Results
 
