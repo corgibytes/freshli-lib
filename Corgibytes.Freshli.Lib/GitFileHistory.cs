@@ -37,7 +37,8 @@ namespace Corgibytes.Freshli.Lib {
               new CommitFilter {
                 SortBy = CommitSortStrategies.Topological
               }
-            ).Where(c => GetTreeEntry(c, targetFile) != null);
+            )
+            .Where(c => GetTreeEntry(c, targetFile) != null);
 
         foreach (var logEntry in logEntries) {
           var blob = GetTreeEntry(logEntry, targetFile).Target as Blob;

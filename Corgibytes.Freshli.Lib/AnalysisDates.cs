@@ -11,21 +11,25 @@ namespace Corgibytes.Freshli.Lib {
     public AnalysisDates(IFileHistory history, DateTime asOf) {
       if (history.Dates.Count == 0) {
         _dates.Add(asOf);
-      } else if (history.Dates.Count == 1 && asOf <= history.Dates[0]) {
+        return;
+      }
+
+      if (history.Dates.Count == 1 && asOf <= history.Dates[0]) {
         _dates.Add(asOf);
-      } else {
-        var date = history.Dates.First();
+        return;
+      }
 
-        if (date.Day > 1) {
-          date = date.AddDays(-date.Day + 1).Date;
-          date = date.AddMonths(1).Date;
-        }
+      var date = history.Dates.Last();
 
-        while (date <= asOf) {
-          var dayOf = date.ToEndOfDay();
-          _dates.Add(dayOf);
-          date = date.AddMonths(1);
-        }
+      if (date.Day > 1) {
+        date = date.AddDays(-date.Day + 1).Date;
+        date = date.AddMonths(-1).Date;
+      }
+
+      while (date <= asOf && _dates.Count < 10) {
+        var dayOf = date.ToEndOfDay();
+        _dates.Add(dayOf);
+        date = date.AddMonths(-1);
       }
     }
 
