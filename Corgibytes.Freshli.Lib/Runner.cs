@@ -18,7 +18,7 @@ namespace Corgibytes.Freshli.Lib {
       FileHistoryFinder.Register<GitFileHistoryFinder>();
     }
 
-    public IList<MetricsResult> Run(string analysisPath, DateTime asOf) {
+    public ScanResult Run(string analysisPath, DateTime asOf) {
       logger.Info($"Run({analysisPath}, {asOf:d})");
 
       var metricsResults = new List<MetricsResult>();
@@ -45,7 +45,10 @@ namespace Corgibytes.Freshli.Lib {
         WriteResultsToFile(metricsResults);
       }
 
-      return metricsResults;
+      return new ScanResult(
+        ManifestFinder.ManifestFiles[0],
+        metricsResults
+      );
     }
 
     private void ProcessManifestFile(
@@ -95,7 +98,7 @@ namespace Corgibytes.Freshli.Lib {
       metricsResults.Add(new MetricsResult(currentDate, sha, libYear));
     }
 
-    public IList<MetricsResult> Run(string analysisPath) {
+    public ScanResult Run(string analysisPath) {
       var asOf = DateTime.Today.ToEndOfDay();
       return Run(analysisPath, asOf: asOf);
     }

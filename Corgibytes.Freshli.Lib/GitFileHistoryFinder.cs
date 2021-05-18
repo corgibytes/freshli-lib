@@ -96,10 +96,13 @@ namespace Corgibytes.Freshli.Lib {
       string pattern
     ) {
       string clonedProjectRoot = NormalizeLocation(projectRootPath);
-      return Directory.GetFiles(clonedProjectRoot,
+      var files = Directory.GetFiles(clonedProjectRoot,
                                 pattern,
                                 SearchOption.AllDirectories)
-                      .Select(f => Path.GetFileName(f)).ToArray();
+                           .Select(f => f.Replace(clonedProjectRoot, ""))
+                           .Select(f => f.Substring(1))
+                           .ToArray();
+      return files;
     }
   }
 }
