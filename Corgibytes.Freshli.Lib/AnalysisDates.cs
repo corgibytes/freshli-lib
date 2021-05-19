@@ -19,17 +19,17 @@ namespace Corgibytes.Freshli.Lib {
         return;
       }
 
-      var date = history.Dates.Last();
+      var date = history.Dates.First();
 
       if (date.Day > 1) {
         date = date.AddDays(-date.Day + 1).Date;
-        date = date.AddMonths(-1).Date;
+        date = date.AddMonths(1).Date;
       }
 
-      while (date <= asOf && _dates.Count < 10) {
+      while (date <= asOf) {
         var dayOf = date.ToEndOfDay();
         _dates.Add(dayOf);
-        date = date.AddMonths(-1);
+        date = date.AddMonths(1);
       }
     }
 
