@@ -1,4 +1,6 @@
-﻿results[0] = { Date: 2013-09-01T23:59:59, ManifestSHA: 38ba12cf8224f4877caaa786cd3ddeec56a9c6aa, LibYear: { _packagesValues: [
+﻿results[0] = Filename: Gemfile.lock
+Results:
+{ Date: 2013-09-01T23:59:59, ManifestSHA: 38ba12cf8224f4877caaa786cd3ddeec56a9c6aa, LibYear: { _packagesValues: [
 { Name: "actionmailer", RepoVersion: "4.0.0", RepoVersionPublishedAt: 2013-06-25T00:00:00, LatestVersion: "4.0.0", LatestPublishedAt: 2013-06-25T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionpack", RepoVersion: "4.0.0", RepoVersionPublishedAt: 2013-06-25T00:00:00, LatestVersion: "4.0.0", LatestPublishedAt: 2013-06-25T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "activemodel", RepoVersion: "4.0.0", RepoVersionPublishedAt: 2013-06-25T00:00:00, LatestVersion: "4.0.0", LatestPublishedAt: 2013-06-25T00:00:00, UpgradeAvailable: False, Value: 0 },
@@ -108,8 +110,7 @@
 { Name: "will_paginate", RepoVersion: "3.0.4", RepoVersionPublishedAt: 2013-01-10T00:00:00, LatestVersion: "3.0.4", LatestPublishedAt: 2013-01-10T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "yajl-ruby", RepoVersion: "1.1.0", RepoVersionPublishedAt: 2011-11-09T00:00:00, LatestVersion: "1.1.0", LatestPublishedAt: 2011-11-09T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 8.306849315068492 } }
-
-results[1] = { Date: 2013-10-01T23:59:59, ManifestSHA: 1ea3203331b3a6f86d0a03e6c7ae6bec5410b5cd, LibYear: { _packagesValues: [
+{ Date: 2013-10-01T23:59:59, ManifestSHA: 1ea3203331b3a6f86d0a03e6c7ae6bec5410b5cd, LibYear: { _packagesValues: [
 { Name: "actionmailer", RepoVersion: "4.0.0", RepoVersionPublishedAt: 2013-06-25T00:00:00, LatestVersion: "4.0.0", LatestPublishedAt: 2013-06-25T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionpack", RepoVersion: "4.0.0", RepoVersionPublishedAt: 2013-06-25T00:00:00, LatestVersion: "4.0.0", LatestPublishedAt: 2013-06-25T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "activemodel", RepoVersion: "4.0.0", RepoVersionPublishedAt: 2013-06-25T00:00:00, LatestVersion: "4.0.0", LatestPublishedAt: 2013-06-25T00:00:00, UpgradeAvailable: False, Value: 0 },
@@ -219,8 +220,7 @@ results[1] = { Date: 2013-10-01T23:59:59, ManifestSHA: 1ea3203331b3a6f86d0a03e6c
 { Name: "will_paginate", RepoVersion: "3.0.5", RepoVersionPublishedAt: 2013-09-18T00:00:00, LatestVersion: "3.0.5", LatestPublishedAt: 2013-09-18T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "yajl-ruby", RepoVersion: "1.1.0", RepoVersionPublishedAt: 2011-11-09T00:00:00, LatestVersion: "1.1.0", LatestPublishedAt: 2011-11-09T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 7.000000000000002 } }
-
-results[2] = { Date: 2013-11-01T23:59:59, ManifestSHA: 100fb897c8bc70147e58196d8520f5e624b5d2c2, LibYear: { _packagesValues: [
+{ Date: 2013-11-01T23:59:59, ManifestSHA: 100fb897c8bc70147e58196d8520f5e624b5d2c2, LibYear: { _packagesValues: [
 { Name: "actionmailer", RepoVersion: "4.0.0", RepoVersionPublishedAt: 2013-06-25T00:00:00, LatestVersion: "4.0.1", LatestPublishedAt: 2013-11-01T00:00:00, UpgradeAvailable: True, Value: 0.35342465753424657 },
 { Name: "actionpack", RepoVersion: "4.0.0", RepoVersionPublishedAt: 2013-06-25T00:00:00, LatestVersion: "4.0.1", LatestPublishedAt: 2013-11-01T00:00:00, UpgradeAvailable: True, Value: 0.35342465753424657 },
 { Name: "activemodel", RepoVersion: "4.0.0", RepoVersionPublishedAt: 2013-06-25T00:00:00, LatestVersion: "4.0.1", LatestPublishedAt: 2013-11-01T00:00:00, UpgradeAvailable: True, Value: 0.35342465753424657 },
@@ -336,8 +336,7 @@ results[2] = { Date: 2013-11-01T23:59:59, ManifestSHA: 100fb897c8bc70147e58196d8
 { Name: "will_paginate", RepoVersion: "3.0.5", RepoVersionPublishedAt: 2013-09-18T00:00:00, LatestVersion: "3.0.5", LatestPublishedAt: 2013-09-18T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "yajl-ruby", RepoVersion: "1.1.0", RepoVersionPublishedAt: 2011-11-09T00:00:00, LatestVersion: "1.1.0", LatestPublishedAt: 2011-11-09T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 9.917808219178083 } }
-
-results[3] = { Date: 2013-12-01T23:59:59, ManifestSHA: 841b4bfaf022294afac2ed4c28bc94a0a4b50463, LibYear: { _packagesValues: [
+{ Date: 2013-12-01T23:59:59, ManifestSHA: 841b4bfaf022294afac2ed4c28bc94a0a4b50463, LibYear: { _packagesValues: [
 { Name: "actionmailer", RepoVersion: "4.0.0", RepoVersionPublishedAt: 2013-06-25T00:00:00, LatestVersion: "4.0.1", LatestPublishedAt: 2013-11-01T00:00:00, UpgradeAvailable: True, Value: 0.35342465753424657 },
 { Name: "actionpack", RepoVersion: "4.0.0", RepoVersionPublishedAt: 2013-06-25T00:00:00, LatestVersion: "4.0.1", LatestPublishedAt: 2013-11-01T00:00:00, UpgradeAvailable: True, Value: 0.35342465753424657 },
 { Name: "activemodel", RepoVersion: "4.0.0", RepoVersionPublishedAt: 2013-06-25T00:00:00, LatestVersion: "4.0.1", LatestPublishedAt: 2013-11-01T00:00:00, UpgradeAvailable: True, Value: 0.35342465753424657 },
@@ -447,8 +446,7 @@ results[3] = { Date: 2013-12-01T23:59:59, ManifestSHA: 841b4bfaf022294afac2ed4c2
 { Name: "will_paginate", RepoVersion: "3.0.5", RepoVersionPublishedAt: 2013-09-18T00:00:00, LatestVersion: "3.0.5", LatestPublishedAt: 2013-09-18T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "yajl-ruby", RepoVersion: "1.1.0", RepoVersionPublishedAt: 2011-11-09T00:00:00, LatestVersion: "1.1.0", LatestPublishedAt: 2011-11-09T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 21.545205479452058 } }
-
-results[4] = { Date: 2014-01-01T23:59:59, ManifestSHA: 4d02b2e0fd6c71526408396d9614e015f4c47b5f, LibYear: { _packagesValues: [
+{ Date: 2014-01-01T23:59:59, ManifestSHA: 4d02b2e0fd6c71526408396d9614e015f4c47b5f, LibYear: { _packagesValues: [
 { Name: "actionmailer", RepoVersion: "4.0.2", RepoVersionPublishedAt: 2013-12-03T00:00:00, LatestVersion: "4.0.2", LatestPublishedAt: 2013-12-03T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionpack", RepoVersion: "4.0.2", RepoVersionPublishedAt: 2013-12-03T00:00:00, LatestVersion: "4.0.2", LatestPublishedAt: 2013-12-03T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "activemodel", RepoVersion: "4.0.2", RepoVersionPublishedAt: 2013-12-03T00:00:00, LatestVersion: "4.0.2", LatestPublishedAt: 2013-12-03T00:00:00, UpgradeAvailable: False, Value: 0 },
@@ -562,8 +560,7 @@ results[4] = { Date: 2014-01-01T23:59:59, ManifestSHA: 4d02b2e0fd6c71526408396d9
 { Name: "will_paginate", RepoVersion: "3.0.5", RepoVersionPublishedAt: 2013-09-18T00:00:00, LatestVersion: "3.0.5", LatestPublishedAt: 2013-09-18T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "yajl-ruby", RepoVersion: "1.1.0", RepoVersionPublishedAt: 2011-11-09T00:00:00, LatestVersion: "1.2.0", LatestPublishedAt: 2013-12-17T00:00:00, UpgradeAvailable: True, Value: 2.106849315068493 },
 ], Total: 12.468493150684932 } }
-
-results[5] = { Date: 2014-02-01T23:59:59, ManifestSHA: 931d8340eabdbf2f77ab5899ff51edbc471d7953, LibYear: { _packagesValues: [
+{ Date: 2014-02-01T23:59:59, ManifestSHA: 931d8340eabdbf2f77ab5899ff51edbc471d7953, LibYear: { _packagesValues: [
 { Name: "actionmailer", RepoVersion: "4.0.2", RepoVersionPublishedAt: 2013-12-03T00:00:00, LatestVersion: "4.0.2", LatestPublishedAt: 2013-12-03T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionpack", RepoVersion: "4.0.2", RepoVersionPublishedAt: 2013-12-03T00:00:00, LatestVersion: "4.0.2", LatestPublishedAt: 2013-12-03T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "activemodel", RepoVersion: "4.0.2", RepoVersionPublishedAt: 2013-12-03T00:00:00, LatestVersion: "4.0.2", LatestPublishedAt: 2013-12-03T00:00:00, UpgradeAvailable: False, Value: 0 },
@@ -678,8 +675,7 @@ results[5] = { Date: 2014-02-01T23:59:59, ManifestSHA: 931d8340eabdbf2f77ab5899f
 { Name: "will_paginate", RepoVersion: "3.0.5", RepoVersionPublishedAt: 2013-09-18T00:00:00, LatestVersion: "3.0.5", LatestPublishedAt: 2013-09-18T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "yajl-ruby", RepoVersion: "1.2.0", RepoVersionPublishedAt: 2013-12-17T00:00:00, LatestVersion: "1.2.0", LatestPublishedAt: 2013-12-17T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 12.161643835616436 } }
-
-results[6] = { Date: 2014-03-01T23:59:59, ManifestSHA: f57d9f87be4c39ed172b5f169e34f5fdec2f1f8a, LibYear: { _packagesValues: [
+{ Date: 2014-03-01T23:59:59, ManifestSHA: f57d9f87be4c39ed172b5f169e34f5fdec2f1f8a, LibYear: { _packagesValues: [
 { Name: "actionmailer", RepoVersion: "4.0.3", RepoVersionPublishedAt: 2014-02-18T00:00:00, LatestVersion: "4.0.3", LatestPublishedAt: 2014-02-18T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionpack", RepoVersion: "4.0.3", RepoVersionPublishedAt: 2014-02-18T00:00:00, LatestVersion: "4.0.3", LatestPublishedAt: 2014-02-18T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "activemodel", RepoVersion: "4.0.3", RepoVersionPublishedAt: 2014-02-18T00:00:00, LatestVersion: "4.0.3", LatestPublishedAt: 2014-02-18T00:00:00, UpgradeAvailable: False, Value: 0 },
@@ -793,8 +789,7 @@ results[6] = { Date: 2014-03-01T23:59:59, ManifestSHA: f57d9f87be4c39ed172b5f169
 { Name: "will_paginate", RepoVersion: "3.0.5", RepoVersionPublishedAt: 2013-09-18T00:00:00, LatestVersion: "3.0.5", LatestPublishedAt: 2013-09-18T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "yajl-ruby", RepoVersion: "1.2.0", RepoVersionPublishedAt: 2013-12-17T00:00:00, LatestVersion: "1.2.0", LatestPublishedAt: 2013-12-17T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 18.553424657534247 } }
-
-results[7] = { Date: 2014-04-01T23:59:59, ManifestSHA: 6d4dd71cd28179d9267c030023911c0722b325ca, LibYear: { _packagesValues: [
+{ Date: 2014-04-01T23:59:59, ManifestSHA: 6d4dd71cd28179d9267c030023911c0722b325ca, LibYear: { _packagesValues: [
 { Name: "actionmailer", RepoVersion: "4.0.4", RepoVersionPublishedAt: 2014-03-14T00:00:00, LatestVersion: "4.0.4", LatestPublishedAt: 2014-03-14T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionpack", RepoVersion: "4.0.4", RepoVersionPublishedAt: 2014-03-14T00:00:00, LatestVersion: "4.0.4", LatestPublishedAt: 2014-03-14T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "activemodel", RepoVersion: "4.0.4", RepoVersionPublishedAt: 2014-03-14T00:00:00, LatestVersion: "4.0.4", LatestPublishedAt: 2014-03-14T00:00:00, UpgradeAvailable: False, Value: 0 },
@@ -912,8 +907,7 @@ results[7] = { Date: 2014-04-01T23:59:59, ManifestSHA: 6d4dd71cd28179d9267c03002
 { Name: "will_paginate", RepoVersion: "3.0.5", RepoVersionPublishedAt: 2013-09-18T00:00:00, LatestVersion: "3.0.5", LatestPublishedAt: 2013-09-18T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "yajl-ruby", RepoVersion: "1.2.0", RepoVersionPublishedAt: 2013-12-17T00:00:00, LatestVersion: "1.2.0", LatestPublishedAt: 2013-12-17T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 11.676712328767126 } }
-
-results[8] = { Date: 2014-05-01T23:59:59, ManifestSHA: 4ee9be331695627f80ed4724862238c500fd1131, LibYear: { _packagesValues: [
+{ Date: 2014-05-01T23:59:59, ManifestSHA: 4ee9be331695627f80ed4724862238c500fd1131, LibYear: { _packagesValues: [
 { Name: "actionmailer", RepoVersion: "4.0.4", RepoVersionPublishedAt: 2014-03-14T00:00:00, LatestVersion: "4.1.0", LatestPublishedAt: 2014-04-08T00:00:00, UpgradeAvailable: True, Value: 0.0684931506849315 },
 { Name: "actionpack", RepoVersion: "4.0.4", RepoVersionPublishedAt: 2014-03-14T00:00:00, LatestVersion: "4.1.0", LatestPublishedAt: 2014-04-08T00:00:00, UpgradeAvailable: True, Value: 0.0684931506849315 },
 { Name: "activemodel", RepoVersion: "4.0.4", RepoVersionPublishedAt: 2014-03-14T00:00:00, LatestVersion: "4.1.0", LatestPublishedAt: 2014-04-08T00:00:00, UpgradeAvailable: True, Value: 0.0684931506849315 },
@@ -1033,8 +1027,7 @@ results[8] = { Date: 2014-05-01T23:59:59, ManifestSHA: 4ee9be331695627f80ed47248
 { Name: "will_paginate", RepoVersion: "3.0.5", RepoVersionPublishedAt: 2013-09-18T00:00:00, LatestVersion: "3.0.5", LatestPublishedAt: 2013-09-18T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "yajl-ruby", RepoVersion: "1.2.0", RepoVersionPublishedAt: 2013-12-17T00:00:00, LatestVersion: "1.2.0", LatestPublishedAt: 2013-12-17T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 22.416438356164385 } }
-
-results[9] = { Date: 2014-06-01T23:59:59, ManifestSHA: 89086bff921ed89ca7a382b2edc2052442226cde, LibYear: { _packagesValues: [
+{ Date: 2014-06-01T23:59:59, ManifestSHA: 89086bff921ed89ca7a382b2edc2052442226cde, LibYear: { _packagesValues: [
 { Name: "actionmailer", RepoVersion: "4.0.5", RepoVersionPublishedAt: 2014-05-06T00:00:00, LatestVersion: "4.1.1", LatestPublishedAt: 2014-05-06T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionpack", RepoVersion: "4.0.5", RepoVersionPublishedAt: 2014-05-06T00:00:00, LatestVersion: "4.1.1", LatestPublishedAt: 2014-05-06T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "activemodel", RepoVersion: "4.0.5", RepoVersionPublishedAt: 2014-05-06T00:00:00, LatestVersion: "4.1.1", LatestPublishedAt: 2014-05-06T00:00:00, UpgradeAvailable: False, Value: 0 },
@@ -1155,8 +1148,7 @@ results[9] = { Date: 2014-06-01T23:59:59, ManifestSHA: 89086bff921ed89ca7a382b2e
 { Name: "will_paginate", RepoVersion: "3.0.5", RepoVersionPublishedAt: 2013-09-18T00:00:00, LatestVersion: "3.0.5", LatestPublishedAt: 2013-09-18T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "yajl-ruby", RepoVersion: "1.2.0", RepoVersionPublishedAt: 2013-12-17T00:00:00, LatestVersion: "1.2.0", LatestPublishedAt: 2013-12-17T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 28.893150684931506 } }
-
-results[10] = { Date: 2014-07-01T23:59:59, ManifestSHA: 8cc405a649f68078d37feb37332e06f036c552a1, LibYear: { _packagesValues: [
+{ Date: 2014-07-01T23:59:59, ManifestSHA: 8cc405a649f68078d37feb37332e06f036c552a1, LibYear: { _packagesValues: [
 { Name: "actionmailer", RepoVersion: "4.0.5", RepoVersionPublishedAt: 2014-05-06T00:00:00, LatestVersion: "4.1.2", LatestPublishedAt: 2014-06-26T00:00:00, UpgradeAvailable: True, Value: 0.13972602739726028 },
 { Name: "actionpack", RepoVersion: "4.0.5", RepoVersionPublishedAt: 2014-05-06T00:00:00, LatestVersion: "4.1.2", LatestPublishedAt: 2014-06-26T00:00:00, UpgradeAvailable: True, Value: 0.13972602739726028 },
 { Name: "activemodel", RepoVersion: "4.0.5", RepoVersionPublishedAt: 2014-05-06T00:00:00, LatestVersion: "4.1.2", LatestPublishedAt: 2014-06-26T00:00:00, UpgradeAvailable: True, Value: 0.13972602739726028 },
@@ -1287,8 +1279,7 @@ results[10] = { Date: 2014-07-01T23:59:59, ManifestSHA: 8cc405a649f68078d37feb37
 { Name: "will_paginate", RepoVersion: "3.0.5", RepoVersionPublishedAt: 2013-09-18T00:00:00, LatestVersion: "3.0.6", LatestPublishedAt: 2014-06-28T00:00:00, UpgradeAvailable: True, Value: 0.7753424657534247 },
 { Name: "yajl-ruby", RepoVersion: "1.2.0", RepoVersionPublishedAt: 2013-12-17T00:00:00, LatestVersion: "1.2.1", LatestPublishedAt: 2014-06-05T00:00:00, UpgradeAvailable: True, Value: 0.4657534246575342 },
 ], Total: 40.30410958904109 } }
-
-results[11] = { Date: 2014-08-01T23:59:59, ManifestSHA: 391be3816b74af6961942de63d8862e226a9a7c7, LibYear: { _packagesValues: [
+{ Date: 2014-08-01T23:59:59, ManifestSHA: 391be3816b74af6961942de63d8862e226a9a7c7, LibYear: { _packagesValues: [
 { Name: "actionmailer", RepoVersion: "4.1.4", RepoVersionPublishedAt: 2014-07-02T00:00:00, LatestVersion: "4.1.4", LatestPublishedAt: 2014-07-02T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionpack", RepoVersion: "4.1.4", RepoVersionPublishedAt: 2014-07-02T00:00:00, LatestVersion: "4.1.4", LatestPublishedAt: 2014-07-02T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionview", RepoVersion: "4.1.4", RepoVersionPublishedAt: 2014-07-02T00:00:00, LatestVersion: "4.1.4", LatestPublishedAt: 2014-07-02T00:00:00, UpgradeAvailable: False, Value: 0 },
@@ -1424,8 +1415,7 @@ results[11] = { Date: 2014-08-01T23:59:59, ManifestSHA: 391be3816b74af6961942de6
 { Name: "will_paginate", RepoVersion: "3.0.7", RepoVersionPublishedAt: 2014-07-04T00:00:00, LatestVersion: "3.0.7", LatestPublishedAt: 2014-07-04T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "yajl-ruby", RepoVersion: "1.2.1", RepoVersionPublishedAt: 2014-06-05T00:00:00, LatestVersion: "1.2.1", LatestPublishedAt: 2014-06-05T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 27.805479452054797 } }
-
-results[12] = { Date: 2014-09-01T23:59:59, ManifestSHA: 57a82a05f404363a22854f318a4577570b739b9f, LibYear: { _packagesValues: [
+{ Date: 2014-09-01T23:59:59, ManifestSHA: 57a82a05f404363a22854f318a4577570b739b9f, LibYear: { _packagesValues: [
 { Name: "actionmailer", RepoVersion: "4.1.4", RepoVersionPublishedAt: 2014-07-02T00:00:00, LatestVersion: "4.1.5", LatestPublishedAt: 2014-08-18T00:00:00, UpgradeAvailable: True, Value: 0.12876712328767123 },
 { Name: "actionpack", RepoVersion: "4.1.4", RepoVersionPublishedAt: 2014-07-02T00:00:00, LatestVersion: "4.1.5", LatestPublishedAt: 2014-08-18T00:00:00, UpgradeAvailable: True, Value: 0.12876712328767123 },
 { Name: "actionview", RepoVersion: "4.1.4", RepoVersionPublishedAt: 2014-07-02T00:00:00, LatestVersion: "4.1.5", LatestPublishedAt: 2014-08-18T00:00:00, UpgradeAvailable: True, Value: 0.12876712328767123 },
@@ -1562,8 +1552,7 @@ results[12] = { Date: 2014-09-01T23:59:59, ManifestSHA: 57a82a05f404363a22854f31
 { Name: "will_paginate", RepoVersion: "3.0.7", RepoVersionPublishedAt: 2014-07-04T00:00:00, LatestVersion: "3.0.7", LatestPublishedAt: 2014-07-04T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "yajl-ruby", RepoVersion: "1.2.1", RepoVersionPublishedAt: 2014-06-05T00:00:00, LatestVersion: "1.2.1", LatestPublishedAt: 2014-06-05T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 32.92876712328767 } }
-
-results[13] = { Date: 2014-10-01T23:59:59, ManifestSHA: 9f1bd7ead32964daa084262236c162231e10bdea, LibYear: { _packagesValues: [
+{ Date: 2014-10-01T23:59:59, ManifestSHA: 9f1bd7ead32964daa084262236c162231e10bdea, LibYear: { _packagesValues: [
 { Name: "actionmailer", RepoVersion: "4.1.5", RepoVersionPublishedAt: 2014-08-18T00:00:00, LatestVersion: "4.1.6", LatestPublishedAt: 2014-09-11T00:00:00, UpgradeAvailable: True, Value: 0.06575342465753424 },
 { Name: "actionpack", RepoVersion: "4.1.5", RepoVersionPublishedAt: 2014-08-18T00:00:00, LatestVersion: "4.1.6", LatestPublishedAt: 2014-09-11T00:00:00, UpgradeAvailable: True, Value: 0.06575342465753424 },
 { Name: "actionview", RepoVersion: "4.1.5", RepoVersionPublishedAt: 2014-08-18T00:00:00, LatestVersion: "4.1.6", LatestPublishedAt: 2014-09-11T00:00:00, UpgradeAvailable: True, Value: 0.06575342465753424 },
@@ -1700,8 +1689,7 @@ results[13] = { Date: 2014-10-01T23:59:59, ManifestSHA: 9f1bd7ead32964daa0842622
 { Name: "will_paginate", RepoVersion: "3.0.7", RepoVersionPublishedAt: 2014-07-04T00:00:00, LatestVersion: "3.0.7", LatestPublishedAt: 2014-07-04T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "yajl-ruby", RepoVersion: "1.2.1", RepoVersionPublishedAt: 2014-06-05T00:00:00, LatestVersion: "1.2.1", LatestPublishedAt: 2014-06-05T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 37.06849315068493 } }
-
-results[14] = { Date: 2014-11-01T23:59:59, ManifestSHA: fdf4833a395277014c8ebe76d854f8364ff44208, LibYear: { _packagesValues: [
+{ Date: 2014-11-01T23:59:59, ManifestSHA: fdf4833a395277014c8ebe76d854f8364ff44208, LibYear: { _packagesValues: [
 { Name: "actionmailer", RepoVersion: "4.1.7", RepoVersionPublishedAt: 2014-10-30T00:00:00, LatestVersion: "4.1.7", LatestPublishedAt: 2014-10-30T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionpack", RepoVersion: "4.1.7", RepoVersionPublishedAt: 2014-10-30T00:00:00, LatestVersion: "4.1.7", LatestPublishedAt: 2014-10-30T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionview", RepoVersion: "4.1.7", RepoVersionPublishedAt: 2014-10-30T00:00:00, LatestVersion: "4.1.7", LatestPublishedAt: 2014-10-30T00:00:00, UpgradeAvailable: False, Value: 0 },
@@ -1838,8 +1826,7 @@ results[14] = { Date: 2014-11-01T23:59:59, ManifestSHA: fdf4833a395277014c8ebe76
 { Name: "will_paginate", RepoVersion: "3.0.7", RepoVersionPublishedAt: 2014-07-04T00:00:00, LatestVersion: "3.0.7", LatestPublishedAt: 2014-07-04T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "yajl-ruby", RepoVersion: "1.2.1", RepoVersionPublishedAt: 2014-06-05T00:00:00, LatestVersion: "1.2.1", LatestPublishedAt: 2014-06-05T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 17.36164383561644 } }
-
-results[15] = { Date: 2014-12-01T23:59:59, ManifestSHA: e82f37e6bae1493d1ab40fba76c4776a3503e4eb, LibYear: { _packagesValues: [
+{ Date: 2014-12-01T23:59:59, ManifestSHA: e82f37e6bae1493d1ab40fba76c4776a3503e4eb, LibYear: { _packagesValues: [
 { Name: "actionmailer", RepoVersion: "4.1.7", RepoVersionPublishedAt: 2014-10-30T00:00:00, LatestVersion: "4.1.8", LatestPublishedAt: 2014-11-17T00:00:00, UpgradeAvailable: True, Value: 0.049315068493150684 },
 { Name: "actionpack", RepoVersion: "4.1.7", RepoVersionPublishedAt: 2014-10-30T00:00:00, LatestVersion: "4.1.8", LatestPublishedAt: 2014-11-17T00:00:00, UpgradeAvailable: True, Value: 0.049315068493150684 },
 { Name: "actionview", RepoVersion: "4.1.7", RepoVersionPublishedAt: 2014-10-30T00:00:00, LatestVersion: "4.1.8", LatestPublishedAt: 2014-11-17T00:00:00, UpgradeAvailable: True, Value: 0.049315068493150684 },
@@ -1976,8 +1963,7 @@ results[15] = { Date: 2014-12-01T23:59:59, ManifestSHA: e82f37e6bae1493d1ab40fba
 { Name: "will_paginate", RepoVersion: "3.0.7", RepoVersionPublishedAt: 2014-07-04T00:00:00, LatestVersion: "3.0.7", LatestPublishedAt: 2014-07-04T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "yajl-ruby", RepoVersion: "1.2.1", RepoVersionPublishedAt: 2014-06-05T00:00:00, LatestVersion: "1.2.1", LatestPublishedAt: 2014-06-05T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 25.720547945205475 } }
-
-results[16] = { Date: 2015-01-01T23:59:59, ManifestSHA: 4c03ae4f8501dac8b366d4097dbb0dd08d60f033, LibYear: { _packagesValues: [
+{ Date: 2015-01-01T23:59:59, ManifestSHA: 4c03ae4f8501dac8b366d4097dbb0dd08d60f033, LibYear: { _packagesValues: [
 { Name: "CFPropertyList", RepoVersion: "2.2.8", RepoVersionPublishedAt: 2014-05-10T00:00:00, LatestVersion: "2.2.8", LatestPublishedAt: 2014-05-10T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionmailer", RepoVersion: "4.2.0", RepoVersionPublishedAt: 2014-12-20T00:00:00, LatestVersion: "4.2.0", LatestPublishedAt: 2014-12-20T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionpack", RepoVersion: "4.2.0", RepoVersionPublishedAt: 2014-12-20T00:00:00, LatestVersion: "4.2.0", LatestPublishedAt: 2014-12-20T00:00:00, UpgradeAvailable: False, Value: 0 },
@@ -2137,8 +2123,7 @@ results[16] = { Date: 2015-01-01T23:59:59, ManifestSHA: 4c03ae4f8501dac8b366d409
 { Name: "will_paginate", RepoVersion: "3.0.7", RepoVersionPublishedAt: 2014-07-04T00:00:00, LatestVersion: "3.0.7", LatestPublishedAt: 2014-07-04T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "yajl-ruby", RepoVersion: "1.2.1", RepoVersionPublishedAt: 2014-06-05T00:00:00, LatestVersion: "1.2.1", LatestPublishedAt: 2014-06-05T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 11.153424657534249 } }
-
-results[17] = { Date: 2015-02-01T23:59:59, ManifestSHA: 02def1beb069539680f202753edae8d8d6af0f6f, LibYear: { _packagesValues: [
+{ Date: 2015-02-01T23:59:59, ManifestSHA: 02def1beb069539680f202753edae8d8d6af0f6f, LibYear: { _packagesValues: [
 { Name: "actionmailer", RepoVersion: "4.1.7", RepoVersionPublishedAt: 2014-10-30T00:00:00, LatestVersion: "4.2.0", LatestPublishedAt: 2014-12-20T00:00:00, UpgradeAvailable: True, Value: 0.13972602739726028 },
 { Name: "actionpack", RepoVersion: "4.1.7", RepoVersionPublishedAt: 2014-10-30T00:00:00, LatestVersion: "4.2.0", LatestPublishedAt: 2014-12-20T00:00:00, UpgradeAvailable: True, Value: 0.13972602739726028 },
 { Name: "actionview", RepoVersion: "4.1.7", RepoVersionPublishedAt: 2014-10-30T00:00:00, LatestVersion: "4.2.0", LatestPublishedAt: 2014-12-20T00:00:00, UpgradeAvailable: True, Value: 0.13972602739726028 },
@@ -2281,8 +2266,7 @@ results[17] = { Date: 2015-02-01T23:59:59, ManifestSHA: 02def1beb069539680f20275
 { Name: "will_paginate", RepoVersion: "3.0.7", RepoVersionPublishedAt: 2014-07-04T00:00:00, LatestVersion: "3.0.7", LatestPublishedAt: 2014-07-04T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "yajl-ruby", RepoVersion: "1.2.1", RepoVersionPublishedAt: 2014-06-05T00:00:00, LatestVersion: "1.2.1", LatestPublishedAt: 2014-06-05T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 37.71506849315068 } }
-
-results[18] = { Date: 2015-03-01T23:59:59, ManifestSHA: 7725c8666941482b78247e5e0cff8f304f4b85b3, LibYear: { _packagesValues: [
+{ Date: 2015-03-01T23:59:59, ManifestSHA: 7725c8666941482b78247e5e0cff8f304f4b85b3, LibYear: { _packagesValues: [
 { Name: "actionmailer", RepoVersion: "4.1.7", RepoVersionPublishedAt: 2014-10-30T00:00:00, LatestVersion: "4.2.0", LatestPublishedAt: 2014-12-20T00:00:00, UpgradeAvailable: True, Value: 0.13972602739726028 },
 { Name: "actionpack", RepoVersion: "4.1.7", RepoVersionPublishedAt: 2014-10-30T00:00:00, LatestVersion: "4.2.0", LatestPublishedAt: 2014-12-20T00:00:00, UpgradeAvailable: True, Value: 0.13972602739726028 },
 { Name: "actionview", RepoVersion: "4.1.7", RepoVersionPublishedAt: 2014-10-30T00:00:00, LatestVersion: "4.2.0", LatestPublishedAt: 2014-12-20T00:00:00, UpgradeAvailable: True, Value: 0.13972602739726028 },
@@ -2425,8 +2409,7 @@ results[18] = { Date: 2015-03-01T23:59:59, ManifestSHA: 7725c8666941482b78247e5e
 { Name: "will_paginate", RepoVersion: "3.0.7", RepoVersionPublishedAt: 2014-07-04T00:00:00, LatestVersion: "3.0.7", LatestPublishedAt: 2014-07-04T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "yajl-ruby", RepoVersion: "1.2.1", RepoVersionPublishedAt: 2014-06-05T00:00:00, LatestVersion: "1.2.1", LatestPublishedAt: 2014-06-05T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 47.553424657534244 } }
-
-results[19] = { Date: 2015-04-01T23:59:59, ManifestSHA: be82434cc506835fdba5b1329c54f546ff1c8ef4, LibYear: { _packagesValues: [
+{ Date: 2015-04-01T23:59:59, ManifestSHA: be82434cc506835fdba5b1329c54f546ff1c8ef4, LibYear: { _packagesValues: [
 { Name: "actionmailer", RepoVersion: "4.1.7", RepoVersionPublishedAt: 2014-10-30T00:00:00, LatestVersion: "4.2.1", LatestPublishedAt: 2015-03-19T00:00:00, UpgradeAvailable: True, Value: 0.3835616438356164 },
 { Name: "actionpack", RepoVersion: "4.1.7", RepoVersionPublishedAt: 2014-10-30T00:00:00, LatestVersion: "4.2.1", LatestPublishedAt: 2015-03-19T00:00:00, UpgradeAvailable: True, Value: 0.3835616438356164 },
 { Name: "actionview", RepoVersion: "4.1.7", RepoVersionPublishedAt: 2014-10-30T00:00:00, LatestVersion: "4.2.1", LatestPublishedAt: 2015-03-19T00:00:00, UpgradeAvailable: True, Value: 0.3835616438356164 },
@@ -2570,8 +2553,7 @@ results[19] = { Date: 2015-04-01T23:59:59, ManifestSHA: be82434cc506835fdba5b132
 { Name: "xipio", RepoVersion: "1.0.0", RepoVersionPublishedAt: 2013-06-15T00:00:00, LatestVersion: "1.0.0", LatestPublishedAt: 2013-06-15T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "yajl-ruby", RepoVersion: "1.2.1", RepoVersionPublishedAt: 2014-06-05T00:00:00, LatestVersion: "1.2.1", LatestPublishedAt: 2014-06-05T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 56.01369863013699 } }
-
-results[20] = { Date: 2015-05-01T23:59:59, ManifestSHA: 1ddc130da2ae145f7c73b873111fc0c85300f244, LibYear: { _packagesValues: [
+{ Date: 2015-05-01T23:59:59, ManifestSHA: 1ddc130da2ae145f7c73b873111fc0c85300f244, LibYear: { _packagesValues: [
 { Name: "actionmailer", RepoVersion: "4.1.7", RepoVersionPublishedAt: 2014-10-30T00:00:00, LatestVersion: "4.2.1", LatestPublishedAt: 2015-03-19T00:00:00, UpgradeAvailable: True, Value: 0.3835616438356164 },
 { Name: "actionpack", RepoVersion: "4.1.7", RepoVersionPublishedAt: 2014-10-30T00:00:00, LatestVersion: "4.2.1", LatestPublishedAt: 2015-03-19T00:00:00, UpgradeAvailable: True, Value: 0.3835616438356164 },
 { Name: "actionview", RepoVersion: "4.1.7", RepoVersionPublishedAt: 2014-10-30T00:00:00, LatestVersion: "4.2.1", LatestPublishedAt: 2015-03-19T00:00:00, UpgradeAvailable: True, Value: 0.3835616438356164 },
@@ -2716,8 +2698,7 @@ results[20] = { Date: 2015-05-01T23:59:59, ManifestSHA: 1ddc130da2ae145f7c73b873
 { Name: "xipio", RepoVersion: "1.0.0", RepoVersionPublishedAt: 2013-06-15T00:00:00, LatestVersion: "1.0.0", LatestPublishedAt: 2013-06-15T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "yajl-ruby", RepoVersion: "1.2.1", RepoVersionPublishedAt: 2014-06-05T00:00:00, LatestVersion: "1.2.1", LatestPublishedAt: 2014-06-05T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 65.05479452054796 } }
-
-results[21] = { Date: 2015-06-01T23:59:59, ManifestSHA: 078b0d16249f3235c17529744e9545c91329a2a1, LibYear: { _packagesValues: [
+{ Date: 2015-06-01T23:59:59, ManifestSHA: 078b0d16249f3235c17529744e9545c91329a2a1, LibYear: { _packagesValues: [
 { Name: "actionmailer", RepoVersion: "4.1.7", RepoVersionPublishedAt: 2014-10-30T00:00:00, LatestVersion: "4.2.1", LatestPublishedAt: 2015-03-19T00:00:00, UpgradeAvailable: True, Value: 0.3835616438356164 },
 { Name: "actionpack", RepoVersion: "4.1.7", RepoVersionPublishedAt: 2014-10-30T00:00:00, LatestVersion: "4.2.1", LatestPublishedAt: 2015-03-19T00:00:00, UpgradeAvailable: True, Value: 0.3835616438356164 },
 { Name: "actionview", RepoVersion: "4.1.7", RepoVersionPublishedAt: 2014-10-30T00:00:00, LatestVersion: "4.2.1", LatestPublishedAt: 2015-03-19T00:00:00, UpgradeAvailable: True, Value: 0.3835616438356164 },
@@ -2863,8 +2844,7 @@ results[21] = { Date: 2015-06-01T23:59:59, ManifestSHA: 078b0d16249f3235c1752974
 { Name: "xipio", RepoVersion: "1.0.0", RepoVersionPublishedAt: 2013-06-15T00:00:00, LatestVersion: "1.0.0", LatestPublishedAt: 2013-06-15T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "yajl-ruby", RepoVersion: "1.2.1", RepoVersionPublishedAt: 2014-06-05T00:00:00, LatestVersion: "1.2.1", LatestPublishedAt: 2014-06-05T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 67.98356164383561 } }
-
-results[22] = { Date: 2015-07-01T23:59:59, ManifestSHA: f2a1351c7bdeae6d745e01cb256c6a676585e1e3, LibYear: { _packagesValues: [
+{ Date: 2015-07-01T23:59:59, ManifestSHA: f2a1351c7bdeae6d745e01cb256c6a676585e1e3, LibYear: { _packagesValues: [
 { Name: "CFPropertyList", RepoVersion: "2.3.1", RepoVersionPublishedAt: 2015-03-20T00:00:00, LatestVersion: "2.3.1", LatestPublishedAt: 2015-03-20T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionmailer", RepoVersion: "4.1.11", RepoVersionPublishedAt: 2015-06-16T00:00:00, LatestVersion: "4.2.3", LatestPublishedAt: 2015-06-25T00:00:00, UpgradeAvailable: True, Value: 0.024657534246575342 },
 { Name: "actionpack", RepoVersion: "4.1.11", RepoVersionPublishedAt: 2015-06-16T00:00:00, LatestVersion: "4.2.3", LatestPublishedAt: 2015-06-25T00:00:00, UpgradeAvailable: True, Value: 0.024657534246575342 },
@@ -3023,8 +3003,7 @@ results[22] = { Date: 2015-07-01T23:59:59, ManifestSHA: f2a1351c7bdeae6d745e01cb
 { Name: "xipio", RepoVersion: "1.0.0", RepoVersionPublishedAt: 2013-06-15T00:00:00, LatestVersion: "1.0.0", LatestPublishedAt: 2013-06-15T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "yajl-ruby", RepoVersion: "1.2.1", RepoVersionPublishedAt: 2014-06-05T00:00:00, LatestVersion: "1.2.1", LatestPublishedAt: 2014-06-05T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 15.600000000000003 } }
-
-results[23] = { Date: 2015-08-01T23:59:59, ManifestSHA: 83b004f4c0448ace9baf1659e695c72c88aa89a7, LibYear: { _packagesValues: [
+{ Date: 2015-08-01T23:59:59, ManifestSHA: 83b004f4c0448ace9baf1659e695c72c88aa89a7, LibYear: { _packagesValues: [
 { Name: "CFPropertyList", RepoVersion: "2.3.1", RepoVersionPublishedAt: 2015-03-20T00:00:00, LatestVersion: "2.3.1", LatestPublishedAt: 2015-03-20T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionmailer", RepoVersion: "4.1.11", RepoVersionPublishedAt: 2015-06-16T00:00:00, LatestVersion: "4.2.3", LatestPublishedAt: 2015-06-25T00:00:00, UpgradeAvailable: True, Value: 0.024657534246575342 },
 { Name: "actionpack", RepoVersion: "4.1.11", RepoVersionPublishedAt: 2015-06-16T00:00:00, LatestVersion: "4.2.3", LatestPublishedAt: 2015-06-25T00:00:00, UpgradeAvailable: True, Value: 0.024657534246575342 },
@@ -3183,8 +3162,7 @@ results[23] = { Date: 2015-08-01T23:59:59, ManifestSHA: 83b004f4c0448ace9baf1659
 { Name: "xipio", RepoVersion: "1.0.0", RepoVersionPublishedAt: 2013-06-15T00:00:00, LatestVersion: "1.0.0", LatestPublishedAt: 2013-06-15T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "yajl-ruby", RepoVersion: "1.2.1", RepoVersionPublishedAt: 2014-06-05T00:00:00, LatestVersion: "1.2.1", LatestPublishedAt: 2014-06-05T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 23.252054794520546 } }
-
-results[24] = { Date: 2015-09-01T23:59:59, ManifestSHA: 2a862462edb713254df1c2ea370f175fd74646e4, LibYear: { _packagesValues: [
+{ Date: 2015-09-01T23:59:59, ManifestSHA: 2a862462edb713254df1c2ea370f175fd74646e4, LibYear: { _packagesValues: [
 { Name: "CFPropertyList", RepoVersion: "2.3.1", RepoVersionPublishedAt: 2015-03-20T00:00:00, LatestVersion: "2.3.1", LatestPublishedAt: 2015-03-20T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionmailer", RepoVersion: "4.1.13", RepoVersionPublishedAt: 2015-08-24T00:00:00, LatestVersion: "4.2.4", LatestPublishedAt: 2015-08-24T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionpack", RepoVersion: "4.1.13", RepoVersionPublishedAt: 2015-08-24T00:00:00, LatestVersion: "4.2.4", LatestPublishedAt: 2015-08-24T00:00:00, UpgradeAvailable: False, Value: 0 },
@@ -3350,8 +3328,7 @@ results[24] = { Date: 2015-09-01T23:59:59, ManifestSHA: 2a862462edb713254df1c2ea
 { Name: "xipio", RepoVersion: "1.0.0", RepoVersionPublishedAt: 2013-06-15T00:00:00, LatestVersion: "1.0.0", LatestPublishedAt: 2013-06-15T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "yajl-ruby", RepoVersion: "1.2.1", RepoVersionPublishedAt: 2014-06-05T00:00:00, LatestVersion: "1.2.1", LatestPublishedAt: 2014-06-05T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 13.263013698630138 } }
-
-results[25] = { Date: 2015-10-01T23:59:59, ManifestSHA: 00c860616cd61b390a5e2dec3e2e3d794d0d18f2, LibYear: { _packagesValues: [
+{ Date: 2015-10-01T23:59:59, ManifestSHA: 00c860616cd61b390a5e2dec3e2e3d794d0d18f2, LibYear: { _packagesValues: [
 { Name: "CFPropertyList", RepoVersion: "2.3.1", RepoVersionPublishedAt: 2015-03-20T00:00:00, LatestVersion: "2.3.1", LatestPublishedAt: 2015-03-20T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionmailer", RepoVersion: "4.1.13", RepoVersionPublishedAt: 2015-08-24T00:00:00, LatestVersion: "4.2.4", LatestPublishedAt: 2015-08-24T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionpack", RepoVersion: "4.1.13", RepoVersionPublishedAt: 2015-08-24T00:00:00, LatestVersion: "4.2.4", LatestPublishedAt: 2015-08-24T00:00:00, UpgradeAvailable: False, Value: 0 },
@@ -3510,8 +3487,7 @@ results[25] = { Date: 2015-10-01T23:59:59, ManifestSHA: 00c860616cd61b390a5e2dec
 { Name: "xipio", RepoVersion: "1.0.0", RepoVersionPublishedAt: 2013-06-15T00:00:00, LatestVersion: "1.0.0", LatestPublishedAt: 2013-06-15T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "yajl-ruby", RepoVersion: "1.2.1", RepoVersionPublishedAt: 2014-06-05T00:00:00, LatestVersion: "1.2.1", LatestPublishedAt: 2014-06-05T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 21.03287671232877 } }
-
-results[26] = { Date: 2015-11-01T23:59:59, ManifestSHA: 31ac5c4dbf253c2a391a0ad9a851d12d5f47fec6, LibYear: { _packagesValues: [
+{ Date: 2015-11-01T23:59:59, ManifestSHA: 31ac5c4dbf253c2a391a0ad9a851d12d5f47fec6, LibYear: { _packagesValues: [
 { Name: "CFPropertyList", RepoVersion: "2.3.1", RepoVersionPublishedAt: 2015-03-20T00:00:00, LatestVersion: "2.3.2", LatestPublishedAt: 2015-10-05T00:00:00, UpgradeAvailable: True, Value: 0.5452054794520548 },
 { Name: "actionmailer", RepoVersion: "4.1.13", RepoVersionPublishedAt: 2015-08-24T00:00:00, LatestVersion: "4.2.4", LatestPublishedAt: 2015-08-24T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionpack", RepoVersion: "4.1.13", RepoVersionPublishedAt: 2015-08-24T00:00:00, LatestVersion: "4.2.4", LatestPublishedAt: 2015-08-24T00:00:00, UpgradeAvailable: False, Value: 0 },
@@ -3673,8 +3649,7 @@ results[26] = { Date: 2015-11-01T23:59:59, ManifestSHA: 31ac5c4dbf253c2a391a0ad9
 { Name: "xipio", RepoVersion: "1.0.0", RepoVersionPublishedAt: 2013-06-15T00:00:00, LatestVersion: "1.0.0", LatestPublishedAt: 2013-06-15T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "yajl-ruby", RepoVersion: "1.2.1", RepoVersionPublishedAt: 2014-06-05T00:00:00, LatestVersion: "1.2.1", LatestPublishedAt: 2014-06-05T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 30.334246575342462 } }
-
-results[27] = { Date: 2015-12-01T23:59:59, ManifestSHA: 3863e87154ae6139375cfd438e915af9ad3b7927, LibYear: { _packagesValues: [
+{ Date: 2015-12-01T23:59:59, ManifestSHA: 3863e87154ae6139375cfd438e915af9ad3b7927, LibYear: { _packagesValues: [
 { Name: "CFPropertyList", RepoVersion: "2.3.2", RepoVersionPublishedAt: 2015-10-05T00:00:00, LatestVersion: "2.3.2", LatestPublishedAt: 2015-10-05T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionmailer", RepoVersion: "4.2.5", RepoVersionPublishedAt: 2015-11-12T00:00:00, LatestVersion: "4.2.5", LatestPublishedAt: 2015-11-12T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionpack", RepoVersion: "4.2.5", RepoVersionPublishedAt: 2015-11-12T00:00:00, LatestVersion: "4.2.5", LatestPublishedAt: 2015-11-12T00:00:00, UpgradeAvailable: False, Value: 0 },
@@ -3843,8 +3818,7 @@ results[27] = { Date: 2015-12-01T23:59:59, ManifestSHA: 3863e87154ae6139375cfd43
 { Name: "xml-simple", RepoVersion: "1.1.5", RepoVersionPublishedAt: 2015-03-01T00:00:00, LatestVersion: "1.1.5", LatestPublishedAt: 2015-03-01T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "yajl-ruby", RepoVersion: "1.2.1", RepoVersionPublishedAt: 2014-06-05T00:00:00, LatestVersion: "1.2.1", LatestPublishedAt: 2014-06-05T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 16.912328767123284 } }
-
-results[28] = { Date: 2016-01-01T23:59:59, ManifestSHA: bdebb7ee85641f2d035922df719aaf4de7bf1226, LibYear: { _packagesValues: [
+{ Date: 2016-01-01T23:59:59, ManifestSHA: bdebb7ee85641f2d035922df719aaf4de7bf1226, LibYear: { _packagesValues: [
 { Name: "CFPropertyList", RepoVersion: "2.3.2", RepoVersionPublishedAt: 2015-10-05T00:00:00, LatestVersion: "2.3.2", LatestPublishedAt: 2015-10-05T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionmailer", RepoVersion: "4.2.5", RepoVersionPublishedAt: 2015-11-12T00:00:00, LatestVersion: "4.2.5", LatestPublishedAt: 2015-11-12T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionpack", RepoVersion: "4.2.5", RepoVersionPublishedAt: 2015-11-12T00:00:00, LatestVersion: "4.2.5", LatestPublishedAt: 2015-11-12T00:00:00, UpgradeAvailable: False, Value: 0 },
@@ -4013,8 +3987,7 @@ results[28] = { Date: 2016-01-01T23:59:59, ManifestSHA: bdebb7ee85641f2d035922df
 { Name: "xml-simple", RepoVersion: "1.1.5", RepoVersionPublishedAt: 2015-03-01T00:00:00, LatestVersion: "1.1.5", LatestPublishedAt: 2015-03-01T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "yajl-ruby", RepoVersion: "1.2.1", RepoVersionPublishedAt: 2014-06-05T00:00:00, LatestVersion: "1.2.1", LatestPublishedAt: 2014-06-05T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 24.45479452054795 } }
-
-results[29] = { Date: 2016-02-01T23:59:59, ManifestSHA: 0e451c09416cca75564fb6c4f669a2e0c2c16a8b, LibYear: { _packagesValues: [
+{ Date: 2016-02-01T23:59:59, ManifestSHA: 0e451c09416cca75564fb6c4f669a2e0c2c16a8b, LibYear: { _packagesValues: [
 { Name: "CFPropertyList", RepoVersion: "2.3.2", RepoVersionPublishedAt: 2015-10-05T00:00:00, LatestVersion: "2.3.2", LatestPublishedAt: 2015-10-05T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionmailer", RepoVersion: "4.2.5.1", RepoVersionPublishedAt: 2016-01-25T00:00:00, LatestVersion: "4.2.5.1", LatestPublishedAt: 2016-01-25T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionpack", RepoVersion: "4.2.5.1", RepoVersionPublishedAt: 2016-01-25T00:00:00, LatestVersion: "4.2.5.1", LatestPublishedAt: 2016-01-25T00:00:00, UpgradeAvailable: False, Value: 0 },
@@ -4186,8 +4159,7 @@ results[29] = { Date: 2016-02-01T23:59:59, ManifestSHA: 0e451c09416cca75564fb6c4
 { Name: "xml-simple", RepoVersion: "1.1.5", RepoVersionPublishedAt: 2015-03-01T00:00:00, LatestVersion: "1.1.5", LatestPublishedAt: 2015-03-01T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "yajl-ruby", RepoVersion: "1.2.1", RepoVersionPublishedAt: 2014-06-05T00:00:00, LatestVersion: "1.2.1", LatestPublishedAt: 2014-06-05T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 20.043835616438358 } }
-
-results[30] = { Date: 2016-03-01T23:59:59, ManifestSHA: 36ef9edaaaf71545496e8a4dbba0607ff1963c3c, LibYear: { _packagesValues: [
+{ Date: 2016-03-01T23:59:59, ManifestSHA: 36ef9edaaaf71545496e8a4dbba0607ff1963c3c, LibYear: { _packagesValues: [
 { Name: "CFPropertyList", RepoVersion: "2.3.2", RepoVersionPublishedAt: 2015-10-05T00:00:00, LatestVersion: "2.3.2", LatestPublishedAt: 2015-10-05T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionmailer", RepoVersion: "4.2.5.1", RepoVersionPublishedAt: 2016-01-25T00:00:00, LatestVersion: "4.2.5.2", LatestPublishedAt: 2016-02-29T00:00:00, UpgradeAvailable: True, Value: 0.0958904109589041 },
 { Name: "actionpack", RepoVersion: "4.2.5.1", RepoVersionPublishedAt: 2016-01-25T00:00:00, LatestVersion: "4.2.5.2", LatestPublishedAt: 2016-02-29T00:00:00, UpgradeAvailable: True, Value: 0.0958904109589041 },
@@ -4360,8 +4332,7 @@ results[30] = { Date: 2016-03-01T23:59:59, ManifestSHA: 36ef9edaaaf71545496e8a4d
 { Name: "xipio", RepoVersion: "1.0.0", RepoVersionPublishedAt: 2013-06-15T00:00:00, LatestVersion: "1.0.0", LatestPublishedAt: 2013-06-15T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "xml-simple", RepoVersion: "1.1.5", RepoVersionPublishedAt: 2015-03-01T00:00:00, LatestVersion: "1.1.5", LatestPublishedAt: 2015-03-01T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 30.783561643835615 } }
-
-results[31] = { Date: 2016-04-01T23:59:59, ManifestSHA: d89872612d8a0f3cfce75957f075945167514adf, LibYear: { _packagesValues: [
+{ Date: 2016-04-01T23:59:59, ManifestSHA: d89872612d8a0f3cfce75957f075945167514adf, LibYear: { _packagesValues: [
 { Name: "CFPropertyList", RepoVersion: "2.3.2", RepoVersionPublishedAt: 2015-10-05T00:00:00, LatestVersion: "2.3.2", LatestPublishedAt: 2015-10-05T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionmailer", RepoVersion: "4.2.5.2", RepoVersionPublishedAt: 2016-02-29T00:00:00, LatestVersion: "4.2.6", LatestPublishedAt: 2016-03-07T00:00:00, UpgradeAvailable: True, Value: 0.019178082191780823 },
 { Name: "actionpack", RepoVersion: "4.2.5.2", RepoVersionPublishedAt: 2016-02-29T00:00:00, LatestVersion: "4.2.6", LatestPublishedAt: 2016-03-07T00:00:00, UpgradeAvailable: True, Value: 0.019178082191780823 },
@@ -4532,8 +4503,7 @@ results[31] = { Date: 2016-04-01T23:59:59, ManifestSHA: d89872612d8a0f3cfce75957
 { Name: "xipio", RepoVersion: "1.0.0", RepoVersionPublishedAt: 2013-06-15T00:00:00, LatestVersion: "1.0.0", LatestPublishedAt: 2013-06-15T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "xml-simple", RepoVersion: "1.1.5", RepoVersionPublishedAt: 2015-03-01T00:00:00, LatestVersion: "1.1.5", LatestPublishedAt: 2015-03-01T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 26.693150684931506 } }
-
-results[32] = { Date: 2016-05-01T23:59:59, ManifestSHA: 4b9a9cae61c7dd88e9b522634a770cdf09f4b574, LibYear: { _packagesValues: [
+{ Date: 2016-05-01T23:59:59, ManifestSHA: 4b9a9cae61c7dd88e9b522634a770cdf09f4b574, LibYear: { _packagesValues: [
 { Name: "CFPropertyList", RepoVersion: "2.3.2", RepoVersionPublishedAt: 2015-10-05T00:00:00, LatestVersion: "2.3.2", LatestPublishedAt: 2015-10-05T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionmailer", RepoVersion: "4.2.5.2", RepoVersionPublishedAt: 2016-02-29T00:00:00, LatestVersion: "4.2.6", LatestPublishedAt: 2016-03-07T00:00:00, UpgradeAvailable: True, Value: 0.019178082191780823 },
 { Name: "actionpack", RepoVersion: "4.2.5.2", RepoVersionPublishedAt: 2016-02-29T00:00:00, LatestVersion: "4.2.6", LatestPublishedAt: 2016-03-07T00:00:00, UpgradeAvailable: True, Value: 0.019178082191780823 },
@@ -4706,8 +4676,7 @@ results[32] = { Date: 2016-05-01T23:59:59, ManifestSHA: 4b9a9cae61c7dd88e9b52263
 { Name: "xipio", RepoVersion: "1.0.0", RepoVersionPublishedAt: 2013-06-15T00:00:00, LatestVersion: "1.0.0", LatestPublishedAt: 2013-06-15T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "xml-simple", RepoVersion: "1.1.5", RepoVersionPublishedAt: 2015-03-01T00:00:00, LatestVersion: "1.1.5", LatestPublishedAt: 2015-03-01T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 35.3013698630137 } }
-
-results[33] = { Date: 2016-06-01T23:59:59, ManifestSHA: dd3cb7e667d2ac17aee4389566b5358bd0c4656a, LibYear: { _packagesValues: [
+{ Date: 2016-06-01T23:59:59, ManifestSHA: dd3cb7e667d2ac17aee4389566b5358bd0c4656a, LibYear: { _packagesValues: [
 { Name: "CFPropertyList", RepoVersion: "2.3.2", RepoVersionPublishedAt: 2015-10-05T00:00:00, LatestVersion: "2.3.2", LatestPublishedAt: 2015-10-05T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionmailer", RepoVersion: "4.2.6", RepoVersionPublishedAt: 2016-03-07T00:00:00, LatestVersion: "4.2.6", LatestPublishedAt: 2016-03-07T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionpack", RepoVersion: "4.2.6", RepoVersionPublishedAt: 2016-03-07T00:00:00, LatestVersion: "4.2.6", LatestPublishedAt: 2016-03-07T00:00:00, UpgradeAvailable: False, Value: 0 },
@@ -4891,8 +4860,7 @@ results[33] = { Date: 2016-06-01T23:59:59, ManifestSHA: dd3cb7e667d2ac17aee43895
 { Name: "xipio", RepoVersion: "1.0.0", RepoVersionPublishedAt: 2013-06-15T00:00:00, LatestVersion: "1.0.0", LatestPublishedAt: 2013-06-15T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "xml-simple", RepoVersion: "1.1.5", RepoVersionPublishedAt: 2015-03-01T00:00:00, LatestVersion: "1.1.5", LatestPublishedAt: 2015-03-01T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 21.432876712328767 } }
-
-results[34] = { Date: 2016-07-01T23:59:59, ManifestSHA: 50d9eac5753e88f333ece6a48a3bcbecc8712483, LibYear: { _packagesValues: [
+{ Date: 2016-07-01T23:59:59, ManifestSHA: 50d9eac5753e88f333ece6a48a3bcbecc8712483, LibYear: { _packagesValues: [
 { Name: "CFPropertyList", RepoVersion: "2.3.2", RepoVersionPublishedAt: 2015-10-05T00:00:00, LatestVersion: "2.3.2", LatestPublishedAt: 2015-10-05T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionmailer", RepoVersion: "4.2.6", RepoVersionPublishedAt: 2016-03-07T00:00:00, LatestVersion: "5.0.0", LatestPublishedAt: 2016-06-30T00:00:00, UpgradeAvailable: True, Value: 0.3150684931506849 },
 { Name: "actionpack", RepoVersion: "4.2.6", RepoVersionPublishedAt: 2016-03-07T00:00:00, LatestVersion: "5.0.0", LatestPublishedAt: 2016-06-30T00:00:00, UpgradeAvailable: True, Value: 0.3150684931506849 },
@@ -5078,8 +5046,7 @@ results[34] = { Date: 2016-07-01T23:59:59, ManifestSHA: 50d9eac5753e88f333ece6a4
 { Name: "xipio", RepoVersion: "1.0.0", RepoVersionPublishedAt: 2013-06-15T00:00:00, LatestVersion: "1.0.0", LatestPublishedAt: 2013-06-15T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "xml-simple", RepoVersion: "1.1.5", RepoVersionPublishedAt: 2015-03-01T00:00:00, LatestVersion: "1.1.5", LatestPublishedAt: 2015-03-01T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 23.74520547945205 } }
-
-results[35] = { Date: 2016-08-01T23:59:59, ManifestSHA: 06a5f5543557abc6e9f550166f89d8ffd7798fd3, LibYear: { _packagesValues: [
+{ Date: 2016-08-01T23:59:59, ManifestSHA: 06a5f5543557abc6e9f550166f89d8ffd7798fd3, LibYear: { _packagesValues: [
 { Name: "CFPropertyList", RepoVersion: "2.3.2", RepoVersionPublishedAt: 2015-10-05T00:00:00, LatestVersion: "2.3.2", LatestPublishedAt: 2015-10-05T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionmailer", RepoVersion: "4.2.6", RepoVersionPublishedAt: 2016-03-07T00:00:00, LatestVersion: "5.0.0", LatestPublishedAt: 2016-06-30T00:00:00, UpgradeAvailable: True, Value: 0.3150684931506849 },
 { Name: "actionpack", RepoVersion: "4.2.6", RepoVersionPublishedAt: 2016-03-07T00:00:00, LatestVersion: "5.0.0", LatestPublishedAt: 2016-06-30T00:00:00, UpgradeAvailable: True, Value: 0.3150684931506849 },
@@ -5262,8 +5229,7 @@ results[35] = { Date: 2016-08-01T23:59:59, ManifestSHA: 06a5f5543557abc6e9f55016
 { Name: "xipio", RepoVersion: "1.0.0", RepoVersionPublishedAt: 2013-06-15T00:00:00, LatestVersion: "1.0.0", LatestPublishedAt: 2013-06-15T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "xml-simple", RepoVersion: "1.1.5", RepoVersionPublishedAt: 2015-03-01T00:00:00, LatestVersion: "1.1.5", LatestPublishedAt: 2015-03-01T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 32.63835616438356 } }
-
-results[36] = { Date: 2016-09-01T23:59:59, ManifestSHA: 129a1add9d8712a75cfe8a36d336f219abebff90, LibYear: { _packagesValues: [
+{ Date: 2016-09-01T23:59:59, ManifestSHA: 129a1add9d8712a75cfe8a36d336f219abebff90, LibYear: { _packagesValues: [
 { Name: "CFPropertyList", RepoVersion: "2.3.2", RepoVersionPublishedAt: 2015-10-05T00:00:00, LatestVersion: "2.3.2", LatestPublishedAt: 2015-10-05T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionmailer", RepoVersion: "4.2.7.1", RepoVersionPublishedAt: 2016-08-11T00:00:00, LatestVersion: "5.0.0.1", LatestPublishedAt: 2016-08-11T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionpack", RepoVersion: "4.2.7.1", RepoVersionPublishedAt: 2016-08-11T00:00:00, LatestVersion: "5.0.0.1", LatestPublishedAt: 2016-08-11T00:00:00, UpgradeAvailable: False, Value: 0 },
@@ -5453,8 +5419,7 @@ results[36] = { Date: 2016-09-01T23:59:59, ManifestSHA: 129a1add9d8712a75cfe8a36
 { Name: "xipio", RepoVersion: "1.0.0", RepoVersionPublishedAt: 2013-06-15T00:00:00, LatestVersion: "1.0.0", LatestPublishedAt: 2013-06-15T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "xml-simple", RepoVersion: "1.1.5", RepoVersionPublishedAt: 2015-03-01T00:00:00, LatestVersion: "1.1.5", LatestPublishedAt: 2015-03-01T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 15.553424657534249 } }
-
-results[37] = { Date: 2016-10-01T23:59:59, ManifestSHA: 77af9f6513456861463012230e67cba10a5914fa, LibYear: { _packagesValues: [
+{ Date: 2016-10-01T23:59:59, ManifestSHA: 77af9f6513456861463012230e67cba10a5914fa, LibYear: { _packagesValues: [
 { Name: "CFPropertyList", RepoVersion: "2.3.3", RepoVersionPublishedAt: 2016-09-08T00:00:00, LatestVersion: "2.3.3", LatestPublishedAt: 2016-09-08T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actioncable", RepoVersion: "5.0.0.1", RepoVersionPublishedAt: 2016-08-11T00:00:00, LatestVersion: "5.0.0.1", LatestPublishedAt: 2016-08-11T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionmailer", RepoVersion: "5.0.0.1", RepoVersionPublishedAt: 2016-08-11T00:00:00, LatestVersion: "5.0.0.1", LatestPublishedAt: 2016-08-11T00:00:00, UpgradeAvailable: False, Value: 0 },
@@ -5651,8 +5616,7 @@ results[37] = { Date: 2016-10-01T23:59:59, ManifestSHA: 77af9f651345686146301223
 { Name: "xipio", RepoVersion: "1.0.0", RepoVersionPublishedAt: 2013-06-15T00:00:00, LatestVersion: "1.0.0", LatestPublishedAt: 2013-06-15T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "xml-simple", RepoVersion: "1.1.5", RepoVersionPublishedAt: 2015-03-01T00:00:00, LatestVersion: "1.1.5", LatestPublishedAt: 2015-03-01T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 19.8931506849315 } }
-
-results[38] = { Date: 2016-11-01T23:59:59, ManifestSHA: 68f914f9e3307f52c04922ed2f86e25083c77f47, LibYear: { _packagesValues: [
+{ Date: 2016-11-01T23:59:59, ManifestSHA: 68f914f9e3307f52c04922ed2f86e25083c77f47, LibYear: { _packagesValues: [
 { Name: "CFPropertyList", RepoVersion: "2.3.3", RepoVersionPublishedAt: 2016-09-08T00:00:00, LatestVersion: "2.3.3", LatestPublishedAt: 2016-09-08T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actioncable", RepoVersion: "5.0.0.1", RepoVersionPublishedAt: 2016-08-11T00:00:00, LatestVersion: "5.0.0.1", LatestPublishedAt: 2016-08-11T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionmailer", RepoVersion: "5.0.0.1", RepoVersionPublishedAt: 2016-08-11T00:00:00, LatestVersion: "5.0.0.1", LatestPublishedAt: 2016-08-11T00:00:00, UpgradeAvailable: False, Value: 0 },
@@ -5844,8 +5808,7 @@ results[38] = { Date: 2016-11-01T23:59:59, ManifestSHA: 68f914f9e3307f52c04922ed
 { Name: "xipio", RepoVersion: "1.0.0", RepoVersionPublishedAt: 2013-06-15T00:00:00, LatestVersion: "1.0.0", LatestPublishedAt: 2013-06-15T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "xml-simple", RepoVersion: "1.1.5", RepoVersionPublishedAt: 2015-03-01T00:00:00, LatestVersion: "1.1.5", LatestPublishedAt: 2015-03-01T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 23.77808219178081 } }
-
-results[39] = { Date: 2016-12-01T23:59:59, ManifestSHA: 969421d3b071fb2abe83d58cb773986e46eb5540, LibYear: { _packagesValues: [
+{ Date: 2016-12-01T23:59:59, ManifestSHA: 969421d3b071fb2abe83d58cb773986e46eb5540, LibYear: { _packagesValues: [
 { Name: "CFPropertyList", RepoVersion: "2.3.3", RepoVersionPublishedAt: 2016-09-08T00:00:00, LatestVersion: "2.3.4", LatestPublishedAt: 2016-11-25T00:00:00, UpgradeAvailable: True, Value: 0.2136986301369863 },
 { Name: "actioncable", RepoVersion: "5.0.0.1", RepoVersionPublishedAt: 2016-08-11T00:00:00, LatestVersion: "5.0.0.1", LatestPublishedAt: 2016-08-11T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionmailer", RepoVersion: "5.0.0.1", RepoVersionPublishedAt: 2016-08-11T00:00:00, LatestVersion: "5.0.0.1", LatestPublishedAt: 2016-08-11T00:00:00, UpgradeAvailable: False, Value: 0 },
@@ -6042,8 +6005,7 @@ results[39] = { Date: 2016-12-01T23:59:59, ManifestSHA: 969421d3b071fb2abe83d58c
 { Name: "xipio", RepoVersion: "1.0.0", RepoVersionPublishedAt: 2013-06-15T00:00:00, LatestVersion: "1.0.0", LatestPublishedAt: 2013-06-15T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "xml-simple", RepoVersion: "1.1.5", RepoVersionPublishedAt: 2015-03-01T00:00:00, LatestVersion: "1.1.5", LatestPublishedAt: 2015-03-01T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 40.219178082191775 } }
-
-results[40] = { Date: 2017-01-01T23:59:59, ManifestSHA: e44da5b37672a7306e36613c71cf90b9131ab1fd, LibYear: { _packagesValues: [
+{ Date: 2017-01-01T23:59:59, ManifestSHA: e44da5b37672a7306e36613c71cf90b9131ab1fd, LibYear: { _packagesValues: [
 { Name: "CFPropertyList", RepoVersion: "2.3.4", RepoVersionPublishedAt: 2016-11-25T00:00:00, LatestVersion: "2.3.4", LatestPublishedAt: 2016-11-25T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actioncable", RepoVersion: "5.0.0.1", RepoVersionPublishedAt: 2016-08-11T00:00:00, LatestVersion: "5.0.1", LatestPublishedAt: 2016-12-21T00:00:00, UpgradeAvailable: True, Value: 0.36164383561643837 },
 { Name: "actionmailer", RepoVersion: "5.0.0.1", RepoVersionPublishedAt: 2016-08-11T00:00:00, LatestVersion: "5.0.1", LatestPublishedAt: 2016-12-21T00:00:00, UpgradeAvailable: True, Value: 0.36164383561643837 },
@@ -6240,8 +6202,7 @@ results[40] = { Date: 2017-01-01T23:59:59, ManifestSHA: e44da5b37672a7306e36613c
 { Name: "xipio", RepoVersion: "1.0.0", RepoVersionPublishedAt: 2013-06-15T00:00:00, LatestVersion: "1.0.0", LatestPublishedAt: 2013-06-15T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "xml-simple", RepoVersion: "1.1.5", RepoVersionPublishedAt: 2015-03-01T00:00:00, LatestVersion: "1.1.5", LatestPublishedAt: 2015-03-01T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 22.252054794520543 } }
-
-results[41] = { Date: 2017-02-01T23:59:59, ManifestSHA: a9e9a03d970e446af954644d152b2d821492f06b, LibYear: { _packagesValues: [
+{ Date: 2017-02-01T23:59:59, ManifestSHA: a9e9a03d970e446af954644d152b2d821492f06b, LibYear: { _packagesValues: [
 { Name: "CFPropertyList", RepoVersion: "2.3.4", RepoVersionPublishedAt: 2016-11-25T00:00:00, LatestVersion: "2.3.5", LatestPublishedAt: 2017-01-27T00:00:00, UpgradeAvailable: True, Value: 0.1726027397260274 },
 { Name: "actioncable", RepoVersion: "5.0.1", RepoVersionPublishedAt: 2016-12-21T00:00:00, LatestVersion: "5.0.1", LatestPublishedAt: 2016-12-21T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionmailer", RepoVersion: "5.0.1", RepoVersionPublishedAt: 2016-12-21T00:00:00, LatestVersion: "5.0.1", LatestPublishedAt: 2016-12-21T00:00:00, UpgradeAvailable: False, Value: 0 },
@@ -6437,8 +6398,7 @@ results[41] = { Date: 2017-02-01T23:59:59, ManifestSHA: a9e9a03d970e446af954644d
 { Name: "xipio", RepoVersion: "1.0.0", RepoVersionPublishedAt: 2013-06-15T00:00:00, LatestVersion: "1.0.0", LatestPublishedAt: 2013-06-15T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "xml-simple", RepoVersion: "1.1.5", RepoVersionPublishedAt: 2015-03-01T00:00:00, LatestVersion: "1.1.5", LatestPublishedAt: 2015-03-01T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 34.419178082191785 } }
-
-results[42] = { Date: 2017-03-01T23:59:59, ManifestSHA: 19dada3182553dc7635ec6167d8a4d4fa333eee4, LibYear: { _packagesValues: [
+{ Date: 2017-03-01T23:59:59, ManifestSHA: 19dada3182553dc7635ec6167d8a4d4fa333eee4, LibYear: { _packagesValues: [
 { Name: "CFPropertyList", RepoVersion: "2.3.4", RepoVersionPublishedAt: 2016-11-25T00:00:00, LatestVersion: "2.3.5", LatestPublishedAt: 2017-01-27T00:00:00, UpgradeAvailable: True, Value: 0.1726027397260274 },
 { Name: "actioncable", RepoVersion: "5.0.1", RepoVersionPublishedAt: 2016-12-21T00:00:00, LatestVersion: "5.0.2", LatestPublishedAt: 2017-03-01T00:00:00, UpgradeAvailable: True, Value: 0.1917808219178082 },
 { Name: "actionmailer", RepoVersion: "5.0.1", RepoVersionPublishedAt: 2016-12-21T00:00:00, LatestVersion: "5.0.2", LatestPublishedAt: 2017-03-01T00:00:00, UpgradeAvailable: True, Value: 0.1917808219178082 },
@@ -6634,8 +6594,7 @@ results[42] = { Date: 2017-03-01T23:59:59, ManifestSHA: 19dada3182553dc7635ec616
 { Name: "xipio", RepoVersion: "1.0.0", RepoVersionPublishedAt: 2013-06-15T00:00:00, LatestVersion: "1.0.0", LatestPublishedAt: 2013-06-15T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "xml-simple", RepoVersion: "1.1.5", RepoVersionPublishedAt: 2015-03-01T00:00:00, LatestVersion: "1.1.5", LatestPublishedAt: 2015-03-01T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 49.28219178082192 } }
-
-results[43] = { Date: 2017-04-01T23:59:59, ManifestSHA: ee73b7a4e166402a5951261919a5b5f536cd5bcf, LibYear: { _packagesValues: [
+{ Date: 2017-04-01T23:59:59, ManifestSHA: ee73b7a4e166402a5951261919a5b5f536cd5bcf, LibYear: { _packagesValues: [
 { Name: "CFPropertyList", RepoVersion: "2.3.4", RepoVersionPublishedAt: 2016-11-25T00:00:00, LatestVersion: "2.3.5", LatestPublishedAt: 2017-01-27T00:00:00, UpgradeAvailable: True, Value: 0.1726027397260274 },
 { Name: "actioncable", RepoVersion: "5.0.1", RepoVersionPublishedAt: 2016-12-21T00:00:00, LatestVersion: "5.0.2", LatestPublishedAt: 2017-03-01T00:00:00, UpgradeAvailable: True, Value: 0.1917808219178082 },
 { Name: "actionmailer", RepoVersion: "5.0.1", RepoVersionPublishedAt: 2016-12-21T00:00:00, LatestVersion: "5.0.2", LatestPublishedAt: 2017-03-01T00:00:00, UpgradeAvailable: True, Value: 0.1917808219178082 },
@@ -6831,8 +6790,7 @@ results[43] = { Date: 2017-04-01T23:59:59, ManifestSHA: ee73b7a4e166402a59512619
 { Name: "xipio", RepoVersion: "1.0.0", RepoVersionPublishedAt: 2013-06-15T00:00:00, LatestVersion: "1.0.0", LatestPublishedAt: 2013-06-15T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "xml-simple", RepoVersion: "1.1.5", RepoVersionPublishedAt: 2015-03-01T00:00:00, LatestVersion: "1.1.5", LatestPublishedAt: 2015-03-01T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 61.772602739726025 } }
-
-results[44] = { Date: 2017-05-01T23:59:59, ManifestSHA: 548069c9776ae3c1eade6458f97df5a5d16783f9, LibYear: { _packagesValues: [
+{ Date: 2017-05-01T23:59:59, ManifestSHA: 548069c9776ae3c1eade6458f97df5a5d16783f9, LibYear: { _packagesValues: [
 { Name: "CFPropertyList", RepoVersion: "2.3.4", RepoVersionPublishedAt: 2016-11-25T00:00:00, LatestVersion: "2.3.5", LatestPublishedAt: 2017-01-27T00:00:00, UpgradeAvailable: True, Value: 0.1726027397260274 },
 { Name: "actioncable", RepoVersion: "5.0.1", RepoVersionPublishedAt: 2016-12-21T00:00:00, LatestVersion: "5.1.0", LatestPublishedAt: 2017-04-27T00:00:00, UpgradeAvailable: True, Value: 0.34794520547945207 },
 { Name: "actionmailer", RepoVersion: "5.0.1", RepoVersionPublishedAt: 2016-12-21T00:00:00, LatestVersion: "5.1.0", LatestPublishedAt: 2017-04-27T00:00:00, UpgradeAvailable: True, Value: 0.34794520547945207 },
@@ -7029,8 +6987,7 @@ results[44] = { Date: 2017-05-01T23:59:59, ManifestSHA: 548069c9776ae3c1eade6458
 { Name: "xipio", RepoVersion: "1.0.0", RepoVersionPublishedAt: 2013-06-15T00:00:00, LatestVersion: "1.0.0", LatestPublishedAt: 2013-06-15T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "xml-simple", RepoVersion: "1.1.5", RepoVersionPublishedAt: 2015-03-01T00:00:00, LatestVersion: "1.1.5", LatestPublishedAt: 2015-03-01T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 72.32054794520546 } }
-
-results[45] = { Date: 2017-06-01T23:59:59, ManifestSHA: 1ac9f900a9ca9217102d656315ddb5fb042875dc, LibYear: { _packagesValues: [
+{ Date: 2017-06-01T23:59:59, ManifestSHA: 1ac9f900a9ca9217102d656315ddb5fb042875dc, LibYear: { _packagesValues: [
 { Name: "CFPropertyList", RepoVersion: "2.3.5", RepoVersionPublishedAt: 2017-01-27T00:00:00, LatestVersion: "2.3.5", LatestPublishedAt: 2017-01-27T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actioncable", RepoVersion: "5.0.3", RepoVersionPublishedAt: 2017-05-12T00:00:00, LatestVersion: "5.1.1", LatestPublishedAt: 2017-05-12T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionmailer", RepoVersion: "5.0.3", RepoVersionPublishedAt: 2017-05-12T00:00:00, LatestVersion: "5.1.1", LatestPublishedAt: 2017-05-12T00:00:00, UpgradeAvailable: False, Value: 0 },
@@ -7229,8 +7186,7 @@ results[45] = { Date: 2017-06-01T23:59:59, ManifestSHA: 1ac9f900a9ca9217102d6563
 { Name: "xipio", RepoVersion: "1.0.0", RepoVersionPublishedAt: 2013-06-15T00:00:00, LatestVersion: "1.0.0", LatestPublishedAt: 2013-06-15T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "xml-simple", RepoVersion: "1.1.5", RepoVersionPublishedAt: 2015-03-01T00:00:00, LatestVersion: "1.1.5", LatestPublishedAt: 2015-03-01T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 13.463013698630137 } }
-
-results[46] = { Date: 2017-07-01T23:59:59, ManifestSHA: f99eadc609106fa6f025308b62cead4eefcec690, LibYear: { _packagesValues: [
+{ Date: 2017-07-01T23:59:59, ManifestSHA: f99eadc609106fa6f025308b62cead4eefcec690, LibYear: { _packagesValues: [
 { Name: "CFPropertyList", RepoVersion: "2.3.5", RepoVersionPublishedAt: 2017-01-27T00:00:00, LatestVersion: "2.3.5", LatestPublishedAt: 2017-01-27T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actioncable", RepoVersion: "5.0.3", RepoVersionPublishedAt: 2017-05-12T00:00:00, LatestVersion: "5.1.2", LatestPublishedAt: 2017-06-26T00:00:00, UpgradeAvailable: True, Value: 0.1232876712328767 },
 { Name: "actionmailer", RepoVersion: "5.0.3", RepoVersionPublishedAt: 2017-05-12T00:00:00, LatestVersion: "5.1.2", LatestPublishedAt: 2017-06-26T00:00:00, UpgradeAvailable: True, Value: 0.1232876712328767 },
@@ -7429,8 +7385,7 @@ results[46] = { Date: 2017-07-01T23:59:59, ManifestSHA: f99eadc609106fa6f025308b
 { Name: "xipio", RepoVersion: "1.0.0", RepoVersionPublishedAt: 2013-06-15T00:00:00, LatestVersion: "1.0.0", LatestPublishedAt: 2013-06-15T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "xml-simple", RepoVersion: "1.1.5", RepoVersionPublishedAt: 2015-03-01T00:00:00, LatestVersion: "1.1.5", LatestPublishedAt: 2015-03-01T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 22.76438356164384 } }
-
-results[47] = { Date: 2017-08-01T23:59:59, ManifestSHA: 0bbccf3f510a16f847b2a4191c84968d96cf5105, LibYear: { _packagesValues: [
+{ Date: 2017-08-01T23:59:59, ManifestSHA: 0bbccf3f510a16f847b2a4191c84968d96cf5105, LibYear: { _packagesValues: [
 { Name: "CFPropertyList", RepoVersion: "2.3.5", RepoVersionPublishedAt: 2017-01-27T00:00:00, LatestVersion: "2.3.5", LatestPublishedAt: 2017-01-27T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actioncable", RepoVersion: "5.0.3", RepoVersionPublishedAt: 2017-05-12T00:00:00, LatestVersion: "5.1.2", LatestPublishedAt: 2017-06-26T00:00:00, UpgradeAvailable: True, Value: 0.1232876712328767 },
 { Name: "actionmailer", RepoVersion: "5.0.3", RepoVersionPublishedAt: 2017-05-12T00:00:00, LatestVersion: "5.1.2", LatestPublishedAt: 2017-06-26T00:00:00, UpgradeAvailable: True, Value: 0.1232876712328767 },
@@ -7629,8 +7584,7 @@ results[47] = { Date: 2017-08-01T23:59:59, ManifestSHA: 0bbccf3f510a16f847b2a419
 { Name: "xipio", RepoVersion: "1.0.0", RepoVersionPublishedAt: 2013-06-15T00:00:00, LatestVersion: "1.0.0", LatestPublishedAt: 2013-06-15T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "xml-simple", RepoVersion: "1.1.5", RepoVersionPublishedAt: 2015-03-01T00:00:00, LatestVersion: "1.1.5", LatestPublishedAt: 2015-03-01T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 34.94246575342467 } }
-
-results[48] = { Date: 2017-09-01T23:59:59, ManifestSHA: 9a934fe16e1b686b7f24ee101cc4e9d28cce2ae5, LibYear: { _packagesValues: [
+{ Date: 2017-09-01T23:59:59, ManifestSHA: 9a934fe16e1b686b7f24ee101cc4e9d28cce2ae5, LibYear: { _packagesValues: [
 { Name: "CFPropertyList", RepoVersion: "2.3.5", RepoVersionPublishedAt: 2017-01-27T00:00:00, LatestVersion: "2.3.5", LatestPublishedAt: 2017-01-27T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actioncable", RepoVersion: "5.1.4.rc1", RepoVersionPublishedAt: 2017-08-24T00:00:00, LatestVersion: "5.1.4.rc1", LatestPublishedAt: 2017-08-24T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionmailer", RepoVersion: "5.1.4.rc1", RepoVersionPublishedAt: 2017-08-24T00:00:00, LatestVersion: "5.1.4.rc1", LatestPublishedAt: 2017-08-24T00:00:00, UpgradeAvailable: False, Value: 0 },
@@ -7831,8 +7785,7 @@ results[48] = { Date: 2017-09-01T23:59:59, ManifestSHA: 9a934fe16e1b686b7f24ee10
 { Name: "xipio", RepoVersion: "1.0.0", RepoVersionPublishedAt: 2013-06-15T00:00:00, LatestVersion: "1.0.0", LatestPublishedAt: 2013-06-15T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "xml-simple", RepoVersion: "1.1.5", RepoVersionPublishedAt: 2015-03-01T00:00:00, LatestVersion: "1.1.5", LatestPublishedAt: 2015-03-01T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 15.994520547945204 } }
-
-results[49] = { Date: 2017-10-01T23:59:59, ManifestSHA: a86c4bafae090f99a5fb669bbb2f134f8ee40aad, LibYear: { _packagesValues: [
+{ Date: 2017-10-01T23:59:59, ManifestSHA: a86c4bafae090f99a5fb669bbb2f134f8ee40aad, LibYear: { _packagesValues: [
 { Name: "actioncable", RepoVersion: "5.1.4", RepoVersionPublishedAt: 2017-09-08T00:00:00, LatestVersion: "5.1.4", LatestPublishedAt: 2017-09-08T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionmailer", RepoVersion: "5.1.4", RepoVersionPublishedAt: 2017-09-08T00:00:00, LatestVersion: "5.1.4", LatestPublishedAt: 2017-09-08T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionpack", RepoVersion: "5.1.4", RepoVersionPublishedAt: 2017-09-08T00:00:00, LatestVersion: "5.1.4", LatestPublishedAt: 2017-09-08T00:00:00, UpgradeAvailable: False, Value: 0 },
@@ -8004,8 +7957,7 @@ results[49] = { Date: 2017-10-01T23:59:59, ManifestSHA: a86c4bafae090f99a5fb669b
 { Name: "xipio", RepoVersion: "1.0.0", RepoVersionPublishedAt: 2013-06-15T00:00:00, LatestVersion: "1.0.0", LatestPublishedAt: 2013-06-15T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "xpath", RepoVersion: "2.1.0", RepoVersionPublishedAt: 2017-05-25T00:00:00, LatestVersion: "2.1.0", LatestPublishedAt: 2017-05-25T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 25.01643835616438 } }
-
-results[50] = { Date: 2017-11-01T23:59:59, ManifestSHA: f8efa1905d3b4eea900fb581e094ad4dd6a162fc, LibYear: { _packagesValues: [
+{ Date: 2017-11-01T23:59:59, ManifestSHA: f8efa1905d3b4eea900fb581e094ad4dd6a162fc, LibYear: { _packagesValues: [
 { Name: "actioncable", RepoVersion: "5.1.4", RepoVersionPublishedAt: 2017-09-08T00:00:00, LatestVersion: "5.1.4", LatestPublishedAt: 2017-09-08T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionmailer", RepoVersion: "5.1.4", RepoVersionPublishedAt: 2017-09-08T00:00:00, LatestVersion: "5.1.4", LatestPublishedAt: 2017-09-08T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionpack", RepoVersion: "5.1.4", RepoVersionPublishedAt: 2017-09-08T00:00:00, LatestVersion: "5.1.4", LatestPublishedAt: 2017-09-08T00:00:00, UpgradeAvailable: False, Value: 0 },
@@ -8177,8 +8129,7 @@ results[50] = { Date: 2017-11-01T23:59:59, ManifestSHA: f8efa1905d3b4eea900fb581
 { Name: "xipio", RepoVersion: "1.0.0", RepoVersionPublishedAt: 2013-06-15T00:00:00, LatestVersion: "1.0.0", LatestPublishedAt: 2013-06-15T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "xpath", RepoVersion: "2.1.0", RepoVersionPublishedAt: 2017-05-25T00:00:00, LatestVersion: "2.1.0", LatestPublishedAt: 2017-05-25T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 29.74520547945206 } }
-
-results[51] = { Date: 2017-12-01T23:59:59, ManifestSHA: 908fc4eb522eef90cc19f143a6d28ff12014ff67, LibYear: { _packagesValues: [
+{ Date: 2017-12-01T23:59:59, ManifestSHA: 908fc4eb522eef90cc19f143a6d28ff12014ff67, LibYear: { _packagesValues: [
 { Name: "actioncable", RepoVersion: "5.1.4", RepoVersionPublishedAt: 2017-09-08T00:00:00, LatestVersion: "5.1.4", LatestPublishedAt: 2017-09-08T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionmailer", RepoVersion: "5.1.4", RepoVersionPublishedAt: 2017-09-08T00:00:00, LatestVersion: "5.1.4", LatestPublishedAt: 2017-09-08T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionpack", RepoVersion: "5.1.4", RepoVersionPublishedAt: 2017-09-08T00:00:00, LatestVersion: "5.1.4", LatestPublishedAt: 2017-09-08T00:00:00, UpgradeAvailable: False, Value: 0 },
@@ -8359,8 +8310,7 @@ results[51] = { Date: 2017-12-01T23:59:59, ManifestSHA: 908fc4eb522eef90cc19f143
 { Name: "xipio", RepoVersion: "1.0.0", RepoVersionPublishedAt: 2013-06-15T00:00:00, LatestVersion: "1.0.0", LatestPublishedAt: 2013-06-15T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "xpath", RepoVersion: "2.1.0", RepoVersionPublishedAt: 2017-05-25T00:00:00, LatestVersion: "2.1.0", LatestPublishedAt: 2017-05-25T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 26.610958904109584 } }
-
-results[52] = { Date: 2018-01-01T23:59:59, ManifestSHA: 85b16309f8f2e8176e34e5ca01b9a4ca8781e89b, LibYear: { _packagesValues: [
+{ Date: 2018-01-01T23:59:59, ManifestSHA: 85b16309f8f2e8176e34e5ca01b9a4ca8781e89b, LibYear: { _packagesValues: [
 { Name: "actioncable", RepoVersion: "5.1.4", RepoVersionPublishedAt: 2017-09-08T00:00:00, LatestVersion: "5.1.4", LatestPublishedAt: 2017-09-08T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionmailer", RepoVersion: "5.1.4", RepoVersionPublishedAt: 2017-09-08T00:00:00, LatestVersion: "5.1.4", LatestPublishedAt: 2017-09-08T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionpack", RepoVersion: "5.1.4", RepoVersionPublishedAt: 2017-09-08T00:00:00, LatestVersion: "5.1.4", LatestPublishedAt: 2017-09-08T00:00:00, UpgradeAvailable: False, Value: 0 },
@@ -8543,8 +8493,7 @@ results[52] = { Date: 2018-01-01T23:59:59, ManifestSHA: 85b16309f8f2e8176e34e5ca
 { Name: "xipio", RepoVersion: "1.0.0", RepoVersionPublishedAt: 2013-06-15T00:00:00, LatestVersion: "1.0.0", LatestPublishedAt: 2013-06-15T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "xpath", RepoVersion: "2.1.0", RepoVersionPublishedAt: 2017-05-25T00:00:00, LatestVersion: "3.0.0", LatestPublishedAt: 2017-12-30T00:00:00, UpgradeAvailable: True, Value: 0.6 },
 ], Total: 30.317808219178087 } }
-
-results[53] = { Date: 2018-02-01T23:59:59, ManifestSHA: 07ca727c0b8d3dc7f2340ca9aaa030a671db2449, LibYear: { _packagesValues: [
+{ Date: 2018-02-01T23:59:59, ManifestSHA: 07ca727c0b8d3dc7f2340ca9aaa030a671db2449, LibYear: { _packagesValues: [
 { Name: "actioncable", RepoVersion: "5.1.4", RepoVersionPublishedAt: 2017-09-08T00:00:00, LatestVersion: "5.1.4", LatestPublishedAt: 2017-09-08T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionmailer", RepoVersion: "5.1.4", RepoVersionPublishedAt: 2017-09-08T00:00:00, LatestVersion: "5.1.4", LatestPublishedAt: 2017-09-08T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionpack", RepoVersion: "5.1.4", RepoVersionPublishedAt: 2017-09-08T00:00:00, LatestVersion: "5.1.4", LatestPublishedAt: 2017-09-08T00:00:00, UpgradeAvailable: False, Value: 0 },
@@ -8730,8 +8679,7 @@ results[53] = { Date: 2018-02-01T23:59:59, ManifestSHA: 07ca727c0b8d3dc7f2340ca9
 { Name: "xipio", RepoVersion: "1.0.0", RepoVersionPublishedAt: 2013-06-15T00:00:00, LatestVersion: "1.0.0", LatestPublishedAt: 2013-06-15T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "xpath", RepoVersion: "2.1.0", RepoVersionPublishedAt: 2017-05-25T00:00:00, LatestVersion: "3.0.0", LatestPublishedAt: 2017-12-30T00:00:00, UpgradeAvailable: True, Value: 0.6 },
 ], Total: 46.94520547945206 } }
-
-results[54] = { Date: 2018-03-01T23:59:59, ManifestSHA: a44baf2f5073f7db3212a059951cbdaacbd72b37, LibYear: { _packagesValues: [
+{ Date: 2018-03-01T23:59:59, ManifestSHA: a44baf2f5073f7db3212a059951cbdaacbd72b37, LibYear: { _packagesValues: [
 { Name: "actioncable", RepoVersion: "5.1.4", RepoVersionPublishedAt: 2017-09-08T00:00:00, LatestVersion: "5.1.5", LatestPublishedAt: 2018-02-14T00:00:00, UpgradeAvailable: True, Value: 0.43561643835616437 },
 { Name: "actionmailer", RepoVersion: "5.1.4", RepoVersionPublishedAt: 2017-09-08T00:00:00, LatestVersion: "5.1.5", LatestPublishedAt: 2018-02-14T00:00:00, UpgradeAvailable: True, Value: 0.43561643835616437 },
 { Name: "actionpack", RepoVersion: "5.1.4", RepoVersionPublishedAt: 2017-09-08T00:00:00, LatestVersion: "5.1.5", LatestPublishedAt: 2018-02-14T00:00:00, UpgradeAvailable: True, Value: 0.43561643835616437 },
@@ -8917,8 +8865,7 @@ results[54] = { Date: 2018-03-01T23:59:59, ManifestSHA: a44baf2f5073f7db3212a059
 { Name: "xipio", RepoVersion: "1.0.1", RepoVersionPublishedAt: 2018-02-06T00:00:00, LatestVersion: "1.0.2", LatestPublishedAt: 2018-02-28T00:00:00, UpgradeAvailable: True, Value: 0.06027397260273973 },
 { Name: "xpath", RepoVersion: "3.0.0", RepoVersionPublishedAt: 2017-12-30T00:00:00, LatestVersion: "3.0.0", LatestPublishedAt: 2017-12-30T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 33.95890410958903 } }
-
-results[55] = { Date: 2018-04-01T23:59:59, ManifestSHA: d4c222ac0dddd7a8653436b42aa6916f45d95eb6, LibYear: { _packagesValues: [
+{ Date: 2018-04-01T23:59:59, ManifestSHA: d4c222ac0dddd7a8653436b42aa6916f45d95eb6, LibYear: { _packagesValues: [
 { Name: "actioncable", RepoVersion: "5.1.4", RepoVersionPublishedAt: 2017-09-08T00:00:00, LatestVersion: "5.1.6", LatestPublishedAt: 2018-03-29T00:00:00, UpgradeAvailable: True, Value: 0.5534246575342465 },
 { Name: "actionmailer", RepoVersion: "5.1.4", RepoVersionPublishedAt: 2017-09-08T00:00:00, LatestVersion: "5.1.6", LatestPublishedAt: 2018-03-29T00:00:00, UpgradeAvailable: True, Value: 0.5534246575342465 },
 { Name: "actionpack", RepoVersion: "5.1.4", RepoVersionPublishedAt: 2017-09-08T00:00:00, LatestVersion: "5.1.6", LatestPublishedAt: 2018-03-29T00:00:00, UpgradeAvailable: True, Value: 0.5534246575342465 },
@@ -9104,8 +9051,7 @@ results[55] = { Date: 2018-04-01T23:59:59, ManifestSHA: d4c222ac0dddd7a8653436b4
 { Name: "xipio", RepoVersion: "1.0.1", RepoVersionPublishedAt: 2018-02-06T00:00:00, LatestVersion: "1.0.2", LatestPublishedAt: 2018-02-28T00:00:00, UpgradeAvailable: True, Value: 0.06027397260273973 },
 { Name: "xpath", RepoVersion: "3.0.0", RepoVersionPublishedAt: 2017-12-30T00:00:00, LatestVersion: "3.0.0", LatestPublishedAt: 2017-12-30T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 45.83561643835616 } }
-
-results[56] = { Date: 2018-05-01T23:59:59, ManifestSHA: e361b2c82900aba8599b075f985b7a84faa3c0e6, LibYear: { _packagesValues: [
+{ Date: 2018-05-01T23:59:59, ManifestSHA: e361b2c82900aba8599b075f985b7a84faa3c0e6, LibYear: { _packagesValues: [
 { Name: "actioncable", RepoVersion: "5.1.4", RepoVersionPublishedAt: 2017-09-08T00:00:00, LatestVersion: "5.2.0", LatestPublishedAt: 2018-04-09T00:00:00, UpgradeAvailable: True, Value: 0.5835616438356165 },
 { Name: "actionmailer", RepoVersion: "5.1.4", RepoVersionPublishedAt: 2017-09-08T00:00:00, LatestVersion: "5.2.0", LatestPublishedAt: 2018-04-09T00:00:00, UpgradeAvailable: True, Value: 0.5835616438356165 },
 { Name: "actionpack", RepoVersion: "5.1.4", RepoVersionPublishedAt: 2017-09-08T00:00:00, LatestVersion: "5.2.0", LatestPublishedAt: 2018-04-09T00:00:00, UpgradeAvailable: True, Value: 0.5835616438356165 },
@@ -9291,8 +9237,7 @@ results[56] = { Date: 2018-05-01T23:59:59, ManifestSHA: e361b2c82900aba8599b075f
 { Name: "xipio", RepoVersion: "1.0.1", RepoVersionPublishedAt: 2018-02-06T00:00:00, LatestVersion: "1.0.2", LatestPublishedAt: 2018-02-28T00:00:00, UpgradeAvailable: True, Value: 0.06027397260273973 },
 { Name: "xpath", RepoVersion: "3.0.0", RepoVersionPublishedAt: 2017-12-30T00:00:00, LatestVersion: "3.0.0", LatestPublishedAt: 2017-12-30T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 54.276712328767125 } }
-
-results[57] = { Date: 2018-06-01T23:59:59, ManifestSHA: aabb462e0674921d725786e1c308ecc246afdbd1, LibYear: { _packagesValues: [
+{ Date: 2018-06-01T23:59:59, ManifestSHA: aabb462e0674921d725786e1c308ecc246afdbd1, LibYear: { _packagesValues: [
 { Name: "actioncable", RepoVersion: "5.1.4", RepoVersionPublishedAt: 2017-09-08T00:00:00, LatestVersion: "5.2.0", LatestPublishedAt: 2018-04-09T00:00:00, UpgradeAvailable: True, Value: 0.5835616438356165 },
 { Name: "actionmailer", RepoVersion: "5.1.4", RepoVersionPublishedAt: 2017-09-08T00:00:00, LatestVersion: "5.2.0", LatestPublishedAt: 2018-04-09T00:00:00, UpgradeAvailable: True, Value: 0.5835616438356165 },
 { Name: "actionpack", RepoVersion: "5.1.4", RepoVersionPublishedAt: 2017-09-08T00:00:00, LatestVersion: "5.2.0", LatestPublishedAt: 2018-04-09T00:00:00, UpgradeAvailable: True, Value: 0.5835616438356165 },
@@ -9478,8 +9423,7 @@ results[57] = { Date: 2018-06-01T23:59:59, ManifestSHA: aabb462e0674921d725786e1
 { Name: "xipio", RepoVersion: "1.0.1", RepoVersionPublishedAt: 2018-02-06T00:00:00, LatestVersion: "1.0.2", LatestPublishedAt: 2018-02-28T00:00:00, UpgradeAvailable: True, Value: 0.06027397260273973 },
 { Name: "xpath", RepoVersion: "3.0.0", RepoVersionPublishedAt: 2017-12-30T00:00:00, LatestVersion: "3.1.0", LatestPublishedAt: 2018-05-26T00:00:00, UpgradeAvailable: True, Value: 0.40273972602739727 },
 ], Total: 62.71780821917811 } }
-
-results[58] = { Date: 2018-07-01T23:59:59, ManifestSHA: 0c43763d98fa3b1b6d3bd3dc1eb9f89cddfdbc3b, LibYear: { _packagesValues: [
+{ Date: 2018-07-01T23:59:59, ManifestSHA: 0c43763d98fa3b1b6d3bd3dc1eb9f89cddfdbc3b, LibYear: { _packagesValues: [
 { Name: "actioncable", RepoVersion: "5.1.4", RepoVersionPublishedAt: 2017-09-08T00:00:00, LatestVersion: "5.2.0", LatestPublishedAt: 2018-04-09T00:00:00, UpgradeAvailable: True, Value: 0.5835616438356165 },
 { Name: "actionmailer", RepoVersion: "5.1.4", RepoVersionPublishedAt: 2017-09-08T00:00:00, LatestVersion: "5.2.0", LatestPublishedAt: 2018-04-09T00:00:00, UpgradeAvailable: True, Value: 0.5835616438356165 },
 { Name: "actionpack", RepoVersion: "5.1.4", RepoVersionPublishedAt: 2017-09-08T00:00:00, LatestVersion: "5.2.0", LatestPublishedAt: 2018-04-09T00:00:00, UpgradeAvailable: True, Value: 0.5835616438356165 },
@@ -9666,8 +9610,7 @@ results[58] = { Date: 2018-07-01T23:59:59, ManifestSHA: 0c43763d98fa3b1b6d3bd3dc
 { Name: "xipio", RepoVersion: "1.0.2", RepoVersionPublishedAt: 2018-02-28T00:00:00, LatestVersion: "1.0.2", LatestPublishedAt: 2018-02-28T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "xpath", RepoVersion: "3.1.0", RepoVersionPublishedAt: 2018-05-26T00:00:00, LatestVersion: "3.1.0", LatestPublishedAt: 2018-05-26T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 36.66575342465754 } }
-
-results[59] = { Date: 2018-08-01T23:59:59, ManifestSHA: 1de16e767e8c860e451cdcc6cec263ddce9e8c0a, LibYear: { _packagesValues: [
+{ Date: 2018-08-01T23:59:59, ManifestSHA: 1de16e767e8c860e451cdcc6cec263ddce9e8c0a, LibYear: { _packagesValues: [
 { Name: "actioncable", RepoVersion: "5.1.6", RepoVersionPublishedAt: 2018-03-29T00:00:00, LatestVersion: "5.2.0", LatestPublishedAt: 2018-04-09T00:00:00, UpgradeAvailable: True, Value: 0.030136986301369864 },
 { Name: "actionmailer", RepoVersion: "5.1.6", RepoVersionPublishedAt: 2018-03-29T00:00:00, LatestVersion: "5.2.0", LatestPublishedAt: 2018-04-09T00:00:00, UpgradeAvailable: True, Value: 0.030136986301369864 },
 { Name: "actionpack", RepoVersion: "5.1.6", RepoVersionPublishedAt: 2018-03-29T00:00:00, LatestVersion: "5.2.0", LatestPublishedAt: 2018-04-09T00:00:00, UpgradeAvailable: True, Value: 0.030136986301369864 },
@@ -9854,8 +9797,7 @@ results[59] = { Date: 2018-08-01T23:59:59, ManifestSHA: 1de16e767e8c860e451cdcc6
 { Name: "xipio", RepoVersion: "1.0.2", RepoVersionPublishedAt: 2018-02-28T00:00:00, LatestVersion: "1.0.2", LatestPublishedAt: 2018-02-28T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "xpath", RepoVersion: "3.1.0", RepoVersionPublishedAt: 2018-05-26T00:00:00, LatestVersion: "3.1.0", LatestPublishedAt: 2018-05-26T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 24.77808219178082 } }
-
-results[60] = { Date: 2018-09-01T23:59:59, ManifestSHA: 46e51f3ab228f0923061a59f313ce69c0c30f6cc, LibYear: { _packagesValues: [
+{ Date: 2018-09-01T23:59:59, ManifestSHA: 46e51f3ab228f0923061a59f313ce69c0c30f6cc, LibYear: { _packagesValues: [
 { Name: "actioncable", RepoVersion: "5.1.6", RepoVersionPublishedAt: 2018-03-29T00:00:00, LatestVersion: "5.2.1", LatestPublishedAt: 2018-08-07T00:00:00, UpgradeAvailable: True, Value: 0.3589041095890411 },
 { Name: "actionmailer", RepoVersion: "5.1.6", RepoVersionPublishedAt: 2018-03-29T00:00:00, LatestVersion: "5.2.1", LatestPublishedAt: 2018-08-07T00:00:00, UpgradeAvailable: True, Value: 0.3589041095890411 },
 { Name: "actionpack", RepoVersion: "5.1.6", RepoVersionPublishedAt: 2018-03-29T00:00:00, LatestVersion: "5.2.1", LatestPublishedAt: 2018-08-07T00:00:00, UpgradeAvailable: True, Value: 0.3589041095890411 },
@@ -10041,8 +9983,7 @@ results[60] = { Date: 2018-09-01T23:59:59, ManifestSHA: 46e51f3ab228f0923061a59f
 { Name: "xipio", RepoVersion: "1.0.2", RepoVersionPublishedAt: 2018-02-28T00:00:00, LatestVersion: "1.0.2", LatestPublishedAt: 2018-02-28T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "xpath", RepoVersion: "3.1.0", RepoVersionPublishedAt: 2018-05-26T00:00:00, LatestVersion: "3.1.0", LatestPublishedAt: 2018-05-26T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 27.646575342465752 } }
-
-results[61] = { Date: 2018-10-01T23:59:59, ManifestSHA: 01069b434586f31be9f53ac01a8ab77bb2b0a266, LibYear: { _packagesValues: [
+{ Date: 2018-10-01T23:59:59, ManifestSHA: 01069b434586f31be9f53ac01a8ab77bb2b0a266, LibYear: { _packagesValues: [
 { Name: "actioncable", RepoVersion: "5.1.6", RepoVersionPublishedAt: 2018-03-29T00:00:00, LatestVersion: "5.2.1", LatestPublishedAt: 2018-08-07T00:00:00, UpgradeAvailable: True, Value: 0.3589041095890411 },
 { Name: "actionmailer", RepoVersion: "5.1.6", RepoVersionPublishedAt: 2018-03-29T00:00:00, LatestVersion: "5.2.1", LatestPublishedAt: 2018-08-07T00:00:00, UpgradeAvailable: True, Value: 0.3589041095890411 },
 { Name: "actionpack", RepoVersion: "5.1.6", RepoVersionPublishedAt: 2018-03-29T00:00:00, LatestVersion: "5.2.1", LatestPublishedAt: 2018-08-07T00:00:00, UpgradeAvailable: True, Value: 0.3589041095890411 },
@@ -10228,8 +10169,7 @@ results[61] = { Date: 2018-10-01T23:59:59, ManifestSHA: 01069b434586f31be9f53ac0
 { Name: "xipio", RepoVersion: "1.0.2", RepoVersionPublishedAt: 2018-02-28T00:00:00, LatestVersion: "1.0.2", LatestPublishedAt: 2018-02-28T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "xpath", RepoVersion: "3.1.0", RepoVersionPublishedAt: 2018-05-26T00:00:00, LatestVersion: "3.1.0", LatestPublishedAt: 2018-05-26T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 31.380821917808213 } }
-
-results[62] = { Date: 2018-11-01T23:59:59, ManifestSHA: dccc6748dfe9526a15266275f32d3509ee7236ce, LibYear: { _packagesValues: [
+{ Date: 2018-11-01T23:59:59, ManifestSHA: dccc6748dfe9526a15266275f32d3509ee7236ce, LibYear: { _packagesValues: [
 { Name: "actioncable", RepoVersion: "5.1.6", RepoVersionPublishedAt: 2018-03-29T00:00:00, LatestVersion: "5.2.1", LatestPublishedAt: 2018-08-07T00:00:00, UpgradeAvailable: True, Value: 0.3589041095890411 },
 { Name: "actionmailer", RepoVersion: "5.1.6", RepoVersionPublishedAt: 2018-03-29T00:00:00, LatestVersion: "5.2.1", LatestPublishedAt: 2018-08-07T00:00:00, UpgradeAvailable: True, Value: 0.3589041095890411 },
 { Name: "actionpack", RepoVersion: "5.1.6", RepoVersionPublishedAt: 2018-03-29T00:00:00, LatestVersion: "5.2.1", LatestPublishedAt: 2018-08-07T00:00:00, UpgradeAvailable: True, Value: 0.3589041095890411 },
@@ -10415,8 +10355,7 @@ results[62] = { Date: 2018-11-01T23:59:59, ManifestSHA: dccc6748dfe9526a15266275
 { Name: "will_paginate", RepoVersion: "3.1.6", RepoVersionPublishedAt: 2017-06-07T00:00:00, LatestVersion: "3.1.6", LatestPublishedAt: 2017-06-07T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "xpath", RepoVersion: "3.1.0", RepoVersionPublishedAt: 2018-05-26T00:00:00, LatestVersion: "3.2.0", LatestPublishedAt: 2018-10-15T00:00:00, UpgradeAvailable: True, Value: 0.38904109589041097 },
 ], Total: 43.912328767123284 } }
-
-results[63] = { Date: 2018-12-01T23:59:59, ManifestSHA: ccb94a242acdac0a5084cc6e92455031e66e7892, LibYear: { _packagesValues: [
+{ Date: 2018-12-01T23:59:59, ManifestSHA: ccb94a242acdac0a5084cc6e92455031e66e7892, LibYear: { _packagesValues: [
 { Name: "actioncable", RepoVersion: "5.1.6", RepoVersionPublishedAt: 2018-03-29T00:00:00, LatestVersion: "5.2.1.1", LatestPublishedAt: 2018-11-27T00:00:00, UpgradeAvailable: True, Value: 0.6657534246575343 },
 { Name: "actionmailer", RepoVersion: "5.1.6", RepoVersionPublishedAt: 2018-03-29T00:00:00, LatestVersion: "5.2.1.1", LatestPublishedAt: 2018-11-27T00:00:00, UpgradeAvailable: True, Value: 0.6657534246575343 },
 { Name: "actionpack", RepoVersion: "5.1.6", RepoVersionPublishedAt: 2018-03-29T00:00:00, LatestVersion: "5.2.1.1", LatestPublishedAt: 2018-11-27T00:00:00, UpgradeAvailable: True, Value: 0.6657534246575343 },
@@ -10602,8 +10541,7 @@ results[63] = { Date: 2018-12-01T23:59:59, ManifestSHA: ccb94a242acdac0a5084cc6e
 { Name: "will_paginate", RepoVersion: "3.1.6", RepoVersionPublishedAt: 2017-06-07T00:00:00, LatestVersion: "3.1.6", LatestPublishedAt: 2017-06-07T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "xpath", RepoVersion: "3.1.0", RepoVersionPublishedAt: 2018-05-26T00:00:00, LatestVersion: "3.2.0", LatestPublishedAt: 2018-10-15T00:00:00, UpgradeAvailable: True, Value: 0.38904109589041097 },
 ], Total: 59.936986301369856 } }
-
-results[64] = { Date: 2019-01-01T23:59:59, ManifestSHA: 7264052489bd2dcbb9a615e8819d08042fcca513, LibYear: { _packagesValues: [
+{ Date: 2019-01-01T23:59:59, ManifestSHA: 7264052489bd2dcbb9a615e8819d08042fcca513, LibYear: { _packagesValues: [
 { Name: "actioncable", RepoVersion: "5.1.6.1", RepoVersionPublishedAt: 2018-11-27T00:00:00, LatestVersion: "5.2.2", LatestPublishedAt: 2018-12-04T00:00:00, UpgradeAvailable: True, Value: 0.019178082191780823 },
 { Name: "actionmailer", RepoVersion: "5.1.6.1", RepoVersionPublishedAt: 2018-11-27T00:00:00, LatestVersion: "5.2.2", LatestPublishedAt: 2018-12-04T00:00:00, UpgradeAvailable: True, Value: 0.019178082191780823 },
 { Name: "actionpack", RepoVersion: "5.1.6.1", RepoVersionPublishedAt: 2018-11-27T00:00:00, LatestVersion: "5.2.2", LatestPublishedAt: 2018-12-04T00:00:00, UpgradeAvailable: True, Value: 0.019178082191780823 },
@@ -10788,8 +10726,7 @@ results[64] = { Date: 2019-01-01T23:59:59, ManifestSHA: 7264052489bd2dcbb9a615e8
 { Name: "will_paginate", RepoVersion: "3.1.6", RepoVersionPublishedAt: 2017-06-07T00:00:00, LatestVersion: "3.1.6", LatestPublishedAt: 2017-06-07T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "xpath", RepoVersion: "3.2.0", RepoVersionPublishedAt: 2018-10-15T00:00:00, LatestVersion: "3.2.0", LatestPublishedAt: 2018-10-15T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 37.59178082191781 } }
-
-results[65] = { Date: 2019-02-01T23:59:59, ManifestSHA: 08bf4491b10015590747ebe987dbc792fbd5f467, LibYear: { _packagesValues: [
+{ Date: 2019-02-01T23:59:59, ManifestSHA: 08bf4491b10015590747ebe987dbc792fbd5f467, LibYear: { _packagesValues: [
 { Name: "actioncable", RepoVersion: "5.1.6.1", RepoVersionPublishedAt: 2018-11-27T00:00:00, LatestVersion: "5.2.2", LatestPublishedAt: 2018-12-04T00:00:00, UpgradeAvailable: True, Value: 0.019178082191780823 },
 { Name: "actionmailer", RepoVersion: "5.1.6.1", RepoVersionPublishedAt: 2018-11-27T00:00:00, LatestVersion: "5.2.2", LatestPublishedAt: 2018-12-04T00:00:00, UpgradeAvailable: True, Value: 0.019178082191780823 },
 { Name: "actionpack", RepoVersion: "5.1.6.1", RepoVersionPublishedAt: 2018-11-27T00:00:00, LatestVersion: "5.2.2", LatestPublishedAt: 2018-12-04T00:00:00, UpgradeAvailable: True, Value: 0.019178082191780823 },
@@ -10983,8 +10920,7 @@ results[65] = { Date: 2019-02-01T23:59:59, ManifestSHA: 08bf4491b10015590747ebe9
 { Name: "will_paginate", RepoVersion: "3.1.6", RepoVersionPublishedAt: 2017-06-07T00:00:00, LatestVersion: "3.1.6", LatestPublishedAt: 2017-06-07T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "xpath", RepoVersion: "3.2.0", RepoVersionPublishedAt: 2018-10-15T00:00:00, LatestVersion: "3.2.0", LatestPublishedAt: 2018-10-15T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 42.104109589041094 } }
-
-results[66] = { Date: 2019-03-01T23:59:59, ManifestSHA: 088cf576a8dbbf36e72425364d55a9d7f0584e8a, LibYear: { _packagesValues: [
+{ Date: 2019-03-01T23:59:59, ManifestSHA: 088cf576a8dbbf36e72425364d55a9d7f0584e8a, LibYear: { _packagesValues: [
 { Name: "actioncable", RepoVersion: "5.1.6.1", RepoVersionPublishedAt: 2018-11-27T00:00:00, LatestVersion: "5.2.2", LatestPublishedAt: 2018-12-04T00:00:00, UpgradeAvailable: True, Value: 0.019178082191780823 },
 { Name: "actionmailer", RepoVersion: "5.1.6.1", RepoVersionPublishedAt: 2018-11-27T00:00:00, LatestVersion: "5.2.2", LatestPublishedAt: 2018-12-04T00:00:00, UpgradeAvailable: True, Value: 0.019178082191780823 },
 { Name: "actionpack", RepoVersion: "5.1.6.1", RepoVersionPublishedAt: 2018-11-27T00:00:00, LatestVersion: "5.2.2", LatestPublishedAt: 2018-12-04T00:00:00, UpgradeAvailable: True, Value: 0.019178082191780823 },
@@ -11179,8 +11115,7 @@ results[66] = { Date: 2019-03-01T23:59:59, ManifestSHA: 088cf576a8dbbf36e7242536
 { Name: "will_paginate", RepoVersion: "3.1.6", RepoVersionPublishedAt: 2017-06-07T00:00:00, LatestVersion: "3.1.6", LatestPublishedAt: 2017-06-07T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "xpath", RepoVersion: "3.2.0", RepoVersionPublishedAt: 2018-10-15T00:00:00, LatestVersion: "3.2.0", LatestPublishedAt: 2018-10-15T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 32.85205479452056 } }
-
-results[67] = { Date: 2019-04-01T23:59:59, ManifestSHA: 2d9afe6d51ba44f30fc7b82b6339016ccb1925c6, LibYear: { _packagesValues: [
+{ Date: 2019-04-01T23:59:59, ManifestSHA: 2d9afe6d51ba44f30fc7b82b6339016ccb1925c6, LibYear: { _packagesValues: [
 { Name: "actioncable", RepoVersion: "5.1.6.2", RepoVersionPublishedAt: 2019-03-13T00:00:00, LatestVersion: "5.2.3", LatestPublishedAt: 2019-03-28T00:00:00, UpgradeAvailable: True, Value: 0.0410958904109589 },
 { Name: "actionmailer", RepoVersion: "5.1.6.2", RepoVersionPublishedAt: 2019-03-13T00:00:00, LatestVersion: "5.2.3", LatestPublishedAt: 2019-03-28T00:00:00, UpgradeAvailable: True, Value: 0.0410958904109589 },
 { Name: "actionpack", RepoVersion: "5.1.6.2", RepoVersionPublishedAt: 2019-03-13T00:00:00, LatestVersion: "5.2.3", LatestPublishedAt: 2019-03-28T00:00:00, UpgradeAvailable: True, Value: 0.0410958904109589 },
@@ -11376,8 +11311,7 @@ results[67] = { Date: 2019-04-01T23:59:59, ManifestSHA: 2d9afe6d51ba44f30fc7b82b
 { Name: "will_paginate", RepoVersion: "3.1.6", RepoVersionPublishedAt: 2017-06-07T00:00:00, LatestVersion: "3.1.7", LatestPublishedAt: 2019-03-18T00:00:00, UpgradeAvailable: True, Value: 1.7780821917808218 },
 { Name: "xpath", RepoVersion: "3.2.0", RepoVersionPublishedAt: 2018-10-15T00:00:00, LatestVersion: "3.2.0", LatestPublishedAt: 2018-10-15T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 47.88219178082191 } }
-
-results[68] = { Date: 2019-05-01T23:59:59, ManifestSHA: e1c8477e56d6d09204caaa31b4ce4e1430caa255, LibYear: { _packagesValues: [
+{ Date: 2019-05-01T23:59:59, ManifestSHA: e1c8477e56d6d09204caaa31b4ce4e1430caa255, LibYear: { _packagesValues: [
 { Name: "actioncable", RepoVersion: "5.1.6.2", RepoVersionPublishedAt: 2019-03-13T00:00:00, LatestVersion: "5.2.3", LatestPublishedAt: 2019-03-28T00:00:00, UpgradeAvailable: True, Value: 0.0410958904109589 },
 { Name: "actionmailer", RepoVersion: "5.1.6.2", RepoVersionPublishedAt: 2019-03-13T00:00:00, LatestVersion: "5.2.3", LatestPublishedAt: 2019-03-28T00:00:00, UpgradeAvailable: True, Value: 0.0410958904109589 },
 { Name: "actionpack", RepoVersion: "5.1.6.2", RepoVersionPublishedAt: 2019-03-13T00:00:00, LatestVersion: "5.2.3", LatestPublishedAt: 2019-03-28T00:00:00, UpgradeAvailable: True, Value: 0.0410958904109589 },
@@ -11574,8 +11508,7 @@ results[68] = { Date: 2019-05-01T23:59:59, ManifestSHA: e1c8477e56d6d09204caaa31
 { Name: "will_paginate", RepoVersion: "3.1.6", RepoVersionPublishedAt: 2017-06-07T00:00:00, LatestVersion: "3.1.7", LatestPublishedAt: 2019-03-18T00:00:00, UpgradeAvailable: True, Value: 1.7780821917808218 },
 { Name: "xpath", RepoVersion: "3.2.0", RepoVersionPublishedAt: 2018-10-15T00:00:00, LatestVersion: "3.2.0", LatestPublishedAt: 2018-10-15T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 62.0849315068493 } }
-
-results[69] = { Date: 2019-06-01T23:59:59, ManifestSHA: 3798f2d9bef1d92b53c86364870f235a06dd4b8e, LibYear: { _packagesValues: [
+{ Date: 2019-06-01T23:59:59, ManifestSHA: 3798f2d9bef1d92b53c86364870f235a06dd4b8e, LibYear: { _packagesValues: [
 { Name: "actioncable", RepoVersion: "5.1.6.2", RepoVersionPublishedAt: 2019-03-13T00:00:00, LatestVersion: "5.2.3", LatestPublishedAt: 2019-03-28T00:00:00, UpgradeAvailable: True, Value: 0.0410958904109589 },
 { Name: "actionmailer", RepoVersion: "5.1.6.2", RepoVersionPublishedAt: 2019-03-13T00:00:00, LatestVersion: "5.2.3", LatestPublishedAt: 2019-03-28T00:00:00, UpgradeAvailable: True, Value: 0.0410958904109589 },
 { Name: "actionpack", RepoVersion: "5.1.6.2", RepoVersionPublishedAt: 2019-03-13T00:00:00, LatestVersion: "5.2.3", LatestPublishedAt: 2019-03-28T00:00:00, UpgradeAvailable: True, Value: 0.0410958904109589 },
@@ -11771,8 +11704,7 @@ results[69] = { Date: 2019-06-01T23:59:59, ManifestSHA: 3798f2d9bef1d92b53c86364
 { Name: "will_paginate", RepoVersion: "3.1.7", RepoVersionPublishedAt: 2019-03-18T00:00:00, LatestVersion: "3.1.7", LatestPublishedAt: 2019-03-18T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "xpath", RepoVersion: "3.2.0", RepoVersionPublishedAt: 2018-10-15T00:00:00, LatestVersion: "3.2.0", LatestPublishedAt: 2018-10-15T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 39.57260273972604 } }
-
-results[70] = { Date: 2019-07-01T23:59:59, ManifestSHA: 805ec72aae0530ec32e0ba927601d6a36227e25a, LibYear: { _packagesValues: [
+{ Date: 2019-07-01T23:59:59, ManifestSHA: 805ec72aae0530ec32e0ba927601d6a36227e25a, LibYear: { _packagesValues: [
 { Name: "actioncable", RepoVersion: "5.1.7", RepoVersionPublishedAt: 2019-03-28T00:00:00, LatestVersion: "5.2.3", LatestPublishedAt: 2019-03-28T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionmailer", RepoVersion: "5.1.7", RepoVersionPublishedAt: 2019-03-28T00:00:00, LatestVersion: "5.2.3", LatestPublishedAt: 2019-03-28T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionpack", RepoVersion: "5.1.7", RepoVersionPublishedAt: 2019-03-28T00:00:00, LatestVersion: "5.2.3", LatestPublishedAt: 2019-03-28T00:00:00, UpgradeAvailable: False, Value: 0 },
@@ -11968,8 +11900,7 @@ results[70] = { Date: 2019-07-01T23:59:59, ManifestSHA: 805ec72aae0530ec32e0ba92
 { Name: "will_paginate", RepoVersion: "3.1.7", RepoVersionPublishedAt: 2019-03-18T00:00:00, LatestVersion: "3.1.7", LatestPublishedAt: 2019-03-18T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "xpath", RepoVersion: "3.2.0", RepoVersionPublishedAt: 2018-10-15T00:00:00, LatestVersion: "3.2.0", LatestPublishedAt: 2018-10-15T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 37.29315068493152 } }
-
-results[71] = { Date: 2019-08-01T23:59:59, ManifestSHA: bb97f7f8a8e3d78e893f8f160b767fbb47f03a4c, LibYear: { _packagesValues: [
+{ Date: 2019-08-01T23:59:59, ManifestSHA: bb97f7f8a8e3d78e893f8f160b767fbb47f03a4c, LibYear: { _packagesValues: [
 { Name: "actioncable", RepoVersion: "5.1.7", RepoVersionPublishedAt: 2019-03-28T00:00:00, LatestVersion: "5.2.3", LatestPublishedAt: 2019-03-28T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionmailer", RepoVersion: "5.1.7", RepoVersionPublishedAt: 2019-03-28T00:00:00, LatestVersion: "5.2.3", LatestPublishedAt: 2019-03-28T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "actionpack", RepoVersion: "5.1.7", RepoVersionPublishedAt: 2019-03-28T00:00:00, LatestVersion: "5.2.3", LatestPublishedAt: 2019-03-28T00:00:00, UpgradeAvailable: False, Value: 0 },
@@ -12165,8 +12096,7 @@ results[71] = { Date: 2019-08-01T23:59:59, ManifestSHA: bb97f7f8a8e3d78e893f8f16
 { Name: "will_paginate", RepoVersion: "3.1.7", RepoVersionPublishedAt: 2019-03-18T00:00:00, LatestVersion: "3.1.7", LatestPublishedAt: 2019-03-18T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "xpath", RepoVersion: "3.2.0", RepoVersionPublishedAt: 2018-10-15T00:00:00, LatestVersion: "3.2.0", LatestPublishedAt: 2018-10-15T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 47.56438356164385 } }
-
-results[72] = { Date: 2019-09-01T23:59:59, ManifestSHA: 3d3768e690c0abaaf2f3676cffde005fed688234, LibYear: { _packagesValues: [
+{ Date: 2019-09-01T23:59:59, ManifestSHA: 3d3768e690c0abaaf2f3676cffde005fed688234, LibYear: { _packagesValues: [
 { Name: "actioncable", RepoVersion: "5.1.7", RepoVersionPublishedAt: 2019-03-28T00:00:00, LatestVersion: "6.0.0", LatestPublishedAt: 2019-08-16T00:00:00, UpgradeAvailable: True, Value: 0.3863013698630137 },
 { Name: "actionmailer", RepoVersion: "5.1.7", RepoVersionPublishedAt: 2019-03-28T00:00:00, LatestVersion: "6.0.0", LatestPublishedAt: 2019-08-16T00:00:00, UpgradeAvailable: True, Value: 0.3863013698630137 },
 { Name: "actionpack", RepoVersion: "5.1.7", RepoVersionPublishedAt: 2019-03-28T00:00:00, LatestVersion: "6.0.0", LatestPublishedAt: 2019-08-16T00:00:00, UpgradeAvailable: True, Value: 0.3863013698630137 },
@@ -12366,8 +12296,7 @@ results[72] = { Date: 2019-09-01T23:59:59, ManifestSHA: 3d3768e690c0abaaf2f3676c
 { Name: "will_paginate", RepoVersion: "3.1.8", RepoVersionPublishedAt: 2019-08-19T00:00:00, LatestVersion: "3.1.8", LatestPublishedAt: 2019-08-19T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "xpath", RepoVersion: "3.2.0", RepoVersionPublishedAt: 2018-10-15T00:00:00, LatestVersion: "3.2.0", LatestPublishedAt: 2018-10-15T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 44.07123287671232 } }
-
-results[73] = { Date: 2019-10-01T23:59:59, ManifestSHA: 3962314bdda19426a08fee60e1f74a8e5c7d236a, LibYear: { _packagesValues: [
+{ Date: 2019-10-01T23:59:59, ManifestSHA: 3962314bdda19426a08fee60e1f74a8e5c7d236a, LibYear: { _packagesValues: [
 { Name: "actioncable", RepoVersion: "5.1.7", RepoVersionPublishedAt: 2019-03-28T00:00:00, LatestVersion: "6.0.0", LatestPublishedAt: 2019-08-16T00:00:00, UpgradeAvailable: True, Value: 0.3863013698630137 },
 { Name: "actionmailer", RepoVersion: "5.1.7", RepoVersionPublishedAt: 2019-03-28T00:00:00, LatestVersion: "6.0.0", LatestPublishedAt: 2019-08-16T00:00:00, UpgradeAvailable: True, Value: 0.3863013698630137 },
 { Name: "actionpack", RepoVersion: "5.1.7", RepoVersionPublishedAt: 2019-03-28T00:00:00, LatestVersion: "6.0.0", LatestPublishedAt: 2019-08-16T00:00:00, UpgradeAvailable: True, Value: 0.3863013698630137 },
@@ -12567,8 +12496,7 @@ results[73] = { Date: 2019-10-01T23:59:59, ManifestSHA: 3962314bdda19426a08fee60
 { Name: "will_paginate", RepoVersion: "3.1.8", RepoVersionPublishedAt: 2019-08-19T00:00:00, LatestVersion: "3.1.8", LatestPublishedAt: 2019-08-19T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "xpath", RepoVersion: "3.2.0", RepoVersionPublishedAt: 2018-10-15T00:00:00, LatestVersion: "3.2.0", LatestPublishedAt: 2018-10-15T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 59.01917808219174 } }
-
-results[74] = { Date: 2019-11-01T23:59:59, ManifestSHA: 9b019afa800a5a5bcf3c790b2af5d816669b6abd, LibYear: { _packagesValues: [
+{ Date: 2019-11-01T23:59:59, ManifestSHA: 9b019afa800a5a5bcf3c790b2af5d816669b6abd, LibYear: { _packagesValues: [
 { Name: "actioncable", RepoVersion: "5.1.7", RepoVersionPublishedAt: 2019-03-28T00:00:00, LatestVersion: "6.0.0", LatestPublishedAt: 2019-08-16T00:00:00, UpgradeAvailable: True, Value: 0.3863013698630137 },
 { Name: "actionmailer", RepoVersion: "5.1.7", RepoVersionPublishedAt: 2019-03-28T00:00:00, LatestVersion: "6.0.0", LatestPublishedAt: 2019-08-16T00:00:00, UpgradeAvailable: True, Value: 0.3863013698630137 },
 { Name: "actionpack", RepoVersion: "5.1.7", RepoVersionPublishedAt: 2019-03-28T00:00:00, LatestVersion: "6.0.0", LatestPublishedAt: 2019-08-16T00:00:00, UpgradeAvailable: True, Value: 0.3863013698630137 },
@@ -12768,8 +12696,7 @@ results[74] = { Date: 2019-11-01T23:59:59, ManifestSHA: 9b019afa800a5a5bcf3c790b
 { Name: "will_paginate", RepoVersion: "3.1.8", RepoVersionPublishedAt: 2019-08-19T00:00:00, LatestVersion: "3.2.1", LatestPublishedAt: 2019-10-15T00:00:00, UpgradeAvailable: True, Value: 0.15616438356164383 },
 { Name: "xpath", RepoVersion: "3.2.0", RepoVersionPublishedAt: 2018-10-15T00:00:00, LatestVersion: "3.2.0", LatestPublishedAt: 2018-10-15T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 71.6739726027397 } }
-
-results[75] = { Date: 2019-12-01T23:59:59, ManifestSHA: c884662159495fa37c39f42d68f6a5ad324b03fb, LibYear: { _packagesValues: [
+{ Date: 2019-12-01T23:59:59, ManifestSHA: c884662159495fa37c39f42d68f6a5ad324b03fb, LibYear: { _packagesValues: [
 { Name: "actioncable", RepoVersion: "5.1.7", RepoVersionPublishedAt: 2019-03-28T00:00:00, LatestVersion: "6.0.1", LatestPublishedAt: 2019-11-05T00:00:00, UpgradeAvailable: True, Value: 0.6082191780821918 },
 { Name: "actionmailer", RepoVersion: "5.1.7", RepoVersionPublishedAt: 2019-03-28T00:00:00, LatestVersion: "6.0.1", LatestPublishedAt: 2019-11-05T00:00:00, UpgradeAvailable: True, Value: 0.6082191780821918 },
 { Name: "actionpack", RepoVersion: "5.1.7", RepoVersionPublishedAt: 2019-03-28T00:00:00, LatestVersion: "6.0.1", LatestPublishedAt: 2019-11-05T00:00:00, UpgradeAvailable: True, Value: 0.6082191780821918 },
@@ -12969,8 +12896,7 @@ results[75] = { Date: 2019-12-01T23:59:59, ManifestSHA: c884662159495fa37c39f42d
 { Name: "will_paginate", RepoVersion: "3.1.8", RepoVersionPublishedAt: 2019-08-19T00:00:00, LatestVersion: "3.2.1", LatestPublishedAt: 2019-10-15T00:00:00, UpgradeAvailable: True, Value: 0.15616438356164383 },
 { Name: "xpath", RepoVersion: "3.2.0", RepoVersionPublishedAt: 2018-10-15T00:00:00, LatestVersion: "3.2.0", LatestPublishedAt: 2018-10-15T00:00:00, UpgradeAvailable: False, Value: 0 },
 ], Total: 78.81369863013697 } }
-
-results[76] = { Date: 2020-01-01T23:59:59, ManifestSHA: 8e318f2a34013d836e2b38b1649aac22f829f4c7, LibYear: { _packagesValues: [
+{ Date: 2020-01-01T23:59:59, ManifestSHA: 8e318f2a34013d836e2b38b1649aac22f829f4c7, LibYear: { _packagesValues: [
 { Name: "activerecord-import", RepoVersion: "1.0.3", RepoVersionPublishedAt: 2019-10-09T00:00:00, LatestVersion: "1.0.4", LatestPublishedAt: 2019-12-24T00:00:00, UpgradeAvailable: True, Value: 0.20821917808219179 },
 { Name: "addressable", RepoVersion: "2.7.0", RepoVersionPublishedAt: 2019-08-31T00:00:00, LatestVersion: "2.7.0", LatestPublishedAt: 2019-08-31T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "aggregate", RepoVersion: "0.2.2", RepoVersionPublishedAt: 2011-03-05T00:00:00, LatestVersion: "0.2.2", LatestPublishedAt: 2011-03-05T00:00:00, UpgradeAvailable: False, Value: 0 },
