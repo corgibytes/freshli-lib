@@ -99,9 +99,9 @@ namespace Corgibytes.Freshli.Lib {
       var files = Directory.GetFiles(clonedProjectRoot,
                                 pattern,
                                 SearchOption.AllDirectories)
-                           .Select(f => f.Replace(clonedProjectRoot, ""))
-                           .Select(f => f.Substring(1))
-                           .ToArray();
+                                .Select(f => f.Replace(clonedProjectRoot, ""))
+                                .Select(f => f.Substring(1))
+                                .ToArray();
       return files;
     }
   }
