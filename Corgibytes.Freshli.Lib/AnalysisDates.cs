@@ -31,6 +31,9 @@ namespace Corgibytes.Freshli.Lib {
         _dates.Add(dayOf);
         date = date.AddMonths(1);
       }
+
+      // include today's date:
+      _dates.Add(DateTime.Today);
     }
 
     public IEnumerator<DateTime> GetEnumerator() {

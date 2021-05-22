@@ -52,7 +52,7 @@ namespace Corgibytes.Freshli.Lib {
       DateTime asOf,
       FileHistoryFinder fileHistoryFinder
     ) {
-      var calculator = ManifestFinder.Calculator;
+
       var scanResults = new List<ScanResult>();
       foreach (var mf in ManifestFinder.ManifestFiles) {
         logger.Trace(
@@ -61,9 +61,10 @@ namespace Corgibytes.Freshli.Lib {
           mf
         );
 
+        var calculator = ManifestFinder.Calculator;
         var fileHistory = fileHistoryFinder.FileHistoryOf(mf);
         var analysisDates = new AnalysisDates(fileHistory, asOf);
-        var metricsResults = analysisDates.Select(ad => ProcessAnalysisDate(calculator, fileHistory, ad)).ToList();
+        var metricsResults = analysisDates.Select(ad => ProcessAnalysisDate(mf, calculator, fileHistory, ad)).ToList();
 
         scanResults.Add(
           new ScanResult(mf, metricsResults)
@@ -74,6 +75,7 @@ namespace Corgibytes.Freshli.Lib {
     }
 
     private MetricsResult ProcessAnalysisDate(
+      string manifestFile,
       LibYearCalculator calculator,
       IFileHistory fileHistory,
       DateTime currentDate
@@ -89,7 +91,7 @@ namespace Corgibytes.Freshli.Lib {
         "currentDate = {currentDate:d}, " +
         "sha = {sha}, " +
         "libYear = {ComputeAsOf}",
-        ManifestFinder.ManifestFiles[0],
+        manifestFile,
         currentDate,
         sha,
         libYear.Total
