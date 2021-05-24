@@ -2,9 +2,11 @@ using System;
 using Corgibytes.Freshli.Lib.Languages.Ruby;
 using Xunit;
 
-namespace Corgibytes.Freshli.Lib.Test.Unit {
-  public class BundlerManifestTest {
-    private static readonly string Contents = @"GEM
+namespace Corgibytes.Freshli.Lib.Test.Unit
+{
+    public class BundlerManifestTest
+    {
+        private static readonly string Contents = @"GEM
   remote: https://rubygems.org/
   specs:
     mini_portile2 (2.4.0)
@@ -21,8 +23,8 @@ BUNDLED WITH
   2.1.3
 ";
 
-    // Copied from Feedbin project https://github.com/feedbin/feedbin
-    private static readonly string FeedbinContents = @"GIT
+        // Copied from Feedbin project https://github.com/feedbin/feedbin
+        private static readonly string FeedbinContents = @"GIT
   remote: git://github.com/benubois/html-pipeline.git
   revision: 652162b4c6c6a320cf8a45ee035704c10f802522
   ref: 652162b
@@ -381,153 +383,158 @@ DEPENDENCIES
   yajl-ruby
 ";
 
-    [Fact]
-    public void Parse() {
-      var manifest = new BundlerManifest();
-      manifest.Parse(Contents);
+        [Fact]
+        public void Parse()
+        {
+            var manifest = new BundlerManifest();
+            manifest.Parse(Contents);
 
-      AssertManifestContents(manifest);
+            AssertManifestContents(manifest);
+        }
+
+        [Fact]
+        public void ParseImpliesClear()
+        {
+            var manifest = new BundlerManifest();
+            manifest.Parse(Contents);
+            manifest.Add("remove", "me");
+
+            manifest.Parse(Contents);
+
+            AssertManifestContents(manifest);
+        }
+
+        private static void AssertManifestContents(BundlerManifest manifest)
+        {
+            Assert.Equal(2, manifest.Count);
+            Assert.Equal("2.4.0", manifest["mini_portile2"].Version);
+            Assert.Equal("1.9.1", manifest["nokogiri"].Version);
+        }
+
+        [Fact]
+        public void ParseFeedbin()
+        {
+            var manifest = new BundlerManifest();
+            manifest.Parse(FeedbinContents);
+
+            Assert.Equal(108, manifest.Count);
+            Assert.Equal("4.0.0", manifest["actionmailer"].Version);
+            Assert.Equal("4.0.0", manifest["actionpack"].Version);
+            Assert.Equal("4.0.0", manifest["activemodel"].Version);
+            Assert.Equal("4.0.0", manifest["activerecord"].Version);
+            Assert.Equal(
+              "1.0.3",
+              manifest["activerecord-deprecated_finders"].Version
+            );
+            Assert.Equal("4.0.0", manifest["activesupport"].Version);
+            Assert.Equal("2.3.5", manifest["addressable"].Version);
+            Assert.Equal("0.2.2", manifest["aggregate"].Version);
+            Assert.Equal("4.0.0", manifest["arel"].Version);
+            Assert.Equal("1.1.13", manifest["atomic"].Version);
+            Assert.Equal("0.7.20130824", manifest["autoprefixer-rails"].Version);
+            Assert.Equal("3.0.1", manifest["bcrypt-ruby"].Version);
+            Assert.Equal("0.9.0", manifest["better_errors"].Version);
+            Assert.Equal("3.1.4", manifest["builder"].Version);
+            Assert.Equal("0.0.5", manifest["bust_rails_etags"].Version);
+            Assert.Equal("2.15.5", manifest["capistrano"].Version);
+            Assert.Equal("0.9.0", manifest["carrierwave"].Version);
+            Assert.Equal("0.0.13", manifest["carrierwave_direct"].Version);
+            Assert.Equal("0.14.1", manifest["celluloid"].Version);
+            Assert.Equal("0.6.0", manifest["clockwork"].Version);
+            Assert.Equal("1.0.9", manifest["coderay"].Version);
+            Assert.Equal("4.0.0", manifest["coffee-rails"].Version);
+            Assert.Equal("2.2.0", manifest["coffee-script"].Version);
+            Assert.Equal("1.6.3", manifest["coffee-script-source"].Version);
+            Assert.Equal("1.1.0", manifest["connection_pool"].Version);
+            Assert.Equal("0.8.4", manifest["curb"].Version);
+            Assert.Equal("0.8.0", manifest["dotenv"].Version);
+            Assert.Equal("2.7.0", manifest["erubis"].Version);
+            Assert.Equal("0.3.2", manifest["escape_utils"].Version);
+            Assert.Equal("0.25.3", manifest["excon"].Version);
+            Assert.Equal("1.4.0", manifest["execjs"].Version);
+            Assert.Equal("0.8.8", manifest["faraday"].Version);
+            Assert.Equal("0.9.0", manifest["faraday_middleware"].Version);
+            Assert.Equal("1.15.0", manifest["fog"].Version);
+            Assert.Equal("0.63.0", manifest["foreman"].Version);
+            Assert.Equal("0.2.4", manifest["formatador"].Version);
+            Assert.Equal("1.4.0", manifest["gemoji"].Version);
+            Assert.Equal("0.5.3", manifest["github-markdown"].Version);
+            Assert.Equal("1.2.0", manifest["hashie"].Version);
+            Assert.Equal("1.6.19", manifest["highline"].Version);
+            Assert.Equal("1.2.3", manifest["hike"].Version);
+            Assert.Equal("1.8.0", manifest["honeybadger"].Version);
+            Assert.Equal("0.6.5", manifest["i18n"].Version);
+            Assert.Equal("1.5.0", manifest["jbuilder"].Version);
+            Assert.Equal("3.0.4", manifest["jquery-rails"].Version);
+            Assert.Equal("1.8.0", manifest["json"].Version);
+            Assert.Equal("2.8.0", manifest["kgio"].Version);
+            Assert.Equal("1.1.0", manifest["librato-metrics"].Version);
+            Assert.Equal("0.9.0", manifest["librato-rails"].Version);
+            Assert.Equal("3.11.8.17", manifest["libv8"].Version);
+            Assert.Equal("0.2.0", manifest["lograge"].Version);
+            Assert.Equal("0.1.6", manifest["longurl"].Version);
+            Assert.Equal("1.2.1", manifest["loofah"].Version);
+            Assert.Equal("2.5.4", manifest["mail"].Version);
+            Assert.Equal("1.24", manifest["mime-types"].Version);
+            Assert.Equal("4.7.5", manifest["minitest"].Version);
+            Assert.Equal("1.7.9", manifest["multi_json"].Version);
+            Assert.Equal("0.5.5", manifest["multi_xml"].Version);
+            Assert.Equal("1.2.0", manifest["multipart-post"].Version);
+            Assert.Equal("1.1.2", manifest["net-scp"].Version);
+            Assert.Equal("2.1.2", manifest["net-sftp"].Version);
+            Assert.Equal("2.6.8", manifest["net-ssh"].Version);
+            Assert.Equal("1.2.0", manifest["net-ssh-gateway"].Version);
+            Assert.Equal("1.5.10", manifest["nokogiri"].Version);
+            Assert.Equal("0.16.0", manifest["pg"].Version);
+            Assert.Equal("0.3.3", manifest["polyglot"].Version);
+            Assert.Equal("1.0.1", manifest["postmark"].Version);
+            Assert.Equal("0.5.1", manifest["postmark-rails"].Version);
+            Assert.Equal("1.0.2", manifest["quiet_assets"].Version);
+            Assert.Equal("1.5.2", manifest["rack"].Version);
+            Assert.Equal("1.5.0", manifest["rack-protection"].Version);
+            Assert.Equal("0.6.2", manifest["rack-test"].Version);
+            Assert.Equal("4.0.0", manifest["rails"].Version);
+            Assert.Equal("4.0.0", manifest["railties"].Version);
+            Assert.Equal("0.11.0", manifest["raindrops"].Version);
+            Assert.Equal("10.1.0", manifest["rake"].Version);
+            Assert.Equal("0.0.3", manifest["readability_parser"].Version);
+            Assert.Equal("1.3.1", manifest["redis-namespace"].Version);
+            Assert.Equal("1.0.5", manifest["ref"].Version);
+            Assert.Equal("0.4", manifest["request_exception_handler"].Version);
+            Assert.Equal("1.6.7", manifest["rest-client"].Version);
+            Assert.Equal("1.7.3", manifest["rinku"].Version);
+            Assert.Equal("0.4.0", manifest["ruby-hmac"].Version);
+            Assert.Equal("2.0.6", manifest["sanitize"].Version);
+            Assert.Equal("3.2.10", manifest["sass"].Version);
+            Assert.Equal("4.0.0", manifest["sass-rails"].Version);
+            Assert.Equal("0.2.0.rc1", manifest["sax-machine"].Version);
+            Assert.Equal("2.13.1", manifest["sidekiq"].Version);
+            Assert.Equal("1.4.3", manifest["sinatra"].Version);
+            Assert.Equal("2.0.1", manifest["slim"].Version);
+            Assert.Equal("2.10.0", manifest["sprockets"].Version);
+            Assert.Equal("2.0.0", manifest["sprockets-rails"].Version);
+            Assert.Equal("1.8.5", manifest["stripe"].Version);
+            Assert.Equal("0.6.0", manifest["stripe_event"].Version);
+            Assert.Equal("0.6.6", manifest["temple"].Version);
+            Assert.Equal("0.11.4", manifest["therubyracer"].Version);
+            Assert.Equal("0.18.1", manifest["thor"].Version);
+            Assert.Equal("0.1.2", manifest["thread_safe"].Version);
+            Assert.Equal("1.4.1", manifest["tilt"].Version);
+            Assert.Equal("1.1.0", manifest["timers"].Version);
+            Assert.Equal("1.4.15", manifest["treetop"].Version);
+            Assert.Equal("0.3.37", manifest["tzinfo"].Version);
+            Assert.Equal("2.1.2", manifest["uglifier"].Version);
+            Assert.Equal("4.6.3", manifest["unicorn"].Version);
+            Assert.Equal("2.1.4", manifest["uuidtools"].Version);
+            Assert.Equal("3.0.4", manifest["will_paginate"].Version);
+            Assert.Equal("1.1.0", manifest["yajl-ruby"].Version);
+        }
+
+        [Fact]
+        public void ThrowsExceptionForInvalidContent()
+        {
+            Assert.Throws<FormatException>(testCode: () =>
+              new BundlerManifest().Parse("test content"));
+        }
     }
-
-    [Fact]
-    public void ParseImpliesClear() {
-      var manifest = new BundlerManifest();
-      manifest.Parse(Contents);
-      manifest.Add("remove", "me");
-
-      manifest.Parse(Contents);
-
-      AssertManifestContents(manifest);
-    }
-
-    private static void AssertManifestContents(BundlerManifest manifest) {
-      Assert.Equal(2, manifest.Count);
-      Assert.Equal("2.4.0", manifest["mini_portile2"].Version);
-      Assert.Equal("1.9.1", manifest["nokogiri"].Version);
-    }
-
-    [Fact]
-    public void ParseFeedbin() {
-      var manifest = new BundlerManifest();
-      manifest.Parse(FeedbinContents);
-
-      Assert.Equal(108, manifest.Count);
-      Assert.Equal("4.0.0", manifest["actionmailer"].Version);
-      Assert.Equal("4.0.0", manifest["actionpack"].Version);
-      Assert.Equal("4.0.0", manifest["activemodel"].Version);
-      Assert.Equal("4.0.0", manifest["activerecord"].Version);
-      Assert.Equal(
-        "1.0.3",
-        manifest["activerecord-deprecated_finders"].Version
-      );
-      Assert.Equal("4.0.0", manifest["activesupport"].Version);
-      Assert.Equal("2.3.5", manifest["addressable"].Version);
-      Assert.Equal("0.2.2", manifest["aggregate"].Version);
-      Assert.Equal("4.0.0", manifest["arel"].Version);
-      Assert.Equal("1.1.13", manifest["atomic"].Version);
-      Assert.Equal("0.7.20130824", manifest["autoprefixer-rails"].Version);
-      Assert.Equal("3.0.1", manifest["bcrypt-ruby"].Version);
-      Assert.Equal("0.9.0", manifest["better_errors"].Version);
-      Assert.Equal("3.1.4", manifest["builder"].Version);
-      Assert.Equal("0.0.5", manifest["bust_rails_etags"].Version);
-      Assert.Equal("2.15.5", manifest["capistrano"].Version);
-      Assert.Equal("0.9.0", manifest["carrierwave"].Version);
-      Assert.Equal("0.0.13", manifest["carrierwave_direct"].Version);
-      Assert.Equal("0.14.1", manifest["celluloid"].Version);
-      Assert.Equal("0.6.0", manifest["clockwork"].Version);
-      Assert.Equal("1.0.9", manifest["coderay"].Version);
-      Assert.Equal("4.0.0", manifest["coffee-rails"].Version);
-      Assert.Equal("2.2.0", manifest["coffee-script"].Version);
-      Assert.Equal("1.6.3", manifest["coffee-script-source"].Version);
-      Assert.Equal("1.1.0", manifest["connection_pool"].Version);
-      Assert.Equal("0.8.4", manifest["curb"].Version);
-      Assert.Equal("0.8.0", manifest["dotenv"].Version);
-      Assert.Equal("2.7.0", manifest["erubis"].Version);
-      Assert.Equal("0.3.2", manifest["escape_utils"].Version);
-      Assert.Equal("0.25.3", manifest["excon"].Version);
-      Assert.Equal("1.4.0", manifest["execjs"].Version);
-      Assert.Equal("0.8.8", manifest["faraday"].Version);
-      Assert.Equal("0.9.0", manifest["faraday_middleware"].Version);
-      Assert.Equal("1.15.0", manifest["fog"].Version);
-      Assert.Equal("0.63.0", manifest["foreman"].Version);
-      Assert.Equal("0.2.4", manifest["formatador"].Version);
-      Assert.Equal("1.4.0", manifest["gemoji"].Version);
-      Assert.Equal("0.5.3", manifest["github-markdown"].Version);
-      Assert.Equal("1.2.0", manifest["hashie"].Version);
-      Assert.Equal("1.6.19", manifest["highline"].Version);
-      Assert.Equal("1.2.3", manifest["hike"].Version);
-      Assert.Equal("1.8.0", manifest["honeybadger"].Version);
-      Assert.Equal("0.6.5", manifest["i18n"].Version);
-      Assert.Equal("1.5.0", manifest["jbuilder"].Version);
-      Assert.Equal("3.0.4", manifest["jquery-rails"].Version);
-      Assert.Equal("1.8.0", manifest["json"].Version);
-      Assert.Equal("2.8.0", manifest["kgio"].Version);
-      Assert.Equal("1.1.0", manifest["librato-metrics"].Version);
-      Assert.Equal("0.9.0", manifest["librato-rails"].Version);
-      Assert.Equal("3.11.8.17", manifest["libv8"].Version);
-      Assert.Equal("0.2.0", manifest["lograge"].Version);
-      Assert.Equal("0.1.6", manifest["longurl"].Version);
-      Assert.Equal("1.2.1", manifest["loofah"].Version);
-      Assert.Equal("2.5.4", manifest["mail"].Version);
-      Assert.Equal("1.24", manifest["mime-types"].Version);
-      Assert.Equal("4.7.5", manifest["minitest"].Version);
-      Assert.Equal("1.7.9", manifest["multi_json"].Version);
-      Assert.Equal("0.5.5", manifest["multi_xml"].Version);
-      Assert.Equal("1.2.0", manifest["multipart-post"].Version);
-      Assert.Equal("1.1.2", manifest["net-scp"].Version);
-      Assert.Equal("2.1.2", manifest["net-sftp"].Version);
-      Assert.Equal("2.6.8", manifest["net-ssh"].Version);
-      Assert.Equal("1.2.0", manifest["net-ssh-gateway"].Version);
-      Assert.Equal("1.5.10", manifest["nokogiri"].Version);
-      Assert.Equal("0.16.0", manifest["pg"].Version);
-      Assert.Equal("0.3.3", manifest["polyglot"].Version);
-      Assert.Equal("1.0.1", manifest["postmark"].Version);
-      Assert.Equal("0.5.1", manifest["postmark-rails"].Version);
-      Assert.Equal("1.0.2", manifest["quiet_assets"].Version);
-      Assert.Equal("1.5.2", manifest["rack"].Version);
-      Assert.Equal("1.5.0", manifest["rack-protection"].Version);
-      Assert.Equal("0.6.2", manifest["rack-test"].Version);
-      Assert.Equal("4.0.0", manifest["rails"].Version);
-      Assert.Equal("4.0.0", manifest["railties"].Version);
-      Assert.Equal("0.11.0", manifest["raindrops"].Version);
-      Assert.Equal("10.1.0", manifest["rake"].Version);
-      Assert.Equal("0.0.3", manifest["readability_parser"].Version);
-      Assert.Equal("1.3.1", manifest["redis-namespace"].Version);
-      Assert.Equal("1.0.5", manifest["ref"].Version);
-      Assert.Equal("0.4", manifest["request_exception_handler"].Version);
-      Assert.Equal("1.6.7", manifest["rest-client"].Version);
-      Assert.Equal("1.7.3", manifest["rinku"].Version);
-      Assert.Equal("0.4.0", manifest["ruby-hmac"].Version);
-      Assert.Equal("2.0.6", manifest["sanitize"].Version);
-      Assert.Equal("3.2.10", manifest["sass"].Version);
-      Assert.Equal("4.0.0", manifest["sass-rails"].Version);
-      Assert.Equal("0.2.0.rc1", manifest["sax-machine"].Version);
-      Assert.Equal("2.13.1", manifest["sidekiq"].Version);
-      Assert.Equal("1.4.3", manifest["sinatra"].Version);
-      Assert.Equal("2.0.1", manifest["slim"].Version);
-      Assert.Equal("2.10.0", manifest["sprockets"].Version);
-      Assert.Equal("2.0.0", manifest["sprockets-rails"].Version);
-      Assert.Equal("1.8.5", manifest["stripe"].Version);
-      Assert.Equal("0.6.0", manifest["stripe_event"].Version);
-      Assert.Equal("0.6.6", manifest["temple"].Version);
-      Assert.Equal("0.11.4", manifest["therubyracer"].Version);
-      Assert.Equal("0.18.1", manifest["thor"].Version);
-      Assert.Equal("0.1.2", manifest["thread_safe"].Version);
-      Assert.Equal("1.4.1", manifest["tilt"].Version);
-      Assert.Equal("1.1.0", manifest["timers"].Version);
-      Assert.Equal("1.4.15", manifest["treetop"].Version);
-      Assert.Equal("0.3.37", manifest["tzinfo"].Version);
-      Assert.Equal("2.1.2", manifest["uglifier"].Version);
-      Assert.Equal("4.6.3", manifest["unicorn"].Version);
-      Assert.Equal("2.1.4", manifest["uuidtools"].Version);
-      Assert.Equal("3.0.4", manifest["will_paginate"].Version);
-      Assert.Equal("1.1.0", manifest["yajl-ruby"].Version);
-    }
-
-    [Fact]
-    public void ThrowsExceptionForInvalidContent() {
-      Assert.Throws<FormatException>(testCode: () =>
-        new BundlerManifest().Parse("test content"));
-    }
-  }
 }

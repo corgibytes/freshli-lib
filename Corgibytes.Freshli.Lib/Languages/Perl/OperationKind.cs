@@ -1,7 +1,9 @@
 using Corgibytes.Freshli.Lib.Extensions;
 
-namespace Corgibytes.Freshli.Lib.Languages.Perl {
-  public enum OperationKind {
+namespace Corgibytes.Freshli.Lib.Languages.Perl
+{
+    public enum OperationKind
+    {
         NotFound,
         Matching,
         LessThan,
