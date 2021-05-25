@@ -61,7 +61,8 @@ namespace Corgibytes.Freshli.Lib
         )
         {
             var scanResults = new List<ScanResult>();
-            foreach (var mf in ManifestFinder.ManifestFiles) {
+            foreach (var mf in ManifestFinder.ManifestFiles)
+            {
                 logger.Trace(
                       "{analysisPath}: LockFileName: {LockFileName}",
                       analysisPath,
