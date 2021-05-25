@@ -1,6 +1,4 @@
-﻿results[0] = Filename: composer.lock
-Results:
-{ Date: 2020-01-01T00:00:00, ManifestSHA: N/A, LibYear: { _packagesValues: [
+﻿results[0] = { Date: 2020-01-01T00:00:00, ManifestSHA: N/A, LibYear: { _packagesValues: [
 { Name: "aws/aws-sdk-php", RepoVersion: "3.130.2", RepoVersionPublishedAt: 2019-12-23T00:00:00, LatestVersion: "3.130.2", LatestPublishedAt: 2019-12-23T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "barryvdh/laravel-dompdf", RepoVersion: "v0.8.5", RepoVersionPublishedAt: 2019-08-23T00:00:00, LatestVersion: "v0.8.5", LatestPublishedAt: 2019-08-23T00:00:00, UpgradeAvailable: False, Value: 0 },
 { Name: "barryvdh/laravel-snappy", RepoVersion: "v0.4.6", RepoVersionPublishedAt: 2019-10-02T00:00:00, LatestVersion: "v0.4.6", LatestPublishedAt: 2019-10-02T00:00:00, UpgradeAvailable: False, Value: 0 },
