@@ -1,18 +1,23 @@
-﻿namespace Corgibytes.Freshli.Lib.Languages.Python {
-  public class PythonVersionPart {
-    public string Label { get; set; }
-    public long? Increment { get; set; }
+﻿namespace Corgibytes.Freshli.Lib.Languages.Python
+{
+    public class PythonVersionPart
+    {
+        public string Label { get; set; }
+        public long? Increment { get; set; }
 
-    public PythonVersionPart Suffix { get; set; }
-    public PythonVersionInfo.SuffixType Type { get; set; }
+        public PythonVersionPart Suffix { get; set; }
+        public PythonVersionInfo.SuffixType Type { get; set; }
 
-    public PythonVersionInfo.SuffixType SuffixType {
-      get {
-        if (Suffix != null) {
-          return Suffix.Type;
+        public PythonVersionInfo.SuffixType SuffixType
+        {
+            get
+            {
+                if (Suffix != null)
+                {
+                    return Suffix.Type;
+                }
+                return PythonVersionInfo.SuffixType.NoSuffix;
+            }
         }
-        return PythonVersionInfo.SuffixType.NoSuffix;
-      }
     }
-  }
 }

@@ -5,104 +5,125 @@ using System.IO;
 using System.Linq;
 using LibGit2Sharp;
 
-namespace Corgibytes.Freshli.Lib {
-  public class GitFileHistoryFinder : IFileHistoryFinder {
-    private Dictionary<string, string> _cloneLocations =
-      new Dictionary<string, string>();
+namespace Corgibytes.Freshli.Lib
+{
+    public class GitFileHistoryFinder : IFileHistoryFinder
+    {
+        private Dictionary<string, string> _cloneLocations =
+          new Dictionary<string, string>();
 
-    private string NormalizeLocation(string projectRootPath) {
-      if (Repository.IsValid(projectRootPath)) {
-        return projectRootPath;
-      }
+        private string NormalizeLocation(string projectRootPath)
+        {
+            if (Repository.IsValid(projectRootPath))
+            {
+                return projectRootPath;
+            }
 
-      if (_cloneLocations.ContainsKey(projectRootPath)) {
-        return _cloneLocations[projectRootPath];
-      }
+            if (_cloneLocations.ContainsKey(projectRootPath))
+            {
+                return _cloneLocations[projectRootPath];
+            }
 
-      if (IsCloneable(projectRootPath)) {
-        var cloneLocation = GenerateTempCloneLocation();
-        Repository.Clone(projectRootPath, cloneLocation);
-        _cloneLocations[projectRootPath] = cloneLocation;
-        return cloneLocation;
-      }
+            if (IsCloneable(projectRootPath))
+            {
+                var cloneLocation = GenerateTempCloneLocation();
+                Repository.Clone(projectRootPath, cloneLocation);
+                _cloneLocations[projectRootPath] = cloneLocation;
+                return cloneLocation;
+            }
 
-      return projectRootPath;
-    }
+            return projectRootPath;
+        }
 
-    public bool DoesPathContainHistorySource(string projectRootPath) {
-      bool result = Repository.IsValid(projectRootPath);
-      if (!result) {
-        result = IsCloneable(projectRootPath);
-      }
+        public bool DoesPathContainHistorySource(string projectRootPath)
+        {
+            bool result = Repository.IsValid(projectRootPath);
+            if (!result)
+            {
+                result = IsCloneable(projectRootPath);
+            }
 
-      return result;
-    }
+            return result;
+        }
 
-    private string GenerateTempCloneLocation() {
-      return Path.Combine(
-        Path.GetTempPath(),
-        Guid.NewGuid().ToString()
-      );
-    }
+        private string GenerateTempCloneLocation()
+        {
+            return Path.Combine(
+              Path.GetTempPath(),
+              Guid.NewGuid().ToString()
+            );
+        }
 
-    private bool IsCloneable(string url) {
-      var result = true;
-      var options = new CloneOptions {Checkout = false};
+        private bool IsCloneable(string url)
+        {
+            var result = true;
+            var options = new CloneOptions { Checkout = false };
 
-      string tempFolder = GenerateTempCloneLocation();
+            string tempFolder = GenerateTempCloneLocation();
 
-      try {
-        Repository.Clone(url, tempFolder, options);
-      } catch (NotFoundException) {
-        result = false;
-      }
+            try
+            {
+                Repository.Clone(url, tempFolder, options);
+            }
+            catch (NotFoundException)
+            {
+                result = false;
+            }
 
-      if (Directory.Exists(tempFolder)) {
-        new DirectoryInfo(tempFolder).DeleteReadOnly();
-      }
+            if (Directory.Exists(tempFolder))
+            {
+                new DirectoryInfo(tempFolder).DeleteReadOnly();
+            }
 
-      return result;
-    }
+            return result;
+        }
 
-    private void RecursivelyClearReadOnlyAttribute(string path) {
-      foreach (var childDirectory in Directory.EnumerateDirectories(path)) {
-        RecursivelyClearReadOnlyAttribute(childDirectory);
-      }
+        private void RecursivelyClearReadOnlyAttribute(string path)
+        {
+            foreach (var childDirectory in Directory.EnumerateDirectories(path))
+            {
+                RecursivelyClearReadOnlyAttribute(childDirectory);
+            }
 
-      foreach (var childFile in Directory.EnumerateFiles(path)) {
-        File.SetAttributes(childFile, FileAttributes.Normal);
-      }
-    }
+            foreach (var childFile in Directory.EnumerateFiles(path))
+            {
+                File.SetAttributes(childFile, FileAttributes.Normal);
+            }
+        }
 
-    public IFileHistory FileHistoryOf(
-      string projectRootPath,
-      string targetFile
-    ) {
-      return new GitFileHistory(NormalizeLocation(projectRootPath), targetFile);
-    }
+        public IFileHistory FileHistoryOf(
+          string projectRootPath,
+          string targetFile
+        )
+        {
+            return new GitFileHistory(NormalizeLocation(projectRootPath), targetFile);
+        }
 
-    public bool Exists(string projectRootPath, string filePath) {
-      string clonedProjectRoot = NormalizeLocation(projectRootPath);
-      return Directory.GetFiles(clonedProjectRoot, filePath).Any();
-    }
+        public bool Exists(string projectRootPath, string filePath)
+        {
+            string clonedProjectRoot = NormalizeLocation(projectRootPath);
+            return Directory.GetFiles(clonedProjectRoot, filePath).Any();
+        }
 
-    public string ReadAllText(string projectRootPath, string filePath) {
-      string clonedProjectRoot = NormalizeLocation(projectRootPath);
-      return File.ReadAllText(Path.Combine(clonedProjectRoot, filePath));
-    }
+        public string ReadAllText(string projectRootPath, string filePath)
+        {
+            string clonedProjectRoot = NormalizeLocation(projectRootPath);
+            return File.ReadAllText(Path.Combine(clonedProjectRoot, filePath));
+        }
 
-    public string[] GetManifestFilenames(
-      string projectRootPath,
-      string pattern
-    ) {
-      string clonedProjectRoot = NormalizeLocation(projectRootPath);
-      var files = Directory.GetFiles(clonedProjectRoot,
+        public string[] GetManifestFilenames(
+          string projectRootPath,
+          string pattern
+        )
+        {
+            string clonedProjectRoot = NormalizeLocation(projectRootPath);
+            var files = Directory.GetFiles(clonedProjectRoot,
                                 pattern,
                                 SearchOption.AllDirectories)
                                 .Select(f => f.Replace(clonedProjectRoot, ""))
                                 .Select(f => f.Substring(1))
                                 .ToArray();
-      return files;
+            return files;
+        }
     }
-  }
 }
