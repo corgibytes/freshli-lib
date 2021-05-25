@@ -20,7 +20,7 @@ namespace Corgibytes.Freshli.Lib
             ManifestFinder.RegisterAll();
             FileHistoryFinder.Register<GitFileHistoryFinder>();
         }
-      
+
         public IList<MetricsResult> Run(string analysisPath, DateTime asOf)
         {
             logger.Info($"Run({analysisPath}, {asOf:d})");

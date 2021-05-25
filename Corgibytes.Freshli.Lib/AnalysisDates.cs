@@ -9,7 +9,7 @@ namespace Corgibytes.Freshli.Lib
     public class AnalysisDates : IEnumerable<DateTime>
     {
         private List<DateTime> _dates = new List<DateTime>();
-        
+
         public AnalysisDates(IFileHistory history, DateTime asOf)
         {
             if (history.Dates.Count == 0)
