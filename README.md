@@ -63,6 +63,25 @@ You can then [view the listing of alpha packages](https://github.com/orgs/corgib
 dotnet add package Freshli -v 0.3.0-alpha0030
 ```
 
+## Using freshli-lib in your project
+
+As an example on how to use the Freshli library in your source code:
+
+```
+
+var repositoryUrl = YOUR_REPO_URL_HERE;
+
+// pass in the repository URL into the runner to return a collection of ScanResult objects
+var results = runner.Run(repositoryUrl);
+
+// you can view both the manifest file name and a collection of metric results
+Console.WriteLine(results.Filename);
+Console.WriteLine(results.MetricsResults);
+
+// you can also output the entire ScanResult
+Console.WriteLine(results[0].ToString());
+```
+
 ## Contributing to `freshli`
 
 More information can be found at the [Contributing Guide](CONTRIBUTING.md)

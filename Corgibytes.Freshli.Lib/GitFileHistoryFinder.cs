@@ -117,13 +117,13 @@ namespace Corgibytes.Freshli.Lib
         )
         {
             string clonedProjectRoot = NormalizeLocation(projectRootPath);
-            var files = Directory.GetFiles(clonedProjectRoot,
+            return Directory.GetFiles(clonedProjectRoot,
                                 pattern,
                                 SearchOption.AllDirectories)
                                 .Select(f => f.Replace(clonedProjectRoot, ""))
+                                // removes the '/' in filepath
                                 .Select(f => f.Substring(1))
                                 .ToArray();
-            return files;
         }
     }
 }

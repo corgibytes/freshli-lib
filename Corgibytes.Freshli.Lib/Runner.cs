@@ -21,12 +21,11 @@ namespace Corgibytes.Freshli.Lib
             FileHistoryFinder.Register<GitFileHistoryFinder>();
         }
 
-        public IList<MetricsResult> Run(string analysisPath, DateTime asOf)
+        public IList<ScanResult> Run(string analysisPath, DateTime asOf)
         {
             logger.Info($"Run({analysisPath}, {asOf:d})");
 
-            var metricsResults = new List<MetricsResult>();
-
+            var scanResults = new List<ScanResult>();
             var fileHistoryFinder = new FileHistoryFinder(analysisPath);
             ManifestFinder = new ManifestFinder(
                 analysisPath,
@@ -39,10 +38,9 @@ namespace Corgibytes.Freshli.Lib
             }
             else
             {
-                ProcessManifestFile(
+                scanResults = ProcessManifestFiles(
                     analysisPath,
                     asOf,
-                    metricsResults,
                     fileHistoryFinder
                 );
             }
@@ -50,40 +48,44 @@ namespace Corgibytes.Freshli.Lib
             DotNetEnv.Env.Load();
             if (DotNetEnv.Env.GetBool("SAVE_RESULTS_TO_FILE"))
             {
-                WriteResultsToFile(metricsResults);
+                WriteResultsToFile(scanResults);
             }
 
-            return metricsResults;
+            return scanResults;
         }
 
-        private void ProcessManifestFile(
+        private List<ScanResult> ProcessManifestFiles(
           string analysisPath,
           DateTime asOf,
-          List<MetricsResult> metricsResults,
           FileHistoryFinder fileHistoryFinder
         )
         {
-            logger.Trace(
+            var scanResults = new List<ScanResult>();
+            foreach (var mf in ManifestFinder.ManifestFiles) {
+                logger.Trace(
                       "{analysisPath}: LockFileName: {LockFileName}",
                       analysisPath,
                       ManifestFinder.ManifestFiles[0]
                     );
-            var calculator = ManifestFinder.Calculator;
-            var fileHistory = fileHistoryFinder.FileHistoryOf(
-              ManifestFinder.ManifestFiles[0]
-            );
 
-            var analysisDates = new AnalysisDates(fileHistory, asOf);
-            analysisDates.ToList().ForEach(
-              ad => ProcessAnalysisDate(metricsResults, calculator, fileHistory, ad)
-            );
+                var calculator = ManifestFinder.Calculator;
+                var fileHistory = fileHistoryFinder.FileHistoryOf(mf);
+                var analysisDates = new AnalysisDates(fileHistory, asOf);
+                var metricsResults = analysisDates.Select(
+                    ad => ProcessAnalysisDate(mf, calculator, fileHistory, ad)
+                ).ToList();
+
+                scanResults.Add(new ScanResult(mf, metricsResults));
+            }
+
+            return scanResults;
         }
 
-        private void ProcessAnalysisDate(
-          List<MetricsResult> metricsResults,
-          LibYearCalculator calculator,
-          IFileHistory fileHistory,
-          DateTime currentDate
+        private MetricsResult ProcessAnalysisDate(
+            string manifestFile,
+            LibYearCalculator calculator,
+            IFileHistory fileHistory,
+            DateTime currentDate
         )
         {
             var content = fileHistory.ContentsAsOf(currentDate);
@@ -102,16 +104,17 @@ namespace Corgibytes.Freshli.Lib
               sha,
               libYear.Total
             );
-            metricsResults.Add(new MetricsResult(currentDate, sha, libYear));
+
+            return new MetricsResult(currentDate, sha, libYear);
         }
 
-        public IList<MetricsResult> Run(string analysisPath)
+        public IList<ScanResult> Run(string analysisPath)
         {
             var asOf = DateTime.Today.ToEndOfDay();
             return Run(analysisPath, asOf: asOf);
         }
 
-        private static void WriteResultsToFile(List<MetricsResult> results)
+        private static void WriteResultsToFile(List<ScanResult> results)
         {
             if (!System.IO.Directory.Exists(ResultsPath))
             {
