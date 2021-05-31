@@ -3,12 +3,15 @@ using Corgibytes.Freshli.Lib.Languages.CSharp;
 using NuGet.Versioning;
 using Xunit;
 
-namespace Corgibytes.Freshli.Lib.Test.Unit.CSharp {
-  public class NuGetManifestTest {
-    [Fact]
-    public void ParsesFile() {
-      var manifest = new NuGetManifest();
-      var testContent = @"<Project Sdk=""Microsoft.NET.Sdk"">
+namespace Corgibytes.Freshli.Lib.Test.Unit.CSharp
+{
+    public class NuGetManifestTest
+    {
+        [Fact]
+        public void ParsesFile()
+        {
+            var manifest = new NuGetManifest();
+            var testContent = @"<Project Sdk=""Microsoft.NET.Sdk"">
             <ItemGroup>
             <PackageReference Include=""DotNetEnv"" Version=""1.4.0"" />
             <PackageReference Include=""Elasticsearch.Net"" Version=""7.10"" />
@@ -19,9 +22,9 @@ namespace Corgibytes.Freshli.Lib.Test.Unit.CSharp {
             </ItemGroup>
         </Project>";
 
-      manifest.Parse(testContent);
+            manifest.Parse(testContent);
 
-      Assert.Equal(6, manifest.Count);
+            Assert.Equal(6, manifest.Count);
+        }
     }
-  }
 }

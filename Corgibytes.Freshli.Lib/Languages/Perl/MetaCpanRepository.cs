@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text.Json;
-using Elasticsearch.Net;
 using Corgibytes.Freshli.Lib.Exceptions;
+using Elasticsearch.Net;
 
 namespace Corgibytes.Freshli.Lib.Languages.Perl {
   public class MetaCpanRepository : IPackageRepository {

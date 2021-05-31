@@ -1,0 +1,29 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:ExampleClient.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="ExampleClient.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="ExampleClient"
+        Width="800"
+        Height="450">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel />
+    </Design.DataContext>
+
+    <DockPanel>
+        <Label DockPanel.Dock="Top" HorizontalAlignment="Center" FontSize="20">Freshli-Lib Example Client</Label>
+        <DockPanel Margin="10">
+            <DockPanel DockPanel.Dock="Top" Margin="10">
+                <Label DockPanel.Dock="Left">Git Repo:</Label>
+                <Button DockPanel.Dock="Right" Command="{Binding OnRunFreshliClick}" Margin="5, 0">Run Freshli</Button>
+                <TextBox Text="{Binding GitPath}" HorizontalAlignment="Stretch" />
+            </DockPanel>
+            <Button DockPanel.Dock="Bottom" Command="{Binding CloseCommand}" HorizontalAlignment="Right">Close</Button>
+            <TextBox DockPanel.Dock="Top" Text="{Binding Results, Mode=TwoWay}" IsReadOnly="True" Margin="0 5" />
+        </DockPanel>
+    </DockPanel>
+</Window>
