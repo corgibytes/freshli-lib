@@ -1,7 +1,7 @@
 ## v0.4.0
 
 
-As part of this release we had [36 issues](https://github.com/corgibytes/freshli-lib/milestone/5?closed=1) closed.
+As part of this release we had [37 issues](https://github.com/corgibytes/freshli-lib/milestone/5?closed=1) closed.
 Goals for this milestone:
 
 - Common Freshli dependency interface.
@@ -27,6 +27,7 @@ __DevOps__
 
 __Dependencies__
 
+- [__#332__](https://github.com/corgibytes/freshli-lib/pull/332) Bump Avalonia from 0.10.5 to 0.10.6
 - [__#330__](https://github.com/corgibytes/freshli-lib/pull/330) Bump ApprovalTests from 5.4.7 to 5.5.0
 - [__#329__](https://github.com/corgibytes/freshli-lib/pull/329) Bump Microsoft.NET.Test.Sdk from 16.9.4 to 16.10.0
 - [__#328__](https://github.com/corgibytes/freshli-lib/pull/328) Bump Elasticsearch.Net from 7.12.1 to 7.13.0
