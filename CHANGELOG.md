@@ -1,7 +1,7 @@
 ## v0.4.0
 
 
-As part of this release we had [35 issues](https://github.com/corgibytes/freshli-lib/milestone/5?closed=1) closed.
+As part of this release we had [40 issues](https://github.com/corgibytes/freshli-lib/milestone/5?closed=1) closed.
 Goals for this milestone:
 
 - Common Freshli dependency interface.
@@ -27,8 +27,13 @@ __DevOps__
 
 __Dependencies__
 
+- [__#336__](https://github.com/corgibytes/freshli-lib/pull/336) Bump HtmlAgilityPack from 1.11.33 to 1.11.34
+- [__#334__](https://github.com/corgibytes/freshli-lib/pull/334) Bump Avalonia.Diagnostics from 0.10.5 to 0.10.6
+- [__#332__](https://github.com/corgibytes/freshli-lib/pull/332) Bump Avalonia from 0.10.5 to 0.10.6
+- [__#331__](https://github.com/corgibytes/freshli-lib/pull/331) Bump DiffEngine from 6.8.1 to 6.8.2
 - [__#330__](https://github.com/corgibytes/freshli-lib/pull/330) Bump ApprovalTests from 5.4.7 to 5.5.0
 - [__#329__](https://github.com/corgibytes/freshli-lib/pull/329) Bump Microsoft.NET.Test.Sdk from 16.9.4 to 16.10.0
+- [__#328__](https://github.com/corgibytes/freshli-lib/pull/328) Bump Elasticsearch.Net from 7.12.1 to 7.13.0
 - [__#322__](https://github.com/corgibytes/freshli-lib/pull/322) Bump DiffEngine from 6.8.0 to 6.8.1
 - [__#321__](https://github.com/corgibytes/freshli-lib/pull/321) Bump Avalonia.Desktop from 0.10.2 to 0.10.4
 - [__#317__](https://github.com/corgibytes/freshli-lib/pull/317) Bump cla-assistant/github-action from 2.1.2.pre.beta to 2.1.3.pre.beta
