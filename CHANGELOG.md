@@ -1,10 +1,9 @@
 ## v0.4.0
 
 
-As part of this release we had [40 issues](https://github.com/corgibytes/freshli-lib/milestone/5?closed=1) closed.
+As part of this release we had [42 issues](https://github.com/corgibytes/freshli-lib/milestone/5?closed=1) closed.
 Goals for this milestone:
 
-- Common Freshli dependency interface.
 - Support parsing multiple manifests but specifically focusing on .NET for this release.
 - Beta version of NuGet package.
 - Fail build if metrics like CodeClimate, Coverage, etc, are worse then previous build.
@@ -28,7 +27,9 @@ __DevOps__
 __Dependencies__
 
 - [__#336__](https://github.com/corgibytes/freshli-lib/pull/336) Bump HtmlAgilityPack from 1.11.33 to 1.11.34
+- [__#335__](https://github.com/corgibytes/freshli-lib/pull/335) Bump Avalonia.Desktop from 0.10.5 to 0.10.6
 - [__#334__](https://github.com/corgibytes/freshli-lib/pull/334) Bump Avalonia.Diagnostics from 0.10.5 to 0.10.6
+- [__#333__](https://github.com/corgibytes/freshli-lib/pull/333) Bump Avalonia.ReactiveUI from 0.10.5 to 0.10.6
 - [__#332__](https://github.com/corgibytes/freshli-lib/pull/332) Bump Avalonia from 0.10.5 to 0.10.6
 - [__#331__](https://github.com/corgibytes/freshli-lib/pull/331) Bump DiffEngine from 6.8.1 to 6.8.2
 - [__#330__](https://github.com/corgibytes/freshli-lib/pull/330) Bump ApprovalTests from 5.4.7 to 5.5.0
