@@ -36,6 +36,9 @@
       <None Update="Acceptance.SpaCyWithHistoryViaGitHub.approved.txt">
         <DependentUpon>Acceptance.cs</DependentUpon>
       </None>
+      <None Update="Acceptance.SpaCyWithHistoryViaGitHub.Microsoft_Windows_10_Pro_for_Workstations.approved.txt">
+        <DependentUpon>Acceptance.cs</DependentUpon>
+      </None>
     </ItemGroup>
 
     <ItemGroup>

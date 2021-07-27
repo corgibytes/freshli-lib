@@ -1,12 +1,13 @@
 using System;
 using ApprovalTests;
+using ApprovalTests.Namers;
 using ApprovalTests.Reporters;
 using ApprovalTests.Reporters.TestFrameworks;
 using Xunit;
 
 namespace Corgibytes.Freshli.Lib.Test
 {
-    [UseReporter(typeof(XUnit2Reporter))]
+    [UseReporter(typeof(XUnit2Reporter), typeof(MachineSpecificReporter))]
     public class Acceptance
     {
 
@@ -126,7 +127,11 @@ namespace Corgibytes.Freshli.Lib.Test
             );
 
             Assert.True(runner.ManifestFinder.Successful);
-            Approvals.VerifyAll(results, "results");
+
+            using (ApprovalResults.UniqueForOs())
+            {
+                Approvals.VerifyAll(results, "results");
+            }
         }
 
         [Fact]
