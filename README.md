@@ -85,3 +85,5 @@ Console.WriteLine(results[0].ToString());
 ## Contributing to `freshli`
 
 More information can be found at the [Contributing Guide](CONTRIBUTING.md)
+
+Bump
