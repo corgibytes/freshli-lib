@@ -33,7 +33,7 @@
       <None Update="fixtures\**">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="Acceptance.SpaCyWithHistoryViaGitHub.approved.txt">
+      <None Update="Acceptance.SpaCyWithHistoryViaGitHub.Linux.approved.txt">
         <DependentUpon>Acceptance.cs</DependentUpon>
       </None>
       <None Update="Acceptance.SpaCyWithHistoryViaGitHub.Microsoft_Windows_10_Pro_for_Workstations.approved.txt">
