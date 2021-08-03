@@ -7,7 +7,7 @@ using Xunit;
 
 namespace Corgibytes.Freshli.Lib.Test
 {
-    [UseReporter(typeof(XUnit2Reporter), typeof(MachineSpecificReporter))]
+    [UseReporter(typeof(XUnit2Reporter)), IgnoreLineEndings(true)]
     public class Acceptance
     {
 
@@ -122,13 +122,13 @@ namespace Corgibytes.Freshli.Lib.Test
             var runner = new Runner();
 
             var results = runner.Run(
-              "https://github.com/explosion/spaCy",
-              asOf: new DateTime(2017, 6, 1, 0, 0, 0)
+                "https://github.com/explosion/spaCy",
+                asOf: new DateTime(2017, 6, 1, 0, 0, 0)
             );
 
             Assert.True(runner.ManifestFinder.Successful);
 
-            using (ApprovalResults.UniqueForOs())
+            using (NamerFactory.AsEnvironmentSpecificTest(ApprovalUtilities.Utilities.OsUtils.GetPlatformId().ToString()))
             {
                 Approvals.VerifyAll(results, "results");
             }

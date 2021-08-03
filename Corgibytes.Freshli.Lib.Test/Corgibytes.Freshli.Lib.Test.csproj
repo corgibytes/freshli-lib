@@ -36,14 +36,6 @@
       <None Update="Acceptance.SpaCyWithHistoryViaGitHub.Linux.approved.txt">
         <DependentUpon>Acceptance.cs</DependentUpon>
       </None>
-      <None Update="Acceptance.SpaCyWithHistoryViaGitHub.Microsoft_Windows_10_Pro_for_Workstations.approved.txt">
-        <DependentUpon>Acceptance.cs</DependentUpon>
-      </None>
-      <None Update="Acceptance.CpanfileDancer2.Microsoft_Windows_10_Pro_for_Workstations.approved.txt">
-        <ParentExtension>.cs</ParentExtension>
-        <ParentFile>Acceptance</ParentFile>
-        <DependentUpon>Acceptance.cs</DependentUpon>
-      </None>
     </ItemGroup>
 
     <ItemGroup>
