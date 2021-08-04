@@ -113,7 +113,10 @@ namespace Corgibytes.Freshli.Lib.Test
             );
 
             Assert.True(runner.ManifestFinder.Successful);
-            Approvals.VerifyAll(results, "results");
+            using (NamerFactory.AsEnvironmentSpecificTest(ApprovalUtilities.Utilities.OsUtils.GetPlatformId().ToString()))
+            {
+                Approvals.VerifyAll(results, "results");
+            }
         }
 
         [Fact]
@@ -144,10 +147,7 @@ namespace Corgibytes.Freshli.Lib.Test
             );
 
             Assert.False(runner.ManifestFinder.Successful);
-            using (NamerFactory.AsEnvironmentSpecificTest(ApprovalUtilities.Utilities.OsUtils.GetPlatformId().ToString()))
-            {
-                Approvals.VerifyAll(results, "results");
-            }
+            Approvals.VerifyAll(results, "results");
         }
     }
 }
