@@ -1,4 +1,4 @@
-﻿ results[0] = Filename: cpanfile
+﻿results[0] = Filename: cpanfile
 Results:
 { Date: 2016-11-01T23:59:59, ManifestSHA: f09913f33794d52093c9b581767e47d3a929ebed, LibYear: { _packagesValues: [
 { Name: "Exporter", RepoVersion: "5.72", RepoVersionPublishedAt: 2015-06-09T20:42:28, LatestVersion: "5.72", LatestPublishedAt: 2015-06-09T20:42:28, UpgradeAvailable: False, Value: 0 },
