@@ -503,6 +503,126 @@ Results:
 
 results[1] = Filename: share/skel/cpanfile
 Results:
-{ Date: 2020-01-01T00:00:00, ManifestSHA: , LibYear: { _packagesValues: [
+{ Date: 2015-01-01T23:59:59, ManifestSHA: 0084166c2b1eab60ad3247c9a0ecd5fed0457de4, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2015-02-01T23:59:59, ManifestSHA: 02b696f1c4bb022f6b6707fc3dafb0636ed44f8e, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2015-03-01T23:59:59, ManifestSHA: 4b376b07f9ec42dee05efce1a0487b93a5347f60, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2015-04-01T23:59:59, ManifestSHA: c14eaba2b96641b53abfe4cfcfe6ae13f0e1dfb4, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2015-05-01T23:59:59, ManifestSHA: 353b447ee20134095a3be03934322f204e2fb976, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2015-06-01T23:59:59, ManifestSHA: aab0c17b83e380cf87cdbef297ba9f6bf0e96628, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2015-07-01T23:59:59, ManifestSHA: 95679c53cf108c9ce805ca9dc90f6fd2a7642bed, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2015-08-01T23:59:59, ManifestSHA: 88179d80f5c3bbbd92daad67edb8fbbfff1e7ade, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2015-09-01T23:59:59, ManifestSHA: 997b111f377ea6d54a986a9702f77cc85115a120, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2015-10-01T23:59:59, ManifestSHA: d5159258dafb721bad66d953df5e2688396c6535, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2015-11-01T23:59:59, ManifestSHA: 52b72dc221f7b016849269399467333fbf4614d5, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2015-12-01T23:59:59, ManifestSHA: 05903a4d18eff2b2d7760b7c0f2c047b2b2a91d0, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2016-01-01T23:59:59, ManifestSHA: 3779a6c1339b7a416e74159ecf6f5a0ef76e504f, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2016-02-01T23:59:59, ManifestSHA: 2da5266ece6c5bcef93ed6e412cb659e5ff57b37, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2016-03-01T23:59:59, ManifestSHA: 39e46a43574ccb67959f4a38887b9bce3b3383a3, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2016-04-01T23:59:59, ManifestSHA: af276f87e90927af1446d4605fd07c62eba1804f, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2016-05-01T23:59:59, ManifestSHA: 69a2709048da6e4e0f4a696e1973135e5d1fd68c, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2016-06-01T23:59:59, ManifestSHA: 53dfff722531b6b8956f0b91a611a2f70c1ec3aa, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2016-07-01T23:59:59, ManifestSHA: c598c4c45db729ba9e8a9af79a0afcb3a7d03dae, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2016-08-01T23:59:59, ManifestSHA: c923824c9ab7fe854651cd78472ded16797ce28f, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2016-09-01T23:59:59, ManifestSHA: e3463d2acb912fecfae01c3881e5df90e8735f92, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2016-10-01T23:59:59, ManifestSHA: 9d93312e39fdf23fb9c44244512ee8e3d4de9b71, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2016-11-01T23:59:59, ManifestSHA: f09913f33794d52093c9b581767e47d3a929ebed, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2016-12-01T23:59:59, ManifestSHA: f09913f33794d52093c9b581767e47d3a929ebed, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2017-01-01T23:59:59, ManifestSHA: f2ac574e750616b80f54ce3de7523a9d87b259b3, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2017-02-01T23:59:59, ManifestSHA: 4e0ef9694c004bfdc30f866ca1a2201edaf2e16e, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2017-03-01T23:59:59, ManifestSHA: f04c04075de9ca33df9dfea178e9868ed4747c32, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2017-04-01T23:59:59, ManifestSHA: 2b15ead68b8e20796bfbad4e8f2aa47efcab8343, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2017-05-01T23:59:59, ManifestSHA: 2b15ead68b8e20796bfbad4e8f2aa47efcab8343, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2017-06-01T23:59:59, ManifestSHA: a363b66fa40f510e2bfb06e7edce19b54ad95b6f, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2017-07-01T23:59:59, ManifestSHA: 0d0aa29a254a9b8437fed8939acd944710a482e1, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2017-08-01T23:59:59, ManifestSHA: 03d89b4a05dbf3238ec911c2cc55b4d666782bec, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2017-09-01T23:59:59, ManifestSHA: 5200950d5d978c4eed22805001968524a28f14bf, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2017-10-01T23:59:59, ManifestSHA: fd090403ecd25035798ed8d05c44d652e449446a, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2017-11-01T23:59:59, ManifestSHA: 4d0d79f1db1ec625922a7f819f608321dfb6968f, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2017-12-01T23:59:59, ManifestSHA: d5607b66b8fc1aa07361c0caae149b03382b196c, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2018-01-01T23:59:59, ManifestSHA: d5607b66b8fc1aa07361c0caae149b03382b196c, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2018-02-01T23:59:59, ManifestSHA: ff876d19fab5bb05a810964071e7d76e9d9f101a, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2018-03-01T23:59:59, ManifestSHA: 9af3b7ce8ef4c08a1f83c94c6566fadaea9ba511, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2018-04-01T23:59:59, ManifestSHA: baa5af72a2d7f2f47d437935101d62101797f4df, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2018-05-01T23:59:59, ManifestSHA: f26318ef47cdd3392ab7fd6f2e0caa2769394b3d, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2018-06-01T23:59:59, ManifestSHA: 186206eed4b37f07813761b7f3b37c678fec31be, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2018-07-01T23:59:59, ManifestSHA: dfaa914e80af4851662eae6e30512aa3702cf4e2, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2018-08-01T23:59:59, ManifestSHA: 224b6ceaeec5e70ef5e0a00d41965401ce434269, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2018-09-01T23:59:59, ManifestSHA: 224b6ceaeec5e70ef5e0a00d41965401ce434269, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2018-10-01T23:59:59, ManifestSHA: 24952cf66bd54473d22fb70650921d6dc8b88e26, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2018-11-01T23:59:59, ManifestSHA: 8e0deb5d35e595de156c13ccc64b72f23ed3bc5b, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2018-12-01T23:59:59, ManifestSHA: 151e69f39c42f701c1ccbe4d290d3104c39bf061, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2019-01-01T23:59:59, ManifestSHA: 151e69f39c42f701c1ccbe4d290d3104c39bf061, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2019-02-01T23:59:59, ManifestSHA: 09bb44868a7d3a97a375a0ebb166c6e9f6533d2f, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2019-03-01T23:59:59, ManifestSHA: 09bb44868a7d3a97a375a0ebb166c6e9f6533d2f, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2019-04-01T23:59:59, ManifestSHA: 09bb44868a7d3a97a375a0ebb166c6e9f6533d2f, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2019-05-01T23:59:59, ManifestSHA: 09bb44868a7d3a97a375a0ebb166c6e9f6533d2f, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2019-06-01T23:59:59, ManifestSHA: 09bb44868a7d3a97a375a0ebb166c6e9f6533d2f, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2019-07-01T23:59:59, ManifestSHA: ec8bab5ae1e873ebf0e1d081793801cec8166ba4, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2019-08-01T23:59:59, ManifestSHA: ec8bab5ae1e873ebf0e1d081793801cec8166ba4, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2019-09-01T23:59:59, ManifestSHA: 293287a4c97fca6eee3766cf57acf2b3f89a4eef, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2019-10-01T23:59:59, ManifestSHA: 6eb4c440ce2621778399ef94291426e92514ce31, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2019-11-01T23:59:59, ManifestSHA: 6eb4c440ce2621778399ef94291426e92514ce31, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2019-12-01T23:59:59, ManifestSHA: 36edc18b681391c4d96d99da59953d7442ae8cc8, LibYear: { _packagesValues: [
+], Total: 0 } }
+{ Date: 2020-01-01T23:59:59, ManifestSHA: 84665e58df52eafc85151652b95017ddab1cfe20, LibYear: { _packagesValues: [
 ], Total: 0 } }
 
