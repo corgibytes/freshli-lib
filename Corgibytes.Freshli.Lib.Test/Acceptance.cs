@@ -113,7 +113,7 @@ namespace Corgibytes.Freshli.Lib.Test
             );
 
             Assert.True(runner.ManifestFinder.Successful);
-            using (NamerFactory.AsEnvironmentSpecificTest(ApprovalUtilities.Utilities.OsUtils.GetPlatformId().ToString()))
+            using (ApprovalTestGenericOsName())
             {
                 Approvals.VerifyAll(results, "results");
             }
@@ -130,7 +130,7 @@ namespace Corgibytes.Freshli.Lib.Test
             );
 
             Assert.True(runner.ManifestFinder.Successful);
-            using (NamerFactory.AsEnvironmentSpecificTest(ApprovalUtilities.Utilities.OsUtils.GetPlatformId().ToString()))
+            using (ApprovalTestGenericOsName())
             {
                 Approvals.VerifyAll(results, "results");
             }
@@ -148,6 +148,24 @@ namespace Corgibytes.Freshli.Lib.Test
 
             Assert.False(runner.ManifestFinder.Successful);
             Approvals.VerifyAll(results, "results");
+        }
+
+        /// <summary>
+        /// Determine the generic OS name the test are being run on (e.g. Windows, Linux, or Mac).
+        /// </summary>
+        /// <remarks>
+        /// Approval Tests has a UniqueForOs which works find on Linux or Mac as it only returns
+        /// "Linux" or "Mac".  The problem is on Windows it will return the very specific version
+        /// of Windows such as "Microsoft Windows 10 Professional".
+        ///
+        /// The tests in this class we only care about the generic OS so we have the correct
+        /// file separator (i.e. "/" vs "\").
+        /// </remarks>
+        /// <returns>A environment disposable that will create the correct received file
+        /// (e.g. Acceptance.***.Windows.approved.txt) depending on the OS it is run on.</returns>
+        private static IDisposable ApprovalTestGenericOsName()
+        {
+            return NamerFactory.AsEnvironmentSpecificTest(ApprovalUtilities.Utilities.OsUtils.GetPlatformId().ToString());
         }
     }
 }
