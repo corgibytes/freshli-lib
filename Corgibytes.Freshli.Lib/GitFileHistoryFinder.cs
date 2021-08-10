@@ -120,9 +120,7 @@ namespace Corgibytes.Freshli.Lib
             return Directory.GetFiles(clonedProjectRoot,
                                 pattern,
                                 SearchOption.AllDirectories)
-                                .Select(f => f.Replace(clonedProjectRoot, ""))
-                                // removes the '/' in filepath
-                                .Select(f => f.Substring(1))
+                                .Select(f => Path.GetRelativePath(clonedProjectRoot, f))
                                 .ToArray();
         }
     }
