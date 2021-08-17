@@ -5,42 +5,36 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/4d7b974eedea679e6b03/test_coverage)](https://codeclimate.com/github/corgibytes/freshli-lib/test_coverage)
 
 # Freshli-Lib
-A tool for collecting historical metrics about a project's dependencies
+A library for computing historical metrics about a project's dependencies.
 
-The `Freshli` tool captures historical metrics about a project's dependencies. In it's current form, the only metric that it computes is [libyear](https://libyear.com/).
+If you are looking for a completed application please see the [Freshli CLI](https://github.com/corgibytes/freshli-cli) or [Freshli Website](https://freshli.io/).
 
-For each language that the tool supports, the libyear metric is computed for each month in the past where dependency information is available.
+## Getting Started
+Freshli-Lib is a available as a NuGet [package](https://www.nuget.org/packages/Corgibytes.Freshli.Lib/).  You can install it using your favoriate IDE GUI or by running the following command:
 
-## Supported Tools
+```
+dotnet add package Corgibytes.Freshli.Lib
+```
 
-### Languages and Dependency Frameworks
+An example of using Freshli-Lib:
 
-Freshli reads dependency information from special files called "dependency manifests". Each language community has a different format and some lanugage communities have multiple ones. These are the ones that we support. If you don't see one that's important to you, please create an issue for us to add support for it.
+```csharp
+var repositoryUrl = YOUR_REPO_URL_HERE;
 
-* Ruby
-  * bundler - reads information from `Gemfile.lock`
-* Perl
-  * carton - reads information from `cpanfile`
-* PHP
-  * composer - reads information from `composer.json` and `composer.lock`
-* Python
-  * pip - reads information from `requirements.txt`
-* .NET
-  * NuGet - reads information from `*.csproj`
+// Pass in the repository URL into the runner to return a collection of ScanResul objects
+var results = runner.Run(repositoryUrl);
 
-### Source Code Repositories
+// You can view both the manifest file name and a collection of metric results
+Console.WriteLine(results.Filename);
+Console.WriteLine(results.MetricsResults);
 
-Freshli reads source code repository history to access previous version of each dependency manifest. These are the source code repositories that it currently works with. If you don't see your favorite, create an issue for us to add support for it.
+// You can also output the entire ScanResult
+Console.WriteLine(results[0].ToString());
+```
 
-* Git
+### Alpah Packages
 
-## Using Freshli-Lib in a Project
-
-To use Freshli in a project, you have two options:
-
-### Beta & Alpha Releases
-
-To use a beta or alpha release, you'll need to [set up a GitHub personal access token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) and then create a `nuget.config` file in your project root with the following contents:
+If you like living on the edge you can find alpha versions of Freshli Lib [here](https://github.com/corgibytes/freshli-lib/packages/667787/versions).  You will need to [set up a GitHub personal access token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) and then create a `nuget.config` file in your project root with the following contents:
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -57,12 +51,24 @@ To use a beta or alpha release, you'll need to [set up a GitHub personal access 
 </configuration>
 ```
 
-You can then [view the listing of alpha packages](https://github.com/orgs/corgibytes/packages?repo_name=freshli), and add the desired alpha package:
+## Supported Dependency Managers
 
-```
-dotnet add package Freshli -v 0.3.0-alpha0030
-```
+The dependency managers that Freshli supports are listed below along with the manifest files it can parse.  The manifest file is the file that lists what dependencies are required by the project and has changed over time for some dependency managers, like NuGet.
 
-## Contributing to `freshli`
+| Dependency Manager | Language(s)/Framework(s) | Manifest Files Format |
+|--------------------|-----------------------|----------|
+| [Bundler](https://bundler.io/) | [Ruby](https://www.ruby-lang.org), [Ruby on Rails](https://rubyonrails.org/) | Gemfile.lock |
+| [Carton](https://metacpan.org/pod/Carton) | [Perl](https://www.perl.org/) | cpanfile |
+| [Composer](https://getcomposer.org/) | [PHP](https://www.php.net/) | composer.json, composer.lock |
+| [Pip](https://pypi.org/project/pip/) | [Python](https://www.python.org/) | requirements.txt |
+| [NuGet](https://www.nuget.org/) | [C#](https://docs.microsoft.com/en-us/dotnet/csharp/) | *.csproj |
 
-More information can be found at the [Contributing Guide](CONTRIBUTING.md)
+Please let us know what other dependency managers and/or manifest files you would like use to support via the contact information in the [Contributing](#contributing) section.
+
+## Supported Source Control Tools
+
+Freshli reads source code repository history to access previous version of each dependency manifest.  Currently Freshli only supports [Git](https://git-scm.com/) but if you would like us to add more let us know via the contact informatino in the [Contributing](#contributing) section.
+
+## Contributing to Freshli-Lib
+
+If you have any questions, notice a bug, or have a suggestion/enhancment please let us know by opening a [issue](https://github.com/corgibytes/freshli-lib/issues) or [pull request](https://github.com/corgibytes/freshli-lib/pulls).  More information can be found at the [Contributing Guide](CONTRIBUTING.md)
