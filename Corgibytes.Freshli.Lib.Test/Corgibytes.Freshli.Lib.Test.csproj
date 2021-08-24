@@ -33,6 +33,19 @@
       <None Update="fixtures\**">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
+      <None Update="Acceptance.SpaCyWithHistoryViaGitHub.Linux.approved.txt">
+        <DependentUpon>Acceptance.cs</DependentUpon>
+      </None>
+      <None Update="Acceptance.CpanfileDancer2.Windows.approved.txt">
+        <ParentExtension>.cs</ParentExtension>
+        <ParentFile>Acceptance</ParentFile>
+        <DependentUpon>Acceptance.cs</DependentUpon>
+      </None>
+      <None Update="Acceptance.CpanfileDancer2.Linux.approved.txt">
+        <ParentExtension>.cs</ParentExtension>
+        <ParentFile>Acceptance</ParentFile>
+        <DependentUpon>Acceptance.cs</DependentUpon>
+      </None>
     </ItemGroup>
 
     <ItemGroup>
