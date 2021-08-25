@@ -6,7 +6,7 @@ using NLog;
 
 namespace Corgibytes.Freshli.Lib
 {
-    public class Runner: IRunner
+    public class Runner : IRunner
     {
         private const string ResultsPath = "results";
 
