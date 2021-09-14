@@ -1,7 +1,7 @@
 ## v0.4.0
 
 
-As part of this release we had [50 issues](https://github.com/corgibytes/freshli-lib/milestone/5?closed=1) closed.
+As part of this release we had [54 issues](https://github.com/corgibytes/freshli-lib/milestone/5?closed=1) closed.
 Goals for this milestone:
 
 - Support parsing multiple manifests but specifically focusing on .NET for this release.
@@ -27,7 +27,10 @@ __DevOps__
 
 __Dependencies__
 
+- [__#364__](https://github.com/corgibytes/freshli-lib/pull/364) Bump NuGet.Protocol from 5.10.0 to 5.11.0
+- [__#358__](https://github.com/corgibytes/freshli-lib/pull/358) Bump Avalonia.ReactiveUI from 0.10.6 to 0.10.7
 - [__#357__](https://github.com/corgibytes/freshli-lib/pull/357) Bump HtmlAgilityPack from 1.11.34 to 1.11.36
+- [__#355__](https://github.com/corgibytes/freshli-lib/pull/355) Bump ApprovalTests from 5.5.0 to 5.7.0
 - [__#352__](https://github.com/corgibytes/freshli-lib/pull/352) Bump DiffEngine from 6.8.2 to 7.1.0
 - [__#348__](https://github.com/corgibytes/freshli-lib/pull/348) Bump RestSharp from 106.11.7 to 106.12.0
 - [__#344__](https://github.com/corgibytes/freshli-lib/pull/344) Bump gittools/actions from 0.9.9 to 0.9.10
@@ -61,6 +64,10 @@ __Dependencies__
 - [__#292__](https://github.com/corgibytes/freshli-lib/pull/292) Bump ApprovalTests from 5.4.6 to 5.4.7
 - [__#280__](https://github.com/corgibytes/freshli-lib/pull/280) Bump DiffEngine from 6.5.7 to 6.5.9
 - [__#260__](https://github.com/corgibytes/freshli-lib/pull/260) Bump DotNetEnv from 2.1.0 to 2.1.1
+
+__Documentation__
+
+- [__#359__](https://github.com/corgibytes/freshli-lib/issues/359) Update ReadMe for v0.4.0 release
 
 __Enhancements__
 
