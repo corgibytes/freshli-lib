@@ -1,7 +1,7 @@
 ## v0.4.0
 
 
-As part of this release we had [48 issues](https://github.com/corgibytes/freshli-lib/milestone/5?closed=1) closed.
+As part of this release we had [49 issues](https://github.com/corgibytes/freshli-lib/milestone/5?closed=1) closed.
 Goals for this milestone:
 
 - Support parsing multiple manifests but specifically focusing on .NET for this release.
@@ -67,6 +67,7 @@ __Enhancements__
 - [__#307__](https://github.com/corgibytes/freshli-lib/pull/307) Add a basic example client for Freshli-Lib
 - [__#266__](https://github.com/corgibytes/freshli-lib/issues/266) Labels not included in release notes
 - [__#259__](https://github.com/corgibytes/freshli-lib/issues/259) Rename this repo and/or C# namespace
+- [__#252__](https://github.com/corgibytes/freshli-lib/issues/252) Calculate the libyear for multiple projects
 
 
 ## v0.3.0

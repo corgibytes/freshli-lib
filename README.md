@@ -19,7 +19,7 @@ dotnet add package Corgibytes.Freshli.Lib
 An example of using Freshli-Lib:
 
 ```csharp
-# using Corgibytes.Freshli.Lib;
+using Corgibytes.Freshli.Lib;
 
 // The runner takes the path to your repository.
 var runner = new Runner();
@@ -73,3 +73,4 @@ Freshli reads source code repository history to access previous version of each 
 ## Contributing to Freshli-Lib
 
 If you have any questions, notice a bug, or have a suggestion/enhancment please let us know by opening a [issue](https://github.com/corgibytes/freshli-lib/issues) or [pull request](https://github.com/corgibytes/freshli-lib/pulls).  More information can be found at the [Contributing Guide](CONTRIBUTING.md)
+
