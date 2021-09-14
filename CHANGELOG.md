@@ -1,7 +1,7 @@
 ## v0.4.0
 
 
-As part of this release we had [57 issues](https://github.com/corgibytes/freshli-lib/milestone/5?closed=1) closed.
+As part of this release we had [59 issues](https://github.com/corgibytes/freshli-lib/milestone/5?closed=1) closed.
 Goals for this milestone:
 
 - Support parsing multiple manifests but specifically focusing on .NET for this release.
@@ -27,8 +27,10 @@ __DevOps__
 
 __Dependencies__
 
+- [__#368__](https://github.com/corgibytes/freshli-lib/pull/368) Bump NLog from 4.7.10 to 4.7.11
 - [__#367__](https://github.com/corgibytes/freshli-lib/pull/367) Bump Microsoft.NET.Test.Sdk from 16.10.0 to 16.11.0
 - [__#366__](https://github.com/corgibytes/freshli-lib/pull/366) Bump LibGit2Sharp from 0.27.0-preview-0102 to 0.27.0-preview-0116
+- [__#365__](https://github.com/corgibytes/freshli-lib/pull/365) Bump DiffEngine from 7.1.0 to 7.2.1
 - [__#364__](https://github.com/corgibytes/freshli-lib/pull/364) Bump NuGet.Protocol from 5.10.0 to 5.11.0
 - [__#358__](https://github.com/corgibytes/freshli-lib/pull/358) Bump Avalonia.ReactiveUI from 0.10.6 to 0.10.7
 - [__#357__](https://github.com/corgibytes/freshli-lib/pull/357) Bump HtmlAgilityPack from 1.11.34 to 1.11.36
