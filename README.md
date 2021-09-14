@@ -1,6 +1,6 @@
-[![.NET Core](https://github.com/corgibytes/freshli/workflows/.NET%20Core/badge.svg)](https://github.com/corgibytes/freshli/actions?query=workflow%3A%22.NET+Core%22)
-[![Docker Image CI](https://github.com/corgibytes/freshli/workflows/Docker%20Image%20CI/badge.svg)](https://github.com/corgibytes/freshli/actions?query=workflow%3A%22Docker+Image+CI%22)
-[![EditorConfig Lint](https://github.com/corgibytes/freshli/workflows/EditorConfig%20Lint/badge.svg)](https://github.com/corgibytes/freshli/actions?query=workflow%3A%22EditorConfig+Lint%22)
+[![.NET Core](https://github.com/corgibytes/freshli-lib/workflows/.NET%20Core/badge.svg)](https://github.com/corgibytes/freshli/actions?query=workflow%3A%22.NET+Core%22)
+[![Docker Image CI](https://github.com/corgibytes/freshli-lib/workflows/Docker%20Image%20CI/badge.svg)](https://github.com/corgibytes/freshli/actions?query=workflow%3A%22Docker+Image+CI%22)
+[![EditorConfig Lint](https://github.com/corgibytes/freshli-lib/workflows/EditorConfig%20Lint/badge.svg)](https://github.com/corgibytes/freshli/actions?query=workflow%3A%22EditorConfig+Lint%22)
 [![Maintainability](https://api.codeclimate.com/v1/badges/4d7b974eedea679e6b03/maintainability)](https://codeclimate.com/github/corgibytes/freshli-lib/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/4d7b974eedea679e6b03/test_coverage)](https://codeclimate.com/github/corgibytes/freshli-lib/test_coverage)
 
@@ -19,9 +19,10 @@ dotnet add package Corgibytes.Freshli.Lib
 An example of using Freshli-Lib:
 
 ```csharp
-var repositoryUrl = YOUR_REPO_URL_HERE;
+# using Corgibytes.Freshli.Lib;
 
-// Pass in the repository URL into the runner to return a collection of ScanResul objects
+// The runner takes the path to your repository.
+var runner = new Runner();
 var results = runner.Run(repositoryUrl);
 
 // You can view both the manifest file name and a collection of metric results
@@ -55,8 +56,8 @@ If you like living on the edge you can find alpha versions of Freshli Lib [here]
 
 The dependency managers that Freshli supports are listed below along with the manifest files it can parse.  The manifest file is the file that lists what dependencies are required by the project and has changed over time for some dependency managers, like NuGet.
 
-| Dependency Manager | Language(s)/Framework(s) | Manifest Files Format |
-|--------------------|-----------------------|----------|
+| Dependency Manager | Language/Framework | Manifest Files Format |
+|--------------------|--------------------|-----------------------|
 | [Bundler](https://bundler.io/) | [Ruby](https://www.ruby-lang.org), [Ruby on Rails](https://rubyonrails.org/) | Gemfile.lock |
 | [Carton](https://metacpan.org/pod/Carton) | [Perl](https://www.perl.org/) | cpanfile |
 | [Composer](https://getcomposer.org/) | [PHP](https://www.php.net/) | composer.json, composer.lock |
