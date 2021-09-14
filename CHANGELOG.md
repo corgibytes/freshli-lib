@@ -1,7 +1,7 @@
 ## v0.4.0
 
 
-As part of this release we had [49 issues](https://github.com/corgibytes/freshli-lib/milestone/5?closed=1) closed.
+As part of this release we had [50 issues](https://github.com/corgibytes/freshli-lib/milestone/5?closed=1) closed.
 Goals for this milestone:
 
 - Support parsing multiple manifests but specifically focusing on .NET for this release.
@@ -27,6 +27,7 @@ __DevOps__
 
 __Dependencies__
 
+- [__#357__](https://github.com/corgibytes/freshli-lib/pull/357) Bump HtmlAgilityPack from 1.11.34 to 1.11.36
 - [__#352__](https://github.com/corgibytes/freshli-lib/pull/352) Bump DiffEngine from 6.8.2 to 7.1.0
 - [__#348__](https://github.com/corgibytes/freshli-lib/pull/348) Bump RestSharp from 106.11.7 to 106.12.0
 - [__#344__](https://github.com/corgibytes/freshli-lib/pull/344) Bump gittools/actions from 0.9.9 to 0.9.10
