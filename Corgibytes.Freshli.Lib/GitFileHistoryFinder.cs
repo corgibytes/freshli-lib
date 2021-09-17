@@ -118,9 +118,10 @@ namespace Corgibytes.Freshli.Lib
         {
             string clonedProjectRoot = NormalizeLocation(projectRootPath);
             return Directory.GetFiles(clonedProjectRoot,
-                                      pattern,
-                                      SearchOption.AllDirectories)
-                            .Select(f => Path.GetFileName(f)).ToArray();
+                                pattern,
+                                SearchOption.AllDirectories)
+                                .Select(f => Path.GetRelativePath(clonedProjectRoot, f))
+                                .ToArray();
         }
     }
 }

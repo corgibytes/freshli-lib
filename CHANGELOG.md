@@ -1,10 +1,9 @@
 ## v0.4.0
 
 
-As part of this release we had [39 issues](https://github.com/corgibytes/freshli-lib/milestone/5?closed=1) closed.
+As part of this release we had [59 issues](https://github.com/corgibytes/freshli-lib/milestone/5?closed=1) closed.
 Goals for this milestone:
 
-- Common Freshli dependency interface.
 - Support parsing multiple manifests but specifically focusing on .NET for this release.
 - Beta version of NuGet package.
 - Fail build if metrics like CodeClimate, Coverage, etc, are worse then previous build.
@@ -15,6 +14,7 @@ __Bug__
 
 __DevOps__
 
+- [__#340__](https://github.com/corgibytes/freshli-lib/issues/340) NuGet alpha packages published to nuget.org
 - [__#308__](https://github.com/corgibytes/freshli-lib/pull/308) Don't submit the Code Climate test results on PRs
 - [__#293__](https://github.com/corgibytes/freshli-lib/issues/293) Release notes CI fails for Dependabot PRs
 - [__#287__](https://github.com/corgibytes/freshli-lib/pull/287) Solve `Some checks haven't completed yet` issue caused by use of `git-auto-commit-action`
@@ -27,7 +27,24 @@ __DevOps__
 
 __Dependencies__
 
+- [__#368__](https://github.com/corgibytes/freshli-lib/pull/368) Bump NLog from 4.7.10 to 4.7.11
+- [__#367__](https://github.com/corgibytes/freshli-lib/pull/367) Bump Microsoft.NET.Test.Sdk from 16.10.0 to 16.11.0
+- [__#366__](https://github.com/corgibytes/freshli-lib/pull/366) Bump LibGit2Sharp from 0.27.0-preview-0102 to 0.27.0-preview-0116
+- [__#365__](https://github.com/corgibytes/freshli-lib/pull/365) Bump DiffEngine from 7.1.0 to 7.2.1
+- [__#364__](https://github.com/corgibytes/freshli-lib/pull/364) Bump NuGet.Protocol from 5.10.0 to 5.11.0
+- [__#358__](https://github.com/corgibytes/freshli-lib/pull/358) Bump Avalonia.ReactiveUI from 0.10.6 to 0.10.7
+- [__#357__](https://github.com/corgibytes/freshli-lib/pull/357) Bump HtmlAgilityPack from 1.11.34 to 1.11.36
+- [__#355__](https://github.com/corgibytes/freshli-lib/pull/355) Bump ApprovalTests from 5.5.0 to 5.7.0
+- [__#353__](https://github.com/corgibytes/freshli-lib/pull/353) Bump coverlet.msbuild from 3.0.3 to 3.1.0
+- [__#352__](https://github.com/corgibytes/freshli-lib/pull/352) Bump DiffEngine from 6.8.2 to 7.1.0
+- [__#348__](https://github.com/corgibytes/freshli-lib/pull/348) Bump RestSharp from 106.11.7 to 106.12.0
+- [__#344__](https://github.com/corgibytes/freshli-lib/pull/344) Bump gittools/actions from 0.9.9 to 0.9.10
+- [__#341__](https://github.com/corgibytes/freshli-lib/pull/341) Bump LibGit2Sharp from 0.27.0-preview-0096 to 0.27.0-preview-0102
+- [__#337__](https://github.com/corgibytes/freshli-lib/pull/337) Bump NuGet.Protocol from 5.9.1 to 5.10.0
+- [__#336__](https://github.com/corgibytes/freshli-lib/pull/336) Bump HtmlAgilityPack from 1.11.33 to 1.11.34
+- [__#335__](https://github.com/corgibytes/freshli-lib/pull/335) Bump Avalonia.Desktop from 0.10.5 to 0.10.6
 - [__#334__](https://github.com/corgibytes/freshli-lib/pull/334) Bump Avalonia.Diagnostics from 0.10.5 to 0.10.6
+- [__#333__](https://github.com/corgibytes/freshli-lib/pull/333) Bump Avalonia.ReactiveUI from 0.10.5 to 0.10.6
 - [__#332__](https://github.com/corgibytes/freshli-lib/pull/332) Bump Avalonia from 0.10.5 to 0.10.6
 - [__#331__](https://github.com/corgibytes/freshli-lib/pull/331) Bump DiffEngine from 6.8.1 to 6.8.2
 - [__#330__](https://github.com/corgibytes/freshli-lib/pull/330) Bump ApprovalTests from 5.4.7 to 5.5.0
@@ -53,12 +70,17 @@ __Dependencies__
 - [__#280__](https://github.com/corgibytes/freshli-lib/pull/280) Bump DiffEngine from 6.5.7 to 6.5.9
 - [__#260__](https://github.com/corgibytes/freshli-lib/pull/260) Bump DotNetEnv from 2.1.0 to 2.1.1
 
+__Documentation__
+
+- [__#359__](https://github.com/corgibytes/freshli-lib/issues/359) Update ReadMe for v0.4.0 release
+
 __Enhancements__
 
 - [__#309__](https://github.com/corgibytes/freshli-lib/issues/309) Follow the .NET coding style
 - [__#307__](https://github.com/corgibytes/freshli-lib/pull/307) Add a basic example client for Freshli-Lib
 - [__#266__](https://github.com/corgibytes/freshli-lib/issues/266) Labels not included in release notes
 - [__#259__](https://github.com/corgibytes/freshli-lib/issues/259) Rename this repo and/or C# namespace
+- [__#252__](https://github.com/corgibytes/freshli-lib/issues/252) Calculate the libyear for multiple projects
 
 
 ## v0.3.0

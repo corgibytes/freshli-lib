@@ -30,28 +30,28 @@ jobs:
           dotnet-version: 3.0.x
 
       - name: Install GitVersion
-        uses: gittools/actions/gitversion/setup@v0.9.9
+        uses: gittools/actions/gitversion/setup@v0.9.10
         with:
           versionSpec: '5.6.6'
 
       - name: Show GitVersion Config
-        uses: gittools/actions/gitversion/execute@v0.9.9
+        uses: gittools/actions/gitversion/execute@v0.9.10
         with:
           useConfigFile: true
           additionalArguments: '/showConfig'
 
       - name: Determine Version
-        uses: gittools/actions/gitversion/execute@v0.9.9
+        uses: gittools/actions/gitversion/execute@v0.9.10
         id: gitversion
         with:
           useConfigFile: true
 
-      - uses: gittools/actions/gitreleasemanager/setup@v0.9.9
+      - uses: gittools/actions/gitreleasemanager/setup@v0.9.10
         name: Install GitReleaseManager
         with:
           versionSpec: '0.11.0'
 
-      - uses: gittools/actions/gitreleasemanager/create@v0.9.9
+      - uses: gittools/actions/gitreleasemanager/create@v0.9.10
         name: Create/Update GitHub Release ${{ steps.gitversion.outputs.majorMinorPatch }}
         with:
           token: ${{ secrets.GITHUB_TOKEN }}

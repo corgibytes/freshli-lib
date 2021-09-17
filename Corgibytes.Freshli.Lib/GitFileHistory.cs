@@ -57,14 +57,40 @@ namespace Corgibytes.Freshli.Lib
             }
         }
 
+        /// <summary>
+        /// The contents for the file for the given date.
+        /// </summary>
+        /// <param name="date">The date to find the contest at.</param>
+        /// <returns>Returns the contents for the file for the given date. If nothing exists
+        /// for the given date then an empty string is returned.</returns>
         public string ContentsAsOf(DateTimeOffset date)
         {
-            return _historyByDate[GetKey(date)].Contents;
+            try
+            {
+                return _historyByDate[GetKey(date)].Contents;
+            }
+            catch (InvalidOperationException)
+            {
+                return "";
+            }
         }
 
+        /// <summary>
+        /// The Git commit SHA for the file at the given date.
+        /// </summary>
+        /// <param name="date">The date to find the SHA at.</param>
+        /// <returns>Returns the sha for the file for the given date. If nothing exists
+        /// for the given date then an empty string is returned.</returns>
         public string ShaAsOf(DateTimeOffset date)
         {
-            return _historyByDate[GetKey(date)].CommitSha;
+            try
+            {
+                return _historyByDate[GetKey(date)].CommitSha;
+            }
+            catch (InvalidOperationException)
+            {
+                return "";
+            }
         }
 
         public IList<DateTimeOffset> Dates
@@ -74,6 +100,9 @@ namespace Corgibytes.Freshli.Lib
 
         private DateTimeOffset GetKey(DateTimeOffset date)
         {
+            // This will fail if the date passed in is greater than
+            // the last date in the list.  Should find a better way to
+            // deal with dates that aren't found in this class.
             return Dates.Last(d => d <= date);
         }
 
