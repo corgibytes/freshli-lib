@@ -1,3 +1,4 @@
+using System;
 using System.Reactive;
 using Corgibytes.Freshli.Lib;
 using ReactiveUI;
@@ -53,7 +54,7 @@ namespace ExampleClient.ViewModels
         /// </summary>
         private void RunFreshli()
         {
-            Results = $"Starting Freshli run for '{GitPath}'\n";
+            Results = $"Starting Freshli run for '{GitPath}'{Environment.NewLine}";
 
             var runner = new Runner();
             var metricResults = runner.Run(GitPath);
@@ -63,7 +64,7 @@ namespace ExampleClient.ViewModels
                 Results += mr.ToString();
             }
 
-            Results += "Finished!\n";
+            Results += $"Finished!{Environment.NewLine}";
         }
     }
 }

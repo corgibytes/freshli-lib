@@ -19,7 +19,7 @@ namespace Corgibytes.Freshli.Lib
         public override string ToString()
         {
             return $"{{ Date: {Date:O}, ManifestSHA: {_manifestSha}, " +
-              $"LibYear: {LibYear} }}\n";
+              $"LibYear: {LibYear} }}{Environment.NewLine}";
         }
     }
 }
