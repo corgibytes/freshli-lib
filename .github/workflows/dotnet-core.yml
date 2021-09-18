@@ -32,14 +32,15 @@ jobs:
 
   build:
     needs: auto-format
-    runs-on: ${{ matrix.config.os }} # we run many different builds
     strategy:
-      # just an example matrix
       matrix:
+        # we have some tests that only run on certain platforms
         config:
           - os: ubuntu-latest
           - os: macos-latest
           - os: windows-latest
+        fail-fast: false
+    runs-on: ${{ matrix.config.os }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v2.3.4
