@@ -4,4 +4,4 @@
 # So approval tests have the correct line endings.
 *.Linux.approved.txt text eol=lf
 *.Mac.approved.txt text eol=lf
-*.Windows.approved.txt text eol=crlf
+*.Windows.approved.txt binary
