@@ -23,7 +23,10 @@ namespace Corgibytes.Freshli.Lib.Test
             var results = runner.Run(rubyFixturePath, asOf: _testingBoundary);
 
             Assert.True(runner.ManifestFinder.Successful);
-            Approvals.VerifyAll(results, "results");
+            using (ApprovalTestGenericOsName())
+            {
+                Approvals.VerifyAll(results, "results");
+            }
         }
 
         [Fact]
@@ -36,7 +39,10 @@ namespace Corgibytes.Freshli.Lib.Test
             var results = runner.Run(repoUrl, asOf: _testingBoundary);
 
             Assert.True(runner.ManifestFinder.Successful);
-            Approvals.VerifyAll(results, "results");
+            using (ApprovalTestGenericOsName())
+            {
+                Approvals.VerifyAll(results, "results");
+            }
         }
 
         [Fact]
@@ -48,7 +54,10 @@ namespace Corgibytes.Freshli.Lib.Test
             var results = runner.Run(repoUrl, asOf: _testingBoundary);
 
             Assert.True(runner.ManifestFinder.Successful);
-            Approvals.VerifyAll(results, "results");
+            using (ApprovalTestGenericOsName())
+            {
+                Approvals.VerifyAll(results, "results");
+            }
         }
 
         [Fact]
@@ -61,7 +70,10 @@ namespace Corgibytes.Freshli.Lib.Test
             );
 
             Assert.True(runner.ManifestFinder.Successful);
-            Approvals.VerifyAll(results, "results");
+            using (ApprovalTestGenericOsName())
+            {
+                Approvals.VerifyAll(results, "results");
+            }
         }
 
         [Fact]
@@ -73,7 +85,10 @@ namespace Corgibytes.Freshli.Lib.Test
             var results = runner.Run(phpFixturePath, asOf: _testingBoundary);
 
             Assert.True(runner.ManifestFinder.Successful);
-            Approvals.VerifyAll(results, "results");
+            using (ApprovalTestGenericOsName())
+            {
+                Approvals.VerifyAll(results, "results");
+            }
         }
 
         [Fact]
@@ -85,7 +100,10 @@ namespace Corgibytes.Freshli.Lib.Test
             var results = runner.Run(phpFixturePath, asOf: _testingBoundary);
 
             Assert.True(runner.ManifestFinder.Successful);
-            Approvals.VerifyAll(results, "results");
+            using (ApprovalTestGenericOsName())
+            {
+                Approvals.VerifyAll(results, "results");
+            }
         }
 
         [Fact]
@@ -99,7 +117,10 @@ namespace Corgibytes.Freshli.Lib.Test
             );
 
             Assert.True(runner.ManifestFinder.Successful);
-            Approvals.VerifyAll(results, "results");
+            using (ApprovalTestGenericOsName())
+            {
+                Approvals.VerifyAll(results, "results");
+            }
         }
 
         [Fact]
@@ -147,7 +168,10 @@ namespace Corgibytes.Freshli.Lib.Test
             );
 
             Assert.False(runner.ManifestFinder.Successful);
-            Approvals.VerifyAll(results, "results");
+            using (ApprovalTestGenericOsName())
+            {
+                Approvals.VerifyAll(results, "results");
+            }
         }
 
         /// <summary>
