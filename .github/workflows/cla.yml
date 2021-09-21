@@ -9,6 +9,8 @@ jobs:
   CLAssistant:
     runs-on: ubuntu-latest
     steps:
+      - name: Set env.BRANCH
+        run: echo "BRANCH=$(echo $GITHUB_REF | cut -d'/' -f 3)" >> $GITHUB_ENV
       - name: "CLA Assistant"
         if: (github.event.comment.body == 'recheck' || github.event.comment.body == 'I have read the CLA Document and I hereby sign the CLA') || github.event_name == 'pull_request_target'
         uses: cla-assistant/github-action@v2.1.3-beta
@@ -19,7 +21,7 @@ jobs:
         with:
           path-to-signatures: 'CLA/signatures/v1.0/cla.json'
           path-to-cla-document: 'https://github.com/corgibytes/freshli/blob/main/CLA/CLA-v1.0.md'
-          branch: 'main'
+          branch: ${{ env.BRANCH }}
           allowlist: dependabot[bot]
 
           #Configurable inputs
