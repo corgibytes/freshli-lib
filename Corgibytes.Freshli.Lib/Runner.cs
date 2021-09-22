@@ -6,9 +6,8 @@ using NLog;
 
 namespace Corgibytes.Freshli.Lib
 {
-    public class Runner
+    public class Runner : IRunner
     {
-
         private const string ResultsPath = "results";
 
         private static readonly Logger logger = LogManager.GetCurrentClassLogger();
@@ -25,7 +24,7 @@ namespace Corgibytes.Freshli.Lib
         {
             logger.Info($"Run({analysisPath}, {asOf:O})");
 
-            var scanResults = new List<ScanResult>();
+            IList<ScanResult> scanResults = new List<ScanResult>();
             var fileHistoryFinder = new FileHistoryFinder(analysisPath);
             ManifestFinder = new ManifestFinder(
               analysisPath,
@@ -54,11 +53,7 @@ namespace Corgibytes.Freshli.Lib
             return scanResults;
         }
 
-        private List<ScanResult> ProcessManifestFiles(
-          string analysisPath,
-          DateTimeOffset asOf,
-          FileHistoryFinder fileHistoryFinder
-        )
+        private IList<ScanResult> ProcessManifestFiles(string analysisPath, DateTimeOffset asOf, FileHistoryFinder fileHistoryFinder)
         {
             var scanResults = new List<ScanResult>();
             foreach (var mf in ManifestFinder.ManifestFiles)
@@ -82,12 +77,7 @@ namespace Corgibytes.Freshli.Lib
             return scanResults;
         }
 
-        private MetricsResult ProcessAnalysisDate(
-            string manifestFile,
-            LibYearCalculator calculator,
-            IFileHistory fileHistory,
-            DateTimeOffset currentDate
-        )
+        private MetricsResult ProcessAnalysisDate(string manifestFile, LibYearCalculator calculator, IFileHistory fileHistory, DateTimeOffset currentDate)
         {
             var content = fileHistory.ContentsAsOf(currentDate);
             calculator.Manifest.Parse(content);
@@ -115,7 +105,7 @@ namespace Corgibytes.Freshli.Lib
             return Run(analysisPath, asOf: asOf);
         }
 
-        private static void WriteResultsToFile(List<ScanResult> results)
+        private static void WriteResultsToFile(IList<ScanResult> results)
         {
             if (!System.IO.Directory.Exists(ResultsPath))
             {
