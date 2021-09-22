@@ -101,7 +101,7 @@ namespace Corgibytes.Freshli.Lib.Languages.Ruby
             }
         }
 
-        private void AddVersionPart(string part)
+        private string ProcessPlatformSpecifier(string part)
         {
             if (part.Contains("-"))
             {
@@ -109,33 +109,54 @@ namespace Corgibytes.Freshli.Lib.Languages.Ruby
                 part = subParts.First();
                 PlatformSpecifier = String.Join("-", subParts.Skip(1));
             }
+            return part;
+        }
 
+        private void ProcessPreRelease(string part)
+        {
             if (!IsPreRelease)
             {
                 IsPreRelease = Regex.IsMatch(part, @"[a-zA-Z]");
             }
+        }
 
-            if (IsOnlyAlpha(part) || IsOnlyNumeric(part))
+        private void ProcessRemainder(string part)
+        {
+            var nextVersionPart = "";
+
+            var charArr = part.ToCharArray();
+            for (var i = 0; i <= charArr.Length - 1; i++)
+            {
+                nextVersionPart += charArr[i].ToString();
+                if (i != charArr.Length - 1 &&
+                    CharacterTypesMatch(charArr[i], charArr[i + 1]))
+                {
+                    continue;
+                }
+                VersionParts.Add(nextVersionPart);
+                nextVersionPart = "";
+            }
+
+        }
+
+        private void AddVersionPart(string part)
+        {
+            part = ProcessPlatformSpecifier(part);
+            ProcessPreRelease(part);
+
+            if (IsOnlyAlphaOrOnlyNumeric(part))
             {
                 VersionParts.Add(part);
             }
             else
             {
-                var nextVersionPart = "";
-
-                var charArr = part.ToCharArray();
-                for (var i = 0; i <= charArr.Length - 1; i++)
-                {
-                    nextVersionPart += charArr[i].ToString();
-                    if (i != charArr.Length - 1 &&
-                      CharacterTypesMatch(charArr[i], charArr[i + 1]))
-                    {
-                        continue;
-                    }
-                    VersionParts.Add(nextVersionPart);
-                    nextVersionPart = "";
-                }
+                ProcessRemainder(part);
             }
+        }
+
+        private bool IsOnlyAlphaOrOnlyNumeric(string part)
+        {
+            return IsOnlyAlpha(part) || IsOnlyNumeric(part);
         }
 
         private static bool IsOnlyAlpha(string s)
