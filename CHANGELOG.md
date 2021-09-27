@@ -1,7 +1,7 @@
 ## v0.4.0
 
 
-As part of this release we had [60 issues](https://github.com/corgibytes/freshli-lib/milestone/5?closed=1) closed.
+As part of this release we had [62 issues](https://github.com/corgibytes/freshli-lib/milestone/5?closed=1) closed.
 Goals for this milestone:
 
 - Support parsing multiple manifests but specifically focusing on .NET for this release.
@@ -27,6 +27,8 @@ __DevOps__
 
 __Dependencies__
 
+- [__#370__](https://github.com/corgibytes/freshli-lib/pull/370) Bump DiffEngine from 7.2.1 to 7.3.0
+- [__#369__](https://github.com/corgibytes/freshli-lib/pull/369) Bump DotNetEnv from 2.1.1 to 2.2.0
 - [__#368__](https://github.com/corgibytes/freshli-lib/pull/368) Bump NLog from 4.7.10 to 4.7.11
 - [__#367__](https://github.com/corgibytes/freshli-lib/pull/367) Bump Microsoft.NET.Test.Sdk from 16.10.0 to 16.11.0
 - [__#366__](https://github.com/corgibytes/freshli-lib/pull/366) Bump LibGit2Sharp from 0.27.0-preview-0102 to 0.27.0-preview-0116
@@ -35,7 +37,6 @@ __Dependencies__
 - [__#358__](https://github.com/corgibytes/freshli-lib/pull/358) Bump Avalonia.ReactiveUI from 0.10.6 to 0.10.7
 - [__#357__](https://github.com/corgibytes/freshli-lib/pull/357) Bump HtmlAgilityPack from 1.11.34 to 1.11.36
 - [__#355__](https://github.com/corgibytes/freshli-lib/pull/355) Bump ApprovalTests from 5.5.0 to 5.7.0
-- [__#354__](https://github.com/corgibytes/freshli-lib/pull/354) Bump Elasticsearch.Net from 7.13.0 to 7.14.1
 - [__#353__](https://github.com/corgibytes/freshli-lib/pull/353) Bump coverlet.msbuild from 3.0.3 to 3.1.0
 - [__#352__](https://github.com/corgibytes/freshli-lib/pull/352) Bump DiffEngine from 6.8.2 to 7.1.0
 - [__#348__](https://github.com/corgibytes/freshli-lib/pull/348) Bump RestSharp from 106.11.7 to 106.12.0
@@ -77,6 +78,7 @@ __Documentation__
 
 __Enhancements__
 
+- [__#362__](https://github.com/corgibytes/freshli-lib/issues/362) Add IRunner interface
 - [__#309__](https://github.com/corgibytes/freshli-lib/issues/309) Follow the .NET coding style
 - [__#307__](https://github.com/corgibytes/freshli-lib/pull/307) Add a basic example client for Freshli-Lib
 - [__#266__](https://github.com/corgibytes/freshli-lib/issues/266) Labels not included in release notes
