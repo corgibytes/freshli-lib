@@ -5,7 +5,7 @@ using Xunit;
 
 namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Php
 {
-    public class MulticastComposerRepositoryTest: RepositoryTestFixture<MulticastComposerRepositoryTest>
+    public class MulticastComposerRepositoryTest : RepositoryTestFixture<MulticastComposerRepositoryTest>
     {
         public override IPackageRepository Repository
         {

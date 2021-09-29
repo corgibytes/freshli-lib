@@ -5,7 +5,7 @@ using Xunit;
 
 namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Ruby
 {
-    public class RubyGemsRepositoryTest: RepositoryTestFixture<RubyGemsRepositoryTest>
+    public class RubyGemsRepositoryTest : RepositoryTestFixture<RubyGemsRepositoryTest>
     {
         public override IPackageRepository Repository => new RubyGemsRepository();
 

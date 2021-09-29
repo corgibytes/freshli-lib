@@ -38,9 +38,9 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
 
     [DataDiscoverer("Corgibytes.Freshli.Lib.Test.Integration.InstanceMemberDataDiscoverer", "Corgibytes.Freshli.Lib.Test")]
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = true, Inherited = true)]
-    public class InstanceMemberDataAttribute: MemberDataAttributeBase
+    public class InstanceMemberDataAttribute : MemberDataAttributeBase
     {
-        public InstanceMemberDataAttribute(string memberName): base(memberName, null)
+        public InstanceMemberDataAttribute(string memberName) : base(memberName, null)
         {
         }
 
@@ -170,7 +170,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
         }
     }
 
-    public class InstanceMemberDataDiscoverer: DataDiscoverer
+    public class InstanceMemberDataDiscoverer : DataDiscoverer
     {
     }
 }

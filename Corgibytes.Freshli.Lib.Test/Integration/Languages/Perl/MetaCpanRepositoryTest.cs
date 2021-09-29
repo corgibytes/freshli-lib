@@ -5,7 +5,7 @@ using Xunit;
 
 namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Perl
 {
-    public class MetaCpanRepositoryTest: RepositoryTestFixture<MetaCpanRepositoryTest>
+    public class MetaCpanRepositoryTest : RepositoryTestFixture<MetaCpanRepositoryTest>
     {
         public override IPackageRepository Repository => new MetaCpanRepository();
 
