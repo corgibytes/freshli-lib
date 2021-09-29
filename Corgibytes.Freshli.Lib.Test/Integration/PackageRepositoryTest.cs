@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Reflection;
 using Corgibytes.Freshli.Lib.Languages.Perl;
 using Corgibytes.Freshli.Lib.Languages.Php;
@@ -11,30 +12,6 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
     public class PackageRepositoryTest
     {
         [Theory]
-        [InlineData(
-          typeof(MetaCpanRepository),
-          new[] { "Plack", "1.0026" },
-          new[] { 2013, 06, 13, 06, 01, 17 },
-          "1.0026"
-        )]
-        [InlineData(
-          typeof(MetaCpanRepository),
-          new[] { "Test::More", "1.301001_048" },
-          new[] { 2014, 09, 25, 03, 39, 01 },
-          "1.301001_048"
-        )]
-        [InlineData(
-          typeof(RubyGemsRepository),
-          new[] { "tzinfo", "1.2.7" },
-          new[] { 2020, 04, 02, 21, 42, 11 },
-          "1.2.7"
-        )]
-        [InlineData(
-          typeof(RubyGemsRepository),
-          new[] { "git", "1.6.0.pre1" },
-          new[] { 2020, 01, 20, 20, 50, 43 },
-          "1.6.0.pre1"
-        )]
         [InlineData(
           typeof(MulticastComposerRepository),
           new[] { "monolog/monolog", "1.11.0" },
