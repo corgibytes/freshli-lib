@@ -1,13 +1,7 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
 using Corgibytes.Freshli.Lib;
 using Corgibytes.Xunit.Extensions;
-using Elasticsearch.Net;
 using Xunit;
-using Xunit.Sdk;
 
 namespace Corgibytes.Freshli.Lib.Test.Integration
 {
