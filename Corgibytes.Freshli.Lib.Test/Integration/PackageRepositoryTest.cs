@@ -11,31 +11,6 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
 {
     public class PackageRepositoryTest
     {
-        [Theory]
-        [InlineData(
-          typeof(MulticastComposerRepository),
-          new[] { "monolog/monolog", "1.11.0" },
-          new[] { 2014, 09, 30, 13, 30, 58 },
-          "1.11.0"
-        )]
-        public void VersionInfo(
-          Type repositoryType,
-          string[] methodParams,
-          int[] expectedDateParts,
-          string expectedVersion
-        )
-        {
-            var gemName = methodParams[0];
-            var gemVersion = methodParams[1];
-            var repository = CreateRepository(repositoryType);
-            var versionInfo = repository.VersionInfo(gemName, gemVersion);
-            var expectedDate =
-              DateBuilder.BuildDateTimeOffsetFromParts(expectedDateParts);
-
-            Assert.Equal(expectedVersion, versionInfo.Version);
-            Assert.Equal(expectedDate, versionInfo.DatePublished);
-        }
-
         private static IPackageRepository CreateRepository(Type repositoryType)
         {
             if (repositoryType != typeof(MulticastComposerRepository))
