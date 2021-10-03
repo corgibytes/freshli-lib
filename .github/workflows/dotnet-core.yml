@@ -78,10 +78,7 @@ jobs:
         run: dotnet build --configuration Release
 
       - name: Run Tests
-        run: dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=lcov /p:CoverletOutput="./coverage-${{ matrix.config.os }}.info"
-
-      - name: List coverage files
-        run: ls "${{github.workspace}}/coverage-${{ matrix.config.os }}.info"
+        run: dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=lcov /p:CoverletOutput="${{github.workspace}}/coverage-${{ matrix.config.os }}.info"
 
       - name: Upload Coverage Files
         uses: actions/upload-artifact@v2
