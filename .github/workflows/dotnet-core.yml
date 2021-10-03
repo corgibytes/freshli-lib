@@ -84,7 +84,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: "coverage-${{ matrix.config.os }}"
-          path: "./coverage-${{ matrix.config.os }}/"
+          path: "${{github.workspace}}/coverage-${{ matrix.config.os }}/"
 
       # Only submit the test results on Code Climate on push.  When a dependabot PR
       # is created the submit to Code Climate will fail as the TEST_REPORTER_ID is not
