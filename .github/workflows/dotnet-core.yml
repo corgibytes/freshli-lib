@@ -19,7 +19,7 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: 5.0.101
-          
+
       - name: Install dotnet tools
         run: dotnet tool restore
 
@@ -78,13 +78,13 @@ jobs:
         run: dotnet build --configuration Release
 
       - name: Run Tests
-        run: dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=lcov /p:CoverletOutput="coverage-${{ matrix.config.os }}/"
+        run: dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=lcov /p:CoverletOutput="./coverage-${{ matrix.config.os }}/"
 
       - name: Upload Coverage Files
         uses: actions/upload-artifact@v2
         with:
           name: "coverage-${{ matrix.config.os }}"
-          path: "coverage-${{ matrix.config.os }}/"
+          path: "./coverage-${{ matrix.config.os }}/"
 
       # Only submit the test results on Code Climate on push.  When a dependabot PR
       # is created the submit to Code Climate will fail as the TEST_REPORTER_ID is not
