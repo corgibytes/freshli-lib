@@ -31,7 +31,7 @@ jobs:
         with:
           commit_message: Committing auto-formatted code changes.
 
-  build:
+  build-matrix:
     needs: auto-format
     strategy:
       fail-fast: false
@@ -86,6 +86,9 @@ jobs:
           name: "coverage-${{ matrix.config.os }}"
           path: "${{github.workspace}}/coverage-${{ matrix.config.os }}.info"
 
+build:
+  needs: build-matrix
+  steps:
       # Only submit the test results on Code Climate on push.  When a dependabot PR
       # is created the submit to Code Climate will fail as the TEST_REPORTER_ID is not
       # available.
@@ -99,7 +102,46 @@ jobs:
           CC_TEST_REPORTER_ID: ${{ secrets.TEST_REPORTER_ID }}
         with:
           coverageLocations: |
-            ${{github.workspace}}/Corgibytes.Freshli.Lib.Test/coverage.info:lcov
+            ${{github.workspace}}/Corgibytes.Freshli.Lib.Test/coverage-*.info:lcov
+
+            - name: Checkout code
+        uses: actions/checkout@v2.3.4
+        with:
+          fetch-depth: 0 # Required for GitVersion
+
+      - name: Setup .NET Core
+        if: github.event_name == 'push' || startsWith(github.ref, 'refs/tags/')
+        uses: actions/setup-dotnet@v1.8.0
+        with:
+          dotnet-version: 5.0.101
+
+      - name: Install GitVersion
+        if: github.event_name == 'push' || startsWith(github.ref, 'refs/tags/')
+        uses: gittools/actions/gitversion/setup@v0.9.10
+        with:
+          versionSpec: '5.6.6'
+
+      - name: Show GitVersion Config
+        if: github.event_name == 'push' || startsWith(github.ref, 'refs/tags/')
+        uses: gittools/actions/gitversion/execute@v0.9.10
+        with:
+          useConfigFile: true
+          additionalArguments: '/showConfig'
+
+      - name: Determine Version and Update csproj Files
+        if: github.event_name == 'push' || startsWith(github.ref, 'refs/tags/')
+        uses: gittools/actions/gitversion/execute@v0.9.10
+        with:
+          useConfigFile: true
+          additionalArguments: '/updateprojectfiles'
+
+      - name: Display updated csproj File
+        if: github.event_name == 'push' || startsWith(github.ref, 'refs/tags/')
+        run: cat Corgibytes.Freshli.Lib/Corgibytes.Freshli.Lib.csproj
+
+      - name: Build
+        if: github.event_name == 'push' || startsWith(github.ref, 'refs/tags/')
+        run: dotnet build --configuration Release
 
       - name: Package
         if: github.event_name == 'push' || startsWith(github.ref, 'refs/tags/')
