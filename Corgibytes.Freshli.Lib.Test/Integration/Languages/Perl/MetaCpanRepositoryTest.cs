@@ -23,5 +23,35 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Perl
             }
         };
 
+        public override TheoryData<IList<object>, string, IList<int>> DataForTestingLatestWithOptionalPreRelease => new()
+        {
+            {
+                new object[] { "Plack", new[] { 2018, 01, 01, 0, 0, 0 }, false },
+                "1.0045",
+                new[] { 2017, 12, 31, 20, 42, 50 }
+            }
+
+        };
+
+        public override TheoryData<IList<object>, string, IList<int>> DataForTestingLatestWithMatchExpression => new()
+        {
+            {
+                new object[] { "Plack", new[] { 2018, 01, 01, 0, 0, 0 }, "1.0" },
+                "1.0045",
+                new[] { 2017, 12, 31, 20, 42, 50 }
+            },
+            {
+                new object[] { "JSON", new[] { 2018, 01, 01, 0, 0, 0 }, ">= 2.00, < 2.80" },
+                "2.61",
+                new[] { 2013, 10, 17, 11, 03, 11 }
+            },
+            {
+                new object[] { "Test::More", new[] { 2018, 01, 01, 0, 0, 0}, ">= 0.96, < 2.0" },
+                "1.301001_050",
+                new[] { 2014, 09, 26, 05, 44, 26 }
+            }
+
+        };
+
     }
 }

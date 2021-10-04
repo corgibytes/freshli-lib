@@ -10,11 +10,11 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
     {
         public abstract IPackageRepository Repository { get; }
 
-        public abstract TheoryData<IList<string>, IList<int>, string> DataForTestingVersionInfo { get; }
+        public virtual TheoryData<IList<string>, IList<int>, string> DataForTestingVersionInfo => new() {};
 
         [Theory]
         [InstanceMemberData(nameof(DataForTestingVersionInfo))]
-        public void VersionInfo(
+        public virtual void VersionInfo(
             string[] methodParams,
             int[] expectedDateParts,
             string expectedVersion
@@ -25,6 +25,53 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
             var versionInfo = Repository.VersionInfo(gemName, gemVersion);
             var expectedDate =
                 DateBuilder.BuildDateTimeOffsetFromParts(expectedDateParts);
+
+            Assert.Equal(expectedVersion, versionInfo.Version);
+            Assert.Equal(expectedDate, versionInfo.DatePublished);
+        }
+
+
+        public virtual TheoryData<IList<object>, string, IList<int>> DataForTestingLatestWithOptionalPreRelease => new() {};
+
+        [Theory]
+        [InstanceMemberData(nameof(DataForTestingLatestWithOptionalPreRelease))]
+        public virtual void LatestWithOptionalPreRelease(
+          object[] methodParams,
+          string expectedVersion,
+          int[] expectedDateParts
+        )
+        {
+            var packageName = (string) methodParams[0];
+            var asOf = DateBuilder.BuildDateTimeOffsetFromParts((int[]) methodParams[1]);
+            var includePreReleases = (bool) methodParams[2];
+
+            IVersionInfo versionInfo = Repository.Latest(packageName, asOf, includePreReleases);
+
+            var expectedDate =
+              DateBuilder.BuildDateTimeOffsetFromParts(expectedDateParts);
+
+            Assert.Equal(expectedVersion, versionInfo.Version);
+            Assert.Equal(expectedDate, versionInfo.DatePublished);
+        }
+
+        public virtual TheoryData<IList<object>, string, IList<int>> DataForTestingLatestWithMatchExpression => new() {};
+
+        [Theory]
+        [InstanceMemberData(nameof(DataForTestingLatestWithMatchExpression))]
+        public virtual void LatestWithMatchExpression(
+          object[] methodParams,
+          string expectedVersion,
+          int[] expectedDateParts
+        )
+        {
+            var packageName = (string) methodParams[0];
+            var asOf = DateBuilder.BuildDateTimeOffsetFromParts((int[]) methodParams[1]);
+            var matchExpression = (string) methodParams[2];
+
+            IVersionInfo versionInfo = Repository.Latest(packageName, asOf, matchExpression);
+
+            var expectedDate =
+              DateBuilder.BuildDateTimeOffsetFromParts(expectedDateParts);
 
             Assert.Equal(expectedVersion, versionInfo.Version);
             Assert.Equal(expectedDate, versionInfo.DatePublished);

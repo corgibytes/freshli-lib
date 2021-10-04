@@ -28,5 +28,33 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Php
                 "1.11.0"
             }
         };
+
+        public override TheoryData<IList<object>, string, IList<int>> DataForTestingLatestWithOptionalPreRelease => new()
+        {
+            {
+                new object[] { "monolog/monolog", new[] { 2020, 01, 01, 00, 00, 00 }, false },
+                "2.0.2",
+                new[] { 2019, 12, 20, 14, 22, 59 }
+            },
+            {
+                new object[] { "symfony/css-selector", new[] {2020, 01, 01, 00, 00, 00}, false },
+                "v5.0.2",
+                new[] { 2019, 11, 18, 17, 27, 11 }
+            }
+        };
+
+        [Theory(Skip="Skipping")]
+        [InlineData(null, null, null)]
+        public override void LatestWithMatchExpression(
+          object[] _methodParams,
+          string _expectedVersion,
+          int[] _expectedDateParts
+        )
+        {
+            // Initially empty method body. And all attributes removed to
+            // prevent the test from running. The `MulticastComposerRepository` doesn't
+            // implement this overloaded form of the `Latest` method.
+        }
+
     }
 }
