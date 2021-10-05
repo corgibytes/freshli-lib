@@ -1,3 +1,18 @@
+## v0.5.0
+
+
+As part of this release we had [1 issue](https://github.com/corgibytes/freshli-lib/milestone/6?closed=1) closed.
+Goals for this milestone:
+
+- Parse manifest files in their own environment.
+- Create Docker development environment.
+- Support CLI v0.4.0 improvements (might be in it's own milestone).
+
+__Dependencies__
+
+- [__#372__](https://github.com/corgibytes/freshli-lib/pull/372) Bump DiffEngine from 7.3.0 to 8.0.0
+
+
 ## v0.4.0
 
 
