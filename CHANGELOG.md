@@ -1,7 +1,7 @@
 ## v0.4.0
 
 
-As part of this release we had [59 issues](https://github.com/corgibytes/freshli-lib/milestone/5?closed=1) closed.
+As part of this release we had [61 issues](https://github.com/corgibytes/freshli-lib/milestone/5?closed=1) closed.
 Goals for this milestone:
 
 - Support parsing multiple manifests but specifically focusing on .NET for this release.
@@ -22,11 +22,12 @@ __DevOps__
 - [__#277__](https://github.com/corgibytes/freshli-lib/pull/277) Add nuspec information
 - [__#268__](https://github.com/corgibytes/freshli-lib/issues/268) Version not correctly incremented when merging tag from release to main
 - [__#265__](https://github.com/corgibytes/freshli-lib/issues/265) Publish to nuget.org
-- [__#261__](https://github.com/corgibytes/freshli-lib/pull/261) Sets up minimal rename for NuGet push
 - [__#253__](https://github.com/corgibytes/freshli-lib/issues/253) Fix multiple CodeClimate Freshli projects
 
 __Dependencies__
 
+- [__#370__](https://github.com/corgibytes/freshli-lib/pull/370) Bump DiffEngine from 7.2.1 to 7.3.0
+- [__#369__](https://github.com/corgibytes/freshli-lib/pull/369) Bump DotNetEnv from 2.1.1 to 2.2.0
 - [__#368__](https://github.com/corgibytes/freshli-lib/pull/368) Bump NLog from 4.7.10 to 4.7.11
 - [__#367__](https://github.com/corgibytes/freshli-lib/pull/367) Bump Microsoft.NET.Test.Sdk from 16.10.0 to 16.11.0
 - [__#366__](https://github.com/corgibytes/freshli-lib/pull/366) Bump LibGit2Sharp from 0.27.0-preview-0102 to 0.27.0-preview-0116
@@ -76,6 +77,7 @@ __Documentation__
 
 __Enhancements__
 
+- [__#362__](https://github.com/corgibytes/freshli-lib/issues/362) Add IRunner interface
 - [__#309__](https://github.com/corgibytes/freshli-lib/issues/309) Follow the .NET coding style
 - [__#307__](https://github.com/corgibytes/freshli-lib/pull/307) Add a basic example client for Freshli-Lib
 - [__#266__](https://github.com/corgibytes/freshli-lib/issues/266) Labels not included in release notes
