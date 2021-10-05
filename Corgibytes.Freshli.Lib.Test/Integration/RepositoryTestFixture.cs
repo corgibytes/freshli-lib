@@ -10,7 +10,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
     {
         public abstract IPackageRepository Repository { get; }
 
-        public virtual TheoryData<IList<string>, IList<int>, string> DataForTestingVersionInfo => new() {};
+        public virtual TheoryData<IList<string>, IList<int>, string> DataForTestingVersionInfo => new() { };
 
         [Theory]
         [InstanceMemberData(nameof(DataForTestingVersionInfo))]
@@ -31,7 +31,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
         }
 
 
-        public virtual TheoryData<IList<object>, string, IList<int>> DataForTestingLatestWithOptionalPreRelease => new() {};
+        public virtual TheoryData<IList<object>, string, IList<int>> DataForTestingLatestWithOptionalPreRelease => new() { };
 
         [Theory]
         [InstanceMemberData(nameof(DataForTestingLatestWithOptionalPreRelease))]
@@ -41,9 +41,9 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
             int[] expectedDateParts
         )
         {
-            var packageName = (string) methodParams[0];
-            var asOf = DateBuilder.BuildDateTimeOffsetFromParts((int[]) methodParams[1]);
-            var includePreReleases = (bool) methodParams[2];
+            var packageName = (string)methodParams[0];
+            var asOf = DateBuilder.BuildDateTimeOffsetFromParts((int[])methodParams[1]);
+            var includePreReleases = (bool)methodParams[2];
 
             IVersionInfo versionInfo = Repository.Latest(packageName, asOf, includePreReleases);
 
@@ -54,7 +54,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
             Assert.Equal(expectedDate, versionInfo.DatePublished);
         }
 
-        public virtual TheoryData<IList<object>, string, IList<int>> DataForTestingLatestWithMatchExpression => new() {};
+        public virtual TheoryData<IList<object>, string, IList<int>> DataForTestingLatestWithMatchExpression => new() { };
 
         [Theory]
         [InstanceMemberData(nameof(DataForTestingLatestWithMatchExpression))]
@@ -64,9 +64,9 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
             int[] expectedDateParts
         )
         {
-            var packageName = (string) methodParams[0];
-            var asOf = DateBuilder.BuildDateTimeOffsetFromParts((int[]) methodParams[1]);
-            var matchExpression = (string) methodParams[2];
+            var packageName = (string)methodParams[0];
+            var asOf = DateBuilder.BuildDateTimeOffsetFromParts((int[])methodParams[1]);
+            var matchExpression = (string)methodParams[2];
 
             IVersionInfo versionInfo = Repository.Latest(packageName, asOf, matchExpression);
 
@@ -77,7 +77,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
             Assert.Equal(expectedDate, versionInfo.DatePublished);
         }
 
-        public virtual TheoryData<IList<object>, int> DataForTestingVersionsBetween => new() {};
+        public virtual TheoryData<IList<object>, int> DataForTestingVersionsBetween => new() { };
 
         [Theory]
         [InstanceMemberData(nameof(DataForTestingVersionsBetween))]

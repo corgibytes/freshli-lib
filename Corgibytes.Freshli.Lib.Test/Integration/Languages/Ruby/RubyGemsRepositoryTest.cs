@@ -37,7 +37,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Ruby
             }
         };
 
-	    [Theory(Skip="Skipping")]
+        [Theory(Skip = "Skipping")]
         [InlineData(null, null, null)]
         public override void LatestWithMatchExpression(
           object[] _methodParams,

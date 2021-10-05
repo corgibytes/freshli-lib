@@ -37,13 +37,13 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Php
                 new[] { 2019, 12, 20, 14, 22, 59 }
             },
             {
-                new object[] { "symfony/css-selector", new[] {2020, 01, 01, 00, 00, 00}, false },
+                new object[] { "symfony/css-selector", new[] { 2020, 01, 01, 00, 00, 00 }, false },
                 "v5.0.2",
                 new[] { 2019, 11, 18, 17, 27, 11 }
             }
         };
 
-        [Theory(Skip="Skipping")]
+        [Theory(Skip = "Skipping")]
         [InlineData(null, null, null)]
         public override void LatestWithMatchExpression(
           object[] _methodParams,
@@ -55,7 +55,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Php
             // implement this overloaded form of the `Latest` method.
         }
 
-        [Theory(Skip="Skipping")]
+        [Theory(Skip = "Skipping")]
         [InlineData(null, null)]
         public override void VersionsBetween(object[] methodParams, int expectedVersionCount)
         {

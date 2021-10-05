@@ -5,7 +5,7 @@ using Xunit;
 
 namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Python
 {
-    public class PyPIRepositoryTest: RepositoryTestFixture<PyPIRepositoryTest>
+    public class PyPIRepositoryTest : RepositoryTestFixture<PyPIRepositoryTest>
     {
         public override IPackageRepository Repository => new PyPIRepository();
 
