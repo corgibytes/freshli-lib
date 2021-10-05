@@ -53,5 +53,20 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Perl
 
         };
 
+        public override TheoryData<IList<object>, int> DataForTestingVersionsBetween => new()
+        {
+            {
+                new object[]
+                {
+                    "Plack",
+                    new[] {2015, 01, 01, 00, 00, 00},
+                    new SemVerVersionInfo("1.0027"),
+                    new SemVerVersionInfo("1.0045"),
+                    false
+                },
+                6
+            }
+        };
+
     }
 }

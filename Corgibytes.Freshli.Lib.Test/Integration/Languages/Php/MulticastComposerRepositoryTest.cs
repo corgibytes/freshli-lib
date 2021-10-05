@@ -51,9 +51,16 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Php
           int[] _expectedDateParts
         )
         {
-            // Initially empty method body. And all attributes removed to
-            // prevent the test from running. The `MulticastComposerRepository` doesn't
+            // Initially empty method body. The `MulticastComposerRepository` doesn't
             // implement this overloaded form of the `Latest` method.
+        }
+
+        [Theory(Skip="Skipping")]
+        [InlineData(null, null)]
+        public override void VersionsBetween(object[] methodParams, int expectedVersionCount)
+        {
+            // Initially empty method body. The `MulticastComposerRepository` doesn't
+            // implement this overloaded form of the `VersionsBetween` method.
         }
 
     }

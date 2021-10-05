@@ -50,9 +50,38 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Ruby
             // implement this overloaded form of the `Latest` method.
         }
 
-
-
-
-
+        public override TheoryData<IList<object>, int> DataForTestingVersionsBetween => new()
+        {
+            {
+                new object[] {
+                    "tzinfo",
+                    new[] {2014, 04, 01, 00, 00, 00},
+                    new RubyGemsVersionInfo("0.3.38"),
+                    new RubyGemsVersionInfo("1.1.0"),
+                    true
+                },
+                3
+            },
+            {
+                new object[] {
+                    "google-protobuf",
+                    new[] {2020, 09, 01, 00, 00, 00},
+                    new RubyGemsVersionInfo("3.11.0"),
+                    new RubyGemsVersionInfo("3.13.0"),
+                    false
+                },
+                8
+            },
+            {
+                new object[] {
+                    "google-protobuf",
+                    new[] {2020, 09, 01, 00, 00, 00},
+                    new RubyGemsVersionInfo("3.11.0"),
+                    new RubyGemsVersionInfo("3.13.0"),
+                    true
+                },
+                11
+            }
+        };
     }
 }
