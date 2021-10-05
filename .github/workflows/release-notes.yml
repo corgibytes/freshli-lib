@@ -54,7 +54,6 @@ jobs:
       # If there are no closed issues generating the Github Release will fail because it raises an exception.
       # Work around this by checking for success or no closed issue errors.
       - name: "Create/Update GitHub Release ${{ steps.gitversion.outputs.majorMinorPatch }}"
-        if: ${{ github.event_name == 'push' }}
         run: |
           dotnet-gitreleasemanager create --owner corgibytes --repository freshli-cli --token ${{ secrets.GITHUB_TOKEN }} --milestone v${{ steps.gitversion.outputs.majorMinorPatch }} --logFilePath output.txt || true
           cat output.txt | grep 'No closed issues have been found for milestone\|Drafted release is available at'
