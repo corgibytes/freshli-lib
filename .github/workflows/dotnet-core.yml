@@ -86,9 +86,9 @@ jobs:
           name: "coverage-${{ matrix.config.os }}"
           path: "${{github.workspace}}/coverage-${{ matrix.config.os }}.info"
 
-build:
-  needs: build-matrix
-  steps:
+  build:
+    needs: build-matrix
+    steps:
       # Only submit the test results on Code Climate on push.  When a dependabot PR
       # is created the submit to Code Climate will fail as the TEST_REPORTER_ID is not
       # available.
