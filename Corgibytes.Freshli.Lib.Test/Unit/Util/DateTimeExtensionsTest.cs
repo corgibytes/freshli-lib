@@ -1,10 +1,105 @@
 using System;
+using System.Collections.Generic;
 using System.Reflection;
 using Corgibytes.Freshli.Lib.Util;
+using Corgibytes.Xunit.Extensions;
 using Xunit;
 
 namespace Corgibytes.Freshli.Lib.Test.Unit.Util
 {
+    public class TestDateTimeOffsetExtensions
+    {
+        public class ToEndOfDay: DateModificationExtensionMethodTestFixture<ToEndOfDay>
+        {
+            public override DateTimeOffset InvokeMethod(DateTimeOffset value) => value.ToEndOfDay();
+
+            public override TheoryData<DateTimeOffset, DateTimeOffset, int> DataForTestingExtensionMethod => new()
+            {
+                {
+                    BuildDateTimeOffset(new[] { 2020, 1, 5, 23, 59, 59, 999, 9998 }),
+                    BuildDateTimeOffset(new[] { 2020, 1, 6, 23, 59, 59, 999, 9999 }),
+                    -1
+                },
+                {
+                    BuildDateTimeOffset(new[] { 2020, 1, 5, 23, 59, 59, 999, 9999 }),
+                    BuildDateTimeOffset(new[] { 2020, 1, 6, 23, 59, 59, 999, 9999 }),
+                    -1
+                },
+                {
+                    BuildDateTimeOffset(new[] { 2020, 1, 6, 0, 0, 0, 0, 0 }),
+                    BuildDateTimeOffset(new[] { 2020, 1, 6, 23, 59, 59, 999, 9999 }),
+                    0
+                },
+                {
+                    BuildDateTimeOffset(new[] { 2020, 1, 6, 0, 0, 0, 0, 1 }),
+                    BuildDateTimeOffset(new[] { 2020, 1, 6, 23, 59, 59, 999, 9999 }),
+                    0
+                },
+                {
+                    BuildDateTimeOffset(new[] { 2020, 1, 6, 12, 0, 0, 0, 0 }),
+                    BuildDateTimeOffset(new[] { 2020, 1, 6, 23, 59, 59, 999, 9999 }),
+                    0
+                },
+                {
+                    BuildDateTimeOffset(new[] { 2020, 1, 6, 23, 59, 59, 999, 9998 }),
+                    BuildDateTimeOffset(new[] { 2020, 1, 6, 23, 59, 59, 999, 9999 }),
+                    0
+                },
+                {
+                    BuildDateTimeOffset(new[] { 2020, 1, 6, 23, 59, 59, 999, 9999 }),
+                    BuildDateTimeOffset(new[] { 2020, 1, 6, 23, 59, 59, 999, 9999 }),
+                    0
+                },
+                {
+                    BuildDateTimeOffset(new[] { 2020, 1, 7, 0, 0, 0, 0, 0 }),
+                    BuildDateTimeOffset(new[] { 2020, 1, 6, 23, 59, 59, 999, 9999 }),
+                    1
+                },
+                {
+                    BuildDateTimeOffset(new[] { 2020, 1, 7, 0, 0, 0, 0, 1 }),
+                    BuildDateTimeOffset(new[] { 2020, 1, 6, 23, 59, 59, 999, 9999 }),
+                    1
+                },
+            };
+        }
+
+        public abstract class DateModificationExtensionMethodTestFixture<T>
+        {
+            public abstract DateTimeOffset InvokeMethod(DateTimeOffset value);
+
+            public abstract TheoryData<DateTimeOffset, DateTimeOffset, int>  DataForTestingExtensionMethod { get; }
+
+            [Theory]
+            [InstanceMemberData(nameof(DataForTestingExtensionMethod))]
+            public void ExtensionMethod(
+                DateTimeOffset input,
+                DateTimeOffset target,
+                int comparison)
+            {
+                var transformedInput = InvokeMethod(input);
+
+                Assert.Equal(comparison, transformedInput.CompareTo(target));
+            }
+
+            protected static DateTimeOffset BuildDateTimeOffset(int[] dateArguments)
+            {
+                var inputDate = new DateTimeOffset(
+                    dateArguments[0],
+                    dateArguments[1],
+                    dateArguments[2],
+                    dateArguments[3],
+                    dateArguments[4],
+                    dateArguments[5],
+                    dateArguments[6],
+                    TimeSpan.Zero
+                ).AddTicks(dateArguments[7]);
+                return inputDate;
+            }
+
+        }
+    }
+
+
     public class DateTimeExtensionsTest
     {
         [Theory]
