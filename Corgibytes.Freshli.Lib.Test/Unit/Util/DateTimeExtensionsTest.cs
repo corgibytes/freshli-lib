@@ -9,7 +9,7 @@ namespace Corgibytes.Freshli.Lib.Test.Unit.Util
 {
     public class TestDateTimeOffsetExtensions
     {
-        public class ToEndOfDay: DateModificationExtensionMethodTestFixture<ToEndOfDay>
+        public class ToEndOfDay : DateModificationExtensionMethodTestFixture<ToEndOfDay>
         {
             public override DateTimeOffset InvokeMethod(DateTimeOffset value) => value.ToEndOfDay();
 
@@ -67,7 +67,7 @@ namespace Corgibytes.Freshli.Lib.Test.Unit.Util
         {
             public abstract DateTimeOffset InvokeMethod(DateTimeOffset value);
 
-            public abstract TheoryData<DateTimeOffset, DateTimeOffset, int>  DataForTestingExtensionMethod { get; }
+            public abstract TheoryData<DateTimeOffset, DateTimeOffset, int> DataForTestingExtensionMethod { get; }
 
             [Theory]
             [InstanceMemberData(nameof(DataForTestingExtensionMethod))]
