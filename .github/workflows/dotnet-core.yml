@@ -90,6 +90,11 @@ jobs:
     needs: build-matrix
     runs-on: ubuntu-20.04
     steps:
+      - name: Download Coverage Files
+        uses: actions/download-artifact@v2
+        with:
+          path: "${{github.workspace}}/coverage"
+
       # Only submit the test results on Code Climate on push.  When a dependabot PR
       # is created the submit to Code Climate will fail as the TEST_REPORTER_ID is not
       # available.
@@ -103,7 +108,7 @@ jobs:
           CC_TEST_REPORTER_ID: ${{ secrets.TEST_REPORTER_ID }}
         with:
           coverageLocations: |
-            ${{github.workspace}}/Corgibytes.Freshli.Lib.Test/coverage-*.info:lcov
+            ${{github.workspace}}/coverage/**/*.info:lcov
 
   publish:
     needs: build-matrix
