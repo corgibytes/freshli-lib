@@ -103,7 +103,7 @@ jobs:
       #
       - name: Submit Test Results to Code Climate
         if: ${{ !env.ACT && github.event_name == 'push' }}
-        uses: paambaati/codeclimate-action@v2.7.5
+        uses: paambaati/codeclimate-action@v3.0.0
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.TEST_REPORTER_ID }}
         with:
