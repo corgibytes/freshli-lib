@@ -27,7 +27,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
             );
 
             var results = _calculator.ComputeAsOf(
-              new DateTimeOffset(2017, 04, 01, 00, 00, 00, TimeSpan.Zero)
+                new DateTimeOffset(2017, 04, 01, 00, 00, 00, TimeSpan.Zero)
             );
 
             Assert.Equal(0.227, results.Total, 3);
@@ -35,24 +35,24 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
             Assert.Equal(0.0, results["mini_portile2"].Value, 3);
             Assert.Equal("2.1.0", results["mini_portile2"].Version);
             Assert.Equal(
-              new DateTimeOffset(2016, 01, 06, 19, 10, 42, TimeSpan.Zero),
-              results["mini_portile2"].PublishedAt
+                new DateTimeOffset(2016, 01, 06, 19, 10, 42, TimeSpan.Zero),
+                results["mini_portile2"].PublishedAt
             );
             Assert.Equal("2.1.0", results["mini_portile2"].LatestVersion);
             Assert.Equal(
-              new DateTimeOffset(2016, 01, 06, 19, 10, 42, TimeSpan.Zero),
-              results["mini_portile2"].LatestPublishedAt
+                new DateTimeOffset(2016, 01, 06, 19, 10, 42, TimeSpan.Zero),
+                results["mini_portile2"].LatestPublishedAt
             );
             Assert.False(results["mini_portile2"].UpgradeAvailable);
             Assert.Equal(0.227, results["nokogiri"].Value, 3);
             Assert.Equal("1.7.0", results["nokogiri"].Version);
             Assert.Equal(
-              new DateTimeOffset(2016, 12, 27, 03, 49, 28, TimeSpan.Zero),
-              results["nokogiri"].PublishedAt);
+                new DateTimeOffset(2016, 12, 27, 03, 49, 28, TimeSpan.Zero),
+                results["nokogiri"].PublishedAt);
             Assert.Equal("1.7.1", results["nokogiri"].LatestVersion);
             Assert.Equal(
-              new DateTimeOffset(2017, 03, 20, 03, 39, 14, TimeSpan.Zero),
-              results["nokogiri"].LatestPublishedAt);
+                new DateTimeOffset(2017, 03, 20, 03, 39, 14, TimeSpan.Zero),
+                results["nokogiri"].LatestPublishedAt);
             Assert.True(results["nokogiri"].UpgradeAvailable);
         }
 
@@ -60,12 +60,12 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
         public void ComputeAsOfSmallValue()
         {
             BuildBundlerManifestWithMiniPortileAndNokogiri(
-              miniPortileVersion: "2.1.0",
-              nokogiriVersion: "1.7.0"
+                miniPortileVersion: "2.1.0",
+                nokogiriVersion: "1.7.0"
             );
 
             var results = _calculator.ComputeAsOf(
-              new DateTimeOffset(2017, 02, 01, 00, 00, 00, TimeSpan.Zero)
+                new DateTimeOffset(2017, 02, 01, 00, 00, 00, TimeSpan.Zero)
             );
 
             Assert.Equal(0.022, results.Total, 3);
@@ -84,7 +84,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
             BuildBundlerManifestWithMiniPortileAndNokogiri();
 
             var results = _calculator.ComputeAsOf(
-              new DateTimeOffset(2018, 01, 01, 00, 00, 00, TimeSpan.Zero)
+                new DateTimeOffset(2018, 01, 01, 00, 00, 00, TimeSpan.Zero)
             );
 
             Assert.Equal(0, results.Total, 3);
@@ -103,7 +103,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
             BuildBundlerManifestWithMiniPortileAndNokogiri();
 
             var results = _calculator.ComputeAsOf(
-              new DateTimeOffset(2018, 02, 01, 00, 00, 00, TimeSpan.FromHours(-5))
+                new DateTimeOffset(2018, 02, 01, 00, 00, 00, TimeSpan.FromHours(-5))
             );
 
             Assert.Equal(0.361, results.Total, 3);
@@ -119,12 +119,13 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
         [Fact]
         public void ComputeAsOfWithNoNewerMinorReleases()
         {
-            BuildBundlerManifest(new Dictionary<string, string> {
-        {"tzinfo", "0.3.38"}
-      });
+            BuildBundlerManifest(new Dictionary<string, string>
+            {
+                {"tzinfo", "0.3.38"}
+            });
 
             var results = _calculator.ComputeAsOf(
-              new DateTimeOffset(2014, 03, 01, 00, 00, 00, TimeSpan.Zero)
+                new DateTimeOffset(2014, 03, 01, 00, 00, 00, TimeSpan.Zero)
             );
 
             Assert.Equal(0, results.Total);
@@ -136,9 +137,10 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
         [Fact]
         public void ComputeAsOfWithNewerMinorReleases()
         {
-            BuildBundlerManifest(new Dictionary<string, string> {
-        {"tzinfo", "0.3.38"}
-      });
+            BuildBundlerManifest(new Dictionary<string, string>
+            {
+                {"tzinfo", "0.3.38"}
+            });
 
             var results = _calculator.ComputeAsOf(
               new DateTimeOffset(2014, 04, 01, 00, 00, 00, TimeSpan.Zero)
@@ -153,25 +155,26 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
         [Fact]
         public void ComputeAsOfWithPreReleaseVersion()
         {
-            BuildBundlerManifest(new Dictionary<string, string> {
-        {"google-protobuf", "3.12.0.rc.1"}
-      });
+            BuildBundlerManifest(new Dictionary<string, string>
+            {
+                {"google-protobuf", "3.12.0.rc.1"}
+            });
 
             var results = _calculator.ComputeAsOf(
-              new DateTimeOffset(2020, 06, 01, 00, 00, 00, TimeSpan.Zero)
+                new DateTimeOffset(2020, 06, 01, 00, 00, 00, TimeSpan.Zero)
             );
 
             Assert.Equal(0.063, results.Total, 3);
             Assert.Equal(0.063, results["google-protobuf"].Value, 3);
             Assert.Equal("3.12.0.rc.1", results["google-protobuf"].Version);
             Assert.Equal(
-              new DateTimeOffset(2020, 05, 04, 22, 46, 23, TimeSpan.Zero),
-              results["google-protobuf"].PublishedAt
+                new DateTimeOffset(2020, 05, 04, 22, 46, 23, TimeSpan.Zero),
+                results["google-protobuf"].PublishedAt
             );
             Assert.Equal("3.12.2", results["google-protobuf"].LatestVersion);
             Assert.Equal(
-              new DateTimeOffset(2020, 05, 27, 18, 50, 26, TimeSpan.Zero),
-              results["google-protobuf"].LatestPublishedAt
+                new DateTimeOffset(2020, 05, 27, 18, 50, 26, TimeSpan.Zero),
+                results["google-protobuf"].LatestPublishedAt
             );
             Assert.True(results["google-protobuf"].UpgradeAvailable);
         }
@@ -179,41 +182,41 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
         [Fact]
         public void ComputeAsOfWithLatestVersionBeingPreReleaseVersion()
         {
-            BuildBundlerManifest(new Dictionary<string, string> {
-        {"google-protobuf", "3.10.0.rc.1"}
-      });
+            BuildBundlerManifest(new Dictionary<string, string>
+            {
+                {"google-protobuf", "3.10.0.rc.1"}
+            });
 
             var results = _calculator.ComputeAsOf(
-              new DateTimeOffset(2019, 11, 25, 00, 00, 00, TimeSpan.FromHours(-5))
+                new DateTimeOffset(2019, 11, 25, 00, 00, 00, TimeSpan.FromHours(-5))
             );
 
             Assert.Equal(0.214, results.Total, 3);
             Assert.Equal(0.214, results["google-protobuf"].Value, 3);
             Assert.Equal("3.10.0.rc.1", results["google-protobuf"].Version);
             Assert.Equal(
-              new DateTimeOffset(2019, 09, 05, 19, 43, 14, TimeSpan.Zero),
-              results["google-protobuf"].PublishedAt
+                new DateTimeOffset(2019, 09, 05, 19, 43, 14, TimeSpan.Zero),
+                results["google-protobuf"].PublishedAt
             );
             Assert.Equal("3.11.0.rc.2", results["google-protobuf"].LatestVersion);
             Assert.Equal(
-              new DateTimeOffset(2019, 11, 23, 00, 10, 38, TimeSpan.Zero),
-              results["google-protobuf"].LatestPublishedAt
+                new DateTimeOffset(2019, 11, 23, 00, 10, 38, TimeSpan.Zero),
+                results["google-protobuf"].LatestPublishedAt
             );
             Assert.True(results["google-protobuf"].UpgradeAvailable);
         }
 
         private void BuildBundlerManifestWithMiniPortileAndNokogiri(
-          string miniPortileVersion = "2.3.0", string nokogiriVersion = "1.8.1")
+            string miniPortileVersion = "2.3.0", string nokogiriVersion = "1.8.1")
         {
-            BuildBundlerManifest(
-              new Dictionary<string, string> {
-          {"mini_portile2", miniPortileVersion}, {"nokogiri", nokogiriVersion}
-              }
-            );
+            BuildBundlerManifest(new Dictionary<string, string>
+            {
+                {"mini_portile2", miniPortileVersion}, {"nokogiri", nokogiriVersion}
+            });
         }
 
         private void BuildBundlerManifest(
-          Dictionary<string, string> packagesAndVersions
+            Dictionary<string, string> packagesAndVersions
         )
         {
             _manifest.Clear();
