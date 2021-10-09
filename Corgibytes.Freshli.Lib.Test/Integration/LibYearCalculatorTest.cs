@@ -21,10 +21,10 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
         [Fact]
         public void ComputeAsOf()
         {
-            BuildBundlerManifest(new Dictionary<string, string> {
-        {"mini_portile2", "2.1.0"},
-        {"nokogiri", "1.7.0"}
-      });
+            BuildBundlerManifestWithMiniPortileAndNokogiri(
+                miniPortileVersion: "2.1.0",
+                nokogiriVersion: "1.7.0"
+            );
 
             var results = _calculator.ComputeAsOf(
               new DateTimeOffset(2017, 04, 01, 00, 00, 00, TimeSpan.Zero)
