@@ -199,26 +199,11 @@ namespace Corgibytes.Freshli.Lib.Test.Unit.Util
                 int[] targetDateComponents,
                 int comparison)
             {
-                var inputDate = BuildDateTimeOffset(inputDateComponents);
-                var targetDate = BuildDateTimeOffset(targetDateComponents);
+                var inputDate = DateBuilder.BuildDateTimeOffsetFromParts(inputDateComponents);
+                var targetDate = DateBuilder.BuildDateTimeOffsetFromParts(targetDateComponents);
                 var transformedInputDate = InvokeMethod(inputDate);
 
                 Assert.Equal(comparison, transformedInputDate.CompareTo(targetDate));
-            }
-
-            protected static DateTimeOffset BuildDateTimeOffset(int[] dateArguments)
-            {
-                var inputDate = new DateTimeOffset(
-                    dateArguments[0],
-                    dateArguments[1],
-                    dateArguments[2],
-                    dateArguments[3],
-                    dateArguments[4],
-                    dateArguments[5],
-                    dateArguments[6],
-                    TimeSpan.Zero
-                ).AddTicks(dateArguments[7]);
-                return inputDate;
             }
         }
     }
