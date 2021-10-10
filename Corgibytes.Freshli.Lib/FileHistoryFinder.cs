@@ -4,6 +4,7 @@ using System.IO;
 
 namespace Corgibytes.Freshli.Lib
 {
+    // TODO: Rename this to FileHistoryService
     public class FileHistoryFinder
     {
         private readonly string _projectRootPath;
@@ -18,6 +19,8 @@ namespace Corgibytes.Freshli.Lib
         {
             _projectRootPath = projectRootPath;
             Finder = new LocalFileHistoryFinder();
+
+            // Move this logic out of the constructor. Put it in an async method.
             foreach (var finder in Finders.ToImmutableList())
             {
                 if (finder.DoesPathContainHistorySource(projectRootPath))
@@ -28,8 +31,12 @@ namespace Corgibytes.Freshli.Lib
             }
         }
 
+        // TODO: Make an async version of this method
         public IFileHistory FileHistoryOf(string targetFile)
         {
+            // Call the method that's been extracted from the constructor from here
+            // We it probably makes sense to cache/memoize the result.
+
             return Finder.FileHistoryOf(_projectRootPath, targetFile);
         }
 

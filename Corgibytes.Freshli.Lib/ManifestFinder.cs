@@ -7,6 +7,7 @@ using NLog;
 
 namespace Corgibytes.Freshli.Lib
 {
+    // TODO: Rename this to ManifestService
     public class ManifestFinder
     {
         private static readonly Logger logger = LogManager.GetCurrentClassLogger();

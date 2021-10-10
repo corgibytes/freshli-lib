@@ -5,6 +5,7 @@ namespace Corgibytes.Freshli.Lib
 {
     public static class FileSystemInfoExtensions
     {
+        // TODO: create an async version of the method
         // source: https://stackoverflow.com/a/648055/243215
         // author: Vitaliy Ulantikov
         // modifications: does not descend into symbolic link directories

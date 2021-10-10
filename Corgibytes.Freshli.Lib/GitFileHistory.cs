@@ -16,6 +16,7 @@ namespace Corgibytes.Freshli.Lib
 
         public GitFileHistory(string repositoryPath, string targetFile)
         {
+            // Move this logic out of the constructor and into an async method
             if (!Directory.Exists(repositoryPath))
             {
                 var uniqueTempDir = Path.GetFullPath(
@@ -115,6 +116,8 @@ namespace Corgibytes.Freshli.Lib
         }
     }
 
+    // TODO: Give this class a better name and put it in its own file
+    // Something like `FileHistoryEntry`?
     public class FileHistory
     {
         public DateTime Date;
