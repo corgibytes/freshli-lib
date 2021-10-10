@@ -18,6 +18,7 @@ namespace Corgibytes.Freshli.Lib
             Manifest = manifest;
         }
 
+        // TODO: Convert to asnyc method
         public LibYearResult ComputeAsOf(DateTime date)
         {
             var result = new LibYearResult();
@@ -54,6 +55,7 @@ namespace Corgibytes.Freshli.Lib
             return result;
         }
 
+        // TODO: Convert to async method
         private void GetVersions(
           DateTime date,
           PackageInfo package,
@@ -73,6 +75,7 @@ namespace Corgibytes.Freshli.Lib
               Repository.Latest(package.Name, date, currentVersion.IsPreRelease);
         }
 
+        // TODO: Convert to async method
         private LibYearPackageResult ProcessPackageResult(
           DateTime date,
           PackageInfo package,
@@ -112,6 +115,7 @@ namespace Corgibytes.Freshli.Lib
             return packageResult;
         }
 
+        // TODO: Convert to async method
         public static double Compute(
           IVersionInfo olderVersion, IVersionInfo newerVersion)
         {
@@ -119,6 +123,7 @@ namespace Corgibytes.Freshli.Lib
               TotalDays / 365.0;
         }
 
+        // TODO: Convert to async method
         private static void HandleFailedPackage(
           LibYearResult result,
           PackageInfo package,
@@ -140,6 +145,7 @@ namespace Corgibytes.Freshli.Lib
             _logger.Trace(e.StackTrace);
         }
 
+        // TODO: Convert to asnyc method
         private LibYearPackageResult ComputeUsingVersionsBetween(string name,
           DateTime asOf, IVersionInfo currentVersion, IVersionInfo latestVersion)
         {
