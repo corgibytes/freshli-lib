@@ -40,12 +40,12 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Ruby
         [Theory(Skip = "Skipping")]
         [InlineData(null, null, null)]
         public override void LatestWithMatchExpression(
-          object[] _methodParams,
-          string _expectedVersion,
-          int[] _expectedDateParts
+            object[] _methodParams,
+            string _expectedVersion,
+            int[] _expectedDateParts
         )
         {
-            // Initially empty method body. And all attributes removed to
+            // Intentionally empty method body. And all attributes removed to
             // prevent the test from running. The `RubyGemsRepository` doesn't
             // implement this overloaded form of the `Latest` method.
         }
