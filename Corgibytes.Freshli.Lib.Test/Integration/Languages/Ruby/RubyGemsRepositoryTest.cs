@@ -39,6 +39,9 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Ruby
 
         [Theory(Skip = "Skipping")]
         [InlineData(null, null, null)]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage(
+            "Warning", "xUnit1026",
+            Justification = "Inentionally empty method")]
         public override void LatestWithMatchExpression(
             object[] _methodParams,
             string _expectedVersion,

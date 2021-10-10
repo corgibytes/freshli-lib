@@ -45,6 +45,9 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Php
 
         [Theory(Skip = "Skipping")]
         [InlineData(null, null, null)]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage(
+            "Warning", "xUnit1026",
+            Justification = "Inentionally empty method")]
         public override void LatestWithMatchExpression(
           object[] _methodParams,
           string _expectedVersion,
@@ -57,6 +60,9 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Php
 
         [Theory(Skip = "Skipping")]
         [InlineData(null, null)]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage(
+            "Warning", "xUnit1026",
+            Justification = "Inentionally empty method")]
         public override void VersionsBetween(object[] methodParams, int expectedVersionCount)
         {
             // Initially empty method body. The `MulticastComposerRepository` doesn't
