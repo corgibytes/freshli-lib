@@ -59,7 +59,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Php
         }
 
         [Theory(Skip = "Skipping")]
-        [InlineData(null, null)]
+        [InlineData(null, 0)]
         [System.Diagnostics.CodeAnalysis.SuppressMessage(
             "Warning", "xUnit1026",
             Justification = "Inentionally empty method")]
