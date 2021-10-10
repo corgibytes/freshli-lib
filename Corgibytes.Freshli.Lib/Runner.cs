@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Corgibytes.Freshli.Lib.Util;
 using NLog;
 
@@ -90,7 +91,7 @@ namespace Corgibytes.Freshli.Lib
 
             var sha = fileHistory.ShaAsOf(currentDate);
 
-            LibYearResult libYear = calculator.ComputeAsOf(currentDate);
+            Task<LibYearResult> libYear = calculator.ComputeAsOf(currentDate);
             logger.Trace(
               "Adding MetricResult: {manifestFile}, " +
               "currentDate = {currentDate:d}, " +
@@ -99,10 +100,10 @@ namespace Corgibytes.Freshli.Lib
               ManifestFinder.ManifestFiles[0],
               currentDate,
               sha,
-              libYear.Total
+              libYear.Result.Total
             );
 
-            return new MetricsResult(currentDate, sha, libYear);
+            return new MetricsResult(currentDate, sha, libYear.Result);
         }
 
         private static void WriteResultsToFile(IList<ScanResult> results)

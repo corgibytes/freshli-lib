@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using NLog;
 
 namespace Corgibytes.Freshli.Lib
@@ -19,51 +21,59 @@ namespace Corgibytes.Freshli.Lib
         }
 
         // TODO: Convert to asnyc method
-        public LibYearResult ComputeAsOf(DateTime date)
+        public async Task<LibYearResult> ComputeAsOf(DateTime date)
         {
             var result = new LibYearResult();
 
+            var collectedVersions = new Dictionary<PackageInfo, Task<VersionSet>>();
+
             foreach (var package in Manifest)
             {
-                IVersionInfo latestVersion;
-                IVersionInfo currentVersion;
+                collectedVersions.Add(package, GetVersions(date, package));
+            }
 
-                try
-                {
-                    GetVersions(date, package, out latestVersion, out currentVersion);
-                }
-                catch (Exception e)
-                {
-                    HandleFailedPackage(result, package, e);
-                    continue;
-                }
+            var tasks = new Task<VersionSet>[collectedVersions.Values.Count];
+            collectedVersions.Values.CopyTo(tasks, 0);
 
-                if (latestVersion == null || currentVersion == null)
-                {
-                    continue;
-                }
+            await Task.WhenAll(tasks);
 
-                var packageResult = ProcessPackageResult(
-                    date,
-                    package,
-                    latestVersion,
-                    currentVersion
-                );
-                result.Add(packageResult);
+            foreach (var entry in collectedVersions)
+            {
+                if (entry.Value.IsCompletedSuccessfully)
+                {
+                    var versionSet = entry.Value.Result;
+                    if (versionSet.Latest == null && versionSet.Current == null)
+                    {
+                        // TODO: Put this in the debug log
+                        continue;
+                    }
+                    result.Add(
+                        ProcessPackageResult(date, entry.Key, versionSet.Latest, versionSet.Current)
+                    );
+                }
+                else
+                {
+                    HandleFailedPackage(result, entry.Key, entry.Value.Exception);
+                }
             }
 
             return result;
         }
 
+        record VersionSet
+        {
+            internal PackageInfo Package;
+            internal IVersionInfo Latest;
+            internal IVersionInfo Current;
+        }
+
         // TODO: Convert to async method
-        private void GetVersions(
-          DateTime date,
-          PackageInfo package,
-          out IVersionInfo latestVersion,
-          out IVersionInfo currentVersion
+        private async Task<VersionSet> GetVersions(
+            DateTime date,
+            PackageInfo package
         )
         {
-            currentVersion = Manifest.UsesExactMatches ?
+            var currentVersion = Manifest.UsesExactMatches ?
                         Repository.VersionInfo(package.Name, package.Version) :
                         Repository.Latest(
                           package.Name,
@@ -71,8 +81,15 @@ namespace Corgibytes.Freshli.Lib
                           thatMatches: package.Version
                         );
 
-            latestVersion =
-              Repository.Latest(package.Name, date, currentVersion.IsPreRelease);
+            var latestVersion =
+                Repository.Latest(package.Name, date, currentVersion.IsPreRelease);
+
+            return new VersionSet()
+            {
+                Current = currentVersion,
+                Latest = latestVersion,
+                Package = package
+            };
         }
 
         // TODO: Convert to async method

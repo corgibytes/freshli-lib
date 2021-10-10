@@ -10,7 +10,7 @@ namespace Corgibytes.Freshli.Lib
         private readonly string _projectRootPath;
 
         private static readonly IList<IFileHistoryFinder> _finders =
-          new List<IFileHistoryFinder>();
+            new List<IFileHistoryFinder>();
 
         public static IList<IFileHistoryFinder> Finders => _finders;
         public IFileHistoryFinder Finder { get; }
@@ -40,8 +40,7 @@ namespace Corgibytes.Freshli.Lib
             return Finder.FileHistoryOf(_projectRootPath, targetFile);
         }
 
-        public static void Register<TFinder>()
-          where TFinder : IFileHistoryFinder, new()
+        public static void Register<TFinder>() where TFinder : IFileHistoryFinder, new()
         {
             Finders.Add(new TFinder());
         }
