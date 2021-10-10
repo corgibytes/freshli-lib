@@ -74,7 +74,7 @@ namespace Corgibytes.Freshli.Lib
         {
             var currentVersion = Manifest.UsesExactMatches ?
                 (await Repository.VersionInfo(package.Name, package.Version)) :
-                Repository.Latest(package.Name,asOf: date,thatMatches: package.Version);
+                Repository.Latest(package.Name, asOf: date, thatMatches: package.Version);
 
             var latestVersion =
                 Repository.Latest(package.Name, date, currentVersion.IsPreRelease);

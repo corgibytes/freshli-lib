@@ -37,7 +37,7 @@ namespace Corgibytes.Freshli.Lib.Languages.Perl
                         fields = new[] { "distribution", "date", "version" },
                         filter = new { term = new { distribution = name.Replace("::", "-") } },
                         sort = new[] { new { date = new { order = "desc" } } }
-                   }
+                    }
                 )
             );
 
