@@ -7,7 +7,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
     public class PackagistRepositoryTest
     {
         [Fact]
-        public void VersionInfo()
+        public async void VersionInfo()
         {
             var phpFixturePath = Fixtures.Path("php", "small");
             var fileFinder = new FileHistoryFinder(phpFixturePath);
@@ -15,7 +15,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
               phpFixturePath,
               fileFinder.Finder
             );
-            var versionInfo = repository.VersionInfo("monolog/monolog", "1.11.0");
+            var versionInfo = await repository.VersionInfo("monolog/monolog", "1.11.0");
 
             Assert.Equal(new DateTime(2014, 09, 30), versionInfo.DatePublished);
         }

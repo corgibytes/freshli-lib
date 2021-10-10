@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using Corgibytes.Freshli.Lib.Exceptions;
 using HtmlAgilityPack;
 using NLog;
@@ -13,9 +14,9 @@ namespace Corgibytes.Freshli.Lib.Languages.Python
 
         private static readonly Logger _logger = LogManager.GetCurrentClassLogger();
         private IDictionary<string, IList<IVersionInfo>> _packages =
-          new Dictionary<string, IList<IVersionInfo>>();
+            new Dictionary<string, IList<IVersionInfo>>();
 
-        private IList<IVersionInfo> GetReleaseHistory(string name)
+        private async Task<IList<IVersionInfo>> GetReleaseHistory(string name)
         {
             try
             {
@@ -26,19 +27,19 @@ namespace Corgibytes.Freshli.Lib.Languages.Python
 
                 var url = $"https://pypi.org/p/{name}";
                 var web = new HtmlWeb();
-                var doc = web.Load(url);
+                var doc = await web.LoadFromWebAsync(url);
 
                 var versions = new List<IVersionInfo>();
 
                 var releaseNodes = doc.DocumentNode.Descendants("div").
-                  Where(div => div.HasClass("release"));
+                    Where(div => div.HasClass("release"));
 
                 foreach (var releaseNode in releaseNodes)
                 {
                     var versionNode = releaseNode.Descendants("p").
-                      First(p => p.HasClass("release__version"));
+                        First(p => p.HasClass("release__version"));
                     var rawVersion = Regex.Replace(versionNode.InnerText, @"\s+", " ").
-                      Trim();
+                        Trim();
 
                     var versionSplits = rawVersion.Split(' ');
 
@@ -51,7 +52,7 @@ namespace Corgibytes.Freshli.Lib.Languages.Python
 
                     var dateNode = releaseNode.Descendants("time").First();
                     var versionDate = DateTime.Parse(
-                      dateNode.Attributes["datetime"].Value).ToUniversalTime();
+                        dateNode.Attributes["datetime"].Value).ToUniversalTime();
 
                     try
                     {
@@ -60,7 +61,7 @@ namespace Corgibytes.Freshli.Lib.Languages.Python
                     catch (VersionParseException e)
                     {
                         _logger.Warn(
-                          $"Error adding version to {name} release history: {e.Message}");
+                            $"Error adding version to {name} release history: {e.Message}");
                     }
                 }
 
@@ -75,14 +76,14 @@ namespace Corgibytes.Freshli.Lib.Languages.Python
 
         //TODO: Update logic to utilize includePreReleases
         public IVersionInfo Latest(
-          string name,
-          DateTime asOf,
-          bool includePreReleases)
+            string name,
+            DateTime asOf,
+            bool includePreReleases)
         {
             try
             {
-                return GetReleaseHistory(name).OrderByDescending(v => v).
-                  First(v => asOf >= v.DatePublished);
+                return GetReleaseHistory(name).Result.OrderByDescending(v => v).
+                    First(v => asOf >= v.DatePublished);
             }
             catch (VersionParseException)
             {
@@ -94,9 +95,9 @@ namespace Corgibytes.Freshli.Lib.Languages.Python
             }
         }
 
-        public IVersionInfo VersionInfo(string name, string version)
+        public async Task<IVersionInfo> VersionInfo(string name, string version)
         {
-            return GetReleaseHistory(name).First(v => v.Version == version);
+            return (await GetReleaseHistory(name)).First(v => v.Version == version);
         }
 
         public IVersionInfo Latest(string name, DateTime asOf, string thatMatches)
@@ -104,7 +105,7 @@ namespace Corgibytes.Freshli.Lib.Languages.Python
             try
             {
                 var expression = VersionMatcher.Create(thatMatches);
-                return GetReleaseHistory(name).OrderByDescending(v => v).
+                return GetReleaseHistory(name).Result.OrderByDescending(v => v).
                   Where(v => v.DatePublished <= asOf).
                   First(v => expression.DoesMatch(v));
             }
@@ -130,15 +131,16 @@ namespace Corgibytes.Freshli.Lib.Languages.Python
             try
             {
                 return GetReleaseHistory(name).
-                  OrderByDescending(v => v).
-                  Where(v => v.DatePublished <= asOf).
-                  Where(predicate: v => v.CompareTo(earlierVersion) == 1).
-                  Where(predicate: v => v.CompareTo(laterVersion) == -1).ToList();
+                    Result.
+                    OrderByDescending(v => v).
+                    Where(v => v.DatePublished <= asOf).
+                    Where(predicate: v => v.CompareTo(earlierVersion) == 1).
+                    Where(predicate: v => v.CompareTo(laterVersion) == -1).ToList();
             }
             catch (Exception e)
             {
                 throw new VersionsBetweenNotFoundException(
-                  name, earlierVersion.Version, laterVersion.Version, e);
+                    name, earlierVersion.Version, laterVersion.Version, e);
             }
         }
 

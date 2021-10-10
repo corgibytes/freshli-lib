@@ -67,19 +67,14 @@ namespace Corgibytes.Freshli.Lib
             internal IVersionInfo Current;
         }
 
-        // TODO: Convert to async method
         private async Task<VersionSet> GetVersions(
             DateTime date,
             PackageInfo package
         )
         {
             var currentVersion = Manifest.UsesExactMatches ?
-                        Repository.VersionInfo(package.Name, package.Version) :
-                        Repository.Latest(
-                          package.Name,
-                          asOf: date,
-                          thatMatches: package.Version
-                        );
+                (await Repository.VersionInfo(package.Name, package.Version)) :
+                Repository.Latest(package.Name,asOf: date,thatMatches: package.Version);
 
             var latestVersion =
                 Repository.Latest(package.Name, date, currentVersion.IsPreRelease);

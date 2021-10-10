@@ -8,10 +8,10 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Ruby
     {
 
         [Fact]
-        public void VersionInfoCorrectlyCreatesVersion()
+        public async void VersionInfoCorrectlyCreatesVersion()
         {
             var repository = new RubyGemsRepository();
-            var versionInfo = repository.VersionInfo("tzinfo", "1.2.7");
+            var versionInfo = await repository.VersionInfo("tzinfo", "1.2.7");
             var expectedDate = new DateTime(2020, 04, 02);
 
             Assert.Equal("1.2.7", versionInfo.Version);
@@ -19,10 +19,10 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Ruby
         }
 
         [Fact]
-        public void VersionInfoCorrectlyCreatesPreReleaseVersion()
+        public async void VersionInfoCorrectlyCreatesPreReleaseVersion()
         {
             var repository = new RubyGemsRepository();
-            var versionInfo = repository.VersionInfo("git", "1.6.0.pre1");
+            var versionInfo = await repository.VersionInfo("git", "1.6.0.pre1");
             var expectedDate = new DateTime(2020, 01, 20);
 
             Assert.Equal("1.6.0.pre1", versionInfo.Version);

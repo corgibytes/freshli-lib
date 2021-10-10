@@ -7,19 +7,11 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Python
     public class PyPIRepositoryTest
     {
         [Fact]
-        public void VersionInfo()
+        public async void VersionInfo()
         {
             var repository = new PyPIRepository();
-            var versionInfo = repository.VersionInfo("numpy", "0.9.6");
-            var expectedDate = new DateTime(
-              2006,
-              03,
-              14,
-              10,
-              11,
-              55,
-              DateTimeKind.Utc
-            );
+            var versionInfo = await repository.VersionInfo("numpy", "0.9.6");
+            var expectedDate = new DateTime(2006, 03, 14, 10, 11, 55, DateTimeKind.Utc);
 
             Assert.Equal("0.9.6", versionInfo.Version);
             Assert.Equal(expectedDate, versionInfo.DatePublished);

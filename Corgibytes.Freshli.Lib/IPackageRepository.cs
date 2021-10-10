@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Corgibytes.Freshli.Lib
 {
     public interface IPackageRepository
     {
-        // TODO: Create an async version of this method
-        IVersionInfo VersionInfo(string name, string version);
+        Task<IVersionInfo> VersionInfo(string name, string version);
         // TODO: Create an async version of this method
         IVersionInfo Latest(string name, DateTime asOf, bool includePreReleases);
         // TODO: Create an async version of this method

@@ -11,9 +11,9 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.CSharp
         private NuGetRepository _repository = new NuGetRepository();
 
         [Fact]
-        public void VersionInfo()
+        public async void VersionInfo()
         {
-            var versionInfo = _repository.VersionInfo("Newtonsoft.Json", "12.0.3");
+            var versionInfo = await _repository.VersionInfo("Newtonsoft.Json", "12.0.3");
             var expectedDate =
               new DateTime(2019, 11, 09, 01, 27, 30, 723, DateTimeKind.Utc);
 
@@ -22,10 +22,10 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.CSharp
         }
 
         [Fact]
-        public void VersionInfoThrowsExceptionIfNotFound()
+        public async void VersionInfoThrowsExceptionIfNotFound()
         {
-            Assert.Throws<VersionNotFoundException>(testCode: () =>
-              new NuGetRepository().VersionInfo("Newtonsoft.Json", "12.0.900"));
+            await Assert.ThrowsAsync<VersionNotFoundException>(testCode: () =>
+                new NuGetRepository().VersionInfo("Newtonsoft.Json", "12.0.900"));
         }
 
         [Fact]

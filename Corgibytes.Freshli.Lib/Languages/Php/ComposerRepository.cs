@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using NLog;
 using RestSharp;
 
@@ -13,7 +14,7 @@ namespace Corgibytes.Freshli.Lib.Languages.Php
         private readonly string _baseUrl;
 
         private Dictionary<string, string> _packageInfoCache =
-          new Dictionary<string, string>();
+            new Dictionary<string, string>();
 
         private static readonly Logger _logger = LogManager.GetCurrentClassLogger();
 
@@ -24,17 +25,20 @@ namespace Corgibytes.Freshli.Lib.Languages.Php
 
         //TODO: Update logic to utilize includePreReleases
         public IVersionInfo Latest(
-          string name,
-          DateTime asOf,
-          bool includePreReleases)
+            string name,
+            DateTime asOf,
+            bool includePreReleases)
         {
-            var content = FetchPackageInfo(name);
-            if (content == null) return null;
+            var content = FetchPackageInfo(name).Result;
+            if (content == null)
+            {
+                return null;
+            }
 
             using var responseJson = JsonDocument.Parse(content);
             if (!responseJson.RootElement.TryGetProperty(
-              "packages",
-              out var packagesJson
+                "packages",
+                out var packagesJson
             ))
             {
                 return null;
@@ -96,15 +100,15 @@ namespace Corgibytes.Freshli.Lib.Languages.Php
             return result.Date;
         }
 
-        public IVersionInfo VersionInfo(string name, string version)
+        public async Task<IVersionInfo> VersionInfo(string name, string version)
         {
-            var content = FetchPackageInfo(name);
+            var content = await FetchPackageInfo(name);
             if (content == null) return null;
 
             using var responseJson = JsonDocument.Parse(content);
             if (!responseJson.RootElement.TryGetProperty(
-              "packages",
-              out var packagesJson
+                "packages",
+                out var packagesJson
             ))
             {
                 return null;
@@ -141,38 +145,38 @@ namespace Corgibytes.Freshli.Lib.Languages.Php
             throw new NotImplementedException();
         }
 
-        private string FetchPackageInfo(string name)
+        private async Task<string> FetchPackageInfo(string name)
         {
             if (!_packageInfoCache.ContainsKey(name))
             {
-                var packageListing = Request("/packages.json");
+                var packageListing = await Request("/packages.json");
 
                 using var packageJson = JsonDocument.Parse(packageListing);
                 var urlTemplate = packageJson.RootElement.GetProperty("providers-url").
-                  GetString();
+                    GetString();
 
                 var providerIncludes = packageJson.RootElement.
-                  GetProperty("provider-includes").EnumerateObject();
+                    GetProperty("provider-includes").EnumerateObject();
                 foreach (var providerInclude in providerIncludes)
                 {
                     var providerName = providerInclude.Name;
                     var providerHash = providerInclude.Value.GetProperty("sha256").
-                      GetString();
+                        GetString();
 
                     var providerListing =
-                      Request($"/{providerName.Replace("%hash%", providerHash)}");
+                        await Request($"/{providerName.Replace("%hash%", providerHash)}");
                     using var providerListingJson = JsonDocument.Parse(providerListing);
                     JsonElement packageProvider;
                     if (providerListingJson.RootElement.GetProperty("providers").
-                      TryGetProperty(name, out packageProvider))
+                        TryGetProperty(name, out packageProvider))
                     {
                         var packageHash = packageProvider.GetProperty("sha256").GetString();
                         var packageUrl = urlTemplate.
-                          Replace("%package%", name).
-                          Replace("%hash%", packageHash);
-                        var packageDetails = Request($"/{packageUrl}");
+                            Replace("%package%", name).
+                            Replace("%hash%", packageHash);
+                        var packageDetails = await Request($"/{packageUrl}");
                         _logger.Trace(
-                          $"{name} package info loaded from {_baseUrl}{packageUrl}"
+                            $"{name} package info loaded from {_baseUrl}{packageUrl}"
                         );
 
                         _packageInfoCache[name] = packageDetails;
@@ -192,13 +196,13 @@ namespace Corgibytes.Freshli.Lib.Languages.Php
         private Dictionary<string, string> _requestCache =
           new Dictionary<string, string>();
 
-        private string Request(string url)
+        private async Task<string> Request(string url)
         {
             if (!_requestCache.ContainsKey(url))
             {
                 var client = new RestClient(_baseUrl);
                 var request = new RestRequest(url);
-                var response = client.Execute(request);
+                var response = await client.ExecuteAsync(request);
 
                 _requestCache[url] = response.Content;
             }

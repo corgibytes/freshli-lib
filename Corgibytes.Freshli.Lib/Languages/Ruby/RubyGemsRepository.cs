@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Corgibytes.Freshli.Lib.Exceptions;
 using HtmlAgilityPack;
 
@@ -8,18 +9,17 @@ namespace Corgibytes.Freshli.Lib.Languages.Ruby
 {
     public class RubyGemsRepository : IPackageRepository
     {
-
         private IDictionary<string, IList<IVersionInfo>> _packages =
-          new Dictionary<string, IList<IVersionInfo>>();
+            new Dictionary<string, IList<IVersionInfo>>();
 
-        private IEnumerable<IVersionInfo> GetReleaseHistory(
-          string name,
-          bool includePreReleaseVersions)
+        private async Task<IEnumerable<IVersionInfo>> GetReleaseHistory(
+            string name,
+            bool includePreReleaseVersions)
         {
             try
             {
                 var keySuffix =
-                  includePreReleaseVersions ? "-with-pre-releases" : "";
+                    includePreReleaseVersions ? "-with-pre-releases" : "";
                 var key = $"{name}{keySuffix}";
                 if (_packages.ContainsKey(key))
                 {
@@ -28,11 +28,11 @@ namespace Corgibytes.Freshli.Lib.Languages.Ruby
 
                 var url = $"https://rubygems.org/gems/{name}/versions";
                 var web = new HtmlWeb();
-                var document = web.Load(url);
+                var document = await web.LoadFromWebAsync(url);
                 var versions = new List<IVersionInfo>();
 
                 var releaseNodes = document.DocumentNode.Descendants("li").
-                  Where(li => li.HasClass("gem__version-wrap"));
+                    Where(li => li.HasClass("gem__version-wrap"));
 
                 foreach (var releaseNode in releaseNodes)
                 {
@@ -49,15 +49,16 @@ namespace Corgibytes.Freshli.Lib.Languages.Ruby
         }
 
         public IVersionInfo Latest(
-          string name,
-          DateTime asOf,
-          bool includePreReleases)
+            string name,
+            DateTime asOf,
+            bool includePreReleases)
         {
             try
             {
                 return GetReleaseHistory(name, includePreReleases).
-                  OrderByDescending(v => v).
-                  First(v => asOf >= v.DatePublished);
+                    Result.
+                    OrderByDescending(v => v).
+                    First(v => asOf >= v.DatePublished);
             }
             catch (Exception e)
             {
@@ -65,11 +66,11 @@ namespace Corgibytes.Freshli.Lib.Languages.Ruby
             }
         }
 
-        public IVersionInfo VersionInfo(string name, string version)
+        public async Task<IVersionInfo> VersionInfo(string name, string version)
         {
             try
             {
-                return GetReleaseHistory(name, includePreReleaseVersions: true).
+                return (await GetReleaseHistory(name, includePreReleaseVersions: true)).
                   First(v => v.Version == version);
             }
             catch (Exception e)
@@ -79,32 +80,33 @@ namespace Corgibytes.Freshli.Lib.Languages.Ruby
         }
 
         public IVersionInfo Latest(
-          string name,
-          DateTime asOf,
-          string thatMatches)
+            string name,
+            DateTime asOf,
+            string thatMatches)
         {
             throw new NotImplementedException();
         }
 
         public List<IVersionInfo> VersionsBetween(
-          string name,
-          DateTime asOf,
-          IVersionInfo earlierVersion,
-          IVersionInfo laterVersion,
-          bool includePreReleases)
+            string name,
+            DateTime asOf,
+            IVersionInfo earlierVersion,
+            IVersionInfo laterVersion,
+            bool includePreReleases)
         {
             try
             {
                 return GetReleaseHistory(name, includePreReleases).
-                  OrderByDescending(v => v).
-                  Where(v => asOf >= v.DatePublished).
-                  Where(predicate: v => v.CompareTo(earlierVersion) == 1).
-                  Where(predicate: v => v.CompareTo(laterVersion) == -1).ToList();
+                    Result.
+                    OrderByDescending(v => v).
+                    Where(v => asOf >= v.DatePublished).
+                    Where(predicate: v => v.CompareTo(earlierVersion) == 1).
+                    Where(predicate: v => v.CompareTo(laterVersion) == -1).ToList();
             }
             catch (Exception e)
             {
                 throw new VersionsBetweenNotFoundException(
-                  name, earlierVersion.Version, laterVersion.Version, e);
+                    name, earlierVersion.Version, laterVersion.Version, e);
             }
         }
 
@@ -125,21 +127,21 @@ namespace Corgibytes.Freshli.Lib.Languages.Ruby
         }
 
         private static void ProcessReleaseNode(
-          bool includePreReleaseVersions,
-          List<IVersionInfo> versions,
-          HtmlNode releaseNode
+            bool includePreReleaseVersions,
+            List<IVersionInfo> versions,
+            HtmlNode releaseNode
         )
         {
             var version = releaseNode.Descendants("a").
-                        First(a => a.HasClass("t-list__item")).InnerText;
+                First(a => a.HasClass("t-list__item")).InnerText;
 
             var rawDate = releaseNode.Descendants("small").First().InnerText.
-              Replace("- ", "");
+                Replace("- ", "");
             var versionDate = DateTime.ParseExact(rawDate, "MMMM dd, yyyy", null);
 
             var versionInfo = new RubyGemsVersionInfo(version, versionDate);
             if ((!versionInfo.IsPreRelease || includePreReleaseVersions) &&
-              !IsReleasePlatformSpecific(releaseNode))
+                !IsReleasePlatformSpecific(releaseNode))
             {
                 versions.Add(versionInfo);
             }

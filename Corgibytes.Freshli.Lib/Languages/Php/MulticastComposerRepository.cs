@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text.Json;
+using System.Threading.Tasks;
 
 namespace Corgibytes.Freshli.Lib.Languages.Php
 {
@@ -21,15 +22,16 @@ namespace Corgibytes.Freshli.Lib.Languages.Php
             _fileHistoryFinder = fileHistoryFinder;
             _projectRootPath = projectRootPath;
             _composerRespositories.Add(
-              new ComposerRepository("https://packagist.org")
+                new ComposerRepository("https://packagist.org")
             );
 
             using var composerJson = JsonDocument.Parse(
-              _fileHistoryFinder.ReadAllText(projectRootPath, "composer.json")
+                // TODO: Use async IO
+                _fileHistoryFinder.ReadAllText(projectRootPath, "composer.json")
             );
             if (composerJson.RootElement.TryGetProperty(
-              "repositories",
-              out var repositoryList
+                "repositories",
+                out var repositoryList
             ))
             {
                 foreach (var repositoryEntry in repositoryList.EnumerateArray())
@@ -37,9 +39,9 @@ namespace Corgibytes.Freshli.Lib.Languages.Php
                     if (repositoryEntry.GetProperty("type").GetString() == "composer")
                     {
                         _composerRespositories.Add(
-                          new ComposerRepository(
-                            repositoryEntry.GetProperty("url").ToString()
-                          )
+                            new ComposerRepository(
+                                repositoryEntry.GetProperty("url").ToString()
+                            )
                         );
                     }
                 }
@@ -47,9 +49,9 @@ namespace Corgibytes.Freshli.Lib.Languages.Php
         }
 
         public IVersionInfo Latest(
-          string name,
-          DateTime asOf,
-          bool includePreReleases)
+            string name,
+            DateTime asOf,
+            bool includePreReleases)
         {
             foreach (var repository in _composerRespositories)
             {
@@ -63,11 +65,11 @@ namespace Corgibytes.Freshli.Lib.Languages.Php
             return null;
         }
 
-        public IVersionInfo VersionInfo(string name, string version)
+        public async Task<IVersionInfo> VersionInfo(string name, string version)
         {
             foreach (var repository in _composerRespositories)
             {
-                var result = repository.VersionInfo(name, version);
+                var result = await repository.VersionInfo(name, version);
                 if (result != null)
                 {
                     return result;
@@ -83,11 +85,11 @@ namespace Corgibytes.Freshli.Lib.Languages.Php
         }
 
         public List<IVersionInfo> VersionsBetween(
-          string name,
-          DateTime asOf,
-          IVersionInfo earlierVersion,
-          IVersionInfo laterVersion,
-          bool includePreReleases)
+            string name,
+            DateTime asOf,
+            IVersionInfo earlierVersion,
+            IVersionInfo laterVersion,
+            bool includePreReleases)
         {
             //TODO: Implement method
             throw new NotImplementedException();

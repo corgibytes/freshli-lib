@@ -7,10 +7,10 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Perl
     public class MetaCpanRepositoryTest
     {
         [Fact]
-        public void VersionInfoWithoutModuleSeparator()
+        public async void VersionInfoWithoutModuleSeparator()
         {
             var repository = new MetaCpanRepository();
-            var versionInfo = repository.VersionInfo("Plack", "1.0026");
+            var versionInfo = await repository.VersionInfo("Plack", "1.0026");
             var expectedDate =
               new DateTime(2013, 06, 13, 06, 01, 17, DateTimeKind.Utc);
 
@@ -19,10 +19,10 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Perl
         }
 
         [Fact]
-        public void VersionInfoWithModuleSeparator()
+        public async void VersionInfoWithModuleSeparator()
         {
             var repository = new MetaCpanRepository();
-            var versionInfo = repository.VersionInfo("Test::More", "1.301001_048");
+            var versionInfo = await repository.VersionInfo("Test::More", "1.301001_048");
             var expectedDate =
               new DateTime(2014, 09, 25, 03, 39, 01, DateTimeKind.Utc);
 

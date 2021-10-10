@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
+using System.Threading.Tasks;
 using Corgibytes.Freshli.Lib.Exceptions;
 using NuGet.Common;
 using NuGet.Protocol;
@@ -15,9 +16,9 @@ namespace Corgibytes.Freshli.Lib.Languages.CSharp
         private IDictionary<string, IEnumerable<FreshliNuGetVersionInfo>> _packages
           = new Dictionary<string, IEnumerable<FreshliNuGetVersionInfo>>();
 
-        private IEnumerable<IVersionInfo> GetReleaseHistory(
-          string name,
-          bool includePreReleaseVersions
+        private async Task<IEnumerable<IVersionInfo>> GetReleaseHistory(
+            string name,
+            bool includePreReleaseVersions
         )
         {
             if (_packages.ContainsKey(name))
@@ -25,49 +26,50 @@ namespace Corgibytes.Freshli.Lib.Languages.CSharp
                 return _packages[name];
             }
 
-            var versions = GetMetadata(name);
+            var versions = await GetMetadata(name);
             _packages[name] = versions
-              .OrderByDescending(nv => nv.Published)
-              .Select(v => new FreshliNuGetVersionInfo(
-                v.Identity.Version,
-                v.Published.Value.UtcDateTime
-              ));
+                .OrderByDescending(nv => nv.Published)
+                .Select(v => new FreshliNuGetVersionInfo(
+                    v.Identity.Version,
+                    v.Published.Value.UtcDateTime
+                )
+            );
 
             return _packages[name];
         }
 
-        private IEnumerable<IPackageSearchMetadata> GetMetadata(string name)
+        private async Task<IEnumerable<IPackageSearchMetadata>> GetMetadata(string name)
         {
             ILogger logger = NullLogger.Instance;
             CancellationToken cancellationToken = CancellationToken.None;
 
             SourceCacheContext cache = new SourceCacheContext();
             SourceRepository repository = Repository.Factory.GetCoreV3(
-              "https://api.nuget.org/v3/index.json"
+                "https://api.nuget.org/v3/index.json"
             );
-            PackageMetadataResource resource =
-              repository.GetResourceAsync<PackageMetadataResource>().Result;
+            PackageMetadataResource resource = await repository.GetResourceAsync<PackageMetadataResource>();
 
-            IEnumerable<IPackageSearchMetadata> packages = resource.GetMetadataAsync(
+            IEnumerable<IPackageSearchMetadata> packages = await resource.GetMetadataAsync(
                 name,
                 includePrerelease: true,
                 includeUnlisted: false,
                 cache,
                 logger,
-                cancellationToken).Result;
+                cancellationToken);
 
             return packages;
         }
 
         public IVersionInfo Latest(
-          string name,
-          DateTime asOf,
-          bool includePreReleases)
+            string name,
+            DateTime asOf,
+            bool includePreReleases)
         {
             try
             {
                 return GetReleaseHistory(name, includePreReleases)
-                .First(v => asOf >= v.DatePublished);
+                    .Result
+                    .First(v => asOf >= v.DatePublished);
             }
             catch (Exception e)
             {
@@ -75,12 +77,12 @@ namespace Corgibytes.Freshli.Lib.Languages.CSharp
             }
         }
 
-        public IVersionInfo VersionInfo(string name, string version)
+        public async Task<IVersionInfo> VersionInfo(string name, string version)
         {
             try
             {
-                return GetReleaseHistory(name, includePreReleaseVersions: true)
-                .First(v => v.Version == version);
+                return (await GetReleaseHistory(name, includePreReleaseVersions: true))
+                    .First(v => v.Version == version);
             }
             catch (Exception e)
             {
@@ -89,17 +91,18 @@ namespace Corgibytes.Freshli.Lib.Languages.CSharp
         }
 
         public List<IVersionInfo> VersionsBetween(
-          string name,
-          DateTime asOf,
-          IVersionInfo earlierVersion,
-          IVersionInfo laterVersion,
-          bool includePreReleases)
+            string name,
+            DateTime asOf,
+            IVersionInfo earlierVersion,
+            IVersionInfo laterVersion,
+            bool includePreReleases)
         {
             return GetReleaseHistory(name, includePreReleases)
-              .Where(v => asOf >= v.DatePublished)
-              .Where(predicate: v => v.CompareTo(earlierVersion) == 1)
-              .Where(predicate: v => v.CompareTo(laterVersion) == -1)
-              .ToList();
+                .Result
+                .Where(v => asOf >= v.DatePublished)
+                .Where(predicate: v => v.CompareTo(earlierVersion) == 1)
+                .Where(predicate: v => v.CompareTo(laterVersion) == -1)
+                .ToList();
         }
 
         public IVersionInfo Latest(string name, DateTime asOf, string thatMatches)
