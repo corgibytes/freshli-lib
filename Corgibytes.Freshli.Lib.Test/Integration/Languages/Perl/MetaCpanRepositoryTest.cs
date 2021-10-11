@@ -31,21 +31,12 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Perl
         }
 
         [Fact]
-        public void LatestAsOf()
+        public async void LatestAsOf()
         {
             var repository = new MetaCpanRepository();
             var targetDate = new DateTime(2018, 01, 01, 0, 0, 0, DateTimeKind.Utc);
-            var versionInfo = repository.Latest(
-              "Plack", targetDate, includePreReleases: false);
-            var expectedDate = new DateTime(
-              2017,
-              12,
-              31,
-              20,
-              42,
-              50,
-              DateTimeKind.Utc
-            );
+            var versionInfo = await repository.Latest("Plack", targetDate, includePreReleases: false);
+            var expectedDate = new DateTime(2017, 12, 31, 20, 42, 50, DateTimeKind.Utc);
 
             Assert.Equal("1.0045", versionInfo.Version);
             Assert.Equal(expectedDate, versionInfo.DatePublished);
@@ -65,7 +56,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Perl
           26,
           "1.301001_050"
         )]
-        public void LatestMatchingVersionExpression(
+        public async void LatestMatchingVersionExpression(
           string packageName,
           string versionExpression,
           int expectedYear,
@@ -79,7 +70,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Perl
         {
             var repository = new MetaCpanRepository();
             var targetDate = new DateTime(2018, 01, 01, 0, 0, 0, DateTimeKind.Utc);
-            var versionInfo = repository.Latest(
+            var versionInfo = await repository.Latest(
               packageName,
               asOf: targetDate,
               thatMatches: versionExpression
@@ -99,14 +90,14 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Perl
         }
 
         [Fact]
-        public void VersionsBetween()
+        public async void VersionsBetween()
         {
             var repository = new MetaCpanRepository();
             var targetDate = new DateTime(2015, 01, 01);
             var earlierVersion = new SemVerVersionInfo("1.0027");
             var laterVersion = new SemVerVersionInfo("1.0045");
 
-            var versions = repository.VersionsBetween("Plack", targetDate,
+            var versions = await repository.VersionsBetween("Plack", targetDate,
               earlierVersion, laterVersion, includePreReleases: false);
 
             Assert.Equal(6, versions.Count);

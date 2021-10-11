@@ -60,15 +60,14 @@ namespace Corgibytes.Freshli.Lib.Languages.CSharp
             return packages;
         }
 
-        public IVersionInfo Latest(
+        public async Task<IVersionInfo> Latest(
             string name,
             DateTime asOf,
             bool includePreReleases)
         {
             try
             {
-                return GetReleaseHistory(name, includePreReleases)
-                    .Result
+                return (await GetReleaseHistory(name, includePreReleases))
                     .First(v => asOf >= v.DatePublished);
             }
             catch (Exception e)
@@ -90,22 +89,21 @@ namespace Corgibytes.Freshli.Lib.Languages.CSharp
             }
         }
 
-        public List<IVersionInfo> VersionsBetween(
+        public async Task<List<IVersionInfo>> VersionsBetween(
             string name,
             DateTime asOf,
             IVersionInfo earlierVersion,
             IVersionInfo laterVersion,
             bool includePreReleases)
         {
-            return GetReleaseHistory(name, includePreReleases)
-                .Result
+            return (await GetReleaseHistory(name, includePreReleases))
                 .Where(v => asOf >= v.DatePublished)
                 .Where(predicate: v => v.CompareTo(earlierVersion) == 1)
                 .Where(predicate: v => v.CompareTo(laterVersion) == -1)
                 .ToList();
         }
 
-        public IVersionInfo Latest(string name, DateTime asOf, string thatMatches)
+        public Task<IVersionInfo> Latest(string name, DateTime asOf, string thatMatches)
         {
             throw new NotImplementedException();
         }

@@ -74,10 +74,10 @@ namespace Corgibytes.Freshli.Lib
         {
             var currentVersion = Manifest.UsesExactMatches ?
                 (await Repository.VersionInfo(package.Name, package.Version)) :
-                Repository.Latest(package.Name, asOf: date, thatMatches: package.Version);
+                (await Repository.Latest(package.Name, asOf: date, thatMatches: package.Version));
 
             var latestVersion =
-                Repository.Latest(package.Name, date, currentVersion.IsPreRelease);
+                await Repository.Latest(package.Name, date, currentVersion.IsPreRelease);
 
             return new VersionSet()
             {
@@ -108,7 +108,7 @@ namespace Corgibytes.Freshli.Lib
             if (libYearValue < 0)
             {
                 var updatedPackageResult = ComputeUsingVersionsBetween(
-                    package.Name, date, currentVersion, latestVersion);
+                    package.Name, date, currentVersion, latestVersion).Result;
 
                 if (updatedPackageResult != null)
                 {
@@ -158,17 +158,17 @@ namespace Corgibytes.Freshli.Lib
         }
 
         // TODO: Convert to asnyc method
-        private LibYearPackageResult ComputeUsingVersionsBetween(string name,
-          DateTime asOf, IVersionInfo currentVersion, IVersionInfo latestVersion)
+        private async Task<LibYearPackageResult> ComputeUsingVersionsBetween(string name,
+            DateTime asOf, IVersionInfo currentVersion, IVersionInfo latestVersion)
         {
             try
             {
-                var versions = Repository.VersionsBetween(
-                  name,
-                  asOf,
-                  currentVersion,
-                  latestVersion,
-                  currentVersion.IsPreRelease
+                var versions = await Repository.VersionsBetween(
+                    name,
+                    asOf,
+                    currentVersion,
+                    latestVersion,
+                    currentVersion.IsPreRelease
                 );
                 foreach (var version in versions)
                 {
@@ -176,12 +176,12 @@ namespace Corgibytes.Freshli.Lib
                     if (value >= 0)
                     {
                         return new LibYearPackageResult(
-                          name,
-                          currentVersion,
-                          version,
-                          value,
-                          upgradeAvailable: true,
-                          skipped: false
+                            name,
+                            currentVersion,
+                            version,
+                            value,
+                            upgradeAvailable: true,
+                            skipped: false
                         );
                     }
                 }

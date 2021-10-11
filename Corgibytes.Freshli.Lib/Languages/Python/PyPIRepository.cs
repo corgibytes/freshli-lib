@@ -75,14 +75,14 @@ namespace Corgibytes.Freshli.Lib.Languages.Python
         }
 
         //TODO: Update logic to utilize includePreReleases
-        public IVersionInfo Latest(
+        public async Task<IVersionInfo> Latest(
             string name,
             DateTime asOf,
             bool includePreReleases)
         {
             try
             {
-                return GetReleaseHistory(name).Result.OrderByDescending(v => v).
+                return (await GetReleaseHistory(name)).OrderByDescending(v => v).
                     First(v => asOf >= v.DatePublished);
             }
             catch (VersionParseException)
@@ -100,12 +100,12 @@ namespace Corgibytes.Freshli.Lib.Languages.Python
             return (await GetReleaseHistory(name)).First(v => v.Version == version);
         }
 
-        public IVersionInfo Latest(string name, DateTime asOf, string thatMatches)
+        public async Task<IVersionInfo> Latest(string name, DateTime asOf, string thatMatches)
         {
             try
             {
                 var expression = VersionMatcher.Create(thatMatches);
-                return GetReleaseHistory(name).Result.OrderByDescending(v => v).
+                return (await GetReleaseHistory(name)).OrderByDescending(v => v).
                   Where(v => v.DatePublished <= asOf).
                   First(v => expression.DoesMatch(v));
             }
@@ -121,17 +121,16 @@ namespace Corgibytes.Freshli.Lib.Languages.Python
         }
 
         //TODO: Update logic to utilize includePreReleases
-        public List<IVersionInfo> VersionsBetween(
-          string name,
-          DateTime asOf,
-          IVersionInfo earlierVersion,
-          IVersionInfo laterVersion,
-          bool includePreReleases)
+        public async Task<List<IVersionInfo>> VersionsBetween(
+            string name,
+            DateTime asOf,
+            IVersionInfo earlierVersion,
+            IVersionInfo laterVersion,
+            bool includePreReleases)
         {
             try
             {
-                return GetReleaseHistory(name).
-                    Result.
+                return (await GetReleaseHistory(name)).
                     OrderByDescending(v => v).
                     Where(v => v.DatePublished <= asOf).
                     Where(predicate: v => v.CompareTo(earlierVersion) == 1).

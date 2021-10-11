@@ -21,7 +21,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
         }
 
         [Fact]
-        public void LatestAsOf()
+        public async void LatestAsOf()
         {
             var phpFixturePath = Fixtures.Path("php", "small");
             var fileFinder = new FileHistoryFinder(phpFixturePath);
@@ -29,7 +29,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
               phpFixturePath,
               fileFinder.Finder
             );
-            var versionInfo = repository.Latest(
+            var versionInfo = await repository.Latest(
               "monolog/monolog",
               new DateTime(2020, 01, 01), includePreReleases: false
             );
@@ -38,7 +38,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
         }
 
         [Fact]
-        public void LatestAsOfForSymfonyCssSelector()
+        public async void LatestAsOfForSymfonyCssSelector()
         {
             var phpFixturePath = Fixtures.Path("php", "small");
             var fileFinder = new FileHistoryFinder(phpFixturePath);
@@ -47,7 +47,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
               fileFinder.Finder
             );
 
-            var versionInfo = repository.Latest(
+            var versionInfo = await repository.Latest(
               "symfony/css-selector",
               new DateTime(2020, 01, 01), includePreReleases: false
             );

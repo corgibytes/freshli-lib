@@ -6,7 +6,6 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Ruby
 {
     public class RubyGemsRepositoryTest
     {
-
         [Fact]
         public async void VersionInfoCorrectlyCreatesVersion()
         {
@@ -30,11 +29,11 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Ruby
         }
 
         [Fact]
-        public void LatestAsOfCorrectlyFindsLatestVersion()
+        public async void LatestAsOfCorrectlyFindsLatestVersion()
         {
             var repository = new RubyGemsRepository();
             var targetDate = new DateTime(2020, 02, 01);
-            var versionInfo = repository.Latest("git", targetDate, false);
+            var versionInfo = await repository.Latest("git", targetDate, false);
             var expectedDate = new DateTime(2018, 08, 10);
 
             Assert.Equal("1.5.0", versionInfo.Version);
@@ -42,12 +41,12 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Ruby
         }
 
         [Fact]
-        public void
+        public async void
           LatestAsOfCorrectlyFindsLatestPreReleaseVersion()
         {
             var repository = new RubyGemsRepository();
             var targetDate = new DateTime(2020, 02, 01);
-            var versionInfo = repository.Latest("git", targetDate, true);
+            var versionInfo = await repository.Latest("git", targetDate, true);
             var expectedDate = new DateTime(2020, 01, 20);
 
             Assert.Equal("1.6.0.pre1", versionInfo.Version);
@@ -55,28 +54,28 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Ruby
         }
 
         [Fact]
-        public void VersionsBetweenFindsVersionsReleasedBeforeTargetDate()
+        public async void VersionsBetweenFindsVersionsReleasedBeforeTargetDate()
         {
             var repository = new RubyGemsRepository();
             var targetDate = new DateTime(2014, 04, 01);
             var earlierVersion = new RubyGemsVersionInfo { Version = "0.3.38" };
             var laterVersion = new RubyGemsVersionInfo { Version = "1.1.0" };
 
-            var versions = repository.VersionsBetween("tzinfo", targetDate,
+            var versions = await repository.VersionsBetween("tzinfo", targetDate,
               earlierVersion, laterVersion, includePreReleases: true);
 
             Assert.Equal(3, versions.Count);
         }
 
         [Fact]
-        public void VersionsBetweenCorrectlyFindsVersions()
+        public async void VersionsBetweenCorrectlyFindsVersions()
         {
             var repository = new RubyGemsRepository();
             var targetDate = new DateTime(2020, 09, 01);
             var earlierVersion = new RubyGemsVersionInfo { Version = "3.11.0" };
             var laterVersion = new RubyGemsVersionInfo { Version = "3.13.0" };
 
-            var versions = repository.VersionsBetween(name: "google-protobuf",
+            var versions = await repository.VersionsBetween(name: "google-protobuf",
               targetDate, earlierVersion, laterVersion, includePreReleases: false);
 
             Assert.Equal(8, versions.Count);
@@ -84,14 +83,14 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Ruby
 
 
         [Fact]
-        public void VersionsBetweenCorrectlyFindsVersionsWithPreReleases()
+        public async void VersionsBetweenCorrectlyFindsVersionsWithPreReleases()
         {
             var repository = new RubyGemsRepository();
             var targetDate = new DateTime(2020, 09, 01);
             var earlierVersion = new RubyGemsVersionInfo { Version = "3.11.0" };
             var laterVersion = new RubyGemsVersionInfo { Version = "3.13.0" };
 
-            var versions = repository.VersionsBetween(name: "google-protobuf",
+            var versions = await repository.VersionsBetween(name: "google-protobuf",
               targetDate, earlierVersion, laterVersion, includePreReleases: true);
 
             Assert.Equal(11, versions.Count);

@@ -29,19 +29,19 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.CSharp
         }
 
         [Fact]
-        public void Latest()
+        public async void Latest()
         {
             var asOfDate =
               new DateTime(2019, 11, 10, 01, 27, 30, 723, DateTimeKind.Utc);
-            var latest = _repository.Latest("Newtonsoft.Json", asOfDate, false);
+            var latest = await _repository.Latest("Newtonsoft.Json", asOfDate, false);
 
             Assert.Equal("12.0.3", latest.Version);
         }
 
         [Fact]
-        public void LatestThrowsExceptionIfNotFound()
+        public async void LatestThrowsExceptionIfNotFound()
         {
-            Assert.Throws<LatestVersionNotFoundException>(testCode: () =>
+            await Assert.ThrowsAsync<LatestVersionNotFoundException>(testCode: () =>
               new NuGetRepository().Latest(
                 "Newtonsoft.Json",
                 new DateTime(1900, 11, 10, 01, 27, 30, 723, DateTimeKind.Utc),
@@ -51,11 +51,11 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.CSharp
         }
 
         [Fact]
-        public void VersionsBetween()
+        public async void VersionsBetween()
         {
             var asOfDate =
               new DateTime(2019, 11, 10, 01, 27, 30, 723, DateTimeKind.Utc);
-            var versionsBetween = _repository.VersionsBetween(
+            var versionsBetween = await _repository.VersionsBetween(
               "Newtonsoft.Json",
               asOfDate,
               new FreshliNuGetVersionInfo(

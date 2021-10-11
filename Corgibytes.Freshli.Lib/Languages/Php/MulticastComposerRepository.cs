@@ -10,13 +10,13 @@ namespace Corgibytes.Freshli.Lib.Languages.Php
         private readonly string _projectRootPath;
 
         private List<IPackageRepository> _composerRespositories =
-          new List<IPackageRepository>();
+           new List<IPackageRepository>();
 
         private IFileHistoryFinder _fileHistoryFinder;
 
         public MulticastComposerRepository(
-          string projectRootPath,
-          IFileHistoryFinder fileHistoryFinder
+            string projectRootPath,
+            IFileHistoryFinder fileHistoryFinder
         )
         {
             _fileHistoryFinder = fileHistoryFinder;
@@ -48,14 +48,14 @@ namespace Corgibytes.Freshli.Lib.Languages.Php
             }
         }
 
-        public IVersionInfo Latest(
+        public async Task<IVersionInfo> Latest(
             string name,
             DateTime asOf,
             bool includePreReleases)
         {
             foreach (var repository in _composerRespositories)
             {
-                var result = repository.Latest(name, asOf, includePreReleases);
+                var result = await repository.Latest(name, asOf, includePreReleases);
                 if (result != null)
                 {
                     return result;
@@ -79,12 +79,12 @@ namespace Corgibytes.Freshli.Lib.Languages.Php
             return null;
         }
 
-        public IVersionInfo Latest(string name, DateTime asOf, string thatMatches)
+        public Task<IVersionInfo> Latest(string name, DateTime asOf, string thatMatches)
         {
             throw new NotImplementedException();
         }
 
-        public List<IVersionInfo> VersionsBetween(
+        public Task<List<IVersionInfo>> VersionsBetween(
             string name,
             DateTime asOf,
             IVersionInfo earlierVersion,

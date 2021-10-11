@@ -48,17 +48,16 @@ namespace Corgibytes.Freshli.Lib.Languages.Ruby
             }
         }
 
-        public IVersionInfo Latest(
+        public async Task<IVersionInfo> Latest(
             string name,
             DateTime asOf,
             bool includePreReleases)
         {
             try
             {
-                return GetReleaseHistory(name, includePreReleases).
-                    Result.
-                    OrderByDescending(v => v).
-                    First(v => asOf >= v.DatePublished);
+                return (await GetReleaseHistory(name, includePreReleases)).
+                        OrderByDescending(v => v).
+                        First(v => asOf >= v.DatePublished);
             }
             catch (Exception e)
             {
@@ -79,7 +78,7 @@ namespace Corgibytes.Freshli.Lib.Languages.Ruby
             }
         }
 
-        public IVersionInfo Latest(
+        public Task<IVersionInfo> Latest(
             string name,
             DateTime asOf,
             string thatMatches)
@@ -87,7 +86,7 @@ namespace Corgibytes.Freshli.Lib.Languages.Ruby
             throw new NotImplementedException();
         }
 
-        public List<IVersionInfo> VersionsBetween(
+        public async Task<List<IVersionInfo>> VersionsBetween(
             string name,
             DateTime asOf,
             IVersionInfo earlierVersion,
@@ -96,8 +95,7 @@ namespace Corgibytes.Freshli.Lib.Languages.Ruby
         {
             try
             {
-                return GetReleaseHistory(name, includePreReleases).
-                    Result.
+                return (await GetReleaseHistory(name, includePreReleases)).
                     OrderByDescending(v => v).
                     Where(v => asOf >= v.DatePublished).
                     Where(predicate: v => v.CompareTo(earlierVersion) == 1).

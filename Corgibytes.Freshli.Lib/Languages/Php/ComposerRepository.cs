@@ -24,12 +24,12 @@ namespace Corgibytes.Freshli.Lib.Languages.Php
         }
 
         //TODO: Update logic to utilize includePreReleases
-        public IVersionInfo Latest(
+        public async Task<IVersionInfo> Latest(
             string name,
             DateTime asOf,
             bool includePreReleases)
         {
-            var content = FetchPackageInfo(name).Result;
+            var content = await FetchPackageInfo(name);
             if (content == null)
             {
                 return null;
@@ -129,12 +129,12 @@ namespace Corgibytes.Freshli.Lib.Languages.Php
             return null;
         }
 
-        public IVersionInfo Latest(string name, DateTime asOf, string thatMatches)
+        public Task<IVersionInfo> Latest(string name, DateTime asOf, string thatMatches)
         {
             throw new NotImplementedException();
         }
 
-        public List<IVersionInfo> VersionsBetween(
+        public Task<List<IVersionInfo>> VersionsBetween(
           string name,
           DateTime asOf,
           IVersionInfo earlierVersion,
@@ -193,8 +193,7 @@ namespace Corgibytes.Freshli.Lib.Languages.Php
             return _packageInfoCache[name];
         }
 
-        private Dictionary<string, string> _requestCache =
-          new Dictionary<string, string>();
+        private Dictionary<string, string> _requestCache = new Dictionary<string, string>();
 
         private async Task<string> Request(string url)
         {
