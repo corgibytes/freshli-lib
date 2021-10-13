@@ -17,12 +17,9 @@ jobs:
 
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: 5.0.101
 
       - name: Linting Auto-Formatting
         run: |
-          dotnet tool install dotnet-format -g --version 5.0.211103
           dotnet format -v diag
 
       - uses: stefanzweifel/git-auto-commit-action@v4
