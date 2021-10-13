@@ -2,10 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using Corgibytes.Freshli.Lib.Exceptions;
 using HtmlAgilityPack;
 using NLog;
+using Polly;
 
 namespace Corgibytes.Freshli.Lib.Languages.Python
 {
@@ -27,7 +29,13 @@ namespace Corgibytes.Freshli.Lib.Languages.Python
 
                 var url = $"https://pypi.org/p/{name}";
                 var web = new HtmlWeb();
-                var doc = await web.LoadFromWebAsync(url);
+                
+                // TODO: Setup this policy in a centralized location
+                var policy = Policy.BulkheadAsync(5);
+                var doc = await policy.ExecuteAsync(
+                    async cancelizationToken => await web.LoadFromWebAsync(url, cancelizationToken),
+                    CancellationToken.None
+                );
 
                 var versions = new List<IVersionInfo>();
 

@@ -1,9 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
-using Corgibytes.Freshli.Lib.Exceptions;
+
 using HtmlAgilityPack;
+
+using Polly;
+
+using Corgibytes.Freshli.Lib.Exceptions;
 
 namespace Corgibytes.Freshli.Lib.Languages.Ruby
 {
@@ -28,7 +33,13 @@ namespace Corgibytes.Freshli.Lib.Languages.Ruby
 
                 var url = $"https://rubygems.org/gems/{name}/versions";
                 var web = new HtmlWeb();
-                var document = await web.LoadFromWebAsync(url);
+                
+                // TODO: Setup this policy in a centralized location
+                var policy = Policy.BulkheadAsync(5);
+                var document = await policy.ExecuteAsync(
+                    async cancelizationToken => await web.LoadFromWebAsync(url, cancelizationToken),
+                    CancellationToken.None
+                );
                 var versions = new List<IVersionInfo>();
 
                 var releaseNodes = document.DocumentNode.Descendants("li").
