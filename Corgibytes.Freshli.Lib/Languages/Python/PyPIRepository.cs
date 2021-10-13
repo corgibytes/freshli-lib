@@ -29,7 +29,7 @@ namespace Corgibytes.Freshli.Lib.Languages.Python
 
                 var url = $"https://pypi.org/p/{name}";
                 var web = new HtmlWeb();
-                
+
                 // TODO: Setup this policy in a centralized location
                 var policy = Policy.BulkheadAsync(5);
                 var doc = await policy.ExecuteAsync(

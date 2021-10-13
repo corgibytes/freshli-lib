@@ -3,12 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-
-using HtmlAgilityPack;
-
-using Polly;
-
 using Corgibytes.Freshli.Lib.Exceptions;
+using HtmlAgilityPack;
+using Polly;
 
 namespace Corgibytes.Freshli.Lib.Languages.Ruby
 {
@@ -33,7 +30,7 @@ namespace Corgibytes.Freshli.Lib.Languages.Ruby
 
                 var url = $"https://rubygems.org/gems/{name}/versions";
                 var web = new HtmlWeb();
-                
+
                 // TODO: Setup this policy in a centralized location
                 var policy = Policy.BulkheadAsync(5);
                 var document = await policy.ExecuteAsync(
