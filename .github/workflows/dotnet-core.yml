@@ -47,7 +47,7 @@ jobs:
           include-prerelease: True
           source-url: https://nuget.pkg.github.com/GitTools/index.json
         env:
-          NUGET_AUTH_TOKEN: ${{secrets.PERSONAL_ACCESS_TOKEN}}
+          NUGET_AUTH_TOKEN: ${{secrets.NUGET_READ_TOKEN}}
 
       - name: Install GitVersion
         run: dotnet tool install --global --add-source https://nuget.pkg.github.com/GitTools/index.json --version 5.7.1-beta1.87 --configfile ../nuget.config GitVersion.Tool
