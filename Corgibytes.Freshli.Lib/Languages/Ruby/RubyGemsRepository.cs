@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Corgibytes.Freshli.Lib.Exceptions;
 using HtmlAgilityPack;
 using Polly;
+using Polly.Registry;
 
 namespace Corgibytes.Freshli.Lib.Languages.Ruby
 {
@@ -13,6 +14,14 @@ namespace Corgibytes.Freshli.Lib.Languages.Ruby
     {
         private IDictionary<string, IList<IVersionInfo>> _packages =
             new Dictionary<string, IList<IVersionInfo>>();
+
+        private IReadOnlyPolicyRegistry<string> _policyRegistry;
+
+        public RubyGemsRepository(IReadOnlyPolicyRegistry<string> policyRegistry)
+        {
+
+            _policyRegistry = policyRegistry;
+        }
 
         private async Task<IEnumerable<IVersionInfo>> GetReleaseHistory(
             string name,
@@ -31,8 +40,7 @@ namespace Corgibytes.Freshli.Lib.Languages.Ruby
                 var url = $"https://rubygems.org/gems/{name}/versions";
                 var web = new HtmlWeb();
 
-                // TODO: Setup this policy in a centralized location
-                var policy = Policy.BulkheadAsync(5);
+                var policy = _policyRegistry.Get<IAsyncPolicy<HtmlDocument>>("RubyGemsHttpRequests");
                 var document = await policy.ExecuteAsync(
                     async cancelizationToken => await web.LoadFromWebAsync(url, cancelizationToken),
                     CancellationToken.None
