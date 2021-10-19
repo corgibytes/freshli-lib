@@ -1,7 +1,7 @@
 ## v0.5.0
 
 
-As part of this release we had [6 issues](https://github.com/corgibytes/freshli-lib/milestone/6?closed=1) closed.
+As part of this release we had [7 issues](https://github.com/corgibytes/freshli-lib/milestone/6?closed=1) closed.
 Goals for this milestone:
 
 - Parse manifest files in their own environment.
@@ -10,6 +10,7 @@ Goals for this milestone:
 
 __DevOps__
 
+- [__#389__](https://github.com/corgibytes/freshli-lib/pull/389) Auto-merge Depndabot PR workflow
 - [__#388__](https://github.com/corgibytes/freshli-lib/pull/388) Force all Dependabot labels to be "dependencies" only
 - [__#378__](https://github.com/corgibytes/freshli-lib/pull/378) Fix release notes CI when no issues are closed for milestone
 
