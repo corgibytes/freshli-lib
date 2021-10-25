@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
+using Microsoft.Extensions.Logging;
+
 using Corgibytes.Freshli.Lib.Util;
-using NLog;
 
 namespace Corgibytes.Freshli.Lib
 {
@@ -11,44 +13,43 @@ namespace Corgibytes.Freshli.Lib
     {
         private const string ResultsPath = "results";
 
-        private static readonly Logger logger = LogManager.GetCurrentClassLogger();
+        public ILogger<Runner> Logger { get; }
 
-        public ManifestFinder ManifestFinder { get; private set; }
+        public IManifestService ManifestService { get; }
+        public IFileHistoryService FileHistoryService { get; }
+        public ICalculatorService CalculatorService { get; }
+        public IAnalysisDatesService AnalysisDatesService { get; }
 
-        public Runner()
+        public Runner(ILogger<Runner> logger, IManifestService manifestService, IFileHistoryService fileHistoryService, ICalculatorService calculatorService, IAnalysisDatesService analysisDatesService)
         {
-            ManifestFinder.RegisterAll();
-            FileHistoryFinder.Register<GitFileHistoryFinder>();
+            Logger = logger;
+            ManifestService = manifestService;
+            FileHistoryService = fileHistoryService;
+            CalculatorService = calculatorService;
+            AnalysisDatesService = analysisDatesService;
         }
 
         public IList<ScanResult> Run(string analysisPath, DateTime asOf)
         {
-            logger.Info($"Run({analysisPath}, {asOf:d})");
+            Logger.LogInformation($"Run({analysisPath}, {asOf:d})");
 
             IList<ScanResult> scanResults = new List<ScanResult>();
-            var fileHistoryFinder = new FileHistoryFinder(analysisPath);
-            ManifestFinder = new ManifestFinder(
-                analysisPath,
-                fileHistoryFinder.Finder
-            );
 
-            if (!ManifestFinder.Successful)
+            var fileHistoryFinder = FileHistoryService.SelectFinderFor(analysisPath);
+            var manifestFinders = ManifestService.SelectFindersFor(analysisPath, fileHistoryFinder);
+
+            if (!manifestFinders.Any(finder => finder.Successful))
             {
-                logger.Warn("Unable to find a manifest file");
+                Logger.LogWarning("Unable to find a manifest file");
             }
             else
             {
                 scanResults = ProcessManifestFiles(
+                    manifestFinders,
+                    fileHistoryFinder,
                     analysisPath,
-                    asOf,
-                    fileHistoryFinder
+                    asOf
                 );
-            }
-
-            DotNetEnv.Env.Load();
-            if (DotNetEnv.Env.GetBool("SAVE_RESULTS_TO_FILE"))
-            {
-                WriteResultsToFile(scanResults);
             }
 
             return scanResults;
@@ -60,30 +61,32 @@ namespace Corgibytes.Freshli.Lib
             return Run(analysisPath, asOf: asOf);
         }
 
-        private IList<ScanResult> ProcessManifestFiles(string analysisPath, DateTime asOf, FileHistoryFinder fileHistoryFinder)
+        // TODO: Create an async version of this method
+        private IList<ScanResult> ProcessManifestFiles(IEnumerable<IManifestFinder> manifestFinders, IFileHistoryFinder fileHistoryFinder, string analysisPath, DateTime asOf)
         {
             var scanResults = new List<ScanResult>();
-            foreach (var mf in ManifestFinder.ManifestFiles)
+            foreach (var manifestFinder in manifestFinders)
             {
-                logger.Trace(
-                      "{analysisPath}: LockFileName: {LockFileName}",
-                      analysisPath,
-                      ManifestFinder.ManifestFiles[0]
-                    );
+                foreach (var manifestFile in manifestFinder.ManifestFiles)
+                {
+                    Logger.LogTrace(
+                        "{analysisPath}: LockFileName: {LockFileName}",
+                        analysisPath,
+                        manifestFile
+                        );
 
-                var calculator = ManifestFinder.Calculator;
-                var fileHistory = fileHistoryFinder.FileHistoryOf(mf);
-                var analysisDates = new AnalysisDates(fileHistory, asOf);
-                var metricsResults = analysisDates.Select(
-                    ad => ProcessAnalysisDate(mf, calculator, fileHistory, ad)
-                ).ToList();
+                    var fileHistory = fileHistoryFinder.FileHistoryOf(manifestFile);
+                    var analysisDates = AnalysisDatesService.DetermineDatesFor(fileHistory, asOf);
+                    var metricsResults = CalculatorService.Compute(fileHistory, analysisDates);
 
-                scanResults.Add(new ScanResult(mf, metricsResults));
+                    scanResults.Add(new ScanResult(manifestFile, metricsResults));
+                }
             }
 
             return scanResults;
         }
 
+        // TODO: Move this to the CalculatorService class to be called from the #Compute method
         private MetricsResult ProcessAnalysisDate(string manifestFile, LibYearCalculator calculator, IFileHistory fileHistory, DateTime currentDate)
         {
             var content = fileHistory.ContentsAsOf(currentDate);
@@ -92,34 +95,18 @@ namespace Corgibytes.Freshli.Lib
             var sha = fileHistory.ShaAsOf(currentDate);
 
             Task<LibYearResult> libYear = calculator.ComputeAsOf(currentDate);
-            logger.Trace(
-              "Adding MetricResult: {manifestFile}, " +
-              "currentDate = {currentDate:d}, " +
-              "sha = {sha}, " +
-              "libYear = {ComputeAsOf}",
-              ManifestFinder.ManifestFiles[0],
-              currentDate,
-              sha,
-              libYear.Result.Total
+            Logger.LogTrace(
+                "Adding MetricResult: {manifestFile}, " +
+                "currentDate = {currentDate:d}, " +
+                "sha = {sha}, " +
+                "libYear = {ComputeAsOf}",
+                manifestFile,
+                currentDate,
+                sha,
+                libYear.Result.Total
             );
 
             return new MetricsResult(currentDate, sha, libYear.Result);
-        }
-
-        private static void WriteResultsToFile(IList<ScanResult> results)
-        {
-            if (!System.IO.Directory.Exists(ResultsPath))
-            {
-                System.IO.Directory.CreateDirectory(ResultsPath);
-            }
-            var dateTime = DateTime.Now;
-            var filePath =
-              $"{ResultsPath}/{dateTime:yyyy-MM-dd-hhmmssfffffff}-results.txt";
-            using var file = new System.IO.StreamWriter(filePath);
-            foreach (var result in results)
-            {
-                file.WriteLine(result);
-            }
         }
     }
 }

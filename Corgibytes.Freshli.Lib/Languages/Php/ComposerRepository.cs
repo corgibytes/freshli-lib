@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using NLog;
+
+using Microsoft.Extensions.Logging;
+
 using RestSharp;
 
 namespace Corgibytes.Freshli.Lib.Languages.Php
@@ -16,10 +18,11 @@ namespace Corgibytes.Freshli.Lib.Languages.Php
         private Dictionary<string, string> _packageInfoCache =
             new Dictionary<string, string>();
 
-        private static readonly Logger _logger = LogManager.GetCurrentClassLogger();
 
-        public ComposerRepository(string baseUrl)
+        public ILogger<IPackageRepository> Logger { get; }
+        public ComposerRepository(string baseUrl, ILogger<IPackageRepository> logger)
         {
+            Logger = logger;
             _baseUrl = baseUrl;
         }
 
@@ -70,12 +73,9 @@ namespace Corgibytes.Freshli.Lib.Languages.Php
                 foundVersions.Add(versionInfo);
             }
 
-            foundVersions.Sort(
-              (left, right) =>
-                left.CompareTo(right)
-            );
+            foundVersions.Sort((left, right) => left.CompareTo(right));
             var filteredVersions = foundVersions.
-              Where(item => item.DatePublished <= asOf).ToArray();
+               Where(item => item.DatePublished <= asOf).ToArray();
             if (!filteredVersions.Any()) return null;
             return filteredVersions.Last();
         }
@@ -92,9 +92,9 @@ namespace Corgibytes.Freshli.Lib.Languages.Php
             else if (versionJson.TryGetProperty("extra", out var extraData))
             {
                 var datestamp = extraData.GetProperty("drupal").
-                  GetProperty("datestamp").GetString();
+                    GetProperty("datestamp").GetString();
                 result = DateTimeOffset.FromUnixTimeSeconds(Convert.ToInt64(datestamp)).
-                  Date.Date;
+                    Date.Date;
             }
 
             return result.Date;
@@ -175,7 +175,7 @@ namespace Corgibytes.Freshli.Lib.Languages.Php
                             Replace("%package%", name).
                             Replace("%hash%", packageHash);
                         var packageDetails = await Request($"/{packageUrl}");
-                        _logger.Trace(
+                        Logger.LogTrace(
                             $"{name} package info loaded from {_baseUrl}{packageUrl}"
                         );
 
@@ -212,9 +212,9 @@ namespace Corgibytes.Freshli.Lib.Languages.Php
         private bool IsUnstable(string version)
         {
             return IsDev(version) ||
-              IsAlpha(version) ||
-              IsBeta(version) ||
-              IsReleaseCandidate(version);
+                IsAlpha(version) ||
+                IsBeta(version) ||
+                IsReleaseCandidate(version);
         }
 
         private bool IsDev(string version)

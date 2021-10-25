@@ -1,7 +1,7 @@
 namespace Corgibytes.Freshli.Lib
 {
     // TODO: Extract an interface from this class. Update all references to use the interface
-    public abstract class AbstractManifestFinder
+    public abstract class AbstractManifestFinder: IManifestFinder
     {
         protected abstract string ManifestPattern { get; }
 

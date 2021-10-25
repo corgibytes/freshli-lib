@@ -1,20 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using NLog;
+using Microsoft.Extensions.Logging;
 
 namespace Corgibytes.Freshli.Lib.Languages
 {
     public abstract class AbstractManifest : IManifest
     {
-        protected static readonly Logger _logger = LogManager.
-          GetCurrentClassLogger();
-
         private IDictionary<string, PackageInfo> _packages =
-          new Dictionary<string, PackageInfo>();
+            new Dictionary<string, PackageInfo>();
 
+        public ILogger<IManifest> Logger { get; private set; }
         public int Count => _packages.Count;
         public abstract bool UsesExactMatches { get; }
+
+        public AbstractManifest(ILogger<IManifest> logger)
+        {
+            Logger = logger;
+        }
 
         public IEnumerator<PackageInfo> GetEnumerator()
         {
@@ -29,11 +31,11 @@ namespace Corgibytes.Freshli.Lib.Languages
         public void Add(string packageName, string packageVersion)
         {
             _packages[packageName] = new PackageInfo(
-              packageName,
-              packageVersion
+                packageName,
+                packageVersion
             );
-            _logger.Trace(
-              $"AddPackage: PackageInfo({packageName}, {packageVersion})"
+            Logger.LogTrace(
+                $"AddPackage: PackageInfo({packageName}, {packageVersion})"
             );
         }
 

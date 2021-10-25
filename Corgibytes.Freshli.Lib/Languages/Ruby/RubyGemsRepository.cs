@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Corgibytes.Freshli.Lib.Exceptions;
+
+using Microsoft.Extensions.Logging;
+
 using HtmlAgilityPack;
+
 using Polly;
 using Polly.Registry;
+
+using Corgibytes.Freshli.Lib.Exceptions;
 
 namespace Corgibytes.Freshli.Lib.Languages.Ruby
 {
@@ -17,9 +22,12 @@ namespace Corgibytes.Freshli.Lib.Languages.Ruby
 
         private IReadOnlyPolicyRegistry<string> _policyRegistry;
 
-        public RubyGemsRepository(IReadOnlyPolicyRegistry<string> policyRegistry)
-        {
+        private ILogger<IPackageRepository> _logger;
 
+        public RubyGemsRepository(IReadOnlyPolicyRegistry<string> policyRegistry, ILogger<IPackageRepository> logger)
+        {
+            logger.LogError("***Got here!***");
+            _logger = logger;
             _policyRegistry = policyRegistry;
         }
 
@@ -60,6 +68,7 @@ namespace Corgibytes.Freshli.Lib.Languages.Ruby
             }
             catch (Exception e)
             {
+                _logger.LogError(e, "Error while getting package release history");
                 throw new DependencyNotFoundException(name, e);
             }
         }
@@ -77,6 +86,7 @@ namespace Corgibytes.Freshli.Lib.Languages.Ruby
             }
             catch (Exception e)
             {
+                _logger.LogError(e, "Error while determining latest package version");
                 throw new LatestVersionNotFoundException(name, asOf, e);
             }
         }
@@ -90,6 +100,7 @@ namespace Corgibytes.Freshli.Lib.Languages.Ruby
             }
             catch (Exception e)
             {
+                _logger.LogError(e, "Error while getting package version information");
                 throw new VersionNotFoundException(name, version, e);
             }
         }
@@ -119,6 +130,7 @@ namespace Corgibytes.Freshli.Lib.Languages.Ruby
             }
             catch (Exception e)
             {
+                _logger.LogError(e, "Error while gathering versions between two version numbers");
                 throw new VersionsBetweenNotFoundException(
                     name, earlierVersion.Version, laterVersion.Version, e);
             }

@@ -1,21 +1,24 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NLog;
+
+using Microsoft.Extensions.Logging;
 
 namespace Corgibytes.Freshli.Lib
 {
     public class LibYearCalculator
     {
-        private static readonly Logger _logger = LogManager.GetCurrentClassLogger();
+        public ILogger<LibYearCalculator> Logger { get; }
         public IPackageRepository Repository { get; }
         public IManifest Manifest { get; }
 
         public LibYearCalculator(
-          IPackageRepository repository,
-          IManifest manifest
+            ILogger<LibYearCalculator> logger,
+            IPackageRepository repository,
+            IManifest manifest
         )
         {
+            Logger = logger;
             Repository = repository;
             Manifest = manifest;
         }
@@ -117,13 +120,13 @@ namespace Corgibytes.Freshli.Lib
                 else
                 {
                     packageResult.UpgradeAvailable = true;
-                    _logger.Warn($"Negative value ({libYearValue:0.000}) " +
+                    Logger.LogWarning($"Negative value ({libYearValue:0.000}) " +
                                  $"computed for {package.Name} as of {date:d}; " +
                                  $"setting value to 0: {packageResult}");
                 }
             }
 
-            _logger.Trace($"PackageResult: {packageResult.ToString()}");
+            Logger.LogTrace($"PackageResult: {packageResult.ToString()}");
             return packageResult;
         }
 
@@ -132,29 +135,29 @@ namespace Corgibytes.Freshli.Lib
           IVersionInfo olderVersion, IVersionInfo newerVersion)
         {
             return (newerVersion.DatePublished - olderVersion.DatePublished).
-              TotalDays / 365.0;
+                TotalDays / 365.0;
         }
 
         // TODO: Convert to async method
-        private static void HandleFailedPackage(
-          LibYearResult result,
-          PackageInfo package,
-          Exception e
+        private void HandleFailedPackage(
+            LibYearResult result,
+            PackageInfo package,
+            Exception e
         )
         {
-            _logger.Warn($"Skipping {package.Name}: {e.Message}");
+            Logger.LogWarning($"Skipping {package.Name}: {e.Message}");
             var packageResult = new LibYearPackageResult(
-              package.Name,
-              version: package.Version,
-              publishedAt: DateTime.MinValue,
-              latestVersion: null,
-              latestPublishedAt: DateTime.MinValue,
-              value: 0,
-              upgradeAvailable: false,
-              skipped: true
+                package.Name,
+                version: package.Version,
+                publishedAt: DateTime.MinValue,
+                latestVersion: null,
+                latestPublishedAt: DateTime.MinValue,
+                value: 0,
+                upgradeAvailable: false,
+                skipped: true
             );
             result.Add(packageResult);
-            _logger.Trace(e.StackTrace);
+            Logger.LogTrace(e.StackTrace);
         }
 
         // TODO: Convert to asnyc method
@@ -188,7 +191,7 @@ namespace Corgibytes.Freshli.Lib
             }
             catch (NotImplementedException)
             {
-                _logger.Trace("Unable to calculate versions between due to language " +
+                Logger.LogTrace("Unable to calculate versions between due to language " +
                               "not being implemented, skipping.");
             }
 

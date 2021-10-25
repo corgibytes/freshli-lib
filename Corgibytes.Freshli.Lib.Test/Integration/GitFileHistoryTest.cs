@@ -14,10 +14,10 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
             var history = new GitFileHistory(rubyFixturePath, "Gemfile.lock");
 
             var expectedDates = new List<DateTime>() {
-        new DateTime(2017, 01, 01),
-        new DateTime(2018, 01, 01),
-        new DateTime(2019, 01, 01)
-      };
+                new DateTime(2017, 01, 01),
+                new DateTime(2018, 01, 01),
+                new DateTime(2019, 01, 01)
+            };
 
             Assert.Equal(expectedDates, history.Dates);
         }

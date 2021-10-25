@@ -4,8 +4,7 @@ using System.IO;
 
 namespace Corgibytes.Freshli.Lib
 {
-    // TODO: Rename this to FileHistoryService
-    public class FileHistoryFinder
+    public class FileHistoryService: IFileHistoryService
     {
         private readonly string _projectRootPath;
 
@@ -15,7 +14,7 @@ namespace Corgibytes.Freshli.Lib
         public static IList<IFileHistoryFinder> Finders => _finders;
         public IFileHistoryFinder Finder { get; }
 
-        public FileHistoryFinder(string projectRootPath)
+        public FileHistoryService(string projectRootPath)
         {
             _projectRootPath = projectRootPath;
             Finder = new LocalFileHistoryFinder();

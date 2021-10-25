@@ -2,12 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
-using NLog;
+
+using Microsoft.Extensions.Logging;
 
 namespace Corgibytes.Freshli.Lib.Languages.Php
 {
     public class ComposerManifest : AbstractManifest
     {
+        public ComposerManifest(ILogger<IManifest> logger): base(logger)
+        {
+        }
+
         public override void Parse(string contents)
         {
             Clear();

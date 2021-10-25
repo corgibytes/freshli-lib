@@ -6,7 +6,7 @@ using Corgibytes.Freshli.Lib.Util;
 
 namespace Corgibytes.Freshli.Lib
 {
-    public class AnalysisDates : IEnumerable<DateTime>
+    public class AnalysisDates : IAnalysisDates
     {
         private List<DateTime> _dates = new List<DateTime>();
 

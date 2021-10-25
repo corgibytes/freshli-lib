@@ -4,20 +4,29 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
-using Corgibytes.Freshli.Lib.Exceptions;
+
+using Microsoft.Extensions.Logging;
+
 using HtmlAgilityPack;
-using NLog;
+
 using Polly;
+
+using Corgibytes.Freshli.Lib.Exceptions;
+
 
 namespace Corgibytes.Freshli.Lib.Languages.Python
 {
     public class PyPIRepository : IPackageRepository
     {
+        public ILogger<IPackageRepository> Logger { get; }
 
-        private static readonly Logger _logger = LogManager.GetCurrentClassLogger();
         private IDictionary<string, IList<IVersionInfo>> _packages =
             new Dictionary<string, IList<IVersionInfo>>();
 
+        public PyPIRepository(ILogger<IPackageRepository> logger)
+        {
+            Logger = logger;
+        }
         private async Task<IList<IVersionInfo>> GetReleaseHistory(string name)
         {
             try

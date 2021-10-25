@@ -1,11 +1,33 @@
 using System;
-using Corgibytes.Freshli.Lib.Languages.Ruby;
+
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+
+using HtmlAgilityPack;
+
+using Polly;
+using Polly.Registry;
+
 using Xunit;
+using Xunit.Abstractions;
+
+using Corgibytes.Freshli.Lib.Languages.Ruby;
+
 
 namespace Corgibytes.Freshli.Lib.Test.Integration
 {
     public class LibYearCalculatorTest
     {
+        RubyGemsRepository _repository;
+        IServiceProvider _serviceProvider;
+
+
+        public LibYearCalculatorTest(ITestOutputHelper outputHelper)
+        {
+            _serviceProvider = Fixtures.BuildServiceProviderWith(outputHelper);
+            _repository = _serviceProvider.GetRequiredService<RubyGemsRepository>();
+        }
+
         [Fact]
         public async void ComputeAsOf()
         {
@@ -13,9 +35,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
             manifest.Add("mini_portile2", "2.1.0");
             manifest.Add("nokogiri", "1.7.0");
 
-            var repository = new RubyGemsRepository();
-
-            var calculator = new LibYearCalculator(repository, manifest);
+            var calculator = new LibYearCalculator(_repository, manifest);
 
             var results = await calculator.ComputeAsOf(new DateTime(2017, 04, 01));
 
@@ -42,9 +62,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
             manifest.Add("mini_portile2", "2.1.0");
             manifest.Add("nokogiri", "1.7.0");
 
-            var repository = new RubyGemsRepository();
-
-            var calculator = new LibYearCalculator(repository, manifest);
+            var calculator = new LibYearCalculator(_repository, manifest);
 
             var results = await calculator.ComputeAsOf(new DateTime(2017, 02, 01));
 
@@ -65,9 +83,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
             manifest.Add("mini_portile2", "2.3.0");
             manifest.Add("nokogiri", "1.8.1");
 
-            var repository = new RubyGemsRepository();
-
-            var calculator = new LibYearCalculator(repository, manifest);
+            var calculator = new LibYearCalculator(_repository, manifest);
 
             var results = await calculator.ComputeAsOf(new DateTime(2018, 01, 01));
 
@@ -88,9 +104,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
             manifest.Add("mini_portile2", "2.3.0");
             manifest.Add("nokogiri", "1.8.1");
 
-            var repository = new RubyGemsRepository();
-
-            var calculator = new LibYearCalculator(repository, manifest);
+            var calculator = new LibYearCalculator(_repository, manifest);
 
             var results = await calculator.ComputeAsOf(new DateTime(2018, 02, 01));
 
@@ -107,10 +121,9 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
         [Fact]
         public async void ComputeAsOfWithNoNewerMinorReleases()
         {
-            var repository = new RubyGemsRepository();
             var manifest = new BundlerManifest();
             manifest.Add("tzinfo", "0.3.38");
-            var calculator = new LibYearCalculator(repository, manifest);
+            var calculator = new LibYearCalculator(_repository, manifest);
 
             var results = await calculator.ComputeAsOf(new DateTime(2014, 03, 01));
 
@@ -123,10 +136,9 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
         [Fact]
         public async void ComputeAsOfWithNewerMinorReleases()
         {
-            var repository = new RubyGemsRepository();
             var manifest = new BundlerManifest();
             manifest.Add("tzinfo", "0.3.38");
-            var calculator = new LibYearCalculator(repository, manifest);
+            var calculator = new LibYearCalculator(_repository, manifest);
 
             var results = await calculator.ComputeAsOf(new DateTime(2014, 04, 01));
 
@@ -141,8 +153,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
         {
             var manifest = new BundlerManifest();
             manifest.Add("google-protobuf", "3.12.0.rc.1");
-            var repository = new RubyGemsRepository();
-            var calculator = new LibYearCalculator(repository, manifest);
+            var calculator = new LibYearCalculator(_repository, manifest);
 
             var results = await calculator.ComputeAsOf(new DateTime(2020, 06, 01));
 
@@ -160,8 +171,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
         {
             var manifest = new BundlerManifest();
             manifest.Add("google-protobuf", "3.10.0.rc.1");
-            var repository = new RubyGemsRepository();
-            var calculator = new LibYearCalculator(repository, manifest);
+            var calculator = new LibYearCalculator(_repository, manifest);
 
             var results = await calculator.ComputeAsOf(new DateTime(2019, 11, 25));
 

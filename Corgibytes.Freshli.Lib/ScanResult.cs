@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Corgibytes.Freshli.Lib
 {
-    public record ScanResult(string Filename, List<MetricsResult> MetricResults)
+    public record ScanResult(string Filename, IEnumerable<MetricsResult> MetricResults)
     {
         public override string ToString()
         {
