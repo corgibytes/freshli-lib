@@ -10,7 +10,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
     {
         public ManifestFinderTest()
         {
-            ManifestFinder.RegisterAll();
+            ManifestService.RegisterAll();
         }
 
         [Fact]
@@ -18,7 +18,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
         {
             var emptyFixturePath = Fixtures.Path("empty");
             var fileFinder = new FileHistoryFinder(emptyFixturePath);
-            var finder = new ManifestFinder(emptyFixturePath, fileFinder.Finder);
+            var finder = new ManifestService(emptyFixturePath, fileFinder.Finder);
             Assert.False(finder.Successful);
         }
 
@@ -28,7 +28,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
             var rubyFixturePath = Fixtures.Path("ruby", "nokotest");
 
             var fileFinder = new FileHistoryFinder(rubyFixturePath);
-            var finder = new ManifestFinder(rubyFixturePath, fileFinder.Finder);
+            var finder = new ManifestService(rubyFixturePath, fileFinder.Finder);
 
             Assert.True(finder.Successful);
             Assert.Equal("Gemfile.lock", finder.ManifestFiles[0]);
@@ -43,7 +43,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
             var phpFixturePath = Fixtures.Path("php", "small");
 
             var fileFinder = new FileHistoryFinder(phpFixturePath);
-            var finder = new ManifestFinder(phpFixturePath, fileFinder.Finder);
+            var finder = new ManifestService(phpFixturePath, fileFinder.Finder);
 
             Assert.True(finder.Successful);
             Assert.Equal("composer.lock", finder.ManifestFiles[0]);
@@ -62,7 +62,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
             );
 
             var fileFinder = new FileHistoryFinder(pythonFixturePath);
-            var finder = new ManifestFinder(pythonFixturePath, fileFinder.Finder);
+            var finder = new ManifestService(pythonFixturePath, fileFinder.Finder);
 
             Assert.True(finder.Successful);
             Assert.Equal("requirements.txt", finder.ManifestFiles[0]);
@@ -82,7 +82,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
             );
 
             var fileFinder = new FileHistoryFinder(fixturePath);
-            var finder = new ManifestFinder(fixturePath, fileFinder.Finder);
+            var finder = new ManifestService(fixturePath, fileFinder.Finder);
 
             Assert.True(finder.Successful);
             Assert.Equal("cpanfile", finder.ManifestFiles[0]);

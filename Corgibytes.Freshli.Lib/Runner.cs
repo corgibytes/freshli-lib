@@ -12,11 +12,11 @@ namespace Corgibytes.Freshli.Lib
 
         private static readonly Logger logger = LogManager.GetCurrentClassLogger();
 
-        public ManifestFinder ManifestFinder { get; private set; }
+        public ManifestService ManifestService { get; private set; }
 
         public Runner()
         {
-            ManifestFinder.RegisterAll();
+            ManifestService.RegisterAll();
             FileHistoryFinder.Register<GitFileHistoryFinder>();
         }
 
@@ -26,12 +26,12 @@ namespace Corgibytes.Freshli.Lib
 
             IList<ScanResult> scanResults = new List<ScanResult>();
             var fileHistoryFinder = new FileHistoryFinder(analysisPath);
-            ManifestFinder = new ManifestFinder(
+            ManifestService = new ManifestService(
                 analysisPath,
                 fileHistoryFinder.Finder
             );
 
-            if (!ManifestFinder.Successful)
+            if (!ManifestService.Successful)
             {
                 logger.Warn("Unable to find a manifest file");
             }
@@ -62,15 +62,15 @@ namespace Corgibytes.Freshli.Lib
         private IList<ScanResult> ProcessManifestFiles(string analysisPath, DateTime asOf, FileHistoryFinder fileHistoryFinder)
         {
             var scanResults = new List<ScanResult>();
-            foreach (var mf in ManifestFinder.ManifestFiles)
+            foreach (var mf in ManifestService.ManifestFiles)
             {
                 logger.Trace(
                       "{analysisPath}: LockFileName: {LockFileName}",
                       analysisPath,
-                      ManifestFinder.ManifestFiles[0]
+                      ManifestService.ManifestFiles[0]
                     );
 
-                var calculator = ManifestFinder.Calculator;
+                var calculator = ManifestService.Calculator;
                 var fileHistory = fileHistoryFinder.FileHistoryOf(mf);
                 var analysisDates = new AnalysisDates(fileHistory, asOf);
                 var metricsResults = analysisDates.Select(
@@ -96,7 +96,7 @@ namespace Corgibytes.Freshli.Lib
               "currentDate = {currentDate:d}, " +
               "sha = {sha}, " +
               "libYear = {ComputeAsOf}",
-              ManifestFinder.ManifestFiles[0],
+              ManifestService.ManifestFiles[0],
               currentDate,
               sha,
               libYear.Total

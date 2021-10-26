@@ -7,7 +7,7 @@ using NLog;
 
 namespace Corgibytes.Freshli.Lib
 {
-    public class ManifestFinder
+    public class ManifestService
     {
         private static readonly Logger logger = LogManager.GetCurrentClassLogger();
         private readonly string _projectRootPath;
@@ -29,7 +29,7 @@ namespace Corgibytes.Freshli.Lib
           Finder.ManifestFor(_projectRootPath)
         );
 
-        public ManifestFinder(
+        public ManifestService(
           string projectRootPath,
           IFileHistoryFinder fileFinder
         )
