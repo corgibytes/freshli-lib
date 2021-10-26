@@ -16,7 +16,7 @@ namespace Corgibytes.Freshli.Lib
 
         public Runner()
         {
-            ManifestService.RegisterAll();
+            ManifestFinderRegistry.RegisterAll();
             FileHistoryFinder.Register<GitFileHistoryFinder>();
         }
 
@@ -65,10 +65,10 @@ namespace Corgibytes.Freshli.Lib
             foreach (var mf in ManifestService.ManifestFiles)
             {
                 logger.Trace(
-                      "{analysisPath}: LockFileName: {LockFileName}",
-                      analysisPath,
-                      ManifestService.ManifestFiles[0]
-                    );
+                    "{analysisPath}: LockFileName: {LockFileName}",
+                    analysisPath,
+                    ManifestService.ManifestFiles[0]
+                );
 
                 var calculator = ManifestService.Calculator;
                 var fileHistory = fileHistoryFinder.FileHistoryOf(mf);
@@ -92,14 +92,14 @@ namespace Corgibytes.Freshli.Lib
 
             LibYearResult libYear = calculator.ComputeAsOf(currentDate);
             logger.Trace(
-              "Adding MetricResult: {manifestFile}, " +
-              "currentDate = {currentDate:d}, " +
-              "sha = {sha}, " +
-              "libYear = {ComputeAsOf}",
-              ManifestService.ManifestFiles[0],
-              currentDate,
-              sha,
-              libYear.Total
+                "Adding MetricResult: {manifestFile}, " +
+                    "currentDate = {currentDate:O}, " +
+                    "sha = {sha}, " +
+                    "libYear = {ComputeAsOf}",
+                ManifestService.ManifestFiles[0],
+                currentDate,
+                sha,
+                libYear.Total
             );
 
             return new MetricsResult(currentDate, sha, libYear);
@@ -113,7 +113,7 @@ namespace Corgibytes.Freshli.Lib
             }
             var dateTime = DateTime.Now;
             var filePath =
-              $"{ResultsPath}/{dateTime:yyyy-MM-dd-hhmmssfffffff}-results.txt";
+                $"{ResultsPath}/{dateTime:yyyy-MM-dd-hhmmssfffffff}-results.txt";
             using var file = new System.IO.StreamWriter(filePath);
             foreach (var result in results)
             {

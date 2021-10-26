@@ -10,7 +10,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
     {
         public ManifestFinderTest()
         {
-            ManifestService.RegisterAll();
+            ManifestFinderRegistry.RegisterAll();
         }
 
         [Fact]
