@@ -1,5 +1,6 @@
 namespace Corgibytes.Freshli.Lib
 {
+    // TODO: extract out IManifestFinder
     public abstract class AbstractManifestFinder
     {
         protected abstract string ManifestPattern { get; }

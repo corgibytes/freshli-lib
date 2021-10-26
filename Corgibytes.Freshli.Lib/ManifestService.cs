@@ -9,39 +9,18 @@ namespace Corgibytes.Freshli.Lib
 {
     public class ManifestService
     {
-        // TODO: inject this dependency
-        private static readonly Logger logger = LogManager.GetCurrentClassLogger();
-        private readonly string _projectRootPath;
-
-        public AbstractManifestFinder Finder { get; }
-
-        public string[] ManifestFiles =>
-            Finder.GetManifestFilenames(_projectRootPath);
-
-        public bool Successful { get; }
-
-        public LibYearCalculator Calculator => new LibYearCalculator(
-            Finder.RepositoryFor(_projectRootPath),
-            Finder.ManifestFor(_projectRootPath)
-        );
-
-        // TODO: rework this logic so that it does not run as part of the constructor
-        public ManifestService(
-            string projectRootPath,
-            IFileHistoryFinder fileFinder
-        )
+        // TODO: convert to returning an enumerable of IManifestFinder
+        // TODO: It should be possible to get rid of the analysis path parameter, since the IFileHistoryFinder should already know the analysis path
+        public IEnumerable<AbstractManifestFinder> SelectFindersFor(string analysisPath, IFileHistoryFinder fileHistoryFinder)
         {
-            _projectRootPath = projectRootPath;
-            Successful = false;
             // TODO: inject the dependency on ManfestFinderRegistry
             foreach (var finder in ManifestFinderRegistry.Finders.ToImmutableList())
             {
-                finder.FileFinder = fileFinder;
-                if (finder.GetManifestFilenames(projectRootPath).Any())
+                // TODO: the fileHistoryFinder should be passed in to GetManifestFilenames instead of the "analysisPath"
+                finder.FileFinder = fileHistoryFinder;
+                if (finder.GetManifestFilenames(analysisPath).Any())
                 {
-                    Finder = finder;
-                    Successful = true;
-                    break;
+                    yield return finder;
                 }
             }
         }

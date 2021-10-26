@@ -1,7 +1,4 @@
-using Corgibytes.Freshli.Lib.Languages.Perl;
-using Corgibytes.Freshli.Lib.Languages.Php;
-using Corgibytes.Freshli.Lib.Languages.Python;
-using Corgibytes.Freshli.Lib.Languages.Ruby;
+using System.Linq;
 using Xunit;
 
 namespace Corgibytes.Freshli.Lib.Test.Integration
@@ -18,8 +15,10 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
         {
             var emptyFixturePath = Fixtures.Path("empty");
             var fileFinder = new FileHistoryFinder(emptyFixturePath);
-            var finder = new ManifestService(emptyFixturePath, fileFinder.Finder);
-            Assert.False(finder.Successful);
+            var manifestService = new ManifestService();
+            var finders = manifestService.SelectFindersFor(emptyFixturePath, fileFinder.Finder);
+
+            Assert.Empty(finders);
         }
 
         [Fact]
@@ -28,13 +27,10 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
             var rubyFixturePath = Fixtures.Path("ruby", "nokotest");
 
             var fileFinder = new FileHistoryFinder(rubyFixturePath);
-            var finder = new ManifestService(rubyFixturePath, fileFinder.Finder);
+            var manifestService = new ManifestService();
+            var finders = manifestService.SelectFindersFor(rubyFixturePath, fileFinder.Finder);
 
-            Assert.True(finder.Successful);
-            Assert.Equal("Gemfile.lock", finder.ManifestFiles[0]);
-
-            Assert.IsType<RubyGemsRepository>(finder.Calculator.Repository);
-            Assert.IsType<BundlerManifest>(finder.Calculator.Manifest);
+            Assert.Equal("Gemfile.lock", finders.First().GetManifestFilenames(rubyFixturePath).First());
         }
 
         [Fact]
@@ -43,13 +39,10 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
             var phpFixturePath = Fixtures.Path("php", "small");
 
             var fileFinder = new FileHistoryFinder(phpFixturePath);
-            var finder = new ManifestService(phpFixturePath, fileFinder.Finder);
+            var manifestService = new ManifestService();
+            var finders = manifestService.SelectFindersFor(phpFixturePath, fileFinder.Finder);
 
-            Assert.True(finder.Successful);
-            Assert.Equal("composer.lock", finder.ManifestFiles[0]);
-
-            Assert.IsType<MulticastComposerRepository>(finder.Calculator.Repository);
-            Assert.IsType<ComposerManifest>(finder.Calculator.Manifest);
+            Assert.Equal("composer.lock", finders.First().GetManifestFilenames(phpFixturePath).First());
         }
 
         [Fact]
@@ -62,13 +55,10 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
             );
 
             var fileFinder = new FileHistoryFinder(pythonFixturePath);
-            var finder = new ManifestService(pythonFixturePath, fileFinder.Finder);
+            var manifestService = new ManifestService();
+            var finders = manifestService.SelectFindersFor(pythonFixturePath, fileFinder.Finder);
 
-            Assert.True(finder.Successful);
-            Assert.Equal("requirements.txt", finder.ManifestFiles[0]);
-
-            Assert.IsType<PyPIRepository>(finder.Calculator.Repository);
-            Assert.IsType<PipRequirementsTxtManifest>(finder.Calculator.Manifest);
+            Assert.Equal("requirements.txt", finders.First().GetManifestFilenames(pythonFixturePath).First());
         }
 
 
@@ -82,13 +72,10 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
             );
 
             var fileFinder = new FileHistoryFinder(fixturePath);
-            var finder = new ManifestService(fixturePath, fileFinder.Finder);
+            var manifestService = new ManifestService();
+            var finders = manifestService.SelectFindersFor(fixturePath, fileFinder.Finder);
 
-            Assert.True(finder.Successful);
-            Assert.Equal("cpanfile", finder.ManifestFiles[0]);
-
-            Assert.IsType<MetaCpanRepository>(finder.Calculator.Repository);
-            Assert.IsType<CpanfileManifest>(finder.Calculator.Manifest);
+            Assert.Equal("cpanfile", finders.First().GetManifestFilenames(fixturePath).First());
         }
     }
 }
