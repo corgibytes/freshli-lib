@@ -34,7 +34,6 @@ namespace Corgibytes.Freshli.Lib
             var fileHistoryFinder = new FileHistoryFinder(analysisPath);
 
             var manifestFinders = ManifestService.SelectFindersFor(analysisPath, fileHistoryFinder.Finder);
-
             IEnumerable<AbstractManifestFinder> abstractManifestFinders = manifestFinders as AbstractManifestFinder[] ?? manifestFinders.ToArray();
             if (!abstractManifestFinders.Any(finder => finder.GetManifestFilenames(analysisPath).Length > 0))
             {
@@ -89,6 +88,9 @@ namespace Corgibytes.Freshli.Lib
                     ).ToList();
 
                     yield return new ScanResult(manifestFile, metricsResults);
+
+                    // TODO: Remove this break to enable multi-manifest file support, I _think_ ^_^
+                    yield break;
                 }
             }
         }

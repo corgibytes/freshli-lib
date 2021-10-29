@@ -18,9 +18,13 @@ namespace Corgibytes.Freshli.Lib
             {
                 // TODO: the fileHistoryFinder should be passed in to GetManifestFilenames instead of the "analysisPath"
                 finder.FileFinder = fileHistoryFinder;
+                // TODO: I'm not sure this check here makes the most, seems like something the consumer should be responsible
                 if (finder.GetManifestFilenames(analysisPath).Any())
                 {
                     yield return finder;
+
+                    // TODO: Remove this break to add support for multiple manifests from different providers
+                    yield break;
                 }
             }
         }
