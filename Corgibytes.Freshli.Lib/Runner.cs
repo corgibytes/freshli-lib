@@ -77,8 +77,8 @@ namespace Corgibytes.Freshli.Lib
                     );
 
                     var calculator = new LibYearCalculator(
-                        manifestFinder.RepositoryFor(manifestFile),
-                        manifestFinder.ManifestFor(manifestFile)
+                        manifestFinder.RepositoryFor(analysisPath),
+                        manifestFinder.ManifestFor(analysisPath)
                     );
 
                     var fileHistory = fileHistoryFinder.FileHistoryOf(manifestFile);
