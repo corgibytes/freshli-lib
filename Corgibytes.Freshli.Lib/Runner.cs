@@ -46,7 +46,8 @@ namespace Corgibytes.Freshli.Lib
                     asOf,
                     abstractManifestFinders,
                     fileHistoryFinder
-                ).ToList();
+                // TODO: Remove the call to `Take(1)` to support results from multiple manifest files
+                ).Take(1).ToList();
             }
 
             DotNetEnv.Env.Load();
