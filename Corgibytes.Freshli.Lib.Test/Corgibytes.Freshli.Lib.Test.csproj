@@ -13,7 +13,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="ApprovalTests" Version="5.7.1" />
         <PackageReference Include="coverlet.msbuild" Version="3.1.0">
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
           <PrivateAssets>all</PrivateAssets>
@@ -21,6 +20,7 @@
         <PackageReference Include="DiffEngine" Version="8.2.0" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.0.0" />
         <PackageReference Include="Moq" Version="4.16.1" />
+        <PackageReference Include="Verify.Xunit" Version="14.0.1" />
         <PackageReference Include="xunit" Version="2.4.1" />
         <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3" />
     </ItemGroup>
@@ -32,19 +32,6 @@
     <ItemGroup>
       <None Update="fixtures\**">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
-      <None Update="Acceptance.SpaCyWithHistoryViaGitHub.Linux.approved.txt">
-        <DependentUpon>Acceptance.cs</DependentUpon>
-      </None>
-      <None Update="Acceptance.CpanfileDancer2.Windows.approved.txt">
-        <ParentExtension>.cs</ParentExtension>
-        <ParentFile>Acceptance</ParentFile>
-        <DependentUpon>Acceptance.cs</DependentUpon>
-      </None>
-      <None Update="Acceptance.CpanfileDancer2.Linux.approved.txt">
-        <ParentExtension>.cs</ParentExtension>
-        <ParentFile>Acceptance</ParentFile>
-        <DependentUpon>Acceptance.cs</DependentUpon>
       </None>
     </ItemGroup>
 
