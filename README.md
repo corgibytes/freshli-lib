@@ -33,7 +33,7 @@ Console.WriteLine(results.MetricsResults);
 Console.WriteLine(results[0].ToString());
 ```
 
-### Alpah Packages
+### Alpha Packages
 
 If you like living on the edge you can find alpha versions of Freshli Lib [here](https://github.com/corgibytes/freshli-lib/packages/667787/versions).  You will need to [set up a GitHub personal access token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) and then create a `nuget.config` file in your project root with the following contents:
 
