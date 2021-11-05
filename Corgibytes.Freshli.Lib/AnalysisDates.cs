@@ -12,6 +12,7 @@ namespace Corgibytes.Freshli.Lib
 
         public AnalysisDates(IFileHistory history, DateTime asOf)
         {
+            // TODO: Move this logic out of the constructor to support async calls
             if (history.Dates.Count == 0)
             {
                 _dates.Add(asOf);

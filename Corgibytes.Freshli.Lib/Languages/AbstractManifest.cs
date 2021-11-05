@@ -5,6 +5,7 @@ using NLog;
 
 namespace Corgibytes.Freshli.Lib.Languages
 {
+    // TODO: Move in the direction of `IManifest` instances being mostly immutable, and have them be instantiated by calling an `IManifestParser.Parse` method. This is going to help with `async`/`await` implementation.
     public abstract class AbstractManifest : IManifest
     {
         protected static readonly Logger _logger = LogManager.

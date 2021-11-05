@@ -35,7 +35,6 @@ namespace Corgibytes.Freshli.Lib.Test
             var rubyFixturePath = Fixtures.Path("ruby", "nokotest");
             var results = runner.Run(rubyFixturePath, asOf: _testingBoundary);
 
-            Assert.True(runner.ManifestFinder.Successful);
             return Verifier.Verify(results);
         }
 
@@ -48,7 +47,6 @@ namespace Corgibytes.Freshli.Lib.Test
               "https://github.com/corgibytes/freshli-fixture-ruby-nokotest";
             var results = runner.Run(repoUrl, asOf: _testingBoundary);
 
-            Assert.True(runner.ManifestFinder.Successful);
             return Verifier.Verify(results);
         }
 
@@ -60,7 +58,6 @@ namespace Corgibytes.Freshli.Lib.Test
             var repoUrl = "https://github.com/feedbin/feedbin";
             var results = runner.Run(repoUrl, asOf: _testingBoundary);
 
-            Assert.True(runner.ManifestFinder.Successful);
             return Verifier.Verify(results);
         }
 
@@ -73,7 +70,6 @@ namespace Corgibytes.Freshli.Lib.Test
               asOf: new DateTime(2020, 06, 01, 00, 00, 00, DateTimeKind.Utc)
             );
 
-            Assert.True(runner.ManifestFinder.Successful);
             return Verifier.Verify(results);
         }
 
@@ -85,7 +81,6 @@ namespace Corgibytes.Freshli.Lib.Test
             var phpFixturePath = Fixtures.Path("php", "large");
             var results = runner.Run(phpFixturePath, asOf: _testingBoundary);
 
-            Assert.True(runner.ManifestFinder.Successful);
             return Verifier.Verify(results);
         }
 
@@ -97,7 +92,6 @@ namespace Corgibytes.Freshli.Lib.Test
             var phpFixturePath = Fixtures.Path("php", "drupal");
             var results = runner.Run(phpFixturePath, asOf: _testingBoundary);
 
-            Assert.True(runner.ManifestFinder.Successful);
             return Verifier.Verify(results);
         }
 
@@ -111,7 +105,6 @@ namespace Corgibytes.Freshli.Lib.Test
               asOf: _testingBoundary
             );
 
-            Assert.True(runner.ManifestFinder.Successful);
             return Verifier.Verify(results);
         }
 
@@ -125,7 +118,6 @@ namespace Corgibytes.Freshli.Lib.Test
               asOf: _testingBoundary
             );
 
-            Assert.True(runner.ManifestFinder.Successful);
             return Verifier.Verify(results);
         }
 
@@ -139,7 +131,6 @@ namespace Corgibytes.Freshli.Lib.Test
                 asOf: new DateTime(2017, 6, 1, 0, 0, 0)
             );
 
-            Assert.True(runner.ManifestFinder.Successful);
             return Verifier.Verify(results);
         }
 
@@ -153,7 +144,6 @@ namespace Corgibytes.Freshli.Lib.Test
               asOf: _testingBoundary
             );
 
-            Assert.False(runner.ManifestFinder.Successful);
             return Verifier.Verify(results);
         }
     }
