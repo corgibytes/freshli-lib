@@ -3,7 +3,7 @@ using VerifyTests;
 
 namespace Corgibytes.Freshli.Lib.Test
 {
-    public class InitializeVerify
+    public class Initializer
     {
         [ModuleInitializer]
         public static void Initialize()
