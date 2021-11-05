@@ -1,7 +1,6 @@
 using System.IO;
-using Xunit;
-
 using Corgibytes.Freshli.Lib.Exceptions;
+using Xunit;
 
 namespace Corgibytes.Freshli.Lib.Test.Integration
 {
