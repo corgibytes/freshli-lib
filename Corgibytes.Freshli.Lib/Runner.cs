@@ -16,8 +16,11 @@ namespace Corgibytes.Freshli.Lib
 
         public Runner()
         {
+            // TODO: The manifest finder registry should be injected
             ManifestFinderRegistry.RegisterAll();
-            FileHistoryFinder.Register<GitFileHistoryFinder>();
+
+            // TODO: The file history registry should be injected
+            FileHistoryFinderRegistry.Register<GitFileHistoryFinder>();
 
             // TODO: inject this dependency
             ManifestService = new ManifestService();
@@ -30,10 +33,10 @@ namespace Corgibytes.Freshli.Lib
             IList<ScanResult> scanResults = new List<ScanResult>();
 
             // TODO: inject this dependencies
-            // TODO: rename to FileHistoryService
-            var fileHistoryFinder = new FileHistoryFinder(analysisPath);
+            var fileHistoryService = new FileHistoryService();
+            var fileHistoryFinder = fileHistoryService.SelectFinderFor(analysisPath);
 
-            var manifestFinders = ManifestService.SelectFindersFor(analysisPath, fileHistoryFinder.Finder);
+            var manifestFinders = ManifestService.SelectFindersFor(analysisPath, fileHistoryFinder);
             IEnumerable<AbstractManifestFinder> abstractManifestFinders = manifestFinders as AbstractManifestFinder[] ?? manifestFinders.ToArray();
             if (!abstractManifestFinders.Any(finder => finder.GetManifestFilenames(analysisPath).Length > 0))
             {
@@ -65,7 +68,7 @@ namespace Corgibytes.Freshli.Lib
             return Run(analysisPath, asOf: asOf);
         }
 
-        private IEnumerable<ScanResult> ProcessManifestFiles(string analysisPath, DateTimeOffset asOf, IEnumerable<AbstractManifestFinder> manifestFinders, FileHistoryFinder fileHistoryFinder)
+        private IEnumerable<ScanResult> ProcessManifestFiles(string analysisPath, DateTimeOffset asOf, IEnumerable<AbstractManifestFinder> manifestFinders, IFileHistoryFinder fileHistoryFinder)
         {
             foreach (var manifestFinder in manifestFinders)
             {
@@ -82,7 +85,7 @@ namespace Corgibytes.Freshli.Lib
                         manifestFinder.ManifestFor(analysisPath)
                     );
 
-                    var fileHistory = fileHistoryFinder.FileHistoryOf(manifestFile);
+                    var fileHistory = fileHistoryFinder.FileHistoryOf(analysisPath, manifestFile);
                     var analysisDates = new AnalysisDates(fileHistory, asOf.DateTime);
                     var metricsResults = analysisDates.Select(
                         ad => ProcessAnalysisDate(manifestFile, calculator, fileHistory, ad)
