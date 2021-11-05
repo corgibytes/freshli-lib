@@ -3744,9 +3744,5 @@
         ]
       }
     ]
-  },
-  {
-    Filename: website/setup/requirements.txt,
-    MetricResults: []
   }
 ]

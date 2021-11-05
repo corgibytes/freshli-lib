@@ -6,15 +6,21 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
 {
     public class PackagistRepositoryTest
     {
+        public IFileHistoryFinderRegistry FileHistoryFinderRegistry { get; init; }
+        public PackagistRepositoryTest()
+        {
+            FileHistoryFinderRegistry = new FileHistoryFinderRegistry();
+            FileHistoryFinderRegistry.Register<GitFileHistoryFinder>();
+            FileHistoryFinderRegistry.Register<LocalFileHistoryFinder>();
+        }
+
         [Fact]
         public void VersionInfo()
         {
             var phpFixturePath = Fixtures.Path("php", "small");
-            var fileFinder = new FileHistoryFinder(phpFixturePath);
-            var repository = new MulticastComposerRepository(
-              phpFixturePath,
-              fileFinder.Finder
-            );
+            var historyService = new FileHistoryService(FileHistoryFinderRegistry);
+            var fileFinder = historyService.SelectFinderFor(phpFixturePath);
+            var repository = new MulticastComposerRepository(phpFixturePath, fileFinder);
             var versionInfo = repository.VersionInfo("monolog/monolog", "1.11.0");
 
             Assert.Equal(new DateTime(2014, 09, 30), versionInfo.DatePublished);
@@ -24,11 +30,9 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
         public void LatestAsOf()
         {
             var phpFixturePath = Fixtures.Path("php", "small");
-            var fileFinder = new FileHistoryFinder(phpFixturePath);
-            var repository = new MulticastComposerRepository(
-              phpFixturePath,
-              fileFinder.Finder
-            );
+            var historyService = new FileHistoryService(FileHistoryFinderRegistry);
+            var fileFinder = historyService.SelectFinderFor(phpFixturePath);
+            var repository = new MulticastComposerRepository(phpFixturePath, fileFinder);
             var versionInfo = repository.Latest(
               "monolog/monolog",
               new DateTime(2020, 01, 01), includePreReleases: false
@@ -41,11 +45,9 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
         public void LatestAsOfForSymfonyCssSelector()
         {
             var phpFixturePath = Fixtures.Path("php", "small");
-            var fileFinder = new FileHistoryFinder(phpFixturePath);
-            var repository = new MulticastComposerRepository(
-              phpFixturePath,
-              fileFinder.Finder
-            );
+            var historyService = new FileHistoryService(FileHistoryFinderRegistry);
+            var fileFinder = historyService.SelectFinderFor(phpFixturePath);
+            var repository = new MulticastComposerRepository(phpFixturePath, fileFinder);
 
             var versionInfo = repository.Latest(
               "symfony/css-selector",

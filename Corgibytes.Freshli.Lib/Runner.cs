@@ -12,12 +12,22 @@ namespace Corgibytes.Freshli.Lib
 
         private static readonly Logger logger = LogManager.GetCurrentClassLogger();
 
-        public ManifestFinder ManifestFinder { get; private set; }
+        public ManifestService ManifestService { get; private set; }
+
+        public IFileHistoryFinderRegistry FileHistoryFinderRegistry { get; private set; }
 
         public Runner()
         {
-            ManifestFinder.RegisterAll();
-            FileHistoryFinder.Register<GitFileHistoryFinder>();
+            // TODO: The manifest finder registry should be injected
+            ManifestFinderRegistry.RegisterAll();
+
+            // TODO: The file history registry should be injected
+            FileHistoryFinderRegistry = new FileHistoryFinderRegistry();
+            FileHistoryFinderRegistry.Register<GitFileHistoryFinder>();
+            FileHistoryFinderRegistry.Register<LocalFileHistoryFinder>();
+
+            // TODO: inject this dependency
+            ManifestService = new ManifestService();
         }
 
         public IList<ScanResult> Run(string analysisPath, DateTime asOf)
@@ -25,13 +35,14 @@ namespace Corgibytes.Freshli.Lib
             logger.Info($"Run({analysisPath}, {asOf:d})");
 
             IList<ScanResult> scanResults = new List<ScanResult>();
-            var fileHistoryFinder = new FileHistoryFinder(analysisPath);
-            ManifestFinder = new ManifestFinder(
-                analysisPath,
-                fileHistoryFinder.Finder
-            );
 
-            if (!ManifestFinder.Successful)
+            // TODO: inject this dependencies
+            var fileHistoryService = new FileHistoryService(FileHistoryFinderRegistry);
+            var fileHistoryFinder = fileHistoryService.SelectFinderFor(analysisPath);
+
+            var manifestFinders = ManifestService.SelectFindersFor(analysisPath, fileHistoryFinder);
+            IEnumerable<AbstractManifestFinder> abstractManifestFinders = manifestFinders as AbstractManifestFinder[] ?? manifestFinders.ToArray();
+            if (!abstractManifestFinders.Any(finder => finder.GetManifestFilenames(analysisPath).Length > 0))
             {
                 logger.Warn("Unable to find a manifest file");
             }
@@ -40,8 +51,10 @@ namespace Corgibytes.Freshli.Lib
                 scanResults = ProcessManifestFiles(
                     analysisPath,
                     asOf,
+                    abstractManifestFinders,
                     fileHistoryFinder
-                );
+                // TODO: Remove the call to `Take(1)` to support results from multiple manifest files
+                ).Take(1).ToList();
             }
 
             DotNetEnv.Env.Load();
@@ -59,47 +72,55 @@ namespace Corgibytes.Freshli.Lib
             return Run(analysisPath, asOf: asOf);
         }
 
-        private IList<ScanResult> ProcessManifestFiles(string analysisPath, DateTime asOf, FileHistoryFinder fileHistoryFinder)
+        private IEnumerable<ScanResult> ProcessManifestFiles(string analysisPath, DateTimeOffset asOf, IEnumerable<AbstractManifestFinder> manifestFinders, IFileHistoryFinder fileHistoryFinder)
         {
-            var scanResults = new List<ScanResult>();
-            foreach (var mf in ManifestFinder.ManifestFiles)
+            foreach (var manifestFinder in manifestFinders)
             {
-                logger.Trace(
-                      "{analysisPath}: LockFileName: {LockFileName}",
-                      analysisPath,
-                      ManifestFinder.ManifestFiles[0]
+                foreach (var manifestFile in manifestFinder.GetManifestFilenames(analysisPath))
+                {
+                    logger.Trace(
+                        "{analysisPath}: LockFileName: {LockFileName}",
+                        analysisPath,
+                        manifestFile
                     );
 
-                var calculator = ManifestFinder.Calculator;
-                var fileHistory = fileHistoryFinder.FileHistoryOf(mf);
-                var analysisDates = new AnalysisDates(fileHistory, asOf);
-                var metricsResults = analysisDates.Select(
-                    ad => ProcessAnalysisDate(mf, calculator, fileHistory, ad)
-                ).ToList();
+                    var calculator = new LibYearCalculator(
+                        manifestFinder.RepositoryFor(analysisPath),
+                        manifestFinder.ManifestFor(analysisPath)
+                    );
 
-                scanResults.Add(new ScanResult(mf, metricsResults));
+                    var fileHistory = fileHistoryFinder.FileHistoryOf(analysisPath, manifestFile);
+                    var analysisDates = new AnalysisDates(fileHistory, asOf.DateTime);
+                    var metricsResults = analysisDates.Select(
+                        ad => ProcessAnalysisDate(manifestFile, calculator, fileHistory, ad)
+                    ).ToList();
+
+                    yield return new ScanResult(manifestFile, metricsResults);
+
+                    // TODO: Remove this break to enable multi-manifest file support, I _think_ ^_^
+                    yield break;
+                }
             }
-
-            return scanResults;
         }
 
         private MetricsResult ProcessAnalysisDate(string manifestFile, LibYearCalculator calculator, IFileHistory fileHistory, DateTime currentDate)
         {
             var content = fileHistory.ContentsAsOf(currentDate);
+            // TODO: The manifest should be retreived from the ManifestFinder, not the calculator
             calculator.Manifest.Parse(content);
 
             var sha = fileHistory.ShaAsOf(currentDate);
 
             LibYearResult libYear = calculator.ComputeAsOf(currentDate);
             logger.Trace(
-              "Adding MetricResult: {manifestFile}, " +
-              "currentDate = {currentDate:d}, " +
-              "sha = {sha}, " +
-              "libYear = {ComputeAsOf}",
-              ManifestFinder.ManifestFiles[0],
-              currentDate,
-              sha,
-              libYear.Total
+                "Adding MetricResult: {manifestFile}, " +
+                    "currentDate = {currentDate:O}, " +
+                    "sha = {sha}, " +
+                    "libYear = {ComputeAsOf}",
+                manifestFile,
+                currentDate,
+                sha,
+                libYear.Total
             );
 
             return new MetricsResult(currentDate, sha, libYear);
@@ -113,7 +134,7 @@ namespace Corgibytes.Freshli.Lib
             }
             var dateTime = DateTime.Now;
             var filePath =
-              $"{ResultsPath}/{dateTime:yyyy-MM-dd-hhmmssfffffff}-results.txt";
+                $"{ResultsPath}/{dateTime:yyyy-MM-dd-hhmmssfffffff}-results.txt";
             using var file = new System.IO.StreamWriter(filePath);
             foreach (var result in results)
             {
