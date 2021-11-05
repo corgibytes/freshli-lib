@@ -23,8 +23,8 @@ namespace Corgibytes.Freshli.Lib
 
             // TODO: The file history registry should be injected
             FileHistoryFinderRegistry = new FileHistoryFinderRegistry();
-            FileHistoryFinderRegistry.Register<LocalFileHistoryFinder>();
             FileHistoryFinderRegistry.Register<GitFileHistoryFinder>();
+            FileHistoryFinderRegistry.Register<LocalFileHistoryFinder>();
 
             // TODO: inject this dependency
             ManifestService = new ManifestService();

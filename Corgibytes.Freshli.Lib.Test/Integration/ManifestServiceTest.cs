@@ -12,8 +12,8 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
             ManifestFinderRegistry.RegisterAll();
 
             FileHistoryFinderRegistry = new FileHistoryFinderRegistry();
-            FileHistoryFinderRegistry.Register<LocalFileHistoryFinder>();
             FileHistoryFinderRegistry.Register<GitFileHistoryFinder>();
+            FileHistoryFinderRegistry.Register<LocalFileHistoryFinder>();
         }
 
         [Fact]

@@ -10,8 +10,8 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
         public PackagistRepositoryTest()
         {
             FileHistoryFinderRegistry = new FileHistoryFinderRegistry();
-            FileHistoryFinderRegistry.Register<LocalFileHistoryFinder>();
             FileHistoryFinderRegistry.Register<GitFileHistoryFinder>();
+            FileHistoryFinderRegistry.Register<LocalFileHistoryFinder>();
         }
 
         [Fact]
