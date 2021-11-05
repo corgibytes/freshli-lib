@@ -1,6 +1,8 @@
 using System.IO;
 using Xunit;
 
+using Corgibytes.Freshli.Lib.Exceptions;
+
 namespace Corgibytes.Freshli.Lib.Test.Integration
 {
     public class FileHistoryServiceTest
@@ -10,22 +12,36 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
         {
             var rubyFixturePath = Fixtures.Path("ruby", "nokotest");
 
-            FileHistoryFinderRegistry.Register<GitFileHistoryFinder>();
-            var service = new FileHistoryService();
+            var fileHistoryFinderRegistry = new FileHistoryFinderRegistry();
+            fileHistoryFinderRegistry.Register<GitFileHistoryFinder>();
+            var service = new FileHistoryService(fileHistoryFinderRegistry);
             var finder = service.SelectFinderFor(rubyFixturePath);
 
             Assert.IsType<GitFileHistory>(finder.FileHistoryOf(rubyFixturePath, "Gemfile.lock"));
         }
 
         [Fact]
-        public void Default()
+        public void Local()
         {
             var emtpyFixturePath = Fixtures.Path("empty");
 
-            var service = new FileHistoryService();
+            var fileHistoryFinderRegistry = new FileHistoryFinderRegistry();
+            fileHistoryFinderRegistry.Register<LocalFileHistoryFinder>();
+            var service = new FileHistoryService(fileHistoryFinderRegistry);
             var finder = service.SelectFinderFor(emtpyFixturePath);
 
             Assert.IsType<LocalFileHistory>(finder.FileHistoryOf(emtpyFixturePath, "readme.md"));
+        }
+
+        [Fact]
+        public void ThrowsWhenNoFinderIsAvailable()
+        {
+            var emtpyFixturePath = Fixtures.Path("empty");
+
+            var fileHistoryFinderRegistry = new FileHistoryFinderRegistry();
+            var service = new FileHistoryService(fileHistoryFinderRegistry);
+
+            Assert.Throws<FileHistoryFinderNotFoundException>(() => service.SelectFinderFor(emtpyFixturePath));
         }
     }
 }

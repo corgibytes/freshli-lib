@@ -6,11 +6,19 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
 {
     public class PackagistRepositoryTest
     {
+        public IFileHistoryFinderRegistry FileHistoryFinderRegistry { get; init; }
+        public PackagistRepositoryTest()
+        {
+            FileHistoryFinderRegistry = new FileHistoryFinderRegistry();
+            FileHistoryFinderRegistry.Register<LocalFileHistoryFinder>();
+            FileHistoryFinderRegistry.Register<GitFileHistoryFinder>();
+        }
+
         [Fact]
         public void VersionInfo()
         {
             var phpFixturePath = Fixtures.Path("php", "small");
-            var historyService = new FileHistoryService();
+            var historyService = new FileHistoryService(FileHistoryFinderRegistry);
             var fileFinder = historyService.SelectFinderFor(phpFixturePath);
             var repository = new MulticastComposerRepository(phpFixturePath, fileFinder);
             var versionInfo = repository.VersionInfo("monolog/monolog", "1.11.0");
@@ -22,7 +30,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
         public void LatestAsOf()
         {
             var phpFixturePath = Fixtures.Path("php", "small");
-            var historyService = new FileHistoryService();
+            var historyService = new FileHistoryService(FileHistoryFinderRegistry);
             var fileFinder = historyService.SelectFinderFor(phpFixturePath);
             var repository = new MulticastComposerRepository(phpFixturePath, fileFinder);
             var versionInfo = repository.Latest(
@@ -37,7 +45,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
         public void LatestAsOfForSymfonyCssSelector()
         {
             var phpFixturePath = Fixtures.Path("php", "small");
-            var historyService = new FileHistoryService();
+            var historyService = new FileHistoryService(FileHistoryFinderRegistry);
             var fileFinder = historyService.SelectFinderFor(phpFixturePath);
             var repository = new MulticastComposerRepository(phpFixturePath, fileFinder);
 

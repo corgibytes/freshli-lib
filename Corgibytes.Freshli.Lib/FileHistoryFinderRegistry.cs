@@ -1,14 +1,15 @@
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Corgibytes.Freshli.Lib
 {
-    public class FileHistoryFinderRegistry
+    public class FileHistoryFinderRegistry : IFileHistoryFinderRegistry
     {
-        private static readonly IList<IFileHistoryFinder> _finders = new List<IFileHistoryFinder>();
+        private readonly IList<IFileHistoryFinder> _finders = new List<IFileHistoryFinder>();
 
-        public static IList<IFileHistoryFinder> Finders => _finders;
+        public IList<IFileHistoryFinder> Finders => _finders;
 
-        public static void Register<TFinder>() where TFinder : IFileHistoryFinder, new()
+        public void Register<TFinder>() where TFinder : IFileHistoryFinder, new()
         {
             Finders.Add(new TFinder());
         }

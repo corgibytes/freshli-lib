@@ -5,16 +5,22 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
 {
     public class ManifestFinderTest
     {
+        public IFileHistoryFinderRegistry FileHistoryFinderRegistry { get; init; }
+
         public ManifestFinderTest()
         {
             ManifestFinderRegistry.RegisterAll();
+
+            FileHistoryFinderRegistry = new FileHistoryFinderRegistry();
+            FileHistoryFinderRegistry.Register<LocalFileHistoryFinder>();
+            FileHistoryFinderRegistry.Register<GitFileHistoryFinder>();
         }
 
         [Fact]
         public void Empty()
         {
             var emptyFixturePath = Fixtures.Path("empty");
-            var historyService = new FileHistoryService();
+            var historyService = new FileHistoryService(FileHistoryFinderRegistry);
             var fileFinder = historyService.SelectFinderFor(emptyFixturePath);
             var manifestService = new ManifestService();
             var finders = manifestService.SelectFindersFor(emptyFixturePath, fileFinder);
@@ -27,7 +33,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
         {
             var rubyFixturePath = Fixtures.Path("ruby", "nokotest");
 
-            var historyService = new FileHistoryService();
+            var historyService = new FileHistoryService(FileHistoryFinderRegistry);
             var fileFinder = historyService.SelectFinderFor(rubyFixturePath);
             var manifestService = new ManifestService();
             var finders = manifestService.SelectFindersFor(rubyFixturePath, fileFinder);
@@ -40,7 +46,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
         {
             var phpFixturePath = Fixtures.Path("php", "small");
 
-            var historyService = new FileHistoryService();
+            var historyService = new FileHistoryService(FileHistoryFinderRegistry);
             var fileFinder = historyService.SelectFinderFor(phpFixturePath);
             var manifestService = new ManifestService();
             var finders = manifestService.SelectFindersFor(phpFixturePath, fileFinder);
@@ -57,7 +63,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
               "small"
             );
 
-            var historyService = new FileHistoryService();
+            var historyService = new FileHistoryService(FileHistoryFinderRegistry);
             var fileFinder = historyService.SelectFinderFor(pythonFixturePath);
             var manifestService = new ManifestService();
             var finders = manifestService.SelectFindersFor(pythonFixturePath, fileFinder);
@@ -75,7 +81,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
               "simple-without-snapshot"
             );
 
-            var historyService = new FileHistoryService();
+            var historyService = new FileHistoryService(FileHistoryFinderRegistry);
             var fileFinder = historyService.SelectFinderFor(fixturePath);
             var manifestService = new ManifestService();
             var finders = manifestService.SelectFindersFor(fixturePath, fileFinder);

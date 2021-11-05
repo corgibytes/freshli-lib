@@ -14,12 +14,16 @@ namespace Corgibytes.Freshli.Lib
 
         public ManifestService ManifestService { get; private set; }
 
+        public IFileHistoryFinderRegistry FileHistoryFinderRegistry { get; private set; }
+
         public Runner()
         {
             // TODO: The manifest finder registry should be injected
             ManifestFinderRegistry.RegisterAll();
 
             // TODO: The file history registry should be injected
+            FileHistoryFinderRegistry = new FileHistoryFinderRegistry();
+            FileHistoryFinderRegistry.Register<LocalFileHistoryFinder>();
             FileHistoryFinderRegistry.Register<GitFileHistoryFinder>();
 
             // TODO: inject this dependency
@@ -33,7 +37,7 @@ namespace Corgibytes.Freshli.Lib
             IList<ScanResult> scanResults = new List<ScanResult>();
 
             // TODO: inject this dependencies
-            var fileHistoryService = new FileHistoryService();
+            var fileHistoryService = new FileHistoryService(FileHistoryFinderRegistry);
             var fileHistoryFinder = fileHistoryService.SelectFinderFor(analysisPath);
 
             var manifestFinders = ManifestService.SelectFindersFor(analysisPath, fileHistoryFinder);
