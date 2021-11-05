@@ -3,7 +3,7 @@
     Filename: composer.lock,
     MetricResults: [
       {
-        Date: 2020-01-01Z,
+        Date: 2020-01-01,
         LibYear: [
           {
             Name: drupal/composer_autoloader,
