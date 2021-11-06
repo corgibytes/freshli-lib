@@ -28,6 +28,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Corgibytes.Freshli.Lib\Corgibytes.Freshli.Lib.csproj" />
+      <ProjectReference Include="..\Corgibytes.Xunit.Extensions\Corgibytes.Xunit.Extensions.csproj" />
     </ItemGroup>
 
     <ItemGroup>

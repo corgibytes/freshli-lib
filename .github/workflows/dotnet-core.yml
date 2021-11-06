@@ -20,10 +20,11 @@ jobs:
         with:
           dotnet-version: 5.0.101
 
+      - name: Install dotnet tools
+        run: dotnet tool restore
+
       - name: Linting Auto-Formatting
-        run: |
-          dotnet tool install dotnet-format -g --version 5.0.211103
-          dotnet format -v diag
+        run: dotnet format -v diag
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         name: Commit Auto-Format Changes
@@ -149,7 +150,6 @@ jobs:
         run: dotnet build --configuration Release
 
       - name: Package
-        if: github.event_name == 'push' || startsWith(github.ref, 'refs/tags/')
         run: dotnet pack -c Release
 
       - name: Publish Alpha Package to Github Packages

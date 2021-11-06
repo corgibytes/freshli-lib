@@ -10,8 +10,8 @@ namespace Corgibytes.Freshli.Lib
         {
             var sb = new StringBuilder();
 
-            sb.Append($"Filename: {Filename}\n");
-            sb.Append($"Results:\n");
+            sb.Append($"Filename: {Filename}{Environment.NewLine}");
+            sb.Append($"Results:{Environment.NewLine}");
             foreach (var result in MetricResults)
             {
                 sb.Append(result.ToString());

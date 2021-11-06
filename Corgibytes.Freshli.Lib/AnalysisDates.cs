@@ -6,11 +6,11 @@ using Corgibytes.Freshli.Lib.Util;
 
 namespace Corgibytes.Freshli.Lib
 {
-    public class AnalysisDates : IEnumerable<DateTime>
+    public class AnalysisDates : IEnumerable<DateTimeOffset>
     {
-        private List<DateTime> _dates = new List<DateTime>();
+        private List<DateTimeOffset> _dates = new();
 
-        public AnalysisDates(IFileHistory history, DateTime asOf)
+        public AnalysisDates(IFileHistory history, DateTimeOffset asOf)
         {
             // TODO: Move this logic out of the constructor to support async calls
             if (history.Dates.Count == 0)
@@ -23,24 +23,23 @@ namespace Corgibytes.Freshli.Lib
             }
             else
             {
-                var date = history.Dates.First();
+                var date = history.Dates.First().ToOffset(asOf.Offset);
 
-                if (date.Day > 1)
+                if (date != date.ToStartOfMonth())
                 {
-                    date = date.AddDays(-date.Day + 1).Date;
-                    date = date.AddMonths(1).Date;
+                    _dates.Add(date);
+                    date = date.AddMonths(1).ToStartOfMonth();
                 }
 
                 while (date <= asOf)
                 {
-                    var dayOf = date.ToEndOfDay();
-                    _dates.Add(dayOf);
+                    _dates.Add(date);
                     date = date.AddMonths(1);
                 }
             }
         }
 
-        public IEnumerator<DateTime> GetEnumerator()
+        public IEnumerator<DateTimeOffset> GetEnumerator()
         {
             return _dates.GetEnumerator();
         }

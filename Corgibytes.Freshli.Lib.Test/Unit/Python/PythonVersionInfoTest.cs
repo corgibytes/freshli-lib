@@ -764,7 +764,7 @@ namespace Corgibytes.Freshli.Lib.Test.Unit.Python
             var versionInfo = new PythonVersionInfo("1.0.0", now);
             Assert.Equal(
               $"{nameof(versionInfo.Version)}: {versionInfo.Version}, " +
-              $"{nameof(versionInfo.DatePublished)}: {versionInfo.DatePublished:d}",
+              $"{nameof(versionInfo.DatePublished)}: {versionInfo.DatePublished:O}",
               versionInfo.ToString()
             );
         }

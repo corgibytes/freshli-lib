@@ -9,6 +9,18 @@ namespace Corgibytes.Freshli.Lib.Test
         public static void Initialize()
         {
             VerifyDiffPlex.Initialize();
+
+            VerifierSettings.ModifySerialization(settings =>
+            {
+                settings.DontScrubNumericIds();
+                settings.DontIgnoreEmptyCollections();
+                settings.DontScrubDateTimes();
+                settings.DontIgnoreFalse();
+                settings.MemberConverter<ScanResult, string>(
+                    r => r.Filename,
+                    (target, value) => value.Replace("\\", "/")
+                );
+            });
         }
     }
 }

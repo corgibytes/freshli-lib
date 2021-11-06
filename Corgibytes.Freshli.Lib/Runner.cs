@@ -30,9 +30,9 @@ namespace Corgibytes.Freshli.Lib
             ManifestService = new ManifestService();
         }
 
-        public IList<ScanResult> Run(string analysisPath, DateTime asOf)
+        public IList<ScanResult> Run(string analysisPath, DateTimeOffset asOf)
         {
-            logger.Info($"Run({analysisPath}, {asOf:d})");
+            logger.Info($"Run({analysisPath}, {asOf:O})");
 
             IList<ScanResult> scanResults = new List<ScanResult>();
 
@@ -66,12 +66,6 @@ namespace Corgibytes.Freshli.Lib
             return scanResults;
         }
 
-        public IList<ScanResult> Run(string analysisPath)
-        {
-            var asOf = DateTime.Today.ToEndOfDay();
-            return Run(analysisPath, asOf: asOf);
-        }
-
         private IEnumerable<ScanResult> ProcessManifestFiles(string analysisPath, DateTimeOffset asOf, IEnumerable<AbstractManifestFinder> manifestFinders, IFileHistoryFinder fileHistoryFinder)
         {
             foreach (var manifestFinder in manifestFinders)
@@ -103,7 +97,7 @@ namespace Corgibytes.Freshli.Lib
             }
         }
 
-        private MetricsResult ProcessAnalysisDate(string manifestFile, LibYearCalculator calculator, IFileHistory fileHistory, DateTime currentDate)
+        private MetricsResult ProcessAnalysisDate(string manifestFile, LibYearCalculator calculator, IFileHistory fileHistory, DateTimeOffset currentDate)
         {
             var content = fileHistory.ContentsAsOf(currentDate);
             // TODO: The manifest should be retreived from the ManifestFinder, not the calculator
@@ -126,13 +120,19 @@ namespace Corgibytes.Freshli.Lib
             return new MetricsResult(currentDate, sha, libYear);
         }
 
+        public IList<ScanResult> Run(string analysisPath)
+        {
+            var asOf = DateTimeOffset.UtcNow.ToEndOfDay();
+            return Run(analysisPath, asOf: asOf);
+        }
+
         private static void WriteResultsToFile(IList<ScanResult> results)
         {
             if (!System.IO.Directory.Exists(ResultsPath))
             {
                 System.IO.Directory.CreateDirectory(ResultsPath);
             }
-            var dateTime = DateTime.Now;
+            var dateTime = DateTimeOffset.UtcNow;
             var filePath =
                 $"{ResultsPath}/{dateTime:yyyy-MM-dd-hhmmssfffffff}-results.txt";
             using var file = new System.IO.StreamWriter(filePath);

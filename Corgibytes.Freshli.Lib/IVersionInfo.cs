@@ -7,7 +7,7 @@ namespace Corgibytes.Freshli.Lib
 
         public string Version { get; }
 
-        public DateTime DatePublished { get; }
+        public DateTimeOffset DatePublished { get; }
 
         public bool IsPreRelease { get; }
 
