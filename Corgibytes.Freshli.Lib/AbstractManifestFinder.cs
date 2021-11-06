@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace Corgibytes.Freshli.Lib
 {
-    public abstract class AbstractManifestFinder: IManifestFinder
+    public abstract class AbstractManifestFinder : IManifestFinder
     {
         protected abstract string ManifestPattern { get; }
 
