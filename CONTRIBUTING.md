@@ -107,6 +107,33 @@ Passed!  - Failed:     0, Passed:   823, Skipped:     0, Total:   823, Duration:
 
 The tests currently take longer to run than we would like. We're exploring ways to speed that up. You can run a subset of tests by including the `--filter` flag, e.g. `dotnet test --filter ComputeAsOf`.
 
+### Test suite organization
+
+The tests in the test suite are grouped according to the following rulses:
+
+* *Unit*:
+    * Unit tests should not have any external dependencies. This includes files stored on the file system and any data that needs to be transmitted over a network.
+    * Ideally, each unit test class should focus on testing the class under test, this can usually be determined by looking at the test class name and removing the `Test` suffix. Interactions with other classes should be mocked or faked to the extent that it makes sense to do so.
+    * Tests that meet these deffinitions should be stored in the `Corgibytes.Freshli.Lib.Test.Unit` namespace.
+    * You can run just the the unit tests from the command line by running: `dotnet test --filter Unit`
+* *Integration*:
+    * Integration tests are used when the goal is to test that two more classes are appropriately interacting with each other.
+    * It is perfectly valid (and encouraged) for integration tests to utilize external services, such as files on the filesystem or services that are accessible via the network.
+    * Ideally, each integration test will focus on the interactions between a handfull of classes, and will not require an excessive amount of setup to execute.
+    * Tests that meet these deffinitions should be stored in the `Corgibytes.Freshli.Lib.Test.Integration` namespace.
+    * You can run just the integration tests from the command line by executing: `dotnet test --filter Integration`
+* Acceptance:
+    * Acceptance tests focus on testing the full suite of behavior. This might require many different classes interacting with each other.
+    * Ideally, no classes will be supplemented with mock or fake versions. (Although it may make sense to do so from time to time to improve performance or limit impact on external services.)
+    * Right now there's only one class that meets this deffinition, `Corgibytes.Freshli.Lib.Test.Acceptance`, and its entrypoint for testing is the `Run` method on the `Runner` class.
+    * You can run just the acceptance tests from the command line by executing: `dotnet test --filter Acceptance`
+
+The test filters above [can be combined](https://docs.microsoft.com/en-us/dotnet/core/testing/selective-unit-tests). For the unit and integration tests can be run with:
+
+```
+dotnet test --filter "Unit|Integration"
+```
+
 ## Running
 
 There is cross platform [Example Client](https://github.com/corgibytes/freshli-lib/tree/feature-add-example-client/ExampleClient) that you can use to see how Freshli-Lib works.  Run or debug the example client in [Visual Studio](https://docs.microsoft.com/en-us/visualstudio/get-started/csharp/run-program?view=vs-2019) or [Rider](https://www.jetbrains.com/help/rider/Run_Debug_Configuration_dotNet_Project.html).
