@@ -54,7 +54,7 @@ namespace Corgibytes.Freshli.Lib
             var fileHistoryFinder = fileHistoryService.SelectFinderFor(analysisPath);
 
             var manifestFinders = ManifestService.SelectFindersFor(analysisPath, fileHistoryFinder);
-            if (ContainsManifestFile(manifestFinders, analysisPath))
+            if (!ContainsManifestFile(manifestFinders, analysisPath))
             {
                 logger.Warn("Unable to find a manifest file");
             }
