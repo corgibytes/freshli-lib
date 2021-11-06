@@ -8,9 +8,18 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
 {
     public abstract class RepositoryTestFixture<T>
     {
+        public IFileHistoryFinderRegistry FileHistoryFinderRegistry { get; init; }
+
         public abstract IPackageRepository Repository { get; }
 
         public virtual TheoryData<IList<string>, IList<int>, string> DataForTestingVersionInfo => new() { };
+
+        public RepositoryTestFixture()
+        {
+            FileHistoryFinderRegistry = new FileHistoryFinderRegistry();
+            FileHistoryFinderRegistry.Register<GitFileHistoryFinder>();
+            FileHistoryFinderRegistry.Register<LocalFileHistoryFinder>();
+        }
 
         [Theory]
         [InstanceMemberData(nameof(DataForTestingVersionInfo))]

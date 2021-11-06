@@ -12,11 +12,11 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Php
             get
             {
                 var phpFixturePath = Fixtures.Path("php", "small");
-                var fileFinder = new FileHistoryFinder(phpFixturePath);
-                return new MulticastComposerRepository(
-                    phpFixturePath,
-                    fileFinder.Finder
-                );
+
+                var historyService = new FileHistoryService(FileHistoryFinderRegistry);
+                var fileFinder = historyService.SelectFinderFor(phpFixturePath);
+
+                return new MulticastComposerRepository(phpFixturePath, fileFinder);
             }
         }
 
