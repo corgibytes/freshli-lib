@@ -1,7 +1,8 @@
+using System.Collections.Generic;
+
 namespace Corgibytes.Freshli.Lib
 {
-    // TODO: extract out IManifestFinder
-    public abstract class AbstractManifestFinder
+    public abstract class AbstractManifestFinder: IManifestFinder
     {
         protected abstract string ManifestPattern { get; }
 
@@ -10,8 +11,7 @@ namespace Corgibytes.Freshli.Lib
         public abstract IPackageRepository RepositoryFor(string projectRootPath);
         public abstract IManifest ManifestFor(string projectRootPath);
 
-        // TODO: Have this return a IEnumerable<string> so that it can be implemented in a more async way
-        public string[] GetManifestFilenames(string projectRootPath)
+        public IEnumerable<string> GetManifestFilenames(string projectRootPath)
         {
             return FileFinder.GetManifestFilenames(projectRootPath, ManifestPattern);
         }

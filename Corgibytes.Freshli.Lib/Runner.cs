@@ -30,6 +30,19 @@ namespace Corgibytes.Freshli.Lib
             ManifestService = new ManifestService();
         }
 
+        private bool ContainsManifestFile(IEnumerable<IManifestFinder> manifestFinders, string analysisPath)
+        {
+            foreach (var manifestFinder in manifestFinders)
+            {
+                foreach (string fileName in manifestFinder.GetManifestFilenames(analysisPath))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         public IList<ScanResult> Run(string analysisPath, DateTimeOffset asOf)
         {
             logger.Info($"Run({analysisPath}, {asOf:O})");
@@ -41,8 +54,7 @@ namespace Corgibytes.Freshli.Lib
             var fileHistoryFinder = fileHistoryService.SelectFinderFor(analysisPath);
 
             var manifestFinders = ManifestService.SelectFindersFor(analysisPath, fileHistoryFinder);
-            IEnumerable<AbstractManifestFinder> abstractManifestFinders = manifestFinders as AbstractManifestFinder[] ?? manifestFinders.ToArray();
-            if (!abstractManifestFinders.Any(finder => finder.GetManifestFilenames(analysisPath).Length > 0))
+            if (ContainsManifestFile(manifestFinders, analysisPath))
             {
                 logger.Warn("Unable to find a manifest file");
             }
@@ -51,7 +63,7 @@ namespace Corgibytes.Freshli.Lib
                 scanResults = ProcessManifestFiles(
                     analysisPath,
                     asOf,
-                    abstractManifestFinders,
+                    manifestFinders,
                     fileHistoryFinder
                 // TODO: Remove the call to `Take(1)` to support results from multiple manifest files
                 ).Take(1).ToList();
@@ -66,7 +78,7 @@ namespace Corgibytes.Freshli.Lib
             return scanResults;
         }
 
-        private IEnumerable<ScanResult> ProcessManifestFiles(string analysisPath, DateTimeOffset asOf, IEnumerable<AbstractManifestFinder> manifestFinders, IFileHistoryFinder fileHistoryFinder)
+        private IEnumerable<ScanResult> ProcessManifestFiles(string analysisPath, DateTimeOffset asOf, IEnumerable<IManifestFinder> manifestFinders, IFileHistoryFinder fileHistoryFinder)
         {
             foreach (var manifestFinder in manifestFinders)
             {
@@ -78,8 +90,11 @@ namespace Corgibytes.Freshli.Lib
                         manifestFile
                     );
 
+                    // TODO: LibYear calculation should not happen from inside the constructor. Switch to using a `Compute` or `Calculate` method instead.
                     var calculator = new LibYearCalculator(
+                        // TODO: the repository that's used should be based on the `manifestFile` not on the repository root
                         manifestFinder.RepositoryFor(analysisPath),
+                        // TODO: manifest should be provided by a manifest parser
                         manifestFinder.ManifestFor(analysisPath)
                     );
 
