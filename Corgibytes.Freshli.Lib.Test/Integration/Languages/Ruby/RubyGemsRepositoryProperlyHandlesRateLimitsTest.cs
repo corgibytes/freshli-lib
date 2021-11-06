@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using Corgibytes.Freshli.Lib.Languages.Ruby;
-using Xunit;
 using VerifyTests;
 using VerifyXunit;
-using System.Threading.Tasks;
+using Xunit;
 
 namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Ruby
 {
