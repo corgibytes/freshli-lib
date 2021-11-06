@@ -11,17 +11,6 @@ namespace Corgibytes.Freshli.Lib.Test
     {
         public Acceptance()
         {
-            VerifierSettings.ModifySerialization(settings =>
-            {
-                settings.DontScrubNumericIds();
-                settings.DontIgnoreEmptyCollections();
-                settings.DontScrubDateTimes();
-                settings.DontIgnoreFalse();
-                settings.MemberConverter<ScanResult, string>(
-                    r => r.Filename,
-                    (target, value) => value.Replace("\\", "/")
-                );
-            });
         }
 
         private DateTimeOffset _testingBoundary =
