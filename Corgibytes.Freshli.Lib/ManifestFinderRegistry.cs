@@ -1,52 +1,19 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Collections.Immutable;
 using System.Linq;
 using System.Reflection;
 using NLog;
 
 namespace Corgibytes.Freshli.Lib
 {
-    public class ManifestFinder
+    public class ManifestFinderRegistry
     {
         private static readonly Logger logger = LogManager.GetCurrentClassLogger();
-        private readonly string _projectRootPath;
 
         private static readonly IList<AbstractManifestFinder> _finders =
-          new List<AbstractManifestFinder>();
+            new List<AbstractManifestFinder>();
 
         public static IList<AbstractManifestFinder> Finders => _finders;
-
-        public AbstractManifestFinder Finder { get; }
-
-        public string[] ManifestFiles =>
-          Finder.GetManifestFilenames(_projectRootPath);
-
-        public bool Successful { get; }
-
-        public LibYearCalculator Calculator => new LibYearCalculator(
-          Finder.RepositoryFor(_projectRootPath),
-          Finder.ManifestFor(_projectRootPath)
-        );
-
-        public ManifestFinder(
-          string projectRootPath,
-          IFileHistoryFinder fileFinder
-        )
-        {
-            _projectRootPath = projectRootPath;
-            Successful = false;
-            foreach (var finder in Finders.ToImmutableList())
-            {
-                finder.FileFinder = fileFinder;
-                if (finder.GetManifestFilenames(projectRootPath).Any())
-                {
-                    Finder = finder;
-                    Successful = true;
-                    break;
-                }
-            }
-        }
 
         public static void Register(AbstractManifestFinder finder)
         {
@@ -67,8 +34,8 @@ namespace Corgibytes.Freshli.Lib
             foreach (var type in manifestFinderTypes)
             {
                 logger.Log(
-                  LogLevel.Info,
-                  $"Registering AbstractManifestFinder: {type}"
+                    LogLevel.Info,
+                    $"Registering AbstractManifestFinder: {type}"
                 );
                 Register((AbstractManifestFinder)Activator.CreateInstance(type));
             }
@@ -79,10 +46,10 @@ namespace Corgibytes.Freshli.Lib
             try
             {
                 return assembly.GetTypes().
-                  Where(
-                    type => type.BaseType == typeof(AbstractManifestFinder) &&
-                      type.GetConstructor(Type.EmptyTypes) != null
-                  );
+                    Where(
+                        type => type.BaseType == typeof(AbstractManifestFinder) &&
+                                type.GetConstructor(Type.EmptyTypes) != null
+                    );
             }
             catch
             {
@@ -90,5 +57,7 @@ namespace Corgibytes.Freshli.Lib
                 return new List<Type>();
             }
         }
+
+
     }
 }

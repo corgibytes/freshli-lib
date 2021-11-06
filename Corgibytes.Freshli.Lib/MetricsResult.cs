@@ -2,6 +2,7 @@ using System;
 
 namespace Corgibytes.Freshli.Lib
 {
+    // TODO: Explore converting this `class` into a `record`
     public class MetricsResult
     {
         public DateTimeOffset Date;

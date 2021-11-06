@@ -1,0 +1,1235 @@
+﻿[
+  {
+    Filename: composer.lock,
+    MetricResults: [
+      {
+        Date: 2020-01-01,
+        LibYear: [
+          {
+            Name: aws/aws-sdk-php,
+            Version: 3.130.2,
+            PublishedAt: 2019-12-23Z,
+            LatestVersion: 3.130.2,
+            LatestPublishedAt: 2019-12-23Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: barryvdh/laravel-dompdf,
+            Version: v0.8.5,
+            PublishedAt: 2019-08-23Z,
+            LatestVersion: v0.8.5,
+            LatestPublishedAt: 2019-08-23Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: barryvdh/laravel-snappy,
+            Version: v0.4.6,
+            PublishedAt: 2019-10-02Z,
+            LatestVersion: v0.4.6,
+            LatestPublishedAt: 2019-10-02Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cogpowered/finediff,
+            Version: 0.3.1,
+            PublishedAt: 2014-05-19Z,
+            LatestVersion: 0.3.1,
+            LatestPublishedAt: 2014-05-19Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: doctrine/cache,
+            Version: 1.10.0,
+            PublishedAt: 2019-11-29Z,
+            LatestVersion: 1.10.0,
+            LatestPublishedAt: 2019-11-29Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: doctrine/dbal,
+            Version: v2.10.0,
+            PublishedAt: 2019-11-03Z,
+            LatestVersion: v2.10.0,
+            LatestPublishedAt: 2019-11-03Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: doctrine/event-manager,
+            Version: 1.1.0,
+            PublishedAt: 2019-11-10Z,
+            LatestVersion: 1.1.0,
+            LatestPublishedAt: 2019-11-10Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: doctrine/inflector,
+            Version: 1.3.1,
+            PublishedAt: 2019-10-30Z,
+            LatestVersion: 1.3.1,
+            LatestPublishedAt: 2019-10-30Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: doctrine/lexer,
+            Version: 1.2.0,
+            PublishedAt: 2019-10-30Z,
+            LatestVersion: 1.2.0,
+            LatestPublishedAt: 2019-10-30Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: dompdf/dompdf,
+            Version: v0.8.3,
+            PublishedAt: 2018-12-14Z,
+            LatestVersion: v0.8.3,
+            LatestPublishedAt: 2018-12-14Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: dragonmantank/cron-expression,
+            Version: v2.3.0,
+            PublishedAt: 2019-03-31Z,
+            LatestVersion: v2.3.0,
+            LatestPublishedAt: 2019-03-31Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: egulias/email-validator,
+            Version: 2.1.12,
+            PublishedAt: 2019-12-20Z,
+            LatestVersion: 2.1.13,
+            LatestPublishedAt: 2019-12-30Z,
+            Value: 0.0273972602739726,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: erusev/parsedown,
+            Version: 1.7.3,
+            PublishedAt: 2019-03-17Z,
+            LatestVersion: 1.7.4,
+            LatestPublishedAt: 2019-12-30Z,
+            Value: 0.7890410958904109,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: fideloper/proxy,
+            Version: 4.2.2,
+            PublishedAt: 2019-12-20Z,
+            LatestVersion: 4.2.2,
+            LatestPublishedAt: 2019-12-20Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: gathercontent/htmldiff,
+            Version: 0.2.1,
+            PublishedAt: 2015-04-15Z,
+            LatestVersion: 0.2.1,
+            LatestPublishedAt: 2015-04-15Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: guzzlehttp/guzzle,
+            Version: 6.5.2,
+            PublishedAt: 2019-12-23Z,
+            LatestVersion: 6.5.2,
+            LatestPublishedAt: 2019-12-23Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: guzzlehttp/promises,
+            Version: v1.3.1,
+            PublishedAt: 2016-12-20Z,
+            LatestVersion: v1.3.1,
+            LatestPublishedAt: 2016-12-20Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: guzzlehttp/psr7,
+            Version: 1.6.1,
+            PublishedAt: 2019-07-01Z,
+            LatestVersion: 1.6.1,
+            LatestPublishedAt: 2019-07-01Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: intervention/image,
+            Version: 2.5.1,
+            PublishedAt: 2019-11-02Z,
+            LatestVersion: 2.5.1,
+            LatestPublishedAt: 2019-11-02Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: knplabs/knp-snappy,
+            Version: v1.2.0,
+            PublishedAt: 2019-12-02Z,
+            LatestVersion: v1.2.0,
+            LatestPublishedAt: 2019-12-02Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: laravel/framework,
+            Version: v6.9.0,
+            PublishedAt: 2019-12-19Z,
+            LatestVersion: v6.9.0,
+            LatestPublishedAt: 2019-12-19Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: laravel/socialite,
+            Version: v4.3.1,
+            PublishedAt: 2019-11-26Z,
+            LatestVersion: v4.3.1,
+            LatestPublishedAt: 2019-11-26Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: league/flysystem,
+            Version: 1.0.61,
+            PublishedAt: 2019-12-08Z,
+            LatestVersion: 1.0.62,
+            LatestPublishedAt: 2019-12-29Z,
+            Value: 0.057534246575342465,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: league/flysystem-aws-s3-v3,
+            Version: 1.0.23,
+            PublishedAt: 2019-06-05Z,
+            LatestVersion: 1.0.23,
+            LatestPublishedAt: 2019-06-05Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: league/oauth1-client,
+            Version: 1.7.0,
+            PublishedAt: 2016-08-17Z,
+            LatestVersion: 1.7.0,
+            LatestPublishedAt: 2016-08-17Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: monolog/monolog,
+            Version: 2.0.2,
+            PublishedAt: 2019-12-20Z,
+            LatestVersion: 2.0.2,
+            LatestPublishedAt: 2019-12-20Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: mtdowling/jmespath.php,
+            Version: 2.4.0,
+            PublishedAt: 2016-12-03Z,
+            LatestVersion: 2.5.0,
+            LatestPublishedAt: 2019-12-30Z,
+            Value: 3.073972602739726,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: nesbot/carbon,
+            Version: 2.28.0,
+            PublishedAt: 2019-12-16Z,
+            LatestVersion: 2.28.0,
+            LatestPublishedAt: 2019-12-16Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: onelogin/php-saml,
+            Version: 3.4.1,
+            PublishedAt: 2019-11-25Z,
+            LatestVersion: 3.4.1,
+            LatestPublishedAt: 2019-11-25Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: opis/closure,
+            Version: 3.5.1,
+            PublishedAt: 2019-11-29Z,
+            LatestVersion: 3.5.1,
+            LatestPublishedAt: 2019-11-29Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: paragonie/random_compat,
+            Version: v9.99.99,
+            PublishedAt: 2018-07-02Z,
+            LatestVersion: v9.99.99,
+            LatestPublishedAt: 2018-07-02Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: phenx/php-font-lib,
+            Version: 0.5.1,
+            PublishedAt: 2017-09-13Z,
+            LatestVersion: 0.5.1,
+            LatestPublishedAt: 2017-09-13Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: phenx/php-svg-lib,
+            Version: v0.3.3,
+            PublishedAt: 2019-09-11Z,
+            LatestVersion: v0.3.3,
+            LatestPublishedAt: 2019-09-11Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: phpoption/phpoption,
+            Version: 1.7.2,
+            PublishedAt: 2019-12-15Z,
+            LatestVersion: 1.7.2,
+            LatestPublishedAt: 2019-12-15Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: predis/predis,
+            Version: v1.1.1,
+            PublishedAt: 2016-06-16Z,
+            LatestVersion: v1.1.1,
+            LatestPublishedAt: 2016-06-16Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: psr/container,
+            Version: 1.0.0,
+            PublishedAt: 2017-02-14Z,
+            LatestVersion: 1.0.0,
+            LatestPublishedAt: 2017-02-14Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: psr/http-message,
+            Version: 1.0.1,
+            PublishedAt: 2016-08-06Z,
+            LatestVersion: 1.0.1,
+            LatestPublishedAt: 2016-08-06Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: psr/log,
+            Version: 1.1.2,
+            PublishedAt: 2019-11-01Z,
+            LatestVersion: 1.1.2,
+            LatestPublishedAt: 2019-11-01Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: psr/simple-cache,
+            Version: 1.0.1,
+            PublishedAt: 2017-10-23Z,
+            LatestVersion: 1.0.1,
+            LatestPublishedAt: 2017-10-23Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: ralouphie/getallheaders,
+            Version: 3.0.3,
+            PublishedAt: 2019-03-08Z,
+            LatestVersion: 3.0.3,
+            LatestPublishedAt: 2019-03-08Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: ramsey/uuid,
+            Version: 3.9.2,
+            PublishedAt: 2019-12-17Z,
+            LatestVersion: 3.9.2,
+            LatestPublishedAt: 2019-12-17Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: robrichards/xmlseclibs,
+            Version: 3.0.4,
+            PublishedAt: 2019-11-05Z,
+            LatestVersion: 3.0.4,
+            LatestPublishedAt: 2019-11-05Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: sabberworm/php-css-parser,
+            Version: 8.3.0,
+            PublishedAt: 2019-02-22Z,
+            LatestVersion: 8.3.0,
+            LatestPublishedAt: 2019-02-22Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: socialiteproviders/discord,
+            Version: v2.0.2,
+            PublishedAt: 2018-05-26Z,
+            LatestVersion: v2.0.2,
+            LatestPublishedAt: 2018-05-26Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: socialiteproviders/gitlab,
+            Version: v3.1,
+            PublishedAt: 2018-06-27Z,
+            LatestVersion: v3.1,
+            LatestPublishedAt: 2018-06-27Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: socialiteproviders/manager,
+            Version: v3.4.3,
+            PublishedAt: 2019-09-25Z,
+            LatestVersion: v3.4.3,
+            LatestPublishedAt: 2019-09-25Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: socialiteproviders/microsoft-azure,
+            Version: v3.0.0,
+            PublishedAt: 2017-01-25Z,
+            LatestVersion: v3.0.0,
+            LatestPublishedAt: 2017-01-25Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: socialiteproviders/okta,
+            Version: v1.0.0,
+            PublishedAt: 2017-11-21Z,
+            LatestVersion: v1.1.0,
+            LatestPublishedAt: 2019-09-06Z,
+            Value: 1.7917808219178082,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: socialiteproviders/slack,
+            Version: v3.1,
+            PublishedAt: 2019-01-11Z,
+            LatestVersion: v3.1,
+            LatestPublishedAt: 2019-01-11Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: socialiteproviders/twitch,
+            Version: v5.1,
+            PublishedAt: 2019-07-01Z,
+            LatestVersion: v5.1,
+            LatestPublishedAt: 2019-07-01Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: swiftmailer/swiftmailer,
+            Version: v6.2.3,
+            PublishedAt: 2019-11-12Z,
+            LatestVersion: v6.2.3,
+            LatestPublishedAt: 2019-11-12Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: symfony/console,
+            Version: v4.4.2,
+            PublishedAt: 2019-12-17Z,
+            LatestVersion: v5.0.2,
+            LatestPublishedAt: 2019-12-17Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: symfony/css-selector,
+            Version: v4.4.2,
+            PublishedAt: 2019-10-12Z,
+            LatestVersion: v5.0.2,
+            LatestPublishedAt: 2019-11-18Z,
+            Value: 0.10136986301369863,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: symfony/debug,
+            Version: v4.4.2,
+            PublishedAt: 2019-12-16Z,
+            LatestVersion: v4.4.2,
+            LatestPublishedAt: 2019-12-16Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: symfony/error-handler,
+            Version: v4.4.2,
+            PublishedAt: 2019-12-16Z,
+            LatestVersion: v5.0.2,
+            LatestPublishedAt: 2019-12-16Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: symfony/event-dispatcher,
+            Version: v4.4.2,
+            PublishedAt: 2019-11-28Z,
+            LatestVersion: v5.0.2,
+            LatestPublishedAt: 2019-11-18Z,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: symfony/event-dispatcher-contracts,
+            Version: v1.1.7,
+            PublishedAt: 2019-09-17Z,
+            LatestVersion: v2.0.1,
+            LatestPublishedAt: 2019-11-18Z,
+            Value: 0.16986301369863013,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: symfony/finder,
+            Version: v4.4.2,
+            PublishedAt: 2019-11-17Z,
+            LatestVersion: v5.0.2,
+            LatestPublishedAt: 2019-11-18Z,
+            Value: 0.0027397260273972603,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: symfony/http-foundation,
+            Version: v4.4.2,
+            PublishedAt: 2019-12-19Z,
+            LatestVersion: v5.0.2,
+            LatestPublishedAt: 2019-12-19Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: symfony/http-kernel,
+            Version: v4.4.2,
+            PublishedAt: 2019-12-19Z,
+            LatestVersion: v5.0.2,
+            LatestPublishedAt: 2019-12-19Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: symfony/mime,
+            Version: v4.4.2,
+            PublishedAt: 2019-11-30Z,
+            LatestVersion: v5.0.2,
+            LatestPublishedAt: 2019-11-30Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: symfony/polyfill-ctype,
+            Version: v1.13.1,
+            PublishedAt: 2019-11-27Z,
+            LatestVersion: v1.13.2,
+            LatestPublishedAt: 2019-11-27Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: symfony/polyfill-iconv,
+            Version: v1.13.1,
+            PublishedAt: 2019-11-27Z,
+            LatestVersion: v1.13.2,
+            LatestPublishedAt: 2019-12-03Z,
+            Value: 0.01643835616438356,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: symfony/polyfill-intl-idn,
+            Version: v1.13.1,
+            PublishedAt: 2019-11-27Z,
+            LatestVersion: v1.13.2,
+            LatestPublishedAt: 2019-11-27Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: symfony/polyfill-mbstring,
+            Version: v1.13.1,
+            PublishedAt: 2019-11-27Z,
+            LatestVersion: v1.13.1,
+            LatestPublishedAt: 2019-11-27Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: symfony/polyfill-php72,
+            Version: v1.13.1,
+            PublishedAt: 2019-11-27Z,
+            LatestVersion: v1.13.2,
+            LatestPublishedAt: 2019-11-27Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: symfony/polyfill-php73,
+            Version: v1.13.1,
+            PublishedAt: 2019-11-27Z,
+            LatestVersion: v1.13.2,
+            LatestPublishedAt: 2019-11-27Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: symfony/process,
+            Version: v4.4.2,
+            PublishedAt: 2019-12-06Z,
+            LatestVersion: v5.0.2,
+            LatestPublishedAt: 2019-12-10Z,
+            Value: 0.010958904109589041,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: symfony/routing,
+            Version: v4.4.2,
+            PublishedAt: 2019-12-12Z,
+            LatestVersion: v5.0.2,
+            LatestPublishedAt: 2019-12-12Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: symfony/service-contracts,
+            Version: v1.1.8,
+            PublishedAt: 2019-10-14Z,
+            LatestVersion: v2.0.1,
+            LatestPublishedAt: 2019-11-18Z,
+            Value: 0.0958904109589041,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: symfony/translation,
+            Version: v4.4.2,
+            PublishedAt: 2019-12-12Z,
+            LatestVersion: v5.0.2,
+            LatestPublishedAt: 2019-12-12Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: symfony/translation-contracts,
+            Version: v1.1.7,
+            PublishedAt: 2019-09-17Z,
+            LatestVersion: v2.0.1,
+            LatestPublishedAt: 2019-11-18Z,
+            Value: 0.16986301369863013,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: symfony/var-dumper,
+            Version: v4.4.2,
+            PublishedAt: 2019-12-18Z,
+            LatestVersion: v5.0.2,
+            LatestPublishedAt: 2019-12-18Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: tijsverkoyen/css-to-inline-styles,
+            Version: 2.2.2,
+            PublishedAt: 2019-10-24Z,
+            LatestVersion: 2.2.2,
+            LatestPublishedAt: 2019-10-24Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: vlucas/phpdotenv,
+            Version: v3.6.0,
+            PublishedAt: 2019-09-10Z,
+            LatestVersion: v4.1.0,
+            LatestPublishedAt: 2019-12-14Z,
+            Value: 0.2602739726027397,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: barryvdh/laravel-debugbar,
+            Version: v3.2.8,
+            PublishedAt: 2019-08-29Z,
+            LatestVersion: v3.2.8,
+            LatestPublishedAt: 2019-08-29Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: barryvdh/laravel-ide-helper,
+            Version: v2.6.6,
+            PublishedAt: 2019-10-30Z,
+            LatestVersion: v2.6.6,
+            LatestPublishedAt: 2019-10-30Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: barryvdh/reflection-docblock,
+            Version: v2.0.6,
+            PublishedAt: 2018-12-13Z,
+            LatestVersion: v2.0.6,
+            LatestPublishedAt: 2018-12-13Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: composer/ca-bundle,
+            Version: 1.2.5,
+            PublishedAt: 2019-12-11Z,
+            LatestVersion: 1.2.5,
+            LatestPublishedAt: 2019-12-11Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: composer/composer,
+            Version: 1.9.1,
+            PublishedAt: 2019-11-01Z,
+            LatestVersion: 1.9.1,
+            LatestPublishedAt: 2019-11-01Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: composer/semver,
+            Version: 1.5.0,
+            PublishedAt: 2019-03-19Z,
+            LatestVersion: 1.5.0,
+            LatestPublishedAt: 2019-03-19Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: composer/spdx-licenses,
+            Version: 1.5.2,
+            PublishedAt: 2019-07-29Z,
+            LatestVersion: 1.5.2,
+            LatestPublishedAt: 2019-07-29Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: composer/xdebug-handler,
+            Version: 1.4.0,
+            PublishedAt: 2019-11-06Z,
+            LatestVersion: 1.4.0,
+            LatestPublishedAt: 2019-11-06Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: doctrine/instantiator,
+            Version: 1.3.0,
+            PublishedAt: 2019-10-21Z,
+            LatestVersion: 1.3.0,
+            LatestPublishedAt: 2019-10-21Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: facade/flare-client-php,
+            Version: 1.3.1,
+            PublishedAt: 2019-12-15Z,
+            LatestVersion: 1.3.1,
+            LatestPublishedAt: 2019-12-15Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: facade/ignition,
+            Version: 1.13.0,
+            PublishedAt: 2019-11-27Z,
+            LatestVersion: 1.13.0,
+            LatestPublishedAt: 2019-11-27Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: facade/ignition-contracts,
+            Version: 1.0.0,
+            PublishedAt: 2019-08-30Z,
+            LatestVersion: 1.0.0,
+            LatestPublishedAt: 2019-08-30Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: filp/whoops,
+            Version: 2.6.0,
+            PublishedAt: 2019-12-25Z,
+            LatestVersion: 2.7.0,
+            LatestPublishedAt: 2019-12-29Z,
+            Value: 0.010958904109589041,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: fzaninotto/faker,
+            Version: v1.9.1,
+            PublishedAt: 2019-12-12Z,
+            LatestVersion: v1.9.1,
+            LatestPublishedAt: 2019-12-12Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: hamcrest/hamcrest-php,
+            Version: v2.0.0,
+            PublishedAt: 2016-01-20Z,
+            LatestVersion: v2.0.0,
+            LatestPublishedAt: 2016-01-20Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: jakub-onderka/php-console-color,
+            Version: v0.2,
+            PublishedAt: 2018-09-29Z,
+            LatestVersion: v0.2,
+            LatestPublishedAt: 2018-09-29Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: jakub-onderka/php-console-highlighter,
+            Version: v0.4,
+            PublishedAt: 2018-09-29Z,
+            LatestVersion: v0.4,
+            LatestPublishedAt: 2018-09-29Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: justinrainbow/json-schema,
+            Version: 5.2.9,
+            PublishedAt: 2019-09-25Z,
+            LatestVersion: 5.2.9,
+            LatestPublishedAt: 2019-09-25Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: laravel/browser-kit-testing,
+            Version: v5.1.3,
+            PublishedAt: 2019-07-30Z,
+            LatestVersion: v5.1.3,
+            LatestPublishedAt: 2019-07-30Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: maximebf/debugbar,
+            Version: v1.15.1,
+            PublishedAt: 2019-09-24Z,
+            LatestVersion: v1.16.1,
+            LatestPublishedAt: 2019-11-24Z,
+            Value: 0.16712328767123288,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: mockery/mockery,
+            Version: 1.3.1,
+            PublishedAt: 2019-12-26Z,
+            LatestVersion: 1.3.1,
+            LatestPublishedAt: 2019-12-26Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: myclabs/deep-copy,
+            Version: 1.9.4,
+            PublishedAt: 2019-12-15Z,
+            LatestVersion: 1.9.4,
+            LatestPublishedAt: 2019-12-15Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: nunomaduro/collision,
+            Version: v3.0.1,
+            PublishedAt: 2019-03-07Z,
+            LatestVersion: v3.0.1,
+            LatestPublishedAt: 2019-03-07Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: phar-io/manifest,
+            Version: 1.0.3,
+            PublishedAt: 2018-07-08Z,
+            LatestVersion: 1.0.3,
+            LatestPublishedAt: 2018-07-08Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: phar-io/version,
+            Version: 2.0.1,
+            PublishedAt: 2018-07-08Z,
+            LatestVersion: 2.0.1,
+            LatestPublishedAt: 2018-07-08Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: phpdocumentor/reflection-common,
+            Version: 2.0.0,
+            PublishedAt: 2018-08-07Z,
+            LatestVersion: 2.0.0,
+            LatestPublishedAt: 2018-08-07Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: phpdocumentor/reflection-docblock,
+            Version: 4.3.3,
+            PublishedAt: 2019-12-20Z,
+            LatestVersion: 4.3.4,
+            LatestPublishedAt: 2019-12-28Z,
+            Value: 0.021917808219178082,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: phpdocumentor/type-resolver,
+            Version: 1.0.1,
+            PublishedAt: 2019-08-22Z,
+            LatestVersion: 1.0.1,
+            LatestPublishedAt: 2019-08-22Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: phploc/phploc,
+            Version: 5.0.0,
+            PublishedAt: 2019-03-16Z,
+            LatestVersion: 5.0.0,
+            LatestPublishedAt: 2019-03-16Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: phpspec/prophecy,
+            Version: 1.10.1,
+            PublishedAt: 2019-12-22Z,
+            LatestVersion: 1.10.1,
+            LatestPublishedAt: 2019-12-22Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: phpunit/php-code-coverage,
+            Version: 7.0.10,
+            PublishedAt: 2019-11-20Z,
+            LatestVersion: 7.0.10,
+            LatestPublishedAt: 2019-11-20Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: phpunit/php-file-iterator,
+            Version: 2.0.2,
+            PublishedAt: 2018-09-13Z,
+            LatestVersion: 2.0.2,
+            LatestPublishedAt: 2018-09-13Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: phpunit/php-text-template,
+            Version: 1.2.1,
+            PublishedAt: 2015-06-21Z,
+            LatestVersion: 1.2.1,
+            LatestPublishedAt: 2015-06-21Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: phpunit/php-timer,
+            Version: 2.1.2,
+            PublishedAt: 2019-06-07Z,
+            LatestVersion: 2.1.2,
+            LatestPublishedAt: 2019-06-07Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: phpunit/php-token-stream,
+            Version: 3.1.1,
+            PublishedAt: 2019-09-17Z,
+            LatestVersion: 3.1.1,
+            LatestPublishedAt: 2019-09-17Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: phpunit/phpunit,
+            Version: 8.5.1,
+            PublishedAt: 2019-12-25Z,
+            LatestVersion: 8.5.1,
+            LatestPublishedAt: 2019-12-25Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: scrivo/highlight.php,
+            Version: v9.17.1.0,
+            PublishedAt: 2019-12-13Z,
+            LatestVersion: v9.12.0,
+            LatestPublishedAt: 2017-11-15Z,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: sebastian/code-unit-reverse-lookup,
+            Version: 1.0.1,
+            PublishedAt: 2017-03-04Z,
+            LatestVersion: 1.0.1,
+            LatestPublishedAt: 2017-03-04Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: sebastian/comparator,
+            Version: 3.0.2,
+            PublishedAt: 2018-07-12Z,
+            LatestVersion: 3.0.2,
+            LatestPublishedAt: 2018-07-12Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: sebastian/diff,
+            Version: 3.0.2,
+            PublishedAt: 2019-02-04Z,
+            LatestVersion: 3.0.2,
+            LatestPublishedAt: 2019-02-04Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: sebastian/environment,
+            Version: 4.2.3,
+            PublishedAt: 2019-11-20Z,
+            LatestVersion: 4.2.3,
+            LatestPublishedAt: 2019-11-20Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: sebastian/exporter,
+            Version: 3.1.2,
+            PublishedAt: 2019-09-14Z,
+            LatestVersion: 3.1.2,
+            LatestPublishedAt: 2019-09-14Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: sebastian/finder-facade,
+            Version: 1.2.2,
+            PublishedAt: 2017-11-18Z,
+            LatestVersion: 1.2.2,
+            LatestPublishedAt: 2017-11-18Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: sebastian/global-state,
+            Version: 3.0.0,
+            PublishedAt: 2019-02-01Z,
+            LatestVersion: 3.0.0,
+            LatestPublishedAt: 2019-02-01Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: sebastian/object-enumerator,
+            Version: 3.0.3,
+            PublishedAt: 2017-08-03Z,
+            LatestVersion: 3.0.3,
+            LatestPublishedAt: 2017-08-03Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: sebastian/object-reflector,
+            Version: 1.1.1,
+            PublishedAt: 2017-03-29Z,
+            LatestVersion: 1.1.1,
+            LatestPublishedAt: 2017-03-29Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: sebastian/recursion-context,
+            Version: 3.0.0,
+            PublishedAt: 2017-03-03Z,
+            LatestVersion: 3.0.0,
+            LatestPublishedAt: 2017-03-03Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: sebastian/resource-operations,
+            Version: 2.0.1,
+            PublishedAt: 2018-10-04Z,
+            LatestVersion: 2.0.1,
+            LatestPublishedAt: 2018-10-04Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: sebastian/type,
+            Version: 1.1.3,
+            PublishedAt: 2019-07-02Z,
+            LatestVersion: 1.1.3,
+            LatestPublishedAt: 2019-07-02Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: sebastian/version,
+            Version: 2.0.1,
+            PublishedAt: 2016-10-03Z,
+            LatestVersion: 2.0.1,
+            LatestPublishedAt: 2016-10-03Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: seld/jsonlint,
+            Version: 1.7.2,
+            PublishedAt: 2019-10-24Z,
+            LatestVersion: 1.7.2,
+            LatestPublishedAt: 2019-10-24Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: seld/phar-utils,
+            Version: 1.0.1,
+            PublishedAt: 2015-10-13Z,
+            LatestVersion: 1.0.1,
+            LatestPublishedAt: 2015-10-13Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: squizlabs/php_codesniffer,
+            Version: 3.5.3,
+            PublishedAt: 2019-12-04Z,
+            LatestVersion: 3.5.3,
+            LatestPublishedAt: 2019-12-04Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: symfony/dom-crawler,
+            Version: v4.4.2,
+            PublishedAt: 2019-10-29Z,
+            LatestVersion: v5.0.2,
+            LatestPublishedAt: 2019-11-18Z,
+            Value: 0.0547945205479452,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: symfony/filesystem,
+            Version: v4.4.2,
+            PublishedAt: 2019-11-26Z,
+            LatestVersion: v5.0.2,
+            LatestPublishedAt: 2019-11-26Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: theseer/fdomdocument,
+            Version: 1.6.6,
+            PublishedAt: 2017-06-30Z,
+            LatestVersion: 1.6.6,
+            LatestPublishedAt: 2017-06-30Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: theseer/tokenizer,
+            Version: 1.1.3,
+            PublishedAt: 2019-06-13Z,
+            LatestVersion: 1.1.3,
+            LatestPublishedAt: 2019-06-13Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: webmozart/assert,
+            Version: 1.6.0,
+            PublishedAt: 2019-11-24Z,
+            LatestVersion: 1.6.0,
+            LatestPublishedAt: 2019-11-24Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: wnx/laravel-stats,
+            Version: v2.0.0,
+            PublishedAt: 2019-09-01Z,
+            LatestVersion: v2.0.0,
+            LatestPublishedAt: 2019-09-01Z,
+            UpgradeAvailable: false,
+            Skipped: false
+          }
+        ]
+      }
+    ]
+  }
+]

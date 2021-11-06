@@ -111,6 +111,7 @@ jobs:
             ${{github.workspace}}/coverage/**/*.info:lcov
 
   publish:
+    # TODO: Many of these steps are copy and pasted from build-matrix job above. We should explore a way to only specify this stuff once.
     needs: build-matrix
     runs-on: ubuntu-20.04
     if: github.event_name == 'push' || startsWith(github.ref, 'refs/tags/')

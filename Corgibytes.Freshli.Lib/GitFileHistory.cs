@@ -16,6 +16,7 @@ namespace Corgibytes.Freshli.Lib
 
         public GitFileHistory(string repositoryPath, string targetFile)
         {
+            // TODO: Move this logic out of the constructor to support async/await.
             if (!Directory.Exists(repositoryPath))
             {
                 var uniqueTempDir = Path.GetFullPath(
