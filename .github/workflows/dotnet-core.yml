@@ -152,7 +152,7 @@ jobs:
 
           if os.environ['GITHUB_EVENT_NAME'] == 'pull_request':
             git_branch = os.environ.get('GITHUB_HEAD_REF', git_branch) # See: Report correct branch for PRs (See https://github.com/paambaati/codeclimate-action/issues/86)
-            git_commit_sha = '${{ context.payload.pull_request.head.sha }}'  # See: Report correct SHA for the head branch (See https://github.com/paambaati/codeclimate-action/issues/140)
+            git_commit_sha = '${{ github.event.payload.pull_request.head.sha }}'  # See: Report correct SHA for the head branch (See https://github.com/paambaati/codeclimate-action/issues/140)
 
           os.system(f'"GIT_BRANCH={git_branch}" >> $GITHUB_ENV')
           os.system(f'"GIT_COMMIT_SHA={git_commit_sha}" >> $GITHUB_ENV')
