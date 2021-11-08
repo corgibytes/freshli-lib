@@ -80,40 +80,119 @@ jobs:
       - name: Run Tests
         run: dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=lcov /p:CoverletOutput="${{github.workspace}}/coverage-${{ matrix.config.os }}.info"
 
+      - name: Download CodeClimate Test Reporter
+        run: |
+          mkdir -p bin
+          cd bin
+          curl -L -O https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
+          curl -L -O https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64.sha256
+          curl -L -O https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64.sha256.sig
+          ln -s test-reporter-latest-linux-amd64 test-reporter
+          gpg --keyserver  keys.openpgp.org --recv-keys 9BD9E2DD46DA965A537E5B0A5CBF320243B6FD85
+          cd -
+
+      - name: Verify CodeClimate Test Reporter
+        run: |
+          cd bin
+          grep test-reporter-latest-linux-amd64 test-reporter-latest-linux-amd64.sha256 | shasum -a 256 -c - && gpg --verify test-reporter-latest-linux-amd64.sha256.sig test-reporter-latest-linux-amd64.sha256
+          cd -
+
+      - name: Format Coverage File For Upload
+        run: bin/test-reporter format-coverage -t lcov -o ${{github.workspace}}/codeclimate-${{ matrix.config.os }}.json ${{github.workspace}}/coverage-${{ matrix.config.os }}.info
+
       - name: Upload Coverage Files
         uses: actions/upload-artifact@v2
         with:
           name: "coverage-${{ matrix.config.os }}"
-          path: "${{github.workspace}}/coverage-${{ matrix.config.os }}.info"
+          path: "${{github.workspace}}/codeclimate-${{ matrix.config.os }}.json"
 
   build:
     needs: build-matrix
     runs-on: ubuntu-20.04
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2.3.4
-        with:
-          fetch-depth: 0 # Required for GitVersion
+      - name: Download CodeClimate Test Reporter
+        run: |
+          mkdir -p bin
+          cd bin
+          curl -L -O https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
+          curl -L -O https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64.sha256
+          curl -L -O https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64.sha256.sig
+          ln -s test-reporter-latest-linux-amd64 test-reporter
+          gpg --keyserver  keys.openpgp.org --recv-keys 9BD9E2DD46DA965A537E5B0A5CBF320243B6FD85
+          cd -
+
+      - name: Verify CodeClimate Test Reporter
+        run: |
+          cd bin
+          grep test-reporter-latest-linux-amd64 test-reporter-latest-linux-amd64.sha256 | shasum -a 256 -c - && gpg --verify test-reporter-latest-linux-amd64.sha256.sig test-reporter-latest-linux-amd64.sha256
+          cd -
 
       - name: Download Coverage Files
         uses: actions/download-artifact@v2
         with:
           path: "${{github.workspace}}/coverage"
 
-      # Only submit the test results on Code Climate on push.  When a dependabot PR
-      # is created the submit to Code Climate will fail as the TEST_REPORTER_ID is not
-      # available.
-      #
-      #  https://github.blog/changelog/2021-02-19-github-actions-workflows-triggered-by-dependabot-prs-will-run-with-read-only-permissions/
-      #
-      - name: Submit Test Results to Code Climate
-        if: ${{ !env.ACT && github.event_name == 'push' }}
-        uses: paambaati/codeclimate-action@v3.0.0
+      - name: Setup Environment for CodeClimate Test Reporter
+        shell: python
+        run: |
+          # the logic here is adapted from https://github.com/paambaati/codeclimate-action/blob/89c65b14c3cac76e59ce0c36a6bd37f4febd89ec/src/main.ts#L30-L41
+          # any errors in the translation to Python are my fault :)
+          import os
+          import re
+          git_commit_sha = None
+          git_branch = None
+
+          if 'GITHUB_SHA' in os.environ:
+            git_commit_sha = os.environ['GITHUB_SHA']
+          if 'GITHUB_REF' in os.environ:
+            git_branch = os.environ['GITHUB_REF']
+
+          if git_branch:
+            git_branch = re.sub(r'/^refs\/heads\//', '', git_branch) # See: Remove 'refs/heads/' prefix (See https://github.com/paambaati/codeclimate-action/issues/42)
+
+          if os.environ['GITHUB_EVENT_NAME'] == 'pull_request':
+            git_branch = os.environ.get('GITHUB_HEAD_REF', git_branch) # See: Report correct branch for PRs (See https://github.com/paambaati/codeclimate-action/issues/86)
+            git_commit_sha = '${{ context.payload.pull_request.head.sha }}'  # See: Report correct SHA for the head branch (See https://github.com/paambaati/codeclimate-action/issues/140)
+
+          os.system(f'"GIT_BRANCH={git_branch}" >> $GITHUB_ENV')
+          os.system(f'"GIT_COMMIT_SHA={git_commit_sha}" >> $GITHUB_ENV')
+
+      - name: Confirm Environment Variables Set Correctly
+        env:
+          GIT_BRANCH: ${{ env.GIT_BRANCH }}
+          GIT_COMMIT_SHA: ${{ env.GIT_COMMIT_SHA }}
+        run: |
+          echo "GIT_BRANCH is set to '$GIT_BRANCH'"
+          echo "GIT_COMMIT_SHA is set to '$GIT_COMMIT_SHA'"
+
+      - name: Alert CodeClimate to Expect an Upload
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.TEST_REPORTER_ID }}
-        with:
-          coverageLocations: |
-            ${{github.workspace}}/coverage/**/*.info:lcov
+          GIT_BRANCH: ${{ env.GIT_BRANCH }}
+          GIT_COMMIT_SHA: ${{ env.GIT_COMMIT_SHA }}
+        run: bin/test-reporter before-build
+
+      - name: Combine Code Coverage Results
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.TEST_REPORTER_ID }}
+          GIT_BRANCH: ${{ env.GIT_BRANCH }}
+          GIT_COMMIT_SHA: ${{ env.GIT_COMMIT_SHA }}
+        run: bin/test-reporter sum-coverage --parts 3 --output ${{github.workspace}}/coverage/codeclimate.json ${{github.workspace}}/coverage/**/*.json
+
+      - name: Upload Coverage Results to Code Climate
+        env:
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.TEST_REPORTER_ID }}
+          GIT_BRANCH: ${{ env.GIT_BRANCH }}
+          GIT_COMMIT_SHA: ${{ env.GIT_COMMIT_SHA }}
+        run: bin/test-reporter upload-coverage --input ${{github.workspace}}/coverage/codeclimate.json
+
+      - name: Inform Code Climate that Upload is Complete
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.TEST_REPORTER_ID }}
+          GIT_BRANCH: ${{ env.GIT_BRANCH }}
+          GIT_COMMIT_SHA: ${{ env.GIT_COMMIT_SHA }}
+        run: bin/test-reporter after-build
 
   publish:
     # TODO: Many of these steps are copy and pasted from build-matrix job above. We should explore a way to only specify this stuff once.
