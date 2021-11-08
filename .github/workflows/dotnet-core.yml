@@ -181,7 +181,6 @@ jobs:
 
       - name: Upload Coverage Results to Code Climate
         env:
-        env:
           CC_TEST_REPORTER_ID: ${{ secrets.TEST_REPORTER_ID }}
           GIT_BRANCH: ${{ env.GIT_BRANCH }}
           GIT_COMMIT_SHA: ${{ env.GIT_COMMIT_SHA }}
