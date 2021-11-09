@@ -106,6 +106,11 @@ jobs:
           # any errors in the translation to Python are my fault :)
           import os
           import re
+          import sys
+          import subprocess
+
+          print('Python version: ' + sys.version)
+
           git_commit_sha = None
           git_branch = None
 
@@ -121,8 +126,8 @@ jobs:
             git_branch = os.environ.get('GITHUB_HEAD_REF', git_branch) # See: Report correct branch for PRs (See https://github.com/paambaati/codeclimate-action/issues/86)
             git_commit_sha = '${{ github.event.payload.pull_request.head.sha }}'  # See: Report correct SHA for the head branch (See https://github.com/paambaati/codeclimate-action/issues/140)
 
-          os.system(f'"GIT_BRANCH={git_branch}" >> $GITHUB_ENV')
-          os.system(f'"GIT_COMMIT_SHA={git_commit_sha}" >> $GITHUB_ENV')
+          subprocess.run(f'echo "GIT_BRANCH={git_branch}" >> $GITHUB_ENV', shell=True, check=True)
+          subprocess.run(f'echo "GIT_COMMIT_SHA={git_commit_sha}" >> $GITHUB_ENV', shell=True, check=True)
 
       - name: Confirm Environment Variables Set Correctly
         env:
@@ -176,6 +181,11 @@ jobs:
           # any errors in the translation to Python are my fault :)
           import os
           import re
+          import sys
+          import subprocess
+
+          print('Python version: ' + sys.version)
+
           git_commit_sha = None
           git_branch = None
 
@@ -191,8 +201,8 @@ jobs:
             git_branch = os.environ.get('GITHUB_HEAD_REF', git_branch) # See: Report correct branch for PRs (See https://github.com/paambaati/codeclimate-action/issues/86)
             git_commit_sha = '${{ github.event.payload.pull_request.head.sha }}'  # See: Report correct SHA for the head branch (See https://github.com/paambaati/codeclimate-action/issues/140)
 
-          os.system(f'"GIT_BRANCH={git_branch}" >> $GITHUB_ENV')
-          os.system(f'"GIT_COMMIT_SHA={git_commit_sha}" >> $GITHUB_ENV')
+          subprocess.run(f'echo "GIT_BRANCH={git_branch}" >> $GITHUB_ENV', shell=True, check=True)
+          subprocess.run(f'echo "GIT_COMMIT_SHA={git_commit_sha}" >> $GITHUB_ENV', shell=True, check=True)
 
       - name: Confirm Environment Variables Set Correctly
         env:
