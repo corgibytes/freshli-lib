@@ -82,7 +82,7 @@ jobs:
 
       - name: Upload Coverage Files
         uses: actions/upload-artifact@v2
-        if: matrix.os == 'ubuntu-latest'
+        if: matrix.config.os == 'ubuntu-latest'
         with:
           name: "coverage-${{ matrix.config.os }}"
           path: "${{github.workspace}}/coverage-${{ matrix.config.os }}.info"
