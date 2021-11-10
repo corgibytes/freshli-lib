@@ -50,8 +50,8 @@ namespace Corgibytes.Freshli.Lib.Languages.Python
                     var version = versionSplits[0];
 
                     var dateNode = releaseNode.Descendants("time").First();
-                    var versionDate = DateTime.Parse(
-                      dateNode.Attributes["datetime"].Value).ToUniversalTime();
+                    var versionDate = DateTimeOffset.Parse(
+                      dateNode.Attributes["datetime"].Value);
 
                     try
                     {
@@ -76,7 +76,7 @@ namespace Corgibytes.Freshli.Lib.Languages.Python
         //TODO: Update logic to utilize includePreReleases
         public IVersionInfo Latest(
           string name,
-          DateTime asOf,
+          DateTimeOffset asOf,
           bool includePreReleases)
         {
             try
@@ -99,7 +99,11 @@ namespace Corgibytes.Freshli.Lib.Languages.Python
             return GetReleaseHistory(name).First(v => v.Version == version);
         }
 
-        public IVersionInfo Latest(string name, DateTime asOf, string thatMatches)
+        public IVersionInfo Latest(
+          string name,
+          DateTimeOffset asOf,
+          string thatMatches
+        )
         {
             try
             {
@@ -122,7 +126,7 @@ namespace Corgibytes.Freshli.Lib.Languages.Python
         //TODO: Update logic to utilize includePreReleases
         public List<IVersionInfo> VersionsBetween(
           string name,
-          DateTime asOf,
+          DateTimeOffset asOf,
           IVersionInfo earlierVersion,
           IVersionInfo laterVersion,
           bool includePreReleases)

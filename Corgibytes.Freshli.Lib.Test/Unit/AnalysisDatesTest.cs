@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.InteropServices;
+using Corgibytes.Freshli.Lib.Util;
 using Moq;
 using Xunit;
 
@@ -9,24 +11,14 @@ namespace Corgibytes.Freshli.Lib.Test.Unit
 {
     public class AnalysisDatesTest
     {
-        private static DateTime ParseExact(string value)
-        {
-            return DateTime.ParseExact(
-              value,
-              "o",
-              CultureInfo.InvariantCulture,
-              DateTimeStyles.RoundtripKind
-            );
-        }
+        private Mock<IFileHistory> _history = new();
 
         [Fact]
         public void SingleDate()
         {
-            var history = new Mock<IFileHistory>();
-            var dates = new List<DateTime>();
-            history.Setup(mock => mock.Dates).Returns(dates);
+            ConfigureDateHistory();
             var analysisDates = new AnalysisDates(
-              history.Object,
+              _history.Object,
               asOf: ParseExact("2020-01-01T00:00:00.0000000Z")
             );
             Assert.Collection(
@@ -35,102 +27,171 @@ namespace Corgibytes.Freshli.Lib.Test.Unit
             );
         }
 
-        [Fact]
-        public void DateRange()
+        [Theory]
+        [InlineData(
+          new[] { 2017, 3 },
+          "2020-01-01T23:59:59.9999999Z",
+          "2017-01-01T23:59:59.9999999Z",
+          "2017-02-01T00:00:00.0000000Z"
+        )]
+        [InlineData(
+          new[] { 2017, 3 },
+          "2020-01-01T23:59:59.9999999-08:00",
+          "2017-01-01T23:59:59.9999999Z",
+          "2017-02-01T00:00:00.0000000-08:00"
+        )]
+        [InlineData(
+          new[] { 2017, 4 },
+          "2019-01-01T23:59:59.9999999Z",
+          "2017-01-01T23:59:59.9999999Z",
+          "2017-02-01T00:00:00.0000000Z"
+        )]
+        public void RangeByYear(
+          int[] historyConfig,
+          string stopDateString,
+          string firstDateString,
+          string secondDateString
+        )
         {
-            var history = new Mock<IFileHistory>();
-            var dates = new List<DateTime>() {
-        ParseExact("2017-01-01T23:59:59.9999999Z"),
-        ParseExact("2018-01-01T23:59:59.9999999Z"),
-        ParseExact("2019-01-01T23:59:59.9999999Z")
-      };
-
-            history.Setup(mock => mock.Dates).Returns(dates);
-            var stopDate = ParseExact("2020-01-01T23:59:59.9999999Z");
-            var analysisDates = new AnalysisDates(
-              history.Object,
-              asOf: stopDate
-            );
-
-            var expectedDates = new List<DateTime>();
-            var currentDate = dates.First();
-            while (currentDate <= stopDate)
-            {
-                expectedDates.Add(currentDate);
-                currentDate = currentDate.AddMonths(1);
-            }
-
-            Assert.Equal(expectedDates, analysisDates);
+            ConfigureDateHistoryByYear(historyConfig);
+            AssertAnalysisDates(firstDateString, secondDateString, stopDateString);
         }
 
-        [Fact]
-        public void DateRangeStopsOnSpeciedDate()
+        [Theory]
+        [InlineData(
+          new[] {
+        "2017-01-01T00:00:00.0000000Z",
+        "2018-01-01T23:59:59.9999999Z",
+        "2019-01-01T23:59:59.9999999Z"
+          },
+          "2020-01-01T23:59:59.9999999Z",
+          "2017-01-01T00:00:00.0000000Z",
+          "2017-02-01T00:00:00.0000000Z"
+        )]
+        [InlineData(
+          new[] { "2016-12-15T00:00:00.0000000Z" },
+          "2019-01-01T00:00:00.0000000Z",
+          "2016-12-15T00:00:00.0000000Z",
+          "2017-01-01T00:00:00.0000000Z"
+        )]
+        [InlineData(
+          new[] {
+        "2016-12-15T00:00:00.0000000Z",
+        "2017-12-15T00:00:00.0000000Z"
+          },
+          "2019-01-01T00:00:00.0000000Z",
+          "2016-12-15T00:00:00.0000000Z",
+          "2017-01-01T00:00:00.0000000Z"
+        )]
+        [InlineData(
+          new[] { "2016-12-01T02:00:00.0000000Z" },
+          "2019-01-01T00:00:00.0000000Z",
+          "2016-12-01T02:00:00.0000000Z",
+          "2017-01-01T00:00:00.0000000Z"
+        )]
+        [InlineData(
+          new[] {
+        "2016-12-01T02:00:00.0000000Z",
+        "2017-12-01T02:00:00.0000000Z"
+          },
+          "2019-01-01T00:00:00.0000000Z",
+          "2016-12-01T02:00:00.0000000Z",
+          "2017-01-01T00:00:00.0000000Z"
+        )]
+        public void Range(
+          string[] historyValues,
+          string stopDateString,
+          string firstDateString,
+          string secondDateString
+        )
         {
-            var history = new Mock<IFileHistory>();
-            var dates = new List<DateTime>() {
-        ParseExact("2017-01-01T23:59:59.9999999Z"),
-        ParseExact("2018-01-01T23:59:59.9999999Z"),
-        ParseExact("2019-01-01T23:59:59.9999999Z"),
-        ParseExact("2020-01-01T23:59:59.9999999Z")
-      };
-
-            history.Setup(mock => mock.Dates).Returns(dates);
-            var stopDate = ParseExact("2019-01-01T23:59:59.9999999Z");
-            var analysisDates = new AnalysisDates(
-              history.Object,
-              asOf: stopDate
-            );
-
-            var expectedDates = new List<DateTime>();
-            var currentDate = dates.First();
-            while (currentDate <= stopDate)
-            {
-                expectedDates.Add(currentDate);
-                currentDate = currentDate.AddMonths(1);
-            }
-
-            Assert.Equal(expectedDates, analysisDates);
-        }
-
-        [Fact]
-        public void FirstFileCreatedBeforeStartOfMonth()
-        {
-            var history = new Mock<IFileHistory>();
-            var dates =
-              new List<DateTime>() { ParseExact("2016-12-15T00:00:00.0000000Z") };
-
-            // TODO Is the name stopDate misleading as it is now inclusive?
-            history.Setup(mock => mock.Dates).Returns(dates);
-            var stopDate = ParseExact("2019-01-01T00:00:00.0000000Z");
-            var analysisDates = new AnalysisDates(
-              history.Object,
-              asOf: stopDate
-            );
-
-            Assert.Equal(
-              ParseExact("2017-01-01T23:59:59.9999999Z"),
-              analysisDates.First()
-            );
+            ConfigureDateHistory(historyValues);
+            AssertAnalysisDates(firstDateString, secondDateString, stopDateString);
         }
 
         [Fact]
         public void FileDateIsNewerThanAsOfDateAndHistoryOnlyContainsOneVersion()
         {
-            var history = new Mock<IFileHistory>();
-            var dates =
-              new List<DateTime>() { ParseExact("2020-01-20T00:00:00.0000000Z") };
-
-            history.Setup(mock => mock.Dates).Returns(dates);
+            ConfigureDateHistory("2020-01-20T00:00:00.0000000Z");
             var stopDate = ParseExact("2020-01-01T00:00:00.0000000Z");
             var analysisDates = new AnalysisDates(
-              history.Object,
+              _history.Object,
               asOf: stopDate
             );
 
             Assert.Equal(
-              new List<DateTime> { ParseExact("2020-01-01T00:00:00.0000000Z") },
+              new List<DateTimeOffset> { ParseExact("2020-01-01T00:00:00.0000000Z") },
               analysisDates
             );
+        }
+
+        private static DateTimeOffset ParseExact(string value)
+        {
+            return DateTimeOffset.ParseExact(value,
+              "o",
+              CultureInfo.InvariantCulture,
+              DateTimeStyles.RoundtripKind
+            );
+        }
+
+        private void ConfigureDateHistory(params string[] dateStrings)
+        {
+            _history.Setup(mock => mock.Dates).Returns(
+              dateStrings.Select(ParseExact).ToList()
+            );
+        }
+
+        private void ConfigureDateHistoryByYear(int[] historyConfig)
+        {
+            ConfigureDateHistoryByYear(
+              year: historyConfig[0],
+              count: historyConfig[1]
+            );
+        }
+
+        private void ConfigureDateHistoryByYear(int year, int count)
+        {
+            var dateStrings = Enumerable.
+              Range(year, count).
+              Select(year => $"{year}-01-01T23:59:59.9999999Z").
+              ToArray();
+            ConfigureDateHistory(dateStrings);
+        }
+
+        private static List<DateTimeOffset> BuildExpectedDates(
+          string firstDateString,
+          string secondDateString,
+          DateTimeOffset stopDate
+        )
+        {
+            var expectedDates =
+              new List<DateTimeOffset>() { ParseExact(firstDateString) };
+            var currentDate = ParseExact(secondDateString);
+            while (currentDate <= stopDate)
+            {
+                expectedDates.Add(currentDate);
+                currentDate = currentDate.AddMonths(1);
+            }
+
+            return expectedDates;
+        }
+
+        private void AssertAnalysisDates(
+          string firstDateString,
+          string secondDateString,
+          string stopDateString
+        )
+        {
+            var stopDate = ParseExact(stopDateString);
+            var analysisDates = new AnalysisDates(
+              _history.Object,
+              asOf: stopDate
+            );
+
+            var expectedDates =
+              BuildExpectedDates(firstDateString, secondDateString, stopDate);
+
+            Assert.Equal(expectedDates, analysisDates);
         }
     }
 }

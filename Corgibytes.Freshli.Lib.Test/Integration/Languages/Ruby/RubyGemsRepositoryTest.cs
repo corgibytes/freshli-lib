@@ -1,100 +1,90 @@
 using System;
+using System.Collections.Generic;
 using Corgibytes.Freshli.Lib.Languages.Ruby;
 using Xunit;
 
 namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Ruby
 {
-    public class RubyGemsRepositoryTest
+    public class RubyGemsRepositoryTest : RepositoryTestFixture<RubyGemsRepositoryTest>
     {
+        public override IPackageRepository Repository => new RubyGemsRepository();
 
-        [Fact]
-        public void VersionInfoCorrectlyCreatesVersion()
+        public override TheoryData<IList<string>, IList<int>, string> DataForTestingVersionInfo => new()
         {
-            var repository = new RubyGemsRepository();
-            var versionInfo = repository.VersionInfo("tzinfo", "1.2.7");
-            var expectedDate = new DateTime(2020, 04, 02);
+            {
+                new[] { "tzinfo", "1.2.7" },
+                new[] { 2020, 04, 02, 21, 42, 11 },
+                "1.2.7"
+            },
+            {
+                new[] { "git", "1.6.0.pre1" },
+                new[] { 2020, 01, 20, 20, 50, 43 },
+                "1.6.0.pre1"
+            }
+        };
 
-            Assert.Equal("1.2.7", versionInfo.Version);
-            Assert.Equal(expectedDate, versionInfo.DatePublished);
+        public override TheoryData<IList<object>, string, IList<int>> DataForTestingLatestWithOptionalPreRelease => new()
+        {
+            {
+                new object[] { "git", new[] { 2020, 02, 01, 00, 00, 00 }, false },
+                "1.5.0",
+                new[] { 2018, 08, 10, 07, 58, 25 }
+            },
+            {
+                new object[] { "git", new[] { 2020, 02, 01, 00, 00, 00 }, true },
+                "1.6.0.pre1",
+                new[] { 2020, 01, 20, 20, 50, 43 }
+            }
+        };
+
+        [Theory(Skip = "Skipping")]
+        [InlineData(null, null, null)]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage(
+            "Warning", "xUnit1026",
+            Justification = "Inentionally empty method")]
+        public override void LatestWithMatchExpression(
+            object[] _methodParams,
+            string _expectedVersion,
+            int[] _expectedDateParts
+        )
+        {
+            // Intentionally empty method body. And all attributes removed to
+            // prevent the test from running. The `RubyGemsRepository` doesn't
+            // implement this overloaded form of the `Latest` method.
         }
 
-        [Fact]
-        public void VersionInfoCorrectlyCreatesPreReleaseVersion()
+        public override TheoryData<IList<object>, int> DataForTestingVersionsBetween => new()
         {
-            var repository = new RubyGemsRepository();
-            var versionInfo = repository.VersionInfo("git", "1.6.0.pre1");
-            var expectedDate = new DateTime(2020, 01, 20);
-
-            Assert.Equal("1.6.0.pre1", versionInfo.Version);
-            Assert.Equal(expectedDate, versionInfo.DatePublished);
-        }
-
-        [Fact]
-        public void LatestAsOfCorrectlyFindsLatestVersion()
-        {
-            var repository = new RubyGemsRepository();
-            var targetDate = new DateTime(2020, 02, 01);
-            var versionInfo = repository.Latest("git", targetDate, false);
-            var expectedDate = new DateTime(2018, 08, 10);
-
-            Assert.Equal("1.5.0", versionInfo.Version);
-            Assert.Equal(expectedDate, versionInfo.DatePublished);
-        }
-
-        [Fact]
-        public void
-          LatestAsOfCorrectlyFindsLatestPreReleaseVersion()
-        {
-            var repository = new RubyGemsRepository();
-            var targetDate = new DateTime(2020, 02, 01);
-            var versionInfo = repository.Latest("git", targetDate, true);
-            var expectedDate = new DateTime(2020, 01, 20);
-
-            Assert.Equal("1.6.0.pre1", versionInfo.Version);
-            Assert.Equal(expectedDate, versionInfo.DatePublished);
-        }
-
-        [Fact]
-        public void VersionsBetweenFindsVersionsReleasedBeforeTargetDate()
-        {
-            var repository = new RubyGemsRepository();
-            var targetDate = new DateTime(2014, 04, 01);
-            var earlierVersion = new RubyGemsVersionInfo { Version = "0.3.38" };
-            var laterVersion = new RubyGemsVersionInfo { Version = "1.1.0" };
-
-            var versions = repository.VersionsBetween("tzinfo", targetDate,
-              earlierVersion, laterVersion, includePreReleases: true);
-
-            Assert.Equal(3, versions.Count);
-        }
-
-        [Fact]
-        public void VersionsBetweenCorrectlyFindsVersions()
-        {
-            var repository = new RubyGemsRepository();
-            var targetDate = new DateTime(2020, 09, 01);
-            var earlierVersion = new RubyGemsVersionInfo { Version = "3.11.0" };
-            var laterVersion = new RubyGemsVersionInfo { Version = "3.13.0" };
-
-            var versions = repository.VersionsBetween(name: "google-protobuf",
-              targetDate, earlierVersion, laterVersion, includePreReleases: false);
-
-            Assert.Equal(8, versions.Count);
-        }
-
-
-        [Fact]
-        public void VersionsBetweenCorrectlyFindsVersionsWithPreReleases()
-        {
-            var repository = new RubyGemsRepository();
-            var targetDate = new DateTime(2020, 09, 01);
-            var earlierVersion = new RubyGemsVersionInfo { Version = "3.11.0" };
-            var laterVersion = new RubyGemsVersionInfo { Version = "3.13.0" };
-
-            var versions = repository.VersionsBetween(name: "google-protobuf",
-              targetDate, earlierVersion, laterVersion, includePreReleases: true);
-
-            Assert.Equal(11, versions.Count);
-        }
+            {
+                new object[] {
+                    "tzinfo",
+                    new[] {2014, 04, 01, 00, 00, 00},
+                    new RubyGemsVersionInfo("0.3.38"),
+                    new RubyGemsVersionInfo("1.1.0"),
+                    true
+                },
+                3
+            },
+            {
+                new object[] {
+                    "google-protobuf",
+                    new[] {2020, 09, 01, 00, 00, 00},
+                    new RubyGemsVersionInfo("3.11.0"),
+                    new RubyGemsVersionInfo("3.13.0"),
+                    false
+                },
+                8
+            },
+            {
+                new object[] {
+                    "google-protobuf",
+                    new[] {2020, 09, 01, 00, 00, 00},
+                    new RubyGemsVersionInfo("3.11.0"),
+                    new RubyGemsVersionInfo("3.13.0"),
+                    true
+                },
+                11
+            }
+        };
     }
 }

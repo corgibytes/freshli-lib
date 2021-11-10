@@ -1,0 +1,3774 @@
+﻿[
+  {
+    Filename: requirements.txt,
+    MetricResults: [
+      {
+        Date: 2014-07-05T18:49:34+00:00,
+        LibYear: [
+          {
+            Name: cython,
+            Version: 0.20.2,
+            PublishedAt: 2014-06-17T04:21:30+00:00,
+            LatestVersion: 0.20.2,
+            LatestPublishedAt: 2014-06-17T04:21:30+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: sparsehash,
+            Version: ,
+            UpgradeAvailable: false,
+            Skipped: true
+          }
+        ]
+      },
+      {
+        Date: 2014-08-01+00:00,
+        LibYear: [
+          {
+            Name: cython,
+            Version: 0.20.2,
+            PublishedAt: 2014-06-17T04:21:30+00:00,
+            LatestVersion: 0.20.2,
+            LatestPublishedAt: 2014-06-17T04:21:30+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: sparsehash,
+            Version: 0.4,
+            PublishedAt: 2014-07-31T16:42:08+00:00,
+            LatestVersion: 0.4,
+            LatestPublishedAt: 2014-07-31T16:42:08+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: murmurhash,
+            Version: 0.17,
+            PublishedAt: 2014-07-31T00:36:54+00:00,
+            LatestVersion: 0.17,
+            LatestPublishedAt: 2014-07-31T00:36:54+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: fabric,
+            Version: 1.9.0,
+            PublishedAt: 2014-06-09T04:02:18+00:00,
+            LatestVersion: 1.9.0,
+            LatestPublishedAt: 2014-06-09T04:02:18+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: pytest,
+            Version: 2.6.0,
+            PublishedAt: 2014-07-20T11:03:18+00:00,
+            LatestVersion: 2.6.0,
+            LatestPublishedAt: 2014-07-20T11:03:18+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          }
+        ]
+      },
+      {
+        Date: 2014-09-01+00:00,
+        LibYear: [
+          {
+            Name: cython,
+            Version: 0.20.2,
+            PublishedAt: 2014-06-17T04:21:30+00:00,
+            LatestVersion: 0.20.2,
+            LatestPublishedAt: 2014-06-17T04:21:30+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: fabric,
+            Version: 1.9.1,
+            PublishedAt: 2014-08-07T02:40:27+00:00,
+            LatestVersion: 1.9.1,
+            LatestPublishedAt: 2014-08-07T02:40:27+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: pytest,
+            Version: 2.6.1,
+            PublishedAt: 2014-08-07T20:55:38+00:00,
+            LatestVersion: 2.6.1,
+            LatestPublishedAt: 2014-08-07T20:55:38+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: sphinx,
+            Version: 1.2.2,
+            PublishedAt: 2014-03-02T07:41:02+00:00,
+            LatestVersion: 1.2.2,
+            LatestPublishedAt: 2014-03-02T07:41:02+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: sphinxcontrib-napoleon,
+            Version: 0.2.8,
+            PublishedAt: 2014-06-13T19:47:14+00:00,
+            LatestVersion: 0.2.8,
+            LatestPublishedAt: 2014-06-13T19:47:14+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          }
+        ]
+      },
+      {
+        Date: 2014-10-01+00:00,
+        LibYear: [
+          {
+            Name: cython,
+            Version: 0.21,
+            PublishedAt: 2014-09-10T15:54:07+00:00,
+            LatestVersion: 0.21,
+            LatestPublishedAt: 2014-09-10T15:54:07+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: fabric,
+            Version: 1.10.0,
+            PublishedAt: 2014-09-04T16:48:52+00:00,
+            LatestVersion: 1.10.0,
+            LatestPublishedAt: 2014-09-04T16:48:52+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cymem,
+            Version: 0.8,
+            PublishedAt: 2014-09-25T14:47:51+00:00,
+            LatestVersion: 0.8,
+            LatestPublishedAt: 2014-09-25T14:47:51+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: preshed,
+            Version: 0.1,
+            PublishedAt: 2014-09-26T16:31:26+00:00,
+            LatestVersion: 0.1,
+            LatestPublishedAt: 2014-09-26T16:31:26+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: murmurhash,
+            Version: 0.17,
+            PublishedAt: 2014-07-31T00:36:54+00:00,
+            LatestVersion: 0.17,
+            LatestPublishedAt: 2014-07-31T00:36:54+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: pytest,
+            Version: 2.6.3,
+            PublishedAt: 2014-09-24T12:59:39+00:00,
+            LatestVersion: 2.6.3,
+            LatestPublishedAt: 2014-09-24T12:59:39+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: sphinx,
+            Version: 1.2.3,
+            PublishedAt: 2014-09-01T14:57:19+00:00,
+            LatestVersion: 1.2.3,
+            LatestPublishedAt: 2014-09-01T14:57:19+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: sphinxcontrib-napoleon,
+            Version: 0.2.8,
+            PublishedAt: 2014-06-13T19:47:14+00:00,
+            LatestVersion: 0.2.8,
+            LatestPublishedAt: 2014-06-13T19:47:14+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          }
+        ]
+      },
+      {
+        Date: 2014-11-01+00:00,
+        LibYear: [
+          {
+            Name: cython,
+            Version: 0.21.1,
+            PublishedAt: 2014-10-18T13:51:40+00:00,
+            LatestVersion: 0.21.1,
+            LatestPublishedAt: 2014-10-18T13:51:40+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: fabric,
+            Version: 1.10.0,
+            PublishedAt: 2014-09-04T16:48:52+00:00,
+            LatestVersion: 1.10.0,
+            LatestPublishedAt: 2014-09-04T16:48:52+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cymem,
+            Version: 1.0,
+            PublishedAt: 2014-10-21T08:19:02+00:00,
+            LatestVersion: 1.0,
+            LatestPublishedAt: 2014-10-21T08:19:02+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: preshed,
+            Version: 0.1,
+            PublishedAt: 2014-09-26T16:31:26+00:00,
+            LatestVersion: 0.1,
+            LatestPublishedAt: 2014-09-26T16:31:26+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: murmurhash,
+            Version: 0.17,
+            PublishedAt: 2014-07-31T00:36:54+00:00,
+            LatestVersion: 0.17,
+            LatestPublishedAt: 2014-07-31T00:36:54+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: pytest,
+            Version: 2.6.4,
+            PublishedAt: 2014-10-24T15:11:47+00:00,
+            LatestVersion: 2.6.4,
+            LatestPublishedAt: 2014-10-24T15:11:47+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: sphinx,
+            Version: 1.2.3,
+            PublishedAt: 2014-09-01T14:57:19+00:00,
+            LatestVersion: 1.2.3,
+            LatestPublishedAt: 2014-09-01T14:57:19+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: sphinxcontrib-napoleon,
+            Version: 0.2.8,
+            PublishedAt: 2014-06-13T19:47:14+00:00,
+            LatestVersion: 0.2.8,
+            LatestPublishedAt: 2014-06-13T19:47:14+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          }
+        ]
+      },
+      {
+        Date: 2014-12-01+00:00,
+        LibYear: [
+          {
+            Name: cython,
+            Version: 0.21.1,
+            PublishedAt: 2014-10-18T13:51:40+00:00,
+            LatestVersion: 0.21.1,
+            LatestPublishedAt: 2014-10-18T13:51:40+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: fabric,
+            Version: 1.10.0,
+            PublishedAt: 2014-09-04T16:48:52+00:00,
+            LatestVersion: 1.10.0,
+            LatestPublishedAt: 2014-09-04T16:48:52+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cymem,
+            Version: 1.0,
+            PublishedAt: 2014-10-21T08:19:02+00:00,
+            LatestVersion: 1.0,
+            LatestPublishedAt: 2014-10-21T08:19:02+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: preshed,
+            Version: 0.1,
+            PublishedAt: 2014-09-26T16:31:26+00:00,
+            LatestVersion: 0.1,
+            LatestPublishedAt: 2014-09-26T16:31:26+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: murmurhash,
+            Version: 0.17,
+            PublishedAt: 2014-07-31T00:36:54+00:00,
+            LatestVersion: 0.17,
+            LatestPublishedAt: 2014-07-31T00:36:54+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: pytest,
+            Version: 2.6.4,
+            PublishedAt: 2014-10-24T15:11:47+00:00,
+            LatestVersion: 2.6.4,
+            LatestPublishedAt: 2014-10-24T15:11:47+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: sphinx,
+            Version: 1.2.3,
+            PublishedAt: 2014-09-01T14:57:19+00:00,
+            LatestVersion: 1.2.3,
+            LatestPublishedAt: 2014-09-01T14:57:19+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: sphinxcontrib-napoleon,
+            Version: 0.2.8,
+            PublishedAt: 2014-06-13T19:47:14+00:00,
+            LatestVersion: 0.2.8,
+            LatestPublishedAt: 2014-06-13T19:47:14+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          }
+        ]
+      },
+      {
+        Date: 2015-01-01+00:00,
+        LibYear: [
+          {
+            Name: cython,
+            Version: 0.21.2,
+            PublishedAt: 2014-12-27T16:28:55+00:00,
+            LatestVersion: 0.21.2,
+            LatestPublishedAt: 2014-12-27T16:28:55+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: fabric,
+            Version: 1.10.1,
+            PublishedAt: 2014-12-19T23:19:19+00:00,
+            LatestVersion: 1.10.1,
+            LatestPublishedAt: 2014-12-19T23:19:19+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cymem,
+            Version: 1.0,
+            PublishedAt: 2014-10-21T08:19:02+00:00,
+            LatestVersion: 1.0,
+            LatestPublishedAt: 2014-10-21T08:19:02+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: preshed,
+            Version: 0.20,
+            PublishedAt: 2014-12-19T12:33:26+00:00,
+            LatestVersion: 0.20,
+            LatestPublishedAt: 2014-12-19T12:33:26+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: murmurhash,
+            Version: 0.17,
+            PublishedAt: 2014-07-31T00:36:54+00:00,
+            LatestVersion: 0.17,
+            LatestPublishedAt: 2014-07-31T00:36:54+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: pytest,
+            Version: 2.6.4,
+            PublishedAt: 2014-10-24T15:11:47+00:00,
+            LatestVersion: 2.6.4,
+            LatestPublishedAt: 2014-10-24T15:11:47+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: sphinx,
+            Version: 1.2.3,
+            PublishedAt: 2014-09-01T14:57:19+00:00,
+            LatestVersion: 1.2.3,
+            LatestPublishedAt: 2014-09-01T14:57:19+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: sphinxcontrib-napoleon,
+            Version: 0.2.8,
+            PublishedAt: 2014-06-13T19:47:14+00:00,
+            LatestVersion: 0.2.8,
+            LatestPublishedAt: 2014-06-13T19:47:14+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          }
+        ]
+      },
+      {
+        Date: 2015-02-01+00:00,
+        LibYear: [
+          {
+            Name: cython,
+            Version: 0.21.2,
+            PublishedAt: 2014-12-27T16:28:55+00:00,
+            LatestVersion: 0.21.2,
+            LatestPublishedAt: 2014-12-27T16:28:55+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cymem,
+            Version: 1.11,
+            PublishedAt: 2015-01-31T01:49:17+00:00,
+            LatestVersion: 1.11,
+            LatestPublishedAt: 2015-01-31T01:49:17+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: preshed,
+            Version: 0.37,
+            PublishedAt: 2015-01-04T15:51:21+00:00,
+            LatestVersion: 0.37,
+            LatestPublishedAt: 2015-01-04T15:51:21+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: thinc,
+            Version: 1.73,
+            PublishedAt: 2015-01-08T17:54:52+00:00,
+            LatestVersion: 1.73,
+            LatestPublishedAt: 2015-01-08T17:54:52+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: murmurhash,
+            Version: 0.24,
+            PublishedAt: 2015-01-04T13:03:58+00:00,
+            LatestVersion: 0.24,
+            LatestPublishedAt: 2015-01-04T13:03:58+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: unidecode,
+            Version: 0.04.17,
+            PublishedAt: 2014-12-18T14:32:10+00:00,
+            LatestVersion: 0.04.17,
+            LatestPublishedAt: 2014-12-18T14:32:10+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: numpy,
+            Version: 1.9.1,
+            PublishedAt: 2014-11-02T13:20:13+00:00,
+            LatestVersion: 1.9.1,
+            LatestPublishedAt: 2014-11-02T13:20:13+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: wget,
+            Version: 2.2,
+            PublishedAt: 2014-07-19T23:44:50+00:00,
+            LatestVersion: 2.2,
+            LatestPublishedAt: 2014-07-19T23:44:50+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: plac,
+            Version: 0.9.1,
+            PublishedAt: 2012-04-23T08:51:29+00:00,
+            LatestVersion: 0.9.1,
+            LatestPublishedAt: 2012-04-23T08:51:29+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          }
+        ]
+      },
+      {
+        Date: 2015-03-01+00:00,
+        LibYear: [
+          {
+            Name: cython,
+            Version: 0.22,
+            PublishedAt: 2015-02-12T07:22:13+00:00,
+            LatestVersion: 0.22,
+            LatestPublishedAt: 2015-02-12T07:22:13+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cymem,
+            Version: 1.11,
+            PublishedAt: 2015-01-31T01:49:17+00:00,
+            LatestVersion: 1.11,
+            LatestPublishedAt: 2015-01-31T01:49:17+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: preshed,
+            Version: 0.37,
+            PublishedAt: 2015-01-04T15:51:21+00:00,
+            LatestVersion: 0.37,
+            LatestPublishedAt: 2015-01-04T15:51:21+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: thinc,
+            Version: 1.74,
+            PublishedAt: 2015-02-23T18:10:03+00:00,
+            LatestVersion: 1.74,
+            LatestPublishedAt: 2015-02-23T18:10:03+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: murmurhash,
+            Version: 0.24,
+            PublishedAt: 2015-01-04T13:03:58+00:00,
+            LatestVersion: 0.24,
+            LatestPublishedAt: 2015-01-04T13:03:58+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: unidecode,
+            Version: 0.04.17,
+            PublishedAt: 2014-12-18T14:32:10+00:00,
+            LatestVersion: 0.04.17,
+            LatestPublishedAt: 2014-12-18T14:32:10+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: numpy,
+            Version: 1.9.1,
+            PublishedAt: 2014-11-02T13:20:13+00:00,
+            LatestVersion: 1.9.1,
+            LatestPublishedAt: 2014-11-02T13:20:13+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: wget,
+            Version: 2.2,
+            PublishedAt: 2014-07-19T23:44:50+00:00,
+            LatestVersion: 2.2,
+            LatestPublishedAt: 2014-07-19T23:44:50+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: plac,
+            Version: 0.9.1,
+            PublishedAt: 2012-04-23T08:51:29+00:00,
+            LatestVersion: 0.9.1,
+            LatestPublishedAt: 2012-04-23T08:51:29+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: six,
+            Version: 1.9.0,
+            PublishedAt: 2015-01-02T16:38:04+00:00,
+            LatestVersion: 1.9.0,
+            LatestPublishedAt: 2015-01-02T16:38:04+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          }
+        ]
+      },
+      {
+        Date: 2015-04-01+00:00,
+        LibYear: [
+          {
+            Name: cython,
+            Version: 0.22,
+            PublishedAt: 2015-02-12T07:22:13+00:00,
+            LatestVersion: 0.22,
+            LatestPublishedAt: 2015-02-12T07:22:13+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cymem,
+            Version: 1.11,
+            PublishedAt: 2015-01-31T01:49:17+00:00,
+            LatestVersion: 1.11,
+            LatestPublishedAt: 2015-01-31T01:49:17+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: preshed,
+            Version: 0.37,
+            PublishedAt: 2015-01-04T15:51:21+00:00,
+            LatestVersion: 0.37,
+            LatestPublishedAt: 2015-01-04T15:51:21+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: thinc,
+            Version: 1.75,
+            PublishedAt: 2015-03-06T09:25:35+00:00,
+            LatestVersion: 1.75,
+            LatestPublishedAt: 2015-03-06T09:25:35+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: murmurhash,
+            Version: 0.24,
+            PublishedAt: 2015-01-04T13:03:58+00:00,
+            LatestVersion: 0.24,
+            LatestPublishedAt: 2015-01-04T13:03:58+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: unidecode,
+            Version: 0.04.17,
+            PublishedAt: 2014-12-18T14:32:10+00:00,
+            LatestVersion: 0.04.17,
+            LatestPublishedAt: 2014-12-18T14:32:10+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: numpy,
+            Version: 1.9.2,
+            PublishedAt: 2015-03-01T20:07:53+00:00,
+            LatestVersion: 1.9.2,
+            LatestPublishedAt: 2015-03-01T20:07:53+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: wget,
+            Version: 2.2,
+            PublishedAt: 2014-07-19T23:44:50+00:00,
+            LatestVersion: 2.2,
+            LatestPublishedAt: 2014-07-19T23:44:50+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: plac,
+            Version: 0.9.1,
+            PublishedAt: 2012-04-23T08:51:29+00:00,
+            LatestVersion: 0.9.1,
+            LatestPublishedAt: 2012-04-23T08:51:29+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: six,
+            Version: 1.9.0,
+            PublishedAt: 2015-01-02T16:38:04+00:00,
+            LatestVersion: 1.9.0,
+            LatestPublishedAt: 2015-01-02T16:38:04+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          }
+        ]
+      },
+      {
+        Date: 2015-05-01+00:00,
+        LibYear: [
+          {
+            Name: cython,
+            Version: 0.22,
+            PublishedAt: 2015-02-12T07:22:13+00:00,
+            LatestVersion: 0.22,
+            LatestPublishedAt: 2015-02-12T07:22:13+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cymem,
+            Version: 1.11,
+            PublishedAt: 2015-01-31T01:49:17+00:00,
+            LatestVersion: 1.11,
+            LatestPublishedAt: 2015-01-31T01:49:17+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: pathlib,
+            Version: 1.0.1,
+            PublishedAt: 2014-09-03T15:41:44+00:00,
+            LatestVersion: 1.0.1,
+            LatestPublishedAt: 2014-09-03T15:41:44+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: preshed,
+            Version: 0.37,
+            PublishedAt: 2015-01-04T15:51:21+00:00,
+            LatestVersion: 0.37,
+            LatestPublishedAt: 2015-01-04T15:51:21+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: thinc,
+            Version: 1.75,
+            PublishedAt: 2015-03-06T09:25:35+00:00,
+            LatestVersion: 1.75,
+            LatestPublishedAt: 2015-03-06T09:25:35+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: murmurhash,
+            Version: 0.24,
+            PublishedAt: 2015-01-04T13:03:58+00:00,
+            LatestVersion: 0.24,
+            LatestPublishedAt: 2015-01-04T13:03:58+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: unidecode,
+            Version: 0.04.17,
+            PublishedAt: 2014-12-18T14:32:10+00:00,
+            LatestVersion: 0.04.17,
+            LatestPublishedAt: 2014-12-18T14:32:10+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: numpy,
+            Version: 1.9.2,
+            PublishedAt: 2015-03-01T20:07:53+00:00,
+            LatestVersion: 1.9.2,
+            LatestPublishedAt: 2015-03-01T20:07:53+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: wget,
+            Version: 2.2,
+            PublishedAt: 2014-07-19T23:44:50+00:00,
+            LatestVersion: 2.2,
+            LatestPublishedAt: 2014-07-19T23:44:50+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: plac,
+            Version: 0.9.1,
+            PublishedAt: 2012-04-23T08:51:29+00:00,
+            LatestVersion: 0.9.1,
+            LatestPublishedAt: 2012-04-23T08:51:29+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: six,
+            Version: 1.9.0,
+            PublishedAt: 2015-01-02T16:38:04+00:00,
+            LatestVersion: 1.9.0,
+            LatestPublishedAt: 2015-01-02T16:38:04+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          }
+        ]
+      },
+      {
+        Date: 2015-06-01+00:00,
+        LibYear: [
+          {
+            Name: cython,
+            Version: 0.22,
+            PublishedAt: 2015-02-12T07:22:13+00:00,
+            LatestVersion: 0.22,
+            LatestPublishedAt: 2015-02-12T07:22:13+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cymem,
+            Version: 1.11,
+            PublishedAt: 2015-01-31T01:49:17+00:00,
+            LatestVersion: 1.11,
+            LatestPublishedAt: 2015-01-31T01:49:17+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: pathlib,
+            Version: 1.0.1,
+            PublishedAt: 2014-09-03T15:41:44+00:00,
+            LatestVersion: 1.0.1,
+            LatestPublishedAt: 2014-09-03T15:41:44+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: preshed,
+            Version: 0.37,
+            PublishedAt: 2015-01-04T15:51:21+00:00,
+            LatestVersion: 0.37,
+            LatestPublishedAt: 2015-01-04T15:51:21+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: thinc,
+            Version: 1.75,
+            PublishedAt: 2015-03-06T09:25:35+00:00,
+            LatestVersion: 1.75,
+            LatestPublishedAt: 2015-03-06T09:25:35+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: murmurhash,
+            Version: 0.24,
+            PublishedAt: 2015-01-04T13:03:58+00:00,
+            LatestVersion: 0.24,
+            LatestPublishedAt: 2015-01-04T13:03:58+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: unidecode,
+            Version: 0.04.17,
+            PublishedAt: 2014-12-18T14:32:10+00:00,
+            LatestVersion: 0.04.17,
+            LatestPublishedAt: 2014-12-18T14:32:10+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: numpy,
+            Version: 1.9.2,
+            PublishedAt: 2015-03-01T20:07:53+00:00,
+            LatestVersion: 1.9.2,
+            LatestPublishedAt: 2015-03-01T20:07:53+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: wget,
+            Version: 2.2,
+            PublishedAt: 2014-07-19T23:44:50+00:00,
+            LatestVersion: 2.2,
+            LatestPublishedAt: 2014-07-19T23:44:50+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: plac,
+            Version: 0.9.1,
+            PublishedAt: 2012-04-23T08:51:29+00:00,
+            LatestVersion: 0.9.1,
+            LatestPublishedAt: 2012-04-23T08:51:29+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: six,
+            Version: 1.9.0,
+            PublishedAt: 2015-01-02T16:38:04+00:00,
+            LatestVersion: 1.9.0,
+            LatestPublishedAt: 2015-01-02T16:38:04+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          }
+        ]
+      },
+      {
+        Date: 2015-07-01+00:00,
+        LibYear: [
+          {
+            Name: cython,
+            Version: 0.22.1,
+            PublishedAt: 2015-06-20T09:52:38+00:00,
+            LatestVersion: 0.22.1,
+            LatestPublishedAt: 2015-06-20T09:52:38+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cymem,
+            Version: 1.11,
+            PublishedAt: 2015-01-31T01:49:17+00:00,
+            LatestVersion: 1.11,
+            LatestPublishedAt: 2015-01-31T01:49:17+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: pathlib,
+            Version: 1.0.1,
+            PublishedAt: 2014-09-03T15:41:44+00:00,
+            LatestVersion: 1.0.1,
+            LatestPublishedAt: 2014-09-03T15:41:44+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: preshed,
+            Version: 0.37,
+            PublishedAt: 2015-01-04T15:51:21+00:00,
+            LatestVersion: 0.37,
+            LatestPublishedAt: 2015-01-04T15:51:21+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: thinc,
+            Version: 3.2,
+            PublishedAt: 2015-06-29T14:37:50+00:00,
+            LatestVersion: 3.2,
+            LatestPublishedAt: 2015-06-29T14:37:50+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: murmurhash,
+            Version: 0.24,
+            PublishedAt: 2015-01-04T13:03:58+00:00,
+            LatestVersion: 0.24,
+            LatestPublishedAt: 2015-01-04T13:03:58+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: unidecode,
+            Version: 0.04.18,
+            PublishedAt: 2015-06-13T12:17:27+00:00,
+            LatestVersion: 0.04.18,
+            LatestPublishedAt: 2015-06-13T12:17:27+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: numpy,
+            Version: 1.9.2,
+            PublishedAt: 2015-03-01T20:07:53+00:00,
+            LatestVersion: 1.9.2,
+            LatestPublishedAt: 2015-03-01T20:07:53+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: wget,
+            Version: 2.2,
+            PublishedAt: 2014-07-19T23:44:50+00:00,
+            LatestVersion: 2.2,
+            LatestPublishedAt: 2014-07-19T23:44:50+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: plac,
+            Version: 0.9.1,
+            PublishedAt: 2012-04-23T08:51:29+00:00,
+            LatestVersion: 0.9.1,
+            LatestPublishedAt: 2012-04-23T08:51:29+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: six,
+            Version: 1.9.0,
+            PublishedAt: 2015-01-02T16:38:04+00:00,
+            LatestVersion: 1.9.0,
+            LatestPublishedAt: 2015-01-02T16:38:04+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: ujson,
+            Version: 1.33,
+            PublishedAt: 2013-06-11T06:35:46+00:00,
+            LatestVersion: 1.33,
+            LatestPublishedAt: 2013-06-11T06:35:46+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          }
+        ]
+      },
+      {
+        Date: 2015-08-01+00:00,
+        LibYear: [
+          {
+            Name: cython,
+            Version: 0.22.1,
+            PublishedAt: 2015-06-20T09:52:38+00:00,
+            LatestVersion: 0.22.1,
+            LatestPublishedAt: 2015-06-20T09:52:38+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cymem,
+            Version: 1.11,
+            PublishedAt: 2015-01-31T01:49:17+00:00,
+            LatestVersion: 1.11,
+            LatestPublishedAt: 2015-01-31T01:49:17+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: pathlib,
+            Version: 1.0.1,
+            PublishedAt: 2014-09-03T15:41:44+00:00,
+            LatestVersion: 1.0.1,
+            LatestPublishedAt: 2014-09-03T15:41:44+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: preshed,
+            Version: 0.41,
+            PublishedAt: 2015-07-15T18:01:53+00:00,
+            LatestVersion: 0.41,
+            LatestPublishedAt: 2015-07-15T18:01:53+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: thinc,
+            Version: 3.3,
+            PublishedAt: 2015-07-24T02:26:36+00:00,
+            LatestVersion: 3.3,
+            LatestPublishedAt: 2015-07-24T02:26:36+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: murmurhash,
+            Version: 0.24,
+            PublishedAt: 2015-01-04T13:03:58+00:00,
+            LatestVersion: 0.24,
+            LatestPublishedAt: 2015-01-04T13:03:58+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: unidecode,
+            Version: 0.04.18,
+            PublishedAt: 2015-06-13T12:17:27+00:00,
+            LatestVersion: 0.04.18,
+            LatestPublishedAt: 2015-06-13T12:17:27+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: numpy,
+            Version: 1.9.2,
+            PublishedAt: 2015-03-01T20:07:53+00:00,
+            LatestVersion: 1.9.2,
+            LatestPublishedAt: 2015-03-01T20:07:53+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: wget,
+            Version: 2.2,
+            PublishedAt: 2014-07-19T23:44:50+00:00,
+            LatestVersion: 2.2,
+            LatestPublishedAt: 2014-07-19T23:44:50+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: plac,
+            Version: 0.9.1,
+            PublishedAt: 2012-04-23T08:51:29+00:00,
+            LatestVersion: 0.9.1,
+            LatestPublishedAt: 2012-04-23T08:51:29+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: six,
+            Version: 1.9.0,
+            PublishedAt: 2015-01-02T16:38:04+00:00,
+            LatestVersion: 1.9.0,
+            LatestPublishedAt: 2015-01-02T16:38:04+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: ujson,
+            Version: 1.33,
+            PublishedAt: 2013-06-11T06:35:46+00:00,
+            LatestVersion: 1.33,
+            LatestPublishedAt: 2013-06-11T06:35:46+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          }
+        ]
+      },
+      {
+        Date: 2015-09-01+00:00,
+        LibYear: [
+          {
+            Name: cython,
+            Version: 0.23.1,
+            PublishedAt: 2015-08-22T15:51:13+00:00,
+            LatestVersion: 0.23.1,
+            LatestPublishedAt: 2015-08-22T15:51:13+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cymem,
+            Version: 1.11,
+            PublishedAt: 2015-01-31T01:49:17+00:00,
+            LatestVersion: 1.11,
+            LatestPublishedAt: 2015-01-31T01:49:17+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: pathlib,
+            Version: 1.0.1,
+            PublishedAt: 2014-09-03T15:41:44+00:00,
+            LatestVersion: 1.0.1,
+            LatestPublishedAt: 2014-09-03T15:41:44+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: preshed,
+            Version: 0.41,
+            PublishedAt: 2015-07-15T18:01:53+00:00,
+            LatestVersion: 0.41,
+            LatestPublishedAt: 2015-07-15T18:01:53+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: thinc,
+            Version: 3.3,
+            PublishedAt: 2015-07-24T02:26:36+00:00,
+            LatestVersion: 3.3,
+            LatestPublishedAt: 2015-07-24T02:26:36+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: murmurhash,
+            Version: 0.24,
+            PublishedAt: 2015-01-04T13:03:58+00:00,
+            LatestVersion: 0.24,
+            LatestPublishedAt: 2015-01-04T13:03:58+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: unidecode,
+            Version: 0.04.18,
+            PublishedAt: 2015-06-13T12:17:27+00:00,
+            LatestVersion: 0.04.18,
+            LatestPublishedAt: 2015-06-13T12:17:27+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: numpy,
+            Version: 1.9.2,
+            PublishedAt: 2015-03-01T20:07:53+00:00,
+            LatestVersion: 1.9.2,
+            LatestPublishedAt: 2015-03-01T20:07:53+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: wget,
+            Version: 2.2,
+            PublishedAt: 2014-07-19T23:44:50+00:00,
+            LatestVersion: 2.2,
+            LatestPublishedAt: 2014-07-19T23:44:50+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: plac,
+            Version: 0.9.1,
+            PublishedAt: 2012-04-23T08:51:29+00:00,
+            LatestVersion: 0.9.1,
+            LatestPublishedAt: 2012-04-23T08:51:29+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: six,
+            Version: 1.9.0,
+            PublishedAt: 2015-01-02T16:38:04+00:00,
+            LatestVersion: 1.9.0,
+            LatestPublishedAt: 2015-01-02T16:38:04+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: ujson,
+            Version: 1.33,
+            PublishedAt: 2013-06-11T06:35:46+00:00,
+            LatestVersion: 1.33,
+            LatestPublishedAt: 2013-06-11T06:35:46+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          }
+        ]
+      },
+      {
+        Date: 2015-10-01+00:00,
+        LibYear: [
+          {
+            Name: cython,
+            Version: 0.23.3,
+            PublishedAt: 2015-09-29T09:48:13+00:00,
+            LatestVersion: 0.23.3,
+            LatestPublishedAt: 2015-09-29T09:48:13+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cymem,
+            Version: 1.11,
+            PublishedAt: 2015-01-31T01:49:17+00:00,
+            LatestVersion: 1.11,
+            LatestPublishedAt: 2015-01-31T01:49:17+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: pathlib,
+            Version: 1.0.1,
+            PublishedAt: 2014-09-03T15:41:44+00:00,
+            LatestVersion: 1.0.1,
+            LatestPublishedAt: 2014-09-03T15:41:44+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: preshed,
+            Version: 0.37,
+            PublishedAt: 2015-01-04T15:51:21+00:00,
+            LatestVersion: 0.41,
+            LatestPublishedAt: 2015-07-15T18:01:53+00:00,
+            Value: 0.5262757483510908,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: thinc,
+            Version: 1.76,
+            PublishedAt: 2015-06-07T18:03:18+00:00,
+            LatestVersion: 3.3,
+            LatestPublishedAt: 2015-07-24T02:26:36+00:00,
+            Value: 0.1269849695585997,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: murmurhash,
+            Version: 0.24,
+            PublishedAt: 2015-01-04T13:03:58+00:00,
+            LatestVersion: 0.24,
+            LatestPublishedAt: 2015-01-04T13:03:58+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: unidecode,
+            Version: 0.04.18,
+            PublishedAt: 2015-06-13T12:17:27+00:00,
+            LatestVersion: 0.04.18,
+            LatestPublishedAt: 2015-06-13T12:17:27+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: numpy,
+            Version: 1.9.3,
+            PublishedAt: 2015-09-21T23:41:08+00:00,
+            LatestVersion: 1.9.3,
+            LatestPublishedAt: 2015-09-21T23:41:08+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: wget,
+            Version: 2.2,
+            PublishedAt: 2014-07-19T23:44:50+00:00,
+            LatestVersion: 2.2,
+            LatestPublishedAt: 2014-07-19T23:44:50+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: plac,
+            Version: 0.9.1,
+            PublishedAt: 2012-04-23T08:51:29+00:00,
+            LatestVersion: 0.9.1,
+            LatestPublishedAt: 2012-04-23T08:51:29+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: six,
+            Version: 1.9.0,
+            PublishedAt: 2015-01-02T16:38:04+00:00,
+            LatestVersion: 1.9.0,
+            LatestPublishedAt: 2015-01-02T16:38:04+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          }
+        ]
+      },
+      {
+        Date: 2015-11-01+00:00,
+        LibYear: [
+          {
+            Name: cython,
+            Version: 0.23.4,
+            PublishedAt: 2015-10-10T12:44:24+00:00,
+            LatestVersion: 0.23.4,
+            LatestPublishedAt: 2015-10-10T12:44:24+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cymem,
+            Version: 1.11,
+            PublishedAt: 2015-01-31T01:49:17+00:00,
+            LatestVersion: 1.11,
+            LatestPublishedAt: 2015-01-31T01:49:17+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: pathlib,
+            Version: 1.0.1,
+            PublishedAt: 2014-09-03T15:41:44+00:00,
+            LatestVersion: 1.0.1,
+            LatestPublishedAt: 2014-09-03T15:41:44+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: preshed,
+            Version: 0.42,
+            PublishedAt: 2015-10-10T02:28:28+00:00,
+            LatestVersion: 0.42,
+            LatestPublishedAt: 2015-10-10T02:28:28+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: thinc,
+            Version: 3.3,
+            PublishedAt: 2015-07-24T02:26:36+00:00,
+            LatestVersion: 3.3,
+            LatestPublishedAt: 2015-07-24T02:26:36+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: murmurhash,
+            Version: 0.24,
+            PublishedAt: 2015-01-04T13:03:58+00:00,
+            LatestVersion: 0.24,
+            LatestPublishedAt: 2015-01-04T13:03:58+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: text-unidecode,
+            Version: 1.0,
+            PublishedAt: 2015-08-13T20:16:16+00:00,
+            LatestVersion: 1.0,
+            LatestPublishedAt: 2015-08-13T20:16:16+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: numpy,
+            Version: 1.10.1,
+            PublishedAt: 2015-10-12T16:10:29+00:00,
+            LatestVersion: 1.10.1,
+            LatestPublishedAt: 2015-10-12T16:10:29+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: plac,
+            Version: 0.9.1,
+            PublishedAt: 2012-04-23T08:51:29+00:00,
+            LatestVersion: 0.9.1,
+            LatestPublishedAt: 2012-04-23T08:51:29+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: six,
+            Version: 1.10.0,
+            PublishedAt: 2015-10-07T03:17:19+00:00,
+            LatestVersion: 1.10.0,
+            LatestPublishedAt: 2015-10-07T03:17:19+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: ujson,
+            Version: 1.33,
+            PublishedAt: 2013-06-11T06:35:46+00:00,
+            LatestVersion: 1.33,
+            LatestPublishedAt: 2013-06-11T06:35:46+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cloudpickle,
+            Version: 0.1.1,
+            PublishedAt: 2015-09-05T01:50:54+00:00,
+            LatestVersion: 0.1.1,
+            LatestPublishedAt: 2015-09-05T01:50:54+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          }
+        ]
+      },
+      {
+        Date: 2015-12-01+00:00,
+        LibYear: [
+          {
+            Name: cython,
+            Version: 0.23.4,
+            PublishedAt: 2015-10-10T12:44:24+00:00,
+            LatestVersion: 0.23.4,
+            LatestPublishedAt: 2015-10-10T12:44:24+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cymem,
+            Version: 1.30,
+            PublishedAt: 2015-11-02T14:25:33+00:00,
+            LatestVersion: 1.30,
+            LatestPublishedAt: 2015-11-02T14:25:33+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: pathlib,
+            Version: 1.0.1,
+            PublishedAt: 2014-09-03T15:41:44+00:00,
+            LatestVersion: 1.0.1,
+            LatestPublishedAt: 2014-09-03T15:41:44+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: preshed,
+            Version: 0.44,
+            PublishedAt: 2015-11-05T11:13:49+00:00,
+            LatestVersion: 0.44,
+            LatestPublishedAt: 2015-11-05T11:13:49+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: thinc,
+            Version: 4.0.0,
+            PublishedAt: 2015-11-07T07:31:50+00:00,
+            LatestVersion: 4.0.0,
+            LatestPublishedAt: 2015-11-07T07:31:50+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: murmurhash,
+            Version: 0.24,
+            PublishedAt: 2015-01-04T13:03:58+00:00,
+            LatestVersion: 0.24,
+            LatestPublishedAt: 2015-01-04T13:03:58+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: text-unidecode,
+            Version: 1.0,
+            PublishedAt: 2015-08-13T20:16:16+00:00,
+            LatestVersion: 1.0,
+            LatestPublishedAt: 2015-08-13T20:16:16+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: numpy,
+            Version: 1.10.1,
+            PublishedAt: 2015-10-12T16:10:29+00:00,
+            LatestVersion: 1.10.1,
+            LatestPublishedAt: 2015-10-12T16:10:29+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: plac,
+            Version: 0.9.1,
+            PublishedAt: 2012-04-23T08:51:29+00:00,
+            LatestVersion: 0.9.1,
+            LatestPublishedAt: 2012-04-23T08:51:29+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: six,
+            Version: 1.10.0,
+            PublishedAt: 2015-10-07T03:17:19+00:00,
+            LatestVersion: 1.10.0,
+            LatestPublishedAt: 2015-10-07T03:17:19+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: ujson,
+            Version: 1.34,
+            PublishedAt: 2015-11-30T13:26:22+00:00,
+            LatestVersion: 1.34,
+            LatestPublishedAt: 2015-11-30T13:26:22+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cloudpickle,
+            Version: 0.1.1,
+            PublishedAt: 2015-09-05T01:50:54+00:00,
+            LatestVersion: 0.1.1,
+            LatestPublishedAt: 2015-09-05T01:50:54+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: sputnik,
+            Version: 0.5.2,
+            PublishedAt: 2015-11-19T12:11:39+00:00,
+            LatestVersion: 0.5.2,
+            LatestPublishedAt: 2015-11-19T12:11:39+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          }
+        ]
+      },
+      {
+        Date: 2016-01-01+00:00,
+        LibYear: [
+          {
+            Name: cython,
+            Version: 0.23.4,
+            PublishedAt: 2015-10-10T12:44:24+00:00,
+            LatestVersion: 0.23.4,
+            LatestPublishedAt: 2015-10-10T12:44:24+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cymem,
+            Version: 1.30,
+            PublishedAt: 2015-11-02T14:25:33+00:00,
+            LatestVersion: 1.30,
+            LatestPublishedAt: 2015-11-02T14:25:33+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: pathlib,
+            Version: 1.0.1,
+            PublishedAt: 2014-09-03T15:41:44+00:00,
+            LatestVersion: 1.0.1,
+            LatestPublishedAt: 2014-09-03T15:41:44+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: preshed,
+            Version: 0.46.1,
+            PublishedAt: 2015-12-22T21:36:13+00:00,
+            LatestVersion: 0.46.1,
+            LatestPublishedAt: 2015-12-22T21:36:13+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: thinc,
+            Version: 4.2.0,
+            PublishedAt: 2015-12-31T00:52:38+00:00,
+            LatestVersion: 4.2.0,
+            LatestPublishedAt: 2015-12-31T00:52:38+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: murmurhash,
+            Version: 0.26.0,
+            PublishedAt: 2015-12-21T16:20:49+00:00,
+            LatestVersion: 0.26.0,
+            LatestPublishedAt: 2015-12-21T16:20:49+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: text-unidecode,
+            Version: 1.0,
+            PublishedAt: 2015-08-13T20:16:16+00:00,
+            LatestVersion: 1.0,
+            LatestPublishedAt: 2015-08-13T20:16:16+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: numpy,
+            Version: 1.10.2,
+            PublishedAt: 2015-12-14T20:43:19+00:00,
+            LatestVersion: 1.10.2,
+            LatestPublishedAt: 2015-12-14T20:43:19+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: plac,
+            Version: 0.9.1,
+            PublishedAt: 2012-04-23T08:51:29+00:00,
+            LatestVersion: 0.9.1,
+            LatestPublishedAt: 2012-04-23T08:51:29+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: six,
+            Version: 1.10.0,
+            PublishedAt: 2015-10-07T03:17:19+00:00,
+            LatestVersion: 1.10.0,
+            LatestPublishedAt: 2015-10-07T03:17:19+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: ujson,
+            Version: 1.34,
+            PublishedAt: 2015-11-30T13:26:22+00:00,
+            LatestVersion: 1.34,
+            LatestPublishedAt: 2015-11-30T13:26:22+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cloudpickle,
+            Version: 0.1.1,
+            PublishedAt: 2015-09-05T01:50:54+00:00,
+            LatestVersion: 0.1.1,
+            LatestPublishedAt: 2015-09-05T01:50:54+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: sputnik,
+            Version: 0.6.4,
+            PublishedAt: 2015-12-28T12:51:17+00:00,
+            LatestVersion: 0.6.4,
+            LatestPublishedAt: 2015-12-28T12:51:17+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          }
+        ]
+      },
+      {
+        Date: 2016-02-01+00:00,
+        LibYear: [
+          {
+            Name: cython,
+            Version: 0.23.4,
+            PublishedAt: 2015-10-10T12:44:24+00:00,
+            LatestVersion: 0.23.4,
+            LatestPublishedAt: 2015-10-10T12:44:24+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cymem,
+            Version: 1.30,
+            PublishedAt: 2015-11-02T14:25:33+00:00,
+            LatestVersion: 1.31.0,
+            LatestPublishedAt: 2016-01-30T15:07:43+00:00,
+            Value: 0.2439158422120751,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: pathlib,
+            Version: 1.0.1,
+            PublishedAt: 2014-09-03T15:41:44+00:00,
+            LatestVersion: 1.0.1,
+            LatestPublishedAt: 2014-09-03T15:41:44+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: preshed,
+            Version: 0.46.1,
+            PublishedAt: 2015-12-22T21:36:13+00:00,
+            LatestVersion: 0.46.1,
+            LatestPublishedAt: 2015-12-22T21:36:13+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: thinc,
+            Version: 4.2.0,
+            PublishedAt: 2015-12-31T00:52:38+00:00,
+            LatestVersion: 4.2.0,
+            LatestPublishedAt: 2015-12-31T00:52:38+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: murmurhash,
+            Version: 0.26.0,
+            PublishedAt: 2015-12-21T16:20:49+00:00,
+            LatestVersion: 0.26.0,
+            LatestPublishedAt: 2015-12-21T16:20:49+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: text-unidecode,
+            Version: 1.0,
+            PublishedAt: 2015-08-13T20:16:16+00:00,
+            LatestVersion: 1.0,
+            LatestPublishedAt: 2015-08-13T20:16:16+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: numpy,
+            Version: 1.10.4,
+            PublishedAt: 2016-01-07T02:41:54+00:00,
+            LatestVersion: 1.10.4,
+            LatestPublishedAt: 2016-01-07T02:41:54+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: plac,
+            Version: 0.9.1,
+            PublishedAt: 2012-04-23T08:51:29+00:00,
+            LatestVersion: 0.9.1,
+            LatestPublishedAt: 2012-04-23T08:51:29+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: six,
+            Version: 1.10.0,
+            PublishedAt: 2015-10-07T03:17:19+00:00,
+            LatestVersion: 1.10.0,
+            LatestPublishedAt: 2015-10-07T03:17:19+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: ujson,
+            Version: 1.35,
+            PublishedAt: 2016-01-20T08:17:44+00:00,
+            LatestVersion: 1.35,
+            LatestPublishedAt: 2016-01-20T08:17:44+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cloudpickle,
+            Version: 0.1.1,
+            PublishedAt: 2015-09-05T01:50:54+00:00,
+            LatestVersion: 0.1.1,
+            LatestPublishedAt: 2015-09-05T01:50:54+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: sputnik,
+            Version: 0.8.2,
+            PublishedAt: 2016-01-26T11:29:13+00:00,
+            LatestVersion: 0.8.2,
+            LatestPublishedAt: 2016-01-26T11:29:13+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          }
+        ]
+      },
+      {
+        Date: 2016-03-01+00:00,
+        LibYear: [
+          {
+            Name: cython,
+            Version: 0.23.4,
+            PublishedAt: 2015-10-10T12:44:24+00:00,
+            LatestVersion: 0.23.4,
+            LatestPublishedAt: 2015-10-10T12:44:24+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cymem,
+            Version: 1.31.0,
+            PublishedAt: 2016-01-30T15:07:43+00:00,
+            LatestVersion: 1.31.0,
+            LatestPublishedAt: 2016-01-30T15:07:43+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: pathlib,
+            Version: 1.0.1,
+            PublishedAt: 2014-09-03T15:41:44+00:00,
+            LatestVersion: 1.0.1,
+            LatestPublishedAt: 2014-09-03T15:41:44+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: preshed,
+            Version: 0.46.2,
+            PublishedAt: 2016-02-19T14:17:25+00:00,
+            LatestVersion: 0.46.2,
+            LatestPublishedAt: 2016-02-19T14:17:25+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: thinc,
+            Version: 5.0.5,
+            PublishedAt: 2016-02-19T14:46:13+00:00,
+            LatestVersion: 5.0.5,
+            LatestPublishedAt: 2016-02-19T14:46:13+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: murmurhash,
+            Version: 0.26.1,
+            PublishedAt: 2016-02-19T14:29:43+00:00,
+            LatestVersion: 0.26.1,
+            LatestPublishedAt: 2016-02-19T14:29:43+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: numpy,
+            Version: 1.10.4,
+            PublishedAt: 2016-01-07T02:41:54+00:00,
+            LatestVersion: 1.10.4,
+            LatestPublishedAt: 2016-01-07T02:41:54+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: plac,
+            Version: 0.9.1,
+            PublishedAt: 2012-04-23T08:51:29+00:00,
+            LatestVersion: 0.9.1,
+            LatestPublishedAt: 2012-04-23T08:51:29+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: six,
+            Version: 1.10.0,
+            PublishedAt: 2015-10-07T03:17:19+00:00,
+            LatestVersion: 1.10.0,
+            LatestPublishedAt: 2015-10-07T03:17:19+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: ujson,
+            Version: 1.35,
+            PublishedAt: 2016-01-20T08:17:44+00:00,
+            LatestVersion: 1.35,
+            LatestPublishedAt: 2016-01-20T08:17:44+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cloudpickle,
+            Version: 0.2.1,
+            PublishedAt: 2016-02-17T02:40:23+00:00,
+            LatestVersion: 0.2.1,
+            LatestPublishedAt: 2016-02-17T02:40:23+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: sputnik,
+            Version: 0.9.1,
+            PublishedAt: 2016-02-19T15:24:41+00:00,
+            LatestVersion: 0.9.1,
+            LatestPublishedAt: 2016-02-19T15:24:41+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          }
+        ]
+      },
+      {
+        Date: 2016-04-01+00:00,
+        LibYear: [
+          {
+            Name: cython,
+            Version: 0.23.5,
+            PublishedAt: 2016-03-26T12:34:50+00:00,
+            LatestVersion: 0.23.5,
+            LatestPublishedAt: 2016-03-26T12:34:50+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: pathlib,
+            Version: 1.0.1,
+            PublishedAt: 2014-09-03T15:41:44+00:00,
+            LatestVersion: 1.0.1,
+            LatestPublishedAt: 2014-09-03T15:41:44+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: numpy,
+            Version: 1.11.0,
+            PublishedAt: 2016-03-27T20:25:45+00:00,
+            LatestVersion: 1.11.0,
+            LatestPublishedAt: 2016-03-27T20:25:45+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cymem,
+            Version: 1.31.1,
+            PublishedAt: 2016-03-25T12:39:24+00:00,
+            LatestVersion: 1.31.1,
+            LatestPublishedAt: 2016-03-25T12:39:24+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: preshed,
+            Version: 0.46.3,
+            PublishedAt: 2016-03-25T12:45:37+00:00,
+            LatestVersion: 0.46.3,
+            LatestPublishedAt: 2016-03-25T12:45:37+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: thinc,
+            Version: 5.0.7,
+            PublishedAt: 2016-03-25T11:28:13+00:00,
+            LatestVersion: 5.0.7,
+            LatestPublishedAt: 2016-03-25T11:28:13+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: murmurhash,
+            Version: 0.26.2,
+            PublishedAt: 2016-03-25T12:27:57+00:00,
+            LatestVersion: 0.26.2,
+            LatestPublishedAt: 2016-03-25T12:27:57+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: plac,
+            Version: 0.9.1,
+            PublishedAt: 2012-04-23T08:51:29+00:00,
+            LatestVersion: 0.9.1,
+            LatestPublishedAt: 2012-04-23T08:51:29+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: six,
+            Version: 1.10.0,
+            PublishedAt: 2015-10-07T03:17:19+00:00,
+            LatestVersion: 1.10.0,
+            LatestPublishedAt: 2015-10-07T03:17:19+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: ujson,
+            Version: 1.35,
+            PublishedAt: 2016-01-20T08:17:44+00:00,
+            LatestVersion: 1.35,
+            LatestPublishedAt: 2016-01-20T08:17:44+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cloudpickle,
+            Version: 0.2.1,
+            PublishedAt: 2016-02-17T02:40:23+00:00,
+            LatestVersion: 0.2.1,
+            LatestPublishedAt: 2016-02-17T02:40:23+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: sputnik,
+            Version: 0.9.3,
+            PublishedAt: 2016-03-13T13:17:09+00:00,
+            LatestVersion: 0.9.3,
+            LatestPublishedAt: 2016-03-13T13:17:09+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          }
+        ]
+      },
+      {
+        Date: 2016-05-01+00:00,
+        LibYear: [
+          {
+            Name: cython,
+            Version: 0.23.5,
+            PublishedAt: 2016-03-26T12:34:50+00:00,
+            LatestVersion: 0.24,
+            LatestPublishedAt: 2016-04-05T05:57:10+00:00,
+            Value: 0.02664066463723998,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: pathlib,
+            Version: 1.0.1,
+            PublishedAt: 2014-09-03T15:41:44+00:00,
+            LatestVersion: 1.0.1,
+            LatestPublishedAt: 2014-09-03T15:41:44+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: numpy,
+            Version: 1.11.0,
+            PublishedAt: 2016-03-27T20:25:45+00:00,
+            LatestVersion: 1.11.0,
+            LatestPublishedAt: 2016-03-27T20:25:45+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cymem,
+            Version: 1.31.2,
+            PublishedAt: 2016-04-30T09:13:50+00:00,
+            LatestVersion: 1.31.2,
+            LatestPublishedAt: 2016-04-30T09:13:50+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: preshed,
+            Version: 0.46.4,
+            PublishedAt: 2016-04-30T17:02:46+00:00,
+            LatestVersion: 0.46.4,
+            LatestPublishedAt: 2016-04-30T17:02:46+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: thinc,
+            Version: 5.0.8,
+            PublishedAt: 2016-04-30T18:03:40+00:00,
+            LatestVersion: 5.0.8,
+            LatestPublishedAt: 2016-04-30T18:03:40+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: murmurhash,
+            Version: 0.26.4,
+            PublishedAt: 2016-04-30T16:53:00+00:00,
+            LatestVersion: 0.26.4,
+            LatestPublishedAt: 2016-04-30T16:53:00+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: plac,
+            Version: 0.9.1,
+            PublishedAt: 2012-04-23T08:51:29+00:00,
+            LatestVersion: 0.9.1,
+            LatestPublishedAt: 2012-04-23T08:51:29+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: six,
+            Version: 1.10.0,
+            PublishedAt: 2015-10-07T03:17:19+00:00,
+            LatestVersion: 1.10.0,
+            LatestPublishedAt: 2015-10-07T03:17:19+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: ujson,
+            Version: 1.35,
+            PublishedAt: 2016-01-20T08:17:44+00:00,
+            LatestVersion: 1.35,
+            LatestPublishedAt: 2016-01-20T08:17:44+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cloudpickle,
+            Version: 0.2.1,
+            PublishedAt: 2016-02-17T02:40:23+00:00,
+            LatestVersion: 0.2.1,
+            LatestPublishedAt: 2016-02-17T02:40:23+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: sputnik,
+            Version: 0.9.3,
+            PublishedAt: 2016-03-13T13:17:09+00:00,
+            LatestVersion: 0.9.3,
+            LatestPublishedAt: 2016-03-13T13:17:09+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          }
+        ]
+      },
+      {
+        Date: 2016-06-01+00:00,
+        LibYear: [
+          {
+            Name: cython,
+            Version: 0.23.5,
+            PublishedAt: 2016-03-26T12:34:50+00:00,
+            LatestVersion: 0.24,
+            LatestPublishedAt: 2016-04-05T05:57:10+00:00,
+            Value: 0.02664066463723998,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: pathlib,
+            Version: 1.0.1,
+            PublishedAt: 2014-09-03T15:41:44+00:00,
+            LatestVersion: 1.0.1,
+            LatestPublishedAt: 2014-09-03T15:41:44+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: numpy,
+            Version: 1.11.0,
+            PublishedAt: 2016-03-27T20:25:45+00:00,
+            LatestVersion: 1.11.0,
+            LatestPublishedAt: 2016-03-27T20:25:45+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cymem,
+            Version: 1.31.2,
+            PublishedAt: 2016-04-30T09:13:50+00:00,
+            LatestVersion: 1.31.2,
+            LatestPublishedAt: 2016-04-30T09:13:50+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: preshed,
+            Version: 0.46.4,
+            PublishedAt: 2016-04-30T17:02:46+00:00,
+            LatestVersion: 0.46.4,
+            LatestPublishedAt: 2016-04-30T17:02:46+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: thinc,
+            Version: 5.0.8,
+            PublishedAt: 2016-04-30T18:03:40+00:00,
+            LatestVersion: 5.0.8,
+            LatestPublishedAt: 2016-04-30T18:03:40+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: murmurhash,
+            Version: 0.26.4,
+            PublishedAt: 2016-04-30T16:53:00+00:00,
+            LatestVersion: 0.26.4,
+            LatestPublishedAt: 2016-04-30T16:53:00+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: plac,
+            Version: 0.9.1,
+            PublishedAt: 2012-04-23T08:51:29+00:00,
+            LatestVersion: 0.9.1,
+            LatestPublishedAt: 2012-04-23T08:51:29+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: six,
+            Version: 1.10.0,
+            PublishedAt: 2015-10-07T03:17:19+00:00,
+            LatestVersion: 1.10.0,
+            LatestPublishedAt: 2015-10-07T03:17:19+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: ujson,
+            Version: 1.35,
+            PublishedAt: 2016-01-20T08:17:44+00:00,
+            LatestVersion: 1.35,
+            LatestPublishedAt: 2016-01-20T08:17:44+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cloudpickle,
+            Version: 0.2.1,
+            PublishedAt: 2016-02-17T02:40:23+00:00,
+            LatestVersion: 0.2.1,
+            LatestPublishedAt: 2016-02-17T02:40:23+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: sputnik,
+            Version: 0.9.3,
+            PublishedAt: 2016-03-13T13:17:09+00:00,
+            LatestVersion: 0.9.3,
+            LatestPublishedAt: 2016-03-13T13:17:09+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          }
+        ]
+      },
+      {
+        Date: 2016-07-01+00:00,
+        LibYear: [
+          {
+            Name: cython,
+            Version: 0.23.5,
+            PublishedAt: 2016-03-26T12:34:50+00:00,
+            LatestVersion: 0.24,
+            LatestPublishedAt: 2016-04-05T05:57:10+00:00,
+            Value: 0.02664066463723998,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: pathlib,
+            Version: 1.0.1,
+            PublishedAt: 2014-09-03T15:41:44+00:00,
+            LatestVersion: 1.0.1,
+            LatestPublishedAt: 2014-09-03T15:41:44+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: numpy,
+            Version: 1.11.1,
+            PublishedAt: 2016-06-26T13:55:46+00:00,
+            LatestVersion: 1.11.1,
+            LatestPublishedAt: 2016-06-26T13:55:46+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cymem,
+            Version: 1.31.2,
+            PublishedAt: 2016-04-30T09:13:50+00:00,
+            LatestVersion: 1.31.2,
+            LatestPublishedAt: 2016-04-30T09:13:50+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: preshed,
+            Version: 0.46.4,
+            PublishedAt: 2016-04-30T17:02:46+00:00,
+            LatestVersion: 0.46.4,
+            LatestPublishedAt: 2016-04-30T17:02:46+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: thinc,
+            Version: 5.0.8,
+            PublishedAt: 2016-04-30T18:03:40+00:00,
+            LatestVersion: 5.0.8,
+            LatestPublishedAt: 2016-04-30T18:03:40+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: murmurhash,
+            Version: 0.26.4,
+            PublishedAt: 2016-04-30T16:53:00+00:00,
+            LatestVersion: 0.26.4,
+            LatestPublishedAt: 2016-04-30T16:53:00+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: plac,
+            Version: 0.9.2,
+            PublishedAt: 2016-06-07T07:45:17+00:00,
+            LatestVersion: 0.9.5,
+            LatestPublishedAt: 2016-06-09T10:14:21+00:00,
+            Value: 0.005763064434297311,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: six,
+            Version: 1.10.0,
+            PublishedAt: 2015-10-07T03:17:19+00:00,
+            LatestVersion: 1.10.0,
+            LatestPublishedAt: 2015-10-07T03:17:19+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: ujson,
+            Version: 1.35,
+            PublishedAt: 2016-01-20T08:17:44+00:00,
+            LatestVersion: 1.35,
+            LatestPublishedAt: 2016-01-20T08:17:44+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cloudpickle,
+            Version: 0.2.1,
+            PublishedAt: 2016-02-17T02:40:23+00:00,
+            LatestVersion: 0.2.1,
+            LatestPublishedAt: 2016-02-17T02:40:23+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: sputnik,
+            Version: 0.9.3,
+            PublishedAt: 2016-03-13T13:17:09+00:00,
+            LatestVersion: 0.9.3,
+            LatestPublishedAt: 2016-03-13T13:17:09+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          }
+        ]
+      },
+      {
+        Date: 2016-08-01+00:00,
+        LibYear: [
+          {
+            Name: cython,
+            Version: 0.23.5,
+            PublishedAt: 2016-03-26T12:34:50+00:00,
+            LatestVersion: 0.24.1,
+            LatestPublishedAt: 2016-07-15T07:59:24+00:00,
+            Value: 0.3035855530187722,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: pathlib,
+            Version: 1.0.1,
+            PublishedAt: 2014-09-03T15:41:44+00:00,
+            LatestVersion: 1.0.1,
+            LatestPublishedAt: 2014-09-03T15:41:44+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: numpy,
+            Version: 1.11.1,
+            PublishedAt: 2016-06-26T13:55:46+00:00,
+            LatestVersion: 1.11.1,
+            LatestPublishedAt: 2016-06-26T13:55:46+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cymem,
+            Version: 1.31.2,
+            PublishedAt: 2016-04-30T09:13:50+00:00,
+            LatestVersion: 1.31.2,
+            LatestPublishedAt: 2016-04-30T09:13:50+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: preshed,
+            Version: 0.46.4,
+            PublishedAt: 2016-04-30T17:02:46+00:00,
+            LatestVersion: 0.46.4,
+            LatestPublishedAt: 2016-04-30T17:02:46+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: thinc,
+            Version: 5.0.8,
+            PublishedAt: 2016-04-30T18:03:40+00:00,
+            LatestVersion: 5.0.8,
+            LatestPublishedAt: 2016-04-30T18:03:40+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: murmurhash,
+            Version: 0.26.4,
+            PublishedAt: 2016-04-30T16:53:00+00:00,
+            LatestVersion: 0.26.4,
+            LatestPublishedAt: 2016-04-30T16:53:00+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: plac,
+            Version: 0.9.2,
+            PublishedAt: 2016-06-07T07:45:17+00:00,
+            LatestVersion: 0.9.6,
+            LatestPublishedAt: 2016-07-09T04:18:02+00:00,
+            Value: 0.08727692161339422,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: six,
+            Version: 1.10.0,
+            PublishedAt: 2015-10-07T03:17:19+00:00,
+            LatestVersion: 1.10.0,
+            LatestPublishedAt: 2015-10-07T03:17:19+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: ujson,
+            Version: 1.35,
+            PublishedAt: 2016-01-20T08:17:44+00:00,
+            LatestVersion: 1.35,
+            LatestPublishedAt: 2016-01-20T08:17:44+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cloudpickle,
+            Version: 0.2.1,
+            PublishedAt: 2016-02-17T02:40:23+00:00,
+            LatestVersion: 0.2.1,
+            LatestPublishedAt: 2016-02-17T02:40:23+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: sputnik,
+            Version: 0.9.3,
+            PublishedAt: 2016-03-13T13:17:09+00:00,
+            LatestVersion: 0.9.3,
+            LatestPublishedAt: 2016-03-13T13:17:09+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          }
+        ]
+      },
+      {
+        Date: 2016-09-01+00:00,
+        LibYear: [
+          {
+            Name: cython,
+            Version: 0.23.5,
+            PublishedAt: 2016-03-26T12:34:50+00:00,
+            LatestVersion: 0.24.1,
+            LatestPublishedAt: 2016-07-15T07:59:24+00:00,
+            Value: 0.3035855530187722,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: pathlib,
+            Version: 1.0.1,
+            PublishedAt: 2014-09-03T15:41:44+00:00,
+            LatestVersion: 1.0.1,
+            LatestPublishedAt: 2014-09-03T15:41:44+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: numpy,
+            Version: 1.11.1,
+            PublishedAt: 2016-06-26T13:55:46+00:00,
+            LatestVersion: 1.11.1,
+            LatestPublishedAt: 2016-06-26T13:55:46+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cymem,
+            Version: 1.31.2,
+            PublishedAt: 2016-04-30T09:13:50+00:00,
+            LatestVersion: 1.31.2,
+            LatestPublishedAt: 2016-04-30T09:13:50+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: preshed,
+            Version: 0.46.4,
+            PublishedAt: 2016-04-30T17:02:46+00:00,
+            LatestVersion: 0.46.4,
+            LatestPublishedAt: 2016-04-30T17:02:46+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: thinc,
+            Version: 5.0.8,
+            PublishedAt: 2016-04-30T18:03:40+00:00,
+            LatestVersion: 5.0.8,
+            LatestPublishedAt: 2016-04-30T18:03:40+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: murmurhash,
+            Version: 0.26.4,
+            PublishedAt: 2016-04-30T16:53:00+00:00,
+            LatestVersion: 0.26.4,
+            LatestPublishedAt: 2016-04-30T16:53:00+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: plac,
+            Version: 0.9.2,
+            PublishedAt: 2016-06-07T07:45:17+00:00,
+            LatestVersion: 0.9.6,
+            LatestPublishedAt: 2016-07-09T04:18:02+00:00,
+            Value: 0.08727692161339422,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: six,
+            Version: 1.10.0,
+            PublishedAt: 2015-10-07T03:17:19+00:00,
+            LatestVersion: 1.10.0,
+            LatestPublishedAt: 2015-10-07T03:17:19+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: ujson,
+            Version: 1.35,
+            PublishedAt: 2016-01-20T08:17:44+00:00,
+            LatestVersion: 1.35,
+            LatestPublishedAt: 2016-01-20T08:17:44+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cloudpickle,
+            Version: 0.2.1,
+            PublishedAt: 2016-02-17T02:40:23+00:00,
+            LatestVersion: 0.2.1,
+            LatestPublishedAt: 2016-02-17T02:40:23+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: sputnik,
+            Version: 0.9.3,
+            PublishedAt: 2016-03-13T13:17:09+00:00,
+            LatestVersion: 0.9.3,
+            LatestPublishedAt: 2016-03-13T13:17:09+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          }
+        ]
+      },
+      {
+        Date: 2016-10-01+00:00,
+        LibYear: [
+          {
+            Name: cython,
+            Version: 0.23.5,
+            PublishedAt: 2016-03-26T12:34:50+00:00,
+            LatestVersion: 0.24.1,
+            LatestPublishedAt: 2016-07-15T07:59:24+00:00,
+            Value: 0.3035855530187722,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: pathlib,
+            Version: 1.0.1,
+            PublishedAt: 2014-09-03T15:41:44+00:00,
+            LatestVersion: 1.0.1,
+            LatestPublishedAt: 2014-09-03T15:41:44+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: numpy,
+            Version: 1.11.1,
+            PublishedAt: 2016-06-26T13:55:46+00:00,
+            LatestVersion: 1.11.1,
+            LatestPublishedAt: 2016-06-26T13:55:46+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cymem,
+            Version: 1.31.2,
+            PublishedAt: 2016-04-30T09:13:50+00:00,
+            LatestVersion: 1.31.2,
+            LatestPublishedAt: 2016-04-30T09:13:50+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: preshed,
+            Version: 1.0.0,
+            PublishedAt: 2016-09-30T16:39:40+00:00,
+            LatestVersion: 1.0.0,
+            LatestPublishedAt: 2016-09-30T16:39:40+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: thinc,
+            Version: 5.0.8,
+            PublishedAt: 2016-04-30T18:03:40+00:00,
+            LatestVersion: 5.0.8,
+            LatestPublishedAt: 2016-04-30T18:03:40+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: murmurhash,
+            Version: 0.26.4,
+            PublishedAt: 2016-04-30T16:53:00+00:00,
+            LatestVersion: 0.26.4,
+            LatestPublishedAt: 2016-04-30T16:53:00+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: plac,
+            Version: 0.9.2,
+            PublishedAt: 2016-06-07T07:45:17+00:00,
+            LatestVersion: 0.9.6,
+            LatestPublishedAt: 2016-07-09T04:18:02+00:00,
+            Value: 0.08727692161339422,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: six,
+            Version: 1.10.0,
+            PublishedAt: 2015-10-07T03:17:19+00:00,
+            LatestVersion: 1.10.0,
+            LatestPublishedAt: 2015-10-07T03:17:19+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: ujson,
+            Version: 1.35,
+            PublishedAt: 2016-01-20T08:17:44+00:00,
+            LatestVersion: 1.35,
+            LatestPublishedAt: 2016-01-20T08:17:44+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cloudpickle,
+            Version: 0.2.1,
+            PublishedAt: 2016-02-17T02:40:23+00:00,
+            LatestVersion: 0.2.1,
+            LatestPublishedAt: 2016-02-17T02:40:23+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: sputnik,
+            Version: 0.9.3,
+            PublishedAt: 2016-03-13T13:17:09+00:00,
+            LatestVersion: 0.9.3,
+            LatestPublishedAt: 2016-03-13T13:17:09+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          }
+        ]
+      },
+      {
+        Date: 2016-11-01+00:00,
+        LibYear: [
+          {
+            Name: cython,
+            Version: 0.23.5,
+            PublishedAt: 2016-03-26T12:34:50+00:00,
+            LatestVersion: 0.25.1,
+            LatestPublishedAt: 2016-10-27T04:30:59+00:00,
+            Value: 0.5881205289193303,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: pathlib,
+            Version: 1.0.1,
+            PublishedAt: 2014-09-03T15:41:44+00:00,
+            LatestVersion: 1.0.1,
+            LatestPublishedAt: 2014-09-03T15:41:44+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: numpy,
+            Version: 1.11.2,
+            PublishedAt: 2016-10-04T00:45:34+00:00,
+            LatestVersion: 1.11.2,
+            LatestPublishedAt: 2016-10-04T00:45:34+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cymem,
+            Version: 1.31.2,
+            PublishedAt: 2016-04-30T09:13:50+00:00,
+            LatestVersion: 1.31.2,
+            LatestPublishedAt: 2016-04-30T09:13:50+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: preshed,
+            Version: 0.46.4,
+            PublishedAt: 2016-04-30T17:02:46+00:00,
+            LatestVersion: 1.0.0,
+            LatestPublishedAt: 2016-09-30T16:39:40+00:00,
+            Value: 0.41913413242009134,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: thinc,
+            Version: 5.0.8,
+            PublishedAt: 2016-04-30T18:03:40+00:00,
+            LatestVersion: 5.0.8,
+            LatestPublishedAt: 2016-04-30T18:03:40+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: murmurhash,
+            Version: 0.26.4,
+            PublishedAt: 2016-04-30T16:53:00+00:00,
+            LatestVersion: 0.26.4,
+            LatestPublishedAt: 2016-04-30T16:53:00+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: plac,
+            Version: 0.9.2,
+            PublishedAt: 2016-06-07T07:45:17+00:00,
+            LatestVersion: 0.9.6,
+            LatestPublishedAt: 2016-07-09T04:18:02+00:00,
+            Value: 0.08727692161339422,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: six,
+            Version: 1.10.0,
+            PublishedAt: 2015-10-07T03:17:19+00:00,
+            LatestVersion: 1.10.0,
+            LatestPublishedAt: 2015-10-07T03:17:19+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: ujson,
+            Version: 1.35,
+            PublishedAt: 2016-01-20T08:17:44+00:00,
+            LatestVersion: 1.35,
+            LatestPublishedAt: 2016-01-20T08:17:44+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cloudpickle,
+            Version: 0.2.1,
+            PublishedAt: 2016-02-17T02:40:23+00:00,
+            LatestVersion: 0.2.1,
+            LatestPublishedAt: 2016-02-17T02:40:23+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: sputnik,
+            Version: 0.9.3,
+            PublishedAt: 2016-03-13T13:17:09+00:00,
+            LatestVersion: 0.9.3,
+            LatestPublishedAt: 2016-03-13T13:17:09+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          }
+        ]
+      },
+      {
+        Date: 2016-12-01+00:00,
+        LibYear: [
+          {
+            Name: cython,
+            Version: 0.23.5,
+            PublishedAt: 2016-03-26T12:34:50+00:00,
+            LatestVersion: 0.25.1,
+            LatestPublishedAt: 2016-10-27T04:30:59+00:00,
+            Value: 0.5881205289193303,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: pathlib,
+            Version: 1.0.1,
+            PublishedAt: 2014-09-03T15:41:44+00:00,
+            LatestVersion: 1.0.1,
+            LatestPublishedAt: 2014-09-03T15:41:44+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: numpy,
+            Version: 1.11.2,
+            PublishedAt: 2016-10-04T00:45:34+00:00,
+            LatestVersion: 1.11.2,
+            LatestPublishedAt: 2016-10-04T00:45:34+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cymem,
+            Version: 1.31.2,
+            PublishedAt: 2016-04-30T09:13:50+00:00,
+            LatestVersion: 1.31.2,
+            LatestPublishedAt: 2016-04-30T09:13:50+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: preshed,
+            Version: 0.46.4,
+            PublishedAt: 2016-04-30T17:02:46+00:00,
+            LatestVersion: 1.0.0,
+            LatestPublishedAt: 2016-09-30T16:39:40+00:00,
+            Value: 0.41913413242009134,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: thinc,
+            Version: 5.0.8,
+            PublishedAt: 2016-04-30T18:03:40+00:00,
+            LatestVersion: 5.0.8,
+            LatestPublishedAt: 2016-04-30T18:03:40+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: murmurhash,
+            Version: 0.26.4,
+            PublishedAt: 2016-04-30T16:53:00+00:00,
+            LatestVersion: 0.26.4,
+            LatestPublishedAt: 2016-04-30T16:53:00+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: plac,
+            Version: 0.9.2,
+            PublishedAt: 2016-06-07T07:45:17+00:00,
+            LatestVersion: 0.9.6,
+            LatestPublishedAt: 2016-07-09T04:18:02+00:00,
+            Value: 0.08727692161339422,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: six,
+            Version: 1.10.0,
+            PublishedAt: 2015-10-07T03:17:19+00:00,
+            LatestVersion: 1.10.0,
+            LatestPublishedAt: 2015-10-07T03:17:19+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: ujson,
+            Version: 1.35,
+            PublishedAt: 2016-01-20T08:17:44+00:00,
+            LatestVersion: 1.35,
+            LatestPublishedAt: 2016-01-20T08:17:44+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cloudpickle,
+            Version: 0.2.1,
+            PublishedAt: 2016-02-17T02:40:23+00:00,
+            LatestVersion: 0.2.1,
+            LatestPublishedAt: 2016-02-17T02:40:23+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: sputnik,
+            Version: 0.9.3,
+            PublishedAt: 2016-03-13T13:17:09+00:00,
+            LatestVersion: 0.9.3,
+            LatestPublishedAt: 2016-03-13T13:17:09+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          }
+        ]
+      },
+      {
+        Date: 2017-01-01+00:00,
+        LibYear: [
+          {
+            Name: cython,
+            Version: 0.23.5,
+            PublishedAt: 2016-03-26T12:34:50+00:00,
+            LatestVersion: 0.25.2,
+            LatestPublishedAt: 2016-12-08T22:15:53+00:00,
+            Value: 0.7052150875190258,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: pathlib,
+            Version: 1.0.1,
+            PublishedAt: 2014-09-03T15:41:44+00:00,
+            LatestVersion: 1.0.1,
+            LatestPublishedAt: 2014-09-03T15:41:44+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: numpy,
+            Version: 1.11.3,
+            PublishedAt: 2016-12-19T00:32:04+00:00,
+            LatestVersion: 1.11.3,
+            LatestPublishedAt: 2016-12-19T00:32:04+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cymem,
+            Version: 1.31.2,
+            PublishedAt: 2016-04-30T09:13:50+00:00,
+            LatestVersion: 1.31.2,
+            LatestPublishedAt: 2016-04-30T09:13:50+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: preshed,
+            Version: 0.46.4,
+            PublishedAt: 2016-04-30T17:02:46+00:00,
+            LatestVersion: 1.0.0,
+            LatestPublishedAt: 2016-09-30T16:39:40+00:00,
+            Value: 0.41913413242009134,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: thinc,
+            Version: 5.0.8,
+            PublishedAt: 2016-04-30T18:03:40+00:00,
+            LatestVersion: 6.0.0,
+            LatestPublishedAt: 2016-12-31T00:13:51+00:00,
+            Value: 0.6691974568746829,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: murmurhash,
+            Version: 0.26.4,
+            PublishedAt: 2016-04-30T16:53:00+00:00,
+            LatestVersion: 0.26.4,
+            LatestPublishedAt: 2016-04-30T16:53:00+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: plac,
+            Version: 0.9.2,
+            PublishedAt: 2016-06-07T07:45:17+00:00,
+            LatestVersion: 0.9.6,
+            LatestPublishedAt: 2016-07-09T04:18:02+00:00,
+            Value: 0.08727692161339422,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: six,
+            Version: 1.10.0,
+            PublishedAt: 2015-10-07T03:17:19+00:00,
+            LatestVersion: 1.10.0,
+            LatestPublishedAt: 2015-10-07T03:17:19+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: ujson,
+            Version: 1.35,
+            PublishedAt: 2016-01-20T08:17:44+00:00,
+            LatestVersion: 1.35,
+            LatestPublishedAt: 2016-01-20T08:17:44+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cloudpickle,
+            Version: 0.2.1,
+            PublishedAt: 2016-02-17T02:40:23+00:00,
+            LatestVersion: 0.2.1,
+            LatestPublishedAt: 2016-02-17T02:40:23+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: sputnik,
+            Version: 0.9.3,
+            PublishedAt: 2016-03-13T13:17:09+00:00,
+            LatestVersion: 0.9.3,
+            LatestPublishedAt: 2016-03-13T13:17:09+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          }
+        ]
+      },
+      {
+        Date: 2017-02-01+00:00,
+        LibYear: [
+          {
+            Name: cython,
+            Version: 0.23.5,
+            PublishedAt: 2016-03-26T12:34:50+00:00,
+            LatestVersion: 0.25.2,
+            LatestPublishedAt: 2016-12-08T22:15:53+00:00,
+            Value: 0.7052150875190258,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: pathlib,
+            Version: 1.0.1,
+            PublishedAt: 2014-09-03T15:41:44+00:00,
+            LatestVersion: 1.0.1,
+            LatestPublishedAt: 2014-09-03T15:41:44+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: numpy,
+            Version: 1.12.0,
+            PublishedAt: 2017-01-15T22:59:45+00:00,
+            LatestVersion: 1.12.0,
+            LatestPublishedAt: 2017-01-15T22:59:45+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cymem,
+            Version: 1.31.2,
+            PublishedAt: 2016-04-30T09:13:50+00:00,
+            LatestVersion: 1.31.2,
+            LatestPublishedAt: 2016-04-30T09:13:50+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: preshed,
+            Version: 0.46.4,
+            PublishedAt: 2016-04-30T17:02:46+00:00,
+            LatestVersion: 1.0.0,
+            LatestPublishedAt: 2016-09-30T16:39:40+00:00,
+            Value: 0.41913413242009134,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: thinc,
+            Version: 6.2.0,
+            PublishedAt: 2017-01-15T02:37:27+00:00,
+            LatestVersion: 6.3.0,
+            LatestPublishedAt: 2017-01-25T09:35:49+00:00,
+            Value: 0.028193239472349065,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: murmurhash,
+            Version: 0.26.4,
+            PublishedAt: 2016-04-30T16:53:00+00:00,
+            LatestVersion: 0.26.4,
+            LatestPublishedAt: 2016-04-30T16:53:00+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: plac,
+            Version: 0.9.2,
+            PublishedAt: 2016-06-07T07:45:17+00:00,
+            LatestVersion: 0.9.6,
+            LatestPublishedAt: 2016-07-09T04:18:02+00:00,
+            Value: 0.08727692161339422,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: six,
+            Version: 1.10.0,
+            PublishedAt: 2015-10-07T03:17:19+00:00,
+            LatestVersion: 1.10.0,
+            LatestPublishedAt: 2015-10-07T03:17:19+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: ujson,
+            Version: 1.35,
+            PublishedAt: 2016-01-20T08:17:44+00:00,
+            LatestVersion: 1.35,
+            LatestPublishedAt: 2016-01-20T08:17:44+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cloudpickle,
+            Version: 0.2.2,
+            PublishedAt: 2017-01-02T00:20:15+00:00,
+            LatestVersion: 0.2.2,
+            LatestPublishedAt: 2017-01-02T00:20:15+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: sputnik,
+            Version: 0.9.3,
+            PublishedAt: 2016-03-13T13:17:09+00:00,
+            LatestVersion: 0.9.3,
+            LatestPublishedAt: 2016-03-13T13:17:09+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          }
+        ]
+      },
+      {
+        Date: 2017-03-01+00:00,
+        LibYear: [
+          {
+            Name: cython,
+            Version: 0.23.5,
+            PublishedAt: 2016-03-26T12:34:50+00:00,
+            LatestVersion: 0.25.2,
+            LatestPublishedAt: 2016-12-08T22:15:53+00:00,
+            Value: 0.7052150875190258,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: pathlib,
+            Version: 1.0.1,
+            PublishedAt: 2014-09-03T15:41:44+00:00,
+            LatestVersion: 1.0.1,
+            LatestPublishedAt: 2014-09-03T15:41:44+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: numpy,
+            Version: 1.12.0,
+            PublishedAt: 2017-01-15T22:59:45+00:00,
+            LatestVersion: 1.12.0,
+            LatestPublishedAt: 2017-01-15T22:59:45+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cymem,
+            Version: 1.31.2,
+            PublishedAt: 2016-04-30T09:13:50+00:00,
+            LatestVersion: 1.31.2,
+            LatestPublishedAt: 2016-04-30T09:13:50+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: preshed,
+            Version: 0.46.4,
+            PublishedAt: 2016-04-30T17:02:46+00:00,
+            LatestVersion: 1.0.0,
+            LatestPublishedAt: 2016-09-30T16:39:40+00:00,
+            Value: 0.41913413242009134,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: thinc,
+            Version: 6.2.0,
+            PublishedAt: 2017-01-15T02:37:27+00:00,
+            LatestVersion: 6.4.0,
+            LatestPublishedAt: 2017-02-15T00:40:43+00:00,
+            Value: 0.08470941146626078,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: murmurhash,
+            Version: 0.26.4,
+            PublishedAt: 2016-04-30T16:53:00+00:00,
+            LatestVersion: 0.26.4,
+            LatestPublishedAt: 2016-04-30T16:53:00+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: plac,
+            Version: 0.9.2,
+            PublishedAt: 2016-06-07T07:45:17+00:00,
+            LatestVersion: 0.9.6,
+            LatestPublishedAt: 2016-07-09T04:18:02+00:00,
+            Value: 0.08727692161339422,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: six,
+            Version: 1.10.0,
+            PublishedAt: 2015-10-07T03:17:19+00:00,
+            LatestVersion: 1.10.0,
+            LatestPublishedAt: 2015-10-07T03:17:19+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: ujson,
+            Version: 1.35,
+            PublishedAt: 2016-01-20T08:17:44+00:00,
+            LatestVersion: 1.35,
+            LatestPublishedAt: 2016-01-20T08:17:44+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cloudpickle,
+            Version: 0.2.2,
+            PublishedAt: 2017-01-02T00:20:15+00:00,
+            LatestVersion: 0.2.2,
+            LatestPublishedAt: 2017-01-02T00:20:15+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: sputnik,
+            Version: 0.9.3,
+            PublishedAt: 2016-03-13T13:17:09+00:00,
+            LatestVersion: 0.9.3,
+            LatestPublishedAt: 2016-03-13T13:17:09+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          }
+        ]
+      },
+      {
+        Date: 2017-04-01+00:00,
+        LibYear: [
+          {
+            Name: cython,
+            Version: 0.23.5,
+            PublishedAt: 2016-03-26T12:34:50+00:00,
+            LatestVersion: 0.25.2,
+            LatestPublishedAt: 2016-12-08T22:15:53+00:00,
+            Value: 0.7052150875190258,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: pathlib,
+            Version: 1.0.1,
+            PublishedAt: 2014-09-03T15:41:44+00:00,
+            LatestVersion: 1.0.1,
+            LatestPublishedAt: 2014-09-03T15:41:44+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: numpy,
+            Version: 1.12.1,
+            PublishedAt: 2017-03-18T16:38:00+00:00,
+            LatestVersion: 1.12.1,
+            LatestPublishedAt: 2017-03-18T16:38:00+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cymem,
+            Version: 1.31.2,
+            PublishedAt: 2016-04-30T09:13:50+00:00,
+            LatestVersion: 1.31.2,
+            LatestPublishedAt: 2016-04-30T09:13:50+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: preshed,
+            Version: 1.0.0,
+            PublishedAt: 2016-09-30T16:39:40+00:00,
+            LatestVersion: 1.0.0,
+            LatestPublishedAt: 2016-09-30T16:39:40+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: thinc,
+            Version: 6.5.2,
+            PublishedAt: 2017-03-20T12:39:50+00:00,
+            LatestVersion: 6.5.2,
+            LatestPublishedAt: 2017-03-20T12:39:50+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: murmurhash,
+            Version: 0.26.4,
+            PublishedAt: 2016-04-30T16:53:00+00:00,
+            LatestVersion: 0.26.4,
+            LatestPublishedAt: 2016-04-30T16:53:00+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: plac,
+            Version: 0.9.6,
+            PublishedAt: 2016-07-09T04:18:02+00:00,
+            LatestVersion: 0.9.6,
+            LatestPublishedAt: 2016-07-09T04:18:02+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: six,
+            Version: 1.10.0,
+            PublishedAt: 2015-10-07T03:17:19+00:00,
+            LatestVersion: 1.10.0,
+            LatestPublishedAt: 2015-10-07T03:17:19+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: ujson,
+            Version: 1.35,
+            PublishedAt: 2016-01-20T08:17:44+00:00,
+            LatestVersion: 1.35,
+            LatestPublishedAt: 2016-01-20T08:17:44+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: dill,
+            Version: 0.2.6,
+            PublishedAt: 2017-02-01T19:14:29+00:00,
+            LatestVersion: 0.2.6,
+            LatestPublishedAt: 2017-02-01T19:14:29+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: requests,
+            Version: 2.13.0,
+            PublishedAt: 2017-01-24T12:53:25+00:00,
+            LatestVersion: 2.13.0,
+            LatestPublishedAt: 2017-01-24T12:53:25+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          }
+        ]
+      },
+      {
+        Date: 2017-05-01+00:00,
+        LibYear: [
+          {
+            Name: cython,
+            Version: 0.23.5,
+            PublishedAt: 2016-03-26T12:34:50+00:00,
+            LatestVersion: 0.25.2,
+            LatestPublishedAt: 2016-12-08T22:15:53+00:00,
+            Value: 0.7052150875190258,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: pathlib,
+            Version: 1.0.1,
+            PublishedAt: 2014-09-03T15:41:44+00:00,
+            LatestVersion: 1.0.1,
+            LatestPublishedAt: 2014-09-03T15:41:44+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: numpy,
+            Version: 1.12.1,
+            PublishedAt: 2017-03-18T16:38:00+00:00,
+            LatestVersion: 1.12.1,
+            LatestPublishedAt: 2017-03-18T16:38:00+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cymem,
+            Version: 1.31.2,
+            PublishedAt: 2016-04-30T09:13:50+00:00,
+            LatestVersion: 1.31.2,
+            LatestPublishedAt: 2016-04-30T09:13:50+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: preshed,
+            Version: 1.0.0,
+            PublishedAt: 2016-09-30T16:39:40+00:00,
+            LatestVersion: 1.0.0,
+            LatestPublishedAt: 2016-09-30T16:39:40+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: thinc,
+            Version: 6.5.2,
+            PublishedAt: 2017-03-20T12:39:50+00:00,
+            LatestVersion: 6.5.2,
+            LatestPublishedAt: 2017-03-20T12:39:50+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: murmurhash,
+            Version: 0.26.4,
+            PublishedAt: 2016-04-30T16:53:00+00:00,
+            LatestVersion: 0.26.4,
+            LatestPublishedAt: 2016-04-30T16:53:00+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: plac,
+            Version: 0.9.6,
+            PublishedAt: 2016-07-09T04:18:02+00:00,
+            LatestVersion: 0.9.6,
+            LatestPublishedAt: 2016-07-09T04:18:02+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: six,
+            Version: 1.10.0,
+            PublishedAt: 2015-10-07T03:17:19+00:00,
+            LatestVersion: 1.10.0,
+            LatestPublishedAt: 2015-10-07T03:17:19+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: ujson,
+            Version: 1.35,
+            PublishedAt: 2016-01-20T08:17:44+00:00,
+            LatestVersion: 1.35,
+            LatestPublishedAt: 2016-01-20T08:17:44+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: dill,
+            Version: 0.2.6,
+            PublishedAt: 2017-02-01T19:14:29+00:00,
+            LatestVersion: 0.2.6,
+            LatestPublishedAt: 2017-02-01T19:14:29+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: requests,
+            Version: 2.13.0,
+            PublishedAt: 2017-01-24T12:53:25+00:00,
+            LatestVersion: 2.13.0,
+            LatestPublishedAt: 2017-01-24T12:53:25+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: regex,
+            Version: 2017.04.05,
+            PublishedAt: 2017-04-05T19:31:07+00:00,
+            LatestVersion: 2017.04.29,
+            LatestPublishedAt: 2017-04-29T22:35:10+00:00,
+            Value: 0.06610359589041097,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: ftfy,
+            Version: 4.4.2,
+            PublishedAt: 2017-03-24T15:39:08+00:00,
+            LatestVersion: 5.1,
+            LatestPublishedAt: 2017-04-11T23:01:20+00:00,
+            Value: 0.05015639269406393,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: pytest,
+            Version: 3.0.7,
+            PublishedAt: 2017-03-14T21:02:19+00:00,
+            LatestVersion: 3.0.7,
+            LatestPublishedAt: 2017-03-14T21:02:19+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          }
+        ]
+      },
+      {
+        Date: 2017-06-01+00:00,
+        LibYear: [
+          {
+            Name: cython,
+            Version: 0.23.5,
+            PublishedAt: 2016-03-26T12:34:50+00:00,
+            LatestVersion: 0.25.2,
+            LatestPublishedAt: 2016-12-08T22:15:53+00:00,
+            Value: 0.7052150875190258,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: pathlib,
+            Version: 1.0.1,
+            PublishedAt: 2014-09-03T15:41:44+00:00,
+            LatestVersion: 1.0.1,
+            LatestPublishedAt: 2014-09-03T15:41:44+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: numpy,
+            Version: 1.12.1,
+            PublishedAt: 2017-03-18T16:38:00+00:00,
+            LatestVersion: 1.12.1,
+            LatestPublishedAt: 2017-03-18T16:38:00+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: cymem,
+            Version: 1.31.2,
+            PublishedAt: 2016-04-30T09:13:50+00:00,
+            LatestVersion: 1.31.2,
+            LatestPublishedAt: 2016-04-30T09:13:50+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: preshed,
+            Version: 1.0.0,
+            PublishedAt: 2016-09-30T16:39:40+00:00,
+            LatestVersion: 1.0.0,
+            LatestPublishedAt: 2016-09-30T16:39:40+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: thinc,
+            Version: >=6.6.1,<6.7.0,
+            UpgradeAvailable: false,
+            Skipped: true
+          },
+          {
+            Name: murmurhash,
+            Version: 0.26.4,
+            PublishedAt: 2016-04-30T16:53:00+00:00,
+            LatestVersion: 0.26.4,
+            LatestPublishedAt: 2016-04-30T16:53:00+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: plac,
+            Version: 0.9.6,
+            PublishedAt: 2016-07-09T04:18:02+00:00,
+            LatestVersion: 0.9.6,
+            LatestPublishedAt: 2016-07-09T04:18:02+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: six,
+            Version: 1.10.0,
+            PublishedAt: 2015-10-07T03:17:19+00:00,
+            LatestVersion: 1.10.0,
+            LatestPublishedAt: 2015-10-07T03:17:19+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: ujson,
+            Version: 1.35,
+            PublishedAt: 2016-01-20T08:17:44+00:00,
+            LatestVersion: 1.35,
+            LatestPublishedAt: 2016-01-20T08:17:44+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: dill,
+            Version: 0.2.6,
+            PublishedAt: 2017-02-01T19:14:29+00:00,
+            LatestVersion: 0.2.6,
+            LatestPublishedAt: 2017-02-01T19:14:29+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: requests,
+            Version: 2.17.3,
+            PublishedAt: 2017-05-29T21:53:19+00:00,
+            LatestVersion: 2.17.3,
+            LatestPublishedAt: 2017-05-29T21:53:19+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: regex,
+            Version: 2017.04.05,
+            PublishedAt: 2017-04-05T19:31:07+00:00,
+            LatestVersion: 2017.05.26,
+            LatestPublishedAt: 2017-05-26T20:30:32+00:00,
+            Value: 0.1398390728056824,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: ftfy,
+            Version: 4.4.3,
+            PublishedAt: 2017-05-15T15:52:37+00:00,
+            LatestVersion: 5.1.1,
+            LatestPublishedAt: 2017-05-15T21:14:25+00:00,
+            Value: 0.0006122526636225266,
+            UpgradeAvailable: true,
+            Skipped: false
+          },
+          {
+            Name: pytest,
+            Version: 3.1.1,
+            PublishedAt: 2017-05-31T11:53:02+00:00,
+            LatestVersion: 3.1.1,
+            LatestPublishedAt: 2017-05-31T11:53:02+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: pip,
+            Version: 9.0.1,
+            PublishedAt: 2016-11-06T18:51:46+00:00,
+            LatestVersion: 9.0.1,
+            LatestPublishedAt: 2016-11-06T18:51:46+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: mock,
+            Version: 2.0.0,
+            PublishedAt: 2016-04-06T01:38:16+00:00,
+            LatestVersion: 2.0.0,
+            LatestPublishedAt: 2016-04-06T01:38:16+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: msgpack-python,
+            Version: 0.4.8,
+            PublishedAt: 2016-07-29T13:26:45+00:00,
+            LatestVersion: 0.4.8,
+            LatestPublishedAt: 2016-07-29T13:26:45+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          },
+          {
+            Name: msgpack-numpy,
+            Version: 0.4.0,
+            PublishedAt: 2017-05-24T12:22:04+00:00,
+            LatestVersion: 0.4.0,
+            LatestPublishedAt: 2017-05-24T12:22:04+00:00,
+            UpgradeAvailable: false,
+            Skipped: false
+          }
+        ]
+      }
+    ]
+  }
+]

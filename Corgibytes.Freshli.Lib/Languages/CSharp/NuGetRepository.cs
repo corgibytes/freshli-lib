@@ -61,7 +61,7 @@ namespace Corgibytes.Freshli.Lib.Languages.CSharp
 
         public IVersionInfo Latest(
           string name,
-          DateTime asOf,
+          DateTimeOffset asOf,
           bool includePreReleases)
         {
             try
@@ -90,7 +90,7 @@ namespace Corgibytes.Freshli.Lib.Languages.CSharp
 
         public List<IVersionInfo> VersionsBetween(
           string name,
-          DateTime asOf,
+          DateTimeOffset asOf,
           IVersionInfo earlierVersion,
           IVersionInfo laterVersion,
           bool includePreReleases)
@@ -102,7 +102,11 @@ namespace Corgibytes.Freshli.Lib.Languages.CSharp
               .ToList();
         }
 
-        public IVersionInfo Latest(string name, DateTime asOf, string thatMatches)
+        public IVersionInfo Latest(
+          string name,
+          DateTimeOffset asOf,
+          string thatMatches
+        )
         {
             throw new NotImplementedException();
         }

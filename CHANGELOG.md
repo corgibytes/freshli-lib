@@ -1,15 +1,21 @@
 ## v0.5.0
 
 
-As part of this release we had [5 issues](https://github.com/corgibytes/freshli-lib/milestone/6?closed=1) closed.
+As part of this release we had [9 issues](https://github.com/corgibytes/freshli-lib/milestone/6?closed=1) closed.
 Goals for this milestone:
 
 - Parse manifest files in their own environment.
 - Create Docker development environment.
 - Support CLI v0.4.0 improvements (might be in it's own milestone).
 
+__Bug__
+
+- [__#256__](https://github.com/corgibytes/freshli-lib/issues/256) Use UTC internally to represent dates
+
 __DevOps__
 
+- [__#389__](https://github.com/corgibytes/freshli-lib/pull/389) Auto-merge Depndabot PR workflow
+- [__#388__](https://github.com/corgibytes/freshli-lib/pull/388) Force all Dependabot labels to be "dependencies" only
 - [__#378__](https://github.com/corgibytes/freshli-lib/pull/378) Fix release notes CI when no issues are closed for milestone
 
 __Dependencies__
@@ -18,6 +24,10 @@ __Dependencies__
 - [__#375__](https://github.com/corgibytes/freshli-lib/pull/375) Bump DiffEngine from 8.0.0 to 8.0.1
 - [__#373__](https://github.com/corgibytes/freshli-lib/pull/373) Bump HtmlAgilityPack from 1.11.36 to 1.11.37
 - [__#372__](https://github.com/corgibytes/freshli-lib/pull/372) Bump DiffEngine from 7.3.0 to 8.0.0
+
+__Enhancement__
+
+- [__#257__](https://github.com/corgibytes/freshli-lib/issues/257) Use atom feed to retrieve rubygems version date and time
 
 
 ## v0.4.0

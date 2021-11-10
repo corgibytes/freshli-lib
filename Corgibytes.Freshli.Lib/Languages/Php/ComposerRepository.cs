@@ -25,7 +25,7 @@ namespace Corgibytes.Freshli.Lib.Languages.Php
         //TODO: Update logic to utilize includePreReleases
         public IVersionInfo Latest(
           string name,
-          DateTime asOf,
+          DateTimeOffset asOf,
           bool includePreReleases)
         {
             var content = FetchPackageInfo(name);
@@ -57,7 +57,7 @@ namespace Corgibytes.Freshli.Lib.Languages.Php
 
                 var version = versionJson.Name;
                 var publishedDate = ParsePublishedDate(versionJson.Value);
-                var versionInfo = new SemVerVersionInfo(version, publishedDate.Date);
+                var versionInfo = new SemVerVersionInfo(version, publishedDate);
                 if (versionInfo.PreRelease != null)
                 {
                     continue;
@@ -76,24 +76,22 @@ namespace Corgibytes.Freshli.Lib.Languages.Php
             return filteredVersions.Last();
         }
 
-        private static DateTime ParsePublishedDate(JsonElement versionJson)
+        private static DateTimeOffset ParsePublishedDate(JsonElement versionJson)
         {
-            DateTime result = DateTime.MinValue;
+            var result = DateTimeOffset.MinValue;
 
             if (versionJson.TryGetProperty("time", out var standardTime))
             {
-                var dateTime = DateTime.Parse(standardTime.GetString());
-                result = dateTime.ToUniversalTime().Date;
+                result = DateTimeOffset.Parse(standardTime.GetString());
             }
             else if (versionJson.TryGetProperty("extra", out var extraData))
             {
                 var datestamp = extraData.GetProperty("drupal").
                   GetProperty("datestamp").GetString();
-                result = DateTimeOffset.FromUnixTimeSeconds(Convert.ToInt64(datestamp)).
-                  Date.Date;
+                result = DateTimeOffset.FromUnixTimeSeconds(Convert.ToInt64(datestamp));
             }
 
-            return result.Date;
+            return result;
         }
 
         public IVersionInfo VersionInfo(string name, string version)
@@ -119,20 +117,24 @@ namespace Corgibytes.Freshli.Lib.Languages.Php
             {
                 var publishedDate = ParsePublishedDate(versionJson);
 
-                return new SemVerVersionInfo(version, publishedDate.Date);
+                return new SemVerVersionInfo(version, publishedDate);
             }
 
             return null;
         }
 
-        public IVersionInfo Latest(string name, DateTime asOf, string thatMatches)
+        public IVersionInfo Latest(
+          string name,
+          DateTimeOffset asOf,
+          string thatMatches
+        )
         {
             throw new NotImplementedException();
         }
 
         public List<IVersionInfo> VersionsBetween(
           string name,
-          DateTime asOf,
+          DateTimeOffset asOf,
           IVersionInfo earlierVersion,
           IVersionInfo laterVersion,
           bool includePreReleases)

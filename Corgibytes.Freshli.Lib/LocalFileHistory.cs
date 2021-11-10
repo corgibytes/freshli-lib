@@ -15,14 +15,16 @@ namespace Corgibytes.Freshli.Lib
             _targetPath = targetPath;
         }
 
-        public IList<DateTime> Dates => new List<DateTime> { DateTime.Today };
+        public IList<DateTimeOffset> Dates => new List<DateTimeOffset> {
+      DateTimeOffset.UtcNow
+    };
 
-        public string ContentsAsOf(DateTime date)
+        public string ContentsAsOf(DateTimeOffset date)
         {
             return File.ReadAllText(Path.Combine(_rootDirectory, _targetPath));
         }
 
-        public string ShaAsOf(DateTime date)
+        public string ShaAsOf(DateTimeOffset date)
         {
             return "N/A";
         }

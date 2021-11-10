@@ -1,115 +1,72 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
 using Corgibytes.Freshli.Lib.Languages.Perl;
 using Xunit;
 
 namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Perl
 {
-    public class MetaCpanRepositoryTest
+    public class MetaCpanRepositoryTest : RepositoryTestFixture<MetaCpanRepositoryTest>
     {
-        [Fact]
-        public void VersionInfoWithoutModuleSeparator()
+        public override IPackageRepository Repository => new MetaCpanRepository();
+
+        public override TheoryData<IList<string>, IList<int>, string> DataForTestingVersionInfo => new()
         {
-            var repository = new MetaCpanRepository();
-            var versionInfo = repository.VersionInfo("Plack", "1.0026");
-            var expectedDate =
-              new DateTime(2013, 06, 13, 06, 01, 17, DateTimeKind.Utc);
+            {
+                new[] { "Plack", "1.0026" },
+                new[] { 2013, 06, 13, 06, 01, 17 },
+                "1.0026"
+            },
+            {
+                new[] { "Test::More", "1.301001_048" },
+                new[] { 2014, 09, 25, 03, 39, 01 },
+                "1.301001_048"
+            }
+        };
 
-            Assert.Equal("1.0026", versionInfo.Version);
-            Assert.Equal(expectedDate, versionInfo.DatePublished);
-        }
-
-        [Fact]
-        public void VersionInfoWithModuleSeparator()
+        public override TheoryData<IList<object>, string, IList<int>> DataForTestingLatestWithOptionalPreRelease => new()
         {
-            var repository = new MetaCpanRepository();
-            var versionInfo = repository.VersionInfo("Test::More", "1.301001_048");
-            var expectedDate =
-              new DateTime(2014, 09, 25, 03, 39, 01, DateTimeKind.Utc);
+            {
+                new object[] { "Plack", new[] { 2018, 01, 01, 0, 0, 0 }, false },
+                "1.0045",
+                new[] { 2017, 12, 31, 20, 42, 50 }
+            }
 
-            Assert.Equal("1.301001_048", versionInfo.Version);
-            Assert.Equal(expectedDate, versionInfo.DatePublished);
-        }
+        };
 
-        [Fact]
-        public void LatestAsOf()
+        public override TheoryData<IList<object>, string, IList<int>> DataForTestingLatestWithMatchExpression => new()
         {
-            var repository = new MetaCpanRepository();
-            var targetDate = new DateTime(2018, 01, 01, 0, 0, 0, DateTimeKind.Utc);
-            var versionInfo = repository.Latest(
-              "Plack", targetDate, includePreReleases: false);
-            var expectedDate = new DateTime(
-              2017,
-              12,
-              31,
-              20,
-              42,
-              50,
-              DateTimeKind.Utc
-            );
+            {
+                new object[] { "Plack", new[] { 2018, 01, 01, 0, 0, 0 }, "1.0" },
+                "1.0045",
+                new[] { 2017, 12, 31, 20, 42, 50 }
+            },
+            {
+                new object[] { "JSON", new[] { 2018, 01, 01, 0, 0, 0 }, ">= 2.00, < 2.80" },
+                "2.61",
+                new[] { 2013, 10, 17, 11, 03, 11 }
+            },
+            {
+                new object[] { "Test::More", new[] { 2018, 01, 01, 0, 0, 0 }, ">= 0.96, < 2.0" },
+                "1.301001_050",
+                new[] { 2014, 09, 26, 05, 44, 26 }
+            }
 
-            Assert.Equal("1.0045", versionInfo.Version);
-            Assert.Equal(expectedDate, versionInfo.DatePublished);
-        }
+        };
 
-        [Theory]
-        [InlineData("Plack", "1.0", 2017, 12, 31, 20, 42, 50, "1.0045")]
-        [InlineData("JSON", ">= 2.00, < 2.80", 2013, 10, 17, 11, 03, 11, "2.61")]
-        [InlineData(
-          "Test::More",
-          ">= 0.96, < 2.0",
-          2014,
-          09,
-          26,
-          05,
-          44,
-          26,
-          "1.301001_050"
-        )]
-        public void LatestMatchingVersionExpression(
-          string packageName,
-          string versionExpression,
-          int expectedYear,
-          int expectedMonth,
-          int expectedDay,
-          int expectedHour,
-          int expectedMinute,
-          int expectedSecond,
-          string expectedVersion
-        )
+        public override TheoryData<IList<object>, int> DataForTestingVersionsBetween => new()
         {
-            var repository = new MetaCpanRepository();
-            var targetDate = new DateTime(2018, 01, 01, 0, 0, 0, DateTimeKind.Utc);
-            var versionInfo = repository.Latest(
-              packageName,
-              asOf: targetDate,
-              thatMatches: versionExpression
-            );
-            var expectedDate = new DateTime(
-              expectedYear,
-              expectedMonth,
-              expectedDay,
-              expectedHour,
-              expectedMinute,
-              expectedSecond,
-              DateTimeKind.Utc
-            );
+            {
+                new object[]
+                {
+                    "Plack",
+                    new[] {2015, 01, 01, 00, 00, 00},
+                    new SemVerVersionInfo("1.0027"),
+                    new SemVerVersionInfo("1.0045"),
+                    false
+                },
+                6
+            }
+        };
 
-            Assert.Equal(expectedVersion, versionInfo.Version);
-            Assert.Equal(expectedDate, versionInfo.DatePublished);
-        }
-
-        [Fact]
-        public void VersionsBetween()
-        {
-            var repository = new MetaCpanRepository();
-            var targetDate = new DateTime(2015, 01, 01);
-            var earlierVersion = new SemVerVersionInfo("1.0027");
-            var laterVersion = new SemVerVersionInfo("1.0045");
-
-            var versions = repository.VersionsBetween("Plack", targetDate,
-              earlierVersion, laterVersion, includePreReleases: false);
-
-            Assert.Equal(6, versions.Count);
-        }
     }
 }

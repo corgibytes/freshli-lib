@@ -2,13 +2,14 @@ using System;
 
 namespace Corgibytes.Freshli.Lib
 {
+    // TODO: Explore converting this `class` into a `record`
     public class LibYearPackageResult
     {
         public string Name { get; }
         public string Version { get; }
-        public DateTime PublishedAt { get; }
+        public DateTimeOffset PublishedAt { get; }
         public string LatestVersion { get; }
-        public DateTime LatestPublishedAt { get; }
+        public DateTimeOffset LatestPublishedAt { get; }
         public double Value { get; }
         public bool UpgradeAvailable { get; set; }
         public bool Skipped { get; }
@@ -16,9 +17,9 @@ namespace Corgibytes.Freshli.Lib
         public LibYearPackageResult(
           string name,
           string version,
-          DateTime publishedAt,
+          DateTimeOffset publishedAt,
           string latestVersion,
-          DateTime latestPublishedAt,
+          DateTimeOffset latestPublishedAt,
           double value,
           bool upgradeAvailable,
           bool skipped
@@ -58,9 +59,9 @@ namespace Corgibytes.Freshli.Lib
             return
               $"{{ Name: \"{Name}\", " +
               $"RepoVersion: \"{Version}\", " +
-              $"RepoVersionPublishedAt: {PublishedAt:s}, " +
+              $"RepoVersionPublishedAt: {PublishedAt:O}, " +
               $"LatestVersion: \"{LatestVersion}\", " +
-              $"LatestPublishedAt: {LatestPublishedAt:s}, " +
+              $"LatestPublishedAt: {LatestPublishedAt:O}, " +
               $"UpgradeAvailable: {UpgradeAvailable}, " +
               $"Value: {Value} }}";
         }

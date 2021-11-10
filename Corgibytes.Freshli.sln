@@ -16,16 +16,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{B3EA95D6-EC91-4BC7-9280-F07108D61ED3}"
-ProjectSection(SolutionItems) = preProject
-	.github\dependabot.yml = .github\dependabot.yml
-EndProjectSection
+	ProjectSection(SolutionItems) = preProject
+		.github\dependabot.yml = .github\dependabot.yml
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{92997AA4-C9E3-4A60-B072-CB4604EAD6B4}"
-ProjectSection(SolutionItems) = preProject
-	.github\workflows\cla.yml = .github\workflows\cla.yml
-	.github\workflows\dotnet-core.yml = .github\workflows\dotnet-core.yml
-	.github\workflows\release-notes.yml = .github\workflows\release-notes.yml
-EndProjectSection
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\cla.yml = .github\workflows\cla.yml
+		.github\workflows\dotnet-core.yml = .github\workflows\dotnet-core.yml
+		.github\workflows\release-notes.yml = .github\workflows\release-notes.yml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Corgibytes.Xunit.Extensions", "Corgibytes.Xunit.Extensions\Corgibytes.Xunit.Extensions.csproj", "{EB9A895A-8ADB-4EF7-8102-06392A4B7CB9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{2EB4454A-48B4-4A03-A2A5-47E888654AC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2EB4454A-48B4-4A03-A2A5-47E888654AC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2EB4454A-48B4-4A03-A2A5-47E888654AC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB9A895A-8ADB-4EF7-8102-06392A4B7CB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB9A895A-8ADB-4EF7-8102-06392A4B7CB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB9A895A-8ADB-4EF7-8102-06392A4B7CB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB9A895A-8ADB-4EF7-8102-06392A4B7CB9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

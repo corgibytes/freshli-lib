@@ -69,7 +69,7 @@ namespace Corgibytes.Freshli.Lib.Languages.Python
         public bool IsPostRelease => PostRelease != null;
         public int? PostReleaseSuffixType { get; set; }
 
-        public DateTime DatePublished { get; set; }
+        public DateTimeOffset DatePublished { get; set; }
 
         private readonly Regex _versionExpression = new Regex(
           @"^(?i)(([0-9]+)!)?" +
@@ -79,7 +79,10 @@ namespace Corgibytes.Freshli.Lib.Languages.Python
           @"(\.(dev)([0-9]+))?(?-i)$"
         );
 
-        public PythonVersionInfo(string version, DateTime? datePublished = null)
+        public PythonVersionInfo(
+          string version,
+          DateTimeOffset? datePublished = null
+        )
         {
             Version = version;
             if (datePublished.HasValue) { DatePublished = datePublished.Value; }
@@ -466,7 +469,7 @@ namespace Corgibytes.Freshli.Lib.Languages.Python
         {
             return
               $"{nameof(Version)}: {Version}, " +
-              $"{nameof(DatePublished)}: {DatePublished:d}";
+              $"{nameof(DatePublished)}: {DatePublished:O}";
         }
     }
 }

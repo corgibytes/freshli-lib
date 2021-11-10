@@ -8,14 +8,15 @@ namespace Corgibytes.Freshli.Lib
 {
     public class GitFileHistory : IFileHistory
     {
-        private readonly IDictionary<DateTime, FileHistory> _historyByDate =
-          new Dictionary<DateTime, FileHistory>();
+        private readonly IDictionary<DateTimeOffset, FileHistory> _historyByDate =
+          new Dictionary<DateTimeOffset, FileHistory>();
 
         private string _repositoryPath;
         private string _targetFile;
 
         public GitFileHistory(string repositoryPath, string targetFile)
         {
+            // TODO: Move this logic out of the constructor to support async/await.
             if (!Directory.Exists(repositoryPath))
             {
                 var uniqueTempDir = Path.GetFullPath(
@@ -50,7 +51,7 @@ namespace Corgibytes.Freshli.Lib
                 {
                     var blob = GetTreeEntry(logEntry, targetFile).Target as Blob;
                     var contents = blob.GetContentText();
-                    var date = logEntry.Committer.When.Date;
+                    var date = logEntry.Committer.When;
                     _historyByDate[date] =
                       new FileHistory(date, logEntry.Sha, contents);
                 }
@@ -63,7 +64,7 @@ namespace Corgibytes.Freshli.Lib
         /// <param name="date">The date to find the contest at.</param>
         /// <returns>Returns the contents for the file for the given date. If nothing exists
         /// for the given date then an empty string is returned.</returns>
-        public string ContentsAsOf(DateTime date)
+        public string ContentsAsOf(DateTimeOffset date)
         {
             try
             {
@@ -81,7 +82,7 @@ namespace Corgibytes.Freshli.Lib
         /// <param name="date">The date to find the SHA at.</param>
         /// <returns>Returns the sha for the file for the given date. If nothing exists
         /// for the given date then an empty string is returned.</returns>
-        public string ShaAsOf(DateTime date)
+        public string ShaAsOf(DateTimeOffset date)
         {
             try
             {
@@ -93,12 +94,12 @@ namespace Corgibytes.Freshli.Lib
             }
         }
 
-        public IList<DateTime> Dates
+        public IList<DateTimeOffset> Dates
         {
             get { return _historyByDate.Keys.OrderBy(d => d).ToList(); }
         }
 
-        private DateTime GetKey(DateTime date)
+        private DateTimeOffset GetKey(DateTimeOffset date)
         {
             // This will fail if the date passed in is greater than
             // the last date in the list.  Should find a better way to
@@ -117,11 +118,11 @@ namespace Corgibytes.Freshli.Lib
 
     public class FileHistory
     {
-        public DateTime Date;
+        public DateTimeOffset Date;
         public string CommitSha;
         public string Contents;
 
-        public FileHistory(DateTime date, string commitSha, string contents)
+        public FileHistory(DateTimeOffset date, string commitSha, string contents)
         {
             Date = date;
             CommitSha = commitSha;
