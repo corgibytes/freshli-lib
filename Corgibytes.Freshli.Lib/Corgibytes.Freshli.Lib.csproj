@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net5.0</TargetFramework>
-        <LangVersion>9</LangVersion>
+        <TargetFramework>net6.0</TargetFramework>
+        <LangVersion>10</LangVersion>
         <RepositoryUrl>https://github.com/corgibytes/freshli-lib</RepositoryUrl>
         <PackageId>Corgibytes.Freshli.Lib</PackageId>
         <Authors>Corgibytes</Authors>
