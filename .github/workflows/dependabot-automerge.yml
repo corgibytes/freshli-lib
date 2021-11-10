@@ -9,9 +9,9 @@ jobs:
   dependabot:
     runs-on: ubuntu-20.04
 
-    # Only allo Dependabot PRs that update the patch version to be automerged.  Dependency updates for more than
+    # Only allow Dependabot PRs that update the patch version to be automerged.  Dependency updates for more than
     # the patch require a manual review.
-    if: github.actor == 'dependabot[bot]' && steps.metadata.outputs.update-type == 'version-update:semver-patch'
+    if: github.actor == 'dependabot[bot]'
 
     steps:
       - name: Dependabot metadata
@@ -21,12 +21,14 @@ jobs:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
 
       - name: Auto-approve
+        if: steps.metadata.outputs.update-type == 'version-update:semver-patch' or steps.metadata.outputs.update-type == 'version-update:semver-minor'
         run: gh pr review --approve "$PR_URL"
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
       - name: Enable auto-merge
+        if: steps.metadata.outputs.update-type == 'version-update:semver-patch' or steps.metadata.outputs.update-type == 'version-update:semver-minor'
         run: gh pr merge --auto --merge "$PR_URL"
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
