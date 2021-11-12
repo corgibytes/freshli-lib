@@ -61,13 +61,13 @@ jobs:
         run: dotnet tool install --global --add-source https://nuget.pkg.github.com/GitTools/index.json --version 5.8.0-beta1.138 --configfile ../nuget.config GitVersion.Tool
 
       - name: Show GitVersion Config
-        uses: gittools/actions/gitversion/execute@v0.9.10
+        uses: gittools/actions/gitversion/execute@v0.9.11
         with:
           useConfigFile: true
           additionalArguments: '/showConfig'
 
       - name: Determine Version and Update csproj Files
-        uses: gittools/actions/gitversion/execute@v0.9.10
+        uses: gittools/actions/gitversion/execute@v0.9.11
         with:
           useConfigFile: true
           additionalArguments: '/updateprojectfiles'
@@ -134,18 +134,18 @@ jobs:
           dotnet-version: 5.0.101
 
       - name: Install GitVersion
-        uses: gittools/actions/gitversion/setup@v0.9.10
+        uses: gittools/actions/gitversion/setup@v0.9.11
         with:
           versionSpec: '5.6.6'
 
       - name: Show GitVersion Config
-        uses: gittools/actions/gitversion/execute@v0.9.10
+        uses: gittools/actions/gitversion/execute@v0.9.11
         with:
           useConfigFile: true
           additionalArguments: '/showConfig'
 
       - name: Determine Version and Update csproj Files
-        uses: gittools/actions/gitversion/execute@v0.9.10
+        uses: gittools/actions/gitversion/execute@v0.9.11
         with:
           useConfigFile: true
           additionalArguments: '/updateprojectfiles'

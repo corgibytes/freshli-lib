@@ -30,23 +30,23 @@ jobs:
           dotnet-version: 3.0.x
 
       - name: Install GitVersion
-        uses: gittools/actions/gitversion/setup@v0.9.10
+        uses: gittools/actions/gitversion/setup@v0.9.11
         with:
           versionSpec: '5.6.6'
 
       - name: Show GitVersion Config
-        uses: gittools/actions/gitversion/execute@v0.9.10
+        uses: gittools/actions/gitversion/execute@v0.9.11
         with:
           useConfigFile: true
           additionalArguments: '/showConfig'
 
       - name: Determine Version
-        uses: gittools/actions/gitversion/execute@v0.9.10
+        uses: gittools/actions/gitversion/execute@v0.9.11
         id: gitversion
         with:
           useConfigFile: true
 
-      - uses: gittools/actions/gitreleasemanager/setup@v0.9.10
+      - uses: gittools/actions/gitreleasemanager/setup@v0.9.11
         name: Install GitReleaseManager
         with:
           versionSpec: '0.11.0'
