@@ -14,6 +14,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2.3.4
         with:
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           fetch-depth: 0 # Required for GitVersion
           ref: ${{ github.head_ref }} # Required for Git Auto Commit
 
