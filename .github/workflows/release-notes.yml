@@ -14,40 +14,50 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2.3.4
         with:
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           fetch-depth: 0 # Required for GitVersion
+          ref: ${{ github.head_ref }} # Required for Git Auto Commit
 
-      - name: Setup .NET Core
+      # Require .NET 5 for GitVersion and .NET 3 for GitRelesaseManager
+      - name: Setup .NET Core 5 (GitVersion)
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: '6.0'
-          source-url: https://nuget.pkg.github.com/GitTools/index.json
-        env:
-          NUGET_AUTH_TOKEN: ${{secrets.NUGET_READ_TOKEN}}
+          dotnet-version: 6.0
 
       - name: Install GitVersion
-        run: dotnet tool install --global --add-source https://nuget.pkg.github.com/GitTools/index.json --version 5.8.0-beta1.138 --configfile ../nuget.config GitVersion.Tool
+        uses: gittools/actions/gitversion/setup@v0.9.11
+        with:
+          versionSpec: '5.8.0'
 
       - name: Show GitVersion Config
-        run: dotnet gitversion /showConfig
+        uses: gittools/actions/gitversion/execute@v0.9.11
+        with:
+          useConfigFile: true
+          additionalArguments: '/showConfig'
 
       - name: Determine Version
-        run: dotnet gitversion
+        uses: gittools/actions/gitversion/execute@v0.9.11
+        id: gitversion
+        with:
+          useConfigFile: true
 
-      - name: Install GitReleaseManager
-        run: dotnet tool install --global --add-source https://nuget.pkg.github.com/GitTools/index.json --version 0.12.1 GitReleaseManager.Tool
+      - uses: gittools/actions/gitreleasemanager/setup@v0.9.11
+        name: Install GitReleaseManager
+        with:
+          versionSpec: '0.12.1'
 
       # If there are no closed issues generating the Github Release will fail because it raises an exception.
       # Work around this by checking for success or no closed issue errors.
       - name: "Create/Update GitHub Release ${{ steps.gitversion.outputs.majorMinorPatch }}"
         run: |
-          dotnet gitreleasemanager create --owner corgibytes --repository freshli-lib --token ${{ secrets.GITHUB_TOKEN }} --milestone v${{ steps.gitversion.outputs.majorMinorPatch }} --logFilePath output.txt || true
+          dotnet-gitreleasemanager create --owner corgibytes --repository freshli-lib --token ${{ secrets.GITHUB_TOKEN }} --milestone v${{ steps.gitversion.outputs.majorMinorPatch }} --logFilePath output.txt || true
           cat output.txt | grep 'No closed issues have been found for milestone\|Drafted release is available at'
 
       # This will generate the change log for all the GitHub Releases, feature
       # is not included in the GitReleaseManager action yet.
       - name: Generate Change Log
         run: |
-          dotnet gitreleasemanager export --token ${{ secrets.GITHUB_TOKEN }} -o 'corgibytes' -r 'freshli-lib' -f 'CHANGELOG.md'
+          dotnet-gitreleasemanager export --token ${{ secrets.GITHUB_TOKEN }} -o 'corgibytes' -r 'freshli-lib' -f 'CHANGELOG.md'
           git add --renormalize CHANGELOG.md
           cat CHANGELOG.md
 
