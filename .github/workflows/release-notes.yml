@@ -14,12 +14,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2.3.4
         with:
-          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           fetch-depth: 0 # Required for GitVersion
           ref: ${{ github.head_ref }} # Required for Git Auto Commit
 
       # Require .NET 5 for GitVersion and .NET 3 for GitRelesaseManager
-      - name: Setup .NET Core 5 (GitVersion)
+      - name: Setup .NET Core 6
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: 6.0
