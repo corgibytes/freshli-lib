@@ -53,24 +53,15 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: '6.0'
-          source-url: https://nuget.pkg.github.com/GitTools/index.json
-        env:
-          NUGET_AUTH_TOKEN: ${{secrets.NUGET_READ_TOKEN}}
 
-      - name: Install GitVersion
-        run: dotnet tool install --global --add-source https://nuget.pkg.github.com/GitTools/index.json --version 5.8.0-beta1.138 --configfile ../nuget.config GitVersion.Tool
+      - name: Install Tools
+        run: dotnet tool restore
 
       - name: Show GitVersion Config
-        uses: gittools/actions/gitversion/execute@v0.9.10
-        with:
-          useConfigFile: true
-          additionalArguments: '/showConfig'
+        run: dotnet gitversion /config /showConfig
 
       - name: Determine Version and Update csproj Files
-        uses: gittools/actions/gitversion/execute@v0.9.10
-        with:
-          useConfigFile: true
-          additionalArguments: '/updateprojectfiles'
+        run: dotnet gitversion /config /updateProjectFiles
 
       - name: Display updated csproj File
         run: cat Corgibytes.Freshli.Lib/Corgibytes.Freshli.Lib.csproj
@@ -129,26 +120,18 @@ jobs:
           fetch-depth: 0 # Required for GitVersion
 
       - name: Setup .NET Core
-        uses: actions/setup-dotnet@v1.8.0
+        uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: 5.0.101
+          dotnet-version: '6.0'
 
-      - name: Install GitVersion
-        uses: gittools/actions/gitversion/setup@v0.9.10
-        with:
-          versionSpec: '5.6.6'
+      - name: Install Tools
+        run: dotnet tool restore
 
       - name: Show GitVersion Config
-        uses: gittools/actions/gitversion/execute@v0.9.10
-        with:
-          useConfigFile: true
-          additionalArguments: '/showConfig'
+        run: dotnet gitversion /config /showConfig
 
-      - name: Determine Version and Update csproj Files
-        uses: gittools/actions/gitversion/execute@v0.9.10
-        with:
-          useConfigFile: true
-          additionalArguments: '/updateprojectfiles'
+      - name: Show GitVersion Config
+        run: dotnet gitversion /config /updateProjectFiles
 
       - name: Display updated csproj File
         run: cat Corgibytes.Freshli.Lib/Corgibytes.Freshli.Lib.csproj
