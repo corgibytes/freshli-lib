@@ -36,7 +36,7 @@ jobs:
 
       - name: Determine Version
         id: gitversion
-        run: "echo ::set-output name=majorMinorPatch::$(dotnet gitversion /config | jq '.MajorMinorPatch')"
+        run: "echo ::set-output name=majorMinorPatch::$(dotnet gitversion /config | jq -r '.MajorMinorPatch')"
 
       - name: Verify Version Setting
         run: "echo \"Computed Version: ${{ steps.gitversion.outputs.majorMinorPatch }}\""
