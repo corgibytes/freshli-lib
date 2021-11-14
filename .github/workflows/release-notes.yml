@@ -38,6 +38,9 @@ jobs:
         id: gitversion
         run: "echo ::set-output name=majorMinorPatch::$(dotnet gitversion /config | jq '.MajorMinorPatch')"
 
+      - name: Verify Version Setting
+        run: "echo \"Computed Version: ${{ steps.gitversion.outputs.majorMinorPatch }}\""
+
       # If there are no closed issues generating the Github Release will fail because it raises an exception.
       # Work around this by checking for success or no closed issue errors.
       - name: "Create/Update GitHub Release ${{ steps.gitversion.outputs.majorMinorPatch }}"
