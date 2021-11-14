@@ -53,12 +53,9 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: '6.0'
-          source-url: https://nuget.pkg.github.com/GitTools/index.json
-        env:
-          NUGET_AUTH_TOKEN: ${{secrets.NUGET_READ_TOKEN}}
 
       - name: Install GitVersion
-        run: dotnet tool install --global --add-source https://nuget.pkg.github.com/GitTools/index.json --version 5.8.0-beta1.138 --configfile ../nuget.config GitVersion.Tool
+        run: dotnet tool install --global --version 5.8.0 GitVersion.Tool
 
       - name: Show GitVersion Config
         uses: gittools/actions/gitversion/execute@v0.9.10
