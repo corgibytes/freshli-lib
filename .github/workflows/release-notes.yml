@@ -18,10 +18,15 @@ jobs:
           fetch-depth: 0 # Required for GitVersion
           ref: ${{ github.head_ref }} # Required for Git Auto Commit
 
-      - name: Setup .NET Core
+      - name: Setup .NET Core (for GitVersion)
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: '6.0'
+
+      - name: Setup .NET Core (for GitReleaseManager)
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '3.1'
 
       - name: Install tools
         run: dotnet tool restore
