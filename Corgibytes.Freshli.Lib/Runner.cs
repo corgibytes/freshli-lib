@@ -90,7 +90,6 @@ namespace Corgibytes.Freshli.Lib
                         manifestFile
                     );
 
-                    // TODO: LibYear calculation should not happen from inside the constructor. Switch to using a `Compute` or `Calculate` method instead.
                     var calculator = new LibYearCalculator(
                         // TODO: the repository that's used should be based on the `manifestFile` not on the repository root
                         manifestFinder.RepositoryFor(analysisPath),
