@@ -5,7 +5,7 @@ namespace Corgibytes.Freshli.Lib
 {
     public interface IFileHistory
     {
-        IList<DateTimeOffset> Dates { get; }
+        IEnumerable<DateTimeOffset> Dates { get; }
         string ContentsAsOf(DateTimeOffset date);
         string ShaAsOf(DateTimeOffset date);
     }

@@ -15,9 +15,7 @@ namespace Corgibytes.Freshli.Lib
             _targetPath = targetPath;
         }
 
-        public IList<DateTimeOffset> Dates => new List<DateTimeOffset> {
-      DateTimeOffset.UtcNow
-    };
+        public IEnumerable<DateTimeOffset> Dates => new List<DateTimeOffset> { DateTimeOffset.UtcNow };
 
         public string ContentsAsOf(DateTimeOffset date)
         {

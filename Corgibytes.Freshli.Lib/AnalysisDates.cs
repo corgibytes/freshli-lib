@@ -19,11 +19,13 @@ namespace Corgibytes.Freshli.Lib
 
         public IEnumerator<DateTimeOffset> GetEnumerator()
         {
-            if (history.Dates.Count == 0)
+            var dateCount = history.Dates.Count();
+
+            if (dateCount == 0)
             {
                 yield return asOf;
             }
-            else if (history.Dates.Count == 1 && asOf <= history.Dates[0])
+            else if (dateCount == 1 && asOf <= history.Dates.First())
             {
                 yield return asOf;
             }

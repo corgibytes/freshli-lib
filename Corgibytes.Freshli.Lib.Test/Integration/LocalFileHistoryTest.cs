@@ -1,5 +1,7 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Corgibytes.Freshli.Lib.Util;
 using Xunit;
 
@@ -14,11 +16,11 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
             var history = new LocalFileHistory(emptyFixturePath, "readme.md");
 
             Assert.InRange(
-              history.Dates[0],
-              DateTimeOffset.UtcNow.ToStartOfDay(),
-              DateTimeOffset.UtcNow.ToEndOfDay()
+                history.Dates.First(),
+                DateTimeOffset.UtcNow.ToStartOfDay(),
+                DateTimeOffset.UtcNow.ToEndOfDay()
             );
-            Assert.Equal(expected: 1, history.Dates.Count);
+            Assert.Single(history.Dates);
         }
 
         [Fact]
@@ -28,11 +30,11 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
             var history = new LocalFileHistory(emptyFixturePath, "readme.md");
 
             var expectedContents = "This directory is meant to simulate a project " +
-              "which does not have any manifest" +
-              Environment.NewLine + "files in " + "it." + Environment.NewLine;
+                "which does not have any manifest" +
+                Environment.NewLine + "files in " + "it." + Environment.NewLine;
             Assert.Equal(
-              expectedContents,
-              history.ContentsAsOf(DateTimeOffset.Now.ToStartOfDay())
+                expectedContents,
+                history.ContentsAsOf(DateTimeOffset.Now.ToStartOfDay())
             );
         }
     }

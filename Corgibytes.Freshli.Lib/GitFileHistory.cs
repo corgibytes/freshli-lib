@@ -9,42 +9,45 @@ namespace Corgibytes.Freshli.Lib
     public class GitFileHistory : IFileHistory
     {
         private readonly IDictionary<DateTimeOffset, FileHistory> _historyByDate =
-          new Dictionary<DateTimeOffset, FileHistory>();
+            new Dictionary<DateTimeOffset, FileHistory>();
 
-        private string _repositoryPath;
-        private string _targetFile;
+        private string repositoryPath;
+        private string targetFile;
 
         public GitFileHistory(string repositoryPath, string targetFile)
         {
-            // TODO: Move this logic out of the constructor to support async/await.
+            this.repositoryPath = repositoryPath;
+            this.targetFile = targetFile;
+        }
+
+        private void EnsureHistoryExtractedFromRepository()
+        {
+            if (_historyByDate.Count > 0) {
+                return;
+            }
+
             if (!Directory.Exists(repositoryPath))
             {
                 var uniqueTempDir = Path.GetFullPath(
-                  Path.Combine(
-                    Path.GetTempPath(),
-                    Guid.NewGuid().ToString()
-                  )
+                    Path.Combine(
+                        Path.GetTempPath(),
+                        Guid.NewGuid().ToString()
+                    )
                 );
                 Directory.CreateDirectory(uniqueTempDir);
                 Repository.Clone(repositoryPath, uniqueTempDir);
-                _repositoryPath = uniqueTempDir;
+                repositoryPath = uniqueTempDir;
             }
-            else
-            {
-                _repositoryPath = repositoryPath;
-            }
-
-            _targetFile = targetFile;
 
             using (var repository = new Repository(repositoryPath))
             {
                 var logEntries =
                   repository.Commits.
                     QueryBy(
-                      new CommitFilter
-                      {
-                          SortBy = CommitSortStrategies.Topological
-                      }
+                        new CommitFilter
+                        {
+                            SortBy = CommitSortStrategies.Topological
+                        }
                     ).Where(c => GetTreeEntry(c, targetFile) != null);
 
                 foreach (var logEntry in logEntries)
@@ -53,7 +56,7 @@ namespace Corgibytes.Freshli.Lib
                     var contents = blob.GetContentText();
                     var date = logEntry.Committer.When;
                     _historyByDate[date] =
-                      new FileHistory(date, logEntry.Sha, contents);
+                        new FileHistory(date, logEntry.Sha, contents);
                 }
             }
         }
@@ -66,6 +69,7 @@ namespace Corgibytes.Freshli.Lib
         /// for the given date then an empty string is returned.</returns>
         public string ContentsAsOf(DateTimeOffset date)
         {
+            EnsureHistoryExtractedFromRepository();
             try
             {
                 return _historyByDate[GetKey(date)].Contents;
@@ -84,6 +88,7 @@ namespace Corgibytes.Freshli.Lib
         /// for the given date then an empty string is returned.</returns>
         public string ShaAsOf(DateTimeOffset date)
         {
+            EnsureHistoryExtractedFromRepository();
             try
             {
                 return _historyByDate[GetKey(date)].CommitSha;
@@ -94,9 +99,13 @@ namespace Corgibytes.Freshli.Lib
             }
         }
 
-        public IList<DateTimeOffset> Dates
+        public IEnumerable<DateTimeOffset> Dates
         {
-            get { return _historyByDate.Keys.OrderBy(d => d).ToList(); }
+            get
+            {
+                EnsureHistoryExtractedFromRepository();
+                return _historyByDate.Keys.OrderBy(d => d);
+            }
         }
 
         private DateTimeOffset GetKey(DateTimeOffset date)
