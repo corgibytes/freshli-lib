@@ -6,7 +6,6 @@ using Corgibytes.Freshli.Lib.Util;
 
 namespace Corgibytes.Freshli.Lib
 {
-    // TODO: Change this to implement IAsyncEnumerable<T>
     public class AnalysisDates : IEnumerable<DateTimeOffset>
     {
         IFileHistory history;
