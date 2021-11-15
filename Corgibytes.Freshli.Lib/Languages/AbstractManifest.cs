@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using NLog;
 using System.IO;
+using System.Linq;
 using System.Text;
+using NLog;
 
 namespace Corgibytes.Freshli.Lib.Languages
 {
