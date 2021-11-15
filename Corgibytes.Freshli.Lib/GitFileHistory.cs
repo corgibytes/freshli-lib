@@ -22,7 +22,8 @@ namespace Corgibytes.Freshli.Lib
 
         private void EnsureHistoryExtractedFromRepository()
         {
-            if (_historyByDate.Count > 0) {
+            if (_historyByDate.Count > 0)
+            {
                 return;
             }
 
