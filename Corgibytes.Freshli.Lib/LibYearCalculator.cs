@@ -10,8 +10,8 @@ namespace Corgibytes.Freshli.Lib
         public IManifest Manifest { get; }
 
         public LibYearCalculator(
-          IPackageRepository repository,
-          IManifest manifest
+            IPackageRepository repository,
+            IManifest manifest
         )
         {
             Repository = repository;
@@ -43,10 +43,10 @@ namespace Corgibytes.Freshli.Lib
                 }
 
                 var packageResult = ProcessPackageResult(
-                  date,
-                  package,
-                  latestVersion,
-                  currentVersion
+                    date,
+                    package,
+                    latestVersion,
+                    currentVersion
                 );
 
                 result.Add(packageResult);
@@ -56,45 +56,46 @@ namespace Corgibytes.Freshli.Lib
         }
 
         private void GetVersions(
-          DateTimeOffset date,
-          PackageInfo package,
-          out IVersionInfo latestVersion,
-          out IVersionInfo currentVersion
+            DateTimeOffset date,
+            PackageInfo package,
+            out IVersionInfo latestVersion,
+            out IVersionInfo currentVersion
         )
         {
             currentVersion = Manifest.UsesExactMatches ?
                         Repository.VersionInfo(package.Name, package.Version) :
                         Repository.Latest(
-                          package.Name,
-                          asOf: date,
-                          thatMatches: package.Version
+                            package.Name,
+                            asOf: date,
+                            thatMatches: package.Version
                         );
 
             latestVersion =
-              Repository.Latest(package.Name, date, currentVersion.IsPreRelease);
+                Repository.Latest(package.Name, date, currentVersion.IsPreRelease);
         }
 
         private LibYearPackageResult ProcessPackageResult(
-          DateTimeOffset date,
-          PackageInfo package,
-          IVersionInfo latestVersion,
-          IVersionInfo currentVersion)
+            DateTimeOffset date,
+            PackageInfo package,
+            IVersionInfo latestVersion,
+            IVersionInfo currentVersion)
         {
             var libYearValue = Compute(currentVersion, latestVersion);
             var upgradeAvailable = libYearValue > 0;
 
             var packageResult = new LibYearPackageResult(
-              package.Name,
-              currentVersion,
-              latestVersion,
-              Math.Max(0, libYearValue),
-              upgradeAvailable,
-              skipped: false);
+                package.Name,
+                currentVersion,
+                latestVersion,
+                Math.Max(0, libYearValue),
+                upgradeAvailable,
+                skipped: false
+            );
 
             if (libYearValue < 0)
             {
                 var updatedPackageResult = ComputeUsingVersionsBetween(
-                  package.Name, date, currentVersion, latestVersion);
+                    package.Name, date, currentVersion, latestVersion);
 
                 if (updatedPackageResult != null)
                 {
@@ -104,8 +105,9 @@ namespace Corgibytes.Freshli.Lib
                 {
                     packageResult.UpgradeAvailable = true;
                     _logger.Warn($"Negative value ({libYearValue:0.000}) " +
-                      $"computed for {package.Name} as of {date:O}; " +
-                      $"setting value to 0: {packageResult}");
+                        $"computed for {package.Name} as of {date:O}; " +
+                        $"setting value to 0: {packageResult}"
+                    );
                 }
             }
 
@@ -114,48 +116,47 @@ namespace Corgibytes.Freshli.Lib
         }
 
         public static double Compute(
-          IVersionInfo olderVersion, IVersionInfo newerVersion)
+            IVersionInfo olderVersion, IVersionInfo newerVersion)
         {
-            return (newerVersion.DatePublished - olderVersion.DatePublished).
-              TotalDays / 365.0;
+            return (newerVersion.DatePublished - olderVersion.DatePublished).TotalDays / 365.0;
         }
 
         private static void HandleFailedPackage(
-          LibYearResult result,
-          PackageInfo package,
-          Exception e
+            LibYearResult result,
+            PackageInfo package,
+            Exception e
         )
         {
             _logger.Warn($"Skipping {package.Name}: {e.Message}");
             var packageResult = new LibYearPackageResult(
-              package.Name,
-              version: package.Version,
-              publishedAt: DateTimeOffset.MinValue,
-              latestVersion: null,
-              latestPublishedAt: DateTimeOffset.MinValue,
-              value: 0,
-              upgradeAvailable: false,
-              skipped: true
+                package.Name,
+                version: package.Version,
+                publishedAt: DateTimeOffset.MinValue,
+                latestVersion: null,
+                latestPublishedAt: DateTimeOffset.MinValue,
+                value: 0,
+                upgradeAvailable: false,
+                skipped: true
             );
             result.Add(packageResult);
             _logger.Trace(e.StackTrace);
         }
 
         private LibYearPackageResult ComputeUsingVersionsBetween(
-          string name,
-          DateTimeOffset asOf,
-          IVersionInfo currentVersion,
-          IVersionInfo latestVersion
+            string name,
+            DateTimeOffset asOf,
+            IVersionInfo currentVersion,
+            IVersionInfo latestVersion
         )
         {
             try
             {
                 var versions = Repository.VersionsBetween(
-                  name,
-                  asOf,
-                  currentVersion,
-                  latestVersion,
-                  currentVersion.IsPreRelease
+                    name,
+                    asOf,
+                    currentVersion,
+                    latestVersion,
+                    currentVersion.IsPreRelease
                 );
                 foreach (var version in versions)
                 {
@@ -163,12 +164,12 @@ namespace Corgibytes.Freshli.Lib
                     if (value >= 0)
                     {
                         return new LibYearPackageResult(
-                          name,
-                          currentVersion,
-                          version,
-                          value,
-                          upgradeAvailable: true,
-                          skipped: false
+                            name,
+                            currentVersion,
+                            version,
+                            value,
+                            upgradeAvailable: true,
+                            skipped: false
                         );
                     }
                 }
