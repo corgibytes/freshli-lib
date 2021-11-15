@@ -6,20 +6,27 @@ using Corgibytes.Freshli.Lib.Util;
 
 namespace Corgibytes.Freshli.Lib
 {
+    // TODO: Change this to implement IAsyncEnumerable<T>
     public class AnalysisDates : IEnumerable<DateTimeOffset>
     {
-        private List<DateTimeOffset> _dates = new();
+        IFileHistory history;
+        DateTimeOffset asOf;
 
         public AnalysisDates(IFileHistory history, DateTimeOffset asOf)
         {
-            // TODO: Move this logic out of the constructor to support async calls
+            this.history = history;
+            this.asOf = asOf;
+        }
+
+        public IEnumerator<DateTimeOffset> GetEnumerator()
+        {
             if (history.Dates.Count == 0)
             {
-                _dates.Add(asOf);
+                yield return asOf;
             }
             else if (history.Dates.Count == 1 && asOf <= history.Dates[0])
             {
-                _dates.Add(asOf);
+                yield return asOf;
             }
             else
             {
@@ -27,21 +34,16 @@ namespace Corgibytes.Freshli.Lib
 
                 if (date != date.ToStartOfMonth())
                 {
-                    _dates.Add(date);
+                    yield return date;
                     date = date.AddMonths(1).ToStartOfMonth();
                 }
 
                 while (date <= asOf)
                 {
-                    _dates.Add(date);
+                    yield return date;
                     date = date.AddMonths(1);
                 }
             }
-        }
-
-        public IEnumerator<DateTimeOffset> GetEnumerator()
-        {
-            return _dates.GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
