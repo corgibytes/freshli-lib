@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using NLog;
+using System.IO;
+using System.Text;
 
 namespace Corgibytes.Freshli.Lib.Languages
 {
@@ -15,7 +17,7 @@ namespace Corgibytes.Freshli.Lib.Languages
           new Dictionary<string, PackageInfo>();
 
         public int Count => _packages.Count;
-        public abstract bool UsesExactMatches { get; }
+        public virtual bool UsesExactMatches => Parser.UsesExactMatches;
 
         public IEnumerator<PackageInfo> GetEnumerator()
         {
@@ -43,7 +45,19 @@ namespace Corgibytes.Freshli.Lib.Languages
             _packages.Clear();
         }
 
-        public abstract void Parse(string contents);
+        protected virtual IManifestParser Parser { get; }
+
+        // TODO: Remove this method after all IManifestParser classes and implemented
+        public virtual void Parse(string contents)
+        {
+            Clear();
+            MemoryStream stream = new MemoryStream(UTF8Encoding.UTF8.GetBytes(contents));
+            foreach (var package in Parser.Parse(stream))
+            {
+                this.Add(package.Name, package.Version);
+            }
+        }
+
         public PackageInfo this[string packageName] => _packages[packageName];
     }
 }
