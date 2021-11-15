@@ -18,7 +18,7 @@ jobs:
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: 5.0.101
+          dotnet-version: '6.0'
 
       - name: Install dotnet tools
         run: dotnet tool restore
@@ -50,26 +50,18 @@ jobs:
           fetch-depth: 0 # Required for GitVersion
 
       - name: Setup .NET Core
-        uses: actions/setup-dotnet@v1.8.0
+        uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: 5.0.101
+          dotnet-version: '6.0'
 
-      - name: Install GitVersion
-        uses: gittools/actions/gitversion/setup@v0.9.10
-        with:
-          versionSpec: '5.6.6'
+      - name: Install Tools
+        run: dotnet tool restore
 
       - name: Show GitVersion Config
-        uses: gittools/actions/gitversion/execute@v0.9.10
-        with:
-          useConfigFile: true
-          additionalArguments: '/showConfig'
+        run: dotnet gitversion /config /showConfig
 
       - name: Determine Version and Update csproj Files
-        uses: gittools/actions/gitversion/execute@v0.9.10
-        with:
-          useConfigFile: true
-          additionalArguments: '/updateprojectfiles'
+        run: dotnet gitversion /config /updateProjectFiles
 
       - name: Display updated csproj File
         run: cat Corgibytes.Freshli.Lib/Corgibytes.Freshli.Lib.csproj
@@ -82,6 +74,7 @@ jobs:
 
       - name: Upload Coverage Files
         uses: actions/upload-artifact@v2
+        if: matrix.config.os == 'ubuntu-latest'
         with:
           name: "coverage-${{ matrix.config.os }}"
           path: "${{github.workspace}}/coverage-${{ matrix.config.os }}.info"
@@ -90,6 +83,11 @@ jobs:
     needs: build-matrix
     runs-on: ubuntu-20.04
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2.3.4
+        with:
+          fetch-depth: 0 # Required for GitVersion
+
       - name: Download Coverage Files
         uses: actions/download-artifact@v2
         with:
@@ -122,26 +120,18 @@ jobs:
           fetch-depth: 0 # Required for GitVersion
 
       - name: Setup .NET Core
-        uses: actions/setup-dotnet@v1.8.0
+        uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: 5.0.101
+          dotnet-version: '6.0'
 
-      - name: Install GitVersion
-        uses: gittools/actions/gitversion/setup@v0.9.10
-        with:
-          versionSpec: '5.6.6'
+      - name: Install Tools
+        run: dotnet tool restore
 
       - name: Show GitVersion Config
-        uses: gittools/actions/gitversion/execute@v0.9.10
-        with:
-          useConfigFile: true
-          additionalArguments: '/showConfig'
+        run: dotnet gitversion /config /showConfig
 
-      - name: Determine Version and Update csproj Files
-        uses: gittools/actions/gitversion/execute@v0.9.10
-        with:
-          useConfigFile: true
-          additionalArguments: '/updateprojectfiles'
+      - name: Show GitVersion Config
+        run: dotnet gitversion /config /updateProjectFiles
 
       - name: Display updated csproj File
         run: cat Corgibytes.Freshli.Lib/Corgibytes.Freshli.Lib.csproj
