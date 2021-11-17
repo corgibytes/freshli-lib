@@ -6,7 +6,7 @@ using System.Xml;
 
 namespace Corgibytes.Freshli.Lib.Languages.CSharp
 {
-    public class NuGetManifestParser: IManifestParser
+    public class NuGetManifestParser : IManifestParser
     {
         public bool UsesExactMatches => true;
 
