@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 
 namespace Corgibytes.Freshli.Lib.Test
 {
@@ -7,15 +8,20 @@ namespace Corgibytes.Freshli.Lib.Test
     {
         public static string Path(params string[] values)
         {
-            var assemblyPath = System.Reflection.Assembly.
-              GetExecutingAssembly().Location;
+            var assemblyPath = System.Reflection.Assembly.GetExecutingAssembly().Location;
 
             var components = new List<string>() {
-        Directory.GetParent(assemblyPath).ToString(), "fixtures"
-      };
+                Directory.GetParent(assemblyPath).ToString(), "fixtures"
+            };
             components.AddRange(values);
 
             return System.IO.Path.Combine(components.ToArray());
         }
+
+        public static Stream CreateStream(string contents)
+        {
+            return new MemoryStream(UTF8Encoding.UTF8.GetBytes(contents));
+        }
+
     }
 }

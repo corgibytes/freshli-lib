@@ -6,8 +6,8 @@ using NLog;
 
 namespace Corgibytes.Freshli.Lib.Languages.Php
 {
+    // TODO: Remove this class
     public class ComposerManifest : AbstractManifest
     {
-        protected override IManifestParser Parser => new ComposerManifestParser();
     }
 }

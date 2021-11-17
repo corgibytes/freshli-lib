@@ -4,7 +4,7 @@ using Corgibytes.Freshli.Lib.Languages.Python;
 using RestSharp.Extensions;
 using Xunit;
 
-namespace Corgibytes.Freshli.Lib.Test.Unit.Python
+namespace Corgibytes.Freshli.Lib.Test.Unit.Languages.Python
 {
     public class PythonVersionInfoTest
     {

@@ -7,7 +7,7 @@ using NLog;
 
 namespace Corgibytes.Freshli.Lib.Languages
 {
-    // TODO: Move in the direction of `IManifest` instances being mostly immutable, and have them be instantiated by calling an `IManifestParser.Parse` method. This is going to help with `async`/`await` implementation.
+    // TODO: Remove this class
     public abstract class AbstractManifest : IManifest
     {
         protected static readonly Logger _logger = LogManager.
@@ -17,7 +17,6 @@ namespace Corgibytes.Freshli.Lib.Languages
           new Dictionary<string, PackageInfo>();
 
         public int Count => _packages.Count;
-        public virtual bool UsesExactMatches => Parser.UsesExactMatches;
 
         public IEnumerator<PackageInfo> GetEnumerator()
         {
@@ -43,19 +42,6 @@ namespace Corgibytes.Freshli.Lib.Languages
         public void Clear()
         {
             _packages.Clear();
-        }
-
-        protected virtual IManifestParser Parser { get; }
-
-        // TODO: Remove this method after all IManifestParser classes and implemented
-        public virtual void Parse(string contents)
-        {
-            Clear();
-            MemoryStream stream = new MemoryStream(UTF8Encoding.UTF8.GetBytes(contents));
-            foreach (var package in Parser.Parse(stream))
-            {
-                this.Add(package.Name, package.Version);
-            }
         }
 
         public PackageInfo this[string packageName] => _packages[packageName];

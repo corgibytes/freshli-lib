@@ -3,7 +3,7 @@ using Corgibytes.Freshli.Lib.Languages.CSharp;
 using NuGet.Versioning;
 using Xunit;
 
-namespace Corgibytes.Freshli.Lib.Test.Unit.CSharp
+namespace Corgibytes.Freshli.Lib.Test.Unit.Languages.CSharp
 {
     public class FreshliNuGetVersionInfoTest
     {

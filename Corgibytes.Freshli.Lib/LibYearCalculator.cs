@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using NLog;
 
 namespace Corgibytes.Freshli.Lib
@@ -7,22 +8,26 @@ namespace Corgibytes.Freshli.Lib
     {
         private static readonly Logger _logger = LogManager.GetCurrentClassLogger();
         public IPackageRepository Repository { get; }
-        public IManifest Manifest { get; }
+
+        private IEnumerable<PackageInfo> packages;
+        private bool useExactMatches;
 
         public LibYearCalculator(
             IPackageRepository repository,
-            IManifest manifest
+            IEnumerable<PackageInfo> packages,
+            bool useExactMatches
         )
         {
             Repository = repository;
-            Manifest = manifest;
+            this.packages = packages;
+            this.useExactMatches = useExactMatches;
         }
 
         public LibYearResult ComputeAsOf(DateTimeOffset date)
         {
             var result = new LibYearResult();
 
-            foreach (var package in Manifest)
+            foreach (var package in packages)
             {
                 IVersionInfo latestVersion;
                 IVersionInfo currentVersion;
@@ -62,7 +67,7 @@ namespace Corgibytes.Freshli.Lib
             out IVersionInfo currentVersion
         )
         {
-            currentVersion = Manifest.UsesExactMatches ?
+            currentVersion = useExactMatches ?
                         Repository.VersionInfo(package.Name, package.Version) :
                         Repository.Latest(
                             package.Name,

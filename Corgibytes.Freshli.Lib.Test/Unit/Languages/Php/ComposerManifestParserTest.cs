@@ -1,10 +1,13 @@
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Text;
 using Corgibytes.Freshli.Lib.Languages.Php;
 using Xunit;
 
-namespace Corgibytes.Freshli.Lib.Test.Unit
+namespace Corgibytes.Freshli.Lib.Test.Unit.Languages.Php
 {
-    public class ComposerManifestTest
+    public class ComposerManifestParserTest
     {
         private static readonly string Contents = File.
           ReadAllText(Fixtures.Path("php", "small", "composer.lock"));
@@ -12,25 +15,17 @@ namespace Corgibytes.Freshli.Lib.Test.Unit
         [Fact]
         public void Parse()
         {
-            var manifest = new ComposerManifest();
-            manifest.Parse(Contents);
+            var parser = new ComposerManifestParser();
+            var stream = Fixtures.CreateStream(Contents);
 
-            AssertManifestContents(manifest);
+            var packages = parser.Parse(stream);
+
+            AssertManifestContents(packages);
         }
 
-        [Fact]
-        public void ParseImpliesClear()
+        private void AssertManifestContents(IEnumerable<PackageInfo> packages)
         {
-            var manifest = new ComposerManifest();
-            manifest.Parse(Contents);
-            manifest.Add("remove", "me");
-            manifest.Parse(Contents);
-
-            AssertManifestContents(manifest);
-        }
-
-        private void AssertManifestContents(ComposerManifest manifest)
-        {
+            var manifest = packages.ToDictionary(p => p.Name);
             Assert.Equal(15, manifest.Count);
             Assert.Equal("1.3.1", manifest["doctrine/inflector"].Version);
             Assert.Equal("v5.6.39", manifest["illuminate/container"].Version);

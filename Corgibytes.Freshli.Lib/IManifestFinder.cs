@@ -4,7 +4,7 @@ namespace Corgibytes.Freshli.Lib
 {
     public interface IManifestFinder
     {
-        IManifest ManifestFor(string projectRootPath);
+        IManifestParser ManifestParser();
         IPackageRepository RepositoryFor(string projectRootPath);
         IEnumerable<string> GetManifestFilenames(string projectRootPath);
     }

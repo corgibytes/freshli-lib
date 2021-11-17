@@ -16,5 +16,10 @@ namespace Corgibytes.Freshli.Lib.Languages.CSharp
         {
             return new NuGetManifest();
         }
+
+        public override IManifestParser ManifestParser()
+        {
+            return new NuGetManifestParser();
+        }
     }
 }

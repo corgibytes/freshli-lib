@@ -5,8 +5,8 @@ using System.Text.RegularExpressions;
 
 namespace Corgibytes.Freshli.Lib.Languages.Perl
 {
+    // TODO: Remove this class
     public class CpanfileManifest : AbstractManifest
     {
-        protected override IManifestParser Parser => new CpanfileManifestParser();
     }
 }

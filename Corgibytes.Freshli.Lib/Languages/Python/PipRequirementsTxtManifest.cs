@@ -3,8 +3,8 @@ using System.Text.RegularExpressions;
 
 namespace Corgibytes.Freshli.Lib.Languages.Python
 {
+    // TODO: Remove this class
     public class PipRequirementsTxtManifest : AbstractManifest
     {
-        protected override IManifestParser Parser => new PipRequirementsTxtManifestParser();
     }
 }

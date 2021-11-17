@@ -19,7 +19,14 @@ namespace Corgibytes.Freshli.Lib
 
         public string ContentsAsOf(DateTimeOffset date)
         {
-            return File.ReadAllText(Path.Combine(_rootDirectory, _targetPath));
+            using var contentStream = ContentStreamAsOf(date);
+            using var reader = new StreamReader(contentStream);
+            return reader.ReadToEnd();
+        }
+
+        public Stream ContentStreamAsOf(DateTimeOffset date)
+        {
+            return File.OpenRead(Path.Combine(_rootDirectory, _targetPath));
         }
 
         public string ShaAsOf(DateTimeOffset date)

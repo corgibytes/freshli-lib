@@ -1,7 +1,7 @@
 ﻿using Corgibytes.Freshli.Lib.Languages.Perl;
 using Xunit;
 
-namespace Corgibytes.Freshli.Lib.Test.Unit.Perl
+namespace Corgibytes.Freshli.Lib.Test.Unit.Languages.Perl
 {
     public class VersionMatcherTest
     {

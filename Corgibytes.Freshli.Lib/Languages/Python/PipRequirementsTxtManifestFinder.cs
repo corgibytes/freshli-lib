@@ -13,5 +13,7 @@
         {
             return new PipRequirementsTxtManifest();
         }
+
+        public override IManifestParser ManifestParser() => new PipRequirementsTxtManifestParser();
     }
 }

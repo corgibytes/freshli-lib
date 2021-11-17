@@ -5,8 +5,8 @@ using System.Text.RegularExpressions;
 
 namespace Corgibytes.Freshli.Lib.Languages.Ruby
 {
+    // TODO: Remove this class
     public class BundlerManifest : AbstractManifest
     {
-        protected override IManifestParser Parser => new BundlerManifestParser();
     }
 }

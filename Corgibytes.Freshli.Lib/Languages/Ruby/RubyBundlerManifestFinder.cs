@@ -13,5 +13,7 @@ namespace Corgibytes.Freshli.Lib.Languages.Ruby
         {
             return new BundlerManifest();
         }
+
+        public override IManifestParser ManifestParser() => new BundlerManifestParser();
     }
 }

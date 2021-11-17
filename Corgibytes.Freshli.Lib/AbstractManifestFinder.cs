@@ -10,6 +10,7 @@ namespace Corgibytes.Freshli.Lib
 
         public abstract IPackageRepository RepositoryFor(string projectRootPath);
         public abstract IManifest ManifestFor(string projectRootPath);
+        public abstract IManifestParser ManifestParser();
 
         public IEnumerable<string> GetManifestFilenames(string projectRootPath)
         {

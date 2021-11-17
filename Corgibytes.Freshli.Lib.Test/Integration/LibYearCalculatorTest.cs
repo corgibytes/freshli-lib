@@ -10,12 +10,12 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
     public class LibYearCalculatorTest
     {
         private RubyGemsRepository _repository = new();
-        private BundlerManifest _manifest = new();
+        private List<PackageInfo> _packages = new();
         private LibYearCalculator _calculator;
 
         public LibYearCalculatorTest()
         {
-            _calculator = new LibYearCalculator(_repository, _manifest);
+            _calculator = new LibYearCalculator(_repository, _packages, true);
         }
 
         [Fact]
@@ -219,10 +219,10 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
             Dictionary<string, string> packagesAndVersions
         )
         {
-            _manifest.Clear();
+            _packages.Clear();
             foreach (var entry in packagesAndVersions)
             {
-                _manifest.Add(entry.Key, entry.Value);
+                _packages.Add(new PackageInfo(entry.Key, entry.Value));
             }
         }
     }

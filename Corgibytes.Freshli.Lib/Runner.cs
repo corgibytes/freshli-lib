@@ -90,17 +90,10 @@ namespace Corgibytes.Freshli.Lib
                         manifestFile
                     );
 
-                    var calculator = new LibYearCalculator(
-                        // TODO: the repository that's used should be based on the `manifestFile` not on the repository root
-                        manifestFinder.RepositoryFor(analysisPath),
-                        // TODO: manifest should be provided by a manifest parser
-                        manifestFinder.ManifestFor(analysisPath)
-                    );
-
                     var fileHistory = fileHistoryFinder.FileHistoryOf(analysisPath, manifestFile);
                     var analysisDates = new AnalysisDates(fileHistory, asOf.DateTime);
                     var metricsResults = analysisDates.Select(
-                        ad => ProcessAnalysisDate(manifestFile, calculator, fileHistory, ad)
+                        ad => ProcessAnalysisDate(manifestFile, manifestFinder, fileHistory, ad)
                     ).ToList();
 
                     yield return new ScanResult(manifestFile, metricsResults);
@@ -111,11 +104,20 @@ namespace Corgibytes.Freshli.Lib
             }
         }
 
-        private MetricsResult ProcessAnalysisDate(string manifestFile, LibYearCalculator calculator, IFileHistory fileHistory, DateTimeOffset currentDate)
+        private MetricsResult ProcessAnalysisDate(string manifestFile, IManifestFinder manifestFinder, IFileHistory fileHistory, DateTimeOffset currentDate)
         {
-            var content = fileHistory.ContentsAsOf(currentDate);
-            // TODO: The manifest should be retreived from the ManifestFinder, not the calculator
-            calculator.Manifest.Parse(content);
+            using var contentStream = fileHistory.ContentStreamAsOf(currentDate);
+
+            var manifestParser = manifestFinder.ManifestParser();
+            var parsedManifestContents = manifestParser.Parse(contentStream);
+            var calculator = new LibYearCalculator(
+                // TODO: the repository that's used should be based on the `manifestFile` not on the repository root
+                manifestFinder.RepositoryFor(null),
+                // TODO: manifest should be provided by a manifest parser
+                parsedManifestContents,
+                manifestParser.UsesExactMatches
+            );
+
 
             var sha = fileHistory.ShaAsOf(currentDate);
 

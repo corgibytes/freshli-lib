@@ -1,10 +1,14 @@
 using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
 using Corgibytes.Freshli.Lib.Languages.Ruby;
 using Xunit;
 
-namespace Corgibytes.Freshli.Lib.Test.Unit
+namespace Corgibytes.Freshli.Lib.Test.Unit.Languages.Ruby
 {
-    public class BundlerManifestTest
+    public class BundlerManifestParserTest
     {
         private static readonly string Contents = @"GEM
   remote: https://rubygems.org/
@@ -386,26 +390,16 @@ DEPENDENCIES
         [Fact]
         public void Parse()
         {
-            var manifest = new BundlerManifest();
-            manifest.Parse(Contents);
+            var contentsStream = new MemoryStream(UTF8Encoding.UTF8.GetBytes(Contents));
+            var parser = new BundlerManifestParser();
+            var manifest = parser.Parse(contentsStream);
 
             AssertManifestContents(manifest);
         }
 
-        [Fact]
-        public void ParseImpliesClear()
+        private static void AssertManifestContents(IEnumerable<PackageInfo> packages)
         {
-            var manifest = new BundlerManifest();
-            manifest.Parse(Contents);
-            manifest.Add("remove", "me");
-
-            manifest.Parse(Contents);
-
-            AssertManifestContents(manifest);
-        }
-
-        private static void AssertManifestContents(BundlerManifest manifest)
-        {
+            var manifest = packages.ToDictionary(p => p.Name);
             Assert.Equal(2, manifest.Count);
             Assert.Equal("2.4.0", manifest["mini_portile2"].Version);
             Assert.Equal("1.9.1", manifest["nokogiri"].Version);
@@ -414,18 +408,17 @@ DEPENDENCIES
         [Fact]
         public void ParseFeedbin()
         {
-            var manifest = new BundlerManifest();
-            manifest.Parse(FeedbinContents);
+            var contentsStream = new MemoryStream(UTF8Encoding.UTF8.GetBytes(FeedbinContents));
+            var parser = new BundlerManifestParser();
+            var packages = parser.Parse(contentsStream);
 
+            var manifest = packages.ToDictionary(p => p.Name);
             Assert.Equal(108, manifest.Count);
             Assert.Equal("4.0.0", manifest["actionmailer"].Version);
             Assert.Equal("4.0.0", manifest["actionpack"].Version);
             Assert.Equal("4.0.0", manifest["activemodel"].Version);
             Assert.Equal("4.0.0", manifest["activerecord"].Version);
-            Assert.Equal(
-              "1.0.3",
-              manifest["activerecord-deprecated_finders"].Version
-            );
+            Assert.Equal("1.0.3", manifest["activerecord-deprecated_finders"].Version);
             Assert.Equal("4.0.0", manifest["activesupport"].Version);
             Assert.Equal("2.3.5", manifest["addressable"].Version);
             Assert.Equal("0.2.2", manifest["aggregate"].Version);
@@ -533,8 +526,12 @@ DEPENDENCIES
         [Fact]
         public void ThrowsExceptionForInvalidContent()
         {
+            var contentsStream = new MemoryStream(UTF8Encoding.UTF8.GetBytes("test content"));
+            var parser = new BundlerManifestParser();
+
             Assert.Throws<FormatException>(testCode: () =>
-              new BundlerManifest().Parse("test content"));
+                parser.Parse(contentsStream).ToList()
+            );
         }
     }
 }

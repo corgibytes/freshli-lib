@@ -2,7 +2,7 @@ using System;
 using Corgibytes.Freshli.Lib.Languages.Python;
 using Xunit;
 
-namespace Corgibytes.Freshli.Lib.Test.Unit.Python
+namespace Corgibytes.Freshli.Lib.Test.Unit.Languages.Python
 {
     public class VersionMatcherTest
     {

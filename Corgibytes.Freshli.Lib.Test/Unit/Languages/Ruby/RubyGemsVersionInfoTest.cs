@@ -3,7 +3,7 @@ using Corgibytes.Freshli.Lib.Languages.Ruby;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace Corgibytes.Freshli.Lib.Test.Unit.Ruby
+namespace Corgibytes.Freshli.Lib.Test.Unit.Languages.Ruby
 {
     public class RubyGemsVersionInfoTest
     {

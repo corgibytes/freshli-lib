@@ -13,5 +13,7 @@ namespace Corgibytes.Freshli.Lib.Languages.Php
         {
             return new ComposerManifest();
         }
+
+        public override IManifestParser ManifestParser() => new ComposerManifestParser();
     }
 }

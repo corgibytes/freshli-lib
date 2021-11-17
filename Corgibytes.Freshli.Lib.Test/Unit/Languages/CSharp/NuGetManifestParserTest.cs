@@ -1,16 +1,17 @@
 using System;
+using System.Linq;
 using Corgibytes.Freshli.Lib.Languages.CSharp;
 using NuGet.Versioning;
 using Xunit;
 
-namespace Corgibytes.Freshli.Lib.Test.Unit.CSharp
+namespace Corgibytes.Freshli.Lib.Test.Unit.Languages.CSharp
 {
-    public class NuGetManifestTest
+    public class NuGetManifestParserTest
     {
         [Fact]
         public void ParsesFile()
         {
-            var manifest = new NuGetManifest();
+
             var testContent = @"<Project Sdk=""Microsoft.NET.Sdk"">
             <ItemGroup>
             <PackageReference Include=""DotNetEnv"" Version=""1.4.0"" />
@@ -22,9 +23,12 @@ namespace Corgibytes.Freshli.Lib.Test.Unit.CSharp
             </ItemGroup>
         </Project>";
 
-            manifest.Parse(testContent);
+            var stream = Fixtures.CreateStream(testContent);
 
-            Assert.Equal(6, manifest.Count);
+            var parser = new NuGetManifestParser();
+            var manifest = parser.Parse(stream);
+
+            Assert.Equal(6, manifest.Count());
         }
     }
 }

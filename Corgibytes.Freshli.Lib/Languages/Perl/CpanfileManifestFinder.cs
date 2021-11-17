@@ -13,5 +13,7 @@
         {
             return new CpanfileManifest();
         }
+
+        public override IManifestParser ManifestParser() => new CpanfileManifestParser();
     }
 }
