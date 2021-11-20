@@ -5,6 +5,7 @@ using Corgibytes.Freshli.Lib.Exceptions;
 
 namespace Corgibytes.Freshli.Lib
 {
+    // TODO: Extract IFileHistoryService
     public class FileHistoryService
     {
         private IFileHistoryFinderRegistry _registry;

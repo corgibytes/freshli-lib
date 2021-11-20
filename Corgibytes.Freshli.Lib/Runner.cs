@@ -12,20 +12,17 @@ namespace Corgibytes.Freshli.Lib
 
         private static readonly Logger logger = LogManager.GetCurrentClassLogger();
 
-        public IManifestService ManifestService { get; private set; }
+        public IManifestService ManifestService { get; init; }
 
-        public IFileHistoryFinderRegistry FileHistoryFinderRegistry { get; init; }
-        public IManifestFinderRegistry ManifestFinderRegistry { get; init; }
+        public FileHistoryService FileHistoryService { get; init; }
 
-        public Runner(IManifestFinderRegistry manifestFinderRegistry, IFileHistoryFinderRegistry fileHistoryFinderRegistry)
+        public Runner(IManifestService manifestService, FileHistoryService fileHistoryService)
         {
-            ManifestFinderRegistry = manifestFinderRegistry;
-            FileHistoryFinderRegistry = fileHistoryFinderRegistry;
-
-            // TODO: inject this dependency
-            ManifestService = new ManifestService(ManifestFinderRegistry);
+            ManifestService = manifestService;
+            FileHistoryService = FileHistoryService;
         }
 
+        // TODO: Move this method to `ManifestService`
         private bool ContainsManifestFile(IEnumerable<IManifestFinder> manifestFinders, string analysisPath)
         {
             foreach (var manifestFinder in manifestFinders)
@@ -45,9 +42,7 @@ namespace Corgibytes.Freshli.Lib
 
             IList<ScanResult> scanResults = new List<ScanResult>();
 
-            // TODO: inject this dependencies
-            var fileHistoryService = new FileHistoryService(FileHistoryFinderRegistry);
-            var fileHistoryFinder = fileHistoryService.SelectFinderFor(analysisPath);
+            var fileHistoryFinder = FileHistoryService.SelectFinderFor(analysisPath);
 
             var manifestFinders = ManifestService.SelectFindersFor(analysisPath, fileHistoryFinder);
             if (!ContainsManifestFile(manifestFinders, analysisPath))
