@@ -6,9 +6,11 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
     public class ManifestFinderTest
     {
         public IFileHistoryFinderRegistry FileHistoryFinderRegistry { get; init; }
+        public ManifestFinderRegistry ManifestFinderRegistry { get; init; }
 
         public ManifestFinderTest()
         {
+            ManifestFinderRegistry = new ManifestFinderRegistry();
             ManifestFinderRegistry.RegisterAll();
 
             FileHistoryFinderRegistry = new FileHistoryFinderRegistry();
@@ -22,7 +24,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
             var emptyFixturePath = Fixtures.Path("empty");
             var historyService = new FileHistoryService(FileHistoryFinderRegistry);
             var fileFinder = historyService.SelectFinderFor(emptyFixturePath);
-            var manifestService = new ManifestService();
+            var manifestService = new ManifestService(ManifestFinderRegistry);
             var finders = manifestService.SelectFindersFor(emptyFixturePath, fileFinder);
 
             Assert.Empty(finders);
@@ -35,7 +37,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
 
             var historyService = new FileHistoryService(FileHistoryFinderRegistry);
             var fileFinder = historyService.SelectFinderFor(rubyFixturePath);
-            var manifestService = new ManifestService();
+            var manifestService = new ManifestService(ManifestFinderRegistry);
             var finders = manifestService.SelectFindersFor(rubyFixturePath, fileFinder);
 
             Assert.Equal("Gemfile.lock", finders.First().GetManifestFilenames(rubyFixturePath).First());
@@ -48,7 +50,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
 
             var historyService = new FileHistoryService(FileHistoryFinderRegistry);
             var fileFinder = historyService.SelectFinderFor(phpFixturePath);
-            var manifestService = new ManifestService();
+            var manifestService = new ManifestService(ManifestFinderRegistry);
             var finders = manifestService.SelectFindersFor(phpFixturePath, fileFinder);
 
             Assert.Equal("composer.lock", finders.First().GetManifestFilenames(phpFixturePath).First());
@@ -65,7 +67,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
 
             var historyService = new FileHistoryService(FileHistoryFinderRegistry);
             var fileFinder = historyService.SelectFinderFor(pythonFixturePath);
-            var manifestService = new ManifestService();
+            var manifestService = new ManifestService(ManifestFinderRegistry);
             var finders = manifestService.SelectFindersFor(pythonFixturePath, fileFinder);
 
             Assert.Equal("requirements.txt", finders.First().GetManifestFilenames(pythonFixturePath).First());
@@ -83,7 +85,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
 
             var historyService = new FileHistoryService(FileHistoryFinderRegistry);
             var fileFinder = historyService.SelectFinderFor(fixturePath);
-            var manifestService = new ManifestService();
+            var manifestService = new ManifestService(ManifestFinderRegistry);
             var finders = manifestService.SelectFindersFor(fixturePath, fileFinder);
 
             Assert.Equal("cpanfile", finders.First().GetManifestFilenames(fixturePath).First());

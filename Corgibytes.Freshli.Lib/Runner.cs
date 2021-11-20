@@ -12,13 +12,15 @@ namespace Corgibytes.Freshli.Lib
 
         private static readonly Logger logger = LogManager.GetCurrentClassLogger();
 
-        public ManifestService ManifestService { get; private set; }
+        public IManifestService ManifestService { get; private set; }
 
-        public IFileHistoryFinderRegistry FileHistoryFinderRegistry { get; private set; }
+        public IFileHistoryFinderRegistry FileHistoryFinderRegistry { get; init; }
+        public ManifestFinderRegistry ManifestFinderRegistry { get; init; }
 
         public Runner()
         {
             // TODO: The manifest finder registry should be injected
+            ManifestFinderRegistry = new ManifestFinderRegistry();
             ManifestFinderRegistry.RegisterAll();
 
             // TODO: The file history registry should be injected
@@ -27,7 +29,7 @@ namespace Corgibytes.Freshli.Lib
             FileHistoryFinderRegistry.Register<LocalFileHistoryFinder>();
 
             // TODO: inject this dependency
-            ManifestService = new ManifestService();
+            ManifestService = new ManifestService(ManifestFinderRegistry);
         }
 
         private bool ContainsManifestFile(IEnumerable<IManifestFinder> manifestFinders, string analysisPath)

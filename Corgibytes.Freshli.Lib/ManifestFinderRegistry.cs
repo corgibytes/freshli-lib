@@ -8,19 +8,19 @@ namespace Corgibytes.Freshli.Lib
 {
     public class ManifestFinderRegistry
     {
-        private static readonly Logger logger = LogManager.GetCurrentClassLogger();
+        private readonly Logger logger = LogManager.GetCurrentClassLogger();
 
-        private static readonly IList<AbstractManifestFinder> _finders =
+        private readonly IList<AbstractManifestFinder> _finders =
             new List<AbstractManifestFinder>();
 
-        public static IList<AbstractManifestFinder> Finders => _finders;
+        public IList<AbstractManifestFinder> Finders => _finders;
 
-        public static void Register(AbstractManifestFinder finder)
+        public void Register(AbstractManifestFinder finder)
         {
             Finders.Add(finder);
         }
 
-        public static void RegisterAll()
+        public void RegisterAll()
         {
             var manifestFinderTypes = new HashSet<Type>();
             foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
@@ -41,7 +41,7 @@ namespace Corgibytes.Freshli.Lib
             }
         }
 
-        private static IEnumerable<Type> FindersLoadedIn(Assembly assembly)
+        private IEnumerable<Type> FindersLoadedIn(Assembly assembly)
         {
             try
             {
