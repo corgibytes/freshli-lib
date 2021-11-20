@@ -14,9 +14,9 @@ namespace Corgibytes.Freshli.Lib
 
         public IManifestService ManifestService { get; init; }
 
-        public FileHistoryService FileHistoryService { get; init; }
+        public IFileHistoryService FileHistoryService { get; init; }
 
-        public Runner(IManifestService manifestService, FileHistoryService fileHistoryService)
+        public Runner(IManifestService manifestService, IFileHistoryService fileHistoryService)
         {
             ManifestService = manifestService;
             FileHistoryService = FileHistoryService;

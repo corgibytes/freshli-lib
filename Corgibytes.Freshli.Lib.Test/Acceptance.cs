@@ -16,10 +16,9 @@ namespace Corgibytes.Freshli.Lib.Test
         private IManifestService _manifestService;
         private IManifestFinderRegistry _manifestFinderRegistry;
         private IFileHistoryFinderRegistry _fileHistoryFinderRegistry;
-        private FileHistoryService _fileHistoryService;
+        private IFileHistoryService _fileHistoryService;
 
         private IRunner _runner;
-
 
         public Acceptance()
         {
