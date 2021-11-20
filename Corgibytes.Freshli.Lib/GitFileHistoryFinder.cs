@@ -7,6 +7,16 @@ using LibGit2Sharp;
 
 namespace Corgibytes.Freshli.Lib
 {
+    // TODO: I'm not sure happy with the way this design has turned out. I'd like for the *Finder classes to be stateless,
+    // but provide access to something that carries state. So in the case of a "file history", what we really need is for
+    // the "finder" to recognize from a project path (or a remote url) that it knows how to hand back an instance of something
+    // that can read the history for any file or files that exist at that location. Perhaps that thing colud be thought of as
+    // "file history source"? A "file history source" would be responsible for navigating the underlying data store, such as
+    // a git repository or a file system or http service or anything with files, and searching it for the presence of files
+    // that might be manifest files. The "file history source" would then be responsible for handing back a "file history" for
+    // any single file that it's asked to retrieve. So the finder's job would just be, "can I work with this?" and the "file
+    // history source" would know how to actually go and get the information and it would provide that information in the
+    // form of "file history" instances.
     public class GitFileHistoryFinder : IFileHistoryFinder
     {
         private Dictionary<string, string> _cloneLocations =

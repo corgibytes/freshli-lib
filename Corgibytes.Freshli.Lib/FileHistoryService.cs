@@ -13,6 +13,7 @@ namespace Corgibytes.Freshli.Lib
         {
             _registry = registry;
         }
+
         public IFileHistoryFinder SelectFinderFor(string projectRootPath)
         {
             foreach (var finder in _registry.Finders.ToImmutableList())
