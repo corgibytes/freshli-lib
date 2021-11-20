@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using NLog;
 using VerifyTests;
 using VerifyXunit;
 using Xunit;
@@ -9,20 +10,32 @@ namespace Corgibytes.Freshli.Lib.Test
     [UsesVerify]
     public class Acceptance
     {
+        private DateTimeOffset _testingBoundary =
+            new DateTimeOffset(2020, 02, 01, 0, 0, 0, 0, TimeSpan.Zero);
+
+        private IManifestFinderRegistry _manifestFinderRegistry;
+        private IFileHistoryFinderRegistry _fileHistoryFinderRegistry;
+        private IRunner _runner;
+
         public Acceptance()
         {
-        }
+            _manifestFinderRegistry = new ManifestFinderRegistry();
 
-        private DateTimeOffset _testingBoundary =
-          new DateTimeOffset(2020, 02, 01, 0, 0, 0, 0, TimeSpan.Zero);
+            var loader = new ManifestFinderRegistryLoader(LogManager.GetLogger(nameof(ManifestFinderRegistryLoader)));
+            loader.RegisterAll(_manifestFinderRegistry);
+
+            _fileHistoryFinderRegistry = new FileHistoryFinderRegistry();
+            _fileHistoryFinderRegistry.Register<GitFileHistoryFinder>();
+            _fileHistoryFinderRegistry.Register<LocalFileHistoryFinder>();
+
+            _runner = new Runner(_manifestFinderRegistry, _fileHistoryFinderRegistry);
+        }
 
         [Fact]
         public Task RubyGemsWithGitHistory()
         {
-            var runner = new Runner();
-
             var rubyFixturePath = Fixtures.Path("ruby", "nokotest");
-            var results = runner.Run(rubyFixturePath, asOf: _testingBoundary);
+            var results = _runner.Run(rubyFixturePath, asOf: _testingBoundary);
 
             return Verifier.Verify(results);
         }
@@ -30,11 +43,9 @@ namespace Corgibytes.Freshli.Lib.Test
         [Fact]
         public Task RubyGemsWithHistoryViaGitHub()
         {
-            var runner = new Runner();
-
             var repoUrl =
               "https://github.com/corgibytes/freshli-fixture-ruby-nokotest";
-            var results = runner.Run(repoUrl, asOf: _testingBoundary);
+            var results = _runner.Run(repoUrl, asOf: _testingBoundary);
 
             return Verifier.Verify(results);
         }
@@ -42,10 +53,8 @@ namespace Corgibytes.Freshli.Lib.Test
         [Fact]
         public Task RubyGemsFeedbinHistoryViaGitHub()
         {
-            var runner = new Runner();
-
             var repoUrl = "https://github.com/feedbin/feedbin";
-            var results = runner.Run(repoUrl, asOf: _testingBoundary);
+            var results = _runner.Run(repoUrl, asOf: _testingBoundary);
 
             return Verifier.Verify(results);
         }
@@ -53,8 +62,7 @@ namespace Corgibytes.Freshli.Lib.Test
         [Fact]
         public Task RubyGemsClearanceHistoryViaGitHub()
         {
-            var runner = new Runner();
-            var results = runner.Run(
+            var results = _runner.Run(
               "https://github.com/thoughtbot/clearance",
               asOf: new DateTimeOffset(2020, 06, 01, 00, 00, 00, 00, TimeSpan.Zero)
             );
@@ -65,10 +73,8 @@ namespace Corgibytes.Freshli.Lib.Test
         [Fact]
         public Task ComposerWithoutGitHistory()
         {
-            var runner = new Runner();
-
             var phpFixturePath = Fixtures.Path("php", "large");
-            var results = runner.Run(phpFixturePath, asOf: _testingBoundary);
+            var results = _runner.Run(phpFixturePath, asOf: _testingBoundary);
 
             return Verifier.Verify(results);
         }
@@ -76,10 +82,8 @@ namespace Corgibytes.Freshli.Lib.Test
         [Fact]
         public Task DrupalComposerWithoutGitHistory()
         {
-            var runner = new Runner();
-
             var phpFixturePath = Fixtures.Path("php", "drupal");
-            var results = runner.Run(phpFixturePath, asOf: _testingBoundary);
+            var results = _runner.Run(phpFixturePath, asOf: _testingBoundary);
 
             return Verifier.Verify(results);
         }
@@ -87,9 +91,7 @@ namespace Corgibytes.Freshli.Lib.Test
         [Fact]
         public Task RequirementsTxtPyspider()
         {
-            var runner = new Runner();
-
-            var results = runner.Run(
+            var results = _runner.Run(
               "https://github.com/binux/pyspider",
               asOf: _testingBoundary
             );
@@ -100,9 +102,7 @@ namespace Corgibytes.Freshli.Lib.Test
         [Fact]
         public Task CpanfileDancer2()
         {
-            var runner = new Runner();
-
-            var results = runner.Run(
+            var results = _runner.Run(
               "https://github.com/PerlDancer/Dancer2",
               asOf: _testingBoundary
             );
@@ -113,9 +113,7 @@ namespace Corgibytes.Freshli.Lib.Test
         [Fact]
         public Task SpaCyWithHistoryViaGitHub()
         {
-            var runner = new Runner();
-
-            var results = runner.Run(
+            var results = _runner.Run(
                 "https://github.com/explosion/spaCy",
                 asOf: new DateTimeOffset(2017, 6, 1, 0, 0, 0, TimeSpan.Zero)
             );
@@ -126,9 +124,7 @@ namespace Corgibytes.Freshli.Lib.Test
         [Fact]
         public Task UnsupportedGitRepository()
         {
-            var runner = new Runner();
-
-            var results = runner.Run(
+            var results = _runner.Run(
               "https://github.com/gohugoio/hugo",
               asOf: _testingBoundary
             );

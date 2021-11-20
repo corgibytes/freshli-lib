@@ -17,18 +17,10 @@ namespace Corgibytes.Freshli.Lib
         public IFileHistoryFinderRegistry FileHistoryFinderRegistry { get; init; }
         public IManifestFinderRegistry ManifestFinderRegistry { get; init; }
 
-        public Runner()
+        public Runner(IManifestFinderRegistry manifestFinderRegistry, IFileHistoryFinderRegistry fileHistoryFinderRegistry)
         {
-            // TODO: The manifest finder registry should be injected
-            ManifestFinderRegistry = new ManifestFinderRegistry();
-
-            var loader = new ManifestFinderRegistryLoader(NLog.LogManager.GetLogger("ManifestFinderRegistryLoader"));
-            loader.RegisterAll(ManifestFinderRegistry);
-
-            // TODO: The file history registry should be injected
-            FileHistoryFinderRegistry = new FileHistoryFinderRegistry();
-            FileHistoryFinderRegistry.Register<GitFileHistoryFinder>();
-            FileHistoryFinderRegistry.Register<LocalFileHistoryFinder>();
+            ManifestFinderRegistry = manifestFinderRegistry;
+            FileHistoryFinderRegistry = fileHistoryFinderRegistry;
 
             // TODO: inject this dependency
             ManifestService = new ManifestService(ManifestFinderRegistry);

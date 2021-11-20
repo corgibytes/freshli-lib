@@ -1,6 +1,7 @@
 using System;
 using System.Reactive;
 using Corgibytes.Freshli.Lib;
+using NLog;
 using ReactiveUI;
 
 namespace ExampleClient.ViewModels
@@ -56,7 +57,16 @@ namespace ExampleClient.ViewModels
         {
             Results = $"Starting Freshli run for '{GitPath}'{Environment.NewLine}";
 
-            var runner = new Runner();
+            var manifestFinderRegistry = new ManifestFinderRegistry();
+
+            var loader = new ManifestFinderRegistryLoader(LogManager.GetLogger(nameof(ManifestFinderRegistryLoader)));
+            loader.RegisterAll(manifestFinderRegistry);
+
+            var fileHistoryFinderRegistry = new FileHistoryFinderRegistry();
+            fileHistoryFinderRegistry.Register<GitFileHistoryFinder>();
+            fileHistoryFinderRegistry.Register<LocalFileHistoryFinder>();
+
+            var runner = new Runner(manifestFinderRegistry, fileHistoryFinderRegistry);
             var metricResults = runner.Run(GitPath);
 
             foreach (var mr in metricResults)
