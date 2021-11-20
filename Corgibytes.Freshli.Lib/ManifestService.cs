@@ -6,9 +6,9 @@ namespace Corgibytes.Freshli.Lib
 {
     public class ManifestService : IManifestService
     {
-        private ManifestFinderRegistry _registry;
+        private IManifestFinderRegistry _registry;
 
-        public ManifestService(ManifestFinderRegistry registry)
+        public ManifestService(IManifestFinderRegistry registry)
         {
             _registry = registry;
         }
@@ -16,7 +16,6 @@ namespace Corgibytes.Freshli.Lib
         // TODO: It should be possible to get rid of the analysis path parameter, since the IFileHistoryFinder should already know the analysis path
         public IEnumerable<IManifestFinder> SelectFindersFor(string analysisPath, IFileHistoryFinder fileHistoryFinder)
         {
-            // TODO: inject the dependency on ManfestFinderRegistry
             foreach (var finder in _registry.Finders.ToImmutableList())
             {
                 // TODO: the fileHistoryFinder should be passed in to GetManifestFilenames instead of the "analysisPath"
@@ -31,6 +30,5 @@ namespace Corgibytes.Freshli.Lib
                 }
             }
         }
-
     }
 }

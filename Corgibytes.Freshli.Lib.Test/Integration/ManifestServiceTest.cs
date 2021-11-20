@@ -6,12 +6,14 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
     public class ManifestFinderTest
     {
         public IFileHistoryFinderRegistry FileHistoryFinderRegistry { get; init; }
-        public ManifestFinderRegistry ManifestFinderRegistry { get; init; }
+        public IManifestFinderRegistry ManifestFinderRegistry { get; init; }
 
         public ManifestFinderTest()
         {
             ManifestFinderRegistry = new ManifestFinderRegistry();
-            ManifestFinderRegistry.RegisterAll();
+
+            var loader = new ManifestFinderRegistryLoader(NLog.LogManager.GetLogger("ManifestFinderRegistryLoader"));
+            loader.RegisterAll(ManifestFinderRegistry);
 
             FileHistoryFinderRegistry = new FileHistoryFinderRegistry();
             FileHistoryFinderRegistry.Register<GitFileHistoryFinder>();
