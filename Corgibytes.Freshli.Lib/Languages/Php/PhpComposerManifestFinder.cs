@@ -9,11 +9,6 @@ namespace Corgibytes.Freshli.Lib.Languages.Php
             return new MulticastComposerRepository(projectRootPath, FileFinder);
         }
 
-        public override IManifest ManifestFor(string projectRootPath)
-        {
-            return new ComposerManifest();
-        }
-
         public override IManifestParser ManifestParser() => new ComposerManifestParser();
     }
 }

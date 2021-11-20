@@ -9,11 +9,6 @@ namespace Corgibytes.Freshli.Lib.Languages.Ruby
             return new RubyGemsRepository();
         }
 
-        public override IManifest ManifestFor(string projectRootPath)
-        {
-            return new BundlerManifest();
-        }
-
         public override IManifestParser ManifestParser() => new BundlerManifestParser();
     }
 }

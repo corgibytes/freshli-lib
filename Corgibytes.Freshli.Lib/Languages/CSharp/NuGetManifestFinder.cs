@@ -12,11 +12,6 @@ namespace Corgibytes.Freshli.Lib.Languages.CSharp
             return new NuGetRepository();
         }
 
-        public override IManifest ManifestFor(string projectRootPath)
-        {
-            return new NuGetManifest();
-        }
-
         public override IManifestParser ManifestParser()
         {
             return new NuGetManifestParser();

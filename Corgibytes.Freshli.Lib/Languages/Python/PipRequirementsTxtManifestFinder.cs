@@ -9,11 +9,6 @@
             return new PyPIRepository();
         }
 
-        public override IManifest ManifestFor(string projectRootPath)
-        {
-            return new PipRequirementsTxtManifest();
-        }
-
         public override IManifestParser ManifestParser() => new PipRequirementsTxtManifestParser();
     }
 }

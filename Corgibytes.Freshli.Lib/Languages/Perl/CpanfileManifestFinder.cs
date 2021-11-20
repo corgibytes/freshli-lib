@@ -9,11 +9,6 @@
             return new MetaCpanRepository();
         }
 
-        public override IManifest ManifestFor(string projectRootPath)
-        {
-            return new CpanfileManifest();
-        }
-
         public override IManifestParser ManifestParser() => new CpanfileManifestParser();
     }
 }

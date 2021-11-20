@@ -8,7 +8,7 @@ using NLog;
 namespace Corgibytes.Freshli.Lib.Languages
 {
     // TODO: Remove this class
-    public abstract class AbstractManifest : IManifest
+    public abstract class AbstractManifest
     {
         protected static readonly Logger _logger = LogManager.
           GetCurrentClassLogger();
@@ -21,11 +21,6 @@ namespace Corgibytes.Freshli.Lib.Languages
         public IEnumerator<PackageInfo> GetEnumerator()
         {
             return _packages.Values.GetEnumerator();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
         }
 
         public void Add(string packageName, string packageVersion)
