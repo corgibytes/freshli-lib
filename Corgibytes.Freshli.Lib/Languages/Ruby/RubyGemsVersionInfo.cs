@@ -64,7 +64,7 @@ namespace Corgibytes.Freshli.Lib.Languages.Ruby
             for (var i = 0; i < highestVersionPartsCount; i++)
             {
                 result = CompareVersionParts(
-                  // Substitute "0" if a version part isn't available
+                    // Substitute "0" if a version part isn't available
                     VersionParts.ElementAtOrDefault(i) ?? "0",
                     otherVersionInfo.VersionParts.ElementAtOrDefault(i) ?? "0"
                 );
