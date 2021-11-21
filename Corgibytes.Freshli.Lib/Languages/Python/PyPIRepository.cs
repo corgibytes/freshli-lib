@@ -10,9 +10,9 @@ namespace Corgibytes.Freshli.Lib.Languages.Python
 {
     public class PyPIRepository : IPackageRepository
     {
-
-        private static readonly Logger _logger = LogManager.GetCurrentClassLogger();
-        private IDictionary<string, IList<IVersionInfo>> _packages =
+        private readonly Logger _logger = LogManager.GetCurrentClassLogger();
+        // TODO: Migrate towards something from Microsoft.Extensions.Caching
+        private static IDictionary<string, IList<IVersionInfo>> _packages =
           new Dictionary<string, IList<IVersionInfo>>();
 
         private IList<IVersionInfo> GetReleaseHistory(string name)

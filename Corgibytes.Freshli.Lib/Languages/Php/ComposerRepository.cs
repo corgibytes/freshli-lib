@@ -12,10 +12,11 @@ namespace Corgibytes.Freshli.Lib.Languages.Php
     {
         private readonly string _baseUrl;
 
+        // TODO: Migrate towards something from Microsoft.Extensions.Caching
         private Dictionary<string, string> _packageInfoCache =
           new Dictionary<string, string>();
 
-        private static readonly Logger _logger = LogManager.GetCurrentClassLogger();
+        private readonly Logger _logger = LogManager.GetCurrentClassLogger();
 
         public ComposerRepository(string baseUrl)
         {
@@ -76,7 +77,7 @@ namespace Corgibytes.Freshli.Lib.Languages.Php
             return filteredVersions.Last();
         }
 
-        private static DateTimeOffset ParsePublishedDate(JsonElement versionJson)
+        private DateTimeOffset ParsePublishedDate(JsonElement versionJson)
         {
             var result = DateTimeOffset.MinValue;
 
@@ -123,21 +124,13 @@ namespace Corgibytes.Freshli.Lib.Languages.Php
             return null;
         }
 
-        public IVersionInfo Latest(
-          string name,
-          DateTimeOffset asOf,
-          string thatMatches
-        )
+        public IVersionInfo Latest(string name, DateTimeOffset asOf, string thatMatches)
         {
+            // TODO: Implement this method
             throw new NotImplementedException();
         }
 
-        public List<IVersionInfo> VersionsBetween(
-          string name,
-          DateTimeOffset asOf,
-          IVersionInfo earlierVersion,
-          IVersionInfo laterVersion,
-          bool includePreReleases)
+        public List<IVersionInfo> VersionsBetween(string name, DateTimeOffset asOf, IVersionInfo earlierVersion, IVersionInfo laterVersion, bool includePreReleases)
         {
             //TODO: Implement method
             throw new NotImplementedException();

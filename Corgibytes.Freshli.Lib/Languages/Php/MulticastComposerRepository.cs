@@ -77,22 +77,13 @@ namespace Corgibytes.Freshli.Lib.Languages.Php
             return null;
         }
 
-        public IVersionInfo Latest(
-          string name,
-          DateTimeOffset asOf,
-          string thatMatches
-        )
+        public IVersionInfo Latest(string name, DateTimeOffset asOf, string thatMatches)
         {
+            // TODO: Implement this method
             throw new NotImplementedException();
         }
 
-        public List<IVersionInfo> VersionsBetween(
-          string name,
-          DateTimeOffset asOf,
-          IVersionInfo earlierVersion,
-          IVersionInfo laterVersion,
-          bool includePreReleases
-        )
+        public List<IVersionInfo> VersionsBetween(string name, DateTimeOffset asOf, IVersionInfo earlierVersion, IVersionInfo laterVersion, bool includePreReleases)
         {
             //TODO: Implement method
             throw new NotImplementedException();

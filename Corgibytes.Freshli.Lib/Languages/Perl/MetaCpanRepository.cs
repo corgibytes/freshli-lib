@@ -10,7 +10,8 @@ namespace Corgibytes.Freshli.Lib.Languages.Perl
 {
     public class MetaCpanRepository : IPackageRepository
     {
-        private IDictionary<string, IList<IVersionInfo>> _packages =
+        // TODO: Migrate towards something from Microsoft.Extensions.Caching
+        private static IDictionary<string, IList<IVersionInfo>> _packages =
           new Dictionary<string, IList<IVersionInfo>>();
 
         private IList<IVersionInfo> GetReleaseHistory(string name)

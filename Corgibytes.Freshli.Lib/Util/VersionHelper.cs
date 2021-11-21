@@ -2,7 +2,7 @@ namespace Corgibytes.Freshli.Lib.Util
 {
     public static class VersionHelper
     {
-
+        // TODO: Seems like there should be a class/method provided by the runtime that would do this for us
         public static int CompareNumericValues(long? v1, long? v2)
         {
             if (v1 == v2)

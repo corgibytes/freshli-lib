@@ -6,7 +6,7 @@ namespace Corgibytes.Freshli.Lib
 {
     public class LibYearCalculator
     {
-        private static readonly Logger _logger = LogManager.GetCurrentClassLogger();
+        private readonly Logger _logger = LogManager.GetCurrentClassLogger();
         public IPackageRepository Repository { get; }
 
         private IEnumerable<PackageInfo> packages;
@@ -75,8 +75,11 @@ namespace Corgibytes.Freshli.Lib
                             thatMatches: package.Version
                         );
 
-            latestVersion =
-                Repository.Latest(package.Name, date, currentVersion.IsPreRelease);
+            latestVersion = null;
+            if (currentVersion != null)
+            {
+                latestVersion = Repository.Latest(package.Name, date, currentVersion.IsPreRelease);
+            }
         }
 
         private LibYearPackageResult ProcessPackageResult(
@@ -120,13 +123,13 @@ namespace Corgibytes.Freshli.Lib
             return packageResult;
         }
 
-        public static double Compute(
+        public double Compute(
             IVersionInfo olderVersion, IVersionInfo newerVersion)
         {
             return (newerVersion.DatePublished - olderVersion.DatePublished).TotalDays / 365.0;
         }
 
-        private static void HandleFailedPackage(
+        private void HandleFailedPackage(
             LibYearResult result,
             PackageInfo package,
             Exception e

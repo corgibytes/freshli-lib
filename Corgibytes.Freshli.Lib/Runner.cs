@@ -10,7 +10,7 @@ namespace Corgibytes.Freshli.Lib
     {
         private const string ResultsPath = "results";
 
-        private static readonly Logger logger = LogManager.GetCurrentClassLogger();
+        private readonly Logger logger = LogManager.GetCurrentClassLogger();
 
         public IManifestService ManifestService { get; init; }
 
@@ -19,7 +19,7 @@ namespace Corgibytes.Freshli.Lib
         public Runner(IManifestService manifestService, IFileHistoryService fileHistoryService)
         {
             ManifestService = manifestService;
-            FileHistoryService = FileHistoryService;
+            FileHistoryService = fileHistoryService;
         }
 
         // TODO: Move this method to `ManifestService`
@@ -84,7 +84,7 @@ namespace Corgibytes.Freshli.Lib
                     var fileHistory = fileHistoryFinder.FileHistoryOf(analysisPath, manifestFile);
                     var analysisDates = new AnalysisDates(fileHistory, asOf.DateTime);
                     var metricsResults = analysisDates.Select(
-                        ad => ProcessAnalysisDate(manifestFile, manifestFinder, fileHistory, ad)
+                        ad => ProcessAnalysisDate(analysisPath, manifestFile, manifestFinder, fileHistory, ad)
                     ).ToList();
 
                     yield return new ScanResult(manifestFile, metricsResults);
@@ -95,7 +95,7 @@ namespace Corgibytes.Freshli.Lib
             }
         }
 
-        private MetricsResult ProcessAnalysisDate(string manifestFile, IManifestFinder manifestFinder, IFileHistory fileHistory, DateTimeOffset currentDate)
+        private MetricsResult ProcessAnalysisDate(string analysisPath, string manifestFile, IManifestFinder manifestFinder, IFileHistory fileHistory, DateTimeOffset currentDate)
         {
             using var contentStream = fileHistory.ContentStreamAsOf(currentDate);
 
@@ -103,7 +103,7 @@ namespace Corgibytes.Freshli.Lib
             var parsedManifestContents = manifestParser.Parse(contentStream);
             var calculator = new LibYearCalculator(
                 // TODO: the repository that's used should be based on the `manifestFile` not on the repository root
-                manifestFinder.RepositoryFor(null),
+                manifestFinder.RepositoryFor(analysisPath),
                 // TODO: manifest should be provided by a manifest parser
                 parsedManifestContents,
                 manifestParser.UsesExactMatches
@@ -133,7 +133,7 @@ namespace Corgibytes.Freshli.Lib
             return Run(analysisPath, asOf: asOf);
         }
 
-        private static void WriteResultsToFile(IList<ScanResult> results)
+        private void WriteResultsToFile(IList<ScanResult> results)
         {
             if (!System.IO.Directory.Exists(ResultsPath))
             {

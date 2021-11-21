@@ -11,8 +11,8 @@ namespace Corgibytes.Freshli.Lib.Languages.CSharp
 {
     public class NuGetRepository : IPackageRepository
     {
-
-        private IDictionary<string, IEnumerable<FreshliNuGetVersionInfo>> _packages
+        // TODO: Migrate towards something from Microsoft.Extensions.Caching
+        private static IDictionary<string, IEnumerable<FreshliNuGetVersionInfo>> _packages
           = new Dictionary<string, IEnumerable<FreshliNuGetVersionInfo>>();
 
         private IEnumerable<IVersionInfo> GetReleaseHistory(
@@ -102,12 +102,9 @@ namespace Corgibytes.Freshli.Lib.Languages.CSharp
               .ToList();
         }
 
-        public IVersionInfo Latest(
-          string name,
-          DateTimeOffset asOf,
-          string thatMatches
-        )
+        public IVersionInfo Latest(string name, DateTimeOffset asOf, string thatMatches)
         {
+            // TODO: Implement this method
             throw new NotImplementedException();
         }
     }

@@ -397,7 +397,7 @@ DEPENDENCIES
             AssertManifestContents(manifest);
         }
 
-        private static void AssertManifestContents(IEnumerable<PackageInfo> packages)
+        private void AssertManifestContents(IEnumerable<PackageInfo> packages)
         {
             var manifest = packages.ToDictionary(p => p.Name);
             Assert.Equal(2, manifest.Count);

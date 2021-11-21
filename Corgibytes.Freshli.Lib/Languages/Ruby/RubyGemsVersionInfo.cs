@@ -15,8 +15,7 @@ namespace Corgibytes.Freshli.Lib.Languages.Ruby
         *  https://ruby-doc.org/stdlib-2.5.0/libdoc/rubygems/rdoc/Gem/Version.html.
         */
 
-        public static IVersionInfo MinimumVersion =
-          new RubyGemsVersionInfo("0", DateTimeOffset.MinValue);
+        public static IVersionInfo MinimumVersion = new RubyGemsVersionInfo("0", DateTimeOffset.MinValue);
 
         private string _version;
 
@@ -42,10 +41,7 @@ namespace Corgibytes.Freshli.Lib.Languages.Ruby
 
         public RubyGemsVersionInfo() { }
 
-        public RubyGemsVersionInfo(
-          string version,
-          DateTimeOffset? datePublished = null
-        )
+        public RubyGemsVersionInfo(string version, DateTimeOffset? datePublished = null)
         {
             Version = version;
             if (datePublished.HasValue)
@@ -64,16 +60,13 @@ namespace Corgibytes.Freshli.Lib.Languages.Ruby
             var result = 0;
             var otherVersionParts = otherVersionInfo.VersionParts;
 
-            var highestVersionPartsCount = Math.Max(
-              VersionParts.Count,
-              otherVersionParts.Count
-            );
+            var highestVersionPartsCount = Math.Max(VersionParts.Count, otherVersionParts.Count);
             for (var i = 0; i < highestVersionPartsCount; i++)
             {
                 result = CompareVersionParts(
                   // Substitute "0" if a version part isn't available
-                  VersionParts.ElementAtOrDefault(i) ?? "0",
-                  otherVersionInfo.VersionParts.ElementAtOrDefault(i) ?? "0"
+                    VersionParts.ElementAtOrDefault(i) ?? "0",
+                    otherVersionInfo.VersionParts.ElementAtOrDefault(i) ?? "0"
                 );
 
                 if (result != 0)
@@ -128,15 +121,13 @@ namespace Corgibytes.Freshli.Lib.Languages.Ruby
             for (var i = 0; i <= charArr.Length - 1; i++)
             {
                 nextVersionPart += charArr[i].ToString();
-                if (i != charArr.Length - 1 &&
-                    CharacterTypesMatch(charArr[i], charArr[i + 1]))
+                if (i != charArr.Length - 1 && CharacterTypesMatch(charArr[i], charArr[i + 1]))
                 {
                     continue;
                 }
                 VersionParts.Add(nextVersionPart);
                 nextVersionPart = "";
             }
-
         }
 
         private void AddVersionPart(string part)
@@ -159,38 +150,36 @@ namespace Corgibytes.Freshli.Lib.Languages.Ruby
             return IsOnlyAlpha(part) || IsOnlyNumeric(part);
         }
 
-        private static bool IsOnlyAlpha(string s)
+        private bool IsOnlyAlpha(string s)
         {
             return Regex.IsMatch(s, @"^[a-zA-Z]*$");
         }
 
-        private static bool IsOnlyAlpha(char c)
+        private bool IsOnlyAlpha(char c)
         {
             return IsOnlyAlpha(c.ToString());
         }
 
-        private static bool IsOnlyNumeric(string s)
+        private bool IsOnlyNumeric(string s)
         {
             return Regex.IsMatch(s, @"^[\d]*$");
         }
 
-        private static bool IsOnlyNumeric(char c)
+        private bool IsOnlyNumeric(char c)
         {
             return IsOnlyNumeric(c.ToString());
         }
 
-        private static bool CharacterTypesMatch(char c1, char c2)
+        private bool CharacterTypesMatch(char c1, char c2)
         {
-            return (IsOnlyAlpha(c1) && IsOnlyAlpha(c2)) ||
-              (IsOnlyNumeric(c1) && IsOnlyNumeric(c2));
+            return (IsOnlyAlpha(c1) && IsOnlyAlpha(c2)) || (IsOnlyNumeric(c1) && IsOnlyNumeric(c2));
         }
 
-        private static int CompareVersionParts(string part1, string part2)
+        private int CompareVersionParts(string part1, string part2)
         {
             if (IsOnlyNumeric(part1) && IsOnlyNumeric(part2))
             {
-                return VersionHelper.CompareNumericValues(Convert.ToInt64(part1),
-                  Convert.ToInt64(part2));
+                return VersionHelper.CompareNumericValues(Convert.ToInt64(part1), Convert.ToInt64(part2));
             }
 
             if (IsOnlyAlpha(part1) && IsOnlyAlpha(part2))
@@ -208,9 +197,7 @@ namespace Corgibytes.Freshli.Lib.Languages.Ruby
 
         public override string ToString()
         {
-            return
-              $"{nameof(Version)}: {Version}, " +
-              $"{nameof(DatePublished)}: {DatePublished:O}";
+            return $"{nameof(Version)}: {Version}, {nameof(DatePublished)}: {DatePublished:O}";
         }
     }
 }

@@ -17,8 +17,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Ruby
         public Task FullSet()
         {
             var repository = new RubyGemsRepository();
-            var targetDate =
-                new DateTimeOffset(2021, 03, 10, 00, 00, 00, TimeSpan.Zero);
+            var targetDate = new DateTimeOffset(2021, 03, 10, 00, 00, 00, TimeSpan.Zero);
 
             var packages = File.ReadAllLines(
                 Fixtures.Path("ruby", "rate_limit_packages.txt")
@@ -73,6 +72,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Ruby
             return allVersions;
         }
 
+        // TODO: figure out why this is commented out. Either restore it or delete it
         // private static void VerifyPackageVersions(Dictionary<string, List<IVersionInfo>> packagesAndResults)
         // {
         //     Approvals.VerifyAll(

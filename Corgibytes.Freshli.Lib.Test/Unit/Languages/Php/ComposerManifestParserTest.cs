@@ -9,8 +9,7 @@ namespace Corgibytes.Freshli.Lib.Test.Unit.Languages.Php
 {
     public class ComposerManifestParserTest
     {
-        private static readonly string Contents = File.
-          ReadAllText(Fixtures.Path("php", "small", "composer.lock"));
+        private static readonly string Contents = File.ReadAllText(Fixtures.Path("php", "small", "composer.lock"));
 
         [Fact]
         public void Parse()

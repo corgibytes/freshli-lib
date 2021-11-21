@@ -23,6 +23,7 @@ namespace Corgibytes.Freshli.Lib.Languages.Python
         public OperationKind Operation { get; private set; }
         public PythonVersionInfo BaseVersion { get; private set; }
 
+        // TODO: Move towards factory class for creating the correct matcher
         public static VersionMatcher Create(string value)
         {
             if (string.IsNullOrEmpty(value))
