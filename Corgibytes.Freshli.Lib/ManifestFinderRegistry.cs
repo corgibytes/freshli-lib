@@ -10,8 +10,7 @@ namespace Corgibytes.Freshli.Lib
     {
         private readonly Logger logger = LogManager.GetCurrentClassLogger();
 
-        private readonly IList<AbstractManifestFinder> _finders =
-            new List<AbstractManifestFinder>();
+        private readonly IList<AbstractManifestFinder> _finders = new List<AbstractManifestFinder>();
 
         public IList<AbstractManifestFinder> Finders => _finders;
 

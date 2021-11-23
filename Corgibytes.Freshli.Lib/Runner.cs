@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Corgibytes.Freshli.Lib.Util;
+using Microsoft.Extensions.Logging;
 using NLog;
 
 namespace Corgibytes.Freshli.Lib
@@ -10,16 +11,20 @@ namespace Corgibytes.Freshli.Lib
     {
         private const string ResultsPath = "results";
 
+        private ILoggerFactory _loggerFactory;
+
         private readonly Logger logger = LogManager.GetCurrentClassLogger();
 
         public IManifestService ManifestService { get; init; }
 
         public IFileHistoryService FileHistoryService { get; init; }
 
-        public Runner(IManifestService manifestService, IFileHistoryService fileHistoryService)
+        public Runner(IManifestService manifestService, IFileHistoryService fileHistoryService, ILoggerFactory loggerFactory)
         {
             ManifestService = manifestService;
             FileHistoryService = fileHistoryService;
+
+            _loggerFactory = loggerFactory;
         }
 
         // TODO: Move this method to `ManifestService`
@@ -106,7 +111,8 @@ namespace Corgibytes.Freshli.Lib
                 manifestFinder.RepositoryFor(analysisPath),
                 // TODO: manifest should be provided by a manifest parser
                 parsedManifestContents,
-                manifestParser.UsesExactMatches
+                manifestParser.UsesExactMatches,
+                _loggerFactory.CreateLogger<LibYearCalculator>()
             );
 
 

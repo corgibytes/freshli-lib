@@ -1,0 +1,15 @@
+﻿{
+  target: [
+    {
+      Name: tzinfo,
+      Version: 0.3.38,
+      PublishedAt: 2013-10-08T22:28:55+00:00,
+      LatestVersion: 0.3.39,
+      LatestPublishedAt: 2014-03-09T20:19:53+00:00,
+      Value: 0.4161928589548453,
+      UpgradeAvailable: true,
+      Skipped: false
+    }
+  ],
+  logs: []
+}

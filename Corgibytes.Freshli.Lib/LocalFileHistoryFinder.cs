@@ -10,10 +10,7 @@ namespace Corgibytes.Freshli.Lib
             return true;
         }
 
-        public IFileHistory FileHistoryOf(
-          string projectRootPath,
-          string targetFile
-        )
+        public IFileHistory FileHistoryOf(string projectRootPath, string targetFile)
         {
             return new LocalFileHistory(projectRootPath, targetFile);
         }
@@ -28,15 +25,11 @@ namespace Corgibytes.Freshli.Lib
             return File.ReadAllText(Path.Combine(projectRootPath, filePath));
         }
 
-        public string[] GetManifestFilenames(
-          string projectRootPath,
-          string pattern
-        )
+        public string[] GetManifestFilenames(string projectRootPath, string pattern)
         {
-            return Directory.GetFiles(projectRootPath,
-                                      pattern,
-                                      SearchOption.AllDirectories)
-                            .Select(f => Path.GetFileName(f)).ToArray();
+            return Directory.
+                GetFiles(projectRootPath, pattern, SearchOption.AllDirectories).
+                Select(f => Path.GetFileName(f)).ToArray();
         }
     }
 }

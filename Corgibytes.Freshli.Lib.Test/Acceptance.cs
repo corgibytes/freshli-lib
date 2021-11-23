@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 using NLog;
 using VerifyTests;
 using VerifyXunit;
@@ -18,10 +19,14 @@ namespace Corgibytes.Freshli.Lib.Test
         private IFileHistoryFinderRegistry _fileHistoryFinderRegistry;
         private IFileHistoryService _fileHistoryService;
 
+        private ILoggerFactory _loggerFactory;
+
         private IRunner _runner;
 
         public Acceptance()
         {
+            _loggerFactory = new LoggerFactory();
+            _loggerFactory.AddProvider(LoggerRecording.Start());
             _manifestFinderRegistry = new ManifestFinderRegistry();
 
             var loader = new ManifestFinderRegistryLoader(LogManager.GetLogger(nameof(ManifestFinderRegistryLoader)));
@@ -35,7 +40,7 @@ namespace Corgibytes.Freshli.Lib.Test
 
             _fileHistoryService = new FileHistoryService(_fileHistoryFinderRegistry);
 
-            _runner = new Runner(_manifestService, _fileHistoryService);
+            _runner = new Runner(_manifestService, _fileHistoryService, _loggerFactory);
         }
 
         [Fact]

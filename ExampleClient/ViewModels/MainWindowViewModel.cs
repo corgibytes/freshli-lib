@@ -1,7 +1,11 @@
 using System;
 using System.Reactive;
+
 using Corgibytes.Freshli.Lib;
+using Microsoft.Extensions.Logging;
 using NLog;
+using Splat;
+using Splat.Microsoft.Extensions.Logging;
 using ReactiveUI;
 
 namespace ExampleClient.ViewModels
@@ -57,6 +61,10 @@ namespace ExampleClient.ViewModels
         {
             Results = $"Starting Freshli run for '{GitPath}'{Environment.NewLine}";
 
+            var loggerFactory = new LoggerFactory();
+
+            Locator.CurrentMutable.UseMicrosoftExtensionsLoggingWithWrappingFullLogger(loggerFactory);
+
             var manifestFinderRegistry = new ManifestFinderRegistry();
 
             var loader = new ManifestFinderRegistryLoader(LogManager.GetLogger(nameof(ManifestFinderRegistryLoader)));
@@ -70,7 +78,7 @@ namespace ExampleClient.ViewModels
 
             var fileHistoryService = new FileHistoryService(fileHistoryFinderRegistry);
 
-            var runner = new Runner(manifestService, fileHistoryService);
+            var runner = new Runner(manifestService, fileHistoryService, loggerFactory);
             var metricResults = runner.Run(GitPath);
 
             foreach (var mr in metricResults)

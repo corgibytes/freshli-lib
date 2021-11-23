@@ -12,8 +12,7 @@ namespace Corgibytes.Freshli.Lib
         public int Skipped { get; private set; }
         public int UpgradesAvailable { get; private set; }
 
-        private List<LibYearPackageResult> _packageResults =
-          new List<LibYearPackageResult>();
+        private List<LibYearPackageResult> _packageResults = new List<LibYearPackageResult>();
 
         public void Add(LibYearPackageResult result)
         {

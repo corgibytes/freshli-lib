@@ -21,6 +21,8 @@ namespace Corgibytes.Freshli.Lib.Test
                     (target, value) => value.Replace("\\", "/")
                 );
             });
+
+            VerifyMicrosoftLogging.Enable();
         }
     }
 }

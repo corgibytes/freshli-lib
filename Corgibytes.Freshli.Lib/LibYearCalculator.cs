@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
-using NLog;
+using Microsoft.Extensions.Logging;
 
 namespace Corgibytes.Freshli.Lib
 {
     public class LibYearCalculator
     {
-        private readonly Logger _logger = LogManager.GetCurrentClassLogger();
+        private readonly ILogger<LibYearCalculator> _logger;
+
         public IPackageRepository Repository { get; }
 
         private IEnumerable<PackageInfo> packages;
@@ -15,12 +16,14 @@ namespace Corgibytes.Freshli.Lib
         public LibYearCalculator(
             IPackageRepository repository,
             IEnumerable<PackageInfo> packages,
-            bool useExactMatches
+            bool useExactMatches,
+            ILogger<LibYearCalculator> logger
         )
         {
             Repository = repository;
             this.packages = packages;
             this.useExactMatches = useExactMatches;
+            _logger = logger;
         }
 
         public LibYearResult ComputeAsOf(DateTimeOffset date)
@@ -112,14 +115,14 @@ namespace Corgibytes.Freshli.Lib
                 else
                 {
                     packageResult.UpgradeAvailable = true;
-                    _logger.Warn($"Negative value ({libYearValue:0.000}) " +
+                    _logger.LogWarning($"Negative value ({libYearValue:0.000}) " +
                         $"computed for {package.Name} as of {date:O}; " +
                         $"setting value to 0: {packageResult}"
                     );
                 }
             }
 
-            _logger.Trace($"PackageResult: {packageResult.ToString()}");
+            _logger.LogTrace($"PackageResult: {packageResult.ToString()}");
             return packageResult;
         }
 
@@ -135,7 +138,7 @@ namespace Corgibytes.Freshli.Lib
             Exception e
         )
         {
-            _logger.Warn($"Skipping {package.Name}: {e.Message}");
+            _logger.LogWarning($"Skipping {package.Name}: {e.Message}");
             var packageResult = new LibYearPackageResult(
                 package.Name,
                 version: package.Version,
@@ -147,7 +150,7 @@ namespace Corgibytes.Freshli.Lib
                 skipped: true
             );
             result.Add(packageResult);
-            _logger.Trace(e.StackTrace);
+            _logger.LogTrace(e.StackTrace);
         }
 
         private LibYearPackageResult ComputeUsingVersionsBetween(
@@ -184,7 +187,7 @@ namespace Corgibytes.Freshli.Lib
             }
             catch (NotImplementedException)
             {
-                _logger.Trace("Unable to calculate versions between due to language " +
+                _logger.LogTrace("Unable to calculate versions between due to language " +
                               "not being implemented, skipping.");
             }
 

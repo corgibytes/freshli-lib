@@ -1,0 +1,24 @@
+﻿{
+  target: [
+    {
+      Name: mini_portile2,
+      Version: 2.3.0,
+      PublishedAt: 2017-09-13T21:37:35+00:00,
+      LatestVersion: 2.3.0,
+      LatestPublishedAt: 2017-09-13T21:37:35+00:00,
+      UpgradeAvailable: false,
+      Skipped: false
+    },
+    {
+      Name: nokogiri,
+      Version: 1.8.1,
+      PublishedAt: 2017-09-19T16:12:17+00:00,
+      LatestVersion: 1.8.2,
+      LatestPublishedAt: 2018-01-29T13:16:26+00:00,
+      Value: 0.3613092656012177,
+      UpgradeAvailable: true,
+      Skipped: false
+    }
+  ],
+  logs: []
+}

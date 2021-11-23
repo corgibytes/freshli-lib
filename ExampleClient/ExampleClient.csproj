@@ -19,6 +19,7 @@
     <PackageReference Include="Avalonia.Desktop" Version="0.10.10" />
     <PackageReference Include="Avalonia.Diagnostics" Version="0.10.10" />
     <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.10" />
+    <PackageReference Include="Splat.Microsoft.Extensions.Logging" Version="13.1.42" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Corgibytes.Freshli.Lib\Corgibytes.Freshli.Lib.csproj" />

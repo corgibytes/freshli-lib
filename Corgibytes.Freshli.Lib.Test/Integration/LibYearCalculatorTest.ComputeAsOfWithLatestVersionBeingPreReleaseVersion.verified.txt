@@ -1,0 +1,15 @@
+﻿{
+  target: [
+    {
+      Name: google-protobuf,
+      Version: 3.10.0.rc.1,
+      PublishedAt: 2019-09-05T19:43:14+00:00,
+      LatestVersion: 3.11.0.rc.2,
+      LatestPublishedAt: 2019-11-23T00:10:38+00:00,
+      Value: 0.21420738203957385,
+      UpgradeAvailable: true,
+      Skipped: false
+    }
+  ],
+  logs: []
+}

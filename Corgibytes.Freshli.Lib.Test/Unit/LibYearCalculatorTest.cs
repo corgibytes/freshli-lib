@@ -1,6 +1,11 @@
 using System;
 using System.Runtime.InteropServices;
+
+using Microsoft.Extensions.Logging;
+
 using Xunit;
+using VerifyTests;
+
 
 namespace Corgibytes.Freshli.Lib.Test.Unit
 {
@@ -33,7 +38,10 @@ namespace Corgibytes.Freshli.Lib.Test.Unit
         )]
         public void Compute(object[] oldVersion, object[] newVersion, double expectedValue, int precision)
         {
-            var calculator = new LibYearCalculator(null, null, false);
+            var loggerFactory = new LoggerFactory();
+            loggerFactory.AddProvider(LoggerRecording.Start());
+            var logger = loggerFactory.CreateLogger<LibYearCalculator>();
+            var calculator = new LibYearCalculator(null, null, false, logger);
             var actualValue = calculator.Compute(BuildVersion(oldVersion), BuildVersion(newVersion));
             Assert.Equal(expectedValue, actualValue, precision);
         }

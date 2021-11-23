@@ -1,926 +1,929 @@
-﻿[
-  {
-    Filename: Gemfile.lock,
-    MetricResults: [
-      {
-        Date: 2017-01-01T08:01:29+00:00,
-        LibYear: [
-          {
-            Name: mini_portile2,
-            Version: 2.1.0,
-            PublishedAt: 2016-01-06T19:10:42+00:00,
-            LatestVersion: 2.1.0,
-            LatestPublishedAt: 2016-01-06T19:10:42+00:00,
-            UpgradeAvailable: false,
-            Skipped: false
-          },
-          {
-            Name: nokogiri,
-            Version: 1.7.0,
-            PublishedAt: 2016-12-27T03:49:28+00:00,
-            LatestVersion: 1.7.0,
-            LatestPublishedAt: 2016-12-27T03:49:28+00:00,
-            UpgradeAvailable: false,
-            Skipped: false
-          }
-        ]
-      },
-      {
-        Date: 2017-02-01+00:00,
-        LibYear: [
-          {
-            Name: mini_portile2,
-            Version: 2.1.0,
-            PublishedAt: 2016-01-06T19:10:42+00:00,
-            LatestVersion: 2.1.0,
-            LatestPublishedAt: 2016-01-06T19:10:42+00:00,
-            UpgradeAvailable: false,
-            Skipped: false
-          },
-          {
-            Name: nokogiri,
-            Version: 1.7.0,
-            PublishedAt: 2016-12-27T03:49:28+00:00,
-            LatestVersion: 1.7.0.1,
-            LatestPublishedAt: 2017-01-04T05:42:17+00:00,
-            Value: 0.022132451801116185,
-            UpgradeAvailable: true,
-            Skipped: false
-          }
-        ]
-      },
-      {
-        Date: 2017-03-01+00:00,
-        LibYear: [
-          {
-            Name: mini_portile2,
-            Version: 2.1.0,
-            PublishedAt: 2016-01-06T19:10:42+00:00,
-            LatestVersion: 2.1.0,
-            LatestPublishedAt: 2016-01-06T19:10:42+00:00,
-            UpgradeAvailable: false,
-            Skipped: false
-          },
-          {
-            Name: nokogiri,
-            Version: 1.7.0,
-            PublishedAt: 2016-12-27T03:49:28+00:00,
-            LatestVersion: 1.7.0.1,
-            LatestPublishedAt: 2017-01-04T05:42:17+00:00,
-            Value: 0.022132451801116185,
-            UpgradeAvailable: true,
-            Skipped: false
-          }
-        ]
-      },
-      {
-        Date: 2017-04-01+00:00,
-        LibYear: [
-          {
-            Name: mini_portile2,
-            Version: 2.1.0,
-            PublishedAt: 2016-01-06T19:10:42+00:00,
-            LatestVersion: 2.1.0,
-            LatestPublishedAt: 2016-01-06T19:10:42+00:00,
-            UpgradeAvailable: false,
-            Skipped: false
-          },
-          {
-            Name: nokogiri,
-            Version: 1.7.0,
-            PublishedAt: 2016-12-27T03:49:28+00:00,
-            LatestVersion: 1.7.1,
-            LatestPublishedAt: 2017-03-20T03:39:14+00:00,
-            Value: 0.22737779046169457,
-            UpgradeAvailable: true,
-            Skipped: false
-          }
-        ]
-      },
-      {
-        Date: 2017-05-01+00:00,
-        LibYear: [
-          {
-            Name: mini_portile2,
-            Version: 2.1.0,
-            PublishedAt: 2016-01-06T19:10:42+00:00,
-            LatestVersion: 2.1.0,
-            LatestPublishedAt: 2016-01-06T19:10:42+00:00,
-            UpgradeAvailable: false,
-            Skipped: false
-          },
-          {
-            Name: nokogiri,
-            Version: 1.7.0,
-            PublishedAt: 2016-12-27T03:49:28+00:00,
-            LatestVersion: 1.7.1,
-            LatestPublishedAt: 2017-03-20T03:39:14+00:00,
-            Value: 0.22737779046169457,
-            UpgradeAvailable: true,
-            Skipped: false
-          }
-        ]
-      },
-      {
-        Date: 2017-06-01+00:00,
-        LibYear: [
-          {
-            Name: mini_portile2,
-            Version: 2.1.0,
-            PublishedAt: 2016-01-06T19:10:42+00:00,
-            LatestVersion: 2.1.0,
-            LatestPublishedAt: 2016-01-06T19:10:42+00:00,
-            UpgradeAvailable: false,
-            Skipped: false
-          },
-          {
-            Name: nokogiri,
-            Version: 1.7.0,
-            PublishedAt: 2016-12-27T03:49:28+00:00,
-            LatestVersion: 1.7.2,
-            LatestPublishedAt: 2017-05-09T21:29:26+00:00,
-            Value: 0.36640024099441904,
-            UpgradeAvailable: true,
-            Skipped: false
-          }
-        ]
-      },
-      {
-        Date: 2017-07-01+00:00,
-        LibYear: [
-          {
-            Name: mini_portile2,
-            Version: 2.1.0,
-            PublishedAt: 2016-01-06T19:10:42+00:00,
-            LatestVersion: 2.2.0,
-            LatestPublishedAt: 2017-06-05T01:41:03+00:00,
-            Value: 1.4117015791476408,
-            UpgradeAvailable: true,
-            Skipped: false
-          },
-          {
-            Name: nokogiri,
-            Version: 1.7.0,
-            PublishedAt: 2016-12-27T03:49:28+00:00,
-            LatestVersion: 1.8.0,
-            LatestPublishedAt: 2017-06-05T04:04:48+00:00,
-            Value: 0.43838533739218666,
-            UpgradeAvailable: true,
-            Skipped: false
-          }
-        ]
-      },
-      {
-        Date: 2017-08-01+00:00,
-        LibYear: [
-          {
-            Name: mini_portile2,
-            Version: 2.1.0,
-            PublishedAt: 2016-01-06T19:10:42+00:00,
-            LatestVersion: 2.2.0,
-            LatestPublishedAt: 2017-06-05T01:41:03+00:00,
-            Value: 1.4117015791476408,
-            UpgradeAvailable: true,
-            Skipped: false
-          },
-          {
-            Name: nokogiri,
-            Version: 1.7.0,
-            PublishedAt: 2016-12-27T03:49:28+00:00,
-            LatestVersion: 1.8.0,
-            LatestPublishedAt: 2017-06-05T04:04:48+00:00,
-            Value: 0.43838533739218666,
-            UpgradeAvailable: true,
-            Skipped: false
-          }
-        ]
-      },
-      {
-        Date: 2017-09-01+00:00,
-        LibYear: [
-          {
-            Name: mini_portile2,
-            Version: 2.1.0,
-            PublishedAt: 2016-01-06T19:10:42+00:00,
-            LatestVersion: 2.2.0,
-            LatestPublishedAt: 2017-06-05T01:41:03+00:00,
-            Value: 1.4117015791476408,
-            UpgradeAvailable: true,
-            Skipped: false
-          },
-          {
-            Name: nokogiri,
-            Version: 1.7.0,
-            PublishedAt: 2016-12-27T03:49:28+00:00,
-            LatestVersion: 1.8.0,
-            LatestPublishedAt: 2017-06-05T04:04:48+00:00,
-            Value: 0.43838533739218666,
-            UpgradeAvailable: true,
-            Skipped: false
-          }
-        ]
-      },
-      {
-        Date: 2017-10-01+00:00,
-        LibYear: [
-          {
-            Name: mini_portile2,
-            Version: 2.1.0,
-            PublishedAt: 2016-01-06T19:10:42+00:00,
-            LatestVersion: 2.3.0,
-            LatestPublishedAt: 2017-09-13T21:37:35+00:00,
-            Value: 1.6879506912734654,
-            UpgradeAvailable: true,
-            Skipped: false
-          },
-          {
-            Name: nokogiri,
-            Version: 1.7.0,
-            PublishedAt: 2016-12-27T03:49:28+00:00,
-            LatestVersion: 1.8.1,
-            LatestPublishedAt: 2017-09-19T16:12:17+00:00,
-            Value: 0.7301803970065956,
-            UpgradeAvailable: true,
-            Skipped: false
-          }
-        ]
-      },
-      {
-        Date: 2017-11-01+00:00,
-        LibYear: [
-          {
-            Name: mini_portile2,
-            Version: 2.1.0,
-            PublishedAt: 2016-01-06T19:10:42+00:00,
-            LatestVersion: 2.3.0,
-            LatestPublishedAt: 2017-09-13T21:37:35+00:00,
-            Value: 1.6879506912734654,
-            UpgradeAvailable: true,
-            Skipped: false
-          },
-          {
-            Name: nokogiri,
-            Version: 1.7.0,
-            PublishedAt: 2016-12-27T03:49:28+00:00,
-            LatestVersion: 1.8.1,
-            LatestPublishedAt: 2017-09-19T16:12:17+00:00,
-            Value: 0.7301803970065956,
-            UpgradeAvailable: true,
-            Skipped: false
-          }
-        ]
-      },
-      {
-        Date: 2017-12-01+00:00,
-        LibYear: [
-          {
-            Name: mini_portile2,
-            Version: 2.1.0,
-            PublishedAt: 2016-01-06T19:10:42+00:00,
-            LatestVersion: 2.3.0,
-            LatestPublishedAt: 2017-09-13T21:37:35+00:00,
-            Value: 1.6879506912734654,
-            UpgradeAvailable: true,
-            Skipped: false
-          },
-          {
-            Name: nokogiri,
-            Version: 1.7.0,
-            PublishedAt: 2016-12-27T03:49:28+00:00,
-            LatestVersion: 1.8.1,
-            LatestPublishedAt: 2017-09-19T16:12:17+00:00,
-            Value: 0.7301803970065956,
-            UpgradeAvailable: true,
-            Skipped: false
-          }
-        ]
-      },
-      {
-        Date: 2018-01-01+00:00,
-        LibYear: [
-          {
-            Name: mini_portile2,
-            Version: 2.1.0,
-            PublishedAt: 2016-01-06T19:10:42+00:00,
-            LatestVersion: 2.3.0,
-            LatestPublishedAt: 2017-09-13T21:37:35+00:00,
-            Value: 1.6879506912734654,
-            UpgradeAvailable: true,
-            Skipped: false
-          },
-          {
-            Name: nokogiri,
-            Version: 1.7.0,
-            PublishedAt: 2016-12-27T03:49:28+00:00,
-            LatestVersion: 1.8.1,
-            LatestPublishedAt: 2017-09-19T16:12:17+00:00,
-            Value: 0.7301803970065956,
-            UpgradeAvailable: true,
-            Skipped: false
-          }
-        ]
-      },
-      {
-        Date: 2018-02-01+00:00,
-        LibYear: [
-          {
-            Name: mini_portile2,
-            Version: 2.3.0,
-            PublishedAt: 2017-09-13T21:37:35+00:00,
-            LatestVersion: 2.3.0,
-            LatestPublishedAt: 2017-09-13T21:37:35+00:00,
-            UpgradeAvailable: false,
-            Skipped: false
-          },
-          {
-            Name: nokogiri,
-            Version: 1.8.1,
-            PublishedAt: 2017-09-19T16:12:17+00:00,
-            LatestVersion: 1.8.2,
-            LatestPublishedAt: 2018-01-29T13:16:26+00:00,
-            Value: 0.3613092656012177,
-            UpgradeAvailable: true,
-            Skipped: false
-          }
-        ]
-      },
-      {
-        Date: 2018-03-01+00:00,
-        LibYear: [
-          {
-            Name: mini_portile2,
-            Version: 2.3.0,
-            PublishedAt: 2017-09-13T21:37:35+00:00,
-            LatestVersion: 2.3.0,
-            LatestPublishedAt: 2017-09-13T21:37:35+00:00,
-            UpgradeAvailable: false,
-            Skipped: false
-          },
-          {
-            Name: nokogiri,
-            Version: 1.8.1,
-            PublishedAt: 2017-09-19T16:12:17+00:00,
-            LatestVersion: 1.8.2,
-            LatestPublishedAt: 2018-01-29T13:16:26+00:00,
-            Value: 0.3613092656012177,
-            UpgradeAvailable: true,
-            Skipped: false
-          }
-        ]
-      },
-      {
-        Date: 2018-04-01+00:00,
-        LibYear: [
-          {
-            Name: mini_portile2,
-            Version: 2.3.0,
-            PublishedAt: 2017-09-13T21:37:35+00:00,
-            LatestVersion: 2.3.0,
-            LatestPublishedAt: 2017-09-13T21:37:35+00:00,
-            UpgradeAvailable: false,
-            Skipped: false
-          },
-          {
-            Name: nokogiri,
-            Version: 1.8.1,
-            PublishedAt: 2017-09-19T16:12:17+00:00,
-            LatestVersion: 1.8.2,
-            LatestPublishedAt: 2018-01-29T13:16:26+00:00,
-            Value: 0.3613092656012177,
-            UpgradeAvailable: true,
-            Skipped: false
-          }
-        ]
-      },
-      {
-        Date: 2018-05-01+00:00,
-        LibYear: [
-          {
-            Name: mini_portile2,
-            Version: 2.3.0,
-            PublishedAt: 2017-09-13T21:37:35+00:00,
-            LatestVersion: 2.3.0,
-            LatestPublishedAt: 2017-09-13T21:37:35+00:00,
-            UpgradeAvailable: false,
-            Skipped: false
-          },
-          {
-            Name: nokogiri,
-            Version: 1.8.1,
-            PublishedAt: 2017-09-19T16:12:17+00:00,
-            LatestVersion: 1.8.2,
-            LatestPublishedAt: 2018-01-29T13:16:26+00:00,
-            Value: 0.3613092656012177,
-            UpgradeAvailable: true,
-            Skipped: false
-          }
-        ]
-      },
-      {
-        Date: 2018-06-01+00:00,
-        LibYear: [
-          {
-            Name: mini_portile2,
-            Version: 2.3.0,
-            PublishedAt: 2017-09-13T21:37:35+00:00,
-            LatestVersion: 2.3.0,
-            LatestPublishedAt: 2017-09-13T21:37:35+00:00,
-            UpgradeAvailable: false,
-            Skipped: false
-          },
-          {
-            Name: nokogiri,
-            Version: 1.8.1,
-            PublishedAt: 2017-09-19T16:12:17+00:00,
-            LatestVersion: 1.8.2,
-            LatestPublishedAt: 2018-01-29T13:16:26+00:00,
-            Value: 0.3613092656012177,
-            UpgradeAvailable: true,
-            Skipped: false
-          }
-        ]
-      },
-      {
-        Date: 2018-07-01+00:00,
-        LibYear: [
-          {
-            Name: mini_portile2,
-            Version: 2.3.0,
-            PublishedAt: 2017-09-13T21:37:35+00:00,
-            LatestVersion: 2.3.0,
-            LatestPublishedAt: 2017-09-13T21:37:35+00:00,
-            UpgradeAvailable: false,
-            Skipped: false
-          },
-          {
-            Name: nokogiri,
-            Version: 1.8.1,
-            PublishedAt: 2017-09-19T16:12:17+00:00,
-            LatestVersion: 1.8.3,
-            LatestPublishedAt: 2018-06-16T20:04:37+00:00,
-            Value: 0.7401680618975139,
-            UpgradeAvailable: true,
-            Skipped: false
-          }
-        ]
-      },
-      {
-        Date: 2018-08-01+00:00,
-        LibYear: [
-          {
-            Name: mini_portile2,
-            Version: 2.3.0,
-            PublishedAt: 2017-09-13T21:37:35+00:00,
-            LatestVersion: 2.3.0,
-            LatestPublishedAt: 2017-09-13T21:37:35+00:00,
-            UpgradeAvailable: false,
-            Skipped: false
-          },
-          {
-            Name: nokogiri,
-            Version: 1.8.1,
-            PublishedAt: 2017-09-19T16:12:17+00:00,
-            LatestVersion: 1.8.4,
-            LatestPublishedAt: 2018-07-04T00:37:27+00:00,
-            Value: 0.7872624936580417,
-            UpgradeAvailable: true,
-            Skipped: false
-          }
-        ]
-      },
-      {
-        Date: 2018-09-01+00:00,
-        LibYear: [
-          {
-            Name: mini_portile2,
-            Version: 2.3.0,
-            PublishedAt: 2017-09-13T21:37:35+00:00,
-            LatestVersion: 2.3.0,
-            LatestPublishedAt: 2017-09-13T21:37:35+00:00,
-            UpgradeAvailable: false,
-            Skipped: false
-          },
-          {
-            Name: nokogiri,
-            Version: 1.8.1,
-            PublishedAt: 2017-09-19T16:12:17+00:00,
-            LatestVersion: 1.8.4,
-            LatestPublishedAt: 2018-07-04T00:37:27+00:00,
-            Value: 0.7872624936580417,
-            UpgradeAvailable: true,
-            Skipped: false
-          }
-        ]
-      },
-      {
-        Date: 2018-10-01+00:00,
-        LibYear: [
-          {
-            Name: mini_portile2,
-            Version: 2.3.0,
-            PublishedAt: 2017-09-13T21:37:35+00:00,
-            LatestVersion: 2.3.0,
-            LatestPublishedAt: 2017-09-13T21:37:35+00:00,
-            UpgradeAvailable: false,
-            Skipped: false
-          },
-          {
-            Name: nokogiri,
-            Version: 1.8.1,
-            PublishedAt: 2017-09-19T16:12:17+00:00,
-            LatestVersion: 1.8.4,
-            LatestPublishedAt: 2018-07-04T00:37:27+00:00,
-            Value: 0.7872624936580417,
-            UpgradeAvailable: true,
-            Skipped: false
-          }
-        ]
-      },
-      {
-        Date: 2018-11-01+00:00,
-        LibYear: [
-          {
-            Name: mini_portile2,
-            Version: 2.3.0,
-            PublishedAt: 2017-09-13T21:37:35+00:00,
-            LatestVersion: 2.3.0,
-            LatestPublishedAt: 2017-09-13T21:37:35+00:00,
-            UpgradeAvailable: false,
-            Skipped: false
-          },
-          {
-            Name: nokogiri,
-            Version: 1.8.1,
-            PublishedAt: 2017-09-19T16:12:17+00:00,
-            LatestVersion: 1.8.5,
-            LatestPublishedAt: 2018-10-05T01:14:43+00:00,
-            Value: 1.0421279173008626,
-            UpgradeAvailable: true,
-            Skipped: false
-          }
-        ]
-      },
-      {
-        Date: 2018-12-01+00:00,
-        LibYear: [
-          {
-            Name: mini_portile2,
-            Version: 2.3.0,
-            PublishedAt: 2017-09-13T21:37:35+00:00,
-            LatestVersion: 2.3.0,
-            LatestPublishedAt: 2017-09-13T21:37:35+00:00,
-            UpgradeAvailable: false,
-            Skipped: false
-          },
-          {
-            Name: nokogiri,
-            Version: 1.8.1,
-            PublishedAt: 2017-09-19T16:12:17+00:00,
-            LatestVersion: 1.8.5,
-            LatestPublishedAt: 2018-10-05T01:14:43+00:00,
-            Value: 1.0421279173008626,
-            UpgradeAvailable: true,
-            Skipped: false
-          }
-        ]
-      },
-      {
-        Date: 2019-01-01+00:00,
-        LibYear: [
-          {
-            Name: mini_portile2,
-            Version: 2.3.0,
-            PublishedAt: 2017-09-13T21:37:35+00:00,
-            LatestVersion: 2.4.0,
-            LatestPublishedAt: 2018-12-02T08:28:04+00:00,
-            Value: 1.217675957635718,
-            UpgradeAvailable: true,
-            Skipped: false
-          },
-          {
-            Name: nokogiri,
-            Version: 1.8.1,
-            PublishedAt: 2017-09-19T16:12:17+00:00,
-            LatestVersion: 1.9.1,
-            LatestPublishedAt: 2018-12-18T05:22:07+00:00,
-            Value: 1.2453383434804668,
-            UpgradeAvailable: true,
-            Skipped: false
-          }
-        ]
-      },
-      {
-        Date: 2019-02-01+00:00,
-        LibYear: [
-          {
-            Name: mini_portile2,
-            Version: 2.4.0,
-            PublishedAt: 2018-12-02T08:28:04+00:00,
-            LatestVersion: 2.4.0,
-            LatestPublishedAt: 2018-12-02T08:28:04+00:00,
-            UpgradeAvailable: false,
-            Skipped: false
-          },
-          {
-            Name: nokogiri,
-            Version: 1.9.1,
-            PublishedAt: 2018-12-18T05:22:07+00:00,
-            LatestVersion: 1.10.1,
-            LatestPublishedAt: 2019-01-13T06:29:30+00:00,
-            Value: 0.07136107940131912,
-            UpgradeAvailable: true,
-            Skipped: false
-          }
-        ]
-      },
-      {
-        Date: 2019-03-01+00:00,
-        LibYear: [
-          {
-            Name: mini_portile2,
-            Version: 2.4.0,
-            PublishedAt: 2018-12-02T08:28:04+00:00,
-            LatestVersion: 2.4.0,
-            LatestPublishedAt: 2018-12-02T08:28:04+00:00,
-            UpgradeAvailable: false,
-            Skipped: false
-          },
-          {
-            Name: nokogiri,
-            Version: 1.9.1,
-            PublishedAt: 2018-12-18T05:22:07+00:00,
-            LatestVersion: 1.10.1,
-            LatestPublishedAt: 2019-01-13T06:29:30+00:00,
-            Value: 0.07136107940131912,
-            UpgradeAvailable: true,
-            Skipped: false
-          }
-        ]
-      },
-      {
-        Date: 2019-04-01+00:00,
-        LibYear: [
-          {
-            Name: mini_portile2,
-            Version: 2.4.0,
-            PublishedAt: 2018-12-02T08:28:04+00:00,
-            LatestVersion: 2.4.0,
-            LatestPublishedAt: 2018-12-02T08:28:04+00:00,
-            UpgradeAvailable: false,
-            Skipped: false
-          },
-          {
-            Name: nokogiri,
-            Version: 1.9.1,
-            PublishedAt: 2018-12-18T05:22:07+00:00,
-            LatestVersion: 1.10.2,
-            LatestPublishedAt: 2019-03-25T13:03:11+00:00,
-            Value: 0.2666306443429731,
-            UpgradeAvailable: true,
-            Skipped: false
-          }
-        ]
-      },
-      {
-        Date: 2019-05-01+00:00,
-        LibYear: [
-          {
-            Name: mini_portile2,
-            Version: 2.4.0,
-            PublishedAt: 2018-12-02T08:28:04+00:00,
-            LatestVersion: 2.4.0,
-            LatestPublishedAt: 2018-12-02T08:28:04+00:00,
-            UpgradeAvailable: false,
-            Skipped: false
-          },
-          {
-            Name: nokogiri,
-            Version: 1.9.1,
-            PublishedAt: 2018-12-18T05:22:07+00:00,
-            LatestVersion: 1.10.3,
-            LatestPublishedAt: 2019-04-22T17:10:22+00:00,
-            Value: 0.34381326103500764,
-            UpgradeAvailable: true,
-            Skipped: false
-          }
-        ]
-      },
-      {
-        Date: 2019-06-01+00:00,
-        LibYear: [
-          {
-            Name: mini_portile2,
-            Version: 2.4.0,
-            PublishedAt: 2018-12-02T08:28:04+00:00,
-            LatestVersion: 2.4.0,
-            LatestPublishedAt: 2018-12-02T08:28:04+00:00,
-            UpgradeAvailable: false,
-            Skipped: false
-          },
-          {
-            Name: nokogiri,
-            Version: 1.9.1,
-            PublishedAt: 2018-12-18T05:22:07+00:00,
-            LatestVersion: 1.10.3,
-            LatestPublishedAt: 2019-04-22T17:10:22+00:00,
-            Value: 0.34381326103500764,
-            UpgradeAvailable: true,
-            Skipped: false
-          }
-        ]
-      },
-      {
-        Date: 2019-07-01+00:00,
-        LibYear: [
-          {
-            Name: mini_portile2,
-            Version: 2.4.0,
-            PublishedAt: 2018-12-02T08:28:04+00:00,
-            LatestVersion: 2.4.0,
-            LatestPublishedAt: 2018-12-02T08:28:04+00:00,
-            UpgradeAvailable: false,
-            Skipped: false
-          },
-          {
-            Name: nokogiri,
-            Version: 1.9.1,
-            PublishedAt: 2018-12-18T05:22:07+00:00,
-            LatestVersion: 1.10.3,
-            LatestPublishedAt: 2019-04-22T17:10:22+00:00,
-            Value: 0.34381326103500764,
-            UpgradeAvailable: true,
-            Skipped: false
-          }
-        ]
-      },
-      {
-        Date: 2019-08-01+00:00,
-        LibYear: [
-          {
-            Name: mini_portile2,
-            Version: 2.4.0,
-            PublishedAt: 2018-12-02T08:28:04+00:00,
-            LatestVersion: 2.4.0,
-            LatestPublishedAt: 2018-12-02T08:28:04+00:00,
-            UpgradeAvailable: false,
-            Skipped: false
-          },
-          {
-            Name: nokogiri,
-            Version: 1.9.1,
-            PublishedAt: 2018-12-18T05:22:07+00:00,
-            LatestVersion: 1.10.3,
-            LatestPublishedAt: 2019-04-22T17:10:22+00:00,
-            Value: 0.34381326103500764,
-            UpgradeAvailable: true,
-            Skipped: false
-          }
-        ]
-      },
-      {
-        Date: 2019-09-01+00:00,
-        LibYear: [
-          {
-            Name: mini_portile2,
-            Version: 2.4.0,
-            PublishedAt: 2018-12-02T08:28:04+00:00,
-            LatestVersion: 2.4.0,
-            LatestPublishedAt: 2018-12-02T08:28:04+00:00,
-            UpgradeAvailable: false,
-            Skipped: false
-          },
-          {
-            Name: nokogiri,
-            Version: 1.9.1,
-            PublishedAt: 2018-12-18T05:22:07+00:00,
-            LatestVersion: 1.10.4,
-            LatestPublishedAt: 2019-08-11T19:25:23+00:00,
-            Value: 0.648179731100964,
-            UpgradeAvailable: true,
-            Skipped: false
-          }
-        ]
-      },
-      {
-        Date: 2019-10-01+00:00,
-        LibYear: [
-          {
-            Name: mini_portile2,
-            Version: 2.4.0,
-            PublishedAt: 2018-12-02T08:28:04+00:00,
-            LatestVersion: 2.4.0,
-            LatestPublishedAt: 2018-12-02T08:28:04+00:00,
-            UpgradeAvailable: false,
-            Skipped: false
-          },
-          {
-            Name: nokogiri,
-            Version: 1.9.1,
-            PublishedAt: 2018-12-18T05:22:07+00:00,
-            LatestVersion: 1.10.4,
-            LatestPublishedAt: 2019-08-11T19:25:23+00:00,
-            Value: 0.648179731100964,
-            UpgradeAvailable: true,
-            Skipped: false
-          }
-        ]
-      },
-      {
-        Date: 2019-11-01+00:00,
-        LibYear: [
-          {
-            Name: mini_portile2,
-            Version: 2.4.0,
-            PublishedAt: 2018-12-02T08:28:04+00:00,
-            LatestVersion: 2.4.0,
-            LatestPublishedAt: 2018-12-02T08:28:04+00:00,
-            UpgradeAvailable: false,
-            Skipped: false
-          },
-          {
-            Name: nokogiri,
-            Version: 1.9.1,
-            PublishedAt: 2018-12-18T05:22:07+00:00,
-            LatestVersion: 1.10.5,
-            LatestPublishedAt: 2019-10-31T19:29:36+00:00,
-            Value: 0.8701055618975139,
-            UpgradeAvailable: true,
-            Skipped: false
-          }
-        ]
-      },
-      {
-        Date: 2019-12-01+00:00,
-        LibYear: [
-          {
-            Name: mini_portile2,
-            Version: 2.4.0,
-            PublishedAt: 2018-12-02T08:28:04+00:00,
-            LatestVersion: 2.4.0,
-            LatestPublishedAt: 2018-12-02T08:28:04+00:00,
-            UpgradeAvailable: false,
-            Skipped: false
-          },
-          {
-            Name: nokogiri,
-            Version: 1.9.1,
-            PublishedAt: 2018-12-18T05:22:07+00:00,
-            LatestVersion: 1.10.5,
-            LatestPublishedAt: 2019-10-31T19:29:36+00:00,
-            Value: 0.8701055618975139,
-            UpgradeAvailable: true,
-            Skipped: false
-          }
-        ]
-      },
-      {
-        Date: 2020-01-01+00:00,
-        LibYear: [
-          {
-            Name: mini_portile2,
-            Version: 2.4.0,
-            PublishedAt: 2018-12-02T08:28:04+00:00,
-            LatestVersion: 2.4.0,
-            LatestPublishedAt: 2018-12-02T08:28:04+00:00,
-            UpgradeAvailable: false,
-            Skipped: false
-          },
-          {
-            Name: nokogiri,
-            Version: 1.9.1,
-            PublishedAt: 2018-12-18T05:22:07+00:00,
-            LatestVersion: 1.10.7,
-            LatestPublishedAt: 2019-12-04T15:29:49+00:00,
-            Value: 0.9628000380517504,
-            UpgradeAvailable: true,
-            Skipped: false
-          }
-        ]
-      },
-      {
-        Date: 2020-02-01+00:00,
-        LibYear: [
-          {
-            Name: mini_portile2,
-            Version: 2.4.0,
-            PublishedAt: 2018-12-02T08:28:04+00:00,
-            LatestVersion: 2.4.0,
-            LatestPublishedAt: 2018-12-02T08:28:04+00:00,
-            UpgradeAvailable: false,
-            Skipped: false
-          },
-          {
-            Name: nokogiri,
-            Version: 1.9.1,
-            PublishedAt: 2018-12-18T05:22:07+00:00,
-            LatestVersion: 1.10.7,
-            LatestPublishedAt: 2019-12-04T15:29:49+00:00,
-            Value: 0.9628000380517504,
-            UpgradeAvailable: true,
-            Skipped: false
-          }
-        ]
-      }
-    ]
-  }
-]
+﻿{
+  target: [
+    {
+      Filename: Gemfile.lock,
+      MetricResults: [
+        {
+          Date: 2017-01-01T08:01:29+00:00,
+          LibYear: [
+            {
+              Name: mini_portile2,
+              Version: 2.1.0,
+              PublishedAt: 2016-01-06T19:10:42+00:00,
+              LatestVersion: 2.1.0,
+              LatestPublishedAt: 2016-01-06T19:10:42+00:00,
+              UpgradeAvailable: false,
+              Skipped: false
+            },
+            {
+              Name: nokogiri,
+              Version: 1.7.0,
+              PublishedAt: 2016-12-27T03:49:28+00:00,
+              LatestVersion: 1.7.0,
+              LatestPublishedAt: 2016-12-27T03:49:28+00:00,
+              UpgradeAvailable: false,
+              Skipped: false
+            }
+          ]
+        },
+        {
+          Date: 2017-02-01+00:00,
+          LibYear: [
+            {
+              Name: mini_portile2,
+              Version: 2.1.0,
+              PublishedAt: 2016-01-06T19:10:42+00:00,
+              LatestVersion: 2.1.0,
+              LatestPublishedAt: 2016-01-06T19:10:42+00:00,
+              UpgradeAvailable: false,
+              Skipped: false
+            },
+            {
+              Name: nokogiri,
+              Version: 1.7.0,
+              PublishedAt: 2016-12-27T03:49:28+00:00,
+              LatestVersion: 1.7.0.1,
+              LatestPublishedAt: 2017-01-04T05:42:17+00:00,
+              Value: 0.022132451801116185,
+              UpgradeAvailable: true,
+              Skipped: false
+            }
+          ]
+        },
+        {
+          Date: 2017-03-01+00:00,
+          LibYear: [
+            {
+              Name: mini_portile2,
+              Version: 2.1.0,
+              PublishedAt: 2016-01-06T19:10:42+00:00,
+              LatestVersion: 2.1.0,
+              LatestPublishedAt: 2016-01-06T19:10:42+00:00,
+              UpgradeAvailable: false,
+              Skipped: false
+            },
+            {
+              Name: nokogiri,
+              Version: 1.7.0,
+              PublishedAt: 2016-12-27T03:49:28+00:00,
+              LatestVersion: 1.7.0.1,
+              LatestPublishedAt: 2017-01-04T05:42:17+00:00,
+              Value: 0.022132451801116185,
+              UpgradeAvailable: true,
+              Skipped: false
+            }
+          ]
+        },
+        {
+          Date: 2017-04-01+00:00,
+          LibYear: [
+            {
+              Name: mini_portile2,
+              Version: 2.1.0,
+              PublishedAt: 2016-01-06T19:10:42+00:00,
+              LatestVersion: 2.1.0,
+              LatestPublishedAt: 2016-01-06T19:10:42+00:00,
+              UpgradeAvailable: false,
+              Skipped: false
+            },
+            {
+              Name: nokogiri,
+              Version: 1.7.0,
+              PublishedAt: 2016-12-27T03:49:28+00:00,
+              LatestVersion: 1.7.1,
+              LatestPublishedAt: 2017-03-20T03:39:14+00:00,
+              Value: 0.22737779046169457,
+              UpgradeAvailable: true,
+              Skipped: false
+            }
+          ]
+        },
+        {
+          Date: 2017-05-01+00:00,
+          LibYear: [
+            {
+              Name: mini_portile2,
+              Version: 2.1.0,
+              PublishedAt: 2016-01-06T19:10:42+00:00,
+              LatestVersion: 2.1.0,
+              LatestPublishedAt: 2016-01-06T19:10:42+00:00,
+              UpgradeAvailable: false,
+              Skipped: false
+            },
+            {
+              Name: nokogiri,
+              Version: 1.7.0,
+              PublishedAt: 2016-12-27T03:49:28+00:00,
+              LatestVersion: 1.7.1,
+              LatestPublishedAt: 2017-03-20T03:39:14+00:00,
+              Value: 0.22737779046169457,
+              UpgradeAvailable: true,
+              Skipped: false
+            }
+          ]
+        },
+        {
+          Date: 2017-06-01+00:00,
+          LibYear: [
+            {
+              Name: mini_portile2,
+              Version: 2.1.0,
+              PublishedAt: 2016-01-06T19:10:42+00:00,
+              LatestVersion: 2.1.0,
+              LatestPublishedAt: 2016-01-06T19:10:42+00:00,
+              UpgradeAvailable: false,
+              Skipped: false
+            },
+            {
+              Name: nokogiri,
+              Version: 1.7.0,
+              PublishedAt: 2016-12-27T03:49:28+00:00,
+              LatestVersion: 1.7.2,
+              LatestPublishedAt: 2017-05-09T21:29:26+00:00,
+              Value: 0.36640024099441904,
+              UpgradeAvailable: true,
+              Skipped: false
+            }
+          ]
+        },
+        {
+          Date: 2017-07-01+00:00,
+          LibYear: [
+            {
+              Name: mini_portile2,
+              Version: 2.1.0,
+              PublishedAt: 2016-01-06T19:10:42+00:00,
+              LatestVersion: 2.2.0,
+              LatestPublishedAt: 2017-06-05T01:41:03+00:00,
+              Value: 1.4117015791476408,
+              UpgradeAvailable: true,
+              Skipped: false
+            },
+            {
+              Name: nokogiri,
+              Version: 1.7.0,
+              PublishedAt: 2016-12-27T03:49:28+00:00,
+              LatestVersion: 1.8.0,
+              LatestPublishedAt: 2017-06-05T04:04:48+00:00,
+              Value: 0.43838533739218666,
+              UpgradeAvailable: true,
+              Skipped: false
+            }
+          ]
+        },
+        {
+          Date: 2017-08-01+00:00,
+          LibYear: [
+            {
+              Name: mini_portile2,
+              Version: 2.1.0,
+              PublishedAt: 2016-01-06T19:10:42+00:00,
+              LatestVersion: 2.2.0,
+              LatestPublishedAt: 2017-06-05T01:41:03+00:00,
+              Value: 1.4117015791476408,
+              UpgradeAvailable: true,
+              Skipped: false
+            },
+            {
+              Name: nokogiri,
+              Version: 1.7.0,
+              PublishedAt: 2016-12-27T03:49:28+00:00,
+              LatestVersion: 1.8.0,
+              LatestPublishedAt: 2017-06-05T04:04:48+00:00,
+              Value: 0.43838533739218666,
+              UpgradeAvailable: true,
+              Skipped: false
+            }
+          ]
+        },
+        {
+          Date: 2017-09-01+00:00,
+          LibYear: [
+            {
+              Name: mini_portile2,
+              Version: 2.1.0,
+              PublishedAt: 2016-01-06T19:10:42+00:00,
+              LatestVersion: 2.2.0,
+              LatestPublishedAt: 2017-06-05T01:41:03+00:00,
+              Value: 1.4117015791476408,
+              UpgradeAvailable: true,
+              Skipped: false
+            },
+            {
+              Name: nokogiri,
+              Version: 1.7.0,
+              PublishedAt: 2016-12-27T03:49:28+00:00,
+              LatestVersion: 1.8.0,
+              LatestPublishedAt: 2017-06-05T04:04:48+00:00,
+              Value: 0.43838533739218666,
+              UpgradeAvailable: true,
+              Skipped: false
+            }
+          ]
+        },
+        {
+          Date: 2017-10-01+00:00,
+          LibYear: [
+            {
+              Name: mini_portile2,
+              Version: 2.1.0,
+              PublishedAt: 2016-01-06T19:10:42+00:00,
+              LatestVersion: 2.3.0,
+              LatestPublishedAt: 2017-09-13T21:37:35+00:00,
+              Value: 1.6879506912734654,
+              UpgradeAvailable: true,
+              Skipped: false
+            },
+            {
+              Name: nokogiri,
+              Version: 1.7.0,
+              PublishedAt: 2016-12-27T03:49:28+00:00,
+              LatestVersion: 1.8.1,
+              LatestPublishedAt: 2017-09-19T16:12:17+00:00,
+              Value: 0.7301803970065956,
+              UpgradeAvailable: true,
+              Skipped: false
+            }
+          ]
+        },
+        {
+          Date: 2017-11-01+00:00,
+          LibYear: [
+            {
+              Name: mini_portile2,
+              Version: 2.1.0,
+              PublishedAt: 2016-01-06T19:10:42+00:00,
+              LatestVersion: 2.3.0,
+              LatestPublishedAt: 2017-09-13T21:37:35+00:00,
+              Value: 1.6879506912734654,
+              UpgradeAvailable: true,
+              Skipped: false
+            },
+            {
+              Name: nokogiri,
+              Version: 1.7.0,
+              PublishedAt: 2016-12-27T03:49:28+00:00,
+              LatestVersion: 1.8.1,
+              LatestPublishedAt: 2017-09-19T16:12:17+00:00,
+              Value: 0.7301803970065956,
+              UpgradeAvailable: true,
+              Skipped: false
+            }
+          ]
+        },
+        {
+          Date: 2017-12-01+00:00,
+          LibYear: [
+            {
+              Name: mini_portile2,
+              Version: 2.1.0,
+              PublishedAt: 2016-01-06T19:10:42+00:00,
+              LatestVersion: 2.3.0,
+              LatestPublishedAt: 2017-09-13T21:37:35+00:00,
+              Value: 1.6879506912734654,
+              UpgradeAvailable: true,
+              Skipped: false
+            },
+            {
+              Name: nokogiri,
+              Version: 1.7.0,
+              PublishedAt: 2016-12-27T03:49:28+00:00,
+              LatestVersion: 1.8.1,
+              LatestPublishedAt: 2017-09-19T16:12:17+00:00,
+              Value: 0.7301803970065956,
+              UpgradeAvailable: true,
+              Skipped: false
+            }
+          ]
+        },
+        {
+          Date: 2018-01-01+00:00,
+          LibYear: [
+            {
+              Name: mini_portile2,
+              Version: 2.1.0,
+              PublishedAt: 2016-01-06T19:10:42+00:00,
+              LatestVersion: 2.3.0,
+              LatestPublishedAt: 2017-09-13T21:37:35+00:00,
+              Value: 1.6879506912734654,
+              UpgradeAvailable: true,
+              Skipped: false
+            },
+            {
+              Name: nokogiri,
+              Version: 1.7.0,
+              PublishedAt: 2016-12-27T03:49:28+00:00,
+              LatestVersion: 1.8.1,
+              LatestPublishedAt: 2017-09-19T16:12:17+00:00,
+              Value: 0.7301803970065956,
+              UpgradeAvailable: true,
+              Skipped: false
+            }
+          ]
+        },
+        {
+          Date: 2018-02-01+00:00,
+          LibYear: [
+            {
+              Name: mini_portile2,
+              Version: 2.3.0,
+              PublishedAt: 2017-09-13T21:37:35+00:00,
+              LatestVersion: 2.3.0,
+              LatestPublishedAt: 2017-09-13T21:37:35+00:00,
+              UpgradeAvailable: false,
+              Skipped: false
+            },
+            {
+              Name: nokogiri,
+              Version: 1.8.1,
+              PublishedAt: 2017-09-19T16:12:17+00:00,
+              LatestVersion: 1.8.2,
+              LatestPublishedAt: 2018-01-29T13:16:26+00:00,
+              Value: 0.3613092656012177,
+              UpgradeAvailable: true,
+              Skipped: false
+            }
+          ]
+        },
+        {
+          Date: 2018-03-01+00:00,
+          LibYear: [
+            {
+              Name: mini_portile2,
+              Version: 2.3.0,
+              PublishedAt: 2017-09-13T21:37:35+00:00,
+              LatestVersion: 2.3.0,
+              LatestPublishedAt: 2017-09-13T21:37:35+00:00,
+              UpgradeAvailable: false,
+              Skipped: false
+            },
+            {
+              Name: nokogiri,
+              Version: 1.8.1,
+              PublishedAt: 2017-09-19T16:12:17+00:00,
+              LatestVersion: 1.8.2,
+              LatestPublishedAt: 2018-01-29T13:16:26+00:00,
+              Value: 0.3613092656012177,
+              UpgradeAvailable: true,
+              Skipped: false
+            }
+          ]
+        },
+        {
+          Date: 2018-04-01+00:00,
+          LibYear: [
+            {
+              Name: mini_portile2,
+              Version: 2.3.0,
+              PublishedAt: 2017-09-13T21:37:35+00:00,
+              LatestVersion: 2.3.0,
+              LatestPublishedAt: 2017-09-13T21:37:35+00:00,
+              UpgradeAvailable: false,
+              Skipped: false
+            },
+            {
+              Name: nokogiri,
+              Version: 1.8.1,
+              PublishedAt: 2017-09-19T16:12:17+00:00,
+              LatestVersion: 1.8.2,
+              LatestPublishedAt: 2018-01-29T13:16:26+00:00,
+              Value: 0.3613092656012177,
+              UpgradeAvailable: true,
+              Skipped: false
+            }
+          ]
+        },
+        {
+          Date: 2018-05-01+00:00,
+          LibYear: [
+            {
+              Name: mini_portile2,
+              Version: 2.3.0,
+              PublishedAt: 2017-09-13T21:37:35+00:00,
+              LatestVersion: 2.3.0,
+              LatestPublishedAt: 2017-09-13T21:37:35+00:00,
+              UpgradeAvailable: false,
+              Skipped: false
+            },
+            {
+              Name: nokogiri,
+              Version: 1.8.1,
+              PublishedAt: 2017-09-19T16:12:17+00:00,
+              LatestVersion: 1.8.2,
+              LatestPublishedAt: 2018-01-29T13:16:26+00:00,
+              Value: 0.3613092656012177,
+              UpgradeAvailable: true,
+              Skipped: false
+            }
+          ]
+        },
+        {
+          Date: 2018-06-01+00:00,
+          LibYear: [
+            {
+              Name: mini_portile2,
+              Version: 2.3.0,
+              PublishedAt: 2017-09-13T21:37:35+00:00,
+              LatestVersion: 2.3.0,
+              LatestPublishedAt: 2017-09-13T21:37:35+00:00,
+              UpgradeAvailable: false,
+              Skipped: false
+            },
+            {
+              Name: nokogiri,
+              Version: 1.8.1,
+              PublishedAt: 2017-09-19T16:12:17+00:00,
+              LatestVersion: 1.8.2,
+              LatestPublishedAt: 2018-01-29T13:16:26+00:00,
+              Value: 0.3613092656012177,
+              UpgradeAvailable: true,
+              Skipped: false
+            }
+          ]
+        },
+        {
+          Date: 2018-07-01+00:00,
+          LibYear: [
+            {
+              Name: mini_portile2,
+              Version: 2.3.0,
+              PublishedAt: 2017-09-13T21:37:35+00:00,
+              LatestVersion: 2.3.0,
+              LatestPublishedAt: 2017-09-13T21:37:35+00:00,
+              UpgradeAvailable: false,
+              Skipped: false
+            },
+            {
+              Name: nokogiri,
+              Version: 1.8.1,
+              PublishedAt: 2017-09-19T16:12:17+00:00,
+              LatestVersion: 1.8.3,
+              LatestPublishedAt: 2018-06-16T20:04:37+00:00,
+              Value: 0.7401680618975139,
+              UpgradeAvailable: true,
+              Skipped: false
+            }
+          ]
+        },
+        {
+          Date: 2018-08-01+00:00,
+          LibYear: [
+            {
+              Name: mini_portile2,
+              Version: 2.3.0,
+              PublishedAt: 2017-09-13T21:37:35+00:00,
+              LatestVersion: 2.3.0,
+              LatestPublishedAt: 2017-09-13T21:37:35+00:00,
+              UpgradeAvailable: false,
+              Skipped: false
+            },
+            {
+              Name: nokogiri,
+              Version: 1.8.1,
+              PublishedAt: 2017-09-19T16:12:17+00:00,
+              LatestVersion: 1.8.4,
+              LatestPublishedAt: 2018-07-04T00:37:27+00:00,
+              Value: 0.7872624936580417,
+              UpgradeAvailable: true,
+              Skipped: false
+            }
+          ]
+        },
+        {
+          Date: 2018-09-01+00:00,
+          LibYear: [
+            {
+              Name: mini_portile2,
+              Version: 2.3.0,
+              PublishedAt: 2017-09-13T21:37:35+00:00,
+              LatestVersion: 2.3.0,
+              LatestPublishedAt: 2017-09-13T21:37:35+00:00,
+              UpgradeAvailable: false,
+              Skipped: false
+            },
+            {
+              Name: nokogiri,
+              Version: 1.8.1,
+              PublishedAt: 2017-09-19T16:12:17+00:00,
+              LatestVersion: 1.8.4,
+              LatestPublishedAt: 2018-07-04T00:37:27+00:00,
+              Value: 0.7872624936580417,
+              UpgradeAvailable: true,
+              Skipped: false
+            }
+          ]
+        },
+        {
+          Date: 2018-10-01+00:00,
+          LibYear: [
+            {
+              Name: mini_portile2,
+              Version: 2.3.0,
+              PublishedAt: 2017-09-13T21:37:35+00:00,
+              LatestVersion: 2.3.0,
+              LatestPublishedAt: 2017-09-13T21:37:35+00:00,
+              UpgradeAvailable: false,
+              Skipped: false
+            },
+            {
+              Name: nokogiri,
+              Version: 1.8.1,
+              PublishedAt: 2017-09-19T16:12:17+00:00,
+              LatestVersion: 1.8.4,
+              LatestPublishedAt: 2018-07-04T00:37:27+00:00,
+              Value: 0.7872624936580417,
+              UpgradeAvailable: true,
+              Skipped: false
+            }
+          ]
+        },
+        {
+          Date: 2018-11-01+00:00,
+          LibYear: [
+            {
+              Name: mini_portile2,
+              Version: 2.3.0,
+              PublishedAt: 2017-09-13T21:37:35+00:00,
+              LatestVersion: 2.3.0,
+              LatestPublishedAt: 2017-09-13T21:37:35+00:00,
+              UpgradeAvailable: false,
+              Skipped: false
+            },
+            {
+              Name: nokogiri,
+              Version: 1.8.1,
+              PublishedAt: 2017-09-19T16:12:17+00:00,
+              LatestVersion: 1.8.5,
+              LatestPublishedAt: 2018-10-05T01:14:43+00:00,
+              Value: 1.0421279173008626,
+              UpgradeAvailable: true,
+              Skipped: false
+            }
+          ]
+        },
+        {
+          Date: 2018-12-01+00:00,
+          LibYear: [
+            {
+              Name: mini_portile2,
+              Version: 2.3.0,
+              PublishedAt: 2017-09-13T21:37:35+00:00,
+              LatestVersion: 2.3.0,
+              LatestPublishedAt: 2017-09-13T21:37:35+00:00,
+              UpgradeAvailable: false,
+              Skipped: false
+            },
+            {
+              Name: nokogiri,
+              Version: 1.8.1,
+              PublishedAt: 2017-09-19T16:12:17+00:00,
+              LatestVersion: 1.8.5,
+              LatestPublishedAt: 2018-10-05T01:14:43+00:00,
+              Value: 1.0421279173008626,
+              UpgradeAvailable: true,
+              Skipped: false
+            }
+          ]
+        },
+        {
+          Date: 2019-01-01+00:00,
+          LibYear: [
+            {
+              Name: mini_portile2,
+              Version: 2.3.0,
+              PublishedAt: 2017-09-13T21:37:35+00:00,
+              LatestVersion: 2.4.0,
+              LatestPublishedAt: 2018-12-02T08:28:04+00:00,
+              Value: 1.217675957635718,
+              UpgradeAvailable: true,
+              Skipped: false
+            },
+            {
+              Name: nokogiri,
+              Version: 1.8.1,
+              PublishedAt: 2017-09-19T16:12:17+00:00,
+              LatestVersion: 1.9.1,
+              LatestPublishedAt: 2018-12-18T05:22:07+00:00,
+              Value: 1.2453383434804668,
+              UpgradeAvailable: true,
+              Skipped: false
+            }
+          ]
+        },
+        {
+          Date: 2019-02-01+00:00,
+          LibYear: [
+            {
+              Name: mini_portile2,
+              Version: 2.4.0,
+              PublishedAt: 2018-12-02T08:28:04+00:00,
+              LatestVersion: 2.4.0,
+              LatestPublishedAt: 2018-12-02T08:28:04+00:00,
+              UpgradeAvailable: false,
+              Skipped: false
+            },
+            {
+              Name: nokogiri,
+              Version: 1.9.1,
+              PublishedAt: 2018-12-18T05:22:07+00:00,
+              LatestVersion: 1.10.1,
+              LatestPublishedAt: 2019-01-13T06:29:30+00:00,
+              Value: 0.07136107940131912,
+              UpgradeAvailable: true,
+              Skipped: false
+            }
+          ]
+        },
+        {
+          Date: 2019-03-01+00:00,
+          LibYear: [
+            {
+              Name: mini_portile2,
+              Version: 2.4.0,
+              PublishedAt: 2018-12-02T08:28:04+00:00,
+              LatestVersion: 2.4.0,
+              LatestPublishedAt: 2018-12-02T08:28:04+00:00,
+              UpgradeAvailable: false,
+              Skipped: false
+            },
+            {
+              Name: nokogiri,
+              Version: 1.9.1,
+              PublishedAt: 2018-12-18T05:22:07+00:00,
+              LatestVersion: 1.10.1,
+              LatestPublishedAt: 2019-01-13T06:29:30+00:00,
+              Value: 0.07136107940131912,
+              UpgradeAvailable: true,
+              Skipped: false
+            }
+          ]
+        },
+        {
+          Date: 2019-04-01+00:00,
+          LibYear: [
+            {
+              Name: mini_portile2,
+              Version: 2.4.0,
+              PublishedAt: 2018-12-02T08:28:04+00:00,
+              LatestVersion: 2.4.0,
+              LatestPublishedAt: 2018-12-02T08:28:04+00:00,
+              UpgradeAvailable: false,
+              Skipped: false
+            },
+            {
+              Name: nokogiri,
+              Version: 1.9.1,
+              PublishedAt: 2018-12-18T05:22:07+00:00,
+              LatestVersion: 1.10.2,
+              LatestPublishedAt: 2019-03-25T13:03:11+00:00,
+              Value: 0.2666306443429731,
+              UpgradeAvailable: true,
+              Skipped: false
+            }
+          ]
+        },
+        {
+          Date: 2019-05-01+00:00,
+          LibYear: [
+            {
+              Name: mini_portile2,
+              Version: 2.4.0,
+              PublishedAt: 2018-12-02T08:28:04+00:00,
+              LatestVersion: 2.4.0,
+              LatestPublishedAt: 2018-12-02T08:28:04+00:00,
+              UpgradeAvailable: false,
+              Skipped: false
+            },
+            {
+              Name: nokogiri,
+              Version: 1.9.1,
+              PublishedAt: 2018-12-18T05:22:07+00:00,
+              LatestVersion: 1.10.3,
+              LatestPublishedAt: 2019-04-22T17:10:22+00:00,
+              Value: 0.34381326103500764,
+              UpgradeAvailable: true,
+              Skipped: false
+            }
+          ]
+        },
+        {
+          Date: 2019-06-01+00:00,
+          LibYear: [
+            {
+              Name: mini_portile2,
+              Version: 2.4.0,
+              PublishedAt: 2018-12-02T08:28:04+00:00,
+              LatestVersion: 2.4.0,
+              LatestPublishedAt: 2018-12-02T08:28:04+00:00,
+              UpgradeAvailable: false,
+              Skipped: false
+            },
+            {
+              Name: nokogiri,
+              Version: 1.9.1,
+              PublishedAt: 2018-12-18T05:22:07+00:00,
+              LatestVersion: 1.10.3,
+              LatestPublishedAt: 2019-04-22T17:10:22+00:00,
+              Value: 0.34381326103500764,
+              UpgradeAvailable: true,
+              Skipped: false
+            }
+          ]
+        },
+        {
+          Date: 2019-07-01+00:00,
+          LibYear: [
+            {
+              Name: mini_portile2,
+              Version: 2.4.0,
+              PublishedAt: 2018-12-02T08:28:04+00:00,
+              LatestVersion: 2.4.0,
+              LatestPublishedAt: 2018-12-02T08:28:04+00:00,
+              UpgradeAvailable: false,
+              Skipped: false
+            },
+            {
+              Name: nokogiri,
+              Version: 1.9.1,
+              PublishedAt: 2018-12-18T05:22:07+00:00,
+              LatestVersion: 1.10.3,
+              LatestPublishedAt: 2019-04-22T17:10:22+00:00,
+              Value: 0.34381326103500764,
+              UpgradeAvailable: true,
+              Skipped: false
+            }
+          ]
+        },
+        {
+          Date: 2019-08-01+00:00,
+          LibYear: [
+            {
+              Name: mini_portile2,
+              Version: 2.4.0,
+              PublishedAt: 2018-12-02T08:28:04+00:00,
+              LatestVersion: 2.4.0,
+              LatestPublishedAt: 2018-12-02T08:28:04+00:00,
+              UpgradeAvailable: false,
+              Skipped: false
+            },
+            {
+              Name: nokogiri,
+              Version: 1.9.1,
+              PublishedAt: 2018-12-18T05:22:07+00:00,
+              LatestVersion: 1.10.3,
+              LatestPublishedAt: 2019-04-22T17:10:22+00:00,
+              Value: 0.34381326103500764,
+              UpgradeAvailable: true,
+              Skipped: false
+            }
+          ]
+        },
+        {
+          Date: 2019-09-01+00:00,
+          LibYear: [
+            {
+              Name: mini_portile2,
+              Version: 2.4.0,
+              PublishedAt: 2018-12-02T08:28:04+00:00,
+              LatestVersion: 2.4.0,
+              LatestPublishedAt: 2018-12-02T08:28:04+00:00,
+              UpgradeAvailable: false,
+              Skipped: false
+            },
+            {
+              Name: nokogiri,
+              Version: 1.9.1,
+              PublishedAt: 2018-12-18T05:22:07+00:00,
+              LatestVersion: 1.10.4,
+              LatestPublishedAt: 2019-08-11T19:25:23+00:00,
+              Value: 0.648179731100964,
+              UpgradeAvailable: true,
+              Skipped: false
+            }
+          ]
+        },
+        {
+          Date: 2019-10-01+00:00,
+          LibYear: [
+            {
+              Name: mini_portile2,
+              Version: 2.4.0,
+              PublishedAt: 2018-12-02T08:28:04+00:00,
+              LatestVersion: 2.4.0,
+              LatestPublishedAt: 2018-12-02T08:28:04+00:00,
+              UpgradeAvailable: false,
+              Skipped: false
+            },
+            {
+              Name: nokogiri,
+              Version: 1.9.1,
+              PublishedAt: 2018-12-18T05:22:07+00:00,
+              LatestVersion: 1.10.4,
+              LatestPublishedAt: 2019-08-11T19:25:23+00:00,
+              Value: 0.648179731100964,
+              UpgradeAvailable: true,
+              Skipped: false
+            }
+          ]
+        },
+        {
+          Date: 2019-11-01+00:00,
+          LibYear: [
+            {
+              Name: mini_portile2,
+              Version: 2.4.0,
+              PublishedAt: 2018-12-02T08:28:04+00:00,
+              LatestVersion: 2.4.0,
+              LatestPublishedAt: 2018-12-02T08:28:04+00:00,
+              UpgradeAvailable: false,
+              Skipped: false
+            },
+            {
+              Name: nokogiri,
+              Version: 1.9.1,
+              PublishedAt: 2018-12-18T05:22:07+00:00,
+              LatestVersion: 1.10.5,
+              LatestPublishedAt: 2019-10-31T19:29:36+00:00,
+              Value: 0.8701055618975139,
+              UpgradeAvailable: true,
+              Skipped: false
+            }
+          ]
+        },
+        {
+          Date: 2019-12-01+00:00,
+          LibYear: [
+            {
+              Name: mini_portile2,
+              Version: 2.4.0,
+              PublishedAt: 2018-12-02T08:28:04+00:00,
+              LatestVersion: 2.4.0,
+              LatestPublishedAt: 2018-12-02T08:28:04+00:00,
+              UpgradeAvailable: false,
+              Skipped: false
+            },
+            {
+              Name: nokogiri,
+              Version: 1.9.1,
+              PublishedAt: 2018-12-18T05:22:07+00:00,
+              LatestVersion: 1.10.5,
+              LatestPublishedAt: 2019-10-31T19:29:36+00:00,
+              Value: 0.8701055618975139,
+              UpgradeAvailable: true,
+              Skipped: false
+            }
+          ]
+        },
+        {
+          Date: 2020-01-01+00:00,
+          LibYear: [
+            {
+              Name: mini_portile2,
+              Version: 2.4.0,
+              PublishedAt: 2018-12-02T08:28:04+00:00,
+              LatestVersion: 2.4.0,
+              LatestPublishedAt: 2018-12-02T08:28:04+00:00,
+              UpgradeAvailable: false,
+              Skipped: false
+            },
+            {
+              Name: nokogiri,
+              Version: 1.9.1,
+              PublishedAt: 2018-12-18T05:22:07+00:00,
+              LatestVersion: 1.10.7,
+              LatestPublishedAt: 2019-12-04T15:29:49+00:00,
+              Value: 0.9628000380517504,
+              UpgradeAvailable: true,
+              Skipped: false
+            }
+          ]
+        },
+        {
+          Date: 2020-02-01+00:00,
+          LibYear: [
+            {
+              Name: mini_portile2,
+              Version: 2.4.0,
+              PublishedAt: 2018-12-02T08:28:04+00:00,
+              LatestVersion: 2.4.0,
+              LatestPublishedAt: 2018-12-02T08:28:04+00:00,
+              UpgradeAvailable: false,
+              Skipped: false
+            },
+            {
+              Name: nokogiri,
+              Version: 1.9.1,
+              PublishedAt: 2018-12-18T05:22:07+00:00,
+              LatestVersion: 1.10.7,
+              LatestPublishedAt: 2019-12-04T15:29:49+00:00,
+              Value: 0.9628000380517504,
+              UpgradeAvailable: true,
+              Skipped: false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  logs: []
+}
