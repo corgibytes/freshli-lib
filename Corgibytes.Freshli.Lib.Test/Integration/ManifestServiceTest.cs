@@ -1,16 +1,28 @@
+using System.Collections.Immutable;
 using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
+
+using VerifyTests;
+using VerifyXunit;
 using Xunit;
 
 namespace Corgibytes.Freshli.Lib.Test.Integration
 {
-    public class ManifestFinderTest
+    [UsesVerify]
+    public class ManifestServiceTest
     {
         public IFileHistoryFinderRegistry FileHistoryFinderRegistry { get; init; }
         public IManifestFinderRegistry ManifestFinderRegistry { get; init; }
 
-        public ManifestFinderTest()
+        public ILoggerFactory _loggerFactory;
+
+        public ManifestServiceTest()
         {
-            ManifestFinderRegistry = new ManifestFinderRegistry();
+            _loggerFactory = new LoggerFactory();
+            _loggerFactory.AddProvider(LoggerRecording.Start(LogLevel.Trace));
+
+            ManifestFinderRegistry = new ManifestFinderRegistry(_loggerFactory.CreateLogger<ManifestFinderRegistry>());
 
             var loader = new ManifestFinderRegistryLoader(NLog.LogManager.GetLogger("ManifestFinderRegistryLoader"));
             loader.RegisterAll(ManifestFinderRegistry);
@@ -21,7 +33,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
         }
 
         [Fact]
-        public void Empty()
+        public Task Empty()
         {
             var emptyFixturePath = Fixtures.Path("empty");
             var historyService = new FileHistoryService(FileHistoryFinderRegistry);
@@ -29,11 +41,11 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
             var manifestService = new ManifestService(ManifestFinderRegistry);
             var finders = manifestService.SelectFindersFor(emptyFixturePath, fileFinder);
 
-            Assert.Empty(finders);
+            return Verifier.Verify(finders.ToImmutableArray().Select<IManifestFinder, string>(f => f.GetType().Name));
         }
 
         [Fact]
-        public void RubyBundler()
+        public Task RubyBundler()
         {
             var rubyFixturePath = Fixtures.Path("ruby", "nokotest");
 
@@ -42,11 +54,11 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
             var manifestService = new ManifestService(ManifestFinderRegistry);
             var finders = manifestService.SelectFindersFor(rubyFixturePath, fileFinder);
 
-            Assert.Equal("Gemfile.lock", finders.First().GetManifestFilenames(rubyFixturePath).First());
+            return Verifier.Verify(finders.ToImmutableArray().Select<IManifestFinder, string>(f => f.GetType().Name));
         }
 
         [Fact]
-        public void PhpComposer()
+        public Task PhpComposer()
         {
             var phpFixturePath = Fixtures.Path("php", "small");
 
@@ -55,11 +67,11 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
             var manifestService = new ManifestService(ManifestFinderRegistry);
             var finders = manifestService.SelectFindersFor(phpFixturePath, fileFinder);
 
-            Assert.Equal("composer.lock", finders.First().GetManifestFilenames(phpFixturePath).First());
+            return Verifier.Verify(finders.ToImmutableArray().Select<IManifestFinder, string>(f => f.GetType().Name));
         }
 
         [Fact]
-        public void PythonPipRequirementsTxt()
+        public Task PythonPipRequirementsTxt()
         {
             var pythonFixturePath = Fixtures.Path(
               "python",
@@ -72,12 +84,12 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
             var manifestService = new ManifestService(ManifestFinderRegistry);
             var finders = manifestService.SelectFindersFor(pythonFixturePath, fileFinder);
 
-            Assert.Equal("requirements.txt", finders.First().GetManifestFilenames(pythonFixturePath).First());
+            return Verifier.Verify(finders.ToImmutableArray().Select<IManifestFinder, string>(f => f.GetType().Name));
         }
 
 
         [Fact]
-        public void PerlCpanfile()
+        public Task PerlCpanfile()
         {
             var fixturePath = Fixtures.Path(
               "perl",
@@ -90,7 +102,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
             var manifestService = new ManifestService(ManifestFinderRegistry);
             var finders = manifestService.SelectFindersFor(fixturePath, fileFinder);
 
-            Assert.Equal("cpanfile", finders.First().GetManifestFilenames(fixturePath).First());
+            return Verifier.Verify(finders.ToImmutableArray().Select<IManifestFinder, string>(f => f.GetType().Name));
         }
     }
 }

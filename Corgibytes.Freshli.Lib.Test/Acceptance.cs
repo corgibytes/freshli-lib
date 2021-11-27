@@ -27,7 +27,7 @@ namespace Corgibytes.Freshli.Lib.Test
         {
             _loggerFactory = new LoggerFactory();
             _loggerFactory.AddProvider(LoggerRecording.Start());
-            _manifestFinderRegistry = new ManifestFinderRegistry();
+            _manifestFinderRegistry = new ManifestFinderRegistry(_loggerFactory.CreateLogger<ManifestFinderRegistry>());
 
             var loader = new ManifestFinderRegistryLoader(LogManager.GetLogger(nameof(ManifestFinderRegistryLoader)));
             loader.RegisterAll(_manifestFinderRegistry);

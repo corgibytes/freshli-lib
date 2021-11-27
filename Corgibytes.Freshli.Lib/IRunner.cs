@@ -5,7 +5,7 @@ namespace Corgibytes.Freshli.Lib
 {
     public interface IRunner
     {
-        public IList<ScanResult> Run(string analysisPath, DateTimeOffset asOf);
-        public IList<ScanResult> Run(string analysisPath);
+        public IEnumerable<ScanResult> Run(string analysisPath, DateTimeOffset asOf);
+        public IEnumerable<ScanResult> Run(string analysisPath);
     }
 }

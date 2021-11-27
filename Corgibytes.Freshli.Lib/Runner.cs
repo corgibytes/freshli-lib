@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Corgibytes.Freshli.Lib.Util;
 using Microsoft.Extensions.Logging;
@@ -41,37 +42,37 @@ namespace Corgibytes.Freshli.Lib
             return false;
         }
 
-        public IList<ScanResult> Run(string analysisPath, DateTimeOffset asOf)
+        public IEnumerable<ScanResult> Run(string analysisPath, DateTimeOffset asOf)
         {
             logger.Info($"Run({analysisPath}, {asOf:O})");
 
-            IList<ScanResult> scanResults = new List<ScanResult>();
+            var streamWriter = TextWriter.Null;
+            // TODO: Remove dependency on `DotNetEnv` for this feature
+            DotNetEnv.Env.Load();
+            if (DotNetEnv.Env.GetBool("SAVE_RESULTS_TO_FILE"))
+            {
+                streamWriter = CreateResultsToFileWriter();
+            }
 
             var fileHistoryFinder = FileHistoryService.SelectFinderFor(analysisPath);
 
             var manifestFinders = ManifestService.SelectFindersFor(analysisPath, fileHistoryFinder);
-            if (!ContainsManifestFile(manifestFinders, analysisPath))
+            if (!(ContainsManifestFile(manifestFinders, analysisPath)))
             {
                 logger.Warn("Unable to find a manifest file");
             }
             else
             {
-                scanResults = ProcessManifestFiles(
-                    analysisPath,
-                    asOf,
-                    manifestFinders,
-                    fileHistoryFinder
                 // TODO: Remove the call to `Take(1)` to support results from multiple manifest files
-                ).Take(1).ToList();
+                foreach(var result in ProcessManifestFiles(analysisPath, asOf, manifestFinders, fileHistoryFinder).Take(1))
+                {
+                    yield return result;
+                    streamWriter.WriteLine(result.ToString());
+                }
             }
-
-            DotNetEnv.Env.Load();
-            if (DotNetEnv.Env.GetBool("SAVE_RESULTS_TO_FILE"))
-            {
-                WriteResultsToFile(scanResults);
-            }
-
-            return scanResults;
+            streamWriter.Close();
+            // TODO: switch to a `using` block
+            streamWriter.Dispose();
         }
 
         private IEnumerable<ScanResult> ProcessManifestFiles(string analysisPath, DateTimeOffset asOf, IEnumerable<IManifestFinder> manifestFinders, IFileHistoryFinder fileHistoryFinder)
@@ -133,13 +134,17 @@ namespace Corgibytes.Freshli.Lib
             return new MetricsResult(currentDate, sha, libYear);
         }
 
-        public IList<ScanResult> Run(string analysisPath)
+        public IEnumerable<ScanResult> Run(string analysisPath)
         {
             var asOf = DateTimeOffset.UtcNow.ToEndOfDay();
-            return Run(analysisPath, asOf: asOf);
+            var results = Run(analysisPath, asOf: asOf);
+            foreach (var result in results)
+            {
+                yield return result;
+            }
         }
 
-        private void WriteResultsToFile(IList<ScanResult> results)
+        private TextWriter CreateResultsToFileWriter()
         {
             if (!System.IO.Directory.Exists(ResultsPath))
             {
@@ -148,11 +153,7 @@ namespace Corgibytes.Freshli.Lib
             var dateTime = DateTimeOffset.UtcNow;
             var filePath =
                 $"{ResultsPath}/{dateTime:yyyy-MM-dd-hhmmssfffffff}-results.txt";
-            using var file = new System.IO.StreamWriter(filePath);
-            foreach (var result in results)
-            {
-                file.WriteLine(result);
-            }
+            return new System.IO.StreamWriter(filePath);
         }
     }
 }

@@ -7,6 +7,7 @@ using NLog;
 using Splat;
 using Splat.Microsoft.Extensions.Logging;
 using ReactiveUI;
+using System.Threading.Tasks;
 
 namespace ExampleClient.ViewModels
 {
@@ -65,7 +66,7 @@ namespace ExampleClient.ViewModels
 
             Locator.CurrentMutable.UseMicrosoftExtensionsLoggingWithWrappingFullLogger(loggerFactory);
 
-            var manifestFinderRegistry = new ManifestFinderRegistry();
+            var manifestFinderRegistry = new ManifestFinderRegistry(loggerFactory.CreateLogger<ManifestFinderRegistry>());
 
             var loader = new ManifestFinderRegistryLoader(LogManager.GetLogger(nameof(ManifestFinderRegistryLoader)));
             loader.RegisterAll(manifestFinderRegistry);

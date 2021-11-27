@@ -134,6 +134,17 @@ The test filters above [can be combined](https://docs.microsoft.com/en-us/dotnet
 dotnet test --filter "Unit|Integration"
 ```
 
+### Working with Verify tests
+
+Some of the tests make sure of the [Verify](https://github.com/VerifyTests/Verify) golden master testing library. When these tests are run, the data collected by running the test is stored in a filename that ends in `.received.txt` and then compared against the expected data that is stored in a corresponding file that ends in `.verified.txt`.
+
+It can sometimes be useful to "verify" all of the received files at once. One way to accomplish this is using a bulk renamee program such as `mmv`, which can be installed on Debian-based Linux systems by running `apt-get install mmv`. The command to do so is:
+
+```
+mmv -md ";*.received.txt" "#1#2.verified.txt"
+```
+
+
 ## Running
 
 There is cross platform [Example Client](https://github.com/corgibytes/freshli-lib/tree/feature-add-example-client/ExampleClient) that you can use to see how Freshli-Lib works.  Run or debug the example client in [Visual Studio](https://docs.microsoft.com/en-us/visualstudio/get-started/csharp/run-program?view=vs-2019) or [Rider](https://www.jetbrains.com/help/rider/Run_Debug_Configuration_dotNet_Project.html).
