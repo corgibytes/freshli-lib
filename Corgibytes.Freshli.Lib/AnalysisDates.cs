@@ -8,10 +8,10 @@ namespace Corgibytes.Freshli.Lib
 {
     public class AnalysisDates : IEnumerable<DateTimeOffset>
     {
-        IFileHistory history;
+        IManifestHistory history;
         DateTimeOffset asOf;
 
-        public AnalysisDates(IFileHistory history, DateTimeOffset asOf)
+        public AnalysisDates(IManifestHistory history, DateTimeOffset asOf)
         {
             this.history = history;
             this.asOf = asOf;

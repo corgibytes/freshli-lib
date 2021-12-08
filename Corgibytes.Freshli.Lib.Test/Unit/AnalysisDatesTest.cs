@@ -11,7 +11,7 @@ namespace Corgibytes.Freshli.Lib.Test.Unit
 {
     public class AnalysisDatesTest
     {
-        private Mock<IFileHistory> _history = new();
+        private Mock<IManifestHistory> _history = new();
 
         [Fact]
         public void SingleDate()

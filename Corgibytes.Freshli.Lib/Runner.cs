@@ -16,30 +16,16 @@ namespace Corgibytes.Freshli.Lib
 
         private readonly Logger logger = LogManager.GetCurrentClassLogger();
 
-        public IManifestService ManifestService { get; init; }
+        public IManifestFinderRegistry ManifestFinderRegistry { get; init; }
 
-        public IFileHistoryService FileHistoryService { get; init; }
+        public IFileHistoryFinderRegistry FileHistoryFinderRegistry { get; init; }
 
-        public Runner(IManifestService manifestService, IFileHistoryService fileHistoryService, ILoggerFactory loggerFactory)
+        public Runner(IManifestFinderRegistry manifestFinderRegistry, IFileHistoryFinderRegistry fileHistoryFinderRegistry, ILoggerFactory loggerFactory)
         {
-            ManifestService = manifestService;
-            FileHistoryService = fileHistoryService;
+            ManifestFinderRegistry = manifestFinderRegistry;
+            FileHistoryFinderRegistry = fileHistoryFinderRegistry;
 
             _loggerFactory = loggerFactory;
-        }
-
-        // TODO: Move this method to `ManifestService`
-        private bool ContainsManifestFile(IEnumerable<IManifestFinder> manifestFinders, string analysisPath)
-        {
-            foreach (var manifestFinder in manifestFinders)
-            {
-                foreach (string fileName in manifestFinder.GetManifestFilenames(analysisPath))
-                {
-                    return true;
-                }
-            }
-
-            return false;
         }
 
         public IEnumerable<ScanResult> Run(string analysisPath, DateTimeOffset asOf)
@@ -54,84 +40,71 @@ namespace Corgibytes.Freshli.Lib
                 streamWriter = CreateResultsToFileWriter();
             }
 
-            var fileHistoryFinder = FileHistoryService.SelectFinderFor(analysisPath);
+            var fileHistorySource = FileHistoryFinderRegistry.Finders.Select(f => f.HistorySourceFor(analysisPath)).First(f => f != null);
 
-            var manifestFinders = ManifestService.SelectFindersFor(analysisPath, fileHistoryFinder);
-            if (!(ContainsManifestFile(manifestFinders, analysisPath)))
+            // TODO: Remove the call to `Take(1)` to support results from multiple manifest files
+            foreach(var result in ProcessManifestFiles(asOf, ManifestFinderRegistry.Finders, fileHistorySource).Take(1))
             {
-                logger.Warn("Unable to find a manifest file");
-            }
-            else
-            {
-                // TODO: Remove the call to `Take(1)` to support results from multiple manifest files
-                foreach(var result in ProcessManifestFiles(analysisPath, asOf, manifestFinders, fileHistoryFinder).Take(1))
-                {
-                    yield return result;
-                    streamWriter.WriteLine(result.ToString());
-                }
+                yield return result;
+                streamWriter.WriteLine(result.ToString());
             }
             streamWriter.Close();
             // TODO: switch to a `using` block
             streamWriter.Dispose();
         }
 
-        private IEnumerable<ScanResult> ProcessManifestFiles(string analysisPath, DateTimeOffset asOf, IEnumerable<IManifestFinder> manifestFinders, IFileHistoryFinder fileHistoryFinder)
+        private IEnumerable<ScanResult> ProcessManifestFiles(DateTimeOffset asOf, IEnumerable<IManifestFinder> manifestFinders, IFileHistorySource fileHistorySource)
         {
+            var resultsCount = 0;
+
             foreach (var manifestFinder in manifestFinders)
             {
-                foreach (var manifestFile in manifestFinder.GetManifestFilenames(analysisPath))
+                foreach (var manifestHistory in manifestFinder.GetManifests(fileHistorySource))
                 {
-                    logger.Trace(
-                        "{analysisPath}: LockFileName: {LockFileName}",
-                        analysisPath,
-                        manifestFile
-                    );
-
-                    var fileHistory = fileHistoryFinder.FileHistoryOf(analysisPath, manifestFile);
-                    var analysisDates = new AnalysisDates(fileHistory, asOf.DateTime);
+                    // TODO: Is it correct behavior to call `.DateTime` here? I suspect no.
+                    var analysisDates = new AnalysisDates(manifestHistory, asOf.DateTime);
                     var metricsResults = analysisDates.Select(
-                        ad => ProcessAnalysisDate(analysisPath, manifestFile, manifestFinder, fileHistory, ad)
+                        ad => ProcessAnalysisDate(manifestHistory.ManifestAsOf(ad), ad)
                     ).ToList();
 
-                    yield return new ScanResult(manifestFile, metricsResults);
+                    resultsCount++;
+                    yield return new ScanResult(manifestHistory.FilePath, metricsResults);
 
                     // TODO: Remove this break to enable multi-manifest file support, I _think_ ^_^
                     yield break;
                 }
             }
+
+            if (resultsCount == 0)
+            {
+                logger.Warn("Unable to find a manifest file");
+            }
         }
 
-        private MetricsResult ProcessAnalysisDate(string analysisPath, string manifestFile, IManifestFinder manifestFinder, IFileHistory fileHistory, DateTimeOffset currentDate)
+        private MetricsResult ProcessAnalysisDate(IManifest manifest, DateTimeOffset analysisDate)
         {
-            using var contentStream = fileHistory.ContentStreamAsOf(currentDate);
-
-            var manifestParser = manifestFinder.ManifestParser();
-            var parsedManifestContents = manifestParser.Parse(contentStream);
             var calculator = new LibYearCalculator(
-                // TODO: the repository that's used should be based on the `manifestFile` not on the repository root
-                manifestFinder.RepositoryFor(analysisPath),
-                // TODO: manifest should be provided by a manifest parser
-                parsedManifestContents,
-                manifestParser.UsesExactMatches,
+                manifest.Repository,
+                manifest.Contents,
+                manifest.UsesExactMatches,
                 _loggerFactory.CreateLogger<LibYearCalculator>()
             );
 
+            var sha = manifest.Revision;
 
-            var sha = fileHistory.ShaAsOf(currentDate);
-
-            LibYearResult libYear = calculator.ComputeAsOf(currentDate);
+            LibYearResult libYear = calculator.ComputeAsOf(analysisDate);
             logger.Trace(
                 "Adding MetricResult: {manifestFile}, " +
                     "currentDate = {currentDate:O}, " +
                     "sha = {sha}, " +
                     "libYear = {ComputeAsOf}",
-                manifestFile,
-                currentDate,
+                manifest.FilePath,
+                analysisDate,
                 sha,
                 libYear.Total
             );
 
-            return new MetricsResult(currentDate, sha, libYear);
+            return new MetricsResult(analysisDate, sha, libYear);
         }
 
         public IEnumerable<ScanResult> Run(string analysisPath)

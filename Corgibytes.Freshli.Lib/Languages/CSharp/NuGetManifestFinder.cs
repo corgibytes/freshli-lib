@@ -1,20 +1,11 @@
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
 namespace Corgibytes.Freshli.Lib.Languages.CSharp
 {
-    public class NuGetManifestFinder : AbstractManifestFinder
+    public class NuGetManifestFinder : IManifestFinder
     {
-        protected override string ManifestPattern => "*.csproj";
-
-        public override IPackageRepository RepositoryFor(string projectRootPath)
-        {
-            return new NuGetRepository();
-        }
-
-        public override IManifestParser ManifestParser()
-        {
-            return new NuGetManifestParser();
-        }
+        public IEnumerable<IManifestHistory> GetManifests(IFileHistorySource fileHistorySource) => throw new System.NotImplementedException();
     }
 }

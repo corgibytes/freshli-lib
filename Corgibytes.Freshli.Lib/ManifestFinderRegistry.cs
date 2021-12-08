@@ -11,16 +11,16 @@ namespace Corgibytes.Freshli.Lib
     {
         private readonly ILogger<ManifestFinderRegistry> _logger;
 
-        private readonly IList<AbstractManifestFinder> _finders = new List<AbstractManifestFinder>();
+        private readonly IList<IManifestFinder> _finders = new List<IManifestFinder>();
 
-        public IList<AbstractManifestFinder> Finders => _finders;
+        public IList<IManifestFinder> Finders => _finders;
 
         public ManifestFinderRegistry(ILogger<ManifestFinderRegistry> logger)
         {
             _logger = logger;
         }
 
-        public void Register(AbstractManifestFinder finder)
+        public void Register(IManifestFinder finder)
         {
             _logger.LogTrace($"Registering manifest finder: {finder.GetType().AssemblyQualifiedName}");
             Finders.Add(finder);

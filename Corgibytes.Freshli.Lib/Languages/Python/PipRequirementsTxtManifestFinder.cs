@@ -1,14 +1,9 @@
-﻿namespace Corgibytes.Freshli.Lib.Languages.Python
+﻿using System.Collections.Generic;
+
+namespace Corgibytes.Freshli.Lib.Languages.Python
 {
-    public class PipRequirementsTxtManifestFinder : AbstractManifestFinder
+    public class PipRequirementsTxtManifestFinder : IManifestFinder
     {
-        protected override string ManifestPattern => "requirements.txt";
-
-        public override IPackageRepository RepositoryFor(string projectRootPath)
-        {
-            return new PyPIRepository();
-        }
-
-        public override IManifestParser ManifestParser() => new PipRequirementsTxtManifestParser();
+        public IEnumerable<IManifestHistory> GetManifests(IFileHistorySource fileHistorySource) => throw new System.NotImplementedException();
     }
 }

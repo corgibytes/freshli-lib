@@ -68,18 +68,14 @@ namespace ExampleClient.ViewModels
 
             var manifestFinderRegistry = new ManifestFinderRegistry(loggerFactory.CreateLogger<ManifestFinderRegistry>());
 
-            var loader = new ManifestFinderRegistryLoader(LogManager.GetLogger(nameof(ManifestFinderRegistryLoader)));
+            var loader = new ManifestFinderRegistryLoader(loggerFactory.CreateLogger<ManifestFinderRegistryLoader>());
             loader.RegisterAll(manifestFinderRegistry);
-
-            var manifestService = new ManifestService(manifestFinderRegistry);
 
             var fileHistoryFinderRegistry = new FileHistoryFinderRegistry();
             fileHistoryFinderRegistry.Register<GitFileHistoryFinder>();
             fileHistoryFinderRegistry.Register<LocalFileHistoryFinder>();
 
-            var fileHistoryService = new FileHistoryService(fileHistoryFinderRegistry);
-
-            var runner = new Runner(manifestService, fileHistoryService, loggerFactory);
+            var runner = new Runner(manifestFinderRegistry, fileHistoryFinderRegistry, loggerFactory);
             var metricResults = runner.Run(GitPath);
 
             foreach (var mr in metricResults)

@@ -13,8 +13,6 @@ namespace Corgibytes.Freshli.Lib.Languages.Php
         private readonly string _baseUrl;
 
         // TODO: Migrate towards something from Microsoft.Extensions.Caching
-        // TODO: Switching this to static results in a test failure.
-        // Makes me think that cache key isn't specific enough
         private Dictionary<string, string> _packageInfoCache =
           new Dictionary<string, string>();
 

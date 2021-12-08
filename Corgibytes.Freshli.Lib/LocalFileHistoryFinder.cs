@@ -31,5 +31,7 @@ namespace Corgibytes.Freshli.Lib
                 GetFiles(projectRootPath, pattern, SearchOption.AllDirectories).
                 Select(f => Path.GetFileName(f)).ToArray();
         }
+
+        public IFileHistorySource HistorySourceFor(string locator) => throw new System.NotImplementedException();
     }
 }

@@ -1,14 +1,9 @@
+using System.Collections.Generic;
+
 namespace Corgibytes.Freshli.Lib.Languages.Php
 {
-    public class PhpComposerManifestFinder : AbstractManifestFinder
+    public class PhpComposerManifestFinder : IManifestFinder
     {
-        protected override string ManifestPattern => "composer.lock";
-
-        public override IPackageRepository RepositoryFor(string projectRootPath)
-        {
-            return new MulticastComposerRepository(projectRootPath, FileFinder);
-        }
-
-        public override IManifestParser ManifestParser() => new ComposerManifestParser();
+        public IEnumerable<IManifestHistory> GetManifests(IFileHistorySource fileHistorySource) => throw new System.NotImplementedException();
     }
 }

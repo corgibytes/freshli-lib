@@ -133,5 +133,7 @@ namespace Corgibytes.Freshli.Lib
                                 .Select(f => Path.GetRelativePath(clonedProjectRoot, f))
                                 .ToArray();
         }
+
+        public IFileHistorySource HistorySourceFor(string locator) => throw new NotImplementedException();
     }
 }

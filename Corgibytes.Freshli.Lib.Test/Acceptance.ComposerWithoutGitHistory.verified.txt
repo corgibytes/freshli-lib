@@ -1268,11 +1268,5 @@
       ]
     }
   ],
-  logs: [
-    {
-      Level: Warning,
-      Category: Corgibytes.Freshli.Lib.LibYearCalculator,
-      Message: Negative value (-2.077) computed for scrivo/highlight.php as of 2020-02-01T00:00:00.0000000+00:00; setting value to 0: { Name: "scrivo/highlight.php", RepoVersion: "v9.17.1.0", RepoVersionPublishedAt: 2019-12-13T21:54:06.0000000+00:00, LatestVersion: "v9.12.0", LatestPublishedAt: 2017-11-15T23:20:02.0000000+00:00, UpgradeAvailable: True, Value: 0 }
-    }
-  ]
+  logs: []
 }

@@ -2,21 +2,24 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using NLog;
+
+using Microsoft.Extensions.Logging;
 
 namespace Corgibytes.Freshli.Lib
 {
+    // TODO: This class can go away once the tests adopt a IoC container
     public class ManifestFinderRegistryLoader
     {
-        private ILogger _logger;
+        private ILogger<ManifestFinderRegistryLoader> _logger;
 
-        public ManifestFinderRegistryLoader(ILogger logger)
+        public ManifestFinderRegistryLoader(ILogger<ManifestFinderRegistryLoader> logger)
         {
             _logger = logger;
         }
 
         public void RegisterAll(IManifestFinderRegistry registry)
         {
+            _logger.LogTrace("RegisterAll");
             var manifestFinderTypes = new HashSet<Type>();
             foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
             {
@@ -28,28 +31,23 @@ namespace Corgibytes.Freshli.Lib
 
             foreach (var type in manifestFinderTypes)
             {
-                _logger.Log(
-                    LogLevel.Info,
-                    $"Registering AbstractManifestFinder: {type}"
-                );
-                registry.Register((AbstractManifestFinder)Activator.CreateInstance(type));
+                _logger.LogDebug($"Registering IManifestFinder: {type}");
+                registry.Register((IManifestFinder)Activator.CreateInstance(type));
             }
         }
 
         private IEnumerable<Type> FindersLoadedIn(Assembly assembly)
         {
-            try
+            _logger.LogDebug($"Looking for IManifestFinder implementations in #{assembly}");
+            var foundTypes = assembly.GetTypes().
+                Where(
+                    type => type.GetInterfaces().Contains(typeof(IManifestFinder)) &&
+                            type.GetConstructor(Type.EmptyTypes) != null
+                );
+
+            foreach (var type in foundTypes)
             {
-                return assembly.GetTypes().
-                    Where(
-                        type => type.BaseType == typeof(AbstractManifestFinder) &&
-                                type.GetConstructor(Type.EmptyTypes) != null
-                    );
-            }
-            catch
-            {
-                _logger.Log(LogLevel.Info, $"Unable to load types from {assembly}");
-                return new List<Type>();
+                yield return type;
             }
         }
     }

@@ -14,11 +14,8 @@ namespace Corgibytes.Freshli.Lib.Test
         private DateTimeOffset _testingBoundary =
             new DateTimeOffset(2020, 02, 01, 0, 0, 0, 0, TimeSpan.Zero);
 
-        private IManifestService _manifestService;
         private IManifestFinderRegistry _manifestFinderRegistry;
         private IFileHistoryFinderRegistry _fileHistoryFinderRegistry;
-        private IFileHistoryService _fileHistoryService;
-
         private ILoggerFactory _loggerFactory;
 
         private IRunner _runner;
@@ -29,18 +26,14 @@ namespace Corgibytes.Freshli.Lib.Test
             _loggerFactory.AddProvider(LoggerRecording.Start());
             _manifestFinderRegistry = new ManifestFinderRegistry(_loggerFactory.CreateLogger<ManifestFinderRegistry>());
 
-            var loader = new ManifestFinderRegistryLoader(LogManager.GetLogger(nameof(ManifestFinderRegistryLoader)));
+            var loader = new ManifestFinderRegistryLoader(_loggerFactory.CreateLogger<ManifestFinderRegistryLoader>());
             loader.RegisterAll(_manifestFinderRegistry);
-
-            _manifestService = new ManifestService(_manifestFinderRegistry);
 
             _fileHistoryFinderRegistry = new FileHistoryFinderRegistry();
             _fileHistoryFinderRegistry.Register<GitFileHistoryFinder>();
             _fileHistoryFinderRegistry.Register<LocalFileHistoryFinder>();
 
-            _fileHistoryService = new FileHistoryService(_fileHistoryFinderRegistry);
-
-            _runner = new Runner(_manifestService, _fileHistoryService, _loggerFactory);
+            _runner = new Runner(_manifestFinderRegistry, _fileHistoryFinderRegistry, _loggerFactory);
         }
 
         [Fact]

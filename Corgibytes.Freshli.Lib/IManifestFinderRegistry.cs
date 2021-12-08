@@ -4,8 +4,8 @@ namespace Corgibytes.Freshli.Lib
 {
     public interface IManifestFinderRegistry
     {
-        IList<AbstractManifestFinder> Finders { get; }
+        IList<IManifestFinder> Finders { get; }
 
-        void Register(AbstractManifestFinder finder);
+        void Register(IManifestFinder finder);
     }
 }
