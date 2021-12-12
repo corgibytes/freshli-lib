@@ -134,6 +134,10 @@ namespace Corgibytes.Freshli.Lib
                                 .ToArray();
         }
 
-        public IFileHistorySource HistorySourceFor(string locator) => throw new NotImplementedException();
+        public IFileHistorySource HistorySourceFor(string locator)
+        {
+            // TODO: Is there any value in caching these?
+            return new GitFileHistorySource(locator);
+        }
     }
 }
