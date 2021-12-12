@@ -1,11 +1,9 @@
 using System.Linq;
 using System.Threading.Tasks;
-
 using Microsoft.Extensions.Logging;
-
-using Xunit;
 using VerifyTests;
 using VerifyXunit;
+using Xunit;
 
 namespace Corgibytes.Freshli.Lib.Test.Integration
 {

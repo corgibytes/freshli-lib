@@ -43,7 +43,7 @@ namespace Corgibytes.Freshli.Lib
             var fileHistorySource = FileHistoryFinderRegistry.Finders.Select(f => f.HistorySourceFor(analysisPath)).First(f => f != null);
 
             // TODO: Remove the call to `Take(1)` to support results from multiple manifest files
-            foreach(var result in ProcessManifestFiles(asOf, ManifestFinderRegistry.Finders, fileHistorySource).Take(1))
+            foreach (var result in ProcessManifestFiles(asOf, ManifestFinderRegistry.Finders, fileHistorySource).Take(1))
             {
                 yield return result;
                 streamWriter.WriteLine(result.ToString());

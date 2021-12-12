@@ -1,13 +1,12 @@
 using System;
 using System.Reactive;
-
+using System.Threading.Tasks;
 using Corgibytes.Freshli.Lib;
 using Microsoft.Extensions.Logging;
 using NLog;
+using ReactiveUI;
 using Splat;
 using Splat.Microsoft.Extensions.Logging;
-using ReactiveUI;
-using System.Threading.Tasks;
 
 namespace ExampleClient.ViewModels
 {

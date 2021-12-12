@@ -1,7 +1,6 @@
 using System;
-using Xunit;
-
 using Corgibytes.Freshli.Lib.Languages.Ruby;
+using Xunit;
 
 namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Ruby
 {

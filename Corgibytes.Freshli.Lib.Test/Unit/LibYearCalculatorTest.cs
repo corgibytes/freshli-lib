@@ -1,10 +1,8 @@
 using System;
 using System.Runtime.InteropServices;
-
 using Microsoft.Extensions.Logging;
-
-using Xunit;
 using VerifyTests;
+using Xunit;
 
 
 namespace Corgibytes.Freshli.Lib.Test.Unit

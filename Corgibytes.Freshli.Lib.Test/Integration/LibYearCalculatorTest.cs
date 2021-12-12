@@ -2,15 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-
+using System.Threading.Tasks;
+using Corgibytes.Freshli.Lib.Languages.Ruby;
 using Microsoft.Extensions.Logging;
-
-using Xunit;
 using VerifyTests;
 using VerifyXunit;
-
-using Corgibytes.Freshli.Lib.Languages.Ruby;
-using System.Threading.Tasks;
+using Xunit;
 
 namespace Corgibytes.Freshli.Lib.Test.Integration
 {
