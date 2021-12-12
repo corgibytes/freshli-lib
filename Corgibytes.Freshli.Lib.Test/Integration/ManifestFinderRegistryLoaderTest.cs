@@ -16,7 +16,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
         public Task Load()
         {
             var loggerFactory = new LoggerFactory();
-            loggerFactory.AddProvider(LoggerRecording.Start(LogLevel.Trace));
+            loggerFactory.AddProvider(LoggerRecording.Start(LogLevel.Debug));
 
             var loader = new ManifestFinderRegistryLoader(loggerFactory.CreateLogger<ManifestFinderRegistryLoader>());
 

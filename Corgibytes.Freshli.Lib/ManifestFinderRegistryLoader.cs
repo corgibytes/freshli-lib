@@ -38,7 +38,7 @@ namespace Corgibytes.Freshli.Lib
 
         private IEnumerable<Type> FindersLoadedIn(Assembly assembly)
         {
-            _logger.LogDebug($"Looking for IManifestFinder implementations in #{assembly}");
+            _logger.LogTrace($"Looking for IManifestFinder implementations in #{assembly}");
             var foundTypes = assembly.GetTypes().
                 Where(
                     type => type.GetInterfaces().Contains(typeof(IManifestFinder)) &&
