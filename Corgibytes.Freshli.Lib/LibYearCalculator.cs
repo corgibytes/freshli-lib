@@ -116,7 +116,7 @@ namespace Corgibytes.Freshli.Lib
                 {
                     packageResult.UpgradeAvailable = true;
                     _logger.LogWarning($"Negative value ({libYearValue:0.000}) " +
-                        $"computed for {package.Name} as of {date:O}; " +
+                        $"computed for {package.Name} as of {date.ToString("O")}; " +
                         $"setting value to 0: {packageResult}"
                     );
                 }
