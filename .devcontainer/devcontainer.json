@@ -54,5 +54,10 @@
 		"git": "latest",
 		"github-cli": "latest",
 		"sshd": "latest"
+	},
+	"portsAttributes": {
+		"2222": {
+			"label": "sshd"
+		}
 	}
 }
