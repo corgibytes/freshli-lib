@@ -23,7 +23,7 @@ namespace Corgibytes.Freshli.Lib.Test
         public Acceptance()
         {
             _loggerFactory = new LoggerFactory();
-            _loggerFactory.AddProvider(LoggerRecording.Start());
+            _loggerFactory.AddProvider(LoggerRecording.Start(Microsoft.Extensions.Logging.LogLevel.Debug));
             _manifestFinderRegistry = new ManifestFinderRegistry(_loggerFactory.CreateLogger<ManifestFinderRegistry>());
 
             var loader = new ManifestFinderRegistryLoader(_loggerFactory.CreateLogger<ManifestFinderRegistryLoader>());
