@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using Corgibytes.Freshli.Lib.Util;
 using Microsoft.Extensions.Logging;
-using NLog;
 
 namespace Corgibytes.Freshli.Lib
 {
@@ -14,7 +13,7 @@ namespace Corgibytes.Freshli.Lib
 
         private ILoggerFactory _loggerFactory;
 
-        private readonly Logger logger = LogManager.GetCurrentClassLogger();
+        private readonly ILogger<Runner> _logger;
 
         public IManifestFinderRegistry ManifestFinderRegistry { get; init; }
 
@@ -26,11 +25,12 @@ namespace Corgibytes.Freshli.Lib
             FileHistoryFinderRegistry = fileHistoryFinderRegistry;
 
             _loggerFactory = loggerFactory;
+            _logger = loggerFactory.CreateLogger<Runner>();
         }
 
         public IEnumerable<ScanResult> Run(string analysisPath, DateTimeOffset asOf)
         {
-            logger.Info($"Run({analysisPath}, {asOf:O})");
+            _logger.LogInformation($"Run({analysisPath}, {asOf:O})");
 
             var streamWriter = TextWriter.Null;
             // TODO: Remove dependency on `DotNetEnv` for this feature
@@ -77,7 +77,7 @@ namespace Corgibytes.Freshli.Lib
 
             if (resultsCount == 0)
             {
-                logger.Warn("Unable to find a manifest file");
+                _logger.LogWarning("Unable to find a manifest file");
             }
         }
 
@@ -93,7 +93,7 @@ namespace Corgibytes.Freshli.Lib
             var sha = manifest.Revision;
 
             LibYearResult libYear = calculator.ComputeAsOf(analysisDate);
-            logger.Trace(
+            _logger.LogTrace(
                 "Adding MetricResult: {manifestFile}, " +
                     "currentDate = {currentDate:O}, " +
                     "sha = {sha}, " +
