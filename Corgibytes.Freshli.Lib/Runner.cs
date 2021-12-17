@@ -61,8 +61,7 @@ namespace Corgibytes.Freshli.Lib
             {
                 foreach (var manifestHistory in manifestFinder.GetManifests(fileHistorySource))
                 {
-                    // TODO: Is it correct behavior to call `.DateTime` here? I suspect no.
-                    var analysisDates = new AnalysisDates(manifestHistory, asOf.DateTime);
+                    var analysisDates = new AnalysisDates(manifestHistory, asOf);
                     var metricsResults = analysisDates.Select(
                         ad => ProcessAnalysisDate(manifestHistory.ManifestAsOf(ad), ad)
                     ).ToList();
