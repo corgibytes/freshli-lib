@@ -3775,6 +3775,36 @@
   ],
   logs: [
     {
+      Level: Debug,
+      Category: Corgibytes.Freshli.Lib.ManifestFinderRegistryLoader,
+      Message: Registering IManifestFinder: Corgibytes.Freshli.Lib.Languages.Ruby.RubyBundlerManifestFinder
+    },
+    {
+      Level: Debug,
+      Category: Corgibytes.Freshli.Lib.ManifestFinderRegistryLoader,
+      Message: Registering IManifestFinder: Corgibytes.Freshli.Lib.Languages.Python.PipRequirementsTxtManifestFinder
+    },
+    {
+      Level: Debug,
+      Category: Corgibytes.Freshli.Lib.ManifestFinderRegistryLoader,
+      Message: Registering IManifestFinder: Corgibytes.Freshli.Lib.Languages.Php.PhpComposerManifestFinder
+    },
+    {
+      Level: Debug,
+      Category: Corgibytes.Freshli.Lib.ManifestFinderRegistryLoader,
+      Message: Registering IManifestFinder: Corgibytes.Freshli.Lib.Languages.Perl.CpanfileManifestFinder
+    },
+    {
+      Level: Debug,
+      Category: Corgibytes.Freshli.Lib.ManifestFinderRegistryLoader,
+      Message: Registering IManifestFinder: Corgibytes.Freshli.Lib.Languages.CSharp.NuGetManifestFinder
+    },
+    {
+      Level: Information,
+      Category: Corgibytes.Freshli.Lib.Runner,
+      Message: Run(https://github.com/explosion/spaCy, 2017-06-01T00:00:00.0000000+00:00)
+    },
+    {
       Level: Warning,
       Category: Corgibytes.Freshli.Lib.LibYearCalculator,
       Message: Skipping sparsehash: Unable to find latest version of sparsehash that matches '' as of 2014-07-05T18:49:34.0000000+00:00.
