@@ -17,7 +17,7 @@ namespace Corgibytes.Freshli.Lib.Test.Integration.Languages.Php
                 var fileHistorySource = fileHistoryFinder.HistorySourceFor(phpFixturePath);
                 var fileHistory = fileHistorySource.FileHistoryOf("composer.json");
 
-                return new MulticastComposerRepository(phpFixturePath, fileHistory);
+                return new MulticastComposerRepository(fileHistory);
             }
         }
 

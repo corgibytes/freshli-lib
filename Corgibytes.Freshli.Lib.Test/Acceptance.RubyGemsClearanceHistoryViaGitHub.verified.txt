@@ -62079,6 +62079,36 @@
   ],
   logs: [
     {
+      Level: Debug,
+      Category: Corgibytes.Freshli.Lib.ManifestFinderRegistryLoader,
+      Message: Registering IManifestFinder: Corgibytes.Freshli.Lib.Languages.Ruby.RubyBundlerManifestFinder
+    },
+    {
+      Level: Debug,
+      Category: Corgibytes.Freshli.Lib.ManifestFinderRegistryLoader,
+      Message: Registering IManifestFinder: Corgibytes.Freshli.Lib.Languages.Python.PipRequirementsTxtManifestFinder
+    },
+    {
+      Level: Debug,
+      Category: Corgibytes.Freshli.Lib.ManifestFinderRegistryLoader,
+      Message: Registering IManifestFinder: Corgibytes.Freshli.Lib.Languages.Php.PhpComposerManifestFinder
+    },
+    {
+      Level: Debug,
+      Category: Corgibytes.Freshli.Lib.ManifestFinderRegistryLoader,
+      Message: Registering IManifestFinder: Corgibytes.Freshli.Lib.Languages.Perl.CpanfileManifestFinder
+    },
+    {
+      Level: Debug,
+      Category: Corgibytes.Freshli.Lib.ManifestFinderRegistryLoader,
+      Message: Registering IManifestFinder: Corgibytes.Freshli.Lib.Languages.CSharp.NuGetManifestFinder
+    },
+    {
+      Level: Information,
+      Category: Corgibytes.Freshli.Lib.Runner,
+      Message: Run(https://github.com/thoughtbot/clearance, 2020-06-01T00:00:00.0000000+00:00)
+    },
+    {
       Level: Warning,
       Category: Corgibytes.Freshli.Lib.LibYearCalculator,
       Message: Negative value (-0.000) computed for rack as of 2011-07-01T00:00:00.0000000+00:00; setting value to 0: { Name: "rack", RepoVersion: "1.2.3", RepoVersionPublishedAt: 2011-05-23T07:42:19.0000000+00:00, LatestVersion: "1.3.0", LatestPublishedAt: 2011-05-23T06:08:16.0000000+00:00, UpgradeAvailable: True, Value: 0 }

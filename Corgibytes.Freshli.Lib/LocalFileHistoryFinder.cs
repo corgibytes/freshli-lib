@@ -32,6 +32,6 @@ namespace Corgibytes.Freshli.Lib
                 Select(f => Path.GetFileName(f)).ToArray();
         }
 
-        public IFileHistorySource HistorySourceFor(string locator) => throw new System.NotImplementedException();
+        public IFileHistorySource HistorySourceFor(string locator) => new LocalFileHistorySource(locator);
     }
 }

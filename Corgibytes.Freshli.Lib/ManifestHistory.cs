@@ -27,6 +27,10 @@ public class ManifestHistory : IManifestHistory
     {
         var sha = _fileHistory.ShaAsOf(asOf);
         var packages = _parser.Parse(_fileHistory.ContentStreamAsOf(asOf));
-        return new Manifest(_repository, packages, VersionMatchMode.Exact, sha, _filePath);
+
+        // TODO: Replace all boolean references for matchMode to the enum
+        var matchMode = _parser.UsesExactMatches ? VersionMatchMode.Exact : VersionMatchMode.Expression;
+
+        return new Manifest(_repository, packages, matchMode, sha, _filePath);
     }
 }

@@ -17,7 +17,7 @@ public class GitFileHistorySource : IFileHistorySource
         _locator = locator;
     }
 
-    public bool ContainsFileHistory => throw new System.NotImplementedException();
+    public bool ContainsFileHistory => DoesPathContainHistorySource(_locator);
 
     private string NormalizeLocation(string projectRootPath)
     {
@@ -44,10 +44,11 @@ public class GitFileHistorySource : IFileHistorySource
 
     public bool DoesPathContainHistorySource(string projectRootPath)
     {
-        bool result = Repository.IsValid(projectRootPath);
+        var path = NormalizeLocation(projectRootPath);
+        bool result = Repository.IsValid(path);
         if (!result)
         {
-            result = IsCloneable(projectRootPath);
+            result = IsCloneable(path);
         }
 
         return result;

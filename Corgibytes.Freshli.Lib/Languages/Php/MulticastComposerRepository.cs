@@ -6,19 +6,16 @@ namespace Corgibytes.Freshli.Lib.Languages.Php
 {
     public class MulticastComposerRepository : IPackageRepository
     {
-        private readonly string _projectRootPath;
-
-        private IFileHistory _fileHistory;
+        private IFileHistory _jsonFileHistory;
 
         private IPackageRepository _packagistRepository;
         private IDictionary<DateTimeOffset, IDictionary<string, IPackageRepository>> _otherRepositoriesByDate;
 
         private DateTimeOffset _today = DateTimeOffset.Now;
 
-        public MulticastComposerRepository(string projectRootPath, IFileHistory fileHistory)
+        public MulticastComposerRepository(IFileHistory jsonFileHistory)
         {
-            _fileHistory = fileHistory;
-            _projectRootPath = projectRootPath;
+            _jsonFileHistory = jsonFileHistory;
             _packagistRepository = new ComposerRepository("https://packagist.org");
             _otherRepositoriesByDate = new Dictionary<DateTimeOffset, IDictionary<string, IPackageRepository>>();
         }
@@ -53,7 +50,7 @@ namespace Corgibytes.Freshli.Lib.Languages.Php
         {
             yield return _packagistRepository;
 
-            using var composerJson = JsonDocument.Parse(_fileHistory.ContentsAsOf(asOf));
+            using var composerJson = JsonDocument.Parse(_jsonFileHistory.ContentsAsOf(asOf));
             if (composerJson.RootElement.TryGetProperty("repositories", out var repositoryList))
             {
                 foreach (var repositoryEntry in repositoryList.EnumerateArray())

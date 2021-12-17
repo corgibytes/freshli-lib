@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using NLog;
@@ -42,7 +43,7 @@ namespace Corgibytes.Freshli.Lib.Test
             var rubyFixturePath = Fixtures.Path("ruby", "nokotest");
             var results = _runner.Run(rubyFixturePath, asOf: _testingBoundary);
 
-            return Verifier.Verify(results);
+            return Verifier.Verify(results.ToList());
         }
 
         [Fact]
@@ -52,7 +53,7 @@ namespace Corgibytes.Freshli.Lib.Test
               "https://github.com/corgibytes/freshli-fixture-ruby-nokotest";
             var results = _runner.Run(repoUrl, asOf: _testingBoundary);
 
-            return Verifier.Verify(results);
+            return Verifier.Verify(results.ToList());
         }
 
         [Fact]
@@ -61,7 +62,7 @@ namespace Corgibytes.Freshli.Lib.Test
             var repoUrl = "https://github.com/feedbin/feedbin";
             var results = _runner.Run(repoUrl, asOf: _testingBoundary);
 
-            return Verifier.Verify(results);
+            return Verifier.Verify(results.ToList());
         }
 
         [Fact]
@@ -72,7 +73,7 @@ namespace Corgibytes.Freshli.Lib.Test
               asOf: new DateTimeOffset(2020, 06, 01, 00, 00, 00, 00, TimeSpan.Zero)
             );
 
-            return Verifier.Verify(results);
+            return Verifier.Verify(results.ToList());
         }
 
         [Fact]
@@ -81,7 +82,7 @@ namespace Corgibytes.Freshli.Lib.Test
             var phpFixturePath = Fixtures.Path("php", "large");
             var results = _runner.Run(phpFixturePath, asOf: _testingBoundary);
 
-            return Verifier.Verify(results);
+            return Verifier.Verify(results.ToList());
         }
 
         [Fact]
@@ -90,7 +91,7 @@ namespace Corgibytes.Freshli.Lib.Test
             var phpFixturePath = Fixtures.Path("php", "drupal");
             var results = _runner.Run(phpFixturePath, asOf: _testingBoundary);
 
-            return Verifier.Verify(results);
+            return Verifier.Verify(results.ToList());
         }
 
         [Fact]
@@ -101,7 +102,7 @@ namespace Corgibytes.Freshli.Lib.Test
               asOf: _testingBoundary
             );
 
-            return Verifier.Verify(results);
+            return Verifier.Verify(results.ToList());
         }
 
         [Fact]
@@ -112,7 +113,7 @@ namespace Corgibytes.Freshli.Lib.Test
               asOf: _testingBoundary
             );
 
-            return Verifier.Verify(results);
+            return Verifier.Verify(results.ToList());
         }
 
         [Fact]
@@ -123,7 +124,7 @@ namespace Corgibytes.Freshli.Lib.Test
                 asOf: new DateTimeOffset(2017, 6, 1, 0, 0, 0, TimeSpan.Zero)
             );
 
-            return Verifier.Verify(results);
+            return Verifier.Verify(results.ToList());
         }
 
         [Fact]
@@ -134,7 +135,7 @@ namespace Corgibytes.Freshli.Lib.Test
               asOf: _testingBoundary
             );
 
-            return Verifier.Verify(results);
+            return Verifier.Verify(results.ToList());
         }
     }
 }
