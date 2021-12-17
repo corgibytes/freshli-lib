@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using DiffEngine;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using VerifyTests;
@@ -13,8 +14,10 @@ namespace Corgibytes.Freshli.Lib.Test
         [ModuleInitializer]
         public static void Initialize()
         {
+            DiffRunner.Disabled = true;
             VerifyDiffPlex.Initialize();
 
+            VerifierSettings.DisableClipboard();
             VerifierSettings.ModifySerialization(settings =>
             {
                 settings.DontScrubNumericIds();
