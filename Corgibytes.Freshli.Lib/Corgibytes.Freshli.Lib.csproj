@@ -17,7 +17,9 @@
 
     <ItemGroup>
       <PackageReference Include="DotNetEnv" Version="2.2.0" />
-      <PackageReference Include="Elasticsearch.Net" Version="7.16.0" />
+      <!--TODO: Replace this package and just use a raw HTTP request instead. This library now requires a "product check" and the metacpan.org website does not support the check. More info can be found at: https://www.elastic.co/guide/en/elasticsearch/client/net-api/current/product-check-at-startup.html -->
+      <!-- Intentionally using an older version, because newer versions _will not_ work when communicating with metacpan.org. -->
+      <PackageReference Include="Elasticsearch.Net" Version="7.13.0" />
       <PackageReference Include="HtmlAgilityPack" Version="1.11.39" />
       <PackageReference Include="LibGit2Sharp" Version="0.27.0-preview-0116" />
       <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
