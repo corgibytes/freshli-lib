@@ -68,7 +68,7 @@ Please let us know what other dependency managers and/or manifest files you woul
 
 ## Supported Source Control Tools
 
-Freshli reads source code repository history to access previous version of each dependency manifest.  Currently Freshli only supports [Git](https://git-scm.com/) but if you would like us to add more let us know via the contact informatino in the [Contributing](#contributing) section.
+Freshli reads source code repository history to access previous version of each dependency manifest.  Currently Freshli only supports [Git](https://git-scm.com/) but if you would like us to add more let us know via the contact information in the [Contributing](#contributing) section.
 
 ## Contributing to Freshli-Lib
 
