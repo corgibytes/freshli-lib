@@ -33,7 +33,11 @@ namespace Corgibytes.Freshli.Lib.Languages.Ruby
                     versions.RemoveAll(version => version.IsPreRelease);
                 }
 
-                _packages.Add(key, versions.Cast<IVersionInfo>().ToList());
+                // TODO: Investigate why this check is needed. It duplicates a check from above, but the tests fail without it being present.
+                if (!_packages.ContainsKey(key))
+                {
+                    _packages.Add(key, versions.Cast<IVersionInfo>().ToList());
+                }
                 return versions;
 
             }
