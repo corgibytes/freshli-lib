@@ -1,0 +1,17 @@
+﻿{
+  target: [
+    {
+      Name: google-protobuf,
+      Version: 3.10.0.rc.1,
+      UpgradeAvailable: false,
+      Skipped: true
+    }
+  ],
+  logs: [
+    {
+      Level: Warning,
+      Category: Corgibytes.Freshli.Lib.LibYearCalculator,
+      Message: Skipping google-protobuf: Unable to find 3.10.0.rc.1 version of google-protobuf.
+    }
+  ]
+}

@@ -22,27 +22,23 @@ namespace Corgibytes.Freshli.Lib.Languages.Php
 
         private IDictionary<string, IPackageRepository> CachedRepositoriesFor(DateTimeOffset asOf)
         {
-            var repositories = _otherRepositoriesByDate[asOf];
-            if (repositories == null)
+            if (!_otherRepositoriesByDate.ContainsKey(asOf))
             {
-                repositories = new Dictionary<string, IPackageRepository>();
-                _otherRepositoriesByDate[asOf] = repositories;
+                _otherRepositoriesByDate[asOf] = new Dictionary<string, IPackageRepository>();
             }
 
-            return repositories;
+            return _otherRepositoriesByDate[asOf];
         }
 
         private IPackageRepository CreateRepository(DateTimeOffset asOf, string url)
         {
             var cachedRepositories = CachedRepositoriesFor(asOf);
-            var repository = cachedRepositories[url];
-            if (repository == null)
+            if (!cachedRepositories.ContainsKey(url))
             {
-                repository = new ComposerRepository(url);
-                cachedRepositories[url] = repository;
+                cachedRepositories[url] = new ComposerRepository(url);
             }
 
-            return repository;
+            return cachedRepositories[url];
         }
 
 
@@ -79,7 +75,7 @@ namespace Corgibytes.Freshli.Lib.Languages.Php
 
         public IVersionInfo VersionInfo(string name, string version)
         {
-            foreach (var repository in ComposerRepositories(_today))
+            foreach (var repository in ComposerRepositories(_today)) // TODO: instead of `_today` this should be the analysis date
             {
                 var result = repository.VersionInfo(name, version);
                 if (result != null)

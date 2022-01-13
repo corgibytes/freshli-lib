@@ -1268,5 +1268,41 @@
       ]
     }
   ],
-  logs: []
+  logs: [
+    {
+      Level: Debug,
+      Category: Corgibytes.Freshli.Lib.ManifestFinderRegistryLoader,
+      Message: Registering IManifestFinder: Corgibytes.Freshli.Lib.Languages.Ruby.RubyBundlerManifestFinder
+    },
+    {
+      Level: Debug,
+      Category: Corgibytes.Freshli.Lib.ManifestFinderRegistryLoader,
+      Message: Registering IManifestFinder: Corgibytes.Freshli.Lib.Languages.Python.PipRequirementsTxtManifestFinder
+    },
+    {
+      Level: Debug,
+      Category: Corgibytes.Freshli.Lib.ManifestFinderRegistryLoader,
+      Message: Registering IManifestFinder: Corgibytes.Freshli.Lib.Languages.Php.PhpComposerManifestFinder
+    },
+    {
+      Level: Debug,
+      Category: Corgibytes.Freshli.Lib.ManifestFinderRegistryLoader,
+      Message: Registering IManifestFinder: Corgibytes.Freshli.Lib.Languages.Perl.CpanfileManifestFinder
+    },
+    {
+      Level: Debug,
+      Category: Corgibytes.Freshli.Lib.ManifestFinderRegistryLoader,
+      Message: Registering IManifestFinder: Corgibytes.Freshli.Lib.Languages.CSharp.NuGetManifestFinder
+    },
+    {
+      Level: Information,
+      Category: Corgibytes.Freshli.Lib.Runner,
+      Message: Run({CurrentDirectory}fixtures/php/large, 2020-02-01T00:00:00.0000000+00:00)
+    },
+    {
+      Level: Warning,
+      Category: Corgibytes.Freshli.Lib.LibYearCalculator,
+      Message: Negative value (-2.077) computed for scrivo/highlight.php as of 2020-02-01T00:00:00.0000000+00:00; setting value to 0: { Name: "scrivo/highlight.php", RepoVersion: "v9.17.1.0", RepoVersionPublishedAt: 2019-12-13T21:54:06.0000000+00:00, LatestVersion: "v9.12.0", LatestPublishedAt: 2017-11-15T23:20:02.0000000+00:00, UpgradeAvailable: True, Value: 0 }
+    }
+  ]
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Corgibytes.Freshli.Lib.Languages.Php;
 
@@ -10,7 +11,7 @@ public class PhpManifestHistory : IManifestHistory
     private IFileHistory _lockFileHistory;
     private IManifestParser _parser;
     private IPackageRepository _repository;
-    private IEnumerable<DateTimeOffset> _combinedDates;
+    private List<DateTimeOffset> _combinedDates;
 
     public PhpManifestHistory(string filePath, IFileHistory jsonFileHistory, IFileHistory lockFileHistory, IManifestParser parser, IPackageRepository repository)
     {
@@ -33,7 +34,7 @@ public class PhpManifestHistory : IManifestHistory
                 combinedDatesList.AddRange(_jsonFileHistory.Dates);
                 combinedDatesList.AddRange(_lockFileHistory.Dates);
                 combinedDatesList.Sort();
-                _combinedDates = combinedDatesList;
+                _combinedDates = combinedDatesList.Distinct().ToList();
             }
 
             return _combinedDates;

@@ -17,7 +17,7 @@ namespace Corgibytes.Freshli.Lib.Languages.Php
 
                 var parser = CreateManifestParser();
                 var repository = new MulticastComposerRepository(jsonFileHistory);
-                yield return new PhpManifestHistory(jsonFile, jsonFileHistory, lockFileHistory, parser, repository);
+                yield return new PhpManifestHistory(lockFile, jsonFileHistory, lockFileHistory, parser, repository);
             }
         }
 
