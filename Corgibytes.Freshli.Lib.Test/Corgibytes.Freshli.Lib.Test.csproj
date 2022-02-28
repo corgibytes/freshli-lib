@@ -17,7 +17,7 @@
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
           <PrivateAssets>all</PrivateAssets>
         </PackageReference>
-        <PackageReference Include="DiffEngine" Version="8.5.3" />
+        <PackageReference Include="DiffEngine" Version="9.0.4" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0" />
         <PackageReference Include="Moq" Version="4.17.1" />
         <PackageReference Include="Verify.DiffPlex" Version="1.2.0" />
