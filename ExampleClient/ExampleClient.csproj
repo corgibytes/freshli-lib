@@ -18,7 +18,7 @@
     <PackageReference Include="Avalonia" Version="0.10.12" />
     <PackageReference Include="Avalonia.Desktop" Version="0.10.12" />
     <PackageReference Include="Avalonia.Diagnostics" Version="0.10.12" />
-    <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.12" />
+    <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.13" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Corgibytes.Freshli.Lib\Corgibytes.Freshli.Lib.csproj" />
