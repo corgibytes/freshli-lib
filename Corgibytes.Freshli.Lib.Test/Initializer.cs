@@ -16,11 +16,11 @@ namespace Corgibytes.Freshli.Lib.Test
                 settings.DontIgnoreEmptyCollections();
                 settings.DontScrubDateTimes();
                 settings.DontIgnoreFalse();
-                settings.MemberConverter<ScanResult, string>(
-                    r => r.Filename,
-                    (target, value) => value.Replace("\\", "/")
-                );
             });
+            VerifierSettings.MemberConverter<ScanResult, string>(
+              r => r.Filename,
+              (target, value) => value.Replace("\\", "/")
+            );
         }
     }
 }
