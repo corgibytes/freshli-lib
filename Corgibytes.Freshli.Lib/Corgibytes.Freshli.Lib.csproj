@@ -17,7 +17,7 @@
 
     <ItemGroup>
       <PackageReference Include="DotNetEnv" Version="2.3.0" />
-      <PackageReference Include="Elasticsearch.Net" Version="7.17.0" />
+      <PackageReference Include="Elasticsearch.Net" Version="7.17.1" />
       <PackageReference Include="HtmlAgilityPack" Version="1.11.42" />
       <PackageReference Include="LibGit2Sharp" Version="0.27.0-preview-0116" />
       <PackageReference Include="NLog" Version="4.7.14" />
