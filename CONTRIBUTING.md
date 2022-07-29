@@ -7,6 +7,10 @@ We would love your help with Freshli-Lib!  The two default ways to contribute ar
 
 Feel free to submit issues/PRs that aren't code related.  Confused by the documentation or the lack thereof?  Questions about using Freshli?  Something else?  Let us know.
 
+## Contributor License Agreement
+
+Like many open-source projects, we ask that you agree to our [Contributor License Agreement](https://github.com/corgibytes/freshli-cla/blob/main/CLA/CLA-v1.0.md) before we can accept your contribution. You can sign the CLA by posting a comment in your PR. The CLA bot will tell you what to comment with.
+
 ## Fixing an Issue and Submitting a PR
 
 When fixing an issue, assign yourself to the issue to indicate that you're the person currently working on it.
