@@ -39,8 +39,6 @@ jobs:
         # we have some tests that only run on certain platforms
         config:
           - os: ubuntu-latest
-          - os: macos-latest
-          - os: windows-latest
 
     runs-on: ${{ matrix.config.os }}
     steps:
