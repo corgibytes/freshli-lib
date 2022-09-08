@@ -12,7 +12,7 @@ namespace Corgibytes.Freshli.Lib.Test.Unit.Python
         [Theory]
         [InlineData(
           "1!1",
-          1,
+          1L,
           "1", new long[] { 1 },
           null, null, false,
           null, null, false,
@@ -20,7 +20,7 @@ namespace Corgibytes.Freshli.Lib.Test.Unit.Python
         ]
         [InlineData(
             "10!1",
-            10,
+            10L,
             "1", new long[] { 1 },
             null, null, false,
             null, null, false,
@@ -28,7 +28,7 @@ namespace Corgibytes.Freshli.Lib.Test.Unit.Python
         ]
         [InlineData(
           "10!1.0",
-          10,
+          10L,
           "1.0", new long[] { 1, 0 },
           null, null, false,
           null, null, false,
@@ -36,7 +36,7 @@ namespace Corgibytes.Freshli.Lib.Test.Unit.Python
         ]
         [InlineData(
           "20200101!1",
-          20200101,
+          20200101L,
           "1", new long[] { 1 },
           null, null, false,
           null, null, false,
@@ -44,7 +44,7 @@ namespace Corgibytes.Freshli.Lib.Test.Unit.Python
         ]
         [InlineData(
           "0.1",
-          0,
+          0L,
           "0.1", new long[] { 0, 1 },
           null, null, false,
           null, null, false,
@@ -52,7 +52,7 @@ namespace Corgibytes.Freshli.Lib.Test.Unit.Python
         ]
         [InlineData(
           "0.10",
-          0,
+          0L,
           "0.10", new long[] { 0, 10 },
           null, null, false,
           null, null, false,
@@ -60,7 +60,7 @@ namespace Corgibytes.Freshli.Lib.Test.Unit.Python
         ]
         [InlineData(
           "0.10.1",
-          0,
+          0L,
           "0.10.1", new long[] { 0, 10, 1 },
           null, null, false,
           null, null, false,
@@ -68,7 +68,7 @@ namespace Corgibytes.Freshli.Lib.Test.Unit.Python
         ]
         [InlineData(
           "1.0",
-          0,
+          0L,
           "1.0", new long[] { 1, 0 },
           null, null, false,
           null, null, false,
@@ -76,7 +76,7 @@ namespace Corgibytes.Freshli.Lib.Test.Unit.Python
         ]
         [InlineData(
           "10.0",
-          0,
+          0L,
           "10.0", new long[] { 10, 0 },
           null, null, false,
           null, null, false,
@@ -84,7 +84,7 @@ namespace Corgibytes.Freshli.Lib.Test.Unit.Python
         ]
         [InlineData(
           "10.0.1.0",
-          0,
+          0L,
           "10.0.1.0", new long[] { 10, 0, 1, 0 },
           null, null, false,
           null, null, false,
@@ -92,179 +92,179 @@ namespace Corgibytes.Freshli.Lib.Test.Unit.Python
         ]
         [InlineData(
           "1.0.dev456",
-          0,
+          0L,
           "1.0", new long[] { 1, 0 },
           null, null, false,
           null, null, false,
-          456, true)
+          456L, true)
         ]
         [InlineData(
           "1.0a1",
-          0,
+          0L,
           "1.0", new long[] { 1, 0 },
-          "a", 1, true,
+          "a", 1L, true,
           null, null, false,
           null, false)
         ]
         [InlineData(
           "1.0A1",
-          0,
+          0L,
           "1.0", new long[] { 1, 0 },
-          "a", 1, true,
+          "a", 1L, true,
           null, null, false,
           null, false)
         ]
         [InlineData(
           "1.0.1a1",
-          0,
+          0L,
           "1.0.1", new long[] { 1, 0, 1 },
-          "a", 1, true,
+          "a", 1L, true,
           null, null, false,
           null, false)
         ]
         [InlineData(
           "1.0a2.dev456",
-          0,
+          0L,
           "1.0", new long[] { 1, 0 },
-          "a", 2, true,
+          "a", 2L, true,
           null, null, false,
-          456, true)
+          456L, true)
         ]
         [InlineData(
           "1.0a12.dev456",
-          0,
+          0L,
           "1.0", new long[] { 1, 0 },
-          "a", 12, true,
+          "a", 12L, true,
           null, null, false,
-          456, true)
+          456L, true)
         ]
         [InlineData(
           "1.0a12.post456",
-          0,
+          0L,
           "1.0", new long[] { 1, 0 },
-          "a", 12, true,
-          "post", 456, true,
+          "a", 12L, true,
+          "post", 456L, true,
           null, false)
         ]
         [InlineData(
           "1.0a12",
-          0,
+          0L,
           "1.0", new long[] { 1, 0 },
-          "a", 12, true,
+          "a", 12L, true,
           null, null, false,
           null, false)
         ]
         [InlineData(
           "1.0b1.dev456",
-          0,
+          0L,
           "1.0", new long[] { 1, 0 },
-          "b", 1, true,
+          "b", 1L, true,
           null, null, false,
-          456, true)
+          456L, true)
         ]
         [InlineData(
           "1.0b2",
-          0,
+          0L,
           "1.0", new long[] { 1, 0 },
-          "b", 2, true,
+          "b", 2L, true,
           null, null, false,
           null, false)
         ]
         [InlineData(
           "1.0b2.post345.dev456",
-          0,
+          0L,
           "1.0", new long[] { 1, 0 },
-          "b", 2, true,
-          "post", 345, true,
-          456, true)
+          "b", 2L, true,
+          "post", 345L, true,
+          456L, true)
         ]
         [InlineData(
           "1.0b2.post345",
-          0,
+          0L,
           "1.0", new long[] { 1, 0 },
-          "b", 2, true,
-          "post", 345, true,
+          "b", 2L, true,
+          "post", 345L, true,
           null, false)
         ]
         [InlineData(
           "1.0rc1",
-          0,
+          0L,
           "1.0", new long[] { 1, 0 },
-          "rc", 1, true,
+          "rc", 1L, true,
           null, null, false,
           null, false)
         ]
         [InlineData(
           "1.0rc1.dev456",
-          0,
+          0L,
           "1.0", new long[] { 1, 0 },
-          "rc", 1, true,
+          "rc", 1L, true,
           null, null, false,
-          456, true)
+          456L, true)
         ]
         [InlineData(
           "1.0rc1.post456",
-          0,
+          0L,
           "1.0", new long[] { 1, 0 },
-          "rc", 1, true,
-          "post", 456, true,
+          "rc", 1L, true,
+          "post", 456L, true,
           null, false)
         ]
         [InlineData(
           "1.0.post456.dev34",
-          0,
+          0L,
           "1.0", new long[] { 1, 0 },
           null, null, false,
-          "post", 456, true,
-          34, true)
+          "post", 456L, true,
+          34L, true)
         ]
         [InlineData(
           "1.0.post456",
-          0,
+          0L,
           "1.0", new long[] { 1, 0 },
           null, null, false,
-          "post", 456, true,
+          "post", 456L, true,
           null, false)
         ]
         [InlineData(
           "1.0.POST456",
-          0,
+          0L,
           "1.0", new long[] { 1, 0 },
           null, null, false,
-          "post", 456, true,
+          "post", 456L, true,
           null, false)
         ]
         [InlineData(
           "1.1.dev1",
-          0,
+          0L,
           "1.1", new long[] { 1, 1 },
           null, null, false,
           null, null, false,
-          1, true)
+          1L, true)
         ]
         [InlineData(
           "1.1.DEV1",
-          0,
+          0L,
           "1.1", new long[] { 1, 1 },
           null, null, false,
           null, null, false,
-          1, true)
+          1L, true)
         ]
         [InlineData(
           "2020!1.0.1.2.3.4b2.dev456",
-          2020,
+          2020L,
           "1.0.1.2.3.4", new long[] { 1, 0, 1, 2, 3, 4 },
-          "b", 2, true,
+          "b", 2L, true,
           null, null, false,
-          456, true)
+          456L, true)
         ]
         [InlineData(
           "2020!1.0.1.2.3.4.post345.dev456",
-          2020,
+          2020L,
           "1.0.1.2.3.4", new long[] { 1, 0, 1, 2, 3, 4 },
           null, null, false,
-          "post", 345, true,
-          456, true)
+          "post", 345L, true,
+          456L, true)
         ]
 
 
@@ -372,87 +372,87 @@ namespace Corgibytes.Freshli.Lib.Test.Unit.Python
         [Theory]
         [InlineData(
           "1.0.dev456",
-          PythonVersionInfo.SuffixType.Development,
+          (int)PythonVersionInfo.SuffixType.Development,
           null,
           null)
         ]
         [InlineData(
           "1.0a1",
-          PythonVersionInfo.SuffixType.Pre,
-          PythonVersionInfo.SuffixType.NoSuffix,
+          (int)PythonVersionInfo.SuffixType.Pre,
+          (int)PythonVersionInfo.SuffixType.NoSuffix,
           null)
         ]
         [InlineData(
           "1.0a2.dev456",
-          PythonVersionInfo.SuffixType.Pre,
-          PythonVersionInfo.SuffixType.Development,
+          (int)PythonVersionInfo.SuffixType.Pre,
+          (int)PythonVersionInfo.SuffixType.Development,
           null)
         ]
         [InlineData(
           "1.0a12.dev456",
-          PythonVersionInfo.SuffixType.Pre,
-          PythonVersionInfo.SuffixType.Development,
+          (int)PythonVersionInfo.SuffixType.Pre,
+          (int)PythonVersionInfo.SuffixType.Development,
           null)
         ]
         [InlineData(
           "1.0a12",
-          PythonVersionInfo.SuffixType.Pre,
-          PythonVersionInfo.SuffixType.NoSuffix,
+          (int)PythonVersionInfo.SuffixType.Pre,
+          (int)PythonVersionInfo.SuffixType.NoSuffix,
           null)
         ]
         [InlineData(
           "1.0b1.dev456",
-          PythonVersionInfo.SuffixType.Pre,
-          PythonVersionInfo.SuffixType.Development,
+          (int)PythonVersionInfo.SuffixType.Pre,
+          (int)PythonVersionInfo.SuffixType.Development,
           null)
         ]
         [InlineData(
           "1.0b2",
-          PythonVersionInfo.SuffixType.Pre,
-          PythonVersionInfo.SuffixType.NoSuffix,
+          (int)PythonVersionInfo.SuffixType.Pre,
+          (int)PythonVersionInfo.SuffixType.NoSuffix,
           null)
         ]
         [InlineData(
           "1.0b2.post345.dev456",
-          PythonVersionInfo.SuffixType.Pre,
-          PythonVersionInfo.SuffixType.Post,
-          PythonVersionInfo.SuffixType.Development)
+          (int)PythonVersionInfo.SuffixType.Pre,
+          (int)PythonVersionInfo.SuffixType.Post,
+          (int)PythonVersionInfo.SuffixType.Development)
         ]
         [InlineData(
           "1.0b2.post345",
-          PythonVersionInfo.SuffixType.Pre,
-          PythonVersionInfo.SuffixType.Post,
-          PythonVersionInfo.SuffixType.NoSuffix)
+          (int)PythonVersionInfo.SuffixType.Pre,
+          (int)PythonVersionInfo.SuffixType.Post,
+          (int)PythonVersionInfo.SuffixType.NoSuffix)
         ]
         [InlineData(
           "1.0rc1.dev456",
-          PythonVersionInfo.SuffixType.Pre,
-          PythonVersionInfo.SuffixType.Development,
+          (int)PythonVersionInfo.SuffixType.Pre,
+          (int)PythonVersionInfo.SuffixType.Development,
           null)
         ]
         [InlineData(
           "1.0rc1",
-          PythonVersionInfo.SuffixType.Pre,
-          PythonVersionInfo.SuffixType.NoSuffix,
+          (int)PythonVersionInfo.SuffixType.Pre,
+          (int)PythonVersionInfo.SuffixType.NoSuffix,
           null)
         ]
         [InlineData(
           "1.0",
-          PythonVersionInfo.SuffixType.NoSuffix,
+          (int)PythonVersionInfo.SuffixType.NoSuffix,
           null,
           null)
         ]
         [InlineData(
           "1.0.post456.dev34",
-          PythonVersionInfo.SuffixType.Post,
+          (int)PythonVersionInfo.SuffixType.Post,
           null,
-          PythonVersionInfo.SuffixType.Development)
+          (int)PythonVersionInfo.SuffixType.Development)
         ]
         [InlineData(
           "1.0.post456",
-          PythonVersionInfo.SuffixType.Post,
+          (int)PythonVersionInfo.SuffixType.Post,
           null,
-          PythonVersionInfo.SuffixType.NoSuffix)
+          (int)PythonVersionInfo.SuffixType.NoSuffix)
         ]
 
         public void SortPositionsAreCorrectlySet(
