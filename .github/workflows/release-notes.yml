@@ -19,12 +19,12 @@ jobs:
           ref: ${{ github.head_ref }} # Required for Git Auto Commit
 
       - name: Setup .NET Core (for GitVersion)
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v2
         with:
           dotnet-version: '6.0'
 
       - name: Setup .NET Core (for GitReleaseManager)
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v2
         with:
           dotnet-version: '3.1'
 
