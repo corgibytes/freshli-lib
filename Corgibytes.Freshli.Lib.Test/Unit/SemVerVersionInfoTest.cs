@@ -7,33 +7,33 @@ namespace Corgibytes.Freshli.Lib.Test.Unit
     public class SemVerVersionInfoTest
     {
         [Theory]
-        [InlineData("1", 1, null, null, false, null, null)]
-        [InlineData("v3.6.0", 3, 6, 0, false, null, null)]
-        [InlineData("1.2", 1, 2, null, false, null, null)]
-        [InlineData("1.2.3", 1, 2, 3, false, null, null)]
-        [InlineData("1.2.3a1", 1, 2, 3, true, "a1", null)]
-        [InlineData("1.2.3-a1", 1, 2, 3, true, "a1", null)]
-        [InlineData("1.2.3a1+dev", 1, 2, 3, true, "a1", "dev")]
-        [InlineData("1.2.3-a1+dev", 1, 2, 3, true, "a1", "dev")]
-        [InlineData("1.0045", 1, 0045, null, false, null, null)]
-        [InlineData("1.0009", 1, 0009, null, false, null, null)]
-        [InlineData("1.301001_050", 1, 301001, 050, false, null, null)]
-        [InlineData("20110131120940", 20110131120940, null, null, false, null,
+        [InlineData("1", 1L, null, null, false, null, null)]
+        [InlineData("v3.6.0", 3L, 6L, 0L, false, null, null)]
+        [InlineData("1.2", 1L, 2L, null, false, null, null)]
+        [InlineData("1.2.3", 1L, 2L, 3L, false, null, null)]
+        [InlineData("1.2.3a1", 1L, 2L, 3L, true, "a1", null)]
+        [InlineData("1.2.3-a1", 1L, 2L, 3L, true, "a1", null)]
+        [InlineData("1.2.3a1+dev", 1L, 2L, 3L, true, "a1", "dev")]
+        [InlineData("1.2.3-a1+dev", 1L, 2L, 3L, true, "a1", "dev")]
+        [InlineData("1.0045", 1L, 0045L, null, false, null, null)]
+        [InlineData("1.0009", 1L, 0009L, null, false, null, null)]
+        [InlineData("1.301001_050", 1L, 301001L, 050L, false, null, null)]
+        [InlineData("20110131120940", 20110131120940L, null, null, false, null,
           null)]
-        [InlineData("2.20110131120940", 2, 20110131120940, null, false, null, null)]
-        [InlineData("2.0.20110131120940", 2, 0, 20110131120940, false, null, null)]
-        [InlineData("2.0.8.beta.20110131120940", 2, 0, 8, true,
+        [InlineData("2.20110131120940", 2L, 20110131120940L, null, false, null, null)]
+        [InlineData("2.0.20110131120940", 2L, 0L, 20110131120940L, false, null, null)]
+        [InlineData("2.0.8.beta.20110131120940", 2L, 0L, 8L, true,
           "beta.20110131120940", null)]
-        [InlineData("1.0.0-alpha", 1, 0, 0, true, "alpha", null)]
-        [InlineData("1.0.0-alpha.1", 1, 0, 0, true, "alpha.1", null)]
-        [InlineData("1.0.0-0.3.7", 1, 0, 0, true, "0.3.7", null)]
-        [InlineData("1.0.0-x.7.z.92", 1, 0, 0, true, "x.7.z.92", null)]
-        [InlineData("1.0.0-x-y-z.-", 1, 0, 0, true, "x-y-z.-", null)]
-        [InlineData("1.0.0-alpha+001", 1, 0, 0, true, "alpha", "001")]
-        [InlineData("1.0.0+20130313144700", 1, 0, 0, false, null, "20130313144700")]
-        [InlineData("1.0.0-beta+exp.sha.5114f85", 1, 0, 0, true, "beta",
+        [InlineData("1.0.0-alpha", 1L, 0L, 0L, true, "alpha", null)]
+        [InlineData("1.0.0-alpha.1", 1L, 0L, 0L, true, "alpha.1", null)]
+        [InlineData("1.0.0-0.3.7", 1L, 0L, 0L, true, "0.3.7", null)]
+        [InlineData("1.0.0-x.7.z.92", 1L, 0L, 0L, true, "x.7.z.92", null)]
+        [InlineData("1.0.0-x-y-z.-", 1L, 0L, 0L, true, "x-y-z.-", null)]
+        [InlineData("1.0.0-alpha+001", 1L, 0L, 0L, true, "alpha", "001")]
+        [InlineData("1.0.0+20130313144700", 1L, 0L, 0L, false, null, "20130313144700")]
+        [InlineData("1.0.0-beta+exp.sha.5114f85", 1L, 0L, 0L, true, "beta",
           "exp.sha.5114f85")]
-        [InlineData("1.0.0+21AF26D3--117B344092BD", 1, 0, 0, false, null,
+        [InlineData("1.0.0+21AF26D3--117B344092BD", 1L, 0L, 0L, false, null,
           "21AF26D3--117B344092BD")]
         public void VersionIsParsedIntoParts(
           string version,

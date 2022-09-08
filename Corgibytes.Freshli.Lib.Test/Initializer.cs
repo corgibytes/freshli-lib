@@ -12,7 +12,6 @@ namespace Corgibytes.Freshli.Lib.Test
 
             VerifierSettings.DontIgnoreEmptyCollections();
             VerifierSettings.DontScrubDateTimes();
-            VerifierSettings.DontIgnoreFalse();
             VerifierSettings.MemberConverter<ScanResult, string>(
                 r => r.Filename,
                 (target, value) => value.Replace("\\", "/")

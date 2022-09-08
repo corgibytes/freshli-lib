@@ -7,12 +7,12 @@ namespace Corgibytes.Freshli.Lib.Test.Unit.Util
     {
 
         [Theory]
-        [InlineData(1, 1, 0)]
-        [InlineData(100, 1, 1)]
-        [InlineData(1, 100, -1)]
+        [InlineData(1L, 1L, 0)]
+        [InlineData(100L, 1L, 1)]
+        [InlineData(1L, 100L, -1)]
         [InlineData(null, null, 0)]
-        [InlineData(1, null, 1)]
-        [InlineData(null, 1, -1)]
+        [InlineData(1L, null, 1)]
+        [InlineData(null, 1L, -1)]
 
         public void NumericValuesAreComparedCorrectly(
           long? firstValue,
