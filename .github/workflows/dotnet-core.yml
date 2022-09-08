@@ -142,8 +142,8 @@ jobs:
 
       - name: Publish Alpha Package to Github Packages
         if: github.event_name == 'push'
-        run: dotnet nuget push ./Corgibytes.Freshli.Lib/bin/Release/*.nupkg -k ${{ secrets.GITHUB_TOKEN }} --skip-duplicate -n true -s https://nuget.pkg.github.com/corgibytes/index.json
+        run: dotnet nuget push ./Corgibytes.Freshli.Lib/bin/Release/*.nupkg -k ${{ secrets.GITHUB_TOKEN }} --skip-duplicate -n -s https://nuget.pkg.github.com/corgibytes/index.json
 
       - name: Publish Beta/Production Package to NuGet
         if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')
-        run: dotnet nuget push ./Corgibytes.Freshli.Lib/bin/Release/*.nupkg -k ${{ secrets.NUGET_API_KEY }} --skip-duplicate -n true -s https://api.nuget.org/v3/index.json
+        run: dotnet nuget push ./Corgibytes.Freshli.Lib/bin/Release/*.nupkg -k ${{ secrets.NUGET_API_KEY }} --skip-duplicate -n -s https://api.nuget.org/v3/index.json
