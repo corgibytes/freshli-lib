@@ -87,7 +87,7 @@ jobs:
           fetch-depth: 0 # Required for GitVersion
 
       - name: Download Coverage Files
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           path: "${{github.workspace}}/coverage"
 
