@@ -1,7 +1,7 @@
 ## v0.5.0
 
 
-As part of this release we had [9 issues](https://github.com/corgibytes/freshli-lib/milestone/6?closed=1) closed.
+As part of this release we had [13 issues](https://github.com/corgibytes/freshli-lib/milestone/6?closed=1) closed.
 
 Goals for this milestone:
 
@@ -9,9 +9,11 @@ Goals for this milestone:
 - Create Docker development environment.
 - Support CLI v0.4.0 improvements (might be in it's own milestone).
 
-__Bug__
+__Bugs__
 
 - [__#256__](https://github.com/corgibytes/freshli-lib/issues/256) Use UTC internally to represent dates
+- [__#577__](https://github.com/corgibytes/freshli-lib/pull/577) Resolve build errors in test project
+- [__#581__](https://github.com/corgibytes/freshli-lib/pull/581) Update all nuget dependencies
 
 __Dependencies__
 
@@ -19,12 +21,17 @@ __Dependencies__
 - [__#373__](https://github.com/corgibytes/freshli-lib/pull/373) Bump HtmlAgilityPack from 1.11.36 to 1.11.37
 - [__#375__](https://github.com/corgibytes/freshli-lib/pull/375) Bump DiffEngine from 8.0.0 to 8.0.1
 - [__#376__](https://github.com/corgibytes/freshli-lib/pull/376) Bump ApprovalTests from 5.7.0 to 5.7.1
+- [__#557__](https://github.com/corgibytes/freshli-lib/pull/557) Bump dependabot/fetch-metadata from 1.3.1 to 1.3.2
 
 __DevOps__
 
 - [__#378__](https://github.com/corgibytes/freshli-lib/pull/378) Fix release notes CI when no issues are closed for milestone
 - [__#388__](https://github.com/corgibytes/freshli-lib/pull/388) Force all Dependabot labels to be "dependencies" only
 - [__#389__](https://github.com/corgibytes/freshli-lib/pull/389) Auto-merge Depndabot PR workflow
+
+__Documentation__
+
+- [__#563__](https://github.com/corgibytes/freshli-lib/pull/563) Remove cla bot
 
 __Enhancement__
 
