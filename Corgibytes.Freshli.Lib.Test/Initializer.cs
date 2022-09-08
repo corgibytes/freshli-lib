@@ -10,17 +10,13 @@ namespace Corgibytes.Freshli.Lib.Test
         {
             VerifyDiffPlex.Initialize();
 
-            VerifierSettings.ModifySerialization(settings =>
-            {
-                settings.DontScrubNumericIds();
-                settings.DontIgnoreEmptyCollections();
-                settings.DontScrubDateTimes();
-                settings.DontIgnoreFalse();
-                settings.MemberConverter<ScanResult, string>(
-                    r => r.Filename,
-                    (target, value) => value.Replace("\\", "/")
-                );
-            });
+            VerifierSettings.DontIgnoreEmptyCollections();
+            VerifierSettings.DontScrubDateTimes();
+            VerifierSettings.DontIgnoreFalse();
+            VerifierSettings.MemberConverter<ScanResult, string>(
+                r => r.Filename,
+                (target, value) => value.Replace("\\", "/")
+            );
         }
     }
 }
