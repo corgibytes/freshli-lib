@@ -1,13 +1,14 @@
 ## v0.5.0
 
 
-As part of this release we had [125 issues](https://github.com/corgibytes/freshli-lib/milestone/6?closed=1) closed.
+As part of this release we had [126 issues](https://github.com/corgibytes/freshli-lib/milestone/6?closed=1) closed.
 
 Goals for this milestone:
 
-- Parse manifest files in their own environment.
-- Create Docker development environment.
-- Support CLI v0.4.0 improvements (might be in it's own milestone).
+- Upgrade to .NET 6.0
+- Store dates internally using a format that includes the timezone
+- Fix some bugs
+- Upgrade some dependencies
 
 __Bugs__
 
@@ -136,6 +137,7 @@ __DevOps__
 - [__#412__](https://github.com/corgibytes/freshli-lib/pull/412) Limits code coverage reporting to Linux
 - [__#413__](https://github.com/corgibytes/freshli-lib/pull/413) Fixes syntax error in if expression
 - [__#419__](https://github.com/corgibytes/freshli-lib/pull/419) Fix build failures
+- [__#578__](https://github.com/corgibytes/freshli-lib/issues/578) Upgrade to .NET 6.0
 - [__#588__](https://github.com/corgibytes/freshli-lib/pull/588) Removes dependabot automerge task
 
 __Documentation__
