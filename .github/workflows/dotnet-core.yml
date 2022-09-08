@@ -128,7 +128,7 @@ jobs:
       - name: Show GitVersion Config
         run: dotnet gitversion /config /showConfig
 
-      - name: Show GitVersion Config
+      - name: Update csproj files with computed version
         run: dotnet gitversion /config /updateProjectFiles
 
       - name: Display updated csproj File
