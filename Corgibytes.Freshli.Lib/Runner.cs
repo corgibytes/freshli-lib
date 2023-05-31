@@ -53,8 +53,7 @@ namespace Corgibytes.Freshli.Lib
                     asOf,
                     abstractManifestFinders,
                     fileHistoryFinder
-                // TODO: Remove the call to `Take(1)` to support results from multiple manifest files
-                ).Take(1).ToList();
+                ).ToList();
             }
 
             DotNetEnv.Env.Load();
@@ -90,9 +89,6 @@ namespace Corgibytes.Freshli.Lib
                     ).ToList();
 
                     yield return new ScanResult(manifestFile, metricsResults);
-
-                    // TODO: Remove this break to enable multi-manifest file support, I _think_ ^_^
-                    yield break;
                 }
             }
         }

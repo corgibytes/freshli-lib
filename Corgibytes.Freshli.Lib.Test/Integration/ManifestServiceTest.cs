@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 
@@ -87,6 +88,56 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
             var finders = manifestService.SelectFindersFor(fixturePath, fileFinder);
 
             Assert.Equal("cpanfile", finders.First().GetManifestFilenames(fixturePath).First());
+        }
+
+        [Fact]
+        public void CSharpProjectFile()
+        {
+            string fixturePath = Fixtures.Path(
+                "csharp",
+                "csproj"
+            );
+            AssertManifest(fixturePath, "Project.csproj");
+        }
+
+        [Fact]
+        public void CSharpPackagesFile()
+        {
+            string fixturePath = Fixtures.Path(
+                "csharp",
+                "config"
+            );
+            AssertManifest(fixturePath, "packages.config");
+        }
+
+        [Fact]
+        public void CSharpMultipleFiles()
+        {
+            string fixturePath = Fixtures.Path(
+                "csharp"
+            );
+            var historyService = new FileHistoryService(FileHistoryFinderRegistry);
+            var fileFinder = historyService.SelectFinderFor(fixturePath);
+            var manifestService = new ManifestService();
+
+            var finders = manifestService.SelectFindersFor(fixturePath, fileFinder);
+            List<string> manifestFilenames = finders.SelectMany(finder => finder.GetManifestFilenames(fixturePath)).ToList();
+
+            // When https://github.com/corgibytes/freshli-lib/issues/630 is resolved this assertion
+            // should be Assert.Equal(8, manifestFilenames.Count);
+            Assert.InRange(manifestFilenames.Count, 2, 8);
+            Assert.Contains("Project.csproj", manifestFilenames);
+            Assert.Contains("packages.config", manifestFilenames);
+        }
+
+        private void AssertManifest(string fixturePath, string expectedManifest)
+        {
+            var historyService = new FileHistoryService(FileHistoryFinderRegistry);
+            var fileFinder = historyService.SelectFinderFor(fixturePath);
+            var manifestService = new ManifestService();
+            var finders = manifestService.SelectFindersFor(fixturePath, fileFinder);
+
+            Assert.Equal(expectedManifest, finders.First().GetManifestFilenames(fixturePath).First());
         }
     }
 }
