@@ -41,6 +41,12 @@
       <Folder Include="fixtures\php\small" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Content Include="fixtures\csharp\csproj\Project.csproj">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+
     <Target Name="UnzipArchive" AfterTargets="Build">
       <Exec Condition="'$(OS)' != 'Windows_NT'" Command="unzip -o nokotest.zip" WorkingDirectory="$(OutputPath)/fixtures/ruby" />
       <Exec Condition="'$(OS)' == 'Windows_NT'" Command="PowerShell -NonInteractive -Command &quot;&amp;{Expand-Archive -Force -Path nokotest.zip -DestinationPath .}&quot;" WorkingDirectory="$(OutputPath)/fixtures/ruby" />

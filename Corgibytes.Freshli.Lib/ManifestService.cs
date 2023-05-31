@@ -1,9 +1,6 @@
-using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
-using System.Reflection;
-using NLog;
 
 namespace Corgibytes.Freshli.Lib
 {
@@ -22,9 +19,6 @@ namespace Corgibytes.Freshli.Lib
                 if (finder.GetManifestFilenames(analysisPath).Any())
                 {
                     yield return finder;
-
-                    // TODO: Remove this break to add support for multiple manifests from different providers
-                    yield break;
                 }
             }
         }
