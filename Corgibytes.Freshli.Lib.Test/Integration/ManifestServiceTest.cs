@@ -55,6 +55,22 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
         }
 
         [Fact]
+        public void PhpComposerAll()
+        {
+            string phpFixturePath = Fixtures.Path("php");
+            var historyService = new FileHistoryService(FileHistoryFinderRegistry);
+            var fileFinder = historyService.SelectFinderFor(phpFixturePath);
+            var manifestService = new ManifestService();
+            var finders = manifestService.SelectFindersFor(phpFixturePath, fileFinder);
+            Assert.Single(finders);
+            string[] manifestFilenames = finders.First().GetManifestFilenames(phpFixturePath);
+            Assert.Equal(3, manifestFilenames.Length);
+            Assert.Contains("small/composer.lock", manifestFilenames);
+            Assert.Contains("large/composer.lock", manifestFilenames);
+            Assert.Contains("drupal/composer.lock", manifestFilenames);
+        }
+
+        [Fact]
         public void PythonPipRequirementsTxt()
         {
             var pythonFixturePath = Fixtures.Path(
@@ -87,6 +103,25 @@ namespace Corgibytes.Freshli.Lib.Test.Integration
             var finders = manifestService.SelectFindersFor(fixturePath, fileFinder);
 
             Assert.Equal("cpanfile", finders.First().GetManifestFilenames(fixturePath).First());
+        }
+
+        [Fact]
+        public void PerlCpanfileAll()
+        {
+            string fixturePath = Fixtures.Path(
+                "perl",
+                "cpanfile"
+            );
+            var historyService = new FileHistoryService(FileHistoryFinderRegistry);
+            var fileFinder = historyService.SelectFinderFor(fixturePath);
+            var manifestService = new ManifestService();
+            var finders = manifestService.SelectFindersFor(fixturePath, fileFinder);
+            Assert.Single(finders);
+            string[] manifestFilenames = finders.First().GetManifestFilenames(fixturePath);
+            Assert.Equal(2, manifestFilenames.Length);
+            Assert.Contains("simple-with-snapshot/cpanfile", manifestFilenames);
+            Assert.Contains("simple-without-snapshot/cpanfile", manifestFilenames);
+
         }
     }
 }

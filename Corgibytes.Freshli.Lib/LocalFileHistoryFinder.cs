@@ -36,7 +36,7 @@ namespace Corgibytes.Freshli.Lib
             return Directory.GetFiles(projectRootPath,
                                       pattern,
                                       SearchOption.AllDirectories)
-                            .Select(f => Path.GetFileName(f)).ToArray();
+                            .Select(f => Path.GetRelativePath(projectRootPath, f)).ToArray();
         }
     }
 }
