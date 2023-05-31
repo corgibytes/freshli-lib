@@ -4,7 +4,13 @@ checks:
   method-lines:
     config:
       threshold: 30
-
+engines:
+  duplication:
+    enabled: true
+    config:
+      languages:
+        csharp:
+          mass_threshold: 70 # default is 60
 exclude_patterns:
   - "**/obj/"
   - "Corgibytes.Freshli.Lib.Test/"
